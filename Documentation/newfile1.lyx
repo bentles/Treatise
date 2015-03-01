@@ -1,0 +1,705 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement tph
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+A JIT-Less Type-Mapped Dynamic-ISA Virtual Machine for Many-Instance Application
+s
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "2pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+centerline{ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /home/stevetest/Documents/University/Treatise/image1.jpeg
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+centerline{ 
+\end_layout
+
+\end_inset
+
+Author: Douglas Bentley
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Author
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+centerline{ 
+\end_layout
+
+\end_inset
+
+Supervisor: Kevin Naudé
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "2pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+Submitted in partial fulfilment of the degree Baccalaureus Scientiae (Honores)
+ in Computer Science at the Nelson Mandela Metropolitan University
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Acknowledgements
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Abstract
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Declaration of Own Work
+\end_layout
+
+\begin_layout Paragraph
+I declare that the entirety of the work contained in this treatise is my
+ own, original work, that I am the sole author thereof (save to the extent
+ explicitly otherwise stated), that reproduction and publication thereof
+ by Nelson Mandela Metropolitan University will not infringe any third party
+ rights that I have not previously in its entirety or in part submitted
+ it for obtaining any qualification.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Signature:..................
+ Date:..................
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+List of Figures
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+List of Tables
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Table of Contents
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Subsection
+Virtual Machines
+\end_layout
+
+\begin_layout Paragraph
+To best describe the virtual machine presented in this treatise, a quick
+ summary of virtual machines follows.
+ The heirarchy of virtual machines is presented and our virtual machine
+ is situated within it.
+ Some important virtual machine terminology is introduced.
+\end_layout
+
+\begin_layout Subsubsection
+What is a Virtual Machine?
+\end_layout
+
+\begin_layout Paragraph
+A 
+\emph on
+virtual machine
+\emph default
+ or 
+\emph on
+VM
+\emph default
+ is a computer program that 
+\begin_inset Quotes eld
+\end_inset
+
+executes software in the same manner as the machine for which the software
+ was developed
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "pg9"
+key "JamesE.Smith2005"
+
+\end_inset
+
+.
+ This program is designed to run on some real machine.
+ We call the real machine that a virtual machine is running on the 
+\emph on
+host
+\emph default
+ and the virtual machine the 
+\emph on
+guest.
+ 
+\emph default
+The guest machine provides an execution environment for software that is
+ designed to run either on the guest itself or on an actual machine that
+ the virtual machine is emulating.
+ This means that we can use a virtual machine to run programs that are incompata
+ble with the host.
+ The virtual machine allows this by providing a mapping of its state to
+ the state of the host machine on which it is running 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "pg4"
+key "JamesE.Smith2005"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+The Types of Virtual Machines
+\end_layout
+
+\begin_layout Paragraph
+Virtual machines come in two varieties: 
+\emph on
+process 
+\emph default
+virtual machines and 
+\emph on
+system
+\emph default
+ virtual machines.
+ 
+\end_layout
+
+\begin_layout Paragraph
+A process virtual machine is 
+\begin_inset Quotes eld
+\end_inset
+
+capable of supporting an individual process
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after "pg9"
+key "JamesE.Smith2005"
+
+\end_inset
+
+.
+ This means that the host runs the guest for as long as a process on the
+ guest machine needs it.
+ Once the process has completed its execution the guest machine terminates
+\begin_inset CommandInset citation
+LatexCommand cite
+after "pg9"
+key "JamesE.Smith2005"
+
+\end_inset
+
+.
+ An example of a process virtual machine is the Java Virtual Machine or
+ JVM.
+ All java programs run on the JVM.
+ An instance of the JVM is started when you execute a java program and killed
+ when its execution is complete.
+\end_layout
+
+\begin_layout Paragraph
+A system virtual machine 
+\begin_inset Quotes eld
+\end_inset
+
+provides a complete system environment
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after "pg9"
+key "JamesE.Smith2005"
+
+\end_inset
+
+.
+ This means that it can support an entire operating system on the guest
+ machine and the many processes that the guest operating system executes.
+ A system virtual machine will terminate when the system is shut down.
+\end_layout
+
+\begin_layout Subsubsection
+The Types of Process Virtual Machines
+\end_layout
+
+\begin_layout Paragraph
+Since this treatise outlines a process virtual machine we shall look at
+ the different types of process virtual machines and ignore the finer details
+ of system virtual machines.
+ Process virtual machines can be divided into two categories: 
+\emph on
+multiprogrammed
+\emph default
+ 
+\emph on
+systems
+\emph default
+ and 
+\emph on
+dynamic
+\emph default
+ 
+\emph on
+translators
+\emph default
+.
+ These are divided along whether or not the guest machine uses the same
+ instruction set architecture as the host machine.
+\end_layout
+
+\begin_layout Paragraph
+With multiprogramming the guest and host use the same instruction set.
+ Multiprogramming is supported by most operating systems and allows a user
+ to run many processes at once by making each process think it has access
+ to an entire machine instead of only part of a machine 
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand cite
+after "pg13"
+key "JamesE.Smith2005"
+
+\end_inset
+
+.
+ The OS creates an environment per process that it terminates when that
+ process ends execution.
+ 
+\end_layout
+
+\begin_layout Paragraph
+With dynamic translators the instruction set of the host and guest generally
+ do not match.
+ The virtual machine translates blocks of instructions meant for the machine
+ it is emulating and translates them into instructions to be run on the
+ host.
+ Not all code is translated in a dynamic translater.
+ Only code that is used often enough will be translated as there is an overhead
+ involved with translating code.
+ The code that is not translated is interpreted.
+ Interpreted instructions are read, their meaning interpreted and then executed.
+ This interpretation step must happen each time a piece of code is executed
+ so code that is executed enough times will be dynamically translated and
+ cached so later execution is faster.
+ Dynamically translating in this manner is known as ju
+\emph on
+st-in-time compilation
+\emph default
+ (JIT compilation).
+\end_layout
+
+\begin_layout Subsubsection
+Dynamic vs Statically Typed Programming Languages
+\end_layout
+
+\begin_layout Paragraph
+A dynamically typed language is one in which the type information is associated
+ with values 
+\begin_inset CommandInset citation
+LatexCommand cite
+after "pg4"
+key "RobertoIerusalimschy"
+
+\end_inset
+
+(REF lua VM intro).
+ An example of a dynamically typed language is javascript where the var
+ keyword is used for variables and the type is inferred from the value stored
+ into a variable.
+ A statically typed language is one in which the type information is associated
+ with the variable.
+ An example of this is java where variables are declared using keywords
+ that declare their type (
+\emph on
+int
+\emph default
+, 
+\emph on
+string
+\emph default
+ etc).
+\end_layout
+
+\begin_layout Subsubsection
+Where Our VM is Situated
+\end_layout
+
+\begin_layout Paragraph
+The virtual machine described in this treatise is a process virtual machine.
+ This process machine will have a new instruction set architecture and hence
+ will differ from any host machine's ISA.
+ The virtual machine does not make use of JIT compilation.
+ It is entirely interpreted.
+ It is also dynamically typed.
+\end_layout
+
+\begin_layout Subsection
+A Virtual Machine for Many Instance Applications
+\end_layout
+
+\begin_layout Paragraph
+Modern process virtual machines make use of JIT compilers.
+ Both JVM and .Net make use of a JIT compiler 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "MSDN,Oracle"
+
+\end_inset
+
+.
+ For applications that run many concurrent instances, like a web server
+ which which starts up a new process for every client, a virtual machine
+ that makes use of a JIT compiler defeats the benefits of read-only memory
+ sharing.
+ Since memory sharing is not possible when using a JIT compiler, if we wish
+ to take advantage of it a JIT-less virtual machine is needed.
+ However the JIT compiler compiler is an important feature of a VM that
+ allows for code given to it at runtime to be compiled into machine code
+ that can run directly on the host.
+ This compiled code is cached and allows for future execution to be faster.
+ Sacrificing the JIT compiler to allow memory sharing presents us with a
+ need to find alternative ways to let our programs execute quickly.
+\end_layout
+
+\begin_layout Subsubsection
+Type-Mapping
+\end_layout
+
+\begin_layout Paragraph
+The idea to be explored for a more performant JIT-Less VM for a dynamically
+ typed language is to make use of a 
+\emph on
+finite state space
+\emph default
+.
+ The VM has a small number of registers and instructions that it can perform.
+ For a dynamically typed VM these instructions may be able to take arguments
+ of different types.
+ For instance an instruction to add may take two integers or an integer
+ and a float or two floats.
+ The instruction has to discover the types of the arguments and perform
+ the correct action.
+ A finite state machine can be used to keep track of the types of the values
+ in all of the registers.
+ Whenever the type in a register is changed, the finite state machine makes
+ a state transition that keeps track of that change.
+ This means we can use the state of the finite state machine to jump to
+ specialised versions of each instruction for each combination of inputs.
+ This is an untested approach that may improve the performance of our VM.
+\end_layout
+
+\begin_layout Subsection
+Project Scope
+\end_layout
+
+\begin_layout Paragraph
+The project is to develop an implementation of a VM of this nature and run
+ predetermined benchmarks on it against an alternate version of it that
+ does not make use of type-mapping.
+ This experiment should show what benefits the approach has.
+ The The VM will only have around 35 instructions and 3-4 types.
+ There will be no compiler implementation required and the VM will not be
+ required to perform garbage collection.
+ The VM will also not have to be robust in how it interacts with the operating
+ system it is running on nor in how it handles errors.
+\end_layout
+
+\begin_layout Subsection
+Risks
+\end_layout
+
+\begin_layout Paragraph
+The risks of the project are mainly about its structure and how it can be
+ criticised.
+ The VM will be running predefined benchmarks so there if it performs those
+ well at the expense of its general usefulness the project can be criticised.
+ All of these sorts of criticisms can be mitigated so long as the goal of
+ the project is kept in mind at all times.
+ Learning as much as possible about how well the idea works should always
+ take precedence over trying to make results look good.
+ Whether the VM performs better or not is important knowledge and being
+ as careful as possible about discovering that accurately is extremely important.
+\end_layout
+
+\begin_layout Subsection
+Overview of Treatise
+\end_layout
+
+\begin_layout Paragraph
+To be completed
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Literature Review and Existing systems
+\end_layout
+
+\begin_layout Section*
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "/home/stevetest/a"
+options "plain"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
