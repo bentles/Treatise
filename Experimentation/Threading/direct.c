@@ -15,6 +15,7 @@ int registers[6];
 int main()
 {
 	static void *program[] = {&&add, 0x10 , &&sub, &&add, 0x32, &&halt}; //list of addresses in memory
+	//this array would be built for each instance => not easily able to share
 	
 	//get the address of the label (using &&) which is of type void (why??)
 	//(because...) void is the general pointer - used to store the address of any type of variable
