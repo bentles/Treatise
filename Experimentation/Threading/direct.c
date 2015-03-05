@@ -4,13 +4,17 @@
 //================
 //Okay instead of part of our instruction being an opcode,
 //we just have a pointer to where the instruction happens.
-//I think args are stored in the next word
+//I think args are stored in the next byte or something
+
+//hmm how do we write code for this since we don't know where the addresses are
+//could use offsets {&&add - &&add, &&sub - &&add} but even then things could change if the VM changes at all
+
 
 int registers[6];
 
 int main()
 {
-	static void *program[] = {&&add, &&sub, &&add, &&halt}; //list of addresses in memory
+	static void *program[] = {&&add, 0x10 , &&sub, &&add, 0x32, &&halt}; //list of addresses in memory
 	
 	//get the address of the label (using &&) which is of type void (why??)
 	//(because...) void is the general pointer - used to store the address of any type of variable
@@ -24,7 +28,9 @@ int main()
 	goto *ptr;
 	
 add:
-	printf("add\n");	
+	printf("add\n");
+	long args = (long)program[++pc]; //seems a bit hacky
+	printf("args: %d and %d\n", (args & 0xf0) >> 4, args & 0x0f);
 	ptr = program[++pc];
 	goto *ptr;
 sub:

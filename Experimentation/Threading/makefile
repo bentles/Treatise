@@ -1,5 +1,7 @@
-all: direct.c
+all: direct indirect
+
+direct : direct.c
 	gcc -g -o bin/direct direct.c
 
-assembly: direct.c
-	gcc -S direct.c -masm=intel
+indirect : indirect.c
+	gcc -g -o bin/indirect indirect.c
