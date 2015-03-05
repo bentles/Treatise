@@ -24,8 +24,8 @@ int main()
 	
 	//make the pointer point to the start of the array
 	int pc = 0;
-	ptr = program[pc];
-	goto *ptr;
+	ptr = program[pc]; //not needed - should remove
+	goto *ptr; //goto *program[pc];
 	
 add:
 	printf("add\n");
