@@ -21,23 +21,18 @@ int main()
 	//(because...) void is the general pointer - used to store the address of any type of variable
 	//so it's like saying this is a pointer to something
 	
-	void *ptr;
-	
 	//make the pointer point to the start of the array
 	int pc = 0;
-	ptr = program[pc]; //not needed - should remove
-	goto *ptr; //goto *program[pc];
+	goto *program[pc];
 	
 add:
 	printf("add\n");
 	long args = (long)program[++pc]; //seems a bit hacky
 	printf("args: %d and %d\n", (args & 0xf0) >> 4, args & 0x0f);
-	ptr = program[++pc];
-	goto *ptr;
+	goto *program[++pc];
 sub:
 	printf("sub\n");
-	ptr = program[++pc];
-	goto *ptr;
+	goto *program[++pc];
 halt:	
 	return 0;
 }
