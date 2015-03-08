@@ -3,18 +3,14 @@
 typedef struct ValueStruct Value;
 struct ValueStruct
 {
-	int typeTag;
+	int tag;
 	/* something like:
-	 * 0 null
-	 * 1 double
-	 * 2 long
-	 * 3 pointer to string?
-	 * 4 pointer to object/lua table equivalent <- kind of want this to be a hashtable
+	 * 0 64 bit int
+	 * 1 pointer
 	 */
 
 	union
 	{
-		double f;
 		long i;
 		void *p; //general purpose pointer?
 	};
@@ -23,27 +19,24 @@ struct ValueStruct
 
 int main(int argc, char *argv[])
 {
+
+	int i = 12;
+	int* j = &i;
+	*j = 22;
 	//creating
 	Value vs;
 
 	//setting
-	vs.typeTag = 0;
-	vs.f = 0.2f;
+	vs.tag = 0;
+	vs.i = 22;
 
 	//reading
-	if (vs.typeTag == 0)
-		printf("%f\n", vs.f);
-
-	//a test for curiosity's sake
 	printf("%d\n", vs.i);
 
-	//how would pointers to objects work?
-
-	
 	//let's make a pointer to null...
 	Value nulled;
-	nulled.typeTag = -1;
-	
+	nulled.tag = 1;
+	nulled.p = NULL;	
 	
 	return 0;
 }
