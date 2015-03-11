@@ -30,9 +30,7 @@ struct ValueStruct
  */
 value registers[6]; //init to 0 valued ints
 
-//Since these are never used as anything else is there
-//a good reason to make them values and include them in
-//the registers array?
+//
 int64_t pc = 0;
 int64_t fp = 0;
 int64_t ts = 0; //matches what registers are init to
@@ -46,6 +44,15 @@ int64_t ts = 0; //matches what registers are init to
  */
 int main()
 {
+	//state with static opcode as lower bits is an index into this table
+	//[state : 6 bits][opcode : 11 bits] => the table has 2^17 = 131072
+	//elements
+	static void *dynOpcode[] = 
+	
+	static void *instructions[] = {&&add00};
+
+add:
+	
 
 	return 0;
 }
