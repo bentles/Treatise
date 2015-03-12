@@ -12,7 +12,8 @@ var p = 1;
 var instructions = [
     { name:"add", inputs:2, legal:[[i,i]], pcChange: 2,
       template : "/*<0>*/ = /*<0>*/ + /*<1>*/;" },
-    { name: "addk", inputs:1, legal:[[i]], pcChange: 4 },
+    { name: "addk", inputs:1, legal:[[i]], pcChange: 4,
+      template: "/*<0>*/ = /*<0>*/ + ;"},
     { name: "sub", inputs:2, legal:[[i,i]], pcChange: 2,
       template : "/*<0>*/ = /*<0>*/ - /*<1>*/;"}
 ];
@@ -22,8 +23,6 @@ var numregisters = 6;
 var numstates = Math.pow(numtypes, numregisters);
 
 var ans = genLookups(instructions[0]);
-var ans2 = new StaticInstructionMaker(instructions[0], numregisters);
-var ans3 = ans2.genCode();
 
 //generate lookup table entries for some instruction
 function genLookups (inst)
@@ -123,61 +122,65 @@ function StaticInstructionMaker(inst, numregisters)
     this.goTo = "goto *dynOpcodes[(ts << 11) + program[pc]];";
 }
 
-StaticInstructionMaker.prototype =
+StaticInstructionMaker.prototype.genCode = function() {
+    var numCalls = Math.pow(this.numregisters, this.inputs); //6^2 usually
+
+    for (var i = 0; i < numCalls; i++)
     {
-        genCode: function() {
-            var numCalls = Math.pow(this.numregisters, this.inputs); //6^2 usually
+        var call = getCall(this.inputs, this.numregisters, i); //call[ 3, 4 ] => name3_4
+        var name = getStaticInstructionName(this.name, call);
 
-            for (var i = 0; i < numCalls; i++)
-            {
-                var call = getCall(this.inputs, this.numregisters, i); //call[ 3, 4 ] => name3_4
-                var name = getStaticInstructionName(this.name, call);
+        //write out label
+        this.code += name + ":\n";
 
-                //write out label
-                this.code += name + ":\n";
+        //perform instruction for arguments
+        this.code += this.substituteIntoTemplate(call) + "\n";
 
-                //perform instruction for arguments
-                this.code += this.substituteIntoTemplate(call) + "\n";
+        //change state
+        this.code += this.changeState(call) + "\n";
+        
+        //update pc
+        this.code += this.changePC() + "\n";
 
-                //change state
-                this.code += this.changeState(call) + "\n";
-                
-                //update pc
-                this.code += this.changePC + "\n";
+        //goto next instruction
+        this.code += this.goTo + "\n";
 
-                //goto next instruction
-                this.code += this.goTo + "\n";
-            }
+        this.code += "\n\n";
+    }
+};
 
-        },
+StaticInstructionMaker.prototype.changeState = function(call) {
+    return ""; //TODO: create when needed
+};
 
-        changeState: function(call) {
-            return ""; //TODO: create when needed
-        },
+StaticInstructionMaker.prototype.changePC = function() {
+    if (!this.pcChange)
+        return "";
+    else
+        return "pc += " + this.pcChange + ";" ;
+};
 
-        changePC : function() {
-            if (!this.pcChange)
-                return "";
-            else
-                return "pc += " + this.pcChange + ";" ;
-        },
-
-        substituteIntoTemplate : function(call)
+StaticInstructionMaker.prototype.substituteIntoTemplate = function(call)
+{
+    var subbedString = this.template;
+    for (var i = 0; i < call.length; i++)
+    {
+        var token = '/*<' + i + '>*/' ;
+        while (true)
         {
-            var subbedString = this.template;
-            for (var i = 0; i < call.length; i++)
-            {
-                var token = '/*<' + i + '>*/' ;
-                while (true)
-                {
-                    var pos = subbedString.indexOf(token);
+            var pos = subbedString.indexOf(token);
 
-                    if (pos < 0)
-                        break;
-                    else {
-                        subbedString.replace(token, call[i]);
-                    }
-                }
+            if (pos < 0)
+                break;
+            else {
+                subbedString = subbedString.replace(token, "g[" + call[i] + "]");
             }
-        }        
-    };
+        }
+    }
+    return subbedString;
+};
+
+var ans2 = new StaticInstructionMaker(instructions[0], numregisters);
+ans2.genCode();
+console.log(ans2.code);
+
