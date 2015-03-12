@@ -28,9 +28,7 @@ struct ValueStruct
  * [7] fp - frame pointer
  * [8] ts - type state
  */
-value registers[6]; //init to 0 valued ints
-
-//
+value g[6]; //init to 0 valued ints
 int64_t pc = 0;
 int64_t fp = 0;
 int64_t ts = 0; //matches what registers are init to
@@ -47,11 +45,22 @@ int main()
 	//state with static opcode as lower bits is an index into this table
 	//[state : 6 bits][opcode : 11 bits] => the table has 2^17 = 131072
 	//elements
-	static void *dynOpcode[] = 
-	
-	static void *instructions[] = {&&add00};
+	static void *dynOpcodes[] = {/*<dynOpcodeLookups>*/ &&error};
+    int16_t program[2000];
 
-add:
+/*
+  example for reference:
+add0_0:
+    g[0] = g[0] + g[0];
+    pc += 2;
+    goto *dynOpcodes[(ts << 11) + program[pc]]; */
+
+    
+/*<staticInstructions>*/
+    
+error:
+    printf("Something went wrong: Illegal arguments |");
+    return 1;
 	
 
 	return 0;
