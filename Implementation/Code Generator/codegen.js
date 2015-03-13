@@ -1,28 +1,48 @@
 /*#!/usr/bin/node*/
 
-/* need to know
- * ============
- * which register type combinations are legal
- * how many inputs
- * name
- */
+//convenience names
 var i = 0;
 var p = 1;
 
-var instructions = [
-    { name:"add", inputs:2, legal:[[i,i]], pcChange: 2,
-      template : "/*<0>*/ = /*<0>*/ + /*<1>*/;" },
-    { name: "addk", inputs:1, legal:[[i]], pcChange: 4,
-      template: "/*<0>*/ = /*<0>*/ + ;"},
-    { name: "sub", inputs:2, legal:[[i,i]], pcChange: 2,
-      template : "/*<0>*/ = /*<0>*/ - /*<1>*/;"}
+var getConst = "int16_t displacement = program[pc + 1];\n" +
+	    "int64_t const = *((int64_t*)(&program[pc + displacement]);\n";
+
+var lookups = [
+    { name:"add", inputs: 2,
+      instructions:[
+          { name:"add", pcChange: 1, legal:[i,i],
+            template : "/*<0>*/.i = /*<0>*/.i + /*<1>*/.i;\n"}]},
+    { name:"addk", inputs: 1,
+      instructions:[
+          { name:"addik", pcChange: 2, legal: [i],
+            template:
+            getConst + "/*<0>*/.i = /*<0>*/.i + const;\n"}]},
+    { name: "sub", inputs: 2,
+      instructions:[
+          { name:"sub", pcChange: 1, legal:[i,i],
+            template : "/*<0>*/.i = /*<0>*/.i - /*<1>*/.i;\n"}]},
+    { name:"subk", inputs: 1,
+      instructions:[
+          { name:"subki", pcChange: 2, legal: [i],
+            template:
+            getConst + "/*<0>*/.i = const - /*<0>*/.i;\n"}]},
+    { name: "mov", inputs:2,
+      instructions: [
+	      { name:"movii", pcChange: 1, legal:[i,i],
+	        template: "/*<0>*/.i = /*<1>*/.i;\n"},
+	      { name:"movpp", pcChange: 1, legal:[p,p],
+	        template: "/*<0>*/.p = /*<1>*/.p;\n"}]},
+    { name: "movk", inputs: 1,
+      instructions: [
+	      { name:"movik", pcChange: 2, legal: [i],
+	        template: getConst + "/*<0>*/.i = const;\n"},
+	      { name: "movpN", pcChange: 1, legal: [p],
+	        template: "/*<0>*/.p = NULL;\n"}]}
 ];
 
 var numtypes = 2;
 var numregisters = 6;
 var numstates = Math.pow(numtypes, numregisters);
-
-var ans = genLookups(instructions[0]);
 
 //generate lookup table entries for some instruction
 function genLookups (inst)
@@ -117,7 +137,7 @@ function StaticInstructionMaker(inst, numregisters)
     this.name = inst.name;
     this.pcChange = inst.pcChange;
     this.inputs = inst.inputs;
-    this.template = inst.template;
+    this.templates = inst.templates;
     this.code = "";
     this.goTo = "goto *dynOpcodes[(ts << 11) + program[pc]];";
 }
@@ -161,23 +181,26 @@ StaticInstructionMaker.prototype.changePC = function() {
 };
 
 StaticInstructionMaker.prototype.substituteIntoTemplate = function(call)
-{
-    var subbedString = this.template;
-    for (var i = 0; i < call.length; i++)
-    {
-        var token = '/*<' + i + '>*/' ;
-        while (true)
-        {
-            var pos = subbedString.indexOf(token);
+{	
+	for (var h = 0; h < templates.length; h++)
+	{		
+		for (var i = 0; i < call.length; i++)
+		{
+			var token = '/*<' + i + '>*/' ;
+			while (true)
+			{
+				var pos = subbedString.indexOf(token);
 
-            if (pos < 0)
-                break;
-            else {
-                subbedString = subbedString.replace(token, "g[" + call[i] + "]");
-            }
-        }
-    }
-    return subbedString;
+				if (pos < 0)
+					break;
+				else {
+					subbedString = subbedString.replace(token, "g[" + call[i] + "]");
+				}
+			}
+		}
+	
+	}
+	return subbedString;
 };
 
 var ans2 = new StaticInstructionMaker(instructions[0], numregisters);
