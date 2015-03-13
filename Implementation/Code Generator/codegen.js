@@ -1,4 +1,4 @@
-/*#!/usr/bin/node*/
+#!/usr/bin/node
 
 //convenience names
 var i = 0;
@@ -231,5 +231,9 @@ Generator.prototype =
         }
 };
 
-var ans2 = new Generator(lookups[2], numregisters, numtypes);
-ans2.generate();
+lookups.forEach(function(x) {
+    var y = new Generator(x, numregisters, numtypes);
+    y.generate();
+    console.log(y.code);
+});
+
