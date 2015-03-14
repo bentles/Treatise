@@ -229,11 +229,41 @@ Generator.prototype =
 
             return baseb;
         }
-};
+    };
 
-lookups.forEach(function(x) {
-    var y = new Generator(x, numregisters, numtypes);
-    y.generate();
-    console.log(y.code);
+var fs = require('fs');
+fs.writeFile('../staticInstructions.h', '', function (err) {
+    if (err)
+        throw err;
+    console.log('File overwritten');
+    writeCode();
 });
+
+fs.writeFile('../dynamicLookup.h', '', function (err) {
+    if (err)
+        throw err;
+    console.log('File overwritten');
+    writeLookups();
+});
+
+
+function writeLookups() {
+    lookups.forEach(function(x) {
+        var y = new Generator(x, numregisters, numtypes);
+        y.generate();
+        fs.appendFile('../dynamicLookup.h', y.lookuptable.join([seperator = ',\n'])+',\n');
+    });
+
+}
+
+function writeCode() {    
+    lookups.forEach(function(x) {
+        var y = new Generator(x, numregisters, numtypes);
+        y.generate();
+        fs.appendFile('../staticInstructions.h', y.code);
+    });
+}
+    
+    
+
 

@@ -178,7 +178,6 @@ g[5].i = g[5].i + g[5].i;
 pc += 1;
 goto *dynOpcodes[ts + program[pc]];
 
-
 addik_0:
 int16_t displacement = program[pc + 1];
 int64_t const = *((int64_t*)(&program[pc + displacement]);
@@ -220,7 +219,6 @@ int64_t const = *((int64_t*)(&program[pc + displacement]);
 g[5].i = g[5].i + const;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
-
 
 sub_0_1:
 g[0].i = g[0].i - g[1].i;
@@ -372,7 +370,6 @@ g[5].i = g[5].i - g[4].i;
 pc += 1;
 goto *dynOpcodes[ts + program[pc]];
 
-
 subki_0:
 int16_t displacement = program[pc + 1];
 int64_t const = *((int64_t*)(&program[pc + displacement]);
@@ -414,7 +411,6 @@ int64_t const = *((int64_t*)(&program[pc + displacement]);
 g[5].i = const - g[5].i;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
-
 
 movii_0_1:
 g[0].i = g[1].i;
@@ -716,7 +712,6 @@ g[5].p = g[4].p;
 pc += 1;
 goto *dynOpcodes[ts + program[pc]];
 
-
 movik_0:
 int16_t displacement = program[pc + 1];
 int64_t const = *((int64_t*)(&program[pc + displacement]);
@@ -788,5 +783,4 @@ movpN_5:
 g[5].p = NULL;
 pc += 1;
 goto *dynOpcodes[ts + program[pc]];
-
 
