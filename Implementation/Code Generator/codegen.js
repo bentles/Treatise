@@ -68,7 +68,7 @@ var lookups = [
             "pc += defaultJump;\n" + //not so sure on the details here but this is the gist of it
             "}\n" +
             "else {\n" +
-            getConst("jump", "/<*0*>/.i + 1") +
+            getConst("jump", "/<*0*>/.i + 2") +
             "pc += jump;\n " +//index into the table
             "}\n"
           }]},
