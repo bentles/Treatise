@@ -1,12 +1,8 @@
 #!/usr/bin/node
 
-//convenience names
+//convenience values
 var i = 0;
 var p = 1;
-
-var getConst = "int16_t displacement = program[pc + 1];\n" +
-        "int64_t const = *((int64_t*)(&program[pc + displacement]);\n";
-
 var differentRegisters = function(call){return call[0] !== call[1];};
 
 var lookups = [
@@ -14,32 +10,60 @@ var lookups = [
       instructions:[
           { name:"add", pcChange: 1, legal:[i,i],
             template : "/*<0>*/.i = /*<0>*/.i + /*<1>*/.i;\n"}]},
+    
     { name:"addk", inputs: 1,
       instructions:[
           { name:"addik", pcChange: 2, legal: [i],
             template:
-            getConst + "/*<0>*/.i = /*<0>*/.i + const;\n"}]},
+            this.getConst("const") + "/*<0>*/.i = /*<0>*/.i + const;\n"}]},
+    
     { name: "sub", inputs: 2, callCondition: differentRegisters,
       instructions:[
           { name:"sub", pcChange: 1, legal:[i,i],
             template : "/*<0>*/.i = /*<0>*/.i - /*<1>*/.i;\n"}]},
+    
     { name:"subk", inputs: 1,
       instructions:[
           { name:"subki", pcChange: 2, legal: [i],
             template:
-            getConst + "/*<0>*/.i = const - /*<0>*/.i;\n"}]},
+            this.getConst("const") + "/*<0>*/.i = const - /*<0>*/.i;\n"}]},
+    
     { name: "mov", inputs:2, callCondition: differentRegisters,
       instructions: [
           { name:"movii", pcChange: 1, legal:[i,i],
             template: "/*<0>*/.i = /*<1>*/.i;\n"},
           { name:"movpp", pcChange: 1, legal:[p,p],
-            template: "/*<0>*/.p = /*<1>*/.p;\n"}]},
-    { name: "movk", inputs: 1,
+            template: "/*<0>*/.p = /*<1>*/.p;\n"},
+          { name:"movip", pcChange: 1, legal:[i,p], stateChange: p,
+            template: "/*<0>*/.p = /*<1>*/.p;\n" },
+          { name:"movpi", pcChange: 1, legal:[p,i], stateChange: i,
+            template: "/*<0>*/.i = /*<1>*/.i;\n" }]},
+    
+    { name: "movk", inputs: 1, //TODO movN separate?
       instructions: [
           { name:"movik", pcChange: 2, legal: [i],
-            template: getConst + "/*<0>*/.i = const;\n"},
+            template: this.getConst("const") + "/*<0>*/.i = const;\n"},
+          { name:"movpk", pcChange: 2, legal: [p], stateChange: i,
+            template: this.getConst("const") + "/*<0>*/.i = const;\n"},
           { name: "movpN", pcChange: 1, legal: [p],
-            template: "/*<0>*/.p = NULL;\n"}]}
+            template: "/*<0>*/.p = NULL;\n"},
+          { name: "moviN", pcChange: 1, legal: [i], stateChange : p,
+            template: "/*<0>*/.p = NULL;\n"}]},
+    
+    { name: "jsw", inputs: 1, 
+      instructions:[
+          { name:"jsw", legal:[i],
+            template :
+            this.getConst("tableSize") + //get value of table size using displacement
+            "if(/*<0>*/.i < 0) || /*<0>*/.i >= tableSize) {\n" +
+            this.getConst("defaultJump", "program[pc + tableSize + 1]") +   //tableSize gets us to one more than the elements in the table then + 1 to store tableSize's displacement
+            "pc += defaultJump;\n" + //not so sure on the details here but this is the gist of it
+            "{\n" +
+            "else {\n" +
+            this.getConst("jump", "program[pc + /<*0*>/.i + 1]") +
+            "pc += jump;\n " +//index into the table
+            "}\n"
+          }]},
 ];
 
 var numtypes = 2;
@@ -84,7 +108,7 @@ Generator.prototype =
                     //perform instruction for arguments
                     this.code += this.substituteIntoTemplate(call, inst.template);
                     //change state code
-                    this.code += this.changeState(call);                     
+                    this.code += this.setTagAndChangeState(call);
                     //update pc
                     this.code += this.changePC(inst.pcChange);
                     //goto next instruction
@@ -115,8 +139,7 @@ Generator.prototype =
                 if (callable)
                     callables.push(call);                
             }
-            return callables;
-            
+            return callables;            
         },
 
         getAllStates : function ()
@@ -144,8 +167,41 @@ Generator.prototype =
             return call;
         },
 
-        changeState : function(call) {
-            return ""; //TODO: create when needed
+        getConst: function(name, offset)
+        {
+            var offst = offset || 1; //this is fine since 0 is not valid anyway
+            var getConst = "int16_t displacement" + name +" = program[pc + "+ offst +"];\n" +
+                    "int64_t " + name + " = *((int64_t*)(&program[pc + displacement" + name + "]);\n";
+        },
+
+        //TODO: Generalize this if you want more types
+        //TODO: Needs to be edited to support ANSI C. The prefix 0b for binary
+        //is a GNU extension
+        //Apparently anything cool in C is a GNU extension
+        setTagAndChangeState : function(call, inst) {
+            if (inst.stateChange === undefined)
+                return "";
+            else
+            {
+                //destination address is call[0]
+                var changedBitIndex = call[0];
+                var maskString = ""; //not really a bitmask
+
+                //To change state to a 1 use something like 0010
+                if (inst.stateChange === 0)
+                {
+                    maskString = "111111";
+                    maskString = "fp & 0b" + maskString.slice(0, changedBitIndex) + "0" + maskString.slice(changedBitIndex + 1);
+                }
+                else
+                {
+                    maskString = "000000";                    
+                    maskString = "fp | 0b" + maskString.slice(0, changedBitIndex) + "1" + maskString.slice(changedBitIndex + 1);
+                }
+
+                //Set the Tag and edit the state
+                return this.getTagSetCode(inst.stateChange) + maskString + "00000000000;\n";
+            }                             
         },
 
         changePC : function(pcChange) {
@@ -175,6 +231,11 @@ Generator.prototype =
             return subbedString;
         },
 
+        getTagSetCode: function(type)
+        {
+            return "/*<0>*/.tag = " + type + ";\n";
+        },
+
         getStaticInstructionName: function(name, call)
         {
             return name + "_" + call.join([seperator = '_']);
@@ -198,10 +259,7 @@ Generator.prototype =
             //callTypes is a new array of the types in those registers
             //so if g[0] holds an pointer and g[4] holds a pointer then
             //call = [0,4] => callTypes = [1,1]
-            var callTypes = [];
-            for (var i = 0; i < call.length; i++) {
-                callTypes[i] = registerTypes[call[i]];
-            }
+            var callTypes = this.getCallTypes(call, registerTypes);
             
             var legal = inst.name;
             for (var k = 0; k < callTypes.length; k++) {
@@ -212,6 +270,15 @@ Generator.prototype =
                 }
             }
             return legal;
+        },
+
+        getCallTypes: function(call, registerTypes)
+        {
+            var callTypes = [];
+            for (var i = 0; i < call.length; i++) {
+                callTypes[i] = registerTypes[call[i]];
+            }
+            return callTypes;
         },
 
         //convert state number to array of register states
@@ -239,7 +306,7 @@ fs.writeFile('../staticInstructions.h', '', function (err) {
     writeCode();
 });
 
-fs.writeFile('../dynamicLookup.h', '', function (err) {
+fs.writeFile('../dynamicOpcodes.h', '', function (err) {
     if (err)
         throw err;
     console.log('File overwritten');
@@ -251,7 +318,7 @@ function writeLookups() {
     lookups.forEach(function(x) {
         var y = new Generator(x, numregisters, numtypes);
         y.generate();
-        fs.appendFile('../dynamicLookup.h', y.lookuptable.join([seperator = ',\n'])+',\n');
+        fs.appendFile('../dynamicOpcodes.h', y.lookuptable.join([seperator = ',\n'])+',\n&&error\n');
     });
 
 }
