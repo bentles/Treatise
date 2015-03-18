@@ -1132,96 +1132,6 @@ ts = ts & 0b11111000000000000;
 pc += 1;
 goto *dynOpcodes[ts + program[pc]];
 
-jsw_0:
-int16_t dtableSize = program[pc + 1];
-int64_t tableSize = *((int64_t*)(&program[pc + dtableSize]));
-if(g[0].i < 0 || g[0].i >= tableSize) {
-int16_t ddefaultJump = program[pc + tableSize + 1];
-int64_t defaultJump = *((int64_t*)(&program[pc + ddefaultJump]));
-pc += defaultJump;
-}
-else {
-int16_t djump = program[pc + /<*0*>/.i + 1];
-int64_t jump = *((int64_t*)(&program[pc + djump]));
-pc += jump;
- }
-goto *dynOpcodes[ts + program[pc]];
-
-jsw_1:
-int16_t dtableSize = program[pc + 1];
-int64_t tableSize = *((int64_t*)(&program[pc + dtableSize]));
-if(g[1].i < 0 || g[1].i >= tableSize) {
-int16_t ddefaultJump = program[pc + tableSize + 1];
-int64_t defaultJump = *((int64_t*)(&program[pc + ddefaultJump]));
-pc += defaultJump;
-}
-else {
-int16_t djump = program[pc + /<*0*>/.i + 1];
-int64_t jump = *((int64_t*)(&program[pc + djump]));
-pc += jump;
- }
-goto *dynOpcodes[ts + program[pc]];
-
-jsw_2:
-int16_t dtableSize = program[pc + 1];
-int64_t tableSize = *((int64_t*)(&program[pc + dtableSize]));
-if(g[2].i < 0 || g[2].i >= tableSize) {
-int16_t ddefaultJump = program[pc + tableSize + 1];
-int64_t defaultJump = *((int64_t*)(&program[pc + ddefaultJump]));
-pc += defaultJump;
-}
-else {
-int16_t djump = program[pc + /<*0*>/.i + 1];
-int64_t jump = *((int64_t*)(&program[pc + djump]));
-pc += jump;
- }
-goto *dynOpcodes[ts + program[pc]];
-
-jsw_3:
-int16_t dtableSize = program[pc + 1];
-int64_t tableSize = *((int64_t*)(&program[pc + dtableSize]));
-if(g[3].i < 0 || g[3].i >= tableSize) {
-int16_t ddefaultJump = program[pc + tableSize + 1];
-int64_t defaultJump = *((int64_t*)(&program[pc + ddefaultJump]));
-pc += defaultJump;
-}
-else {
-int16_t djump = program[pc + /<*0*>/.i + 1];
-int64_t jump = *((int64_t*)(&program[pc + djump]));
-pc += jump;
- }
-goto *dynOpcodes[ts + program[pc]];
-
-jsw_4:
-int16_t dtableSize = program[pc + 1];
-int64_t tableSize = *((int64_t*)(&program[pc + dtableSize]));
-if(g[4].i < 0 || g[4].i >= tableSize) {
-int16_t ddefaultJump = program[pc + tableSize + 1];
-int64_t defaultJump = *((int64_t*)(&program[pc + ddefaultJump]));
-pc += defaultJump;
-}
-else {
-int16_t djump = program[pc + /<*0*>/.i + 1];
-int64_t jump = *((int64_t*)(&program[pc + djump]));
-pc += jump;
- }
-goto *dynOpcodes[ts + program[pc]];
-
-jsw_5:
-int16_t dtableSize = program[pc + 1];
-int64_t tableSize = *((int64_t*)(&program[pc + dtableSize]));
-if(g[5].i < 0 || g[5].i >= tableSize) {
-int16_t ddefaultJump = program[pc + tableSize + 1];
-int64_t defaultJump = *((int64_t*)(&program[pc + ddefaultJump]));
-pc += defaultJump;
-}
-else {
-int16_t djump = program[pc + /<*0*>/.i + 1];
-int64_t jump = *((int64_t*)(&program[pc + djump]));
-pc += jump;
- }
-goto *dynOpcodes[ts + program[pc]];
-
 movik_0:
 int16_t dconstant = program[pc + 1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
@@ -1388,5 +1298,95 @@ g[5].p = NULL;
 g[5].tag = 1;
 ts = ts | 0b00000100000000000;
 pc += 1;
+goto *dynOpcodes[ts + program[pc]];
+
+jsw_0:
+int16_t dtableSize = program[pc + 1];
+int64_t tableSize = *((int64_t*)(&program[pc + dtableSize]));
+if(g[0].i < 0 || g[0].i >= tableSize) {
+    int16_t ddefaultJump = program[pc + tableSize + 1];
+    int64_t defaultJump = *((int64_t*)(&program[pc + ddefaultJump]));
+    pc += defaultJump;
+}
+else {
+    int16_t djump = program[pc + /<*0*>/.i + 1];
+    int64_t jump = *((int64_t*)(&program[pc + djump]));
+    pc += jump;
+}
+goto *dynOpcodes[ts + program[pc]];
+
+jsw_1:
+int16_t dtableSize = program[pc + 1];
+int64_t tableSize = *((int64_t*)(&program[pc + dtableSize]));
+if(g[1].i < 0 || g[1].i >= tableSize) {
+    int16_t ddefaultJump = program[pc + tableSize + 1];
+    int64_t defaultJump = *((int64_t*)(&program[pc + ddefaultJump]));
+    pc += defaultJump;
+}
+else {
+    int16_t djump = program[pc + /<*0*>/.i + 1];
+    int64_t jump = *((int64_t*)(&program[pc + djump]));
+    pc += jump;
+}
+goto *dynOpcodes[ts + program[pc]];
+
+jsw_2:
+int16_t dtableSize = program[pc + 1];
+int64_t tableSize = *((int64_t*)(&program[pc + dtableSize]));
+if(g[2].i < 0 || g[2].i >= tableSize) {
+    int16_t ddefaultJump = program[pc + tableSize + 1];
+    int64_t defaultJump = *((int64_t*)(&program[pc + ddefaultJump]));
+    pc += defaultJump;
+}
+else {
+    int16_t djump = program[pc + /<*0*>/.i + 1];
+    int64_t jump = *((int64_t*)(&program[pc + djump]));
+    pc += jump;
+}
+goto *dynOpcodes[ts + program[pc]];
+
+jsw_3:
+int16_t dtableSize = program[pc + 1];
+int64_t tableSize = *((int64_t*)(&program[pc + dtableSize]));
+if(g[3].i < 0 || g[3].i >= tableSize) {
+    int16_t ddefaultJump = program[pc + tableSize + 1];
+    int64_t defaultJump = *((int64_t*)(&program[pc + ddefaultJump]));
+    pc += defaultJump;
+}
+else {
+    int16_t djump = program[pc + /<*0*>/.i + 1];
+    int64_t jump = *((int64_t*)(&program[pc + djump]));
+    pc += jump;
+}
+goto *dynOpcodes[ts + program[pc]];
+
+jsw_4:
+int16_t dtableSize = program[pc + 1];
+int64_t tableSize = *((int64_t*)(&program[pc + dtableSize]));
+if(g[4].i < 0 || g[4].i >= tableSize) {
+    int16_t ddefaultJump = program[pc + tableSize + 1];
+    int64_t defaultJump = *((int64_t*)(&program[pc + ddefaultJump]));
+    pc += defaultJump;
+}
+else {
+    int16_t djump = program[pc + /<*0*>/.i + 1];
+    int64_t jump = *((int64_t*)(&program[pc + djump]));
+    pc += jump;
+}
+goto *dynOpcodes[ts + program[pc]];
+
+jsw_5:
+int16_t dtableSize = program[pc + 1];
+int64_t tableSize = *((int64_t*)(&program[pc + dtableSize]));
+if(g[5].i < 0 || g[5].i >= tableSize) {
+    int16_t ddefaultJump = program[pc + tableSize + 1];
+    int64_t defaultJump = *((int64_t*)(&program[pc + ddefaultJump]));
+    pc += defaultJump;
+}
+else {
+    int16_t djump = program[pc + /<*0*>/.i + 1];
+    int64_t jump = *((int64_t*)(&program[pc + djump]));
+    pc += jump;
+}
 goto *dynOpcodes[ts + program[pc]];
 
