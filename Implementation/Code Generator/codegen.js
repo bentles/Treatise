@@ -56,11 +56,11 @@ var lookups = [
             template :
             this.getConst("tableSize") + //get value of table size using displacement
             "if(/*<0>*/.i < 0) || /*<0>*/.i >= tableSize) {\n" +
-            this.getConst("defaultJump", "program[pc + tableSize + 1]") +   //tableSize gets us to one more than the elements in the table then + 1 to store tableSize's displacement
+            this.getConst("defaultJump", "tableSize + 1") +   //tableSize gets us to one more than the elements in the table then + 1 to store tableSize's displacement
             "pc += defaultJump;\n" + //not so sure on the details here but this is the gist of it
             "{\n" +
             "else {\n" +
-            this.getConst("jump", "program[pc + /<*0*>/.i + 1]") +
+            this.getConst("jump", "/<*0*>/.i + 1") +
             "pc += jump;\n " +//index into the table
             "}\n"
           }]},
