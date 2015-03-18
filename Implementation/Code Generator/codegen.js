@@ -5,6 +5,14 @@ var i = 0;
 var p = 1;
 var differentRegisters = function(call){return call[0] !== call[1];};
 
+//convenience functions
+function getConst(name, offset)
+{
+    var offst = offset || 1; //this is fine since 0 is not valid anyway
+    return "int16_t d" + name + " = program[pc + "+ offst +"];\n" +
+            "int64_t " + name + " = *((int64_t*)(&program[pc + d" + name + "]));\n";
+}
+
 var lookups = [
     { name:"add", inputs: 2,
       instructions:[
@@ -15,7 +23,7 @@ var lookups = [
       instructions:[
           { name:"addik", pcChange: 2, legal: [i],
             template:
-            this.getConst("const") + "/*<0>*/.i = /*<0>*/.i + const;\n"}]},
+            getConst("constant") + "/*<0>*/.i = /*<0>*/.i + constant;\n"}]},
     
     { name: "sub", inputs: 2, callCondition: differentRegisters,
       instructions:[
@@ -26,7 +34,7 @@ var lookups = [
       instructions:[
           { name:"subki", pcChange: 2, legal: [i],
             template:
-            this.getConst("const") + "/*<0>*/.i = const - /*<0>*/.i;\n"}]},
+            getConst("constant") + "/*<0>*/.i = constant - /*<0>*/.i;\n"}]},
     
     { name: "mov", inputs:2, callCondition: differentRegisters,
       instructions: [
@@ -42,9 +50,9 @@ var lookups = [
     { name: "movk", inputs: 1, //TODO movN separate?
       instructions: [
           { name:"movik", pcChange: 2, legal: [i],
-            template: this.getConst("const") + "/*<0>*/.i = const;\n"},
+            template: getConst("constant") + "/*<0>*/.i = constant;\n"},
           { name:"movpk", pcChange: 2, legal: [p], stateChange: i,
-            template: this.getConst("const") + "/*<0>*/.i = const;\n"},
+            template: getConst("constant") + "/*<0>*/.i = constant;\n"},
           { name: "movpN", pcChange: 1, legal: [p],
             template: "/*<0>*/.p = NULL;\n"},
           { name: "moviN", pcChange: 1, legal: [i], stateChange : p,
@@ -54,13 +62,13 @@ var lookups = [
       instructions:[
           { name:"jsw", legal:[i],
             template :
-            this.getConst("tableSize") + //get value of table size using displacement
-            "if(/*<0>*/.i < 0) || /*<0>*/.i >= tableSize) {\n" +
-            this.getConst("defaultJump", "tableSize + 1") +   //tableSize gets us to one more than the elements in the table then + 1 to store tableSize's displacement
+            getConst("tableSize") + //get value of table size using displacement
+            "if(/*<0>*/.i < 0 || /*<0>*/.i >= tableSize) {\n" +
+            getConst("defaultJump", "tableSize + 1") +   //tableSize gets us to one more than the elements in the table then + 1 to store tableSize's displacement
             "pc += defaultJump;\n" + //not so sure on the details here but this is the gist of it
-            "{\n" +
+            "}\n" +
             "else {\n" +
-            this.getConst("jump", "/<*0*>/.i + 1") +
+            getConst("jump", "/<*0*>/.i + 1") +
             "pc += jump;\n " +//index into the table
             "}\n"
           }]},
@@ -107,8 +115,8 @@ Generator.prototype =
                     this.code += this.getLabel(inst.name, call);
                     //perform instruction for arguments
                     this.code += this.substituteIntoTemplate(call, inst.template);
-                    //change state code
-                    this.code += this.setTagAndChangeState(call);
+                    //change state and Tag
+                    this.code += this.substituteIntoTemplate(call, this.setTagAndChangeState(call, inst));
                     //update pc
                     this.code += this.changePC(inst.pcChange);
                     //goto next instruction
@@ -165,14 +173,7 @@ Generator.prototype =
                 }
             }
             return call;
-        },
-
-        getConst: function(name, offset)
-        {
-            var offst = offset || 1; //this is fine since 0 is not valid anyway
-            var getConst = "int16_t displacement" + name +" = program[pc + "+ offst +"];\n" +
-                    "int64_t " + name + " = *((int64_t*)(&program[pc + displacement" + name + "]);\n";
-        },
+        },       
 
         //TODO: Generalize this if you want more types
         //TODO: Needs to be edited to support ANSI C. The prefix 0b for binary
@@ -191,12 +192,12 @@ Generator.prototype =
                 if (inst.stateChange === 0)
                 {
                     maskString = "111111";
-                    maskString = "fp & 0b" + maskString.slice(0, changedBitIndex) + "0" + maskString.slice(changedBitIndex + 1);
+                    maskString = "ts = ts & 0b" + maskString.slice(0, changedBitIndex) + "0" + maskString.slice(changedBitIndex + 1);
                 }
                 else
                 {
                     maskString = "000000";                    
-                    maskString = "fp | 0b" + maskString.slice(0, changedBitIndex) + "1" + maskString.slice(changedBitIndex + 1);
+                    maskString = "ts = ts | 0b" + maskString.slice(0, changedBitIndex) + "1" + maskString.slice(changedBitIndex + 1);
                 }
 
                 //Set the Tag and edit the state
