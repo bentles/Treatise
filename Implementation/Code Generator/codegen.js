@@ -62,13 +62,13 @@ var lookups = [
       instructions:[
           { name:"jsw", legal:[i],
             template :
-            getConst("tableSize") + //get value of table size using displacement
+            "tableSize = program[pc + 1];\n" +
             "if(/*<0>*/.i < 0 || /*<0>*/.i >= tableSize) {\n" +
-            getConst("defaultJump", "tableSize + 2") +   //tableSize gets us to one more than the elements in the table then + 1 to store tableSize's displacement
-            "pc += defaultJump;\n" + //not so sure on the details here but this is the gist of it
+            "defaultJump = program[pc + tableSize + 2];\n" +   //tableSize gets us to one more than the elements in the table then + 1 to store tableSize's displacement
+            "pc += defaultJump;\n" + 
             "}\n" +
             "else {\n" +
-            getConst("jump", "/<*0*>/.i + 2") +
+            "jump = program[pc + /<*0*>/.i + 2];\n" +
             "pc += jump;\n " +//index into the table
             "}\n"
           }]},
@@ -176,8 +176,7 @@ Generator.prototype =
         },       
 
         //TODO: Generalize this if you want more types
-        //TODO: Needs to be edited to support ANSI C. The prefix 0b for binary
-        //is a GNU extension
+        //The prefix 0b for binary is a GNU extension
         //Apparently anything cool in C is a GNU extension
         setTagAndChangeState : function(call, inst) {
             if (inst.stateChange === undefined)
@@ -187,21 +186,23 @@ Generator.prototype =
                 //destination address is call[0]
                 var changedBitIndex = call[0];
                 var maskString = ""; //not really a bitmask
+                var hexMask = "";
 
-                //To change state to a 1 use something like 0010
                 if (inst.stateChange === 0)
                 {
                     maskString = "111111";
-                    maskString = "ts = ts & 0b" + maskString.slice(0, changedBitIndex) + "0" + maskString.slice(changedBitIndex + 1);
+                    maskString = maskString.slice(0, changedBitIndex) + "0" + maskString.slice(changedBitIndex + 1) + "00000000000";
+                    hexMask += "ts &= 0x" + parseInt(maskString, 2).toString(16) ;
                 }
                 else
                 {
                     maskString = "000000";                    
-                    maskString = "ts = ts | 0b" + maskString.slice(0, changedBitIndex) + "1" + maskString.slice(changedBitIndex + 1);
+                    maskString = maskString.slice(0, changedBitIndex) + "1" + maskString.slice(changedBitIndex + 1) + "00000000000";
+                    hexMask += "ts |= 0x" + parseInt(maskString, 2).toString(16) ;
                 }
 
                 //Set the Tag and edit the state
-                return this.getTagSetCode(inst.stateChange) + maskString + "00000000000;\n";
+                return this.getTagSetCode(inst.stateChange) + hexMask +" //0b" + maskString +"\n";
             }                             
         },
 
