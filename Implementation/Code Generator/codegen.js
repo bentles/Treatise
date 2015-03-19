@@ -64,7 +64,7 @@ var lookups = [
             template :
             getConst("tableSize") + //get value of table size using displacement
             "if(/*<0>*/.i < 0 || /*<0>*/.i >= tableSize) {\n" +
-            getConst("defaultJump", "tableSize + 1") +   //tableSize gets us to one more than the elements in the table then + 1 to store tableSize's displacement
+            getConst("defaultJump", "tableSize + 2") +   //tableSize gets us to one more than the elements in the table then + 1 to store tableSize's displacement
             "pc += defaultJump;\n" + //not so sure on the details here but this is the gist of it
             "}\n" +
             "else {\n" +

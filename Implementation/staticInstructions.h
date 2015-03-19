@@ -1304,12 +1304,12 @@ jsw_0:
 int16_t dtableSize = program[pc + 1];
 int64_t tableSize = *((int64_t*)(&program[pc + dtableSize]));
 if(g[0].i < 0 || g[0].i >= tableSize) {
-    int16_t ddefaultJump = program[pc + tableSize + 1];
+    int16_t ddefaultJump = program[pc + tableSize + 2];
     int64_t defaultJump = *((int64_t*)(&program[pc + ddefaultJump]));
     pc += defaultJump;
 }
 else {
-    int16_t djump = program[pc + /<*0*>/.i + 1];
+    int16_t djump = program[pc + /<*0*>/.i + 2];
     int64_t jump = *((int64_t*)(&program[pc + djump]));
     pc += jump;
 }
@@ -1319,12 +1319,12 @@ jsw_1:
 int16_t dtableSize = program[pc + 1];
 int64_t tableSize = *((int64_t*)(&program[pc + dtableSize]));
 if(g[1].i < 0 || g[1].i >= tableSize) {
-    int16_t ddefaultJump = program[pc + tableSize + 1];
+    int16_t ddefaultJump = program[pc + tableSize + 2];
     int64_t defaultJump = *((int64_t*)(&program[pc + ddefaultJump]));
     pc += defaultJump;
 }
 else {
-    int16_t djump = program[pc + /<*0*>/.i + 1];
+    int16_t djump = program[pc + /<*0*>/.i + 2];
     int64_t jump = *((int64_t*)(&program[pc + djump]));
     pc += jump;
 }
@@ -1334,12 +1334,12 @@ jsw_2:
 int16_t dtableSize = program[pc + 1];
 int64_t tableSize = *((int64_t*)(&program[pc + dtableSize]));
 if(g[2].i < 0 || g[2].i >= tableSize) {
-    int16_t ddefaultJump = program[pc + tableSize + 1];
+    int16_t ddefaultJump = program[pc + tableSize + 2];
     int64_t defaultJump = *((int64_t*)(&program[pc + ddefaultJump]));
     pc += defaultJump;
 }
 else {
-    int16_t djump = program[pc + /<*0*>/.i + 1];
+    int16_t djump = program[pc + /<*0*>/.i + 2];
     int64_t jump = *((int64_t*)(&program[pc + djump]));
     pc += jump;
 }
@@ -1349,12 +1349,12 @@ jsw_3:
 int16_t dtableSize = program[pc + 1];
 int64_t tableSize = *((int64_t*)(&program[pc + dtableSize]));
 if(g[3].i < 0 || g[3].i >= tableSize) {
-    int16_t ddefaultJump = program[pc + tableSize + 1];
+    int16_t ddefaultJump = program[pc + tableSize + 2];
     int64_t defaultJump = *((int64_t*)(&program[pc + ddefaultJump]));
     pc += defaultJump;
 }
 else {
-    int16_t djump = program[pc + /<*0*>/.i + 1];
+    int16_t djump = program[pc + /<*0*>/.i + 2];
     int64_t jump = *((int64_t*)(&program[pc + djump]));
     pc += jump;
 }
@@ -1364,12 +1364,12 @@ jsw_4:
 int16_t dtableSize = program[pc + 1];
 int64_t tableSize = *((int64_t*)(&program[pc + dtableSize]));
 if(g[4].i < 0 || g[4].i >= tableSize) {
-    int16_t ddefaultJump = program[pc + tableSize + 1];
+    int16_t ddefaultJump = program[pc + tableSize + 2];
     int64_t defaultJump = *((int64_t*)(&program[pc + ddefaultJump]));
     pc += defaultJump;
 }
 else {
-    int16_t djump = program[pc + /<*0*>/.i + 1];
+    int16_t djump = program[pc + /<*0*>/.i + 2];
     int64_t jump = *((int64_t*)(&program[pc + djump]));
     pc += jump;
 }
@@ -1379,12 +1379,12 @@ jsw_5:
 int16_t dtableSize = program[pc + 1];
 int64_t tableSize = *((int64_t*)(&program[pc + dtableSize]));
 if(g[5].i < 0 || g[5].i >= tableSize) {
-    int16_t ddefaultJump = program[pc + tableSize + 1];
+    int16_t ddefaultJump = program[pc + tableSize + 2];
     int64_t defaultJump = *((int64_t*)(&program[pc + ddefaultJump]));
     pc += defaultJump;
 }
 else {
-    int16_t djump = program[pc + /<*0*>/.i + 1];
+    int16_t djump = program[pc + /<*0*>/.i + 2];
     int64_t jump = *((int64_t*)(&program[pc + djump]));
     pc += jump;
 }
