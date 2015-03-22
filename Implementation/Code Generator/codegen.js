@@ -13,6 +13,12 @@ function getConst(name, offset)
             "int64_t " + name + " = *((int64_t*)(&program[pc + d" + name + "]));\n";
 }
 
+//exceptions
+function TypeException(name) { 
+   this.message = "A constant called " + name + " is already defined and has a different type";
+   this.name = "TypeException";
+}
+
 var lookups = [
     { name:"add", inputs: 2,
       instructions:[
@@ -22,7 +28,7 @@ var lookups = [
     { name:"addk", inputs: 1,
       instructions:[
           { name:"addik", pcChange: 2, legal: [i],
-            template:
+            template: 
             getConst("constant") + "/*<0>*/.i = /*<0>*/.i + constant;\n"}]},
     
     { name: "sub", inputs: 2, callCondition: differentRegisters,
@@ -62,13 +68,13 @@ var lookups = [
       instructions:[
           { name:"jsw", legal:[i],
             template :
-            "tableSize = program[pc + 1];\n" +
+            "int16_t tableSize = program[pc + 1];\n" +
             "if(/*<0>*/.i < 0 || /*<0>*/.i >= tableSize) {\n" +
             "defaultJump = program[pc + tableSize + 2];\n" +   //tableSize gets us to one more than the elements in the table then + 1 to store tableSize's displacement
             "pc += defaultJump;\n" + 
             "}\n" +
             "else {\n" +
-            "jump = program[pc + /<*0*>/.i + 2];\n" +
+            "jump = program[pc + /*<0>*/.i + 2];\n" +
             "pc += jump;\n " +//index into the table
             "}\n"
           }]},
@@ -77,17 +83,31 @@ var lookups = [
 var numtypes = 2;
 var numregisters = 6;
 
-//All powerful generator
-function Generator(lookup, numregisters, numtypes)
+function Generator(lookups, numregisters, numtypes)
 {
+    var instGenerators = [];
+    lookups.forEach(
+        function(lookup){
+            var instGen = new InstructionGenerator(lookup, numregisters, numtypes);
+            instGenerators.push(instGen);
+            instGen.generate();
+        }, this);
+}
+
+//All powerful generator
+function InstructionGenerator(lookup, numregisters, numtypes)
+{
+    this.goto = "goto *dynOpcodes[ts + program[pc]];\n\n";
+    
     this.numtypes = numtypes;
     this.numregisters = numregisters;
-    this.numstates = Math.pow(numtypes, numregisters);
+    this.numstates = Math.pow(numtypes, numregisters);    
     this.lookup = lookup;
+    
+    this.constants = {};
     this.code = "";
     this.states = this.getAllStates();
     this.callables = this.getAllCallables();
-    this.goto = "goto *dynOpcodes[ts + program[pc]];\n\n";
     
     var size = this.states.length * this.callables.length;
     this.lookuptable = new Array(size);
@@ -134,7 +154,7 @@ Generator.prototype =
                 }, this);
                 
             }, this);
-        },
+        },      
 
         getAllCallables : function()
         {
@@ -173,7 +193,17 @@ Generator.prototype =
                 }
             }
             return call;
-        },       
+        },
+
+        saveConstant: function(name, type)
+        {
+            if (!this.constants[name])
+                this.constants[name] = type;
+            else if (this.constants[name] !== type)
+                throw new TypeException(name);
+
+            return name;
+        },
 
         //TODO: Generalize this if you want more types
         //The prefix 0b for binary is a GNU extension
@@ -202,7 +232,7 @@ Generator.prototype =
                 }
 
                 //Set the Tag and edit the state
-                return this.getTagSetCode(inst.stateChange) + hexMask +" //0b" + maskString +"\n";
+                return this.getTagSetCode(inst.stateChange) + hexMask +"; //0b" + maskString +"\n";
             }                             
         },
 
@@ -250,7 +280,7 @@ Generator.prototype =
 
         getLabel: function(name, call)
         {
-            return this.getStaticInstructionName(name,call) + ":\n";
+            return this.getStaticInstructionName(name,call) + ":;\n"; //does this get compiled to NOP or no instruction? 
         },
 
         //returns the name of a legal instruction based on register types

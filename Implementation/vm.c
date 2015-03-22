@@ -46,7 +46,7 @@ int main()
 	//[state : 6 bits][opcode : 11 bits] => the table has 2^17 = 131072
 	//elements
 	static void *dynOpcodes[] = {
-      #include dynamicOpcodes.h
+      #include "dynamicOpcodes.h"
     };
     int16_t program[2000];
 
@@ -59,7 +59,7 @@ add0_0:
     pc += 2;
     goto *dynOpcodes[ts + program[pc]]; */    
 
-#include staticInstructions.h
+#include "staticInstructions.h"
     
 error:
     printf("Something went wrong: Illegal arguments |");

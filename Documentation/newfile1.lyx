@@ -655,8 +655,9 @@ Risks
 \begin_layout Paragraph
 The risks of the project are mainly about its structure and how it can be
  criticised.
- The VM will be running predefined benchmarks so there if it performs those
- well at the expense of its general usefulness the project can be criticised.
+ The VM will be running predefined benchmarks.
+ If it performs those well at the expense of its general usefulness the
+ project can be criticised.
  All of these sorts of criticisms can be mitigated so long as the goal of
  the project is kept in mind at all times.
  Learning as much as possible about how well the idea works should always
@@ -692,12 +693,30 @@ Modern Processor Architecture
 In order to create an efficient VM, we need first understand how modern
  processors work and what some of the bottlenecks for our VM's execution
  might be.
- Threading techniques are commonly used in VM design.
- These take advantage of the Branch Target Buffer or BTB in modern processors.
- First we shall examine pipelining as a means to a discussion about branch
- prediction.
- This in turn will allow us to discuss different threading techniques that
- take advantage of branch prediction in modern processors.
+ For example, 
+\emph on
+threading techniques
+\emph default
+ (not to be confused with threads in application programming) are commonly
+ used in VM design.
+ These take advantage of a feature of modern processors called the 
+\emph on
+Branch Target Buffer
+\emph default
+ or BTB.
+ The BTB exists to aid a process called 
+\emph on
+branch prediction
+\emph default
+.
+ Branch prediction itself can only be explained once we know about how modern
+ processors make use of 
+\emph on
+pipelining
+\emph default
+ to increase their throughput.
+ As you can see, an understanding of modern computer architectures is needed
+ before we can begin a discussion of VM design.
 \end_layout
 
 \begin_layout Subsubsection
@@ -707,19 +726,66 @@ Pipelining
 \begin_layout Paragraph
 Pipelining is a process in which a processor's instruction processing cycle
  is shared by many consecutive instructions at once.
- The instruction processing procedure is split up into smaller steps that
+ The instruction processing procedure is split up into smaller stages that
  can execute simultaneously.
- Instructions are processed in these steps.
+ A common abstraction is to divide instruction processing into the following
+ steps: Instruction Fetch (IF), Decode (ID), Execute(EX), Memory Access
+ (MEM) and Writeback(WB).
  Each instruction passes a stage and leaves that part of the processor free
  to perform that stage on the next instruction.
  Thus many instructions (as many as there are stages) can be processed at
  once, instead of each instruction having to be completely processed before
  the processor is free to move onto the next instruction.
  The process is analogous to an asssembly line, where many cars can be assembled
- at the same time, each in a different stage of assembly.
- Each completed stage allows space for the next vehicle in the chain which
+ at the same time, with each in a different stage of assembly.
+ Each completed stage allows space for the next vehicle in the line which
  is ready for that stage.
- Simlarly the instructions are each in different stages of being processed.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename pipeline.png
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+In 
+\emph on
+fig1
+\emph default
+ we see that the first instruction as currently performing Memory Access
+ while the second Executes and the third is being Decoded.
+ Up to 5 instructions can be processed simultaneously.
 \end_layout
 
 \begin_layout Paragraph
@@ -727,8 +793,11 @@ When pipelining an interesting situation occurs in the case of flow control
  instructions.
  These are instructions that cause execution to move to some other point
  in the program.
- The point at which we know where to jump is usually several stages into
- the pipeline.
+ The point at which we know which instruction comes next (called 
+\emph on
+branch resolution
+\emph default
+) is usually later in the pipeline.
  Thus the processor cannot queue up the next instruction as it does not
  know which instruction will execute next.
  Branch prediction is used in modern processors to try to keep the pipeline
@@ -741,23 +810,139 @@ Branch Prediction
 \end_layout
 
 \begin_layout Paragraph
-Instead of filling up the pipeline with no operation instructions, with
- branch prediction we guess which branch will be taken and place the instruction
-s from the predicted branch into the pipeline.
+Instead of filling up the pipeline with no operation instructions until
+ we know where to branch, with branch prediction we guess which branch will
+ be taken and place the instructions from the predicted branch into the
+ pipeline.
  When we know where the branch operation should have taken execution we
- either throw out our newly pipelined instructions if the prediction was
- incorrect or continue execution if it was correct.
- If the pipeline has many stages, correct predictions result in large performanc
-e benefits for programs with many control flow instructions.
+ either throw out our newly pipelined instructions (this is called 
+\emph on
+pipeline flushing
+\emph default
+) if the prediction was incorrect or continue execution if it was correct.
+ The more stages the pipeline has before branch resolution, the more of
+ a performance benefit correct predictions become for programs with many
+ control flow instructions.
  A Virtual Machine is such a program.
- Writing code that allows for increased branch prediction accuracy is very
- important for VM efficiency.
- Modern processors have a Branch Target Buffer where the adresses of targets
- of branches are stored.
+ This is because a VM must branch to the correct code for each instruction
+ it executes.
+ Writing code that allows for increased branch prediction accuracy is thus
+ very important for VM efficiency.
+ 
+\end_layout
+
+\begin_layout Paragraph
+Predicting a branch means we must predict if that branch is taken or not
+ and what the target of that branch is if it is taken.
+ Modern processors have a Branch Target Buffer where the target adresses
+ of previously taken branches are cached.
+\end_layout
+
+\begin_layout Subsubsection
+Dispatch and Threading
+\end_layout
+
+\begin_layout Paragraph
+Dispatch is the process of fetching, decoding and starting the next instruction
+ to be run by a virtual machine
+\end_layout
+
+\begin_layout Paragraph
+The simplest way to implement a virtual machine is to make use of a switch
+ statement in a loop.
+ This is called switch dispatch.
+ Here is a simplified version to illustrate:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+int pc = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+int program[] = {0, 1, 3, ...
+ };
+\end_layout
+
+\begin_layout Plain Layout
+
+while(true) {
+\end_layout
+
+\begin_layout Plain Layout
+
+	switch(program[pc++]) { 
+\end_layout
+
+\begin_layout Plain Layout
+
+		case 0: //ADD
+\end_layout
+
+\begin_layout Plain Layout
+
+			//ADD code
+\end_layout
+
+\begin_layout Plain Layout
+
+		break;
+\end_layout
+
+\begin_layout Plain Layout
+
+			...
+\end_layout
+
+\begin_layout Plain Layout
+
+	}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+This approach is problematic because the switch statement means that there
+ is only ever a single entry in the Branch Target Buffer.
+ This means that the number of mispredictions will be large as the target
+ of the branch will change for each new instruction we branch to.
+ This problem may even be magnified by the fact that this specific VM implementa
+tion has far more instructions than usual as it requires several specialised
+ versions of every instruction.
+\end_layout
+
+\begin_layout Paragraph
+Another technique is to make use of 
 \end_layout
 
 \begin_layout Subsubsection
 Caching
+\end_layout
+
+\begin_layout Paragraph
+sdfsdf
+\end_layout
+
+\begin_layout Subsubsection
+Indirect Threading
+\end_layout
+
+\begin_layout Paragraph
+asdasdasd
 \end_layout
 
 \begin_layout Subsection
