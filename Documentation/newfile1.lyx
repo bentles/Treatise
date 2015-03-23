@@ -552,7 +552,7 @@ key "RobertoIerusalimschy"
  A statically typed language is one in which the type information is associated
  with the variable.
  An example of this is java where variables are declared using keywords
- that declare their type (
+ that define their type (
 \emph on
 int
 \emph default
@@ -861,48 +861,197 @@ status open
 
 \begin_layout Plain Layout
 
-int pc = 0;
+typedef enum { add /* ...
+ */ } Inst; 
 \end_layout
 
 \begin_layout Plain Layout
 
-int program[] = {0, 1, 3, ...
- };
 \end_layout
 
 \begin_layout Plain Layout
 
-while(true) {
+void engine() 
 \end_layout
 
 \begin_layout Plain Layout
 
-	switch(program[pc++]) { 
+{ 
 \end_layout
 
 \begin_layout Plain Layout
 
-		case 0: //ADD
+	static Inst program[] = { add /* ...
+ */ }; 
 \end_layout
 
 \begin_layout Plain Layout
 
-			//ADD code
+	Inst *ip = program; 
 \end_layout
 
 \begin_layout Plain Layout
 
-		break;
+	int *sp; 
 \end_layout
 
 \begin_layout Plain Layout
 
-			...
+\end_layout
+
+\begin_layout Plain Layout
+
+	for (;;) 
+\end_layout
+
+\begin_layout Plain Layout
+
+		switch (*ip++) 
+\end_layout
+
+\begin_layout Plain Layout
+
+		{ 
+\end_layout
+
+\begin_layout Plain Layout
+
+		case add: 
+\end_layout
+
+\begin_layout Plain Layout
+
+			sp[1]=sp[0]+sp[1]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+			sp++; 
+\end_layout
+
+\begin_layout Plain Layout
+
+		break; 
+\end_layout
+
+\begin_layout Plain Layout
+
+		/* ...
+ */ 
 \end_layout
 
 \begin_layout Plain Layout
 
 	}
+\end_layout
+
+\begin_layout Plain Layout
+
+} [credit ertl and gregg]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+This approach is problematic because the switch statement means that there
+ is only ever a single entry in the Branch Target Buffer used for dispatch.
+ This means that the number of mispredictions will be large as the target
+ of the branch will change for each new instruction we branch to.
+ This problem may even be magnified by the fact that this specific VM implementa
+tion has far more instructions than usual as it requires several specialised
+ versions of every instruction.
+\end_layout
+
+\begin_layout Paragraph
+A faster alternative to switch dispatch [x] is direct threading.
+ The name threading comes from the idea of the execution threading its way
+ from one instruction to the next [x].
+ In direct threading the program is stored as a list of addresses of instruction
+s and the code for each instruction includes a dispatch portion which jumps
+ to the address of the next instruction to be executed.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+typedef void *Inst; 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void engine() 
+\end_layout
+
+\begin_layout Plain Layout
+
+{ 
+\end_layout
+
+\begin_layout Plain Layout
+
+	static Inst program[] = { &&add /* ...
+ */ }; 
+\end_layout
+
+\begin_layout Plain Layout
+
+	Inst *ip = program; 
+\end_layout
+
+\begin_layout Plain Layout
+
+	int *sp; 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	goto *ip++; /* dispatch first VM inst.
+ */ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+add: 
+\end_layout
+
+\begin_layout Plain Layout
+
+	sp[1]=sp[0]+sp[1]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+	sp++; 
+\end_layout
+
+\begin_layout Plain Layout
+
+	goto *ip++; /* dispatch next VM inst.
+ */ 
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -916,25 +1065,111 @@ while(true) {
 \end_layout
 
 \begin_layout Paragraph
-This approach is problematic because the switch statement means that there
- is only ever a single entry in the Branch Target Buffer.
- This means that the number of mispredictions will be large as the target
- of the branch will change for each new instruction we branch to.
- This problem may even be magnified by the fact that this specific VM implementa
-tion has far more instructions than usual as it requires several specialised
- versions of every instruction.
+Another method is indirect threading.
+ In indirect threading we keep a lookup table of the addresses of code for
+ each instruction and have each instruction jump to the next by reading
+ the opcode of the next instruction from the program, looking up the address
+ of the code for that instruction in the table and then jumping to that
+ instruction.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+typedef void *Inst; 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+void engine() 
+\end_layout
+
+\begin_layout Plain Layout
+
+{ 
+\end_layout
+
+\begin_layout Plain Layout
+
+	static Inst lookup[] = { &&add, &&sub /*...*/ }
+\end_layout
+
+\begin_layout Plain Layout
+
+	static int program[] = { 0, /* ...
+ */ }; 
+\end_layout
+
+\begin_layout Plain Layout
+
+	int *ip = program; 
+\end_layout
+
+\begin_layout Plain Layout
+
+	int *sp; 
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\end_layout
+
+\begin_layout Plain Layout
+
+	goto *ip++; /* dispatch first VM inst.
+ */ 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+add: 
+\end_layout
+
+\begin_layout Plain Layout
+
+	sp[1]=sp[0]+sp[1]; 
+\end_layout
+
+\begin_layout Plain Layout
+
+	sp++; 
+\end_layout
+
+\begin_layout Plain Layout
+
+	goto lookup[*ip++]; /* dispatch next VM inst.
+ */ 
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Paragraph
-Another technique is to make use of 
-\end_layout
-
-\begin_layout Subsubsection
-Caching
-\end_layout
-
-\begin_layout Paragraph
-sdfsdf
+Direct and inderect threading make much better use of the branch target
+ buffer.
+ Instead of a single entry in the BTB, with direct threading we have an
+ entry per instruction, so instructions that commonly follow each other
+ have a better chance of being predicted [x].
 \end_layout
 
 \begin_layout Subsubsection
@@ -942,7 +1177,30 @@ Indirect Threading
 \end_layout
 
 \begin_layout Paragraph
-asdasdasd
+This VM will make use of indirect threading.
+ Though indirect threading is slower than direct threading [x] because it
+ must first complete the lookup step before it can branch to the next instructio
+n, the program code used by the VM is intended to be shared by many instances
+ of the VM.
+ This cannot be achieved with direct threading as the addresses of each
+ instruction in each instance may be different [????].
+ With the lookup table we can share the code in its opcode form and perform
+ the correct jumps for each instance of the VM by looking up the addresses
+ in the lookup table.
+\end_layout
+
+\begin_layout Subsubsection
+Finite State Space
+\end_layout
+
+\begin_layout Paragraph
+The virtual machine makes use of a finite state space that keeps track of
+ type of each register in the 
+\end_layout
+
+\begin_layout Paragraph
+The finite state space of the machine may help improve the speed of the
+ VM by allowing us to tell
 \end_layout
 
 \begin_layout Subsection
@@ -987,10 +1245,32 @@ key "Shi2007"
 \end_layout
 
 \begin_layout Subsubsection
-Threading
+JIT Compilation
 \end_layout
 
 \begin_layout Paragraph
+Both the JVM and CLR make use of JIT compilation [x].
+ JIT compilation allows for code that is executed often enough to be compiled
+ into native machine code.
+ With JIT compilation, the bytecode of a many instance application is not
+ shared because each instance is run and compiled differently by the JIT
+ compiler depending on how it is profiled[????].
+ The implications of this are that the same bytecode must be loaded into
+ memory for each instance of the application.
+ [Does this mean we lose Caching benefits?].
+ With a strictly interpreted bytecode we can restore the benefits of sharing
+ code.
+\end_layout
+
+\begin_layout Subsubsection
+Argument Type Checking
+\end_layout
+
+\begin_layout Subsection
+Reseach Ertl and Gregg
+\end_layout
+
+\begin_layout Subsubsection
 \begin_inset Newpage newpage
 \end_inset
 
