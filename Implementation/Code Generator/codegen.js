@@ -143,6 +143,7 @@ var lookups = [
           }]},
 
     //TODO: check pointer eq
+    //TODO: consolidate caft1-4
     { name: "cab", inputs: 2, callCondition: differentRegisters,
       instructions:[
           { name:"cabii", legal:[i,i],
@@ -160,11 +161,33 @@ var lookups = [
             "pc += program[pc + 2];\n" +
             "else\n" +
             "pc += program[pc + 4];\n" },
-          { name:"cabpi", pcChange: 5, legal:[p,i]},
-          { name:"cabip", pcChange: 5, legal:[i,p]}]},
+          { name:"cabft1", pcChange: 5, legal:[p,i]},
+          { name:"cabft2", pcChange: 5, legal:[i,p]}]},
 
-    
-    
+    { name: "cabk", inputs: 1, callCondition: differentRegisters,
+      instructions:[
+          { name:"cabik", legal:[i],
+            template :
+            getConst("constant") +
+            "if (/*<0>*/.i < constant)\n" +
+            "pc += program[pc + 2];\n" +
+            "else if(/*<0>*/.i == constant)\n" +
+            "pc += program[pc + 3];\n" +
+            "else\n" +
+            "pc += program[pc + 4];\n" 
+          }, 
+          { name:"cabft3", pcChange: 5, legal:[p]}]},
+
+    { name: "cabN", inputs: 1, callCondition: differentRegisters,
+      instructions:[
+          { name:"cabpN", legal:[i],
+            template :
+            "if (/*<0>*/.i == NULL)\n" +
+            "pc += program[pc + 2];\n" +
+            "else\n" +
+            "pc += program[pc + 3];\n" 
+          },
+          { name:"cabft4", pcChange: 5, legal:[i]}]}   
 ];
 
 var numtypes = 2;

@@ -4312,420 +4312,648 @@ cabpp_5_4:
 }
 break;
 
-cabpi_0_1:
+cabft1_0_1:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabpi_0_2:
+cabft1_0_2:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabpi_0_3:
+cabft1_0_3:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabpi_0_4:
+cabft1_0_4:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabpi_0_5:
+cabft1_0_5:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabpi_1_0:
+cabft1_1_0:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabpi_1_2:
+cabft1_1_2:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabpi_1_3:
+cabft1_1_3:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabpi_1_4:
+cabft1_1_4:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabpi_1_5:
+cabft1_1_5:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabpi_2_0:
+cabft1_2_0:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabpi_2_1:
+cabft1_2_1:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabpi_2_3:
+cabft1_2_3:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabpi_2_4:
+cabft1_2_4:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabpi_2_5:
+cabft1_2_5:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabpi_3_0:
+cabft1_3_0:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabpi_3_1:
+cabft1_3_1:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabpi_3_2:
+cabft1_3_2:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabpi_3_4:
+cabft1_3_4:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabpi_3_5:
+cabft1_3_5:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabpi_4_0:
+cabft1_4_0:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabpi_4_1:
+cabft1_4_1:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabpi_4_2:
+cabft1_4_2:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabpi_4_3:
+cabft1_4_3:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabpi_4_5:
+cabft1_4_5:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabpi_5_0:
+cabft1_5_0:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabpi_5_1:
+cabft1_5_1:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabpi_5_2:
+cabft1_5_2:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabpi_5_3:
+cabft1_5_3:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabpi_5_4:
+cabft1_5_4:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabip_0_1:
+cabft2_0_1:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabip_0_2:
+cabft2_0_2:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabip_0_3:
+cabft2_0_3:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabip_0_4:
+cabft2_0_4:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabip_0_5:
+cabft2_0_5:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabip_1_0:
+cabft2_1_0:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabip_1_2:
+cabft2_1_2:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabip_1_3:
+cabft2_1_3:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabip_1_4:
+cabft2_1_4:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabip_1_5:
+cabft2_1_5:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabip_2_0:
+cabft2_2_0:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabip_2_1:
+cabft2_2_1:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabip_2_3:
+cabft2_2_3:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabip_2_4:
+cabft2_2_4:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabip_2_5:
+cabft2_2_5:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabip_3_0:
+cabft2_3_0:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabip_3_1:
+cabft2_3_1:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabip_3_2:
+cabft2_3_2:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabip_3_4:
+cabft2_3_4:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabip_3_5:
+cabft2_3_5:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabip_4_0:
+cabft2_4_0:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabip_4_1:
+cabft2_4_1:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabip_4_2:
+cabft2_4_2:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabip_4_3:
+cabft2_4_3:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabip_4_5:
+cabft2_4_5:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabip_5_0:
+cabft2_5_0:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabip_5_1:
+cabft2_5_1:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabip_5_2:
+cabft2_5_2:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabip_5_3:
+cabft2_5_3:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
 }
 break;
 
-cabip_5_4:
+cabft2_5_4:
+{
+    pc += 5;
+    goto *dynOpcodes[ts + program[pc]];
+}
+break;
+
+cabik_0:
+{
+    int16_t dconstant = program[pc + 1];
+    int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+    if (g[0].i < constant)
+        pc += program[pc + 2];
+    else if(g[0].i == constant)
+        pc += program[pc + 3];
+    else
+        pc += program[pc + 4];
+    goto *dynOpcodes[ts + program[pc]];
+}
+break;
+
+cabik_1:
+{
+    int16_t dconstant = program[pc + 1];
+    int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+    if (g[1].i < constant)
+        pc += program[pc + 2];
+    else if(g[1].i == constant)
+        pc += program[pc + 3];
+    else
+        pc += program[pc + 4];
+    goto *dynOpcodes[ts + program[pc]];
+}
+break;
+
+cabik_2:
+{
+    int16_t dconstant = program[pc + 1];
+    int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+    if (g[2].i < constant)
+        pc += program[pc + 2];
+    else if(g[2].i == constant)
+        pc += program[pc + 3];
+    else
+        pc += program[pc + 4];
+    goto *dynOpcodes[ts + program[pc]];
+}
+break;
+
+cabik_3:
+{
+    int16_t dconstant = program[pc + 1];
+    int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+    if (g[3].i < constant)
+        pc += program[pc + 2];
+    else if(g[3].i == constant)
+        pc += program[pc + 3];
+    else
+        pc += program[pc + 4];
+    goto *dynOpcodes[ts + program[pc]];
+}
+break;
+
+cabik_4:
+{
+    int16_t dconstant = program[pc + 1];
+    int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+    if (g[4].i < constant)
+        pc += program[pc + 2];
+    else if(g[4].i == constant)
+        pc += program[pc + 3];
+    else
+        pc += program[pc + 4];
+    goto *dynOpcodes[ts + program[pc]];
+}
+break;
+
+cabik_5:
+{
+    int16_t dconstant = program[pc + 1];
+    int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+    if (g[5].i < constant)
+        pc += program[pc + 2];
+    else if(g[5].i == constant)
+        pc += program[pc + 3];
+    else
+        pc += program[pc + 4];
+    goto *dynOpcodes[ts + program[pc]];
+}
+break;
+
+cabft3_0:
+{
+    pc += 5;
+    goto *dynOpcodes[ts + program[pc]];
+}
+break;
+
+cabft3_1:
+{
+    pc += 5;
+    goto *dynOpcodes[ts + program[pc]];
+}
+break;
+
+cabft3_2:
+{
+    pc += 5;
+    goto *dynOpcodes[ts + program[pc]];
+}
+break;
+
+cabft3_3:
+{
+    pc += 5;
+    goto *dynOpcodes[ts + program[pc]];
+}
+break;
+
+cabft3_4:
+{
+    pc += 5;
+    goto *dynOpcodes[ts + program[pc]];
+}
+break;
+
+cabft3_5:
+{
+    pc += 5;
+    goto *dynOpcodes[ts + program[pc]];
+}
+break;
+
+cabpN_0:
+{
+    if (g[0].i == NULL)
+        pc += program[pc + 2];
+    else
+        pc += program[pc + 3];
+    goto *dynOpcodes[ts + program[pc]];
+}
+break;
+
+cabpN_1:
+{
+    if (g[1].i == NULL)
+        pc += program[pc + 2];
+    else
+        pc += program[pc + 3];
+    goto *dynOpcodes[ts + program[pc]];
+}
+break;
+
+cabpN_2:
+{
+    if (g[2].i == NULL)
+        pc += program[pc + 2];
+    else
+        pc += program[pc + 3];
+    goto *dynOpcodes[ts + program[pc]];
+}
+break;
+
+cabpN_3:
+{
+    if (g[3].i == NULL)
+        pc += program[pc + 2];
+    else
+        pc += program[pc + 3];
+    goto *dynOpcodes[ts + program[pc]];
+}
+break;
+
+cabpN_4:
+{
+    if (g[4].i == NULL)
+        pc += program[pc + 2];
+    else
+        pc += program[pc + 3];
+    goto *dynOpcodes[ts + program[pc]];
+}
+break;
+
+cabpN_5:
+{
+    if (g[5].i == NULL)
+        pc += program[pc + 2];
+    else
+        pc += program[pc + 3];
+    goto *dynOpcodes[ts + program[pc]];
+}
+break;
+
+cabft4_0:
+{
+    pc += 5;
+    goto *dynOpcodes[ts + program[pc]];
+}
+break;
+
+cabft4_1:
+{
+    pc += 5;
+    goto *dynOpcodes[ts + program[pc]];
+}
+break;
+
+cabft4_2:
+{
+    pc += 5;
+    goto *dynOpcodes[ts + program[pc]];
+}
+break;
+
+cabft4_3:
+{
+    pc += 5;
+    goto *dynOpcodes[ts + program[pc]];
+}
+break;
+
+cabft4_4:
+{
+    pc += 5;
+    goto *dynOpcodes[ts + program[pc]];
+}
+break;
+
+cabft4_5:
 {
     pc += 5;
     goto *dynOpcodes[ts + program[pc]];
