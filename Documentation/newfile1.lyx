@@ -1252,9 +1252,9 @@ JIT Compilation
 Both the JVM and CLR make use of JIT compilation [x].
  JIT compilation allows for code that is executed often enough to be compiled
  into native machine code.
- With JIT compilation, the bytecode of a many instance application is not
- shared because each instance is run and compiled differently by the JIT
- compiler depending on how it is profiled[????].
+ With JIT compilation, the bytecode of a many instance application can be
+ shared but each instance of the application is JIT compiling that code
+ and .
  The implications of this are that the same bytecode must be loaded into
  memory for each instance of the application.
  [Does this mean we lose Caching benefits?].
@@ -1267,7 +1267,7 @@ Argument Type Checking
 \end_layout
 
 \begin_layout Subsection
-Reseach Ertl and Gregg
+VM Interpreter Reseach (Mostly by Ertl and Gregg)
 \end_layout
 
 \begin_layout Subsubsection

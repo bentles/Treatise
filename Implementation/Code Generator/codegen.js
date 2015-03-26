@@ -13,34 +13,97 @@ function getConst(name, offset)
             "int64_t " + name + " = *((int64_t*)(&program[pc + d" + name + "]));\n";
 }
 
-//exceptions
-function TypeException(name) { 
-   this.message = "A constant called " + name + " is already defined and has a different type";
-   this.name = "TypeException";
-}
-
 var lookups = [
     { name:"add", inputs: 2,
       instructions:[
-          { name:"add", pcChange: 1, legal:[i,i],
-            template : "/*<0>*/.i = /*<0>*/.i + /*<1>*/.i;\n"}]},
+          { name:"addii", pcChange: 1, legal:[i,i],
+            template : "/*<0>*/.i += /*<1>*/.i;\n"}]},
     
     { name:"addk", inputs: 1,
       instructions:[
           { name:"addik", pcChange: 2, legal: [i],
             template: 
-            getConst("constant") + "/*<0>*/.i = /*<0>*/.i + constant;\n"}]},
+            getConst("constant") + "/*<0>*/.i += constant;\n"}]},
     
     { name: "sub", inputs: 2, callCondition: differentRegisters,
       instructions:[
-          { name:"sub", pcChange: 1, legal:[i,i],
-            template : "/*<0>*/.i = /*<0>*/.i - /*<1>*/.i;\n"}]},
+          { name:"subii", pcChange: 1, legal:[i,i],
+            template : "/*<0>*/.i -= /*<1>*/.i;\n"}]},
     
-    { name:"subk", inputs: 1,
+    { name:"ksub", inputs: 1,
       instructions:[
           { name:"subki", pcChange: 2, legal: [i],
             template:
             getConst("constant") + "/*<0>*/.i = constant - /*<0>*/.i;\n"}]},
+
+     { name: "or", inputs: 2, callCondition: differentRegisters,
+      instructions:[
+          { name:"orii", pcChange: 1, legal:[i,i],
+            template : "/*<0>*/.i |= /*<1>*/.i;\n"}]},
+    
+    { name:"ork", inputs: 1,
+      instructions:[
+          { name:"orki", pcChange: 2, legal: [i],
+            template:
+            getConst("constant") + "/*<0>*/.i |= constant\n"}]},
+
+    
+     { name: "xor", inputs: 2, callCondition: differentRegisters,
+      instructions:[
+          { name:"xorii", pcChange: 1, legal:[i,i],
+            template : "/*<0>*/.i ^= /*<1>*/.i;\n"}]},
+    
+    { name: "shl", inputs: 2, callCondition: differentRegisters,
+      instructions:[
+          { name:"shlii", pcChange: 1, legal:[i,i],
+            template : "/*<0>*/.i <<= /*<1>*/.i;\n"}]},
+    
+    { name:"shlk", inputs: 1,
+      instructions:[
+          { name:"shlik", pcChange: 2, legal: [i],
+            template:
+            getConst("constant") + "/*<0>*/.i <<= constant"}]},    
+
+    { name:"kshl", inputs: 1,
+      instructions:[
+          { name:"shlki", pcChange: 2, legal: [i],
+            template:
+            getConst("constant") + "/*<0>*/.i = constant << /*<0>*/.i"}]},
+
+    //TODO: NB must test this
+    { name: "shr", inputs: 2, callCondition: differentRegisters,
+      instructions:[
+          { name:"shrii", pcChange: 1, legal:[i,i],
+            template : "/*<0>*/.i = (uint64_t)/*<0>*/.i >> /*<1>*/.i;\n"}]},
+    
+    { name:"shrk", inputs: 1,
+      instructions:[
+          { name:"shrik", pcChange: 2, legal: [i],
+            template:
+            getConst("constant") + "/*<0>*/.i = (uint64_t)/*<0>*/.i >> constant;\n"}]},    
+
+    { name:"kshr", inputs: 1,
+      instructions:[
+          { name:"shrki", pcChange: 2, legal: [i],
+            template:
+            getConst("constant") + "/*<0>*/.i = (uint64_t)constant >> /*<1>*/.i;\n"}]},
+
+    { name: "sar", inputs: 2, callCondition: differentRegisters,
+      instructions:[
+          { name:"sarii", pcChange: 1, legal:[i,i],
+            template : "/*<0>*/.i >>= /*<1>*/.i;\n"}]},
+    
+    { name:"sark", inputs: 1,
+      instructions:[
+          { name:"sarik", pcChange: 2, legal: [i],
+            template:
+            getConst("constant") + "/*<0>*/.i >>= constant"}]},    
+
+    { name:"ksar", inputs: 1,
+      instructions:[
+          { name:"sarik", pcChange: 2, legal: [i],
+            template:
+            getConst("constant") + "/*<0>*/.i = constant >> /*<0>*/.i"}]},    
     
     { name: "mov", inputs:2, callCondition: differentRegisters,
       instructions: [
@@ -70,14 +133,38 @@ var lookups = [
             template :
             "int16_t tableSize = program[pc + 1];\n" +
             "if(/*<0>*/.i < 0 || /*<0>*/.i >= tableSize) {\n" +
-            "defaultJump = program[pc + tableSize + 2];\n" +   //tableSize gets us to one more than the elements in the table then + 1 to store tableSize's displacement
+            "int16_t defaultJump = program[pc + tableSize + 2];\n" +   //tableSize gets us to one more than the elements in the table then + 1 to store tableSize's displacement
             "pc += defaultJump;\n" + 
             "}\n" +
             "else {\n" +
-            "jump = program[pc + /*<0>*/.i + 2];\n" +
+            "int16_t jump = program[pc + /*<0>*/.i + 2];\n" +
             "pc += jump;\n " +//index into the table
             "}\n"
           }]},
+
+    //TODO: check pointer eq
+    { name: "cab", inputs: 2, callCondition: differentRegisters,
+      instructions:[
+          { name:"cabii", legal:[i,i],
+            template :
+            "if (/*<0>*/.i < /*<1>*/.i)\n" +
+            "pc += program[pc + 1];\n" +
+            "else if(/*<0>*/.i == /*<1>*/.i)\n" +
+            "pc += program[pc + 2];\n" +
+            "else\n" +
+            "pc += program[pc + 3];\n" 
+          },
+          { name:"cabpp", legal:[p,p], 
+            template : 
+            "if (/*<0>*/.p == /*<1>*/.p)\n" +
+            "pc += program[pc + 2];\n" +
+            "else\n" +
+            "pc += program[pc + 4];\n" },
+          { name:"cabpi", pcChange: 5, legal:[p,i]},
+          { name:"cabip", pcChange: 5, legal:[i,p]}]},
+
+    
+    
 ];
 
 var numtypes = 2;
@@ -85,19 +172,35 @@ var numregisters = 6;
 
 function Generator(lookups, numregisters, numtypes)
 {
+    this.code = "";
+    this.lookuptable = [];
+        
     var instGenerators = [];
     lookups.forEach(
         function(lookup){
             var instGen = new InstructionGenerator(lookup, numregisters, numtypes);
             instGenerators.push(instGen);
             instGen.generate();
-        }, this);
+            this.code += instGen.code;
+            this.lookuptable = this.lookuptable.concat(instGen.lookuptable);
+        }, this);    
 }
+
+Generator.prototype =
+    {
+        getCode: function(){
+            return this.code;
+        },
+
+        getLookupTable: function(){
+            return this.lookuptable.join([seperator = ',\n'])+',\n&&error\n';
+        }
+    };
 
 //All powerful generator
 function InstructionGenerator(lookup, numregisters, numtypes)
 {
-    this.goto = "goto *dynOpcodes[ts + program[pc]];\n\n";
+    this.goto = "goto *dynOpcodes[ts + program[pc]];\n";
     
     this.numtypes = numtypes;
     this.numregisters = numregisters;
@@ -120,7 +223,7 @@ function InstructionGenerator(lookup, numregisters, numtypes)
     }
 }
 
-Generator.prototype =
+InstructionGenerator.prototype =
     {
         generate : function() {
             var numCalls = Math.pow(this.numregisters, this.lookup.inputs); //6^2 usually
@@ -133,6 +236,7 @@ Generator.prototype =
                     //==============
                     //write out label
                     this.code += this.getLabel(inst.name, call);
+                    this.code += "{\n";
                     //perform instruction for arguments
                     this.code += this.substituteIntoTemplate(call, inst.template);
                     //change state and Tag
@@ -141,6 +245,7 @@ Generator.prototype =
                     this.code += this.changePC(inst.pcChange);
                     //goto next instruction
                     this.code += this.goto;
+                    this.code += "}\nbreak;\n\n";
 
                     //write the lookup table:
                     //======================
@@ -194,17 +299,7 @@ Generator.prototype =
             }
             return call;
         },
-
-        saveConstant: function(name, type)
-        {
-            if (!this.constants[name])
-                this.constants[name] = type;
-            else if (this.constants[name] !== type)
-                throw new TypeException(name);
-
-            return name;
-        },
-
+        
         //TODO: Generalize this if you want more types
         //The prefix 0b for binary is a GNU extension
         //Apparently anything cool in C is a GNU extension
@@ -240,11 +335,13 @@ Generator.prototype =
             if (!pcChange)
                 return "";
             else
-                return "pc += " + pcChange + ";\n" ;
+                return pcChange == 1? "pc++;\n" : "pc += " + pcChange + ";\n" ;
         },
 
         substituteIntoTemplate : function(call, template)
         {
+            if (template)
+            {
             var subbedString = template;
             for (var i = 0; i < call.length; i++)
             {
@@ -260,7 +357,10 @@ Generator.prototype =
                     }
                 }
             }
-            return subbedString;
+                return subbedString;
+            }
+            else
+                return "";
         },
 
         getTagSetCode: function(type)
@@ -280,7 +380,7 @@ Generator.prototype =
 
         getLabel: function(name, call)
         {
-            return this.getStaticInstructionName(name,call) + ":;\n"; //does this get compiled to NOP or no instruction? 
+            return this.getStaticInstructionName(name,call) + ":\n"; 
         },
 
         //returns the name of a legal instruction based on register types
@@ -330,38 +430,22 @@ Generator.prototype =
         }
     };
 
+var CodeGenerator = new Generator(lookups, numregisters, numtypes);
+
 var fs = require('fs');
-fs.writeFile('../staticInstructions.h', '', function (err) {
-    if (err)
-        throw err;
-    console.log('File overwritten');
-    writeCode();
-});
 
-fs.writeFile('../dynamicOpcodes.h', '', function (err) {
-    if (err)
-        throw err;
-    console.log('File overwritten');
-    writeLookups();
-});
+//Code
+fs.writeFileSync('../staticInstructions.h', '');
+console.log('File overwritten');
+fs.appendFileSync('../staticInstructions.h', CodeGenerator.getCode());
+console.log('Code written to file');
 
+//lookup table
+fs.writeFileSync('../dynamicOpcodes.h', '');
+console.log('File overwritten');
+fs.appendFileSync('../dynamicOpcodes.h', CodeGenerator.getLookupTable());
+console.log('Code written to file');
 
-function writeLookups() {
-    lookups.forEach(function(x) {
-        var y = new Generator(x, numregisters, numtypes);
-        y.generate();
-        fs.appendFile('../dynamicOpcodes.h', y.lookuptable.join([seperator = ',\n'])+',\n&&error\n');
-    });
-
-}
-
-function writeCode() {    
-    lookups.forEach(function(x) {
-        var y = new Generator(x, numregisters, numtypes);
-        y.generate();
-        fs.appendFile('../staticInstructions.h', y.code);
-    });
-}
     
     
 
