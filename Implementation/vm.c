@@ -43,11 +43,13 @@ int64_t ts = 0; //matches what registers are init to
 int main()
 {
 	//state with static opcode as lower bits is an index into this table
-	//[state : 6 bits][opcode : 11 bits] => the table has 2^17 = 131072
+	//[state : 6 bits][opcode : 11 bits] => the table has max 2^17 = 131072
 	//elements
 	static void *dynOpcodes[] = {
       #include "dynamicOpcodes.h"
     };
+
+    //space allocated to the program as needed
     int16_t program[2000];
 
 

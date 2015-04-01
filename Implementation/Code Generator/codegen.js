@@ -19,7 +19,7 @@ var lookups = [
           { name:"addii", pcChange: 1, legal:[i,i],
             template : "/*<0>*/.i += /*<1>*/.i;\n"}]},
     
-    { name:"addk", inputs: 1,
+    { name:"addc", inputs: 1,
       instructions:[
           { name:"addik", pcChange: 2, legal: [i],
             template: 
@@ -30,7 +30,7 @@ var lookups = [
           { name:"subii", pcChange: 1, legal:[i,i],
             template : "/*<0>*/.i -= /*<1>*/.i;\n"}]},
     
-    { name:"ksub", inputs: 1,
+    { name:"csub", inputs: 1,
       instructions:[
           { name:"subki", pcChange: 2, legal: [i],
             template:
@@ -41,11 +41,11 @@ var lookups = [
           { name:"orii", pcChange: 1, legal:[i,i],
             template : "/*<0>*/.i |= /*<1>*/.i;\n"}]},
     
-    { name:"ork", inputs: 1,
+    { name:"orc", inputs: 1,
       instructions:[
           { name:"orki", pcChange: 2, legal: [i],
             template:
-            getConst("constant") + "/*<0>*/.i |= constant\n"}]},
+            getConst("constant") + "/*<0>*/.i |= constant;\n"}]},
 
     
      { name: "xor", inputs: 2, callCondition: differentRegisters,
@@ -58,52 +58,52 @@ var lookups = [
           { name:"shlii", pcChange: 1, legal:[i,i],
             template : "/*<0>*/.i <<= /*<1>*/.i;\n"}]},
     
-    { name:"shlk", inputs: 1,
+    { name:"shlc", inputs: 1,
       instructions:[
           { name:"shlik", pcChange: 2, legal: [i],
             template:
-            getConst("constant") + "/*<0>*/.i <<= constant"}]},    
+            getConst("constant") + "/*<0>*/.i <<= constant;\n"}]},    
 
-    { name:"kshl", inputs: 1,
+    { name:"cshl", inputs: 1,
       instructions:[
           { name:"shlki", pcChange: 2, legal: [i],
             template:
-            getConst("constant") + "/*<0>*/.i = constant << /*<0>*/.i"}]},
+            getConst("constant") + "/*<0>*/.i = constant << /*<0>*/.i;\n"}]},
 
     //TODO: NB must test this
     { name: "shr", inputs: 2, callCondition: differentRegisters,
       instructions:[
           { name:"shrii", pcChange: 1, legal:[i,i],
-            template : "/*<0>*/.i = (uint64_t)/*<0>*/.i >> /*<1>*/.i;\n"}]},
+            template : "/*<0>*/.i = (uint64_t)/*<0>*/.i >> /*<0>*/.i;\n"}]},
     
-    { name:"shrk", inputs: 1,
+    { name:"shrc", inputs: 1,
       instructions:[
           { name:"shrik", pcChange: 2, legal: [i],
             template:
             getConst("constant") + "/*<0>*/.i = (uint64_t)/*<0>*/.i >> constant;\n"}]},    
 
-    { name:"kshr", inputs: 1,
+    { name:"cshr", inputs: 1,
       instructions:[
           { name:"shrki", pcChange: 2, legal: [i],
             template:
-            getConst("constant") + "/*<0>*/.i = (uint64_t)constant >> /*<1>*/.i;\n"}]},
+            getConst("constant") + "/*<0>*/.i = (uint64_t)constant >> /*<0>*/.i;\n"}]},
 
     { name: "sar", inputs: 2, callCondition: differentRegisters,
       instructions:[
           { name:"sarii", pcChange: 1, legal:[i,i],
             template : "/*<0>*/.i >>= /*<1>*/.i;\n"}]},
     
-    { name:"sark", inputs: 1,
+    { name:"sarc", inputs: 1,
       instructions:[
           { name:"sarik", pcChange: 2, legal: [i],
             template:
-            getConst("constant") + "/*<0>*/.i >>= constant"}]},    
+            getConst("constant") + "/*<0>*/.i >>= constant;\n"}]},    
 
-    { name:"ksar", inputs: 1,
+    { name:"csar", inputs: 1,
       instructions:[
-          { name:"sarik", pcChange: 2, legal: [i],
+          { name:"sarki", pcChange: 2, legal: [i],
             template:
-            getConst("constant") + "/*<0>*/.i = constant >> /*<0>*/.i"}]},    
+            getConst("constant") + "/*<0>*/.i = constant >> /*<0>*/.i;\n"}]},    
     
     { name: "mov", inputs:2, callCondition: differentRegisters,
       instructions: [
@@ -116,7 +116,7 @@ var lookups = [
           { name:"movpi", pcChange: 1, legal:[p,i], stateChange: i,
             template: "/*<0>*/.i = /*<1>*/.i;\n" }]},
     
-    { name: "movk", inputs: 1, //TODO movN separate?
+    { name: "movc", inputs: 1, //TODO movN separate?
       instructions: [
           { name:"movik", pcChange: 2, legal: [i],
             template: getConst("constant") + "/*<0>*/.i = constant;\n"},
@@ -127,7 +127,19 @@ var lookups = [
           { name: "moviN", pcChange: 1, legal: [i], stateChange : p,
             template: "/*<0>*/.p = NULL;\n"}]},
     
-    { name: "jsw", inputs: 1, 
+    {name: "get", inputs: 1,
+     instructions: [
+         {name: "getik", pcChange: 2, legal: [i],
+          template: "/*<0*>/.i = "}]},
+    
+    {name: "jmp", inputs: 0, 
+     instructions: [{ name:"jmp", 
+                      template: "pc += program[pc+1];\n"}]},
+    {name: "jmpf", inputs: 0,
+     instructions: [{ name:"jmpf", 
+                      template: getConst("constant") +
+                      "pc += constant;\n"}]},    
+    { name: "switch", inputs: 1, 
       instructions:[
           { name:"jsw", legal:[i],
             template :
@@ -182,7 +194,7 @@ var lookups = [
       instructions:[
           { name:"cabpN", legal:[i],
             template :
-            "if (/*<0>*/.i == NULL)\n" +
+            "if (/*<0>*/.p == NULL)\n" +
             "pc += program[pc + 2];\n" +
             "else\n" +
             "pc += program[pc + 3];\n" 
@@ -190,23 +202,58 @@ var lookups = [
           { name:"cabft4", pcChange: 5, legal:[i]}]}   
 ];
 
-var numtypes = 2;
-var numregisters = 6;
+var numTypes = 2;
+var numRegisters = 6;
+var opcodeSizeInBytes = 11;
 
-function Generator(lookups, numregisters, numtypes)
+function Generator(lookups, numregisters, numtypes, opcodeSizeInBytes)
 {
     this.code = "";
-    this.lookuptable = [];
+
+    /* there are numtypes**numregisters states
+     * for each state there are 2**opcodeSizeInBytes possible lookups
+     * most of these will be used but some will not
+     * visualisation: (_ is undefined / is error case)
+     * =============
+     * state 0: a b c d e / _ _ _
+     * state 1: / b c / e f _ _ _
+     * etc.
+     */
+    this.lookuptable = new Array(Math.pow(numtypes, numregisters)* Math.pow(2, opcodeSizeInBytes));
+    this.numstates = Math.pow(numtypes, numregisters);
+    this.instgenerators = [];
+
+    //create generators and save code
+    lookups.forEach(function(lookup){
+        var instGen = new InstructionGenerator(lookup, numregisters, numtypes);
+        instGen.genCode();
+        this.code += instGen.code;
+        this.instgenerators.push(instGen);
+    }, this);
+    
+    //get lookups based on state
+    for (var state = 0; state < this.numstates; state++) {
         
-    var instGenerators = [];
-    lookups.forEach(
-        function(lookup){
-            var instGen = new InstructionGenerator(lookup, numregisters, numtypes);
-            instGenerators.push(instGen);
-            instGen.generate();
-            this.code += instGen.code;
-            this.lookuptable = this.lookuptable.concat(instGen.lookuptable);
-        }, this);    
+        //lookup table per state
+        var stateTable = []; 
+        
+        this.instgenerators.forEach(
+            function(generator){
+                generator.genLookups(state);
+                stateTable = stateTable.concat(generator.lookuptable);
+            }, this);
+
+        //place state table into big lookup table correctly offset
+        stateTable.forEach(function(lookup, i){
+            this.lookuptable[state*Math.pow(2,opcodeSizeInBytes) + i] = lookup;
+        }, this);
+    }
+    
+    for (var i = 0; i < this.lookuptable.length; i++)
+    {
+        if (this.lookuptable[i] === undefined)
+            this.lookuptable[i] = "&&fatal";
+    }
 }
 
 Generator.prototype =
@@ -214,9 +261,8 @@ Generator.prototype =
         getCode: function(){
             return this.code;
         },
-
         getLookupTable: function(){
-            return this.lookuptable.join([seperator = ',\n'])+',\n&&error\n';
+            return this.lookuptable.join([seperator = ',\n']);
         }
     };
 
@@ -232,23 +278,14 @@ function InstructionGenerator(lookup, numregisters, numtypes)
     
     this.constants = {};
     this.code = "";
-    this.states = this.getAllStates();
     this.callables = this.getAllCallables();
     
-    var size = this.states.length * this.callables.length;
-    this.lookuptable = new Array(size);
-
-    //fill lookup table with &&error
-    var k = 0;
-    while (k < size) {
-         this.lookuptable[k] = "&&error";
-         k++;
-    }
+    this.lookuptable = [];
 }
 
 InstructionGenerator.prototype =
     {
-        generate : function() {
+        genCode : function() {
             var numCalls = Math.pow(this.numregisters, this.lookup.inputs); //6^2 usually
             //iterate over different instructions
             this.lookup.instructions.forEach(function(inst){
@@ -268,28 +305,38 @@ InstructionGenerator.prototype =
                     this.code += this.changePC(inst.pcChange);
                     //goto next instruction
                     this.code += this.goto;
-                    this.code += "}\nbreak;\n\n";
-
-                    //write the lookup table:
-                    //======================
-                    //iterate over all possible states
-                    this.states.forEach(function(state, j){
-                        var lookup = this.isLegal(call, state, inst);
-                        if (lookup)                        
-                            this.lookuptable[j * this.callables.length + i] = this.getLookupAddress(lookup, call);
-                    }, this);
-                    
+                    this.code += "}\n\n";                    
                 }, this);
                 
             }, this);
-        },      
-
-        getAllCallables : function()
-        {
+        },
+                
+        //generate the lookup table for all instructions for a given state
+        genLookups: function(state) {
+            
+            //fill lookup table with &&error
+            var k = 0;
+            while (k < this.callables.length) {
+                this.lookuptable[k] = "&&error";
+                k++;
+            }
+            
+            var stateRegisters = this.stateToBase(state, this.numtypes, this.numregisters);
+            
+            this.lookup.instructions.forEach(function(inst){
+                this.callables.forEach(function(call, i){
+                    var lookup = this.isLegal(call, stateRegisters, inst);
+                    if(lookup)
+                        this.lookuptable[i] = this.getLookupAddress(lookup, call);
+                },this);
+            },this);
+        },
+        
+        getAllCallables : function() {
             var callables = [];
             for (var i = 0; i < Math.pow(this.numregisters, this.lookup.inputs); i++)
             {
-                var call = this.getCall(i); //call[ 3, 4 ] => name3_4
+                var call = this.getCall(i); //call[3, 4] => name_3_4
                 var callable = this.lookup.callCondition? this.lookup.callCondition(call): true;
 
                 if (callable)
@@ -297,20 +344,9 @@ InstructionGenerator.prototype =
             }
             return callables;            
         },
-
-        getAllStates : function ()
-        {
-            var states = [];
-            for (var i = 0; i < this.numstates; i++)
-            {
-                states.push(this.stateToBase(i, this.numtypes, this.numregisters));
-            }
-            return states;
-        },
-
+        
         //returns an array of which registers are being called 
-        getCall: function(i)
-        {
+        getCall: function(i) {
             var call = [];
             var numinputs = this.lookup.inputs;
             if (numinputs)
@@ -323,9 +359,22 @@ InstructionGenerator.prototype =
             return call;
         },
         
+        //convert state number to array of register states
+        //only works for values that fit properly
+        stateToBase: function(i, b, numregisters) {
+            var baseb = [];
+            for (var j = 0; j < numregisters -1; j++)
+            {
+                var place = Math.pow(b, numregisters-1-j);
+                baseb[j] = Math.floor(i / place);
+                i %= place;
+            }
+            baseb[numregisters-1] = i % b;          
+
+            return baseb;
+        },
+        
         //TODO: Generalize this if you want more types
-        //The prefix 0b for binary is a GNU extension
-        //Apparently anything cool in C is a GNU extension
         setTagAndChangeState : function(call, inst) {
             if (inst.stateChange === undefined)
                 return "";
@@ -333,36 +382,34 @@ InstructionGenerator.prototype =
             {
                 //destination address is call[0]
                 var changedBitIndex = call[0];
-                var maskString = ""; //not really a bitmask
+                var bitMask = ""; //not really a bitmask
                 var hexMask = "";
 
                 if (inst.stateChange === 0)
                 {
-                    maskString = "111111";
-                    maskString = maskString.slice(0, changedBitIndex) + "0" + maskString.slice(changedBitIndex + 1) + "00000000000";
-                    hexMask += "ts &= 0x" + parseInt(maskString, 2).toString(16) ;
+                    bitMask = "111111";
+                    bitMask = bitMask.slice(0, changedBitIndex) + "0" + bitMask.slice(changedBitIndex + 1) + "00000000000";
                 }
                 else
                 {
-                    maskString = "000000";                    
-                    maskString = maskString.slice(0, changedBitIndex) + "1" + maskString.slice(changedBitIndex + 1) + "00000000000";
-                    hexMask += "ts |= 0x" + parseInt(maskString, 2).toString(16) ;
+                    bitMask = "000000";                    
+                    bitMask = bitMask.slice(0, changedBitIndex) + "1" + bitMask.slice(changedBitIndex + 1) + "00000000000";      
                 }
-
+                
+                hexMask += parseInt(bitMask, 2).toString(16) ;
                 //Set the Tag and edit the state
-                return this.getTagSetCode(inst.stateChange) + hexMask +"; //0b" + maskString +"\n";
+                return this.getTagSetCode(inst.stateChange) + "ts |= 0x" + hexMask +"; //0b" + bitMask +"\n";
             }                             
         },
-
+        
         changePC : function(pcChange) {
             if (!pcChange)
                 return "";
             else
                 return pcChange == 1? "pc++;\n" : "pc += " + pcChange + ";\n" ;
         },
-
-        substituteIntoTemplate : function(call, template)
-        {
+        
+        substituteIntoTemplate : function(call, template) {
             if (template)
             {
             var subbedString = template;
@@ -385,31 +432,26 @@ InstructionGenerator.prototype =
             else
                 return "";
         },
-
-        getTagSetCode: function(type)
-        {
+        
+        getTagSetCode: function(type) {
             return "/*<0>*/.tag = " + type + ";\n";
         },
-
-        getStaticInstructionName: function(name, call)
-        {
-            return name + "_" + call.join([seperator = '_']);
+        
+        getStaticInstructionName: function(name, call) {
+            return name + (this.lookup.inputs == 0? '' : '_') + call.join([seperator = '_']);
         },
 
-        getLookupAddress: function(name, call)
-        {
+        getLookupAddress: function(name, call) {
             return "&&" + this.getStaticInstructionName(name, call);
         },
 
-        getLabel: function(name, call)
-        {
+        getLabel: function(name, call) {
             return this.getStaticInstructionName(name,call) + ":\n"; 
         },
 
         //returns the name of a legal instruction based on register types
         //else returns false
-        isLegal: function(call, registerTypes, inst)
-        {
+        isLegal: function(call, registerTypes, inst) {
             //call = [0,4] means the arguments refer to g[0] and g[4] 
             //callTypes is a new array of the types in those registers
             //so if g[0] holds an pointer and g[4] holds a pointer then
@@ -427,33 +469,16 @@ InstructionGenerator.prototype =
             return legal;
         },
 
-        getCallTypes: function(call, registerTypes)
-        {
+        getCallTypes: function(call, registerTypes) {
             var callTypes = [];
             for (var i = 0; i < call.length; i++) {
                 callTypes[i] = registerTypes[call[i]];
             }
             return callTypes;
-        },
-
-        //convert state number to array of register states
-        //only works for values that fit properly
-        stateToBase: function(i, b, numregisters)
-        {
-            var baseb = [];
-            for (var j = 0; j < numregisters -1; j++)
-            {
-                var place = Math.pow(b, numregisters-1-j);
-                baseb[j] = Math.floor(i / place);
-                i %= place;
-            }
-            baseb[numregisters-1] = i % b;          
-
-            return baseb;
         }
     };
 
-var CodeGenerator = new Generator(lookups, numregisters, numtypes);
+var CodeGenerator = new Generator(lookups, numRegisters, numTypes, opcodeSizeInBytes);
 
 var fs = require('fs');
 
@@ -468,8 +493,3 @@ fs.writeFileSync('../dynamicOpcodes.h', '');
 console.log('File overwritten');
 fs.appendFileSync('../dynamicOpcodes.h', CodeGenerator.getLookupTable());
 console.log('Code written to file');
-
-    
-    
-
-
