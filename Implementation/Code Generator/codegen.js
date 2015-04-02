@@ -111,26 +111,59 @@ var lookups = [
             template: "/*<0>*/.i = /*<1>*/.i;\n"},
           { name:"movpp", pcChange: 1, legal:[p,p],
             template: "/*<0>*/.p = /*<1>*/.p;\n"},
-          { name:"movip", pcChange: 1, legal:[i,p], stateChange: p,
-            template: "/*<0>*/.p = /*<1>*/.p;\n" },
-          { name:"movpi", pcChange: 1, legal:[p,i], stateChange: i,
-            template: "/*<0>*/.i = /*<1>*/.i;\n" }]},
+          { name:"movip", pcChange: 1, legal:[i,p], 
+            template: "/*<0>*/.p = /*<1>*/.p;\n" +
+            "/*<tag+state:"+ p +">*/;\n"
+          },
+          { name:"movpi", pcChange: 1, legal:[p,i],
+            template: "/*<0>*/.i = /*<1>*/.i;\n" +
+            "/*<tag+state:"+ i +">*/;\n"}]},
     
     { name: "movc", inputs: 1, //TODO movN separate?
       instructions: [
           { name:"movik", pcChange: 2, legal: [i],
             template: getConst("constant") + "/*<0>*/.i = constant;\n"},
-          { name:"movpk", pcChange: 2, legal: [p], stateChange: i,
-            template: getConst("constant") + "/*<0>*/.i = constant;\n"},
+          { name:"movpk", pcChange: 2, legal: [p], 
+            template: getConst("constant") +
+            "/*<0>*/.i = constant;\n" +
+            "/*<tag+state:"+ i +">*/;\n"},
           { name: "movpN", pcChange: 1, legal: [p],
             template: "/*<0>*/.p = NULL;\n"},
-          { name: "moviN", pcChange: 1, legal: [i], stateChange : p,
-            template: "/*<0>*/.p = NULL;\n"}]},
+          { name: "moviN", pcChange: 1, legal: [i], 
+            template: "/*<0>*/.p = NULL;\n" +
+            "/*<tag+state:"+ p +">*/;\n"}]},
     
     {name: "get", inputs: 1,
      instructions: [
          {name: "getik", pcChange: 2, legal: [i],
-          template: "/*<0*>/.i = "}]},
+          template:
+          "int16_t constant = program[pc + 1];\n" +
+          "value val = *(fp + constant);\n" + 
+          "if (val.tag != "+ i +")\n" +
+          "{\n" +
+          "/*<state+tag:" + i + ">*/;\n" +
+          "}\n" +
+          "/*<0>*/.i = val.i;\n"           
+         },
+         {name: "getpk", pcChange: 2, legal: [p],
+          template:
+          "int16_t constant = program[pc + 1];\n" +
+          "value val = *(fp + constant);\n" + 
+          "if (val.tag != "+ p +")\n" +
+          "{\n" +
+          "/*<state+tag:" + p + ">*/;\n" +
+          "}\n" +
+          "/*<0>*/.p = val.p;\n"}]},
+
+    {name: "set", inputs: 1,
+     instructions: [
+         {name: "set", pcChange: 2,
+          template:
+          "int16_t constant = program[pc + 1];\n" +
+          "value* vp = fp + constant;\n" +
+          "vp = &/*<0>*/;\n"
+         }]
+    },    
     
     {name: "jmp", inputs: 0, 
      instructions: [{ name:"jmp", 
@@ -173,8 +206,8 @@ var lookups = [
             "pc += program[pc + 2];\n" +
             "else\n" +
             "pc += program[pc + 4];\n" },
-          { name:"cabft1", pcChange: 5, legal:[p,i]},
-          { name:"cabft2", pcChange: 5, legal:[i,p]}]},
+          { name:"cabft", pcChange: 5, legal:[p,i]},
+          { name:"cabft", pcChange: 5, legal:[i,p], genCode: false}]},
 
     { name: "cabk", inputs: 1, callCondition: differentRegisters,
       instructions:[
@@ -188,7 +221,7 @@ var lookups = [
             "else\n" +
             "pc += program[pc + 4];\n" 
           }, 
-          { name:"cabft3", pcChange: 5, legal:[p]}]},
+          { name:"cabft", pcChange: 5, legal:[p]}]},
 
     { name: "cabN", inputs: 1, callCondition: differentRegisters,
       instructions:[
@@ -199,8 +232,8 @@ var lookups = [
             "else\n" +
             "pc += program[pc + 3];\n" 
           },
-          { name:"cabft4", pcChange: 5, legal:[i]}]}   
-];
+          { name:"cabft", pcChange: 5, legal:[i], genCode: false}]}   
+     ];
 
 var numTypes = 2;
 var numRegisters = 6;
@@ -290,23 +323,23 @@ InstructionGenerator.prototype =
             //iterate over different instructions
             this.lookup.instructions.forEach(function(inst){
                 //iterate over all possible calls
-                this.callables.forEach(function(call, i) {
-                    
-                    //write the code:
-                    //==============
-                    //write out label
-                    this.code += this.getLabel(inst.name, call);
-                    this.code += "{\n";
-                    //perform instruction for arguments
-                    this.code += this.substituteIntoTemplate(call, inst.template);
-                    //change state and Tag
-                    this.code += this.substituteIntoTemplate(call, this.setTagAndChangeState(call, inst));
-                    //update pc
-                    this.code += this.changePC(inst.pcChange);
-                    //goto next instruction
-                    this.code += this.goto;
-                    this.code += "}\n\n";                    
-                }, this);
+                if (inst.genCode !== false)
+                    this.callables.forEach(function(call, i) {
+                        
+                        //write the code:
+                        //==============
+                        //write out label
+                        this.code += this.getLabel(inst.name, call);
+                        this.code += "{\n";
+                        //write instruction for arguments
+                        //this includes state changes
+                        this.code += this.substituteIntoTemplate(call, inst.template);
+                        //update pc
+                        this.code += this.changePC(inst.pcChange);
+                        //goto next instruction
+                        this.code += this.goto;
+                        this.code += "}\n\n";                    
+                    }, this);
                 
             }, this);
         },
@@ -375,31 +408,26 @@ InstructionGenerator.prototype =
         },
         
         //TODO: Generalize this if you want more types
-        setTagAndChangeState : function(call, inst) {
-            if (inst.stateChange === undefined)
-                return "";
+        changeState : function(call, type) {
+            //destination address is call[0]
+            var changedBitIndex = call[0];
+            var bitMask = ""; //not really a bitmask
+            var hexMask = "";
+
+            if (type === 0)
+            {
+                bitMask = "111111";
+                bitMask = bitMask.slice(0, changedBitIndex) + "0" + bitMask.slice(changedBitIndex + 1) + "00000000000";
+            }
             else
             {
-                //destination address is call[0]
-                var changedBitIndex = call[0];
-                var bitMask = ""; //not really a bitmask
-                var hexMask = "";
-
-                if (inst.stateChange === 0)
-                {
-                    bitMask = "111111";
-                    bitMask = bitMask.slice(0, changedBitIndex) + "0" + bitMask.slice(changedBitIndex + 1) + "00000000000";
-                }
-                else
-                {
-                    bitMask = "000000";                    
-                    bitMask = bitMask.slice(0, changedBitIndex) + "1" + bitMask.slice(changedBitIndex + 1) + "00000000000";      
-                }
-                
-                hexMask += parseInt(bitMask, 2).toString(16) ;
-                //Set the Tag and edit the state
-                return this.getTagSetCode(inst.stateChange) + "ts |= 0x" + hexMask +"; //0b" + bitMask +"\n";
-            }                             
+                bitMask = "000000";                    
+                bitMask = bitMask.slice(0, changedBitIndex) + "1" + bitMask.slice(changedBitIndex + 1) + "00000000000";      
+            }
+            
+            hexMask += parseInt(bitMask, 2).toString(16) ;
+            //Set the Tag and edit the state
+            return "ts |= 0x" + hexMask +" /*0b" + bitMask +"*/";
         },
         
         changePC : function(pcChange) {
@@ -408,33 +436,53 @@ InstructionGenerator.prototype =
             else
                 return pcChange == 1? "pc++;\n" : "pc += " + pcChange + ";\n" ;
         },
-        
+
+        //TODO: Implement this in a more generic, modular way so that it could potentially be updated
         substituteIntoTemplate : function(call, template) {
-            if (template)
+            function findAndReplace(token, subbedString, replacewith)
             {
-            var subbedString = template;
-            for (var i = 0; i < call.length; i++)
-            {
-                var token = '/*<' + i + '>*/' ;
-                while (true)
-                {
+                while (true) {
                     var pos = subbedString.indexOf(token);
 
                     if (pos < 0)
-                        break;
+                        return subbedString;
                     else {
-                        subbedString = subbedString.replace(token, "g[" + call[i] + "]");
+                        subbedString = subbedString.replace(token, replacewith);
                     }
                 }
             }
+            
+            if (template)
+            {
+                var subbedString = template;
+                var token = "";
+                
+                //replace /*<0>*/, /*<1>*/ etc with g[0], g[1]
+                for (var i = 0; i < call.length; i++)
+                {
+                    token = '/*<' + i + '>*/' ;
+                    subbedString = findAndReplace(token, subbedString, "g[" + call[i] + "]");
+                }
+                
+                for (var j = 0; j < this.numtypes; j++)
+                {
+                    //replace /*<tag+state:0>*/ with /*<tag:0>*/;\n/*<state:0>*/
+                    token = "/*<tag+state:" + j + ">*/";
+                    subbedString = findAndReplace(token, subbedString, "/*<tag:" + j + ">*/;\n" + "/*<state:" + j + "*>/");
+                    
+                    //replace /*<tag:0>*/ with g[0].tag = 0;\n
+                    token = "/*<tag:" + j + ">*/";
+                    subbedString = findAndReplace(token, subbedString, "g[0].tag = " + j);
+
+                    //replace /*<state:0>*/ with ts &= or |=
+                    token = "/*<state:" + j + "*>/";
+                    subbedString = findAndReplace(token, subbedString, this.changeState(call, j));                    
+                }
+                
                 return subbedString;
             }
             else
                 return "";
-        },
-        
-        getTagSetCode: function(type) {
-            return "/*<0>*/.tag = " + type + ";\n";
         },
         
         getStaticInstructionName: function(name, call) {
@@ -457,13 +505,15 @@ InstructionGenerator.prototype =
             //so if g[0] holds an pointer and g[4] holds a pointer then
             //call = [0,4] => callTypes = [1,1]
             var callTypes = this.getCallTypes(call, registerTypes);
-            
-            var legal = inst.name;
-            for (var k = 0; k < callTypes.length; k++) {
-                if (callTypes[k] !== inst.legal[k])
-                {
-                    legal = false;
-                    break;
+
+            if (inst.legal !== undefined) {
+                var legal = inst.name;
+                for (var k = 0; k < callTypes.length; k++) {
+                    if (callTypes[k] !== inst.legal[k])
+                    {
+                        legal = false;
+                        break;
+                    }
                 }
             }
             return legal;
