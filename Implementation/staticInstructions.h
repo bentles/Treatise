@@ -4428,3 +4428,13 @@ pc += program[pc + 3];
 goto *dynOpcodes[ts + program[pc]];
 }
 
+error:
+{
+printf("error");
+}
+
+undefined:
+{
+printf("undefined");
+}
+
