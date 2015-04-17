@@ -425,7 +425,7 @@ var lookups = [
         instructions: [{
             name: 'ret', pcChange: 1,
             template:
-            'stackframe cur = (stackframe *)(fp - offsetof(value, fp));\n' +
+            'stackframe *cur = (stackframe*)(fp - offsetof(stackframe, fp));\n' +
             'fp = cur->fp; pc = cur->pc; ts = (cur->ts & 0b01111000000000000) | (ts & 0b10000100000000000);\n' +
                 'RestoreRegisters(cur->g);\n' +                
                 'free(cur);//probably does a thing \n' +             
