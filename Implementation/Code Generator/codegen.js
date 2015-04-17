@@ -411,11 +411,10 @@ var lookups = [
             'int64_t newpc = pc + program[pc + 1];\n' +
                 'size_t size = sizeof(stackframe) + sizeof(value) * program[newpc];\n' +
                 'stackframe *base = (stackframe*)malloc(size);\n' +
-                'base->bp = bp; base->fp = fp; base->pc = pc; base->ts = ts;\n' +
+                'base->fp = fp; base->pc = pc; base->ts = ts;\n' +
                 'SaveRegisters(base->g);\n' +
                 'value *newfp = base->l;\n' + 
                 'memcpy(newfp, fp + program[pc + 2], program[pc + 3]*sizeof(value));\n' +
-                'bp = base;\n' +
                 'fp = newfp;\n' +
                 'pc = newpc + 1;\n'                 
         }]
@@ -425,12 +424,12 @@ var lookups = [
         inputs: 0,
         instructions: [{
             name: 'ret', pcChange: 1,
-            template: 'fp = bp->fp; pc = bp->pc; ts = (bp->ts & 0b01111000000000000) | (ts & 0b10000100000000000);\n' +
-                'RestoreRegisters(bp->g);\n' +
-                'stackframe *base = bp->bp;\n' +
-                'free(bp);//probably does a thing \n' +
-                'bp = base;\n' +
-                'if (bp == NULL)\n' +
+            template:
+            'stackframe cur = (stackframe *)(fp - offsetof(value, fp));\n' +
+            'fp = cur->fp; pc = cur->pc; ts = (cur->ts & 0b01111000000000000) | (ts & 0b10000100000000000);\n' +
+                'RestoreRegisters(cur->g);\n' +                
+                'free(cur);//probably does a thing \n' +             
+                'if (fp == NULL)\n' +
                 'return 0;\n' 
         }]
     },

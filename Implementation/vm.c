@@ -7,6 +7,7 @@
  */
 #include <stdio.h>
 #include <stdlib.h>
+#include <stddef.h>
 #include <inttypes.h>
 #include <string.h>
    
@@ -53,7 +54,6 @@ typedef struct StackFrameStruct stackframe;
 struct StackFrameStruct
 {
     value *fp;
-    stackframe *bp;
     int64_t pc;
     int64_t ts;
     value g[4]; //g1 .. g4
@@ -86,7 +86,6 @@ struct ObjectStruct
 #define NR_REGISTERS 6
 #define REG_SAVE 56
     
-stackframe *bp;
 value g[NR_REGISTERS]; //init to 0 valued ints
 int64_t pc = 0;
 value *fp; //= NULL; points to top of frame - an array of local values
