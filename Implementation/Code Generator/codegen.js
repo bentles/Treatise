@@ -211,13 +211,15 @@ var lookups = [
             name: 'movpp',
             pcChange: 1,
             legal: [p, p],
-            template: '/*<0>*/.p = /*<1>*/.p;\n'
+            template: '/*<0>*/.tag = /*<1>*/.tag;\n' +
+            '/*<0>*/.p = /*<1>*/.p;\n'
         }, {
             name: 'movip',
             pcChange: 1,
             legal: [i, p],
             template: '/*<0>*/.p = /*<1>*/.p;\n' +
-                '/*<tag+state:' + p + '>*/;\n'
+                '/*<0>*/.tag = /*<1>*/.tag;\n' +
+                '/*<state:' + p + '>*/;\n'
         }, {
             name: 'movpi',
             pcChange: 1,
@@ -267,19 +269,25 @@ var lookups = [
                 'value val = fp[constant];\n' +
                 'if (val.tag != ' + i + ')\n' +
                 '{\n' +
-                '/*<tag+state:' + i + '>*/;\n' +
+                '/*<0>*/.tag = val.tag;\n' +
+                '/*<state:' + p + '>*/;\n' +
+                '/*<0>*/.p = val.p;\n' +
                 '}\n' +
-                '/*<0>*/.i = val.i;\n'
+                'else{\n' +
+                '/*<0>*/.i = val.i;\n' +
+                '}\n'
         }, {
             name: 'getpk',
             pcChange: 2,
             legal: [p],
             template: 'int16_t constant = program[pc + 1];\n' +
                 'value val = fp[constant];\n' +
-                'if (val.tag != ' + p + ')\n' +
+                'if (val.tag == ' + i + ')' +
                 '{\n' +
-                '/*<tag+state:' + p + '>*/;\n' +
+                '/*<tag+state:' + i + '>*/;\n' +
+                '/*<0>*/.i = val.i;\n' +
                 '}\n' +
+                '/*<0>*/.tag = val.tag;\n' +
                 '/*<0>*/.p = val.p;\n'
         }]
     },
@@ -288,12 +296,22 @@ var lookups = [
         name: 'set',
         inputs: 1,
         instructions: [{
-            name: 'set',
+            name: 'setik',
             pcChange: 2,
             template: 'int16_t constant = program[pc + 1];\n' +
                 'value* vp = fp + constant;\n' +
-                'vp = &/*<0>*/;\n'
-        }]
+                '(*vp).tag = /*<0>*/.tag;\n' +
+                '(*vp).i = /*<0>*/.i;\n'
+        },
+        {
+            name: 'setpk',
+            pcChange: 2,
+            template: 'int16_t constant = program[pc + 1];\n' +
+                'value* vp = fp + constant;\n' +
+                '(*vp).tag = /*<0>*/.tag;\n' +
+                '(*vp).p = /*<0>*/.p;\n'
+        }
+                      ]
     },
 
     {
@@ -330,7 +348,6 @@ var lookups = [
     },
 
     //TODO: check pointer eq
-    //TODO: consolidate caft1-4
     {
         name: 'cab',
         inputs: 2,
@@ -426,7 +443,7 @@ var lookups = [
             name: 'ret', pcChange: 1,
             template:
             'stackframe *cur = (stackframe*)(fp - offsetof(stackframe, fp));\n' +
-            'fp = cur->fp; pc = cur->pc; ts = (cur->ts & 0b01111000000000000) | (ts & 0b10000100000000000);\n' +
+            'fp = cur->fp; pc = cur->pc; ts = (cur->ts & 0xF000) | (ts & 0x10800);\n' +
                 'RestoreRegisters(cur->g);\n' +                
                 'free(cur);//probably does a thing \n' +             
                 'if (fp == NULL)\n' +
@@ -441,7 +458,34 @@ var lookups = [
             template: getConst('size') +
                 'object *base = (object*)malloc(sizeof(object) + sizeof(value)*size);\n' +
                 'base->sf = MakeSizeAndFlags(size,0);\n' +
-                '/*<tag+state:' + p + '>*/;\n' +
+                '/*<0>*/.tag = 2;\n' +
+                '/*<state:' + p + '>*/;\n' +
+                '/*<0>*/.p = base;\n'
+        }]
+    },
+    {
+        name: 'newpa',
+        inputs: 1,
+        instructions: [{
+            name: 'newpa', pcChange: 1, legal: [p],
+            template: getConst('size') +
+                'pointeronly *base = (pointeronly*)malloc(sizeof(pointeronly) + sizeof(value)*size);\n' +
+                'base->sf = MakeSizeAndFlags(size,0);\n' +
+                '/*<0>*/.tag = 3;\n' +
+                '/*<state:' + p + '>*/;\n' +
+                '/*<0>*/.p = base;\n'
+        }]
+    },
+    {
+        name: 'newa',
+        inputs: 1,
+        instructions: [{
+            name: 'newa', pcChange: 1, legal: [p],
+            template: getConst('size') +
+                'buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*size);\n' +
+                'base->sf = MakeSizeAndFlags(size,0);\n' +
+                '/*<0>*/.tag = 4;\n' +
+                '/*<state:' + p + '>*/;\n' +
                 '/*<0>*/.p = base;\n'
         }]
     }
@@ -663,15 +707,15 @@ InstructionGenerator.prototype = {
 
         if (type === 0) {
             bitMask = '111111';
-            bitMask = bitMask.slice(0, changedBitIndex) + '0' + bitMask.slice(changedBitIndex + 1) + '00000000000';
+            bitMask = bitMask.slice(0, changedBitIndex) + '0' + bitMask.slice(changedBitIndex + 1);
         } else {
             bitMask = '000000';
-            bitMask = bitMask.slice(0, changedBitIndex) + '1' + bitMask.slice(changedBitIndex + 1) + '00000000000';
+            bitMask = bitMask.slice(0, changedBitIndex) + '1' + bitMask.slice(changedBitIndex + 1);
         }
 
         hexMask += parseInt(bitMask, 2).toString(16);
         //Set the Tag and edit the state
-        return 'ts |= 0x' + hexMask + ' /*0b' + bitMask + '*/';
+        return 'ts |= 0x' + hexMask + ' /*' + bitMask + '*/';
     },
 
     changePC: function(pcChange) {
@@ -702,14 +746,14 @@ InstructionGenerator.prototype = {
             for (var j = 0; j < this.numtypes; j++) {
                 //replace /*<tag+state:0>*/ with /*<tag:0>*/;\n/*<state:0>*/
                 token = '/*<tag+state:' + j + '>*/';
-                subbedString = findAndReplace(token, subbedString, '/*<tag:' + j + '>*/;\n' + '/*<state:' + j + '*>/');
+                subbedString = findAndReplace(token, subbedString, '/*<tag:' + j + '>*/;\n' + '/*<state:' + j + '>*/');
 
                 //replace /*<tag:0>*/ with g[0].tag = 0;\n
                 token = '/*<tag:' + j + '>*/';
                 subbedString = findAndReplace(token, subbedString, '/*<0>*/.tag = ' + j);
 
                 //replace /*<state:0>*/ with ts &= or |=
-                token = '/*<state:' + j + '*>/';
+                token = '/*<state:' + j + '>*/';
                 subbedString = findAndReplace(token, subbedString, this.changeState(call, j));
             }
 

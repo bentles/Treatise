@@ -2208,6 +2208,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 movpp_0_1:
 {
+g[0].tag = g[1].tag;
 g[0].p = g[1].p;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -2215,6 +2216,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 movpp_0_2:
 {
+g[0].tag = g[2].tag;
 g[0].p = g[2].p;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -2222,6 +2224,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 movpp_0_3:
 {
+g[0].tag = g[3].tag;
 g[0].p = g[3].p;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -2229,6 +2232,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 movpp_0_4:
 {
+g[0].tag = g[4].tag;
 g[0].p = g[4].p;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -2236,6 +2240,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 movpp_0_5:
 {
+g[0].tag = g[5].tag;
 g[0].p = g[5].p;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -2243,6 +2248,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 movpp_1_0:
 {
+g[1].tag = g[0].tag;
 g[1].p = g[0].p;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -2250,6 +2256,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 movpp_1_2:
 {
+g[1].tag = g[2].tag;
 g[1].p = g[2].p;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -2257,6 +2264,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 movpp_1_3:
 {
+g[1].tag = g[3].tag;
 g[1].p = g[3].p;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -2264,6 +2272,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 movpp_1_4:
 {
+g[1].tag = g[4].tag;
 g[1].p = g[4].p;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -2271,6 +2280,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 movpp_1_5:
 {
+g[1].tag = g[5].tag;
 g[1].p = g[5].p;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -2278,6 +2288,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 movpp_2_0:
 {
+g[2].tag = g[0].tag;
 g[2].p = g[0].p;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -2285,6 +2296,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 movpp_2_1:
 {
+g[2].tag = g[1].tag;
 g[2].p = g[1].p;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -2292,6 +2304,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 movpp_2_3:
 {
+g[2].tag = g[3].tag;
 g[2].p = g[3].p;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -2299,6 +2312,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 movpp_2_4:
 {
+g[2].tag = g[4].tag;
 g[2].p = g[4].p;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -2306,6 +2320,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 movpp_2_5:
 {
+g[2].tag = g[5].tag;
 g[2].p = g[5].p;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -2313,6 +2328,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 movpp_3_0:
 {
+g[3].tag = g[0].tag;
 g[3].p = g[0].p;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -2320,6 +2336,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 movpp_3_1:
 {
+g[3].tag = g[1].tag;
 g[3].p = g[1].p;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -2327,6 +2344,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 movpp_3_2:
 {
+g[3].tag = g[2].tag;
 g[3].p = g[2].p;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -2334,6 +2352,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 movpp_3_4:
 {
+g[3].tag = g[4].tag;
 g[3].p = g[4].p;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -2341,6 +2360,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 movpp_3_5:
 {
+g[3].tag = g[5].tag;
 g[3].p = g[5].p;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -2348,6 +2368,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 movpp_4_0:
 {
+g[4].tag = g[0].tag;
 g[4].p = g[0].p;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -2355,6 +2376,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 movpp_4_1:
 {
+g[4].tag = g[1].tag;
 g[4].p = g[1].p;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -2362,6 +2384,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 movpp_4_2:
 {
+g[4].tag = g[2].tag;
 g[4].p = g[2].p;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -2369,6 +2392,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 movpp_4_3:
 {
+g[4].tag = g[3].tag;
 g[4].p = g[3].p;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -2376,6 +2400,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 movpp_4_5:
 {
+g[4].tag = g[5].tag;
 g[4].p = g[5].p;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -2383,6 +2408,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 movpp_5_0:
 {
+g[5].tag = g[0].tag;
 g[5].p = g[0].p;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -2390,6 +2416,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 movpp_5_1:
 {
+g[5].tag = g[1].tag;
 g[5].p = g[1].p;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -2397,6 +2424,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 movpp_5_2:
 {
+g[5].tag = g[2].tag;
 g[5].p = g[2].p;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -2404,6 +2432,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 movpp_5_3:
 {
+g[5].tag = g[3].tag;
 g[5].p = g[3].p;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -2411,6 +2440,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 movpp_5_4:
 {
+g[5].tag = g[4].tag;
 g[5].p = g[4].p;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -2419,8 +2449,8 @@ goto *dynOpcodes[ts + program[pc]];
 movip_0_1:
 {
 g[0].p = g[1].p;
-g[0].tag = 1;
-ts |= 0x10000 /*0b10000000000000000*/;
+g[0].tag = g[1].tag;
+ts |= 0x20 /*100000*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2428,8 +2458,8 @@ goto *dynOpcodes[ts + program[pc]];
 movip_0_2:
 {
 g[0].p = g[2].p;
-g[0].tag = 1;
-ts |= 0x10000 /*0b10000000000000000*/;
+g[0].tag = g[2].tag;
+ts |= 0x20 /*100000*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2437,8 +2467,8 @@ goto *dynOpcodes[ts + program[pc]];
 movip_0_3:
 {
 g[0].p = g[3].p;
-g[0].tag = 1;
-ts |= 0x10000 /*0b10000000000000000*/;
+g[0].tag = g[3].tag;
+ts |= 0x20 /*100000*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2446,8 +2476,8 @@ goto *dynOpcodes[ts + program[pc]];
 movip_0_4:
 {
 g[0].p = g[4].p;
-g[0].tag = 1;
-ts |= 0x10000 /*0b10000000000000000*/;
+g[0].tag = g[4].tag;
+ts |= 0x20 /*100000*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2455,8 +2485,8 @@ goto *dynOpcodes[ts + program[pc]];
 movip_0_5:
 {
 g[0].p = g[5].p;
-g[0].tag = 1;
-ts |= 0x10000 /*0b10000000000000000*/;
+g[0].tag = g[5].tag;
+ts |= 0x20 /*100000*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2464,8 +2494,8 @@ goto *dynOpcodes[ts + program[pc]];
 movip_1_0:
 {
 g[1].p = g[0].p;
-g[1].tag = 1;
-ts |= 0x8000 /*0b01000000000000000*/;
+g[1].tag = g[0].tag;
+ts |= 0x10 /*010000*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2473,8 +2503,8 @@ goto *dynOpcodes[ts + program[pc]];
 movip_1_2:
 {
 g[1].p = g[2].p;
-g[1].tag = 1;
-ts |= 0x8000 /*0b01000000000000000*/;
+g[1].tag = g[2].tag;
+ts |= 0x10 /*010000*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2482,8 +2512,8 @@ goto *dynOpcodes[ts + program[pc]];
 movip_1_3:
 {
 g[1].p = g[3].p;
-g[1].tag = 1;
-ts |= 0x8000 /*0b01000000000000000*/;
+g[1].tag = g[3].tag;
+ts |= 0x10 /*010000*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2491,8 +2521,8 @@ goto *dynOpcodes[ts + program[pc]];
 movip_1_4:
 {
 g[1].p = g[4].p;
-g[1].tag = 1;
-ts |= 0x8000 /*0b01000000000000000*/;
+g[1].tag = g[4].tag;
+ts |= 0x10 /*010000*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2500,8 +2530,8 @@ goto *dynOpcodes[ts + program[pc]];
 movip_1_5:
 {
 g[1].p = g[5].p;
-g[1].tag = 1;
-ts |= 0x8000 /*0b01000000000000000*/;
+g[1].tag = g[5].tag;
+ts |= 0x10 /*010000*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2509,8 +2539,8 @@ goto *dynOpcodes[ts + program[pc]];
 movip_2_0:
 {
 g[2].p = g[0].p;
-g[2].tag = 1;
-ts |= 0x4000 /*0b00100000000000000*/;
+g[2].tag = g[0].tag;
+ts |= 0x8 /*001000*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2518,8 +2548,8 @@ goto *dynOpcodes[ts + program[pc]];
 movip_2_1:
 {
 g[2].p = g[1].p;
-g[2].tag = 1;
-ts |= 0x4000 /*0b00100000000000000*/;
+g[2].tag = g[1].tag;
+ts |= 0x8 /*001000*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2527,8 +2557,8 @@ goto *dynOpcodes[ts + program[pc]];
 movip_2_3:
 {
 g[2].p = g[3].p;
-g[2].tag = 1;
-ts |= 0x4000 /*0b00100000000000000*/;
+g[2].tag = g[3].tag;
+ts |= 0x8 /*001000*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2536,8 +2566,8 @@ goto *dynOpcodes[ts + program[pc]];
 movip_2_4:
 {
 g[2].p = g[4].p;
-g[2].tag = 1;
-ts |= 0x4000 /*0b00100000000000000*/;
+g[2].tag = g[4].tag;
+ts |= 0x8 /*001000*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2545,8 +2575,8 @@ goto *dynOpcodes[ts + program[pc]];
 movip_2_5:
 {
 g[2].p = g[5].p;
-g[2].tag = 1;
-ts |= 0x4000 /*0b00100000000000000*/;
+g[2].tag = g[5].tag;
+ts |= 0x8 /*001000*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2554,8 +2584,8 @@ goto *dynOpcodes[ts + program[pc]];
 movip_3_0:
 {
 g[3].p = g[0].p;
-g[3].tag = 1;
-ts |= 0x2000 /*0b00010000000000000*/;
+g[3].tag = g[0].tag;
+ts |= 0x4 /*000100*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2563,8 +2593,8 @@ goto *dynOpcodes[ts + program[pc]];
 movip_3_1:
 {
 g[3].p = g[1].p;
-g[3].tag = 1;
-ts |= 0x2000 /*0b00010000000000000*/;
+g[3].tag = g[1].tag;
+ts |= 0x4 /*000100*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2572,8 +2602,8 @@ goto *dynOpcodes[ts + program[pc]];
 movip_3_2:
 {
 g[3].p = g[2].p;
-g[3].tag = 1;
-ts |= 0x2000 /*0b00010000000000000*/;
+g[3].tag = g[2].tag;
+ts |= 0x4 /*000100*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2581,8 +2611,8 @@ goto *dynOpcodes[ts + program[pc]];
 movip_3_4:
 {
 g[3].p = g[4].p;
-g[3].tag = 1;
-ts |= 0x2000 /*0b00010000000000000*/;
+g[3].tag = g[4].tag;
+ts |= 0x4 /*000100*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2590,8 +2620,8 @@ goto *dynOpcodes[ts + program[pc]];
 movip_3_5:
 {
 g[3].p = g[5].p;
-g[3].tag = 1;
-ts |= 0x2000 /*0b00010000000000000*/;
+g[3].tag = g[5].tag;
+ts |= 0x4 /*000100*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2599,8 +2629,8 @@ goto *dynOpcodes[ts + program[pc]];
 movip_4_0:
 {
 g[4].p = g[0].p;
-g[4].tag = 1;
-ts |= 0x1000 /*0b00001000000000000*/;
+g[4].tag = g[0].tag;
+ts |= 0x2 /*000010*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2608,8 +2638,8 @@ goto *dynOpcodes[ts + program[pc]];
 movip_4_1:
 {
 g[4].p = g[1].p;
-g[4].tag = 1;
-ts |= 0x1000 /*0b00001000000000000*/;
+g[4].tag = g[1].tag;
+ts |= 0x2 /*000010*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2617,8 +2647,8 @@ goto *dynOpcodes[ts + program[pc]];
 movip_4_2:
 {
 g[4].p = g[2].p;
-g[4].tag = 1;
-ts |= 0x1000 /*0b00001000000000000*/;
+g[4].tag = g[2].tag;
+ts |= 0x2 /*000010*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2626,8 +2656,8 @@ goto *dynOpcodes[ts + program[pc]];
 movip_4_3:
 {
 g[4].p = g[3].p;
-g[4].tag = 1;
-ts |= 0x1000 /*0b00001000000000000*/;
+g[4].tag = g[3].tag;
+ts |= 0x2 /*000010*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2635,8 +2665,8 @@ goto *dynOpcodes[ts + program[pc]];
 movip_4_5:
 {
 g[4].p = g[5].p;
-g[4].tag = 1;
-ts |= 0x1000 /*0b00001000000000000*/;
+g[4].tag = g[5].tag;
+ts |= 0x2 /*000010*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2644,8 +2674,8 @@ goto *dynOpcodes[ts + program[pc]];
 movip_5_0:
 {
 g[5].p = g[0].p;
-g[5].tag = 1;
-ts |= 0x800 /*0b00000100000000000*/;
+g[5].tag = g[0].tag;
+ts |= 0x1 /*000001*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2653,8 +2683,8 @@ goto *dynOpcodes[ts + program[pc]];
 movip_5_1:
 {
 g[5].p = g[1].p;
-g[5].tag = 1;
-ts |= 0x800 /*0b00000100000000000*/;
+g[5].tag = g[1].tag;
+ts |= 0x1 /*000001*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2662,8 +2692,8 @@ goto *dynOpcodes[ts + program[pc]];
 movip_5_2:
 {
 g[5].p = g[2].p;
-g[5].tag = 1;
-ts |= 0x800 /*0b00000100000000000*/;
+g[5].tag = g[2].tag;
+ts |= 0x1 /*000001*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2671,8 +2701,8 @@ goto *dynOpcodes[ts + program[pc]];
 movip_5_3:
 {
 g[5].p = g[3].p;
-g[5].tag = 1;
-ts |= 0x800 /*0b00000100000000000*/;
+g[5].tag = g[3].tag;
+ts |= 0x1 /*000001*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2680,8 +2710,8 @@ goto *dynOpcodes[ts + program[pc]];
 movip_5_4:
 {
 g[5].p = g[4].p;
-g[5].tag = 1;
-ts |= 0x800 /*0b00000100000000000*/;
+g[5].tag = g[4].tag;
+ts |= 0x1 /*000001*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2690,7 +2720,7 @@ movpi_0_1:
 {
 g[0].i = g[1].i;
 g[0].tag = 0;
-ts |= 0xf800 /*0b01111100000000000*/;
+ts |= 0x1f /*011111*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2699,7 +2729,7 @@ movpi_0_2:
 {
 g[0].i = g[2].i;
 g[0].tag = 0;
-ts |= 0xf800 /*0b01111100000000000*/;
+ts |= 0x1f /*011111*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2708,7 +2738,7 @@ movpi_0_3:
 {
 g[0].i = g[3].i;
 g[0].tag = 0;
-ts |= 0xf800 /*0b01111100000000000*/;
+ts |= 0x1f /*011111*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2717,7 +2747,7 @@ movpi_0_4:
 {
 g[0].i = g[4].i;
 g[0].tag = 0;
-ts |= 0xf800 /*0b01111100000000000*/;
+ts |= 0x1f /*011111*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2726,7 +2756,7 @@ movpi_0_5:
 {
 g[0].i = g[5].i;
 g[0].tag = 0;
-ts |= 0xf800 /*0b01111100000000000*/;
+ts |= 0x1f /*011111*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2735,7 +2765,7 @@ movpi_1_0:
 {
 g[1].i = g[0].i;
 g[1].tag = 0;
-ts |= 0x17800 /*0b10111100000000000*/;
+ts |= 0x2f /*101111*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2744,7 +2774,7 @@ movpi_1_2:
 {
 g[1].i = g[2].i;
 g[1].tag = 0;
-ts |= 0x17800 /*0b10111100000000000*/;
+ts |= 0x2f /*101111*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2753,7 +2783,7 @@ movpi_1_3:
 {
 g[1].i = g[3].i;
 g[1].tag = 0;
-ts |= 0x17800 /*0b10111100000000000*/;
+ts |= 0x2f /*101111*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2762,7 +2792,7 @@ movpi_1_4:
 {
 g[1].i = g[4].i;
 g[1].tag = 0;
-ts |= 0x17800 /*0b10111100000000000*/;
+ts |= 0x2f /*101111*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2771,7 +2801,7 @@ movpi_1_5:
 {
 g[1].i = g[5].i;
 g[1].tag = 0;
-ts |= 0x17800 /*0b10111100000000000*/;
+ts |= 0x2f /*101111*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2780,7 +2810,7 @@ movpi_2_0:
 {
 g[2].i = g[0].i;
 g[2].tag = 0;
-ts |= 0x1b800 /*0b11011100000000000*/;
+ts |= 0x37 /*110111*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2789,7 +2819,7 @@ movpi_2_1:
 {
 g[2].i = g[1].i;
 g[2].tag = 0;
-ts |= 0x1b800 /*0b11011100000000000*/;
+ts |= 0x37 /*110111*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2798,7 +2828,7 @@ movpi_2_3:
 {
 g[2].i = g[3].i;
 g[2].tag = 0;
-ts |= 0x1b800 /*0b11011100000000000*/;
+ts |= 0x37 /*110111*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2807,7 +2837,7 @@ movpi_2_4:
 {
 g[2].i = g[4].i;
 g[2].tag = 0;
-ts |= 0x1b800 /*0b11011100000000000*/;
+ts |= 0x37 /*110111*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2816,7 +2846,7 @@ movpi_2_5:
 {
 g[2].i = g[5].i;
 g[2].tag = 0;
-ts |= 0x1b800 /*0b11011100000000000*/;
+ts |= 0x37 /*110111*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2825,7 +2855,7 @@ movpi_3_0:
 {
 g[3].i = g[0].i;
 g[3].tag = 0;
-ts |= 0x1d800 /*0b11101100000000000*/;
+ts |= 0x3b /*111011*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2834,7 +2864,7 @@ movpi_3_1:
 {
 g[3].i = g[1].i;
 g[3].tag = 0;
-ts |= 0x1d800 /*0b11101100000000000*/;
+ts |= 0x3b /*111011*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2843,7 +2873,7 @@ movpi_3_2:
 {
 g[3].i = g[2].i;
 g[3].tag = 0;
-ts |= 0x1d800 /*0b11101100000000000*/;
+ts |= 0x3b /*111011*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2852,7 +2882,7 @@ movpi_3_4:
 {
 g[3].i = g[4].i;
 g[3].tag = 0;
-ts |= 0x1d800 /*0b11101100000000000*/;
+ts |= 0x3b /*111011*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2861,7 +2891,7 @@ movpi_3_5:
 {
 g[3].i = g[5].i;
 g[3].tag = 0;
-ts |= 0x1d800 /*0b11101100000000000*/;
+ts |= 0x3b /*111011*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2870,7 +2900,7 @@ movpi_4_0:
 {
 g[4].i = g[0].i;
 g[4].tag = 0;
-ts |= 0x1e800 /*0b11110100000000000*/;
+ts |= 0x3d /*111101*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2879,7 +2909,7 @@ movpi_4_1:
 {
 g[4].i = g[1].i;
 g[4].tag = 0;
-ts |= 0x1e800 /*0b11110100000000000*/;
+ts |= 0x3d /*111101*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2888,7 +2918,7 @@ movpi_4_2:
 {
 g[4].i = g[2].i;
 g[4].tag = 0;
-ts |= 0x1e800 /*0b11110100000000000*/;
+ts |= 0x3d /*111101*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2897,7 +2927,7 @@ movpi_4_3:
 {
 g[4].i = g[3].i;
 g[4].tag = 0;
-ts |= 0x1e800 /*0b11110100000000000*/;
+ts |= 0x3d /*111101*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2906,7 +2936,7 @@ movpi_4_5:
 {
 g[4].i = g[5].i;
 g[4].tag = 0;
-ts |= 0x1e800 /*0b11110100000000000*/;
+ts |= 0x3d /*111101*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2915,7 +2945,7 @@ movpi_5_0:
 {
 g[5].i = g[0].i;
 g[5].tag = 0;
-ts |= 0x1f000 /*0b11111000000000000*/;
+ts |= 0x3e /*111110*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2924,7 +2954,7 @@ movpi_5_1:
 {
 g[5].i = g[1].i;
 g[5].tag = 0;
-ts |= 0x1f000 /*0b11111000000000000*/;
+ts |= 0x3e /*111110*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2933,7 +2963,7 @@ movpi_5_2:
 {
 g[5].i = g[2].i;
 g[5].tag = 0;
-ts |= 0x1f000 /*0b11111000000000000*/;
+ts |= 0x3e /*111110*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2942,7 +2972,7 @@ movpi_5_3:
 {
 g[5].i = g[3].i;
 g[5].tag = 0;
-ts |= 0x1f000 /*0b11111000000000000*/;
+ts |= 0x3e /*111110*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -2951,7 +2981,7 @@ movpi_5_4:
 {
 g[5].i = g[4].i;
 g[5].tag = 0;
-ts |= 0x1f000 /*0b11111000000000000*/;
+ts |= 0x3e /*111110*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -3016,7 +3046,7 @@ int16_t dconstant = program[pc + 1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
 g[0].i = constant;
 g[0].tag = 0;
-ts |= 0xf800 /*0b01111100000000000*/;
+ts |= 0x1f /*011111*/;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -3027,7 +3057,7 @@ int16_t dconstant = program[pc + 1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
 g[1].i = constant;
 g[1].tag = 0;
-ts |= 0x17800 /*0b10111100000000000*/;
+ts |= 0x2f /*101111*/;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -3038,7 +3068,7 @@ int16_t dconstant = program[pc + 1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
 g[2].i = constant;
 g[2].tag = 0;
-ts |= 0x1b800 /*0b11011100000000000*/;
+ts |= 0x37 /*110111*/;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -3049,7 +3079,7 @@ int16_t dconstant = program[pc + 1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
 g[3].i = constant;
 g[3].tag = 0;
-ts |= 0x1d800 /*0b11101100000000000*/;
+ts |= 0x3b /*111011*/;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -3060,7 +3090,7 @@ int16_t dconstant = program[pc + 1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
 g[4].i = constant;
 g[4].tag = 0;
-ts |= 0x1e800 /*0b11110100000000000*/;
+ts |= 0x3d /*111101*/;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -3071,7 +3101,7 @@ int16_t dconstant = program[pc + 1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
 g[5].i = constant;
 g[5].tag = 0;
-ts |= 0x1f000 /*0b11111000000000000*/;
+ts |= 0x3e /*111110*/;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -3122,7 +3152,7 @@ moviN_0:
 {
 g[0].p = NULL;
 g[0].tag = 1;
-ts |= 0x10000 /*0b10000000000000000*/;
+ts |= 0x20 /*100000*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -3131,7 +3161,7 @@ moviN_1:
 {
 g[1].p = NULL;
 g[1].tag = 1;
-ts |= 0x8000 /*0b01000000000000000*/;
+ts |= 0x10 /*010000*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -3140,7 +3170,7 @@ moviN_2:
 {
 g[2].p = NULL;
 g[2].tag = 1;
-ts |= 0x4000 /*0b00100000000000000*/;
+ts |= 0x8 /*001000*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -3149,7 +3179,7 @@ moviN_3:
 {
 g[3].p = NULL;
 g[3].tag = 1;
-ts |= 0x2000 /*0b00010000000000000*/;
+ts |= 0x4 /*000100*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -3158,7 +3188,7 @@ moviN_4:
 {
 g[4].p = NULL;
 g[4].tag = 1;
-ts |= 0x1000 /*0b00001000000000000*/;
+ts |= 0x2 /*000010*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -3167,7 +3197,7 @@ moviN_5:
 {
 g[5].p = NULL;
 g[5].tag = 1;
-ts |= 0x800 /*0b00000100000000000*/;
+ts |= 0x1 /*000001*/;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -3178,10 +3208,13 @@ int16_t constant = program[pc + 1];
 value val = fp[constant];
 if (val.tag != 0)
 {
-g[0].tag = 0;
-ts |= 0xf800 /*0b01111100000000000*/;
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
 }
+else{
 g[0].i = val.i;
+}
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -3192,10 +3225,13 @@ int16_t constant = program[pc + 1];
 value val = fp[constant];
 if (val.tag != 0)
 {
-g[1].tag = 0;
-ts |= 0x17800 /*0b10111100000000000*/;
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
 }
+else{
 g[1].i = val.i;
+}
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -3206,10 +3242,13 @@ int16_t constant = program[pc + 1];
 value val = fp[constant];
 if (val.tag != 0)
 {
-g[2].tag = 0;
-ts |= 0x1b800 /*0b11011100000000000*/;
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
 }
+else{
 g[2].i = val.i;
+}
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -3220,10 +3259,13 @@ int16_t constant = program[pc + 1];
 value val = fp[constant];
 if (val.tag != 0)
 {
-g[3].tag = 0;
-ts |= 0x1d800 /*0b11101100000000000*/;
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
 }
+else{
 g[3].i = val.i;
+}
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -3234,10 +3276,13 @@ int16_t constant = program[pc + 1];
 value val = fp[constant];
 if (val.tag != 0)
 {
-g[4].tag = 0;
-ts |= 0x1e800 /*0b11110100000000000*/;
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
 }
+else{
 g[4].i = val.i;
+}
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -3248,10 +3293,13 @@ int16_t constant = program[pc + 1];
 value val = fp[constant];
 if (val.tag != 0)
 {
-g[5].tag = 0;
-ts |= 0x1f000 /*0b11111000000000000*/;
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
 }
+else{
 g[5].i = val.i;
+}
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -3260,11 +3308,12 @@ getpk_0:
 {
 int16_t constant = program[pc + 1];
 value val = fp[constant];
-if (val.tag != 1)
-{
-g[0].tag = 1;
-ts |= 0x10000 /*0b10000000000000000*/;
+if (val.tag == 0){
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val.i;
 }
+g[0].tag = val.tag;
 g[0].p = val.p;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
@@ -3274,11 +3323,12 @@ getpk_1:
 {
 int16_t constant = program[pc + 1];
 value val = fp[constant];
-if (val.tag != 1)
-{
-g[1].tag = 1;
-ts |= 0x8000 /*0b01000000000000000*/;
+if (val.tag == 0){
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val.i;
 }
+g[1].tag = val.tag;
 g[1].p = val.p;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
@@ -3288,11 +3338,12 @@ getpk_2:
 {
 int16_t constant = program[pc + 1];
 value val = fp[constant];
-if (val.tag != 1)
-{
-g[2].tag = 1;
-ts |= 0x4000 /*0b00100000000000000*/;
+if (val.tag == 0){
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val.i;
 }
+g[2].tag = val.tag;
 g[2].p = val.p;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
@@ -3302,11 +3353,12 @@ getpk_3:
 {
 int16_t constant = program[pc + 1];
 value val = fp[constant];
-if (val.tag != 1)
-{
-g[3].tag = 1;
-ts |= 0x2000 /*0b00010000000000000*/;
+if (val.tag == 0){
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val.i;
 }
+g[3].tag = val.tag;
 g[3].p = val.p;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
@@ -3316,11 +3368,12 @@ getpk_4:
 {
 int16_t constant = program[pc + 1];
 value val = fp[constant];
-if (val.tag != 1)
-{
-g[4].tag = 1;
-ts |= 0x1000 /*0b00001000000000000*/;
+if (val.tag == 0){
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val.i;
 }
+g[4].tag = val.tag;
 g[4].p = val.p;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
@@ -3330,66 +3383,133 @@ getpk_5:
 {
 int16_t constant = program[pc + 1];
 value val = fp[constant];
-if (val.tag != 1)
-{
-g[5].tag = 1;
-ts |= 0x800 /*0b00000100000000000*/;
+if (val.tag == 0){
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val.i;
 }
+g[5].tag = val.tag;
 g[5].p = val.p;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-set_0:
+setik_0:
 {
 int16_t constant = program[pc + 1];
 value* vp = fp + constant;
-vp = &g[0];
+(*vp).tag = g[0].tag;
+(*vp).i = g[0].i;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-set_1:
+setik_1:
 {
 int16_t constant = program[pc + 1];
 value* vp = fp + constant;
-vp = &g[1];
+(*vp).tag = g[1].tag;
+(*vp).i = g[1].i;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-set_2:
+setik_2:
 {
 int16_t constant = program[pc + 1];
 value* vp = fp + constant;
-vp = &g[2];
+(*vp).tag = g[2].tag;
+(*vp).i = g[2].i;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-set_3:
+setik_3:
 {
 int16_t constant = program[pc + 1];
 value* vp = fp + constant;
-vp = &g[3];
+(*vp).tag = g[3].tag;
+(*vp).i = g[3].i;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-set_4:
+setik_4:
 {
 int16_t constant = program[pc + 1];
 value* vp = fp + constant;
-vp = &g[4];
+(*vp).tag = g[4].tag;
+(*vp).i = g[4].i;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-set_5:
+setik_5:
 {
 int16_t constant = program[pc + 1];
 value* vp = fp + constant;
-vp = &g[5];
+(*vp).tag = g[5].tag;
+(*vp).i = g[5].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setpk_0:
+{
+int16_t constant = program[pc + 1];
+value* vp = fp + constant;
+(*vp).tag = g[0].tag;
+(*vp).p = g[0].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setpk_1:
+{
+int16_t constant = program[pc + 1];
+value* vp = fp + constant;
+(*vp).tag = g[1].tag;
+(*vp).p = g[1].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setpk_2:
+{
+int16_t constant = program[pc + 1];
+value* vp = fp + constant;
+(*vp).tag = g[2].tag;
+(*vp).p = g[2].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setpk_3:
+{
+int16_t constant = program[pc + 1];
+value* vp = fp + constant;
+(*vp).tag = g[3].tag;
+(*vp).p = g[3].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setpk_4:
+{
+int16_t constant = program[pc + 1];
+value* vp = fp + constant;
+(*vp).tag = g[4].tag;
+(*vp).p = g[4].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setpk_5:
+{
+int16_t constant = program[pc + 1];
+value* vp = fp + constant;
+(*vp).tag = g[5].tag;
+(*vp).p = g[5].p;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -4457,7 +4577,7 @@ goto *dynOpcodes[ts + program[pc]];
 ret:
 {
 stackframe *cur = (stackframe*)(fp - offsetof(stackframe, fp));
-fp = cur->fp; pc = cur->pc; ts = (cur->ts & 0b01111000000000000) | (ts & 0b10000100000000000);
+fp = cur->fp; pc = cur->pc; ts = (cur->ts & 0xF000) | (ts & 0x10800);
 RestoreRegisters(cur->g);
 free(cur);//probably does a thing 
 if (fp == NULL)
@@ -4472,8 +4592,8 @@ int16_t dsize = program[pc + 1];
 int64_t size = *((int64_t*)(&program[pc + dsize]));
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*size);
 base->sf = MakeSizeAndFlags(size,0);
-g[0].tag = 1;
-ts |= 0x10000 /*0b10000000000000000*/;
+g[0].tag = 2;
+ts |= 0x20 /*100000*/;
 g[0].p = base;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -4485,8 +4605,8 @@ int16_t dsize = program[pc + 1];
 int64_t size = *((int64_t*)(&program[pc + dsize]));
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*size);
 base->sf = MakeSizeAndFlags(size,0);
-g[1].tag = 1;
-ts |= 0x8000 /*0b01000000000000000*/;
+g[1].tag = 2;
+ts |= 0x10 /*010000*/;
 g[1].p = base;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -4498,8 +4618,8 @@ int16_t dsize = program[pc + 1];
 int64_t size = *((int64_t*)(&program[pc + dsize]));
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*size);
 base->sf = MakeSizeAndFlags(size,0);
-g[2].tag = 1;
-ts |= 0x4000 /*0b00100000000000000*/;
+g[2].tag = 2;
+ts |= 0x8 /*001000*/;
 g[2].p = base;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -4511,8 +4631,8 @@ int16_t dsize = program[pc + 1];
 int64_t size = *((int64_t*)(&program[pc + dsize]));
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*size);
 base->sf = MakeSizeAndFlags(size,0);
-g[3].tag = 1;
-ts |= 0x2000 /*0b00010000000000000*/;
+g[3].tag = 2;
+ts |= 0x4 /*000100*/;
 g[3].p = base;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -4524,8 +4644,8 @@ int16_t dsize = program[pc + 1];
 int64_t size = *((int64_t*)(&program[pc + dsize]));
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*size);
 base->sf = MakeSizeAndFlags(size,0);
-g[4].tag = 1;
-ts |= 0x1000 /*0b00001000000000000*/;
+g[4].tag = 2;
+ts |= 0x2 /*000010*/;
 g[4].p = base;
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -4537,8 +4657,164 @@ int16_t dsize = program[pc + 1];
 int64_t size = *((int64_t*)(&program[pc + dsize]));
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*size);
 base->sf = MakeSizeAndFlags(size,0);
-g[5].tag = 1;
-ts |= 0x800 /*0b00000100000000000*/;
+g[5].tag = 2;
+ts |= 0x1 /*000001*/;
+g[5].p = base;
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newpa_0:
+{
+int16_t dsize = program[pc + 1];
+int64_t size = *((int64_t*)(&program[pc + dsize]));
+pointeronly *base = (pointeronly*)malloc(sizeof(pointeronly) + sizeof(value)*size);
+base->sf = MakeSizeAndFlags(size,0);
+g[0].tag = 3;
+ts |= 0x20 /*100000*/;
+g[0].p = base;
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newpa_1:
+{
+int16_t dsize = program[pc + 1];
+int64_t size = *((int64_t*)(&program[pc + dsize]));
+pointeronly *base = (pointeronly*)malloc(sizeof(pointeronly) + sizeof(value)*size);
+base->sf = MakeSizeAndFlags(size,0);
+g[1].tag = 3;
+ts |= 0x10 /*010000*/;
+g[1].p = base;
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newpa_2:
+{
+int16_t dsize = program[pc + 1];
+int64_t size = *((int64_t*)(&program[pc + dsize]));
+pointeronly *base = (pointeronly*)malloc(sizeof(pointeronly) + sizeof(value)*size);
+base->sf = MakeSizeAndFlags(size,0);
+g[2].tag = 3;
+ts |= 0x8 /*001000*/;
+g[2].p = base;
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newpa_3:
+{
+int16_t dsize = program[pc + 1];
+int64_t size = *((int64_t*)(&program[pc + dsize]));
+pointeronly *base = (pointeronly*)malloc(sizeof(pointeronly) + sizeof(value)*size);
+base->sf = MakeSizeAndFlags(size,0);
+g[3].tag = 3;
+ts |= 0x4 /*000100*/;
+g[3].p = base;
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newpa_4:
+{
+int16_t dsize = program[pc + 1];
+int64_t size = *((int64_t*)(&program[pc + dsize]));
+pointeronly *base = (pointeronly*)malloc(sizeof(pointeronly) + sizeof(value)*size);
+base->sf = MakeSizeAndFlags(size,0);
+g[4].tag = 3;
+ts |= 0x2 /*000010*/;
+g[4].p = base;
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newpa_5:
+{
+int16_t dsize = program[pc + 1];
+int64_t size = *((int64_t*)(&program[pc + dsize]));
+pointeronly *base = (pointeronly*)malloc(sizeof(pointeronly) + sizeof(value)*size);
+base->sf = MakeSizeAndFlags(size,0);
+g[5].tag = 3;
+ts |= 0x1 /*000001*/;
+g[5].p = base;
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newa_0:
+{
+int16_t dsize = program[pc + 1];
+int64_t size = *((int64_t*)(&program[pc + dsize]));
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*size);
+base->sf = MakeSizeAndFlags(size,0);
+g[0].tag = 4;
+ts |= 0x20 /*100000*/;
+g[0].p = base;
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newa_1:
+{
+int16_t dsize = program[pc + 1];
+int64_t size = *((int64_t*)(&program[pc + dsize]));
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*size);
+base->sf = MakeSizeAndFlags(size,0);
+g[1].tag = 4;
+ts |= 0x10 /*010000*/;
+g[1].p = base;
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newa_2:
+{
+int16_t dsize = program[pc + 1];
+int64_t size = *((int64_t*)(&program[pc + dsize]));
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*size);
+base->sf = MakeSizeAndFlags(size,0);
+g[2].tag = 4;
+ts |= 0x8 /*001000*/;
+g[2].p = base;
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newa_3:
+{
+int16_t dsize = program[pc + 1];
+int64_t size = *((int64_t*)(&program[pc + dsize]));
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*size);
+base->sf = MakeSizeAndFlags(size,0);
+g[3].tag = 4;
+ts |= 0x4 /*000100*/;
+g[3].p = base;
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newa_4:
+{
+int16_t dsize = program[pc + 1];
+int64_t size = *((int64_t*)(&program[pc + dsize]));
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*size);
+base->sf = MakeSizeAndFlags(size,0);
+g[4].tag = 4;
+ts |= 0x2 /*000010*/;
+g[4].p = base;
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newa_5:
+{
+int16_t dsize = program[pc + 1];
+int64_t size = *((int64_t*)(&program[pc + dsize]));
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*size);
+base->sf = MakeSizeAndFlags(size,0);
+g[5].tag = 4;
+ts |= 0x1 /*000001*/;
 g[5].p = base;
 pc++;
 goto *dynOpcodes[ts + program[pc]];

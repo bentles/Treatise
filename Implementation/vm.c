@@ -33,13 +33,56 @@ struct ValueStruct
 {
 	int tag;
 	/* 0 - 64 bit int
-	 * 1 - pointer
+	 * 1 - value pointer / NULL
+     * 2 - object pointer
+     * 3 - pointer-only pointer
+     * 4 - pointer-free pointer
 	 */
 	union
 	{
 		int64_t i;
-		void *p; 
-	};
+		void *p;    
+    };
+};
+
+/* Object
+ * ======
+ * A general-purpose collection of fields
+ */
+#define MakeSizeAndFlags(size,flags)(((size)<<2)|(flags))
+#define GetFlags(v)((v) & 3)
+#define GetPayload(v)((v) & ~3)
+#define GetSize(v)(GetPayload(v)>>2)
+
+typedef struct ObjectStruct object;
+struct ObjectStruct
+{
+    int64_t sf; //size and flags
+    value data[];
+};
+
+/* Pointer-only
+ * ============
+ * Can only contain values with tags greater than 0
+ * No different from an object except that it guarantees
+ * only pointers 
+ */
+typedef struct PointerStruct pointeronly;
+struct PointerStruct
+{
+    int64_t sf; //size and flags
+    value data[];
+};
+
+/* Buffer (pointer-free)
+ * =====================
+ * A byte addressable buffer
+ */
+typedef struct BufferStruct buffer;
+struct BufferStruct
+{
+    int64_t sf; //size and flags
+    int8_t data[];
 };
 
 /* Stack Frame
@@ -58,22 +101,6 @@ struct StackFrameStruct
     int64_t ts;
     value g[4]; //g1 .. g4
     value l[];  //local vars starting with the arguments
-};
-
-/* Object
- * ======
- * don't we need some way to know we are looking at an object and not like another pointer or int??
- */
-#define MakeSizeAndFlags(size,flags)(((size)<<2)|(flags))
-#define GetFlags(v)((v) & 3)
-#define GetPayload(v)((v) & ~3)
-#define GetSize(v)(GetPayload(v)>>2)
-
-typedef struct ObjectStruct object;
-struct ObjectStruct
-{
-    int64_t sf; //size and flags
-    value data[];
 };
 
 /* Registers
