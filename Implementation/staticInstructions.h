@@ -3202,7 +3202,7 @@ pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getik_0:
+getl_0:
 {
 int16_t constant = program[pc + 1];
 value val = fp[constant];
@@ -3219,7 +3219,7 @@ pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getik_1:
+getl_1:
 {
 int16_t constant = program[pc + 1];
 value val = fp[constant];
@@ -3236,7 +3236,7 @@ pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getik_2:
+getl_2:
 {
 int16_t constant = program[pc + 1];
 value val = fp[constant];
@@ -3253,7 +3253,7 @@ pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getik_3:
+getl_3:
 {
 int16_t constant = program[pc + 1];
 value val = fp[constant];
@@ -3270,7 +3270,7 @@ pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getik_4:
+getl_4:
 {
 int16_t constant = program[pc + 1];
 value val = fp[constant];
@@ -3287,7 +3287,7 @@ pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getik_5:
+getl_5:
 {
 int16_t constant = program[pc + 1];
 value val = fp[constant];
@@ -3304,7 +3304,7 @@ pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getpk_0:
+getlp_0:
 {
 int16_t constant = program[pc + 1];
 value val = fp[constant];
@@ -3319,7 +3319,7 @@ pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getpk_1:
+getlp_1:
 {
 int16_t constant = program[pc + 1];
 value val = fp[constant];
@@ -3334,7 +3334,7 @@ pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getpk_2:
+getlp_2:
 {
 int16_t constant = program[pc + 1];
 value val = fp[constant];
@@ -3349,7 +3349,7 @@ pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getpk_3:
+getlp_3:
 {
 int16_t constant = program[pc + 1];
 value val = fp[constant];
@@ -3364,7 +3364,7 @@ pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getpk_4:
+getlp_4:
 {
 int16_t constant = program[pc + 1];
 value val = fp[constant];
@@ -3379,7 +3379,7 @@ pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getpk_5:
+getlp_5:
 {
 int16_t constant = program[pc + 1];
 value val = fp[constant];
@@ -3394,123 +3394,10635 @@ pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-setik_0:
+setl_0:
 {
 int16_t constant = program[pc + 1];
-value* vp = fp + constant;
+value* vp = fp + constant * sizeof(value);
 (*vp).tag = g[0].tag;
 (*vp).i = g[0].i;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-setik_1:
+setl_1:
 {
 int16_t constant = program[pc + 1];
-value* vp = fp + constant;
+value* vp = fp + constant * sizeof(value);
 (*vp).tag = g[1].tag;
 (*vp).i = g[1].i;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-setik_2:
+setl_2:
 {
 int16_t constant = program[pc + 1];
-value* vp = fp + constant;
+value* vp = fp + constant * sizeof(value);
 (*vp).tag = g[2].tag;
 (*vp).i = g[2].i;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-setik_3:
+setl_3:
 {
 int16_t constant = program[pc + 1];
-value* vp = fp + constant;
+value* vp = fp + constant * sizeof(value);
 (*vp).tag = g[3].tag;
 (*vp).i = g[3].i;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-setik_4:
+setl_4:
 {
 int16_t constant = program[pc + 1];
-value* vp = fp + constant;
+value* vp = fp + constant * sizeof(value);
 (*vp).tag = g[4].tag;
 (*vp).i = g[4].i;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-setik_5:
+setl_5:
 {
 int16_t constant = program[pc + 1];
-value* vp = fp + constant;
+value* vp = fp + constant * sizeof(value);
 (*vp).tag = g[5].tag;
 (*vp).i = g[5].i;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-setpk_0:
+setlp_0:
 {
 int16_t constant = program[pc + 1];
-value* vp = fp + constant;
+value* vp = fp + constant * sizeof(value);
 (*vp).tag = g[0].tag;
 (*vp).p = g[0].p;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-setpk_1:
+setlp_1:
 {
 int16_t constant = program[pc + 1];
-value* vp = fp + constant;
+value* vp = fp + constant * sizeof(value);
 (*vp).tag = g[1].tag;
 (*vp).p = g[1].p;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-setpk_2:
+setlp_2:
 {
 int16_t constant = program[pc + 1];
-value* vp = fp + constant;
+value* vp = fp + constant * sizeof(value);
 (*vp).tag = g[2].tag;
 (*vp).p = g[2].p;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-setpk_3:
+setlp_3:
 {
 int16_t constant = program[pc + 1];
-value* vp = fp + constant;
+value* vp = fp + constant * sizeof(value);
 (*vp).tag = g[3].tag;
 (*vp).p = g[3].p;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-setpk_4:
+setlp_4:
 {
 int16_t constant = program[pc + 1];
-value* vp = fp + constant;
+value* vp = fp + constant * sizeof(value);
 (*vp).tag = g[4].tag;
 (*vp).p = g[4].p;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-setpk_5:
+setlp_5:
 {
 int16_t constant = program[pc + 1];
-value* vp = fp + constant;
+value* vp = fp + constant * sizeof(value);
 (*vp).tag = g[5].tag;
 (*vp).p = g[5].p;
 pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_0_0:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[0].p))->data[constant];
+if (val.tag != 0)
+{
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+}
+else{
+g[0].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_0_1:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[constant];
+if (val.tag != 0)
+{
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+}
+else{
+g[0].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_0_2:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[constant];
+if (val.tag != 0)
+{
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+}
+else{
+g[0].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_0_3:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[constant];
+if (val.tag != 0)
+{
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+}
+else{
+g[0].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_0_4:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[constant];
+if (val.tag != 0)
+{
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+}
+else{
+g[0].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_0_5:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[constant];
+if (val.tag != 0)
+{
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+}
+else{
+g[0].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_1_0:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[0].p))->data[constant];
+if (val.tag != 0)
+{
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+}
+else{
+g[1].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_1_1:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[constant];
+if (val.tag != 0)
+{
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+}
+else{
+g[1].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_1_2:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[constant];
+if (val.tag != 0)
+{
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+}
+else{
+g[1].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_1_3:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[constant];
+if (val.tag != 0)
+{
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+}
+else{
+g[1].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_1_4:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[constant];
+if (val.tag != 0)
+{
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+}
+else{
+g[1].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_1_5:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[constant];
+if (val.tag != 0)
+{
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+}
+else{
+g[1].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_2_0:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[0].p))->data[constant];
+if (val.tag != 0)
+{
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+}
+else{
+g[2].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_2_1:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[constant];
+if (val.tag != 0)
+{
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+}
+else{
+g[2].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_2_2:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[constant];
+if (val.tag != 0)
+{
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+}
+else{
+g[2].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_2_3:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[constant];
+if (val.tag != 0)
+{
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+}
+else{
+g[2].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_2_4:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[constant];
+if (val.tag != 0)
+{
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+}
+else{
+g[2].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_2_5:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[constant];
+if (val.tag != 0)
+{
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+}
+else{
+g[2].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_3_0:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[0].p))->data[constant];
+if (val.tag != 0)
+{
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+}
+else{
+g[3].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_3_1:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[constant];
+if (val.tag != 0)
+{
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+}
+else{
+g[3].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_3_2:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[constant];
+if (val.tag != 0)
+{
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+}
+else{
+g[3].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_3_3:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[constant];
+if (val.tag != 0)
+{
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+}
+else{
+g[3].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_3_4:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[constant];
+if (val.tag != 0)
+{
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+}
+else{
+g[3].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_3_5:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[constant];
+if (val.tag != 0)
+{
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+}
+else{
+g[3].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_4_0:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[0].p))->data[constant];
+if (val.tag != 0)
+{
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+}
+else{
+g[4].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_4_1:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[constant];
+if (val.tag != 0)
+{
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+}
+else{
+g[4].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_4_2:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[constant];
+if (val.tag != 0)
+{
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+}
+else{
+g[4].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_4_3:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[constant];
+if (val.tag != 0)
+{
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+}
+else{
+g[4].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_4_4:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[constant];
+if (val.tag != 0)
+{
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+}
+else{
+g[4].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_4_5:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[constant];
+if (val.tag != 0)
+{
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+}
+else{
+g[4].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_5_0:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[0].p))->data[constant];
+if (val.tag != 0)
+{
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+}
+else{
+g[5].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_5_1:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[constant];
+if (val.tag != 0)
+{
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+}
+else{
+g[5].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_5_2:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[constant];
+if (val.tag != 0)
+{
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+}
+else{
+g[5].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_5_3:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[constant];
+if (val.tag != 0)
+{
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+}
+else{
+g[5].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_5_4:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[constant];
+if (val.tag != 0)
+{
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+}
+else{
+g[5].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getm_5_5:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[constant];
+if (val.tag != 0)
+{
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+}
+else{
+g[5].i = val.i;
+}
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_0_0:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[0].p))->data[constant];
+if (val.tag == 0){
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_0_1:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[constant];
+if (val.tag == 0){
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_0_2:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[constant];
+if (val.tag == 0){
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_0_3:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[constant];
+if (val.tag == 0){
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_0_4:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[constant];
+if (val.tag == 0){
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_0_5:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[constant];
+if (val.tag == 0){
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_1_0:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[0].p))->data[constant];
+if (val.tag == 0){
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_1_1:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[constant];
+if (val.tag == 0){
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_1_2:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[constant];
+if (val.tag == 0){
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_1_3:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[constant];
+if (val.tag == 0){
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_1_4:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[constant];
+if (val.tag == 0){
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_1_5:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[constant];
+if (val.tag == 0){
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_2_0:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[0].p))->data[constant];
+if (val.tag == 0){
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_2_1:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[constant];
+if (val.tag == 0){
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_2_2:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[constant];
+if (val.tag == 0){
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_2_3:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[constant];
+if (val.tag == 0){
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_2_4:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[constant];
+if (val.tag == 0){
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_2_5:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[constant];
+if (val.tag == 0){
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_3_0:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[0].p))->data[constant];
+if (val.tag == 0){
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_3_1:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[constant];
+if (val.tag == 0){
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_3_2:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[constant];
+if (val.tag == 0){
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_3_3:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[constant];
+if (val.tag == 0){
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_3_4:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[constant];
+if (val.tag == 0){
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_3_5:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[constant];
+if (val.tag == 0){
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_4_0:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[0].p))->data[constant];
+if (val.tag == 0){
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_4_1:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[constant];
+if (val.tag == 0){
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_4_2:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[constant];
+if (val.tag == 0){
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_4_3:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[constant];
+if (val.tag == 0){
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_4_4:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[constant];
+if (val.tag == 0){
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_4_5:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[constant];
+if (val.tag == 0){
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_5_0:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[0].p))->data[constant];
+if (val.tag == 0){
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_5_1:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[constant];
+if (val.tag == 0){
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_5_2:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[constant];
+if (val.tag == 0){
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_5_3:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[constant];
+if (val.tag == 0){
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_5_4:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[constant];
+if (val.tag == 0){
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getmp_5_5:
+{
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[constant];
+if (val.tag == 0){
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_0_0:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[0].p))->data[constant]);
+vp->tag =0;
+vp->i = g[0].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_0_1:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[0].p))->data[constant]);
+vp->tag =0;
+vp->i = g[1].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_0_2:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[0].p))->data[constant]);
+vp->tag =0;
+vp->i = g[2].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_0_3:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[0].p))->data[constant]);
+vp->tag =0;
+vp->i = g[3].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_0_4:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[0].p))->data[constant]);
+vp->tag =0;
+vp->i = g[4].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_0_5:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[0].p))->data[constant]);
+vp->tag =0;
+vp->i = g[5].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_1_0:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[1].p))->data[constant]);
+vp->tag =0;
+vp->i = g[0].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_1_1:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[1].p))->data[constant]);
+vp->tag =0;
+vp->i = g[1].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_1_2:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[1].p))->data[constant]);
+vp->tag =0;
+vp->i = g[2].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_1_3:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[1].p))->data[constant]);
+vp->tag =0;
+vp->i = g[3].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_1_4:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[1].p))->data[constant]);
+vp->tag =0;
+vp->i = g[4].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_1_5:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[1].p))->data[constant]);
+vp->tag =0;
+vp->i = g[5].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_2_0:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[2].p))->data[constant]);
+vp->tag =0;
+vp->i = g[0].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_2_1:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[2].p))->data[constant]);
+vp->tag =0;
+vp->i = g[1].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_2_2:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[2].p))->data[constant]);
+vp->tag =0;
+vp->i = g[2].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_2_3:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[2].p))->data[constant]);
+vp->tag =0;
+vp->i = g[3].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_2_4:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[2].p))->data[constant]);
+vp->tag =0;
+vp->i = g[4].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_2_5:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[2].p))->data[constant]);
+vp->tag =0;
+vp->i = g[5].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_3_0:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[3].p))->data[constant]);
+vp->tag =0;
+vp->i = g[0].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_3_1:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[3].p))->data[constant]);
+vp->tag =0;
+vp->i = g[1].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_3_2:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[3].p))->data[constant]);
+vp->tag =0;
+vp->i = g[2].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_3_3:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[3].p))->data[constant]);
+vp->tag =0;
+vp->i = g[3].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_3_4:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[3].p))->data[constant]);
+vp->tag =0;
+vp->i = g[4].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_3_5:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[3].p))->data[constant]);
+vp->tag =0;
+vp->i = g[5].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_4_0:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[4].p))->data[constant]);
+vp->tag =0;
+vp->i = g[0].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_4_1:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[4].p))->data[constant]);
+vp->tag =0;
+vp->i = g[1].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_4_2:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[4].p))->data[constant]);
+vp->tag =0;
+vp->i = g[2].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_4_3:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[4].p))->data[constant]);
+vp->tag =0;
+vp->i = g[3].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_4_4:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[4].p))->data[constant]);
+vp->tag =0;
+vp->i = g[4].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_4_5:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[4].p))->data[constant]);
+vp->tag =0;
+vp->i = g[5].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_5_0:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[5].p))->data[constant]);
+vp->tag =0;
+vp->i = g[0].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_5_1:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[5].p))->data[constant]);
+vp->tag =0;
+vp->i = g[1].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_5_2:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[5].p))->data[constant]);
+vp->tag =0;
+vp->i = g[2].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_5_3:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[5].p))->data[constant]);
+vp->tag =0;
+vp->i = g[3].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_5_4:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[5].p))->data[constant]);
+vp->tag =0;
+vp->i = g[4].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setm_5_5:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[5].p))->data[constant]);
+vp->tag =0;
+vp->i = g[5].i;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_0_0:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[0].p))->data[constant]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_0_1:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[0].p))->data[constant]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_0_2:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[0].p))->data[constant]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_0_3:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[0].p))->data[constant]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_0_4:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[0].p))->data[constant]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_0_5:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[0].p))->data[constant]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_1_0:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[1].p))->data[constant]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_1_1:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[1].p))->data[constant]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_1_2:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[1].p))->data[constant]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_1_3:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[1].p))->data[constant]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_1_4:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[1].p))->data[constant]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_1_5:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[1].p))->data[constant]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_2_0:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[2].p))->data[constant]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_2_1:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[2].p))->data[constant]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_2_2:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[2].p))->data[constant]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_2_3:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[2].p))->data[constant]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_2_4:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[2].p))->data[constant]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_2_5:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[2].p))->data[constant]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_3_0:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[3].p))->data[constant]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_3_1:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[3].p))->data[constant]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_3_2:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[3].p))->data[constant]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_3_3:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[3].p))->data[constant]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_3_4:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[3].p))->data[constant]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_3_5:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[3].p))->data[constant]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_4_0:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[4].p))->data[constant]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_4_1:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[4].p))->data[constant]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_4_2:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[4].p))->data[constant]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_4_3:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[4].p))->data[constant]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_4_4:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[4].p))->data[constant]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_4_5:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[4].p))->data[constant]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_5_0:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[5].p))->data[constant]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_5_1:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[5].p))->data[constant]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_5_2:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[5].p))->data[constant]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_5_3:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[5].p))->data[constant]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_5_4:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[5].p))->data[constant]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setmp_5_5:
+{
+int16_t constant = program[pc + 1];
+value *vp = &(((object *)(g[5].p))->data[constant]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc += 2;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_0_0_1:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[1].i];
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_0_0_2:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[2].i];
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_0_0_3:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[3].i];
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_0_0_4:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[4].i];
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_0_0_5:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[5].i];
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_0_1_0:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[0].i];
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_0_1_2:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[2].i];
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_0_1_3:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[3].i];
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_0_1_4:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[4].i];
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_0_1_5:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[5].i];
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_0_2_0:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[0].i];
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_0_2_1:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[1].i];
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_0_2_3:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[3].i];
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_0_2_4:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[4].i];
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_0_2_5:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[5].i];
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_0_3_0:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[0].i];
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_0_3_1:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[1].i];
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_0_3_2:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[2].i];
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_0_3_4:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[4].i];
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_0_3_5:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[5].i];
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_0_4_0:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[0].i];
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_0_4_1:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[1].i];
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_0_4_2:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[2].i];
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_0_4_3:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[3].i];
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_0_4_5:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[5].i];
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_0_5_0:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[0].i];
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_0_5_1:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[1].i];
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_0_5_2:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[2].i];
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_0_5_3:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[3].i];
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_0_5_4:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[4].i];
+g[0].tag = val.tag;
+ts |= 0x20 /*100000*/;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_1_0_1:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[1].i];
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_1_0_2:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[2].i];
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_1_0_3:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[3].i];
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_1_0_4:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[4].i];
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_1_0_5:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[5].i];
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_1_1_0:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[0].i];
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_1_1_2:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[2].i];
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_1_1_3:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[3].i];
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_1_1_4:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[4].i];
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_1_1_5:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[5].i];
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_1_2_0:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[0].i];
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_1_2_1:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[1].i];
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_1_2_3:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[3].i];
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_1_2_4:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[4].i];
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_1_2_5:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[5].i];
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_1_3_0:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[0].i];
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_1_3_1:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[1].i];
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_1_3_2:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[2].i];
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_1_3_4:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[4].i];
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_1_3_5:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[5].i];
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_1_4_0:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[0].i];
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_1_4_1:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[1].i];
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_1_4_2:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[2].i];
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_1_4_3:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[3].i];
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_1_4_5:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[5].i];
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_1_5_0:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[0].i];
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_1_5_1:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[1].i];
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_1_5_2:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[2].i];
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_1_5_3:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[3].i];
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_1_5_4:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[4].i];
+g[1].tag = val.tag;
+ts |= 0x10 /*010000*/;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_2_0_1:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[1].i];
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_2_0_2:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[2].i];
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_2_0_3:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[3].i];
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_2_0_4:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[4].i];
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_2_0_5:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[5].i];
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_2_1_0:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[0].i];
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_2_1_2:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[2].i];
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_2_1_3:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[3].i];
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_2_1_4:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[4].i];
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_2_1_5:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[5].i];
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_2_2_0:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[0].i];
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_2_2_1:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[1].i];
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_2_2_3:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[3].i];
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_2_2_4:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[4].i];
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_2_2_5:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[5].i];
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_2_3_0:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[0].i];
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_2_3_1:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[1].i];
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_2_3_2:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[2].i];
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_2_3_4:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[4].i];
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_2_3_5:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[5].i];
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_2_4_0:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[0].i];
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_2_4_1:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[1].i];
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_2_4_2:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[2].i];
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_2_4_3:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[3].i];
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_2_4_5:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[5].i];
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_2_5_0:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[0].i];
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_2_5_1:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[1].i];
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_2_5_2:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[2].i];
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_2_5_3:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[3].i];
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_2_5_4:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[4].i];
+g[2].tag = val.tag;
+ts |= 0x8 /*001000*/;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_3_0_1:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[1].i];
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_3_0_2:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[2].i];
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_3_0_3:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[3].i];
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_3_0_4:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[4].i];
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_3_0_5:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[5].i];
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_3_1_0:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[0].i];
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_3_1_2:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[2].i];
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_3_1_3:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[3].i];
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_3_1_4:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[4].i];
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_3_1_5:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[5].i];
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_3_2_0:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[0].i];
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_3_2_1:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[1].i];
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_3_2_3:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[3].i];
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_3_2_4:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[4].i];
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_3_2_5:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[5].i];
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_3_3_0:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[0].i];
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_3_3_1:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[1].i];
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_3_3_2:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[2].i];
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_3_3_4:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[4].i];
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_3_3_5:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[5].i];
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_3_4_0:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[0].i];
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_3_4_1:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[1].i];
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_3_4_2:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[2].i];
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_3_4_3:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[3].i];
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_3_4_5:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[5].i];
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_3_5_0:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[0].i];
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_3_5_1:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[1].i];
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_3_5_2:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[2].i];
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_3_5_3:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[3].i];
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_3_5_4:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[4].i];
+g[3].tag = val.tag;
+ts |= 0x4 /*000100*/;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_4_0_1:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[1].i];
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_4_0_2:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[2].i];
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_4_0_3:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[3].i];
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_4_0_4:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[4].i];
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_4_0_5:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[5].i];
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_4_1_0:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[0].i];
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_4_1_2:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[2].i];
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_4_1_3:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[3].i];
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_4_1_4:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[4].i];
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_4_1_5:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[5].i];
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_4_2_0:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[0].i];
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_4_2_1:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[1].i];
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_4_2_3:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[3].i];
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_4_2_4:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[4].i];
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_4_2_5:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[5].i];
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_4_3_0:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[0].i];
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_4_3_1:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[1].i];
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_4_3_2:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[2].i];
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_4_3_4:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[4].i];
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_4_3_5:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[5].i];
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_4_4_0:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[0].i];
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_4_4_1:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[1].i];
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_4_4_2:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[2].i];
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_4_4_3:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[3].i];
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_4_4_5:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[5].i];
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_4_5_0:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[0].i];
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_4_5_1:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[1].i];
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_4_5_2:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[2].i];
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_4_5_3:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[3].i];
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_4_5_4:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[4].i];
+g[4].tag = val.tag;
+ts |= 0x2 /*000010*/;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_5_0_1:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[1].i];
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_5_0_2:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[2].i];
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_5_0_3:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[3].i];
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_5_0_4:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[4].i];
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_5_0_5:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[5].i];
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_5_1_0:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[0].i];
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_5_1_2:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[2].i];
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_5_1_3:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[3].i];
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_5_1_4:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[4].i];
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_5_1_5:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[5].i];
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_5_2_0:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[0].i];
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_5_2_1:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[1].i];
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_5_2_3:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[3].i];
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_5_2_4:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[4].i];
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_5_2_5:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[5].i];
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_5_3_0:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[0].i];
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_5_3_1:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[1].i];
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_5_3_2:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[2].i];
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_5_3_4:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[4].i];
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_5_3_5:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[5].i];
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_5_4_0:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[0].i];
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_5_4_1:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[1].i];
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_5_4_2:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[2].i];
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_5_4_3:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[3].i];
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_5_4_5:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[5].i];
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_5_5_0:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[0].i];
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_5_5_1:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[1].i];
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_5_5_2:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[2].i];
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_5_5_3:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[3].i];
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geta_5_5_4:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[4].i];
+g[5].tag = val.tag;
+ts |= 0x1 /*000001*/;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_0_0_1:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[1].i];
+g[0].tag = val.tag;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_0_0_2:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[2].i];
+g[0].tag = val.tag;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_0_0_3:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[3].i];
+g[0].tag = val.tag;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_0_0_4:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[4].i];
+g[0].tag = val.tag;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_0_0_5:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[5].i];
+g[0].tag = val.tag;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_0_1_0:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[0].i];
+g[0].tag = val.tag;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_0_1_2:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[2].i];
+g[0].tag = val.tag;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_0_1_3:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[3].i];
+g[0].tag = val.tag;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_0_1_4:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[4].i];
+g[0].tag = val.tag;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_0_1_5:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[5].i];
+g[0].tag = val.tag;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_0_2_0:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[0].i];
+g[0].tag = val.tag;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_0_2_1:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[1].i];
+g[0].tag = val.tag;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_0_2_3:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[3].i];
+g[0].tag = val.tag;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_0_2_4:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[4].i];
+g[0].tag = val.tag;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_0_2_5:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[5].i];
+g[0].tag = val.tag;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_0_3_0:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[0].i];
+g[0].tag = val.tag;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_0_3_1:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[1].i];
+g[0].tag = val.tag;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_0_3_2:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[2].i];
+g[0].tag = val.tag;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_0_3_4:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[4].i];
+g[0].tag = val.tag;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_0_3_5:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[5].i];
+g[0].tag = val.tag;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_0_4_0:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[0].i];
+g[0].tag = val.tag;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_0_4_1:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[1].i];
+g[0].tag = val.tag;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_0_4_2:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[2].i];
+g[0].tag = val.tag;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_0_4_3:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[3].i];
+g[0].tag = val.tag;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_0_4_5:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[5].i];
+g[0].tag = val.tag;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_0_5_0:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[0].i];
+g[0].tag = val.tag;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_0_5_1:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[1].i];
+g[0].tag = val.tag;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_0_5_2:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[2].i];
+g[0].tag = val.tag;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_0_5_3:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[3].i];
+g[0].tag = val.tag;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_0_5_4:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[4].i];
+g[0].tag = val.tag;
+g[0].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_1_0_1:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[1].i];
+g[1].tag = val.tag;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_1_0_2:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[2].i];
+g[1].tag = val.tag;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_1_0_3:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[3].i];
+g[1].tag = val.tag;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_1_0_4:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[4].i];
+g[1].tag = val.tag;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_1_0_5:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[5].i];
+g[1].tag = val.tag;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_1_1_0:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[0].i];
+g[1].tag = val.tag;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_1_1_2:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[2].i];
+g[1].tag = val.tag;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_1_1_3:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[3].i];
+g[1].tag = val.tag;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_1_1_4:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[4].i];
+g[1].tag = val.tag;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_1_1_5:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[5].i];
+g[1].tag = val.tag;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_1_2_0:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[0].i];
+g[1].tag = val.tag;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_1_2_1:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[1].i];
+g[1].tag = val.tag;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_1_2_3:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[3].i];
+g[1].tag = val.tag;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_1_2_4:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[4].i];
+g[1].tag = val.tag;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_1_2_5:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[5].i];
+g[1].tag = val.tag;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_1_3_0:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[0].i];
+g[1].tag = val.tag;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_1_3_1:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[1].i];
+g[1].tag = val.tag;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_1_3_2:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[2].i];
+g[1].tag = val.tag;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_1_3_4:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[4].i];
+g[1].tag = val.tag;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_1_3_5:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[5].i];
+g[1].tag = val.tag;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_1_4_0:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[0].i];
+g[1].tag = val.tag;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_1_4_1:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[1].i];
+g[1].tag = val.tag;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_1_4_2:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[2].i];
+g[1].tag = val.tag;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_1_4_3:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[3].i];
+g[1].tag = val.tag;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_1_4_5:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[5].i];
+g[1].tag = val.tag;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_1_5_0:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[0].i];
+g[1].tag = val.tag;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_1_5_1:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[1].i];
+g[1].tag = val.tag;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_1_5_2:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[2].i];
+g[1].tag = val.tag;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_1_5_3:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[3].i];
+g[1].tag = val.tag;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_1_5_4:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[4].i];
+g[1].tag = val.tag;
+g[1].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_2_0_1:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[1].i];
+g[2].tag = val.tag;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_2_0_2:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[2].i];
+g[2].tag = val.tag;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_2_0_3:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[3].i];
+g[2].tag = val.tag;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_2_0_4:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[4].i];
+g[2].tag = val.tag;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_2_0_5:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[5].i];
+g[2].tag = val.tag;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_2_1_0:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[0].i];
+g[2].tag = val.tag;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_2_1_2:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[2].i];
+g[2].tag = val.tag;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_2_1_3:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[3].i];
+g[2].tag = val.tag;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_2_1_4:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[4].i];
+g[2].tag = val.tag;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_2_1_5:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[5].i];
+g[2].tag = val.tag;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_2_2_0:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[0].i];
+g[2].tag = val.tag;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_2_2_1:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[1].i];
+g[2].tag = val.tag;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_2_2_3:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[3].i];
+g[2].tag = val.tag;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_2_2_4:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[4].i];
+g[2].tag = val.tag;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_2_2_5:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[5].i];
+g[2].tag = val.tag;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_2_3_0:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[0].i];
+g[2].tag = val.tag;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_2_3_1:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[1].i];
+g[2].tag = val.tag;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_2_3_2:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[2].i];
+g[2].tag = val.tag;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_2_3_4:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[4].i];
+g[2].tag = val.tag;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_2_3_5:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[5].i];
+g[2].tag = val.tag;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_2_4_0:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[0].i];
+g[2].tag = val.tag;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_2_4_1:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[1].i];
+g[2].tag = val.tag;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_2_4_2:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[2].i];
+g[2].tag = val.tag;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_2_4_3:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[3].i];
+g[2].tag = val.tag;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_2_4_5:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[5].i];
+g[2].tag = val.tag;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_2_5_0:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[0].i];
+g[2].tag = val.tag;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_2_5_1:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[1].i];
+g[2].tag = val.tag;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_2_5_2:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[2].i];
+g[2].tag = val.tag;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_2_5_3:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[3].i];
+g[2].tag = val.tag;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_2_5_4:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[4].i];
+g[2].tag = val.tag;
+g[2].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_3_0_1:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[1].i];
+g[3].tag = val.tag;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_3_0_2:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[2].i];
+g[3].tag = val.tag;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_3_0_3:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[3].i];
+g[3].tag = val.tag;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_3_0_4:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[4].i];
+g[3].tag = val.tag;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_3_0_5:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[5].i];
+g[3].tag = val.tag;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_3_1_0:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[0].i];
+g[3].tag = val.tag;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_3_1_2:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[2].i];
+g[3].tag = val.tag;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_3_1_3:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[3].i];
+g[3].tag = val.tag;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_3_1_4:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[4].i];
+g[3].tag = val.tag;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_3_1_5:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[5].i];
+g[3].tag = val.tag;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_3_2_0:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[0].i];
+g[3].tag = val.tag;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_3_2_1:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[1].i];
+g[3].tag = val.tag;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_3_2_3:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[3].i];
+g[3].tag = val.tag;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_3_2_4:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[4].i];
+g[3].tag = val.tag;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_3_2_5:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[5].i];
+g[3].tag = val.tag;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_3_3_0:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[0].i];
+g[3].tag = val.tag;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_3_3_1:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[1].i];
+g[3].tag = val.tag;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_3_3_2:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[2].i];
+g[3].tag = val.tag;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_3_3_4:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[4].i];
+g[3].tag = val.tag;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_3_3_5:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[5].i];
+g[3].tag = val.tag;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_3_4_0:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[0].i];
+g[3].tag = val.tag;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_3_4_1:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[1].i];
+g[3].tag = val.tag;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_3_4_2:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[2].i];
+g[3].tag = val.tag;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_3_4_3:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[3].i];
+g[3].tag = val.tag;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_3_4_5:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[5].i];
+g[3].tag = val.tag;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_3_5_0:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[0].i];
+g[3].tag = val.tag;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_3_5_1:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[1].i];
+g[3].tag = val.tag;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_3_5_2:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[2].i];
+g[3].tag = val.tag;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_3_5_3:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[3].i];
+g[3].tag = val.tag;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_3_5_4:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[4].i];
+g[3].tag = val.tag;
+g[3].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_4_0_1:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[1].i];
+g[4].tag = val.tag;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_4_0_2:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[2].i];
+g[4].tag = val.tag;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_4_0_3:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[3].i];
+g[4].tag = val.tag;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_4_0_4:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[4].i];
+g[4].tag = val.tag;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_4_0_5:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[5].i];
+g[4].tag = val.tag;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_4_1_0:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[0].i];
+g[4].tag = val.tag;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_4_1_2:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[2].i];
+g[4].tag = val.tag;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_4_1_3:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[3].i];
+g[4].tag = val.tag;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_4_1_4:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[4].i];
+g[4].tag = val.tag;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_4_1_5:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[5].i];
+g[4].tag = val.tag;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_4_2_0:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[0].i];
+g[4].tag = val.tag;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_4_2_1:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[1].i];
+g[4].tag = val.tag;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_4_2_3:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[3].i];
+g[4].tag = val.tag;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_4_2_4:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[4].i];
+g[4].tag = val.tag;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_4_2_5:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[5].i];
+g[4].tag = val.tag;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_4_3_0:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[0].i];
+g[4].tag = val.tag;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_4_3_1:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[1].i];
+g[4].tag = val.tag;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_4_3_2:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[2].i];
+g[4].tag = val.tag;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_4_3_4:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[4].i];
+g[4].tag = val.tag;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_4_3_5:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[5].i];
+g[4].tag = val.tag;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_4_4_0:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[0].i];
+g[4].tag = val.tag;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_4_4_1:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[1].i];
+g[4].tag = val.tag;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_4_4_2:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[2].i];
+g[4].tag = val.tag;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_4_4_3:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[3].i];
+g[4].tag = val.tag;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_4_4_5:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[5].i];
+g[4].tag = val.tag;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_4_5_0:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[0].i];
+g[4].tag = val.tag;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_4_5_1:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[1].i];
+g[4].tag = val.tag;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_4_5_2:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[2].i];
+g[4].tag = val.tag;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_4_5_3:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[3].i];
+g[4].tag = val.tag;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_4_5_4:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[4].i];
+g[4].tag = val.tag;
+g[4].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_5_0_1:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[1].i];
+g[5].tag = val.tag;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_5_0_2:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[2].i];
+g[5].tag = val.tag;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_5_0_3:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[3].i];
+g[5].tag = val.tag;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_5_0_4:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[4].i];
+g[5].tag = val.tag;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_5_0_5:
+{
+value val = ((pointeronly *)(g[0].p))->data[g[5].i];
+g[5].tag = val.tag;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_5_1_0:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[0].i];
+g[5].tag = val.tag;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_5_1_2:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[2].i];
+g[5].tag = val.tag;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_5_1_3:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[3].i];
+g[5].tag = val.tag;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_5_1_4:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[4].i];
+g[5].tag = val.tag;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_5_1_5:
+{
+value val = ((pointeronly *)(g[1].p))->data[g[5].i];
+g[5].tag = val.tag;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_5_2_0:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[0].i];
+g[5].tag = val.tag;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_5_2_1:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[1].i];
+g[5].tag = val.tag;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_5_2_3:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[3].i];
+g[5].tag = val.tag;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_5_2_4:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[4].i];
+g[5].tag = val.tag;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_5_2_5:
+{
+value val = ((pointeronly *)(g[2].p))->data[g[5].i];
+g[5].tag = val.tag;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_5_3_0:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[0].i];
+g[5].tag = val.tag;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_5_3_1:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[1].i];
+g[5].tag = val.tag;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_5_3_2:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[2].i];
+g[5].tag = val.tag;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_5_3_4:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[4].i];
+g[5].tag = val.tag;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_5_3_5:
+{
+value val = ((pointeronly *)(g[3].p))->data[g[5].i];
+g[5].tag = val.tag;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_5_4_0:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[0].i];
+g[5].tag = val.tag;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_5_4_1:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[1].i];
+g[5].tag = val.tag;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_5_4_2:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[2].i];
+g[5].tag = val.tag;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_5_4_3:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[3].i];
+g[5].tag = val.tag;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_5_4_5:
+{
+value val = ((pointeronly *)(g[4].p))->data[g[5].i];
+g[5].tag = val.tag;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_5_5_0:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[0].i];
+g[5].tag = val.tag;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_5_5_1:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[1].i];
+g[5].tag = val.tag;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_5_5_2:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[2].i];
+g[5].tag = val.tag;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_5_5_3:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[3].i];
+g[5].tag = val.tag;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getap_5_5_4:
+{
+value val = ((pointeronly *)(g[5].p))->data[g[4].i];
+g[5].tag = val.tag;
+g[5].p = val.p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_0_1_0:
+{
+value *vp = &(((pointeronly *)(g[0].p))->data[g[1].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_0_1_1:
+{
+value *vp = &(((pointeronly *)(g[0].p))->data[g[1].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_0_1_2:
+{
+value *vp = &(((pointeronly *)(g[0].p))->data[g[1].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_0_1_3:
+{
+value *vp = &(((pointeronly *)(g[0].p))->data[g[1].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_0_1_4:
+{
+value *vp = &(((pointeronly *)(g[0].p))->data[g[1].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_0_1_5:
+{
+value *vp = &(((pointeronly *)(g[0].p))->data[g[1].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_0_2_0:
+{
+value *vp = &(((pointeronly *)(g[0].p))->data[g[2].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_0_2_1:
+{
+value *vp = &(((pointeronly *)(g[0].p))->data[g[2].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_0_2_2:
+{
+value *vp = &(((pointeronly *)(g[0].p))->data[g[2].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_0_2_3:
+{
+value *vp = &(((pointeronly *)(g[0].p))->data[g[2].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_0_2_4:
+{
+value *vp = &(((pointeronly *)(g[0].p))->data[g[2].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_0_2_5:
+{
+value *vp = &(((pointeronly *)(g[0].p))->data[g[2].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_0_3_0:
+{
+value *vp = &(((pointeronly *)(g[0].p))->data[g[3].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_0_3_1:
+{
+value *vp = &(((pointeronly *)(g[0].p))->data[g[3].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_0_3_2:
+{
+value *vp = &(((pointeronly *)(g[0].p))->data[g[3].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_0_3_3:
+{
+value *vp = &(((pointeronly *)(g[0].p))->data[g[3].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_0_3_4:
+{
+value *vp = &(((pointeronly *)(g[0].p))->data[g[3].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_0_3_5:
+{
+value *vp = &(((pointeronly *)(g[0].p))->data[g[3].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_0_4_0:
+{
+value *vp = &(((pointeronly *)(g[0].p))->data[g[4].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_0_4_1:
+{
+value *vp = &(((pointeronly *)(g[0].p))->data[g[4].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_0_4_2:
+{
+value *vp = &(((pointeronly *)(g[0].p))->data[g[4].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_0_4_3:
+{
+value *vp = &(((pointeronly *)(g[0].p))->data[g[4].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_0_4_4:
+{
+value *vp = &(((pointeronly *)(g[0].p))->data[g[4].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_0_4_5:
+{
+value *vp = &(((pointeronly *)(g[0].p))->data[g[4].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_0_5_0:
+{
+value *vp = &(((pointeronly *)(g[0].p))->data[g[5].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_0_5_1:
+{
+value *vp = &(((pointeronly *)(g[0].p))->data[g[5].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_0_5_2:
+{
+value *vp = &(((pointeronly *)(g[0].p))->data[g[5].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_0_5_3:
+{
+value *vp = &(((pointeronly *)(g[0].p))->data[g[5].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_0_5_4:
+{
+value *vp = &(((pointeronly *)(g[0].p))->data[g[5].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_0_5_5:
+{
+value *vp = &(((pointeronly *)(g[0].p))->data[g[5].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_1_0_0:
+{
+value *vp = &(((pointeronly *)(g[1].p))->data[g[0].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_1_0_1:
+{
+value *vp = &(((pointeronly *)(g[1].p))->data[g[0].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_1_0_2:
+{
+value *vp = &(((pointeronly *)(g[1].p))->data[g[0].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_1_0_3:
+{
+value *vp = &(((pointeronly *)(g[1].p))->data[g[0].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_1_0_4:
+{
+value *vp = &(((pointeronly *)(g[1].p))->data[g[0].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_1_0_5:
+{
+value *vp = &(((pointeronly *)(g[1].p))->data[g[0].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_1_2_0:
+{
+value *vp = &(((pointeronly *)(g[1].p))->data[g[2].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_1_2_1:
+{
+value *vp = &(((pointeronly *)(g[1].p))->data[g[2].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_1_2_2:
+{
+value *vp = &(((pointeronly *)(g[1].p))->data[g[2].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_1_2_3:
+{
+value *vp = &(((pointeronly *)(g[1].p))->data[g[2].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_1_2_4:
+{
+value *vp = &(((pointeronly *)(g[1].p))->data[g[2].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_1_2_5:
+{
+value *vp = &(((pointeronly *)(g[1].p))->data[g[2].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_1_3_0:
+{
+value *vp = &(((pointeronly *)(g[1].p))->data[g[3].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_1_3_1:
+{
+value *vp = &(((pointeronly *)(g[1].p))->data[g[3].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_1_3_2:
+{
+value *vp = &(((pointeronly *)(g[1].p))->data[g[3].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_1_3_3:
+{
+value *vp = &(((pointeronly *)(g[1].p))->data[g[3].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_1_3_4:
+{
+value *vp = &(((pointeronly *)(g[1].p))->data[g[3].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_1_3_5:
+{
+value *vp = &(((pointeronly *)(g[1].p))->data[g[3].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_1_4_0:
+{
+value *vp = &(((pointeronly *)(g[1].p))->data[g[4].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_1_4_1:
+{
+value *vp = &(((pointeronly *)(g[1].p))->data[g[4].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_1_4_2:
+{
+value *vp = &(((pointeronly *)(g[1].p))->data[g[4].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_1_4_3:
+{
+value *vp = &(((pointeronly *)(g[1].p))->data[g[4].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_1_4_4:
+{
+value *vp = &(((pointeronly *)(g[1].p))->data[g[4].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_1_4_5:
+{
+value *vp = &(((pointeronly *)(g[1].p))->data[g[4].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_1_5_0:
+{
+value *vp = &(((pointeronly *)(g[1].p))->data[g[5].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_1_5_1:
+{
+value *vp = &(((pointeronly *)(g[1].p))->data[g[5].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_1_5_2:
+{
+value *vp = &(((pointeronly *)(g[1].p))->data[g[5].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_1_5_3:
+{
+value *vp = &(((pointeronly *)(g[1].p))->data[g[5].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_1_5_4:
+{
+value *vp = &(((pointeronly *)(g[1].p))->data[g[5].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_1_5_5:
+{
+value *vp = &(((pointeronly *)(g[1].p))->data[g[5].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_2_0_0:
+{
+value *vp = &(((pointeronly *)(g[2].p))->data[g[0].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_2_0_1:
+{
+value *vp = &(((pointeronly *)(g[2].p))->data[g[0].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_2_0_2:
+{
+value *vp = &(((pointeronly *)(g[2].p))->data[g[0].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_2_0_3:
+{
+value *vp = &(((pointeronly *)(g[2].p))->data[g[0].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_2_0_4:
+{
+value *vp = &(((pointeronly *)(g[2].p))->data[g[0].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_2_0_5:
+{
+value *vp = &(((pointeronly *)(g[2].p))->data[g[0].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_2_1_0:
+{
+value *vp = &(((pointeronly *)(g[2].p))->data[g[1].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_2_1_1:
+{
+value *vp = &(((pointeronly *)(g[2].p))->data[g[1].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_2_1_2:
+{
+value *vp = &(((pointeronly *)(g[2].p))->data[g[1].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_2_1_3:
+{
+value *vp = &(((pointeronly *)(g[2].p))->data[g[1].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_2_1_4:
+{
+value *vp = &(((pointeronly *)(g[2].p))->data[g[1].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_2_1_5:
+{
+value *vp = &(((pointeronly *)(g[2].p))->data[g[1].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_2_3_0:
+{
+value *vp = &(((pointeronly *)(g[2].p))->data[g[3].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_2_3_1:
+{
+value *vp = &(((pointeronly *)(g[2].p))->data[g[3].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_2_3_2:
+{
+value *vp = &(((pointeronly *)(g[2].p))->data[g[3].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_2_3_3:
+{
+value *vp = &(((pointeronly *)(g[2].p))->data[g[3].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_2_3_4:
+{
+value *vp = &(((pointeronly *)(g[2].p))->data[g[3].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_2_3_5:
+{
+value *vp = &(((pointeronly *)(g[2].p))->data[g[3].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_2_4_0:
+{
+value *vp = &(((pointeronly *)(g[2].p))->data[g[4].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_2_4_1:
+{
+value *vp = &(((pointeronly *)(g[2].p))->data[g[4].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_2_4_2:
+{
+value *vp = &(((pointeronly *)(g[2].p))->data[g[4].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_2_4_3:
+{
+value *vp = &(((pointeronly *)(g[2].p))->data[g[4].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_2_4_4:
+{
+value *vp = &(((pointeronly *)(g[2].p))->data[g[4].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_2_4_5:
+{
+value *vp = &(((pointeronly *)(g[2].p))->data[g[4].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_2_5_0:
+{
+value *vp = &(((pointeronly *)(g[2].p))->data[g[5].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_2_5_1:
+{
+value *vp = &(((pointeronly *)(g[2].p))->data[g[5].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_2_5_2:
+{
+value *vp = &(((pointeronly *)(g[2].p))->data[g[5].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_2_5_3:
+{
+value *vp = &(((pointeronly *)(g[2].p))->data[g[5].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_2_5_4:
+{
+value *vp = &(((pointeronly *)(g[2].p))->data[g[5].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_2_5_5:
+{
+value *vp = &(((pointeronly *)(g[2].p))->data[g[5].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_3_0_0:
+{
+value *vp = &(((pointeronly *)(g[3].p))->data[g[0].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_3_0_1:
+{
+value *vp = &(((pointeronly *)(g[3].p))->data[g[0].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_3_0_2:
+{
+value *vp = &(((pointeronly *)(g[3].p))->data[g[0].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_3_0_3:
+{
+value *vp = &(((pointeronly *)(g[3].p))->data[g[0].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_3_0_4:
+{
+value *vp = &(((pointeronly *)(g[3].p))->data[g[0].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_3_0_5:
+{
+value *vp = &(((pointeronly *)(g[3].p))->data[g[0].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_3_1_0:
+{
+value *vp = &(((pointeronly *)(g[3].p))->data[g[1].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_3_1_1:
+{
+value *vp = &(((pointeronly *)(g[3].p))->data[g[1].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_3_1_2:
+{
+value *vp = &(((pointeronly *)(g[3].p))->data[g[1].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_3_1_3:
+{
+value *vp = &(((pointeronly *)(g[3].p))->data[g[1].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_3_1_4:
+{
+value *vp = &(((pointeronly *)(g[3].p))->data[g[1].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_3_1_5:
+{
+value *vp = &(((pointeronly *)(g[3].p))->data[g[1].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_3_2_0:
+{
+value *vp = &(((pointeronly *)(g[3].p))->data[g[2].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_3_2_1:
+{
+value *vp = &(((pointeronly *)(g[3].p))->data[g[2].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_3_2_2:
+{
+value *vp = &(((pointeronly *)(g[3].p))->data[g[2].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_3_2_3:
+{
+value *vp = &(((pointeronly *)(g[3].p))->data[g[2].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_3_2_4:
+{
+value *vp = &(((pointeronly *)(g[3].p))->data[g[2].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_3_2_5:
+{
+value *vp = &(((pointeronly *)(g[3].p))->data[g[2].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_3_4_0:
+{
+value *vp = &(((pointeronly *)(g[3].p))->data[g[4].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_3_4_1:
+{
+value *vp = &(((pointeronly *)(g[3].p))->data[g[4].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_3_4_2:
+{
+value *vp = &(((pointeronly *)(g[3].p))->data[g[4].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_3_4_3:
+{
+value *vp = &(((pointeronly *)(g[3].p))->data[g[4].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_3_4_4:
+{
+value *vp = &(((pointeronly *)(g[3].p))->data[g[4].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_3_4_5:
+{
+value *vp = &(((pointeronly *)(g[3].p))->data[g[4].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_3_5_0:
+{
+value *vp = &(((pointeronly *)(g[3].p))->data[g[5].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_3_5_1:
+{
+value *vp = &(((pointeronly *)(g[3].p))->data[g[5].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_3_5_2:
+{
+value *vp = &(((pointeronly *)(g[3].p))->data[g[5].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_3_5_3:
+{
+value *vp = &(((pointeronly *)(g[3].p))->data[g[5].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_3_5_4:
+{
+value *vp = &(((pointeronly *)(g[3].p))->data[g[5].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_3_5_5:
+{
+value *vp = &(((pointeronly *)(g[3].p))->data[g[5].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_4_0_0:
+{
+value *vp = &(((pointeronly *)(g[4].p))->data[g[0].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_4_0_1:
+{
+value *vp = &(((pointeronly *)(g[4].p))->data[g[0].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_4_0_2:
+{
+value *vp = &(((pointeronly *)(g[4].p))->data[g[0].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_4_0_3:
+{
+value *vp = &(((pointeronly *)(g[4].p))->data[g[0].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_4_0_4:
+{
+value *vp = &(((pointeronly *)(g[4].p))->data[g[0].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_4_0_5:
+{
+value *vp = &(((pointeronly *)(g[4].p))->data[g[0].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_4_1_0:
+{
+value *vp = &(((pointeronly *)(g[4].p))->data[g[1].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_4_1_1:
+{
+value *vp = &(((pointeronly *)(g[4].p))->data[g[1].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_4_1_2:
+{
+value *vp = &(((pointeronly *)(g[4].p))->data[g[1].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_4_1_3:
+{
+value *vp = &(((pointeronly *)(g[4].p))->data[g[1].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_4_1_4:
+{
+value *vp = &(((pointeronly *)(g[4].p))->data[g[1].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_4_1_5:
+{
+value *vp = &(((pointeronly *)(g[4].p))->data[g[1].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_4_2_0:
+{
+value *vp = &(((pointeronly *)(g[4].p))->data[g[2].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_4_2_1:
+{
+value *vp = &(((pointeronly *)(g[4].p))->data[g[2].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_4_2_2:
+{
+value *vp = &(((pointeronly *)(g[4].p))->data[g[2].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_4_2_3:
+{
+value *vp = &(((pointeronly *)(g[4].p))->data[g[2].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_4_2_4:
+{
+value *vp = &(((pointeronly *)(g[4].p))->data[g[2].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_4_2_5:
+{
+value *vp = &(((pointeronly *)(g[4].p))->data[g[2].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_4_3_0:
+{
+value *vp = &(((pointeronly *)(g[4].p))->data[g[3].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_4_3_1:
+{
+value *vp = &(((pointeronly *)(g[4].p))->data[g[3].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_4_3_2:
+{
+value *vp = &(((pointeronly *)(g[4].p))->data[g[3].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_4_3_3:
+{
+value *vp = &(((pointeronly *)(g[4].p))->data[g[3].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_4_3_4:
+{
+value *vp = &(((pointeronly *)(g[4].p))->data[g[3].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_4_3_5:
+{
+value *vp = &(((pointeronly *)(g[4].p))->data[g[3].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_4_5_0:
+{
+value *vp = &(((pointeronly *)(g[4].p))->data[g[5].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_4_5_1:
+{
+value *vp = &(((pointeronly *)(g[4].p))->data[g[5].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_4_5_2:
+{
+value *vp = &(((pointeronly *)(g[4].p))->data[g[5].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_4_5_3:
+{
+value *vp = &(((pointeronly *)(g[4].p))->data[g[5].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_4_5_4:
+{
+value *vp = &(((pointeronly *)(g[4].p))->data[g[5].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_4_5_5:
+{
+value *vp = &(((pointeronly *)(g[4].p))->data[g[5].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_5_0_0:
+{
+value *vp = &(((pointeronly *)(g[5].p))->data[g[0].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_5_0_1:
+{
+value *vp = &(((pointeronly *)(g[5].p))->data[g[0].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_5_0_2:
+{
+value *vp = &(((pointeronly *)(g[5].p))->data[g[0].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_5_0_3:
+{
+value *vp = &(((pointeronly *)(g[5].p))->data[g[0].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_5_0_4:
+{
+value *vp = &(((pointeronly *)(g[5].p))->data[g[0].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_5_0_5:
+{
+value *vp = &(((pointeronly *)(g[5].p))->data[g[0].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_5_1_0:
+{
+value *vp = &(((pointeronly *)(g[5].p))->data[g[1].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_5_1_1:
+{
+value *vp = &(((pointeronly *)(g[5].p))->data[g[1].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_5_1_2:
+{
+value *vp = &(((pointeronly *)(g[5].p))->data[g[1].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_5_1_3:
+{
+value *vp = &(((pointeronly *)(g[5].p))->data[g[1].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_5_1_4:
+{
+value *vp = &(((pointeronly *)(g[5].p))->data[g[1].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_5_1_5:
+{
+value *vp = &(((pointeronly *)(g[5].p))->data[g[1].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_5_2_0:
+{
+value *vp = &(((pointeronly *)(g[5].p))->data[g[2].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_5_2_1:
+{
+value *vp = &(((pointeronly *)(g[5].p))->data[g[2].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_5_2_2:
+{
+value *vp = &(((pointeronly *)(g[5].p))->data[g[2].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_5_2_3:
+{
+value *vp = &(((pointeronly *)(g[5].p))->data[g[2].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_5_2_4:
+{
+value *vp = &(((pointeronly *)(g[5].p))->data[g[2].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_5_2_5:
+{
+value *vp = &(((pointeronly *)(g[5].p))->data[g[2].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_5_3_0:
+{
+value *vp = &(((pointeronly *)(g[5].p))->data[g[3].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_5_3_1:
+{
+value *vp = &(((pointeronly *)(g[5].p))->data[g[3].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_5_3_2:
+{
+value *vp = &(((pointeronly *)(g[5].p))->data[g[3].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_5_3_3:
+{
+value *vp = &(((pointeronly *)(g[5].p))->data[g[3].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_5_3_4:
+{
+value *vp = &(((pointeronly *)(g[5].p))->data[g[3].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_5_3_5:
+{
+value *vp = &(((pointeronly *)(g[5].p))->data[g[3].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_5_4_0:
+{
+value *vp = &(((pointeronly *)(g[5].p))->data[g[4].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_5_4_1:
+{
+value *vp = &(((pointeronly *)(g[5].p))->data[g[4].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_5_4_2:
+{
+value *vp = &(((pointeronly *)(g[5].p))->data[g[4].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_5_4_3:
+{
+value *vp = &(((pointeronly *)(g[5].p))->data[g[4].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_5_4_4:
+{
+value *vp = &(((pointeronly *)(g[5].p))->data[g[4].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setap_5_4_5:
+{
+value *vp = &(((pointeronly *)(g[5].p))->data[g[4].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_0_0_1:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[1].i];
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_0_0_2:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[2].i];
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_0_0_3:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[3].i];
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_0_0_4:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[4].i];
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_0_0_5:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[5].i];
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_0_1_0:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[0].i];
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_0_1_2:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[2].i];
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_0_1_3:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[3].i];
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_0_1_4:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[4].i];
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_0_1_5:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[5].i];
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_0_2_0:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[0].i];
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_0_2_1:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[1].i];
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_0_2_3:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[3].i];
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_0_2_4:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[4].i];
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_0_2_5:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[5].i];
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_0_3_0:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[0].i];
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_0_3_1:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[1].i];
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_0_3_2:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[2].i];
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_0_3_4:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[4].i];
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_0_3_5:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[5].i];
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_0_4_0:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[0].i];
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_0_4_1:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[1].i];
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_0_4_2:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[2].i];
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_0_4_3:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[3].i];
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_0_4_5:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[5].i];
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_0_5_0:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[0].i];
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_0_5_1:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[1].i];
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_0_5_2:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[2].i];
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_0_5_3:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[3].i];
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_0_5_4:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[4].i];
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_1_0_1:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[1].i];
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_1_0_2:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[2].i];
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_1_0_3:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[3].i];
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_1_0_4:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[4].i];
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_1_0_5:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[5].i];
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_1_1_0:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[0].i];
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_1_1_2:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[2].i];
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_1_1_3:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[3].i];
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_1_1_4:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[4].i];
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_1_1_5:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[5].i];
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_1_2_0:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[0].i];
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_1_2_1:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[1].i];
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_1_2_3:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[3].i];
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_1_2_4:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[4].i];
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_1_2_5:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[5].i];
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_1_3_0:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[0].i];
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_1_3_1:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[1].i];
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_1_3_2:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[2].i];
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_1_3_4:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[4].i];
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_1_3_5:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[5].i];
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_1_4_0:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[0].i];
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_1_4_1:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[1].i];
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_1_4_2:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[2].i];
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_1_4_3:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[3].i];
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_1_4_5:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[5].i];
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_1_5_0:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[0].i];
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_1_5_1:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[1].i];
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_1_5_2:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[2].i];
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_1_5_3:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[3].i];
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_1_5_4:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[4].i];
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_2_0_1:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[1].i];
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_2_0_2:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[2].i];
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_2_0_3:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[3].i];
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_2_0_4:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[4].i];
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_2_0_5:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[5].i];
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_2_1_0:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[0].i];
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_2_1_2:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[2].i];
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_2_1_3:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[3].i];
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_2_1_4:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[4].i];
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_2_1_5:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[5].i];
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_2_2_0:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[0].i];
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_2_2_1:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[1].i];
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_2_2_3:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[3].i];
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_2_2_4:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[4].i];
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_2_2_5:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[5].i];
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_2_3_0:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[0].i];
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_2_3_1:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[1].i];
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_2_3_2:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[2].i];
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_2_3_4:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[4].i];
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_2_3_5:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[5].i];
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_2_4_0:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[0].i];
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_2_4_1:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[1].i];
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_2_4_2:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[2].i];
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_2_4_3:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[3].i];
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_2_4_5:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[5].i];
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_2_5_0:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[0].i];
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_2_5_1:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[1].i];
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_2_5_2:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[2].i];
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_2_5_3:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[3].i];
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_2_5_4:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[4].i];
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_3_0_1:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[1].i];
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_3_0_2:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[2].i];
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_3_0_3:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[3].i];
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_3_0_4:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[4].i];
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_3_0_5:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[5].i];
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_3_1_0:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[0].i];
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_3_1_2:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[2].i];
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_3_1_3:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[3].i];
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_3_1_4:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[4].i];
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_3_1_5:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[5].i];
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_3_2_0:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[0].i];
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_3_2_1:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[1].i];
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_3_2_3:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[3].i];
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_3_2_4:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[4].i];
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_3_2_5:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[5].i];
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_3_3_0:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[0].i];
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_3_3_1:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[1].i];
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_3_3_2:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[2].i];
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_3_3_4:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[4].i];
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_3_3_5:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[5].i];
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_3_4_0:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[0].i];
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_3_4_1:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[1].i];
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_3_4_2:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[2].i];
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_3_4_3:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[3].i];
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_3_4_5:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[5].i];
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_3_5_0:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[0].i];
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_3_5_1:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[1].i];
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_3_5_2:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[2].i];
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_3_5_3:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[3].i];
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_3_5_4:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[4].i];
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_4_0_1:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[1].i];
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_4_0_2:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[2].i];
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_4_0_3:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[3].i];
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_4_0_4:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[4].i];
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_4_0_5:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[5].i];
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_4_1_0:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[0].i];
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_4_1_2:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[2].i];
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_4_1_3:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[3].i];
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_4_1_4:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[4].i];
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_4_1_5:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[5].i];
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_4_2_0:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[0].i];
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_4_2_1:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[1].i];
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_4_2_3:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[3].i];
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_4_2_4:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[4].i];
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_4_2_5:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[5].i];
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_4_3_0:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[0].i];
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_4_3_1:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[1].i];
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_4_3_2:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[2].i];
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_4_3_4:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[4].i];
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_4_3_5:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[5].i];
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_4_4_0:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[0].i];
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_4_4_1:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[1].i];
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_4_4_2:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[2].i];
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_4_4_3:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[3].i];
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_4_4_5:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[5].i];
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_4_5_0:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[0].i];
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_4_5_1:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[1].i];
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_4_5_2:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[2].i];
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_4_5_3:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[3].i];
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_4_5_4:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[4].i];
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_5_0_1:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[1].i];
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_5_0_2:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[2].i];
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_5_0_3:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[3].i];
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_5_0_4:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[4].i];
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_5_0_5:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[5].i];
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_5_1_0:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[0].i];
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_5_1_2:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[2].i];
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_5_1_3:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[3].i];
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_5_1_4:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[4].i];
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_5_1_5:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[5].i];
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_5_2_0:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[0].i];
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_5_2_1:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[1].i];
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_5_2_3:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[3].i];
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_5_2_4:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[4].i];
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_5_2_5:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[5].i];
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_5_3_0:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[0].i];
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_5_3_1:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[1].i];
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_5_3_2:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[2].i];
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_5_3_4:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[4].i];
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_5_3_5:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[5].i];
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_5_4_0:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[0].i];
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_5_4_1:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[1].i];
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_5_4_2:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[2].i];
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_5_4_3:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[3].i];
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_5_4_5:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[5].i];
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_5_5_0:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[0].i];
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_5_5_1:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[1].i];
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_5_5_2:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[2].i];
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_5_5_3:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[3].i];
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getb_5_5_4:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[4].i];
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_0_0_1:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[1].i];
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_0_0_2:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[2].i];
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_0_0_3:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[3].i];
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_0_0_4:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[4].i];
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_0_0_5:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[5].i];
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_0_1_0:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[0].i];
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_0_1_2:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[2].i];
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_0_1_3:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[3].i];
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_0_1_4:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[4].i];
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_0_1_5:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[5].i];
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_0_2_0:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[0].i];
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_0_2_1:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[1].i];
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_0_2_3:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[3].i];
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_0_2_4:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[4].i];
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_0_2_5:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[5].i];
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_0_3_0:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[0].i];
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_0_3_1:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[1].i];
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_0_3_2:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[2].i];
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_0_3_4:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[4].i];
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_0_3_5:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[5].i];
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_0_4_0:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[0].i];
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_0_4_1:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[1].i];
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_0_4_2:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[2].i];
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_0_4_3:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[3].i];
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_0_4_5:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[5].i];
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_0_5_0:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[0].i];
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_0_5_1:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[1].i];
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_0_5_2:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[2].i];
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_0_5_3:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[3].i];
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_0_5_4:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[4].i];
+g[0].tag = 0;
+ts |= 0x1f /*011111*/;
+g[0].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_1_0_1:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[1].i];
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_1_0_2:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[2].i];
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_1_0_3:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[3].i];
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_1_0_4:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[4].i];
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_1_0_5:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[5].i];
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_1_1_0:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[0].i];
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_1_1_2:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[2].i];
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_1_1_3:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[3].i];
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_1_1_4:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[4].i];
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_1_1_5:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[5].i];
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_1_2_0:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[0].i];
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_1_2_1:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[1].i];
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_1_2_3:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[3].i];
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_1_2_4:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[4].i];
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_1_2_5:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[5].i];
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_1_3_0:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[0].i];
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_1_3_1:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[1].i];
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_1_3_2:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[2].i];
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_1_3_4:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[4].i];
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_1_3_5:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[5].i];
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_1_4_0:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[0].i];
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_1_4_1:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[1].i];
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_1_4_2:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[2].i];
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_1_4_3:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[3].i];
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_1_4_5:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[5].i];
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_1_5_0:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[0].i];
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_1_5_1:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[1].i];
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_1_5_2:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[2].i];
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_1_5_3:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[3].i];
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_1_5_4:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[4].i];
+g[1].tag = 0;
+ts |= 0x2f /*101111*/;
+g[1].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_2_0_1:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[1].i];
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_2_0_2:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[2].i];
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_2_0_3:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[3].i];
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_2_0_4:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[4].i];
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_2_0_5:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[5].i];
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_2_1_0:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[0].i];
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_2_1_2:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[2].i];
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_2_1_3:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[3].i];
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_2_1_4:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[4].i];
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_2_1_5:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[5].i];
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_2_2_0:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[0].i];
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_2_2_1:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[1].i];
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_2_2_3:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[3].i];
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_2_2_4:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[4].i];
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_2_2_5:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[5].i];
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_2_3_0:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[0].i];
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_2_3_1:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[1].i];
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_2_3_2:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[2].i];
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_2_3_4:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[4].i];
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_2_3_5:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[5].i];
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_2_4_0:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[0].i];
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_2_4_1:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[1].i];
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_2_4_2:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[2].i];
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_2_4_3:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[3].i];
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_2_4_5:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[5].i];
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_2_5_0:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[0].i];
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_2_5_1:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[1].i];
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_2_5_2:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[2].i];
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_2_5_3:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[3].i];
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_2_5_4:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[4].i];
+g[2].tag = 0;
+ts |= 0x37 /*110111*/;
+g[2].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_3_0_1:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[1].i];
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_3_0_2:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[2].i];
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_3_0_3:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[3].i];
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_3_0_4:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[4].i];
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_3_0_5:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[5].i];
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_3_1_0:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[0].i];
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_3_1_2:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[2].i];
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_3_1_3:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[3].i];
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_3_1_4:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[4].i];
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_3_1_5:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[5].i];
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_3_2_0:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[0].i];
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_3_2_1:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[1].i];
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_3_2_3:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[3].i];
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_3_2_4:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[4].i];
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_3_2_5:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[5].i];
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_3_3_0:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[0].i];
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_3_3_1:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[1].i];
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_3_3_2:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[2].i];
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_3_3_4:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[4].i];
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_3_3_5:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[5].i];
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_3_4_0:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[0].i];
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_3_4_1:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[1].i];
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_3_4_2:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[2].i];
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_3_4_3:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[3].i];
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_3_4_5:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[5].i];
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_3_5_0:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[0].i];
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_3_5_1:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[1].i];
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_3_5_2:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[2].i];
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_3_5_3:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[3].i];
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_3_5_4:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[4].i];
+g[3].tag = 0;
+ts |= 0x3b /*111011*/;
+g[3].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_4_0_1:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[1].i];
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_4_0_2:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[2].i];
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_4_0_3:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[3].i];
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_4_0_4:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[4].i];
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_4_0_5:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[5].i];
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_4_1_0:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[0].i];
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_4_1_2:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[2].i];
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_4_1_3:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[3].i];
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_4_1_4:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[4].i];
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_4_1_5:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[5].i];
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_4_2_0:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[0].i];
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_4_2_1:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[1].i];
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_4_2_3:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[3].i];
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_4_2_4:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[4].i];
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_4_2_5:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[5].i];
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_4_3_0:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[0].i];
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_4_3_1:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[1].i];
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_4_3_2:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[2].i];
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_4_3_4:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[4].i];
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_4_3_5:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[5].i];
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_4_4_0:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[0].i];
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_4_4_1:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[1].i];
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_4_4_2:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[2].i];
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_4_4_3:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[3].i];
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_4_4_5:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[5].i];
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_4_5_0:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[0].i];
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_4_5_1:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[1].i];
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_4_5_2:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[2].i];
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_4_5_3:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[3].i];
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_4_5_4:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[4].i];
+g[4].tag = 0;
+ts |= 0x3d /*111101*/;
+g[4].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_5_0_1:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[1].i];
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_5_0_2:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[2].i];
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_5_0_3:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[3].i];
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_5_0_4:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[4].i];
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_5_0_5:
+{
+uint8_t val = ((buffer *)(g[0].p))->data[g[5].i];
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_5_1_0:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[0].i];
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_5_1_2:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[2].i];
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_5_1_3:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[3].i];
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_5_1_4:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[4].i];
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_5_1_5:
+{
+uint8_t val = ((buffer *)(g[1].p))->data[g[5].i];
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_5_2_0:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[0].i];
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_5_2_1:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[1].i];
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_5_2_3:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[3].i];
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_5_2_4:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[4].i];
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_5_2_5:
+{
+uint8_t val = ((buffer *)(g[2].p))->data[g[5].i];
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_5_3_0:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[0].i];
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_5_3_1:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[1].i];
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_5_3_2:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[2].i];
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_5_3_4:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[4].i];
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_5_3_5:
+{
+uint8_t val = ((buffer *)(g[3].p))->data[g[5].i];
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_5_4_0:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[0].i];
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_5_4_1:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[1].i];
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_5_4_2:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[2].i];
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_5_4_3:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[3].i];
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_5_4_5:
+{
+uint8_t val = ((buffer *)(g[4].p))->data[g[5].i];
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_5_5_0:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[0].i];
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_5_5_1:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[1].i];
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_5_5_2:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[2].i];
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_5_5_3:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[3].i];
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+getbp_5_5_4:
+{
+uint8_t val = ((buffer *)(g[5].p))->data[g[4].i];
+g[5].tag = 0;
+ts |= 0x3e /*111110*/;
+g[5].i = val;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_0_0_1:
+{
+uint8_t *vp = &(((buffer *)(g[0].p))->data[g[0].i]);
+*vp = g[0].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_0_0_2:
+{
+uint8_t *vp = &(((buffer *)(g[0].p))->data[g[0].i]);
+*vp = g[0].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_0_0_3:
+{
+uint8_t *vp = &(((buffer *)(g[0].p))->data[g[0].i]);
+*vp = g[0].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_0_0_4:
+{
+uint8_t *vp = &(((buffer *)(g[0].p))->data[g[0].i]);
+*vp = g[0].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_0_0_5:
+{
+uint8_t *vp = &(((buffer *)(g[0].p))->data[g[0].i]);
+*vp = g[0].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_0_1_0:
+{
+uint8_t *vp = &(((buffer *)(g[0].p))->data[g[1].i]);
+*vp = g[0].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_0_1_2:
+{
+uint8_t *vp = &(((buffer *)(g[0].p))->data[g[1].i]);
+*vp = g[0].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_0_1_3:
+{
+uint8_t *vp = &(((buffer *)(g[0].p))->data[g[1].i]);
+*vp = g[0].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_0_1_4:
+{
+uint8_t *vp = &(((buffer *)(g[0].p))->data[g[1].i]);
+*vp = g[0].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_0_1_5:
+{
+uint8_t *vp = &(((buffer *)(g[0].p))->data[g[1].i]);
+*vp = g[0].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_0_2_0:
+{
+uint8_t *vp = &(((buffer *)(g[0].p))->data[g[2].i]);
+*vp = g[0].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_0_2_1:
+{
+uint8_t *vp = &(((buffer *)(g[0].p))->data[g[2].i]);
+*vp = g[0].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_0_2_3:
+{
+uint8_t *vp = &(((buffer *)(g[0].p))->data[g[2].i]);
+*vp = g[0].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_0_2_4:
+{
+uint8_t *vp = &(((buffer *)(g[0].p))->data[g[2].i]);
+*vp = g[0].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_0_2_5:
+{
+uint8_t *vp = &(((buffer *)(g[0].p))->data[g[2].i]);
+*vp = g[0].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_0_3_0:
+{
+uint8_t *vp = &(((buffer *)(g[0].p))->data[g[3].i]);
+*vp = g[0].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_0_3_1:
+{
+uint8_t *vp = &(((buffer *)(g[0].p))->data[g[3].i]);
+*vp = g[0].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_0_3_2:
+{
+uint8_t *vp = &(((buffer *)(g[0].p))->data[g[3].i]);
+*vp = g[0].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_0_3_4:
+{
+uint8_t *vp = &(((buffer *)(g[0].p))->data[g[3].i]);
+*vp = g[0].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_0_3_5:
+{
+uint8_t *vp = &(((buffer *)(g[0].p))->data[g[3].i]);
+*vp = g[0].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_0_4_0:
+{
+uint8_t *vp = &(((buffer *)(g[0].p))->data[g[4].i]);
+*vp = g[0].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_0_4_1:
+{
+uint8_t *vp = &(((buffer *)(g[0].p))->data[g[4].i]);
+*vp = g[0].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_0_4_2:
+{
+uint8_t *vp = &(((buffer *)(g[0].p))->data[g[4].i]);
+*vp = g[0].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_0_4_3:
+{
+uint8_t *vp = &(((buffer *)(g[0].p))->data[g[4].i]);
+*vp = g[0].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_0_4_5:
+{
+uint8_t *vp = &(((buffer *)(g[0].p))->data[g[4].i]);
+*vp = g[0].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_0_5_0:
+{
+uint8_t *vp = &(((buffer *)(g[0].p))->data[g[5].i]);
+*vp = g[0].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_0_5_1:
+{
+uint8_t *vp = &(((buffer *)(g[0].p))->data[g[5].i]);
+*vp = g[0].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_0_5_2:
+{
+uint8_t *vp = &(((buffer *)(g[0].p))->data[g[5].i]);
+*vp = g[0].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_0_5_3:
+{
+uint8_t *vp = &(((buffer *)(g[0].p))->data[g[5].i]);
+*vp = g[0].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_0_5_4:
+{
+uint8_t *vp = &(((buffer *)(g[0].p))->data[g[5].i]);
+*vp = g[0].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_1_0_1:
+{
+uint8_t *vp = &(((buffer *)(g[1].p))->data[g[0].i]);
+*vp = g[1].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_1_0_2:
+{
+uint8_t *vp = &(((buffer *)(g[1].p))->data[g[0].i]);
+*vp = g[1].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_1_0_3:
+{
+uint8_t *vp = &(((buffer *)(g[1].p))->data[g[0].i]);
+*vp = g[1].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_1_0_4:
+{
+uint8_t *vp = &(((buffer *)(g[1].p))->data[g[0].i]);
+*vp = g[1].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_1_0_5:
+{
+uint8_t *vp = &(((buffer *)(g[1].p))->data[g[0].i]);
+*vp = g[1].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_1_1_0:
+{
+uint8_t *vp = &(((buffer *)(g[1].p))->data[g[1].i]);
+*vp = g[1].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_1_1_2:
+{
+uint8_t *vp = &(((buffer *)(g[1].p))->data[g[1].i]);
+*vp = g[1].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_1_1_3:
+{
+uint8_t *vp = &(((buffer *)(g[1].p))->data[g[1].i]);
+*vp = g[1].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_1_1_4:
+{
+uint8_t *vp = &(((buffer *)(g[1].p))->data[g[1].i]);
+*vp = g[1].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_1_1_5:
+{
+uint8_t *vp = &(((buffer *)(g[1].p))->data[g[1].i]);
+*vp = g[1].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_1_2_0:
+{
+uint8_t *vp = &(((buffer *)(g[1].p))->data[g[2].i]);
+*vp = g[1].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_1_2_1:
+{
+uint8_t *vp = &(((buffer *)(g[1].p))->data[g[2].i]);
+*vp = g[1].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_1_2_3:
+{
+uint8_t *vp = &(((buffer *)(g[1].p))->data[g[2].i]);
+*vp = g[1].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_1_2_4:
+{
+uint8_t *vp = &(((buffer *)(g[1].p))->data[g[2].i]);
+*vp = g[1].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_1_2_5:
+{
+uint8_t *vp = &(((buffer *)(g[1].p))->data[g[2].i]);
+*vp = g[1].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_1_3_0:
+{
+uint8_t *vp = &(((buffer *)(g[1].p))->data[g[3].i]);
+*vp = g[1].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_1_3_1:
+{
+uint8_t *vp = &(((buffer *)(g[1].p))->data[g[3].i]);
+*vp = g[1].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_1_3_2:
+{
+uint8_t *vp = &(((buffer *)(g[1].p))->data[g[3].i]);
+*vp = g[1].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_1_3_4:
+{
+uint8_t *vp = &(((buffer *)(g[1].p))->data[g[3].i]);
+*vp = g[1].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_1_3_5:
+{
+uint8_t *vp = &(((buffer *)(g[1].p))->data[g[3].i]);
+*vp = g[1].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_1_4_0:
+{
+uint8_t *vp = &(((buffer *)(g[1].p))->data[g[4].i]);
+*vp = g[1].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_1_4_1:
+{
+uint8_t *vp = &(((buffer *)(g[1].p))->data[g[4].i]);
+*vp = g[1].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_1_4_2:
+{
+uint8_t *vp = &(((buffer *)(g[1].p))->data[g[4].i]);
+*vp = g[1].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_1_4_3:
+{
+uint8_t *vp = &(((buffer *)(g[1].p))->data[g[4].i]);
+*vp = g[1].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_1_4_5:
+{
+uint8_t *vp = &(((buffer *)(g[1].p))->data[g[4].i]);
+*vp = g[1].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_1_5_0:
+{
+uint8_t *vp = &(((buffer *)(g[1].p))->data[g[5].i]);
+*vp = g[1].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_1_5_1:
+{
+uint8_t *vp = &(((buffer *)(g[1].p))->data[g[5].i]);
+*vp = g[1].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_1_5_2:
+{
+uint8_t *vp = &(((buffer *)(g[1].p))->data[g[5].i]);
+*vp = g[1].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_1_5_3:
+{
+uint8_t *vp = &(((buffer *)(g[1].p))->data[g[5].i]);
+*vp = g[1].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_1_5_4:
+{
+uint8_t *vp = &(((buffer *)(g[1].p))->data[g[5].i]);
+*vp = g[1].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_2_0_1:
+{
+uint8_t *vp = &(((buffer *)(g[2].p))->data[g[0].i]);
+*vp = g[2].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_2_0_2:
+{
+uint8_t *vp = &(((buffer *)(g[2].p))->data[g[0].i]);
+*vp = g[2].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_2_0_3:
+{
+uint8_t *vp = &(((buffer *)(g[2].p))->data[g[0].i]);
+*vp = g[2].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_2_0_4:
+{
+uint8_t *vp = &(((buffer *)(g[2].p))->data[g[0].i]);
+*vp = g[2].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_2_0_5:
+{
+uint8_t *vp = &(((buffer *)(g[2].p))->data[g[0].i]);
+*vp = g[2].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_2_1_0:
+{
+uint8_t *vp = &(((buffer *)(g[2].p))->data[g[1].i]);
+*vp = g[2].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_2_1_2:
+{
+uint8_t *vp = &(((buffer *)(g[2].p))->data[g[1].i]);
+*vp = g[2].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_2_1_3:
+{
+uint8_t *vp = &(((buffer *)(g[2].p))->data[g[1].i]);
+*vp = g[2].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_2_1_4:
+{
+uint8_t *vp = &(((buffer *)(g[2].p))->data[g[1].i]);
+*vp = g[2].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_2_1_5:
+{
+uint8_t *vp = &(((buffer *)(g[2].p))->data[g[1].i]);
+*vp = g[2].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_2_2_0:
+{
+uint8_t *vp = &(((buffer *)(g[2].p))->data[g[2].i]);
+*vp = g[2].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_2_2_1:
+{
+uint8_t *vp = &(((buffer *)(g[2].p))->data[g[2].i]);
+*vp = g[2].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_2_2_3:
+{
+uint8_t *vp = &(((buffer *)(g[2].p))->data[g[2].i]);
+*vp = g[2].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_2_2_4:
+{
+uint8_t *vp = &(((buffer *)(g[2].p))->data[g[2].i]);
+*vp = g[2].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_2_2_5:
+{
+uint8_t *vp = &(((buffer *)(g[2].p))->data[g[2].i]);
+*vp = g[2].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_2_3_0:
+{
+uint8_t *vp = &(((buffer *)(g[2].p))->data[g[3].i]);
+*vp = g[2].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_2_3_1:
+{
+uint8_t *vp = &(((buffer *)(g[2].p))->data[g[3].i]);
+*vp = g[2].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_2_3_2:
+{
+uint8_t *vp = &(((buffer *)(g[2].p))->data[g[3].i]);
+*vp = g[2].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_2_3_4:
+{
+uint8_t *vp = &(((buffer *)(g[2].p))->data[g[3].i]);
+*vp = g[2].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_2_3_5:
+{
+uint8_t *vp = &(((buffer *)(g[2].p))->data[g[3].i]);
+*vp = g[2].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_2_4_0:
+{
+uint8_t *vp = &(((buffer *)(g[2].p))->data[g[4].i]);
+*vp = g[2].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_2_4_1:
+{
+uint8_t *vp = &(((buffer *)(g[2].p))->data[g[4].i]);
+*vp = g[2].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_2_4_2:
+{
+uint8_t *vp = &(((buffer *)(g[2].p))->data[g[4].i]);
+*vp = g[2].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_2_4_3:
+{
+uint8_t *vp = &(((buffer *)(g[2].p))->data[g[4].i]);
+*vp = g[2].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_2_4_5:
+{
+uint8_t *vp = &(((buffer *)(g[2].p))->data[g[4].i]);
+*vp = g[2].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_2_5_0:
+{
+uint8_t *vp = &(((buffer *)(g[2].p))->data[g[5].i]);
+*vp = g[2].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_2_5_1:
+{
+uint8_t *vp = &(((buffer *)(g[2].p))->data[g[5].i]);
+*vp = g[2].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_2_5_2:
+{
+uint8_t *vp = &(((buffer *)(g[2].p))->data[g[5].i]);
+*vp = g[2].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_2_5_3:
+{
+uint8_t *vp = &(((buffer *)(g[2].p))->data[g[5].i]);
+*vp = g[2].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_2_5_4:
+{
+uint8_t *vp = &(((buffer *)(g[2].p))->data[g[5].i]);
+*vp = g[2].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_3_0_1:
+{
+uint8_t *vp = &(((buffer *)(g[3].p))->data[g[0].i]);
+*vp = g[3].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_3_0_2:
+{
+uint8_t *vp = &(((buffer *)(g[3].p))->data[g[0].i]);
+*vp = g[3].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_3_0_3:
+{
+uint8_t *vp = &(((buffer *)(g[3].p))->data[g[0].i]);
+*vp = g[3].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_3_0_4:
+{
+uint8_t *vp = &(((buffer *)(g[3].p))->data[g[0].i]);
+*vp = g[3].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_3_0_5:
+{
+uint8_t *vp = &(((buffer *)(g[3].p))->data[g[0].i]);
+*vp = g[3].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_3_1_0:
+{
+uint8_t *vp = &(((buffer *)(g[3].p))->data[g[1].i]);
+*vp = g[3].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_3_1_2:
+{
+uint8_t *vp = &(((buffer *)(g[3].p))->data[g[1].i]);
+*vp = g[3].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_3_1_3:
+{
+uint8_t *vp = &(((buffer *)(g[3].p))->data[g[1].i]);
+*vp = g[3].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_3_1_4:
+{
+uint8_t *vp = &(((buffer *)(g[3].p))->data[g[1].i]);
+*vp = g[3].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_3_1_5:
+{
+uint8_t *vp = &(((buffer *)(g[3].p))->data[g[1].i]);
+*vp = g[3].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_3_2_0:
+{
+uint8_t *vp = &(((buffer *)(g[3].p))->data[g[2].i]);
+*vp = g[3].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_3_2_1:
+{
+uint8_t *vp = &(((buffer *)(g[3].p))->data[g[2].i]);
+*vp = g[3].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_3_2_3:
+{
+uint8_t *vp = &(((buffer *)(g[3].p))->data[g[2].i]);
+*vp = g[3].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_3_2_4:
+{
+uint8_t *vp = &(((buffer *)(g[3].p))->data[g[2].i]);
+*vp = g[3].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_3_2_5:
+{
+uint8_t *vp = &(((buffer *)(g[3].p))->data[g[2].i]);
+*vp = g[3].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_3_3_0:
+{
+uint8_t *vp = &(((buffer *)(g[3].p))->data[g[3].i]);
+*vp = g[3].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_3_3_1:
+{
+uint8_t *vp = &(((buffer *)(g[3].p))->data[g[3].i]);
+*vp = g[3].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_3_3_2:
+{
+uint8_t *vp = &(((buffer *)(g[3].p))->data[g[3].i]);
+*vp = g[3].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_3_3_4:
+{
+uint8_t *vp = &(((buffer *)(g[3].p))->data[g[3].i]);
+*vp = g[3].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_3_3_5:
+{
+uint8_t *vp = &(((buffer *)(g[3].p))->data[g[3].i]);
+*vp = g[3].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_3_4_0:
+{
+uint8_t *vp = &(((buffer *)(g[3].p))->data[g[4].i]);
+*vp = g[3].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_3_4_1:
+{
+uint8_t *vp = &(((buffer *)(g[3].p))->data[g[4].i]);
+*vp = g[3].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_3_4_2:
+{
+uint8_t *vp = &(((buffer *)(g[3].p))->data[g[4].i]);
+*vp = g[3].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_3_4_3:
+{
+uint8_t *vp = &(((buffer *)(g[3].p))->data[g[4].i]);
+*vp = g[3].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_3_4_5:
+{
+uint8_t *vp = &(((buffer *)(g[3].p))->data[g[4].i]);
+*vp = g[3].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_3_5_0:
+{
+uint8_t *vp = &(((buffer *)(g[3].p))->data[g[5].i]);
+*vp = g[3].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_3_5_1:
+{
+uint8_t *vp = &(((buffer *)(g[3].p))->data[g[5].i]);
+*vp = g[3].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_3_5_2:
+{
+uint8_t *vp = &(((buffer *)(g[3].p))->data[g[5].i]);
+*vp = g[3].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_3_5_3:
+{
+uint8_t *vp = &(((buffer *)(g[3].p))->data[g[5].i]);
+*vp = g[3].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_3_5_4:
+{
+uint8_t *vp = &(((buffer *)(g[3].p))->data[g[5].i]);
+*vp = g[3].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_4_0_1:
+{
+uint8_t *vp = &(((buffer *)(g[4].p))->data[g[0].i]);
+*vp = g[4].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_4_0_2:
+{
+uint8_t *vp = &(((buffer *)(g[4].p))->data[g[0].i]);
+*vp = g[4].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_4_0_3:
+{
+uint8_t *vp = &(((buffer *)(g[4].p))->data[g[0].i]);
+*vp = g[4].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_4_0_4:
+{
+uint8_t *vp = &(((buffer *)(g[4].p))->data[g[0].i]);
+*vp = g[4].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_4_0_5:
+{
+uint8_t *vp = &(((buffer *)(g[4].p))->data[g[0].i]);
+*vp = g[4].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_4_1_0:
+{
+uint8_t *vp = &(((buffer *)(g[4].p))->data[g[1].i]);
+*vp = g[4].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_4_1_2:
+{
+uint8_t *vp = &(((buffer *)(g[4].p))->data[g[1].i]);
+*vp = g[4].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_4_1_3:
+{
+uint8_t *vp = &(((buffer *)(g[4].p))->data[g[1].i]);
+*vp = g[4].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_4_1_4:
+{
+uint8_t *vp = &(((buffer *)(g[4].p))->data[g[1].i]);
+*vp = g[4].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_4_1_5:
+{
+uint8_t *vp = &(((buffer *)(g[4].p))->data[g[1].i]);
+*vp = g[4].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_4_2_0:
+{
+uint8_t *vp = &(((buffer *)(g[4].p))->data[g[2].i]);
+*vp = g[4].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_4_2_1:
+{
+uint8_t *vp = &(((buffer *)(g[4].p))->data[g[2].i]);
+*vp = g[4].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_4_2_3:
+{
+uint8_t *vp = &(((buffer *)(g[4].p))->data[g[2].i]);
+*vp = g[4].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_4_2_4:
+{
+uint8_t *vp = &(((buffer *)(g[4].p))->data[g[2].i]);
+*vp = g[4].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_4_2_5:
+{
+uint8_t *vp = &(((buffer *)(g[4].p))->data[g[2].i]);
+*vp = g[4].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_4_3_0:
+{
+uint8_t *vp = &(((buffer *)(g[4].p))->data[g[3].i]);
+*vp = g[4].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_4_3_1:
+{
+uint8_t *vp = &(((buffer *)(g[4].p))->data[g[3].i]);
+*vp = g[4].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_4_3_2:
+{
+uint8_t *vp = &(((buffer *)(g[4].p))->data[g[3].i]);
+*vp = g[4].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_4_3_4:
+{
+uint8_t *vp = &(((buffer *)(g[4].p))->data[g[3].i]);
+*vp = g[4].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_4_3_5:
+{
+uint8_t *vp = &(((buffer *)(g[4].p))->data[g[3].i]);
+*vp = g[4].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_4_4_0:
+{
+uint8_t *vp = &(((buffer *)(g[4].p))->data[g[4].i]);
+*vp = g[4].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_4_4_1:
+{
+uint8_t *vp = &(((buffer *)(g[4].p))->data[g[4].i]);
+*vp = g[4].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_4_4_2:
+{
+uint8_t *vp = &(((buffer *)(g[4].p))->data[g[4].i]);
+*vp = g[4].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_4_4_3:
+{
+uint8_t *vp = &(((buffer *)(g[4].p))->data[g[4].i]);
+*vp = g[4].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_4_4_5:
+{
+uint8_t *vp = &(((buffer *)(g[4].p))->data[g[4].i]);
+*vp = g[4].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_4_5_0:
+{
+uint8_t *vp = &(((buffer *)(g[4].p))->data[g[5].i]);
+*vp = g[4].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_4_5_1:
+{
+uint8_t *vp = &(((buffer *)(g[4].p))->data[g[5].i]);
+*vp = g[4].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_4_5_2:
+{
+uint8_t *vp = &(((buffer *)(g[4].p))->data[g[5].i]);
+*vp = g[4].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_4_5_3:
+{
+uint8_t *vp = &(((buffer *)(g[4].p))->data[g[5].i]);
+*vp = g[4].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_4_5_4:
+{
+uint8_t *vp = &(((buffer *)(g[4].p))->data[g[5].i]);
+*vp = g[4].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_5_0_1:
+{
+uint8_t *vp = &(((buffer *)(g[5].p))->data[g[0].i]);
+*vp = g[5].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_5_0_2:
+{
+uint8_t *vp = &(((buffer *)(g[5].p))->data[g[0].i]);
+*vp = g[5].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_5_0_3:
+{
+uint8_t *vp = &(((buffer *)(g[5].p))->data[g[0].i]);
+*vp = g[5].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_5_0_4:
+{
+uint8_t *vp = &(((buffer *)(g[5].p))->data[g[0].i]);
+*vp = g[5].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_5_0_5:
+{
+uint8_t *vp = &(((buffer *)(g[5].p))->data[g[0].i]);
+*vp = g[5].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_5_1_0:
+{
+uint8_t *vp = &(((buffer *)(g[5].p))->data[g[1].i]);
+*vp = g[5].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_5_1_2:
+{
+uint8_t *vp = &(((buffer *)(g[5].p))->data[g[1].i]);
+*vp = g[5].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_5_1_3:
+{
+uint8_t *vp = &(((buffer *)(g[5].p))->data[g[1].i]);
+*vp = g[5].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_5_1_4:
+{
+uint8_t *vp = &(((buffer *)(g[5].p))->data[g[1].i]);
+*vp = g[5].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_5_1_5:
+{
+uint8_t *vp = &(((buffer *)(g[5].p))->data[g[1].i]);
+*vp = g[5].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_5_2_0:
+{
+uint8_t *vp = &(((buffer *)(g[5].p))->data[g[2].i]);
+*vp = g[5].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_5_2_1:
+{
+uint8_t *vp = &(((buffer *)(g[5].p))->data[g[2].i]);
+*vp = g[5].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_5_2_3:
+{
+uint8_t *vp = &(((buffer *)(g[5].p))->data[g[2].i]);
+*vp = g[5].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_5_2_4:
+{
+uint8_t *vp = &(((buffer *)(g[5].p))->data[g[2].i]);
+*vp = g[5].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_5_2_5:
+{
+uint8_t *vp = &(((buffer *)(g[5].p))->data[g[2].i]);
+*vp = g[5].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_5_3_0:
+{
+uint8_t *vp = &(((buffer *)(g[5].p))->data[g[3].i]);
+*vp = g[5].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_5_3_1:
+{
+uint8_t *vp = &(((buffer *)(g[5].p))->data[g[3].i]);
+*vp = g[5].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_5_3_2:
+{
+uint8_t *vp = &(((buffer *)(g[5].p))->data[g[3].i]);
+*vp = g[5].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_5_3_4:
+{
+uint8_t *vp = &(((buffer *)(g[5].p))->data[g[3].i]);
+*vp = g[5].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_5_3_5:
+{
+uint8_t *vp = &(((buffer *)(g[5].p))->data[g[3].i]);
+*vp = g[5].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_5_4_0:
+{
+uint8_t *vp = &(((buffer *)(g[5].p))->data[g[4].i]);
+*vp = g[5].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_5_4_1:
+{
+uint8_t *vp = &(((buffer *)(g[5].p))->data[g[4].i]);
+*vp = g[5].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_5_4_2:
+{
+uint8_t *vp = &(((buffer *)(g[5].p))->data[g[4].i]);
+*vp = g[5].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_5_4_3:
+{
+uint8_t *vp = &(((buffer *)(g[5].p))->data[g[4].i]);
+*vp = g[5].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_5_4_5:
+{
+uint8_t *vp = &(((buffer *)(g[5].p))->data[g[4].i]);
+*vp = g[5].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_5_5_0:
+{
+uint8_t *vp = &(((buffer *)(g[5].p))->data[g[5].i]);
+*vp = g[5].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_5_5_1:
+{
+uint8_t *vp = &(((buffer *)(g[5].p))->data[g[5].i]);
+*vp = g[5].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_5_5_2:
+{
+uint8_t *vp = &(((buffer *)(g[5].p))->data[g[5].i]);
+*vp = g[5].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_5_5_3:
+{
+uint8_t *vp = &(((buffer *)(g[5].p))->data[g[5].i]);
+*vp = g[5].i;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+setb_5_5_4:
+{
+uint8_t *vp = &(((buffer *)(g[5].p))->data[g[5].i]);
+*vp = g[5].i;
 goto *dynOpcodes[ts + program[pc]];
 }
 

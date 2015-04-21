@@ -259,10 +259,10 @@ var lookups = [
     },
 
     {
-        name: 'get',
+        name: 'getl',
         inputs: 1,
         instructions: [{
-            name: 'getik',
+            name: 'getl',
             pcChange: 2,
             legal: [i],
             template: 'int16_t constant = program[pc + 1];\n' +
@@ -277,7 +277,7 @@ var lookups = [
                 '/*<0>*/.i = val.i;\n' +
                 '}\n'
         }, {
-            name: 'getpk',
+            name: 'getlp',
             pcChange: 2,
             legal: [p],
             template: 'int16_t constant = program[pc + 1];\n' +
@@ -293,27 +293,165 @@ var lookups = [
     },
 
     {
-        name: 'set',
+        name: 'setl',
         inputs: 1,
         instructions: [{
-            name: 'setik',
+            name: 'setl',
             pcChange: 2,
+            legal: [i],            
+            
             template: 'int16_t constant = program[pc + 1];\n' +
-                'value* vp = fp + constant;\n' +
+                'value* vp = fp + constant * sizeof(value);\n' +
                 '(*vp).tag = /*<0>*/.tag;\n' +
                 '(*vp).i = /*<0>*/.i;\n'
         },
         {
-            name: 'setpk',
+            name: 'setlp',
             pcChange: 2,
+            legal: [p],
             template: 'int16_t constant = program[pc + 1];\n' +
-                'value* vp = fp + constant;\n' +
+                'value* vp = fp + constant * sizeof(value);\n' +
                 '(*vp).tag = /*<0>*/.tag;\n' +
                 '(*vp).p = /*<0>*/.p;\n'
-        }
-                      ]
+        }]
     },
 
+    {
+        name: 'getm',
+        inputs: 2,
+        instructions: [
+            {
+                name: 'getm',
+                pcChange: 2,
+                legal: [i, p],
+                template: 'int16_t constant = program[pc + 1];\n' +
+                    'value val = ((object *)(/*<1>*/.p))->data[constant];\n' +
+                    'if (val.tag != ' + i + ')\n' +
+                    '{\n' +
+                    '/*<0>*/.tag = val.tag;\n' +
+                    '/*<state:' + p + '>*/;\n' +
+                    '/*<0>*/.p = val.p;\n' +
+                    '}\n' +
+                    'else{\n' +
+                    '/*<0>*/.i = val.i;\n' +
+                    '}\n' 
+            },
+            {
+                name: 'getmp',
+                pcChange: 2,
+                legal: [p, p],
+                template: 'int16_t constant = program[pc + 1];\n' +
+                    'value val = ((object *)(/*<1>*/.p))->data[constant];\n' +
+                    'if (val.tag == ' + i + ')' +
+                    '{\n' +
+                    '/*<tag+state:' + i + '>*/;\n' +
+                    '/*<0>*/.i = val.i;\n' +
+                    '}\n' +
+                    '/*<0>*/.tag = val.tag;\n' +
+                    '/*<0>*/.p = val.p;\n'
+            }]
+    },
+    //TODO: can I make this better?
+        {
+        name: 'setm',
+        inputs: 2,
+        instructions: [
+            {
+                name: 'setm',
+                pcChange: 2,
+                legal: [p, i], 
+                template: 'int16_t constant = program[pc + 1];\n' +
+                'value *vp = &(((object *)(/*<0>*/.p))->data[constant]);\n' +
+                'vp->tag ='+ i +';\n' +
+                'vp->i = /*<1>*/.i;\n'
+            },
+            {
+                name: 'setmp',
+                pcChange: 2,
+                legal: [p, p],
+                template: 'int16_t constant = program[pc + 1];\n' +
+                'value *vp = &(((object *)(/*<0>*/.p))->data[constant]);\n' +
+                'vp->tag = /*<1>*/.tag;\n' +
+                'vp->p = /*<1>*/.p;\n'
+            }]
+        },
+
+    {
+        name: 'geta',
+        inputs: 3,
+        callCondition: function(call){return call[1] !== call[2];},
+        instructions: [
+            {
+                name: 'geta',
+                legal: [i, p, i],
+                template: 
+                    'value val = ((pointeronly *)(/*<1>*/.p))->data[/*<2>*/.i];\n' +
+                    '/*<0>*/.tag = val.tag;\n' +
+                    '/*<state:' + p + '>*/;\n' +
+                    '/*<0>*/.p = val.p;\n'
+            },
+            {
+                name: 'getap',
+                legal: [p, p, i],
+                template: 
+                    'value val = ((pointeronly *)(/*<1>*/.p))->data[/*<2>*/.i];\n' +
+                    '/*<0>*/.tag = val.tag;\n' +
+                    '/*<0>*/.p = val.p;\n'
+            }
+        ]
+    },
+
+    {
+        name: 'seta',
+        inputs: 3,
+        callCondition: differentRegisters,
+        instructions: [
+            {
+                name: 'setap',
+                legal: [p, i, p],
+                template: 
+                    'value *vp = &(((pointeronly *)(/*<0>*/.p))->data[/*<1>*/.i]);\n' +
+                    'vp->tag = /*<2>*/.tag;\n' +
+                    'vp->p = /*<2>*/.p;\n'
+            }
+        ]
+    },
+
+    {
+        name: 'getb',
+        inputs: 3,
+        callCondition: function(call){return call[1] !== call[2];},
+        instructions: [
+            {
+                name: 'getb',
+                legal: [i, p, i],
+                template: 'uint8_t val = ((buffer *)(/*<1>*/.p))->data[/*<2>*/.i];\n' +
+                    '/*<0>*/.i = val;\n'                
+            },
+            {
+                name: 'getbp',
+                legal: [p, p, i],
+                template: 'uint8_t val = ((buffer *)(/*<1>*/.p))->data[/*<2>*/.i];\n' +
+                    '/*<tag+state:' + i + '>*/;\n' +
+                    '/*<0>*/.i = val;\n'                
+            },
+        ]
+    },
+    //TODO: TEST ME!!
+    {
+        name: 'setb',
+        inputs: 3,
+        callCondition: function(call){return call[1] !== call[2];},
+        instructions: [
+            {
+                name: 'setb',
+                legal: [p, i, i],
+                template: 'uint8_t *vp = &(((buffer *)(/*<0>*/.p))->data[/*<1>*/.i]);\n' +
+                    '*vp = /*<0>*/.i;\n'                
+            },
+        ]
+    },
+    
     {
         name: 'jmp',
         inputs: 0,
@@ -454,7 +592,7 @@ var lookups = [
         name: 'newp',
         inputs: 1,
         instructions: [{
-            name: 'newp', pcChange: 1, legal: [p],
+            name: 'newp', pcChange: 1, 
             template: getConst('size') +
                 'object *base = (object*)malloc(sizeof(object) + sizeof(value)*size);\n' +
                 'base->sf = MakeSizeAndFlags(size,0);\n' +
@@ -467,7 +605,7 @@ var lookups = [
         name: 'newpa',
         inputs: 1,
         instructions: [{
-            name: 'newpa', pcChange: 1, legal: [p],
+            name: 'newpa', pcChange: 1,
             template: getConst('size') +
                 'pointeronly *base = (pointeronly*)malloc(sizeof(pointeronly) + sizeof(value)*size);\n' +
                 'base->sf = MakeSizeAndFlags(size,0);\n' +
@@ -480,7 +618,7 @@ var lookups = [
         name: 'newa',
         inputs: 1,
         instructions: [{
-            name: 'newa', pcChange: 1, legal: [p],
+            name: 'newa', pcChange: 1, 
             template: getConst('size') +
                 'buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*size);\n' +
                 'base->sf = MakeSizeAndFlags(size,0);\n' +
