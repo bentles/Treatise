@@ -647,11 +647,28 @@ var numTypes = 2;
 var numRegisters = 6;
 var opcodeSizeInBytes = 11;
 
+<<<<<<< HEAD
+function Generator(lookups, numregisters, numtypes, opcodeSizeInBytes)
+{
+    this.code = "";
+
+    /* there are numtypes**numregisters states
+     * for each state there are 2**opcodeSizeInBytes possible lookups
+     * most of these will be used but some will not
+     * visualisation: (_ is undefined/ is error case)
+     * =============
+     * state 0: a b c d e / _ _ _
+     * state 1: / b c / e f _ _ _
+     * etc.
+     */
+    this.lookuptable = new Array(Math.pow(numtypes, numregisters)* Math.pow(2, opcodeSizeInBytes));
+=======
 function Generator(lookups, statics, numregisters, numtypes, opcodeSizeInBytes) {
     this.code = '';
     this.numregisters = numregisters;
     this.numtypes = numtypes;
     this.lookuptable = new Array(Math.pow(numtypes, numregisters) * Math.pow(2, opcodeSizeInBytes));
+>>>>>>> 97975e6fcb6050672ca14715e859477663734d24
     this.numstates = Math.pow(numtypes, numregisters);
     this.instgenerators = [];
 }
@@ -955,7 +972,7 @@ var fs = require('fs');
 CodeGenerator.generate(0);
 
 //Code
-fs.writeFileSync('../staticInstructions.h', '');
+fs.writeFileSync('../Instructions.h', '');
 console.log('File overwritten');
 fs.appendFileSync('../staticInstructions.h', CodeGenerator.getCode());
 console.log('Code written to file');
