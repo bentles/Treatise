@@ -647,28 +647,12 @@ var numTypes = 2;
 var numRegisters = 6;
 var opcodeSizeInBytes = 11;
 
-<<<<<<< HEAD
-function Generator(lookups, numregisters, numtypes, opcodeSizeInBytes)
-{
-    this.code = "";
 
-    /* there are numtypes**numregisters states
-     * for each state there are 2**opcodeSizeInBytes possible lookups
-     * most of these will be used but some will not
-     * visualisation: (_ is undefined/ is error case)
-     * =============
-     * state 0: a b c d e / _ _ _
-     * state 1: / b c / e f _ _ _
-     * etc.
-     */
-    this.lookuptable = new Array(Math.pow(numtypes, numregisters)* Math.pow(2, opcodeSizeInBytes));
-=======
 function Generator(lookups, statics, numregisters, numtypes, opcodeSizeInBytes) {
     this.code = '';
     this.numregisters = numregisters;
     this.numtypes = numtypes;
     this.lookuptable = new Array(Math.pow(numtypes, numregisters) * Math.pow(2, opcodeSizeInBytes));
->>>>>>> 97975e6fcb6050672ca14715e859477663734d24
     this.numstates = Math.pow(numtypes, numregisters);
     this.instgenerators = [];
 }
@@ -944,8 +928,8 @@ InstructionGenerator.prototype = {
         //call = [0,4] => callTypes = [1,1]
         var callTypes = this.getCallTypes(call, registerTypes);
 
+        var legal = inst.name;
         if (inst.legal !== undefined) {
-            var legal = inst.name;
             for (var k = 0; k < callTypes.length; k++) {
                 if (callTypes[k] !== inst.legal[k]) {
                     legal = false;
