@@ -679,19 +679,6 @@ var lookups = [
         }]
     },
     {
-        name: 'newpa',
-        inputs: 1,
-        instructions: [{
-            name: 'newpa', pcChange: 1,
-            template: getConst('size') +
-                'pointeronly *base = (pointeronly*)malloc(sizeof(pointeronly) + sizeof(value)*size);\n' +
-                'base->sf = MakeSizeAndFlags(size,0);\n' +
-                '/*<0>*/.tag = 3;\n' +
-                '/*<state:' + p + '>*/;\n' +
-                '/*<0>*/.p = base;\n'
-        }]
-    },
-    {
         name: 'newa',
         inputs: 1,
         instructions: [{
@@ -730,6 +717,7 @@ function Generator(lookups, statics, numregisters, numtypes, opcodeSizeInBytes) 
     this.numregisters = numregisters;
     this.numtypes = numtypes;
     this.lookuptable = new Array(Math.pow(numtypes, numregisters) * Math.pow(2, opcodeSizeInBytes));
+    this.opcodetable = [];
     this.numstates = Math.pow(numtypes, numregisters);
     this.instgenerators = [];
 }
@@ -768,10 +756,15 @@ Generator.prototype = {
 
             //lookup table per state
             var stateTable = [];
-
+            
             this.instgenerators.forEach(
                 function(generator) {
                     generator.genLookups(state, vm);
+
+                    //only need to do this once not for every state
+                    if (state == 0)
+                        this.opcodetable.push("'" + generator.lookup.name+ "'" + ' => ' + stateTable.length);
+                    
                     stateTable = stateTable.concat(generator.lookuptable);
                 }, this);
 
@@ -791,7 +784,11 @@ Generator.prototype = {
     },
     getLookupTable: function() {
         return this.lookuptable.join([seperator = ',\n']);
+    },
+    getOpcodes: function() {
+        return this.opcodetable.join([seperator = ',\n']);
     }
+    
 };
 
 //All powerful generator
@@ -862,8 +859,9 @@ InstructionGenerator.prototype = {
         this.lookup.instructions.forEach(function(inst) {
             this.callables.forEach(function(call, i) {
                 var lookup = this.isLegal(call, stateRegisters, inst);
-                if (lookup)
+                if (lookup)               
                     this.lookuptable[i] = this.getLookupAddress(lookup, call);
+                
             }, this);
         }, this);
     },
@@ -1033,15 +1031,21 @@ var fs = require('fs');
 CodeGenerator.generate(0);
 
 //Code
-fs.writeFileSync('../staticInstructions.h', '');
+fs.writeFileSync('../staticInstructions.c', '');
 console.log('File overwritten');
-fs.appendFileSync('../staticInstructions.h', CodeGenerator.getCode());
+fs.appendFileSync('../staticInstructions.c', CodeGenerator.getCode());
 console.log('Code written to file');
 
 //lookup table
-fs.writeFileSync('../dynamicOpcodes.h', '');
+fs.writeFileSync('../dynamicOpcodes.c', '');
 console.log('File overwritten');
-fs.appendFileSync('../dynamicOpcodes.h', CodeGenerator.getLookupTable());
+fs.appendFileSync('../dynamicOpcodes.c', CodeGenerator.getLookupTable());
+console.log('Code written to file');
+
+//opcode table
+fs.writeFileSync('../staticOpcodes.rb', '');
+console.log('File overwritten');
+fs.appendFileSync('../staticOpcodes.rb', CodeGenerator.getOpcodes());
 console.log('Code written to file');
 
 //VM 1 - standard style VM

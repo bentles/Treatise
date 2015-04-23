@@ -61,19 +61,6 @@ struct ObjectStruct
     value data[];
 };
 
-/* Pointer-only
- * ============
- * Can only contain values with tags greater than 0
- * No different from an object except that it guarantees
- * only pointers 
- */
-typedef struct PointerStruct pointeronly;
-struct PointerStruct
-{
-    int64_t sf; //size and flags
-    value data[];
-};
-
 /* Buffer (pointer-free)
  * =====================
  * A byte addressable buffer
@@ -124,7 +111,7 @@ int main(int argc, char *argv[])
 	//[state : 6 bits][opcode : 11 bits] => the table has max 2^17 = 131072
 	//elements
 	static void *dynOpcodes[] = {
-      #include "dynamicOpcodes.h"
+      #include "dynamicOpcodes.c"
     };
 
     //Handle args and read in binary file
@@ -158,7 +145,7 @@ int main(int argc, char *argv[])
      *     goto *dynOpcodes[ts + program[pc]];
      */    
     
-#include "staticInstructions.h"
+#include "staticInstructions.c"
     return 0;
 }
 
