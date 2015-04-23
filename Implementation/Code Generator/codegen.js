@@ -18,7 +18,7 @@ var lookups = [
         name: 'add',
         inputs: 2,
         instructions: [{
-            name: 'addii',
+            name: 'add',
             pcChange: 1,
             legal: [i, i],
             template: '/*<0>*/.i += /*<1>*/.i;\n'
@@ -29,7 +29,7 @@ var lookups = [
         name: 'addc',
         inputs: 1,
         instructions: [{
-            name: 'addik',
+            name: 'addc',
             pcChange: 2,
             legal: [i],
             template: getConst('constant') + '/*<0>*/.i += constant;\n'
@@ -41,7 +41,7 @@ var lookups = [
         inputs: 2,
         callCondition: differentRegisters,
         instructions: [{
-            name: 'subii',
+            name: 'sub',
             pcChange: 1,
             legal: [i, i],
             template: '/*<0>*/.i -= /*<1>*/.i;\n'
@@ -52,7 +52,7 @@ var lookups = [
         name: 'csub',
         inputs: 1,
         instructions: [{
-            name: 'subki',
+            name: 'csub',
             pcChange: 2,
             legal: [i],
             template: getConst('constant') + '/*<0>*/.i = constant - /*<0>*/.i;\n'
@@ -60,11 +60,76 @@ var lookups = [
     },
 
     {
+        name: 'mul',
+        inputs: 2,
+        instructions: [{
+            name: 'mul',
+            pcChange: 1,
+            legal: [i, i],
+            template: '/*<0>*/.i *= /*<1>*/.i;\n'
+        }]
+    },
+    {
+        name: 'mulc',
+        inputs: 1,
+        instructions: [{
+            name: 'mulc',
+            pcChange: 2,
+            legal: [i],
+            template: getConst('constant') + '/*<0>*/.i *= constant;\n'
+        }]
+    },
+
+    {
+        name: 'div',
+        inputs: 2,
+        callCondition: differentRegisters,
+        instructions: [{
+            name: 'div',
+            pcChange: 1,
+            legal: [i, i],
+            template: '/*<0>*/.i /= /*<1>*/.i;\n'
+        }]
+    },
+    {
+        name: 'divc',
+        inputs: 1,
+        instructions: [{
+            name: 'divc',
+            pcChange: 2,
+            legal: [i],
+            template: getConst('constant') + '/*<0>*/.i /= constant;\n'
+        }]
+    },
+
+        {
+        name: 'and',
+        inputs: 2,
+        callCondition: differentRegisters,
+        instructions: [{
+            name: 'and',
+            pcChange: 1,
+            legal: [i, i],
+            template: '/*<0>*/.i &= /*<1>*/.i;\n'
+        }]
+    },
+
+    {
+        name: 'andc',
+        inputs: 1,
+        instructions: [{
+            name: 'andc',
+            pcChange: 2,
+            legal: [i],
+            template: getConst('constant') + '/*<0>*/.i &= constant;\n'
+        }]
+    },   
+    {
         name: 'or',
         inputs: 2,
         callCondition: differentRegisters,
         instructions: [{
-            name: 'orii',
+            name: 'or',
             pcChange: 1,
             legal: [i, i],
             template: '/*<0>*/.i |= /*<1>*/.i;\n'
@@ -75,7 +140,7 @@ var lookups = [
         name: 'orc',
         inputs: 1,
         instructions: [{
-            name: 'orki',
+            name: 'orc',
             pcChange: 2,
             legal: [i],
             template: getConst('constant') + '/*<0>*/.i |= constant;\n'
@@ -88,7 +153,7 @@ var lookups = [
         inputs: 2,
         callCondition: differentRegisters,
         instructions: [{
-            name: 'xorii',
+            name: 'xor',
             pcChange: 1,
             legal: [i, i],
             template: '/*<0>*/.i ^= /*<1>*/.i;\n'
@@ -100,7 +165,7 @@ var lookups = [
         inputs: 2,
         callCondition: differentRegisters,
         instructions: [{
-            name: 'shlii',
+            name: 'shl',
             pcChange: 1,
             legal: [i, i],
             template: '/*<0>*/.i <<= /*<1>*/.i;\n'
@@ -111,7 +176,7 @@ var lookups = [
         name: 'shlc',
         inputs: 1,
         instructions: [{
-            name: 'shlik',
+            name: 'shlc',
             pcChange: 2,
             legal: [i],
             template: getConst('constant') + '/*<0>*/.i <<= constant;\n'
@@ -122,54 +187,50 @@ var lookups = [
         name: 'cshl',
         inputs: 1,
         instructions: [{
-            name: 'shlki',
+            name: 'cshl',
             pcChange: 2,
             legal: [i],
             template: getConst('constant') + '/*<0>*/.i = constant << /*<0>*/.i;\n'
         }]
     },
-
     //TODO: NB must test this
     {
         name: 'shr',
         inputs: 2,
         callCondition: differentRegisters,
         instructions: [{
-            name: 'shrii',
+            name: 'shr',
             pcChange: 1,
             legal: [i, i],
             template: '/*<0>*/.i = (uint64_t)/*<0>*/.i >> /*<0>*/.i;\n'
         }]
     },
-
     {
         name: 'shrc',
         inputs: 1,
         instructions: [{
-            name: 'shrik',
+            name: 'shrc',
             pcChange: 2,
             legal: [i],
             template: getConst('constant') + '/*<0>*/.i = (uint64_t)/*<0>*/.i >> constant;\n'
         }]
     },
-
     {
         name: 'cshr',
         inputs: 1,
         instructions: [{
-            name: 'shrki',
+            name: 'cshr',
             pcChange: 2,
             legal: [i],
             template: getConst('constant') + '/*<0>*/.i = (uint64_t)constant >> /*<0>*/.i;\n'
         }]
     },
-
     {
         name: 'sar',
         inputs: 2,
         callCondition: differentRegisters,
         instructions: [{
-            name: 'sarii',
+            name: 'sar',
             pcChange: 1,
             legal: [i, i],
             template: '/*<0>*/.i >>= /*<1>*/.i;\n'
@@ -180,7 +241,7 @@ var lookups = [
         name: 'sarc',
         inputs: 1,
         instructions: [{
-            name: 'sarik',
+            name: 'sarc',
             pcChange: 2,
             legal: [i],
             template: getConst('constant') + '/*<0>*/.i >>= constant;\n'
@@ -191,7 +252,7 @@ var lookups = [
         name: 'csar',
         inputs: 1,
         instructions: [{
-            name: 'sarki',
+            name: 'csar',
             pcChange: 2,
             legal: [i],
             template: getConst('constant') + '/*<0>*/.i = constant >> /*<0>*/.i;\n'
@@ -233,24 +294,24 @@ var lookups = [
         name: 'movc',
         inputs: 1, //TODO movN separate?
         instructions: [{
-            name: 'movik',
+            name: 'movic',
             pcChange: 2,
             legal: [i],
             template: getConst('constant') + '/*<0>*/.i = constant;\n'
         }, {
-            name: 'movpk',
+            name: 'movpc',
             pcChange: 2,
             legal: [p],
             template: getConst('constant') +
                 '/*<0>*/.i = constant;\n' +
                 '/*<tag+state:' + i + '>*/;\n'
         }, {
-            name: 'movpN',
+            name: 'movpn',
             pcChange: 1,
             legal: [p],
             template: '/*<0>*/.p = NULL;\n'
         }, {
-            name: 'moviN',
+            name: 'movin',
             pcChange: 1,
             legal: [i],
             template: '/*<0>*/.p = NULL;\n' +
@@ -471,7 +532,7 @@ var lookups = [
         name: 'switch',
         inputs: 1,
         instructions: [{
-            name: 'jsw',
+            name: 'switch',
             legal: [i],
             template: 'int16_t tableSize = program[pc + 1];\n' +
                 'if(/*<0>*/.i < 0 || /*<0>*/.i >= tableSize) {\n' +
@@ -487,11 +548,11 @@ var lookups = [
 
     //TODO: check pointer eq
     {
-        name: 'cab',
+        name: 'jcmp',
         inputs: 2,
         callCondition: differentRegisters,
         instructions: [{
-            name: 'cabii',
+            name: 'jcmpi',
             legal: [i, i],
             template: 'if (/*<0>*/.i < /*<1>*/.i)\n' +
                 'pc += program[pc + 1];\n' +
@@ -500,18 +561,18 @@ var lookups = [
                 'else\n' +
                 'pc += program[pc + 3];\n'
         }, {
-            name: 'cabpp',
+            name: 'jcmpp',
             legal: [p, p],
             template: 'if (/*<0>*/.p == /*<1>*/.p)\n' +
                 'pc += program[pc + 2];\n' +
                 'else\n' +
                 'pc += program[pc + 4];\n'
         }, {
-            name: 'cabft',
+            name: 'jcmpft',
             pcChange: 5,
             legal: [p, i]
         }, {
-            name: 'cabft',
+            name: 'jcmpft',
             pcChange: 5,
             legal: [i, p],
             genCode: false
@@ -519,11 +580,10 @@ var lookups = [
     },
 
     {
-        name: 'cabk',
+        name: 'jcmpc',
         inputs: 1,
-        callCondition: differentRegisters,
         instructions: [{
-            name: 'cabik',
+            name: 'jcmpc',
             legal: [i],
             template: getConst('constant') +
                 'if (/*<0>*/.i < constant)\n' +
@@ -533,18 +593,35 @@ var lookups = [
                 'else\n' +
                 'pc += program[pc + 4];\n'
         }, {
-            name: 'cabft',
+            name: 'jcmpft',
             pcChange: 5,
             legal: [p]
         }]
     },
-
+        {
+        name: 'jeqp',
+        inputs: 2,
+        callCondition: differentRegisters,
+        instructions: [{
+            name: 'jeqp',
+            legal: [i],
+            template: 'if (/*<0>*/.p == /*<1>*/.p)\n' +
+                'pc += program[pc + 2];\n' +
+                'else\n' +
+                'pc += program[pc + 1];\n'
+        }, {
+            name: 'cabft',
+            pcChange: 5,
+            legal: [i],
+            genCode: false
+        }]
+    },
     {
-        name: 'cabN',
+        name: 'jnullp',
         inputs: 1,
         callCondition: differentRegisters,
         instructions: [{
-            name: 'cabpN',
+            name: 'jnullp',
             legal: [i],
             template: 'if (/*<0>*/.p == NULL)\n' +
                 'pc += program[pc + 2];\n' +
@@ -746,7 +823,7 @@ InstructionGenerator.prototype = {
                     this.code += this.getLabel(inst.name, call);
                     this.code += '{\n';
 
-                    //get args the old fashioned way
+                    //get args the old fashioned way if requested to
                     if (vm === 1)
                         this.code += this.getArgsFromInst();
 
@@ -956,7 +1033,7 @@ var fs = require('fs');
 CodeGenerator.generate(0);
 
 //Code
-fs.writeFileSync('../Instructions.h', '');
+fs.writeFileSync('../staticInstructions.h', '');
 console.log('File overwritten');
 fs.appendFileSync('../staticInstructions.h', CodeGenerator.getCode());
 console.log('Code written to file');
