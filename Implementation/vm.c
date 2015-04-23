@@ -51,8 +51,7 @@ struct ValueStruct
  */
 #define MakeSizeAndFlags(size,flags)(((size)<<2)|(flags))
 #define GetFlags(v)((v) & 3)
-#define GetPayload(v)((v) & ~3)
-#define GetSize(v)(GetPayload(v)>>2)
+#define GetSize(v)((v) >> 2)
 
 typedef struct ObjectStruct object;
 struct ObjectStruct

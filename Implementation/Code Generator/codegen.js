@@ -328,13 +328,12 @@ var lookups = [
             legal: [i],
             template: 'int16_t constant = program[pc + 1];\n' +
                 'value val = fp[constant];\n' +
-                'if (val.tag != ' + i + ')\n' +
-                '{\n' +
+                'if (val.tag != ' + i + ') {\n' +
                 '/*<0>*/.tag = val.tag;\n' +
                 '/*<state:' + p + '>*/;\n' +
                 '/*<0>*/.p = val.p;\n' +
                 '}\n' +
-                'else{\n' +
+                'else {\n' +
                 '/*<0>*/.i = val.i;\n' +
                 '}\n'
         }, {
@@ -343,8 +342,7 @@ var lookups = [
             legal: [p],
             template: 'int16_t constant = program[pc + 1];\n' +
                 'value val = fp[constant];\n' +
-                'if (val.tag == ' + i + ')' +
-                '{\n' +
+                'if (val.tag == ' + i + ') {\n' +
                 '/*<tag+state:' + i + '>*/;\n' +
                 '/*<0>*/.i = val.i;\n' +
                 '}\n' +
@@ -387,13 +385,12 @@ var lookups = [
                 legal: [i, p],
                 template: 'int16_t constant = program[pc + 1];\n' +
                     'value val = ((object *)(/*<1>*/.p))->data[constant];\n' +
-                    'if (val.tag != ' + i + ')\n' +
-                    '{\n' +
+                    'if (val.tag != ' + i + ') {\n' +
                     '/*<0>*/.tag = val.tag;\n' +
                     '/*<state:' + p + '>*/;\n' +
                     '/*<0>*/.p = val.p;\n' +
                     '}\n' +
-                    'else{\n' +
+                    'else {\n' +
                     '/*<0>*/.i = val.i;\n' +
                     '}\n' 
             },
@@ -403,8 +400,7 @@ var lookups = [
                 legal: [p, p],
                 template: 'int16_t constant = program[pc + 1];\n' +
                     'value val = ((object *)(/*<1>*/.p))->data[constant];\n' +
-                    'if (val.tag == ' + i + ')' +
-                    '{\n' +
+                    'if (val.tag == ' + i + ') {\n' +
                     '/*<tag+state:' + i + '>*/;\n' +
                     '/*<0>*/.i = val.i;\n' +
                     '}\n' +
@@ -437,47 +433,7 @@ var lookups = [
             }]
         },
 
-    {
-        name: 'geta',
-        inputs: 3,
-        callCondition: function(call){return call[1] !== call[2];},
-        instructions: [
-            {
-                name: 'geta',
-                legal: [i, p, i],
-                template: 
-                    'value val = ((pointeronly *)(/*<1>*/.p))->data[/*<2>*/.i];\n' +
-                    '/*<0>*/.tag = val.tag;\n' +
-                    '/*<state:' + p + '>*/;\n' +
-                    '/*<0>*/.p = val.p;\n'
-            },
-            {
-                name: 'getap',
-                legal: [p, p, i],
-                template: 
-                    'value val = ((pointeronly *)(/*<1>*/.p))->data[/*<2>*/.i];\n' +
-                    '/*<0>*/.tag = val.tag;\n' +
-                    '/*<0>*/.p = val.p;\n'
-            }
-        ]
-    },
-
-    {
-        name: 'seta',
-        inputs: 3,
-        callCondition: differentRegisters,
-        instructions: [
-            {
-                name: 'setap',
-                legal: [p, i, p],
-                template: 
-                    'value *vp = &(((pointeronly *)(/*<0>*/.p))->data[/*<1>*/.i]);\n' +
-                    'vp->tag = /*<2>*/.tag;\n' +
-                    'vp->p = /*<2>*/.p;\n'
-            }
-        ]
-    },
-
+    
     {
         name: 'getb',
         inputs: 3,
@@ -552,7 +508,7 @@ var lookups = [
         inputs: 2,
         callCondition: differentRegisters,
         instructions: [{
-            name: 'jcmpi',
+            name: 'jcmp',
             legal: [i, i],
             template: 'if (/*<0>*/.i < /*<1>*/.i)\n' +
                 'pc += program[pc + 1];\n' +
@@ -561,7 +517,7 @@ var lookups = [
                 'else\n' +
                 'pc += program[pc + 3];\n'
         }, {
-            name: 'jcmpp',
+            name: 'jeqp',
             legal: [p, p],
             template: 'if (/*<0>*/.p == /*<1>*/.p)\n' +
                 'pc += program[pc + 2];\n' +
@@ -573,7 +529,6 @@ var lookups = [
             legal: [p, i]
         }, {
             name: 'jcmpft',
-            pcChange: 5,
             legal: [i, p],
             genCode: false
         }]
@@ -593,27 +548,9 @@ var lookups = [
                 'else\n' +
                 'pc += program[pc + 4];\n'
         }, {
-            name: 'jcmpft',
+            name: 'jcmpcft',
             pcChange: 5,
             legal: [p]
-        }]
-    },
-        {
-        name: 'jeqp',
-        inputs: 2,
-        callCondition: differentRegisters,
-        instructions: [{
-            name: 'jeqp',
-            legal: [i],
-            template: 'if (/*<0>*/.p == /*<1>*/.p)\n' +
-                'pc += program[pc + 2];\n' +
-                'else\n' +
-                'pc += program[pc + 1];\n'
-        }, {
-            name: 'cabft',
-            pcChange: 5,
-            legal: [i],
-            genCode: false
         }]
     },
     {
@@ -628,9 +565,8 @@ var lookups = [
                 'else\n' +
                 'pc += program[pc + 3];\n'
         }, {
-            name: 'cabft',
-            pcChange: 5,
-            legal: [i],
+            name: 'jcmpcft',
+            legal: [p],
             genCode: false
         }]
     },
@@ -689,6 +625,43 @@ var lookups = [
                 '/*<0>*/.tag = 4;\n' +
                 '/*<state:' + p + '>*/;\n' +
                 '/*<0>*/.p = base;\n'
+        }]
+    },
+    {
+        name: 'err',
+        inputs: 0,
+        instructions: [{
+            name: 'err', pcChange: 1, 
+            template: getConst('errdisp') +
+            'fprintf(stderr, "err case"); \n'
+        }]
+    },
+    {
+        name: 'in',
+        inputs: 1,
+        instructions: [{
+            name: 'in', pcChange: 1,
+            legal: [p],
+            template:
+            'buffer *bp = /*<0>*/.p;\n' +
+            'int size = GetSize(bp->sf);\n' +
+            'if (fgets(bp->data, size, stdin) == NULL) {\n' +
+            '    fprintf(stderr, "input error");\n' +
+            '    return 1;\n' +
+            '}\n'
+        }]
+    },
+    {
+        name: 'out',
+        inputs: 1,
+        instructions: [{
+            name: 'out', pcChange: 1,
+            legal: [p],
+            template: 'buffer *bp = /*<0>*/.p;\n' +
+                'int size = GetSize(bp->sf);\n' +
+                'char temp[size + 1];\n' +
+                'strncat(temp, bp->data, size);\n' +
+                'puts(bp->data);\n'
         }]
     }
 ];
