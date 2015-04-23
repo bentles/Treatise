@@ -661,7 +661,7 @@ var lookups = [
                 'int size = GetSize(bp->sf);\n' +
                 'char temp[size + 1];\n' +
                 'strncat(temp, bp->data, size);\n' +
-                'puts(bp->data);\n'
+                'puts(temp);\n'
         }]
     }
 ];

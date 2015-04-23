@@ -11633,7 +11633,7 @@ buffer *bp = g[0].p;
 int size = GetSize(bp->sf);
 char temp[size + 1];
 strncat(temp, bp->data, size);
-puts(bp->data);
+puts(temp);
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -11644,7 +11644,7 @@ buffer *bp = g[1].p;
 int size = GetSize(bp->sf);
 char temp[size + 1];
 strncat(temp, bp->data, size);
-puts(bp->data);
+puts(temp);
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -11655,7 +11655,7 @@ buffer *bp = g[2].p;
 int size = GetSize(bp->sf);
 char temp[size + 1];
 strncat(temp, bp->data, size);
-puts(bp->data);
+puts(temp);
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -11666,7 +11666,7 @@ buffer *bp = g[3].p;
 int size = GetSize(bp->sf);
 char temp[size + 1];
 strncat(temp, bp->data, size);
-puts(bp->data);
+puts(temp);
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -11677,7 +11677,7 @@ buffer *bp = g[4].p;
 int size = GetSize(bp->sf);
 char temp[size + 1];
 strncat(temp, bp->data, size);
-puts(bp->data);
+puts(temp);
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -11688,7 +11688,7 @@ buffer *bp = g[5].p;
 int size = GetSize(bp->sf);
 char temp[size + 1];
 strncat(temp, bp->data, size);
-puts(bp->data);
+puts(temp);
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
