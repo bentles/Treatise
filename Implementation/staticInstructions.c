@@ -11366,16 +11366,22 @@ goto *dynOpcodes[ts + program[pc]];
 
 call:
 {
-int64_t newpc = pc + program[pc + 1];
+int64_t newpc = pc + 1 + program[pc + 1];
 int64_t *sizep = (int64_t*)&program[newpc];
 int64_t size = sizeof(stackframe) + sizeof(value) * (*sizep);
 stackframe *base = (stackframe*)malloc(size);
+if (base) {
 base->fp = fp; base->pc = pc; base->ts = ts;
 SaveRegisters(base->g);
 value *newfp = base->l;
 memcpy(newfp, fp + program[pc + 2], program[pc + 3]*sizeof(value));
 fp = newfp;
 pc = newpc + 4;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11387,7 +11393,7 @@ RestoreRegisters(cur->g);
 free(cur);//probably does a thing 
 if (fp == NULL)
 return 0;
-pc++;
+pc += 4;
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11396,10 +11402,16 @@ newp_0:
 int16_t dsize = program[pc +1];
 int64_t size = *((int64_t*)(&program[pc + 1 + dsize]));
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*size);
+if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[0].tag = 2;
 ts |= 0x20 /*100000*/;
 g[0].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -11409,10 +11421,16 @@ newp_1:
 int16_t dsize = program[pc +1];
 int64_t size = *((int64_t*)(&program[pc + 1 + dsize]));
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*size);
+if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[1].tag = 2;
 ts |= 0x10 /*010000*/;
 g[1].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -11422,10 +11440,16 @@ newp_2:
 int16_t dsize = program[pc +1];
 int64_t size = *((int64_t*)(&program[pc + 1 + dsize]));
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*size);
+if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[2].tag = 2;
 ts |= 0x8 /*001000*/;
 g[2].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -11435,10 +11459,16 @@ newp_3:
 int16_t dsize = program[pc +1];
 int64_t size = *((int64_t*)(&program[pc + 1 + dsize]));
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*size);
+if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[3].tag = 2;
 ts |= 0x4 /*000100*/;
 g[3].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -11448,10 +11478,16 @@ newp_4:
 int16_t dsize = program[pc +1];
 int64_t size = *((int64_t*)(&program[pc + 1 + dsize]));
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*size);
+if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[4].tag = 2;
 ts |= 0x2 /*000010*/;
 g[4].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -11461,88 +11497,526 @@ newp_5:
 int16_t dsize = program[pc +1];
 int64_t size = *((int64_t*)(&program[pc + 1 + dsize]));
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*size);
+if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[5].tag = 2;
 ts |= 0x1 /*000001*/;
 g[5].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_0:
+newa_0_1:
 {
-int16_t dsize = program[pc +1];
-int64_t size = *((int64_t*)(&program[pc + 1 + dsize]));
-buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*size);
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[1].i);
+if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[0].tag = 4;
 ts |= 0x20 /*100000*/;
 g[0].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_1:
+newa_0_2:
 {
-int16_t dsize = program[pc +1];
-int64_t size = *((int64_t*)(&program[pc + 1 + dsize]));
-buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*size);
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[2].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[0].tag = 4;
+ts |= 0x20 /*100000*/;
+g[0].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newa_0_3:
+{
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[3].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[0].tag = 4;
+ts |= 0x20 /*100000*/;
+g[0].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newa_0_4:
+{
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[4].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[0].tag = 4;
+ts |= 0x20 /*100000*/;
+g[0].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newa_0_5:
+{
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[5].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[0].tag = 4;
+ts |= 0x20 /*100000*/;
+g[0].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newa_1_0:
+{
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[0].i);
+if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[1].tag = 4;
 ts |= 0x10 /*010000*/;
 g[1].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_2:
+newa_1_2:
 {
-int16_t dsize = program[pc +1];
-int64_t size = *((int64_t*)(&program[pc + 1 + dsize]));
-buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*size);
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[2].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[1].tag = 4;
+ts |= 0x10 /*010000*/;
+g[1].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newa_1_3:
+{
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[3].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[1].tag = 4;
+ts |= 0x10 /*010000*/;
+g[1].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newa_1_4:
+{
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[4].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[1].tag = 4;
+ts |= 0x10 /*010000*/;
+g[1].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newa_1_5:
+{
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[5].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[1].tag = 4;
+ts |= 0x10 /*010000*/;
+g[1].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newa_2_0:
+{
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[0].i);
+if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[2].tag = 4;
 ts |= 0x8 /*001000*/;
 g[2].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_3:
+newa_2_1:
 {
-int16_t dsize = program[pc +1];
-int64_t size = *((int64_t*)(&program[pc + 1 + dsize]));
-buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*size);
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[1].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[2].tag = 4;
+ts |= 0x8 /*001000*/;
+g[2].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newa_2_3:
+{
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[3].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[2].tag = 4;
+ts |= 0x8 /*001000*/;
+g[2].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newa_2_4:
+{
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[4].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[2].tag = 4;
+ts |= 0x8 /*001000*/;
+g[2].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newa_2_5:
+{
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[5].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[2].tag = 4;
+ts |= 0x8 /*001000*/;
+g[2].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newa_3_0:
+{
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[0].i);
+if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[3].tag = 4;
 ts |= 0x4 /*000100*/;
 g[3].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_4:
+newa_3_1:
 {
-int16_t dsize = program[pc +1];
-int64_t size = *((int64_t*)(&program[pc + 1 + dsize]));
-buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*size);
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[1].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[3].tag = 4;
+ts |= 0x4 /*000100*/;
+g[3].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newa_3_2:
+{
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[2].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[3].tag = 4;
+ts |= 0x4 /*000100*/;
+g[3].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newa_3_4:
+{
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[4].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[3].tag = 4;
+ts |= 0x4 /*000100*/;
+g[3].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newa_3_5:
+{
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[5].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[3].tag = 4;
+ts |= 0x4 /*000100*/;
+g[3].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newa_4_0:
+{
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[0].i);
+if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[4].tag = 4;
 ts |= 0x2 /*000010*/;
 g[4].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_5:
+newa_4_1:
 {
-int16_t dsize = program[pc +1];
-int64_t size = *((int64_t*)(&program[pc + 1 + dsize]));
-buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*size);
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[1].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[4].tag = 4;
+ts |= 0x2 /*000010*/;
+g[4].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newa_4_2:
+{
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[2].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[4].tag = 4;
+ts |= 0x2 /*000010*/;
+g[4].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newa_4_3:
+{
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[3].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[4].tag = 4;
+ts |= 0x2 /*000010*/;
+g[4].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newa_4_5:
+{
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[5].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[4].tag = 4;
+ts |= 0x2 /*000010*/;
+g[4].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newa_5_0:
+{
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[0].i);
+if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[5].tag = 4;
 ts |= 0x1 /*000001*/;
 g[5].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newa_5_1:
+{
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[1].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[5].tag = 4;
+ts |= 0x1 /*000001*/;
+g[5].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newa_5_2:
+{
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[2].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[5].tag = 4;
+ts |= 0x1 /*000001*/;
+g[5].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newa_5_3:
+{
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[3].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[5].tag = 4;
+ts |= 0x1 /*000001*/;
+g[5].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newa_5_4:
+{
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[4].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[5].tag = 4;
+ts |= 0x1 /*000001*/;
+g[5].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }

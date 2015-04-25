@@ -555,23 +555,29 @@ var lookups = [
         instructions: [{
             name: 'call',
             template: 
-            'int64_t newpc = pc + program[pc + 1];\n' +
+            'int64_t newpc = pc + 1 + program[pc + 1];\n' +
                 'int64_t *sizep = (int64_t*)&program[newpc];\n' +
                 'int64_t size = sizeof(stackframe) + sizeof(value) * (*sizep);\n' +
                 'stackframe *base = (stackframe*)malloc(size);\n' +
+                'if (base) {\n' +
                 'base->fp = fp; base->pc = pc; base->ts = ts;\n' +
                 'SaveRegisters(base->g);\n' +
                 'value *newfp = base->l;\n' + 
                 'memcpy(newfp, fp + program[pc + 2], program[pc + 3]*sizeof(value));\n' +
                 'fp = newfp;\n' +
-                'pc = newpc + 4;\n'
+                'pc = newpc + 4;\n' +
+                '}\n' +
+                'else {\n' +
+                'fprintf(stderr, "malloc failed");\n' +
+                'return 1;\n' +
+                '}\n'
         }]
     },
     {
         name: 'ret', 
         inputs: 0,
         instructions: [{
-            name: 'ret', pcChange: 1,
+            name: 'ret', pcChange: 4,
             template:
             'stackframe *cur = (stackframe*)((size_t)fp - sizeof(stackframe));\n' +
             'fp = cur->fp; pc = cur->pc; ts = (cur->ts & 0xF000) | (ts & 0x10800);\n' +
@@ -588,23 +594,37 @@ var lookups = [
             name: 'newp', pcChange: 1, 
             template: getConst('size') +
                 'object *base = (object*)malloc(sizeof(object) + sizeof(value)*size);\n' +
+                'if (base) {\n' +
                 'base->sf = MakeSizeAndFlags(size,0);\n' +
                 '/*<0>*/.tag = 2;\n' +
                 '/*<state:' + p + '>*/;\n' +
-                '/*<0>*/.p = base;\n'
+                '/*<0>*/.p = base;\n'+
+                '}\n' +
+                'else {\n' +
+                'fprintf(stderr, "malloc failed");\n' +
+                'return 1;\n' +
+                '}\n'
         }]
     },
     {
         name: 'newa',
-        inputs: 1,
+        inputs: 2,
+        callCondition: differentRegisters,
         instructions: [{
-            name: 'newa', pcChange: 1, 
-            template: getConst('size') +
-                'buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*size);\n' +
+            name: 'newa', pcChange: 1, legal: [-1, i],
+            template:  
+            'buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*/*<1>*/.i);\n' +
+                'if (base) {\n' +
                 'base->sf = MakeSizeAndFlags(size,0);\n' +
                 '/*<0>*/.tag = 4;\n' +
                 '/*<state:' + p + '>*/;\n' +
-                '/*<0>*/.p = base;\n'
+                '/*<0>*/.p = base;\n' +
+                '}\n' +
+                'else {\n' +
+                'fprintf(stderr, "malloc failed");\n' +
+                'return 1;\n' +
+                '}\n'
+            
         }]
     },
     {
@@ -959,7 +979,7 @@ InstructionGenerator.prototype = {
         var legal = inst.name;
         if (inst.legal !== undefined) {
             for (var k = 0; k < callTypes.length; k++) {
-                if (callTypes[k] !== inst.legal[k]) {
+                if (inst.legal[k] !== -1 && callTypes[k] !== inst.legal[k]) {
                     legal = false;
                     break;
                 }

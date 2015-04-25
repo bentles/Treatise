@@ -114,7 +114,7 @@ int main(int argc, char *argv[])
     };
 
     //Handle args and read in binary file
-    if (argc < 2)
+if (argc < 2)
     {
         fprintf(stderr, "Usage:\n  vm name.out\n");
         return 1;
