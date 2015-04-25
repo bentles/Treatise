@@ -275,7 +275,7 @@ var lookups = [
     },
     {
         name: 'movc',
-        inputs: 1, //TODO movN separate?
+        inputs: 1, 
         instructions: [{
             name: 'movic',
             pcChange: 2,
@@ -288,7 +288,11 @@ var lookups = [
             template: getConst('constant') +
                 '/*<0>*/.i = constant;\n' +
                 '/*<tag+state:' + i + '>*/;\n'
-        }, {
+        }]},
+    {
+        name: 'null',
+        inputs: 1,
+        instructions: [{
             name: 'movpn',
             pcChange: 1,
             legal: [p],
@@ -341,7 +345,7 @@ var lookups = [
             legal: [i],            
             
             template: 'int16_t constant = program[pc + 1];\n' +
-                'value* vp = fp + constant * sizeof(value);\n' +
+                'value* vp = fp + constant;\n' +
                 '(*vp).tag = /*<0>*/.tag;\n' +
                 '(*vp).i = /*<0>*/.i;\n'
         },
@@ -350,7 +354,7 @@ var lookups = [
             pcChange: 2,
             legal: [p],
             template: 'int16_t constant = program[pc + 1];\n' +
-                'value* vp = fp + constant * sizeof(value);\n' +
+                'value* vp = fp + constant;\n' +
                 '(*vp).tag = /*<0>*/.tag;\n' +
                 '(*vp).p = /*<0>*/.p;\n'
         }]
