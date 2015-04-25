@@ -555,7 +555,7 @@ var lookups = [
         instructions: [{
             name: 'call',
             template: 
-            'int64_t newpc = pc + 1 + program[pc + 1];\n' +
+            'int64_t newpc = pc + program[pc + 1];\n' +
                 'int64_t *sizep = (int64_t*)&program[newpc];\n' +
                 'int64_t size = sizeof(stackframe) + sizeof(value) * (*sizep);\n' +
                 'stackframe *base = (stackframe*)malloc(size);\n' +
@@ -615,7 +615,7 @@ var lookups = [
             template:  
             'buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*/*<1>*/.i);\n' +
                 'if (base) {\n' +
-                'base->sf = MakeSizeAndFlags(size,0);\n' +
+                'base->sf = MakeSizeAndFlags(/*<1>*/.i,0);\n' +
                 '/*<0>*/.tag = 4;\n' +
                 '/*<state:' + p + '>*/;\n' +
                 '/*<0>*/.p = base;\n' +
@@ -900,7 +900,7 @@ InstructionGenerator.prototype = {
             bitMask = bitMask.slice(0, changedBitIndex) + '1' + bitMask.slice(changedBitIndex + 1);
         }
 
-        hexMask += parseInt(bitMask, 2).toString(16);
+        hexMask += parseInt(bitMask + '00000000000', 2).toString(16);
         //Set the Tag and edit the state
         return 'ts |= 0x' + hexMask + ' /*' + bitMask + '*/';
     },
