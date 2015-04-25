@@ -9,8 +9,8 @@ var differentRegisters = function(call) {
 //convenience functions
 function getConst(name, offset) {
     var offst = offset || 1; //this is fine since 0 is not valid anyway
-    return 'int16_t d' + name + ' = program[pc + ' + offst + '];\n' +
-        'int64_t ' + name + ' = *((int64_t*)(&program[pc + d' + name + ']));\n';
+    return 'int16_t d' + name + ' = program[pc +' + offst + '];\n' +
+        'int64_t ' + name + ' = *((int64_t*)(&program[pc + ' + offst + ' + d' + name + ']));\n';
 }
 
 var lookups = [
@@ -23,8 +23,7 @@ var lookups = [
             legal: [i, i],
             template: '/*<0>*/.i += /*<1>*/.i;\n'
         }]
-    },
-    
+    },    
     {
         name: 'addc',
         inputs: 1,
@@ -35,7 +34,6 @@ var lookups = [
             template: getConst('constant') + '/*<0>*/.i += constant;\n'
         }]
     },
-
     {
         name: 'sub',
         inputs: 2,
@@ -47,7 +45,6 @@ var lookups = [
             template: '/*<0>*/.i -= /*<1>*/.i;\n'
         }]
     },
-
     {
         name: 'csub',
         inputs: 1,
@@ -58,7 +55,6 @@ var lookups = [
             template: getConst('constant') + '/*<0>*/.i = constant - /*<0>*/.i;\n'
         }]
     },
-
     {
         name: 'mul',
         inputs: 2,
@@ -79,7 +75,6 @@ var lookups = [
             template: getConst('constant') + '/*<0>*/.i *= constant;\n'
         }]
     },
-
     {
         name: 'div',
         inputs: 2,
@@ -101,8 +96,7 @@ var lookups = [
             template: getConst('constant') + '/*<0>*/.i /= constant;\n'
         }]
     },
-
-        {
+    {
         name: 'and',
         inputs: 2,
         callCondition: differentRegisters,
@@ -113,7 +107,6 @@ var lookups = [
             template: '/*<0>*/.i &= /*<1>*/.i;\n'
         }]
     },
-
     {
         name: 'andc',
         inputs: 1,
@@ -135,7 +128,6 @@ var lookups = [
             template: '/*<0>*/.i |= /*<1>*/.i;\n'
         }]
     },
-
     {
         name: 'orc',
         inputs: 1,
@@ -146,8 +138,6 @@ var lookups = [
             template: getConst('constant') + '/*<0>*/.i |= constant;\n'
         }]
     },
-
-
     {
         name: 'xor',
         inputs: 2,
@@ -159,7 +149,6 @@ var lookups = [
             template: '/*<0>*/.i ^= /*<1>*/.i;\n'
         }]
     },
-
     {
         name: 'shl',
         inputs: 2,
@@ -171,7 +160,6 @@ var lookups = [
             template: '/*<0>*/.i <<= /*<1>*/.i;\n'
         }]
     },
-
     {
         name: 'shlc',
         inputs: 1,
@@ -182,7 +170,6 @@ var lookups = [
             template: getConst('constant') + '/*<0>*/.i <<= constant;\n'
         }]
     },
-
     {
         name: 'cshl',
         inputs: 1,
@@ -236,7 +223,6 @@ var lookups = [
             template: '/*<0>*/.i >>= /*<1>*/.i;\n'
         }]
     },
-
     {
         name: 'sarc',
         inputs: 1,
@@ -247,7 +233,6 @@ var lookups = [
             template: getConst('constant') + '/*<0>*/.i >>= constant;\n'
         }]
     },
-
     {
         name: 'csar',
         inputs: 1,
@@ -258,7 +243,6 @@ var lookups = [
             template: getConst('constant') + '/*<0>*/.i = constant >> /*<0>*/.i;\n'
         }]
     },
-
     {
         name: 'mov',
         inputs: 2,
@@ -289,7 +273,6 @@ var lookups = [
                 '/*<tag+state:' + i + '>*/;\n'
         }]
     },
-
     {
         name: 'movc',
         inputs: 1, //TODO movN separate?
@@ -318,7 +301,6 @@ var lookups = [
                 '/*<tag+state:' + p + '>*/;\n'
         }]
     },
-
     {
         name: 'getl',
         inputs: 1,
@@ -350,7 +332,6 @@ var lookups = [
                 '/*<0>*/.p = val.p;\n'
         }]
     },
-
     {
         name: 'setl',
         inputs: 1,
@@ -374,7 +355,6 @@ var lookups = [
                 '(*vp).p = /*<0>*/.p;\n'
         }]
     },
-
     {
         name: 'getm',
         inputs: 2,
@@ -409,7 +389,7 @@ var lookups = [
             }]
     },
     //TODO: can I make this better?
-        {
+    {
         name: 'setm',
         inputs: 2,
         instructions: [
@@ -418,22 +398,20 @@ var lookups = [
                 pcChange: 2,
                 legal: [p, i], 
                 template: 'int16_t constant = program[pc + 1];\n' +
-                'value *vp = &(((object *)(/*<0>*/.p))->data[constant]);\n' +
-                'vp->tag ='+ i +';\n' +
-                'vp->i = /*<1>*/.i;\n'
+                    'value *vp = &(((object *)(/*<0>*/.p))->data[constant]);\n' +
+                    'vp->tag ='+ i +';\n' +
+                    'vp->i = /*<1>*/.i;\n'
             },
             {
                 name: 'setmp',
                 pcChange: 2,
                 legal: [p, p],
                 template: 'int16_t constant = program[pc + 1];\n' +
-                'value *vp = &(((object *)(/*<0>*/.p))->data[constant]);\n' +
-                'vp->tag = /*<1>*/.tag;\n' +
-                'vp->p = /*<1>*/.p;\n'
+                    'value *vp = &(((object *)(/*<0>*/.p))->data[constant]);\n' +
+                    'vp->tag = /*<1>*/.tag;\n' +
+                    'vp->p = /*<1>*/.p;\n'
             }]
-        },
-
-    
+    },    
     {
         name: 'getb',
         inputs: 3,
@@ -467,8 +445,7 @@ var lookups = [
                     '*vp = /*<0>*/.i;\n'                
             },
         ]
-    },
-    
+    },    
     {
         name: 'jmp',
         inputs: 0,
@@ -501,7 +478,6 @@ var lookups = [
                 '}\n'
         }]
     },
-
     //TODO: check pointer eq
     {
         name: 'jcmp',
@@ -520,12 +496,12 @@ var lookups = [
             name: 'jeqp',
             legal: [p, p],
             template: 'if (/*<0>*/.p == /*<1>*/.p)\n' +
-                'pc += program[pc + 2];\n' +
+                'pc += program[pc + 1];\n' +
                 'else\n' +
-                'pc += program[pc + 4];\n'
+                'pc += program[pc + 2];\n'
         }, {
             name: 'jcmpft',
-            pcChange: 5,
+            pcChange: 4,
             legal: [p, i]
         }, {
             name: 'jcmpft',
@@ -533,7 +509,6 @@ var lookups = [
             genCode: false
         }]
     },
-
     {
         name: 'jcmpc',
         inputs: 1,
@@ -577,14 +552,15 @@ var lookups = [
             name: 'call',
             template: 
             'int64_t newpc = pc + program[pc + 1];\n' +
-                'size_t size = sizeof(stackframe) + sizeof(value) * program[newpc];\n' +
+                'int64_t *sizep = (int64_t*)&program[newpc];\n' +
+                'int64_t size = sizeof(stackframe) + sizeof(value) * (*sizep);\n' +
                 'stackframe *base = (stackframe*)malloc(size);\n' +
                 'base->fp = fp; base->pc = pc; base->ts = ts;\n' +
                 'SaveRegisters(base->g);\n' +
                 'value *newfp = base->l;\n' + 
                 'memcpy(newfp, fp + program[pc + 2], program[pc + 3]*sizeof(value));\n' +
                 'fp = newfp;\n' +
-                'pc = newpc + 1;\n'                 
+                'pc = newpc + 4;\n'
         }]
     },
     {
@@ -593,7 +569,7 @@ var lookups = [
         instructions: [{
             name: 'ret', pcChange: 1,
             template:
-            'stackframe *cur = (stackframe*)(fp - offsetof(stackframe, fp));\n' +
+            'stackframe *cur = (stackframe*)((size_t)fp - sizeof(stackframe));\n' +
             'fp = cur->fp; pc = cur->pc; ts = (cur->ts & 0xF000) | (ts & 0x10800);\n' +
                 'RestoreRegisters(cur->g);\n' +                
                 'free(cur);//probably does a thing \n' +             

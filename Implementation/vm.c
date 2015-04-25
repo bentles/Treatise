@@ -134,6 +134,20 @@ int main(int argc, char *argv[])
     fread(program, 2, size/2, filep);
     fclose(filep);
 
+    /*Initial call (main)*/
+    int64_t *sizep = (int64_t*)&program[0];
+    int64_t frame_size = sizeof(stackframe) + sizeof(value) * (*sizep);
+    stackframe *base = (stackframe*)malloc(frame_size);
+    if (base != NULL)
+    {
+        base->fp = fp; base->pc = pc; base->ts = ts;
+        SaveRegisters(base->g);
+        value *newfp = base->l;
+        fp = newfp;
+        pc += 4;
+        goto *dynOpcodes[ts + program[pc]];
+    }
+
     /* staticInstructions
      * ==================
      * example for reference:
@@ -147,5 +161,3 @@ int main(int argc, char *argv[])
 #include "staticInstructions.c"
     return 0;
 }
-
-
