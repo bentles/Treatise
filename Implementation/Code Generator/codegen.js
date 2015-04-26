@@ -10,7 +10,7 @@ var differentRegisters = function(call) {
 function getConst(name, offset) {
     var offst = offset || 1; //this is fine since 0 is not valid anyway
     return 'int16_t d' + name + ' = program[pc +' + offst + '];\n' +
-        'int64_t ' + name + ' = *((int64_t*)(&program[pc + ' + offst + ' + d' + name + ']));\n';
+        'int64_t ' + name + ' = *((int64_t*)(&program[pc + d' + name + ']));\n';
 }
 
 var lookups = [
@@ -75,6 +75,7 @@ var lookups = [
             template: getConst('constant') + '/*<0>*/.i *= constant;\n'
         }]
     },
+    //TODO customise div based on type state?
     {
         name: 'div',
         inputs: 2,
@@ -83,7 +84,11 @@ var lookups = [
             name: 'div',
             pcChange: 1,
             legal: [i, i],
-            template: '/*<0>*/.i /= /*<1>*/.i;\n'
+            template:
+                'g[0].i = /*<0>*/.i % /*<1>*/.i;\n' +
+            '/*<0>*/.i /= /*<1>*/.i;\n' +
+                'g[0].tag = 0;\n' +
+                'ts &= 0xF800;\n' 
         }]
     },
     {
@@ -93,7 +98,11 @@ var lookups = [
             name: 'divc',
             pcChange: 2,
             legal: [i],
-            template: getConst('constant') + '/*<0>*/.i /= constant;\n'
+            template: getConst('constant') +
+                'g[0].i = /*<0>*/.i % constant;\n' +
+                '/*<0>*/.i /= constant;\n' +
+                'g[0].tag = 0;\n' +
+                'ts &= 0xF800;\n' 
         }]
     },
     {
@@ -332,8 +341,10 @@ var lookups = [
                 '/*<tag+state:' + i + '>*/;\n' +
                 '/*<0>*/.i = val.i;\n' +
                 '}\n' +
+                'else {' +
                 '/*<0>*/.tag = val.tag;\n' +
-                '/*<0>*/.p = val.p;\n'
+                '/*<0>*/.p = val.p;\n' +
+                '}\n'
         }]
     },
     {
@@ -423,12 +434,14 @@ var lookups = [
         instructions: [
             {
                 name: 'getb',
+                pcChange: 1,
                 legal: [i, p, i],
                 template: 'uint8_t val = ((buffer *)(/*<1>*/.p))->data[/*<2>*/.i];\n' +
                     '/*<0>*/.i = val;\n'                
             },
             {
                 name: 'getbp',
+                pcChange: 1,
                 legal: [p, p, i],
                 template: 'uint8_t val = ((buffer *)(/*<1>*/.p))->data[/*<2>*/.i];\n' +
                     '/*<tag+state:' + i + '>*/;\n' +
@@ -436,17 +449,17 @@ var lookups = [
             },
         ]
     },
-    //TODO: TEST ME!!
     {
         name: 'setb',
         inputs: 3,
-        callCondition: function(call){return call[1] !== call[2];},
+        callCondition: differentRegisters,
         instructions: [
             {
                 name: 'setb',
+                pcChange: 1,
                 legal: [p, i, i],
-                template: 'uint8_t *vp = &(((buffer *)(/*<0>*/.p))->data[/*<1>*/.i]);\n' +
-                    '*vp = /*<0>*/.i;\n'                
+                template: 'buffer *base = (buffer *)(/*<0>*/.p);\n' +
+                    'base->data[/*<1>*/.i] = /*<2>*/.i;\n'               
             },
         ]
     },    
@@ -660,7 +673,7 @@ var lookups = [
             template: 'buffer *bp = /*<0>*/.p;\n' +
                 'int size = GetSize(bp->sf);\n' +
                 'char temp[size + 1];\n' +
-                'strncat(temp, bp->data, size);\n' +
+                'strncpy(temp, bp->data, size);\n' +
                 'puts(temp);\n'
         }]
     }
@@ -891,8 +904,10 @@ InstructionGenerator.prototype = {
         var changedBitIndex = call[0];
         var bitMask = ''; //not really a bitmask
         var hexMask = '';
-
+        var andoperator = false;
+        
         if (type === 0) {
+            andoperator = true;
             bitMask = '111111';
             bitMask = bitMask.slice(0, changedBitIndex) + '0' + bitMask.slice(changedBitIndex + 1);
         } else {
@@ -902,7 +917,7 @@ InstructionGenerator.prototype = {
 
         hexMask += parseInt(bitMask + '00000000000', 2).toString(16);
         //Set the Tag and edit the state
-        return 'ts |= 0x' + hexMask + ' /*' + bitMask + '*/';
+        return (andoperator? 'ts &= 0x' : 'ts |= 0x') + hexMask + ' /*' + bitMask + '*/';
     },
 
     changePC: function(pcChange) {

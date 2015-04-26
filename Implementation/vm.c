@@ -119,7 +119,7 @@ if (argc < 2)
         fprintf(stderr, "Usage:\n  vm name.out\n");
         return 1;
     }
-    FILE *filep = fopen(argv[1], "rb");
+FILE *filep = fopen(argv[1], "rb");
     if (filep == NULL)
     {
         fprintf(stderr, "Unable to open file");
