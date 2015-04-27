@@ -15,13 +15,13 @@
  * ===================================
  * Getting Arguments and Opcode:
  */
-#define GetArg0(inst) int16_t arg0 = (inst & 0x7) 
-#define GetArg1(inst) int16_t arg1 = (inst & 0x38) >> 0x3
-#define GetArg2(inst) int16_t arg2 = inst >> 0x6 
+#define GetArg0(inst) ((inst) & 0x7) 
+#define GetArg1(inst) (((inst) & 0x38) >> 0x3)
+#define GetArg2(inst) ((inst) >> 0x6) 
 
-#define IsInt(x) (x.tag == 0 ? 1 : 0)
-#define IsPointer(x) (x.tag == 1 ? 1 : 0)
-#define GetOpcode(inst) int16_t opcode = (inst & 0x7E00) >> 0x9
+#define IsInt(x) ((x).tag == 0 ? 1 : 0)
+#define IsPointer(x) ((x).tag >= 1 ? 1 : 0)
+#define GetOpcode(inst) (((inst) & 0x7E00) >> 0x9)
 
 /* Values
  * ======
@@ -111,7 +111,7 @@ int main(int argc, char *argv[])
 	//elements
 	static void *dynOpcodes[] = {
       #include "dynamicOpcodes.c"
-    };
+      };
 
     //Handle args and read in binary file
 if (argc < 2)
@@ -158,6 +158,7 @@ FILE *filep = fopen(argv[1], "rb");
      *     goto *dynOpcodes[ts + program[pc]];
      */    
     
-#include "staticInstructions.c"
+  #include "staticInstructions.c"
+//    #include "staticInstructionsConv.c"
     return 0;
 }

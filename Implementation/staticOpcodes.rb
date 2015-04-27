@@ -31,7 +31,7 @@
 'setb' => 690,
 'jmp' => 870,
 'jmpf' => 871,
-'switch' => 872,
+'swtch' => 872,
 'jcmp' => 878,
 'jcmpc' => 908,
 'jnullp' => 914,

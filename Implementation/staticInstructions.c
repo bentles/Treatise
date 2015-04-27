@@ -2514,8 +2514,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 shrc_0:
 {
-int16_t dconstant = program[pc +1];
-int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+int16_t constant = program[pc + 1];
 g[0].i = (uint64_t)g[0].i >> constant;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
@@ -2523,8 +2522,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 shrc_1:
 {
-int16_t dconstant = program[pc +1];
-int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+int16_t constant = program[pc + 1];
 g[1].i = (uint64_t)g[1].i >> constant;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
@@ -2532,8 +2530,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 shrc_2:
 {
-int16_t dconstant = program[pc +1];
-int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+int16_t constant = program[pc + 1];
 g[2].i = (uint64_t)g[2].i >> constant;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
@@ -2541,8 +2538,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 shrc_3:
 {
-int16_t dconstant = program[pc +1];
-int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+int16_t constant = program[pc + 1];
 g[3].i = (uint64_t)g[3].i >> constant;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
@@ -2550,8 +2546,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 shrc_4:
 {
-int16_t dconstant = program[pc +1];
-int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+int16_t constant = program[pc + 1];
 g[4].i = (uint64_t)g[4].i >> constant;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
@@ -2559,8 +2554,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 shrc_5:
 {
-int16_t dconstant = program[pc +1];
-int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+int16_t constant = program[pc + 1];
 g[5].i = (uint64_t)g[5].i >> constant;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
@@ -2568,8 +2562,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 cshr_0:
 {
-int16_t dconstant = program[pc +1];
-int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+int16_t constant = program[pc + 1];
 g[0].i = (uint64_t)constant >> g[0].i;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
@@ -2577,8 +2570,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 cshr_1:
 {
-int16_t dconstant = program[pc +1];
-int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+int16_t constant = program[pc + 1];
 g[1].i = (uint64_t)constant >> g[1].i;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
@@ -2586,8 +2578,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 cshr_2:
 {
-int16_t dconstant = program[pc +1];
-int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+int16_t constant = program[pc + 1];
 g[2].i = (uint64_t)constant >> g[2].i;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
@@ -2595,8 +2586,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 cshr_3:
 {
-int16_t dconstant = program[pc +1];
-int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+int16_t constant = program[pc + 1];
 g[3].i = (uint64_t)constant >> g[3].i;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
@@ -2604,8 +2594,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 cshr_4:
 {
-int16_t dconstant = program[pc +1];
-int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+int16_t constant = program[pc + 1];
 g[4].i = (uint64_t)constant >> g[4].i;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
@@ -2613,8 +2602,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 cshr_5:
 {
-int16_t dconstant = program[pc +1];
-int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+int16_t constant = program[pc + 1];
 g[5].i = (uint64_t)constant >> g[5].i;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
@@ -2832,8 +2820,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 sarc_0:
 {
-int16_t dconstant = program[pc +1];
-int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+int16_t constant = program[pc + 1];
 g[0].i >>= constant;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
@@ -2841,8 +2828,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 sarc_1:
 {
-int16_t dconstant = program[pc +1];
-int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+int16_t constant = program[pc + 1];
 g[1].i >>= constant;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
@@ -2850,8 +2836,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 sarc_2:
 {
-int16_t dconstant = program[pc +1];
-int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+int16_t constant = program[pc + 1];
 g[2].i >>= constant;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
@@ -2859,8 +2844,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 sarc_3:
 {
-int16_t dconstant = program[pc +1];
-int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+int16_t constant = program[pc + 1];
 g[3].i >>= constant;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
@@ -2868,8 +2852,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 sarc_4:
 {
-int16_t dconstant = program[pc +1];
-int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+int16_t constant = program[pc + 1];
 g[4].i >>= constant;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
@@ -2877,8 +2860,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 sarc_5:
 {
-int16_t dconstant = program[pc +1];
-int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+int16_t constant = program[pc + 1];
 g[5].i >>= constant;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
@@ -2886,8 +2868,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 csar_0:
 {
-int16_t dconstant = program[pc +1];
-int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+int16_t constant = program[pc + 1];
 g[0].i = constant >> g[0].i;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
@@ -2895,8 +2876,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 csar_1:
 {
-int16_t dconstant = program[pc +1];
-int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+int16_t constant = program[pc + 1];
 g[1].i = constant >> g[1].i;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
@@ -2904,8 +2884,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 csar_2:
 {
-int16_t dconstant = program[pc +1];
-int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+int16_t constant = program[pc + 1];
 g[2].i = constant >> g[2].i;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
@@ -2913,8 +2892,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 csar_3:
 {
-int16_t dconstant = program[pc +1];
-int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+int16_t constant = program[pc + 1];
 g[3].i = constant >> g[3].i;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
@@ -2922,8 +2900,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 csar_4:
 {
-int16_t dconstant = program[pc +1];
-int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+int16_t constant = program[pc + 1];
 g[4].i = constant >> g[4].i;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];
@@ -2931,8 +2908,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 csar_5:
 {
-int16_t dconstant = program[pc +1];
-int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+int16_t constant = program[pc + 1];
 g[5].i = constant >> g[5].i;
 pc += 2;
 goto *dynOpcodes[ts + program[pc]];

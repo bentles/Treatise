@@ -1,10 +1,22 @@
-//convenience values
+/* convenience values
+ * ==================
+ */
+// registers
 var i = 0;
 var p = 1;
 var g = -1;
-var differentRegisters = function(call) {
-    return call[0] !== call[1];
-};
+// VM types
+var typeVM = 0; // the experiment, a type-state VM
+var convVM = 1; // the control, a conventional VM
+var hybrVM = 2; // no states but needn't decode operations
+// functions that put constraints on legal calls
+//var noTrivialFor([0,1]) =
+function noTrivialFor(arr) //if arr = [0, 1] then a call like add_0_0 is illegal
+{
+    return function(call) {
+        return call[arr[0]] !== call[arr[1]];
+    };
+}
 
 //convenience functions
 function getConst(name, offset) {
@@ -37,7 +49,7 @@ var lookups = [
     {
         name: 'sub',
         inputs: 2,
-        callCondition: differentRegisters,
+        callCondition: noTrivialFor([0,1]),
         instructions: [{
             name: 'sub',
             pcChange: 1,
@@ -79,7 +91,7 @@ var lookups = [
     {
         name: 'div',
         inputs: 2,
-        callCondition: differentRegisters,
+        callCondition: noTrivialFor([0,1]),
         instructions: [{
             name: 'div',
             pcChange: 1,
@@ -108,7 +120,7 @@ var lookups = [
     {
         name: 'and',
         inputs: 2,
-        callCondition: differentRegisters,
+        callCondition: noTrivialFor([0,1]),
         instructions: [{
             name: 'and',
             pcChange: 1,
@@ -129,7 +141,7 @@ var lookups = [
     {
         name: 'or',
         inputs: 2,
-        callCondition: differentRegisters,
+        callCondition: noTrivialFor([0,1]),
         instructions: [{
             name: 'or',
             pcChange: 1,
@@ -150,7 +162,7 @@ var lookups = [
     {
         name: 'xor',
         inputs: 2,
-        callCondition: differentRegisters,
+        callCondition: noTrivialFor([0,1]),
         instructions: [{
             name: 'xor',
             pcChange: 1,
@@ -161,7 +173,7 @@ var lookups = [
     {
         name: 'shl',
         inputs: 2,
-        callCondition: differentRegisters,
+        callCondition: noTrivialFor([0,1]),
         instructions: [{
             name: 'shl',
             pcChange: 1,
@@ -193,7 +205,7 @@ var lookups = [
     {
         name: 'shr',
         inputs: 2,
-        callCondition: differentRegisters,
+        callCondition: noTrivialFor([0,1]),
         instructions: [{
             name: 'shr',
             pcChange: 1,
@@ -208,7 +220,8 @@ var lookups = [
             name: 'shrc',
             pcChange: 2,
             legal: [i],
-            template: getConst('constant') + '/*<0>*/.i = (uint64_t)/*<0>*/.i >> constant;\n'
+            template: 'int16_t constant = program[pc + 1];\n' +
+                '/*<0>*/.i = (uint64_t)/*<0>*/.i >> constant;\n'
         }]
     },
     {
@@ -218,13 +231,14 @@ var lookups = [
             name: 'cshr',
             pcChange: 2,
             legal: [i],
-            template: getConst('constant') + '/*<0>*/.i = (uint64_t)constant >> /*<0>*/.i;\n'
+            template: 'int16_t constant = program[pc + 1];\n' +
+                '/*<0>*/.i = (uint64_t)constant >> /*<0>*/.i;\n'
         }]
     },
     {
         name: 'sar',
         inputs: 2,
-        callCondition: differentRegisters,
+        callCondition: noTrivialFor([0,1]),
         instructions: [{
             name: 'sar',
             pcChange: 1,
@@ -239,7 +253,8 @@ var lookups = [
             name: 'sarc',
             pcChange: 2,
             legal: [i],
-            template: getConst('constant') + '/*<0>*/.i >>= constant;\n'
+            template: 'int16_t constant = program[pc + 1];\n' +
+                '/*<0>*/.i >>= constant;\n'
         }]
     },
     {
@@ -249,13 +264,14 @@ var lookups = [
             name: 'csar',
             pcChange: 2,
             legal: [i],
-            template: getConst('constant') + '/*<0>*/.i = constant >> /*<0>*/.i;\n'
+            template: 'int16_t constant = program[pc + 1];\n' +
+                '/*<0>*/.i = constant >> /*<0>*/.i;\n'
         }]
     },
     {
         name: 'mov',
         inputs: 2,
-        callCondition: differentRegisters,
+        callCondition: noTrivialFor([0,1]),
         instructions: [{
             name: 'movii',
             pcChange: 1,
@@ -273,13 +289,13 @@ var lookups = [
             legal: [i, p],
             template: '/*<0>*/.p = /*<1>*/.p;\n' +
                 '/*<0>*/.tag = /*<1>*/.tag;\n' +
-                '/*<state:' + p + '>*/;\n'
+                '/*<state:' + p + '>*/'
         }, {
             name: 'movpi',
             pcChange: 1,
             legal: [p, i],
             template: '/*<0>*/.i = /*<1>*/.i;\n' +
-                '/*<tag+state:' + i + '>*/;\n'
+                '/*<tag+state:' + i + '>*/'
         }]
     },
     {
@@ -296,7 +312,7 @@ var lookups = [
             legal: [p],
             template: getConst('constant') +
                 '/*<0>*/.i = constant;\n' +
-                '/*<tag+state:' + i + '>*/;\n'
+                '/*<tag+state:' + i + '>*/'
         }]},
     {
         name: 'null',
@@ -311,7 +327,7 @@ var lookups = [
             pcChange: 1,
             legal: [i],
             template: '/*<0>*/.p = NULL;\n' +
-                '/*<tag+state:' + p + '>*/;\n'
+                '/*<tag+state:' + p + '>*/'
         }]
     },
     {
@@ -325,7 +341,7 @@ var lookups = [
                 'value val = fp[constant];\n' +
                 'if (val.tag != ' + i + ') {\n' +
                 '/*<0>*/.tag = val.tag;\n' +
-                '/*<state:' + p + '>*/;\n' +
+                '/*<state:' + p + '>*/' +
                 '/*<0>*/.p = val.p;\n' +
                 '}\n' +
                 'else {\n' +
@@ -338,7 +354,7 @@ var lookups = [
             template: 'int16_t constant = program[pc + 1];\n' +
                 'value val = fp[constant];\n' +
                 'if (val.tag == ' + i + ') {\n' +
-                '/*<tag+state:' + i + '>*/;\n' +
+                '/*<tag+state:' + i + '>*/' +
                 '/*<0>*/.i = val.i;\n' +
                 '}\n' +
                 'else {' +
@@ -382,7 +398,7 @@ var lookups = [
                     'value val = ((object *)(/*<1>*/.p))->data[constant];\n' +
                     'if (val.tag != ' + i + ') {\n' +
                     '/*<0>*/.tag = val.tag;\n' +
-                    '/*<state:' + p + '>*/;\n' +
+                    '/*<state:' + p + '>*/' +
                     '/*<0>*/.p = val.p;\n' +
                     '}\n' +
                     'else {\n' +
@@ -396,7 +412,7 @@ var lookups = [
                 template: 'int16_t constant = program[pc + 1];\n' +
                     'value val = ((object *)(/*<1>*/.p))->data[constant];\n' +
                     'if (val.tag == ' + i + ') {\n' +
-                    '/*<tag+state:' + i + '>*/;\n' +
+                    '/*<tag+state:' + i + '>*/' +
                     '/*<0>*/.i = val.i;\n' +
                     '}\n' +
                     '/*<0>*/.tag = val.tag;\n' +
@@ -430,7 +446,7 @@ var lookups = [
     {
         name: 'getb',
         inputs: 3,
-        callCondition: function(call){return call[1] !== call[2];},
+        callCondition: noTrivialFor([1,2]),
         instructions: [
             {
                 name: 'getb',
@@ -444,7 +460,7 @@ var lookups = [
                 pcChange: 1,
                 legal: [p, p, i],
                 template: 'uint8_t val = ((buffer *)(/*<1>*/.p))->data[/*<2>*/.i];\n' +
-                    '/*<tag+state:' + i + '>*/;\n' +
+                    '/*<tag+state:' + i + '>*/' +
                     '/*<0>*/.i = val;\n'                
             },
         ]
@@ -452,7 +468,7 @@ var lookups = [
     {
         name: 'setb',
         inputs: 3,
-        callCondition: differentRegisters,
+        callCondition: noTrivialFor([0,1]),
         instructions: [
             {
                 name: 'setb',
@@ -479,7 +495,7 @@ var lookups = [
                 'pc += constant;\n'
         }]
     }, {
-        name: 'switch',
+        name: 'swtch',
         inputs: 1,
         instructions: [{
             name: 'switch',
@@ -499,7 +515,7 @@ var lookups = [
     {
         name: 'jcmp',
         inputs: 2,
-        callCondition: differentRegisters,
+        callCondition: noTrivialFor([0,1]),
         instructions: [{
             name: 'jcmp',
             legal: [i, i],
@@ -523,6 +539,7 @@ var lookups = [
         }, {
             name: 'jcmpft',
             legal: [i, p],
+            pcChange: 4,
             genCode: false
         }]
     },
@@ -548,7 +565,7 @@ var lookups = [
     {
         name: 'jnullp',
         inputs: 1,
-        callCondition: differentRegisters,
+        callCondition: noTrivialFor([0,1]),
         instructions: [{
             name: 'jnullp',
             legal: [i],
@@ -559,6 +576,7 @@ var lookups = [
         }, {
             name: 'jcmpcft',
             legal: [p],
+            pcChange: 5,
             genCode: false
         }]
     },
@@ -604,13 +622,13 @@ var lookups = [
         name: 'newp',
         inputs: 1,
         instructions: [{
-            name: 'newp', pcChange: 1, 
+            name: 'newp', pcChange: 1, legal: [g],
             template: getConst('size') +
                 'object *base = (object*)malloc(sizeof(object) + sizeof(value)*size);\n' +
                 'if (base) {\n' +
                 'base->sf = MakeSizeAndFlags(size,0);\n' +
                 '/*<0>*/.tag = 2;\n' +
-                '/*<state:' + p + '>*/;\n' +
+                '/*<state:' + p + '>*/' +
                 '/*<0>*/.p = base;\n'+
                 '}\n' +
                 'else {\n' +
@@ -622,15 +640,15 @@ var lookups = [
     {
         name: 'newa',
         inputs: 2,
-        callCondition: differentRegisters,
+        callCondition: noTrivialFor([0,1]),
         instructions: [{
-            name: 'newa', pcChange: 1, legal: [-1, i],
+            name: 'newa', pcChange: 1, legal: [g, i],
             template:  
             'buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*/*<1>*/.i);\n' +
                 'if (base) {\n' +
                 'base->sf = MakeSizeAndFlags(/*<1>*/.i,0);\n' +
                 '/*<0>*/.tag = 4;\n' +
-                '/*<state:' + p + '>*/;\n' +
+                '/*<state:' + p + '>*/' +
                 '/*<0>*/.p = base;\n' +
                 '}\n' +
                 'else {\n' +
@@ -710,6 +728,7 @@ function Generator(lookups, statics, numregisters, numtypes, opcodeSizeInBytes) 
 
 Generator.prototype = {
     generate: function(vm) {
+        this.code = '';
         //create generators and save code
         lookups.forEach(function(lookup) {
             var instGen = new InstructionGenerator(lookup, this.numregisters, this.numtypes);
@@ -794,40 +813,97 @@ function InstructionGenerator(lookup, numregisters, numtypes) {
 InstructionGenerator.prototype = {
     genCode: function(vm) {
         var numCalls = Math.pow(this.numregisters, this.lookup.inputs); //6^2 usually
-        //iterate over different instructions
-        this.lookup.instructions.forEach(function(inst) {
-            //iterate over all possible calls
-            if (inst.genCode !== false)
-                this.callables.forEach(function(call, i) {
 
-                    //write the code:
-                    //==============
-                    //write out label
-                    this.code += this.getLabel(inst.name, call);
-                    this.code += '{\n';
+        if (vm === convVM)
+        {
+            this.code += this.lookup.name + ":\n";
+            this.code += "{\n";
+            //get args the old fashioned way
+            this.code += this.getArgsFromInst();
+            this.genConvVMCodeWithTypeChecking(vm);
+            this.code += this.goto(vm);
+            this.code += "}\n\n";    
+        }
+        else if (vm === typeVM)
+        {        
+            //iterate over different instructions
+            this.lookup.instructions.forEach(function(inst) {
+                //iterate over all possible calls
+                if (inst.genCode !== false) {
+                    if (vm === 0)
+                    {
+                        //iterate over all ways to call fn: add_0_0, add_0_1 etc...
+                        this.callables.forEach(function(call, i) {
 
-                    //get args the old fashioned way if requested to
-                    if (vm === 1)
-                        this.code += this.getArgsFromInst();
+                            //write the code:
+                            //==============
+                            //write out label
+                            this.code += this.getLabel(inst.name, call);
+                            this.code += '{\n';
 
-                    //write instruction for arguments
-                    //this includes state changes
-                    this.code += this.substituteIntoTemplate(call, inst.template);
-                    //update pc
-                    this.code += this.changePC(inst.pcChange);
-                    //goto next instruction
-                    this.code += this.goto(vm);
-                    this.code += '}\n\n';
-                }, this);
+                            //write instruction for arguments
+                            //this includes state changes
+                            this.code += this.substituteIntoTemplate(inst.template, vm, call);
+                            //update pc
+                            this.code += this.changePC(inst.pcChange);
+                            //goto next instruction
+                            this.code += this.goto(vm);
+                            this.code += '}\n\n';
+                        }, this);
+                    }
 
-        }, this);
+                }
+
+            }, this);
+        }      
+    },
+
+    genConvVMCodeWithTypeChecking: function(vm)
+    {
+        var ifpart = '';
+        
+        //check for unfussy instructions or those without inputs
+        if (this.lookup.inputs === 0 ||this.lookup.instructions[0].legal.every(function(x){ return x === g; }))
+        {
+            //write them out without type checking
+            this.code += this.substituteIntoTemplate(this.lookup.instructions[0].template, vm);
+            this.code += this.changePC(this.lookup.instructions[0].pcChange);
+        }
+        else
+        {
+            this.lookup.instructions.forEach(function(inst){
+                ifpart = (ifpart === '')? 'if ' :'else if ';                
+                this.code += ifpart + this.getConvenTypeCheck(inst) + ' {\n' ;
+                this.code += this.substituteIntoTemplate(inst.template, vm);
+                this.code += this.changePC(inst.pcChange);
+                this.code += '}\n';                
+            }, this);
+
+            this.code += 'else {\n';
+            this.code += 'fprintf(stderr, "type error, illegal types used for instruction: '+ this.lookup.name +'");\n';
+            this.code += 'return 1;\n';
+            this.code += '}\n';
+        }
+    },
+
+    getConvenTypeCheck: function(inst)
+    {
+        var legals = inst.legal.map(function(legl, index){
+            if (legl === i)
+                return 'IsInt(g[arg' + index + '])';
+            else
+                return 'IsPointer(g[arg' + index + '])';            
+        });
+        
+        return '(' + legals.join([seperator = ' && ']) + ')' ;        
     },
 
     goto: function(vm) {
-        if (vm === 0)
+        if (vm === typeVM)
             return 'goto *dynOpcodes[ts + program[pc]];\n';
-        else //if (vm === 1)
-            return 'goto *dynOpcodes[getOpcode(program[pc])];\n';
+        else if (vm === convVM)
+            return 'goto *dynOpcodes[GetOpcode(program[pc])];\n';
+        else throw "Illegal VM type";
     },
 
     //generate the lookup table for all instructions for a given state
@@ -853,10 +929,11 @@ InstructionGenerator.prototype = {
     },
 
     getArgsFromInst: function(inst) {
-        var code = '';
+        var args = '';
         for (var i = 0; i < this.lookup.inputs; i++) {
-            code += 'getArg' + i + '(' + inst + ');\n';
+            args += 'int16_t arg' + i +' = GetArg' + i + '(program[pc]);\n';
         }
+        return args;
     },
 
     getAllCallables: function() {
@@ -928,7 +1005,7 @@ InstructionGenerator.prototype = {
     },
 
     //TODO: Implement this in a more generic, modular way so that it could potentially be updated
-    substituteIntoTemplate: function(call, template) {
+    substituteIntoTemplate: function(template, vm, call) {
         function findAndReplace(token, subbedString, replacewith) {
             while (true) {
                 var pos = subbedString.indexOf(token);
@@ -948,21 +1025,27 @@ InstructionGenerator.prototype = {
             for (var j = 0; j < this.numtypes; j++) {
                 //replace /*<tag+state:0>*/ with /*<tag:0>*/;\n/*<state:0>*/
                 token = '/*<tag+state:' + j + '>*/';
-                subbedString = findAndReplace(token, subbedString, '/*<tag:' + j + '>*/;\n' + '/*<state:' + j + '>*/');
+                subbedString = findAndReplace(token, subbedString, '/*<tag:' + j + '>*/' + '/*<state:' + j + '>*/');
 
                 //replace /*<tag:0>*/ with g[0].tag = 0;\n
                 token = '/*<tag:' + j + '>*/';
-                subbedString = findAndReplace(token, subbedString, '/*<0>*/.tag = ' + j);
+                subbedString = findAndReplace(token, subbedString, '/*<0>*/.tag = ' + j + ';\n');
 
                 //replace /*<state:0>*/ with ts &= or |=
                 token = '/*<state:' + j + '>*/';
-                subbedString = findAndReplace(token, subbedString, this.changeState(call, j));
+                if (vm === typeVM)
+                    subbedString = findAndReplace(token, subbedString, this.changeState(call, j) + ";\n");
+                else if (vm === convVM)
+                    subbedString = findAndReplace(token, subbedString, ''); //remove state changes
             }
 
             //replace /*<0>*/, /*<1>*/ etc with g[0], g[1]
-            for (var i = 0; i < call.length; i++) {
+            for (var i = 0; i < this.lookup.inputs; i++) {
                 token = '/*<' + i + '>*/';
-                subbedString = findAndReplace(token, subbedString, 'g[' + call[i] + ']');
+                if (vm === typeVM)
+                    subbedString = findAndReplace(token, subbedString, 'g[' + call[i] + ']');
+                else if (vm === convVM)
+                    subbedString = findAndReplace(token, subbedString, 'g[arg' + i + ']');
             }
 
             return subbedString;
@@ -979,7 +1062,7 @@ InstructionGenerator.prototype = {
     },
 
     getLabel: function(name, call) {
-        return this.getStaticInstructionName(name, call) + ':\n';
+            return this.getStaticInstructionName(name, call) + ':\n';
     },
 
     //returns the name of a legal instruction based on register types
@@ -994,7 +1077,7 @@ InstructionGenerator.prototype = {
         var legal = inst.name;
         if (inst.legal !== undefined) {
             for (var k = 0; k < callTypes.length; k++) {
-                if (inst.legal[k] !== -1 && callTypes[k] !== inst.legal[k]) {
+                if (inst.legal[k] !== g && callTypes[k] !== inst.legal[k]) {
                     legal = false;
                     break;
                 }
@@ -1016,7 +1099,7 @@ var CodeGenerator = new Generator(lookups, statics, numRegisters, numTypes, opco
 var fs = require('fs');
 
 //VM 0 - state driven VM
-CodeGenerator.generate(0);
+CodeGenerator.generate(typeVM);
 
 //Code
 fs.writeFileSync('../staticInstructions.c', '');
@@ -1037,4 +1120,10 @@ fs.appendFileSync('../staticOpcodes.rb', CodeGenerator.getOpcodes());
 console.log('Code written to file');
 
 //VM 1 - standard style VM
-CodeGenerator.generate(1);
+CodeGenerator.generate(convVM);
+
+//Code
+fs.writeFileSync('../staticInstructionsConv.c', '');
+console.log('File overwritten');
+fs.appendFileSync('../staticInstructionsConv.c', CodeGenerator.getCode());
+console.log('Code written to file');
