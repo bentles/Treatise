@@ -1,3 +1,9 @@
+/* Extend String to have a repeat function */
+String.prototype.repeat = function( num )
+{
+    return new Array( num + 1 ).join( this );
+};
+
 /* convenience values
  * ==================
  */
@@ -10,7 +16,6 @@ var typeVM = 0; // the experiment, a type-state VM
 var convVM = 1; // the control, a conventional VM
 var hybrVM = 2; // no states but needn't decode operations
 // functions that put constraints on legal calls
-//var noTrivialFor([0,1]) =
 function noTrivialFor(arr) //if arr = [0, 1] then a call like add_0_0 is illegal
 {
     return function(call) {
@@ -502,7 +507,8 @@ var lookups = [
             legal: [i],
             template: 'int16_t tableSize = program[pc + 1];\n' +
                 'if(/*<0>*/.i < 0 || /*<0>*/.i >= tableSize) {\n' +
-                'int16_t defaultJump = program[pc + tableSize + 2];\n' + //tableSize gets us to one more than the elements in the table then + 1 to store tableSize's displacement
+                'int16_t defaultJump = program[pc + tableSize + 2];\n' +
+                //tableSize gets us to one more than the elements in the table then + 1 to store tableSize's displacement
                 'pc += defaultJump;\n' +
                 '}\n' +
                 'else {\n' +
@@ -720,6 +726,7 @@ function Generator(lookups, statics, numregisters, numtypes, opcodeSizeInBytes) 
     this.code = '';
     this.numregisters = numregisters;
     this.numtypes = numtypes;
+    this.opcodesize = opcodeSizeInBytes;
     this.lookuptable = new Array(Math.pow(numtypes, numregisters) * Math.pow(2, opcodeSizeInBytes));
     this.opcodetable = [];
     this.numstates = Math.pow(numtypes, numregisters);
@@ -731,7 +738,7 @@ Generator.prototype = {
         this.code = '';
         //create generators and save code
         lookups.forEach(function(lookup) {
-            var instGen = new InstructionGenerator(lookup, this.numregisters, this.numtypes);
+            var instGen = new InstructionGenerator(lookup, this.numregisters, this.numtypes, this.opcodesize);
             instGen.genCode(vm);
             this.code += instGen.code;
             this.instgenerators.push(instGen);
@@ -797,10 +804,11 @@ Generator.prototype = {
 };
 
 //All powerful generator
-function InstructionGenerator(lookup, numregisters, numtypes) {
+function InstructionGenerator(lookup, numregisters, numtypes, opcodeSizeInBytes) {
     this.numtypes = numtypes;
     this.numregisters = numregisters;
     this.numstates = Math.pow(numtypes, numregisters);
+    this.opcodesize = opcodeSizeInBytes;
     this.lookup = lookup;
 
     this.constants = {};
@@ -975,24 +983,22 @@ InstructionGenerator.prototype = {
         return baseb;
     },
 
-    //TODO: Generalize this if you want more types
-    changeState: function(call, type) {
-        //destination address is call[0]
-        var changedBitIndex = call[0];
+    changeState: function (index, type)
+    {
         var bitMask = ''; //not really a bitmask
         var hexMask = '';
         var andoperator = false;
         
         if (type === 0) {
             andoperator = true;
-            bitMask = '111111';
-            bitMask = bitMask.slice(0, changedBitIndex) + '0' + bitMask.slice(changedBitIndex + 1);
+            bitMask = '1'.repeat(6);
+            bitMask = bitMask.slice(0, index) + '0' + bitMask.slice(index + 1);
         } else {
-            bitMask = '000000';
-            bitMask = bitMask.slice(0, changedBitIndex) + '1' + bitMask.slice(changedBitIndex + 1);
+            bitMask = '0'.repeat(6);
+            bitMask = bitMask.slice(0, index) + '1' + bitMask.slice(index + 1);
         }
 
-        hexMask += parseInt(bitMask + '00000000000', 2).toString(16);
+        hexMask += parseInt(bitMask + '0'.repeat(this.opcodesize), 2).toString(16);
         //Set the Tag and edit the state
         return (andoperator? 'ts &= 0x' : 'ts |= 0x') + hexMask + ' /*' + bitMask + '*/';
     },
@@ -1034,9 +1040,19 @@ InstructionGenerator.prototype = {
                 //replace /*<state:0>*/ with ts &= or |=
                 token = '/*<state:' + j + '>*/';
                 if (vm === typeVM)
-                    subbedString = findAndReplace(token, subbedString, this.changeState(call, j) + ";\n");
+                    subbedString = findAndReplace(token, subbedString, this.changeState(call[0], j) + ';\n');
                 else if (vm === convVM)
                     subbedString = findAndReplace(token, subbedString, ''); //remove state changes
+
+                //replace /*<state:0:1>*/ with ts &= 101111
+                for(var k = 0; k < this.numregisters; k++) {
+                    token = '/*<state:' + j + ':' + k +'>*/';
+
+                    if (vm === typeVM)                    
+                        subbedString = findAndReplace(token, subbedString, 'ts ' + this.changeState(k,j));                    
+                    else if (vm === convVM)
+                        subbedString = findAndReplace(token, subbedString, ''); //remove state changes
+                }
             }
 
             //replace /*<0>*/, /*<1>*/ etc with g[0], g[1]

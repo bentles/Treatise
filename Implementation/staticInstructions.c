@@ -12004,7 +12004,7 @@ if (base) {
 base->fp = fp; base->pc = pc; base->ts = ts;
 SaveRegisters(base->g);
 value *newfp = base->l;
-memcpy(newfp, fp + program[pc + 2], program[pc + 3]*sizeof(value));
+memcpy(newfp, fp + program[pc + 2], (size_t)program[pc + 3]*sizeof(value));
 fp = newfp;
 pc = newpc + 4;
 }

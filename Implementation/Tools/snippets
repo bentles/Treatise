@@ -1,0 +1,56 @@
+add r${1:i}, r${2:j}
+addc r${1:i}, ${2:const64}
+sub r${1:i}, r${2:j≠i}
+csub ${1:const64}, r${2:i}
+mul r${1:i}, r${2:j}
+mulc r${1:i}, ${2:const64}
+div r${1:i}, r${2:j≠i}
+divc r${1:i}, ${2:const64}
+cdiv ${1:const64}, r${2:i}
+and r${1:i}, r${2:j≠i}
+andc r${1:i}, ${2:const64}
+or r${1:i}, r${2:j≠i}
+orc r${1:i}, ${2:const64}
+xor r${1:i}, r${2:j≠i}
+shl r${1:i}, r${2:j≠i}
+shlc r${1:i}, ${2:const16}
+cshl ${1:const64}, r${2:i}
+shr r${1:i}, r${2:j≠i}
+shrc r${1:i}, ${2:const16}
+cshr ${1:const64}, r${2:i}
+sar r${1:i}, r${2:j≠i}
+sarc r${1:i}, ${2:const16}
+csar ${1:const64}, r${2:i}
+mov r${1:i}, r${2:j≠i}
+movp p${1:i}, p${2:j≠i}
+movc r${1:i}, ${2:const64}
+null p${1:i}
+getl r${1:i}, ${2:index16}
+getlp p${1:i}, ${2:index16}
+setl r${1:i}, ${2:index16}
+setlp p${1:i}, ${2:index16}
+getm r${1:i}, p${2:j}, ${3:index16}
+getmp p${1:i}, p${2:j}, ${3:index16}
+setm p${1:i}, r${2:j}, ${3:index16}
+setmp p${1:i}, p${2:j}, ${3:index16}
+geta r${1:i}, p${2:j}, r${3:k≠j}
+getap p${1:i}, p${2:j}, r${3:k≠j}
+seta p${1:i}, r${2:j≠i}, r${3:k}
+setap p${1:i}, r${2:j≠i}, p${3:k}
+getb r${1:i}, p${2:j}, r${3:k≠j}
+setb p${1:i} , r${2:j≠i}, r${3:k}
+jmp ${1:disp16}
+jmpf ${1:disp32}
+switch r${1:i}, ${2:table-size16}
+jcmp r${1:i}, r${2:j≠i}, ${2:less16}, ${3:equal16}, ${4:greater16}
+jcmpc r${1:i}, ${2:const64}, ${3:less16}, ${4:equal16}, ${5:greater16}
+jeqp p${1:i}, p${2:j≠i}, ${3:non-equal16}, ${4:equal16}
+jnullp p${1:i}, ${2:not-null-disp16}, ${3:null-disp16}
+call ${1:disp16}, ${2:first16}, ${3:count16}
+ret
+newp p${1:i}}, ${2:disp16}
+newpa p${1:i}, r${2:j≠i}
+newa p${1:i}, r${2:j≠i}
+err ${1:disp16}
+in p${1:i}
+out p${1:i}
