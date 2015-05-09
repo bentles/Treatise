@@ -12004,7 +12004,7 @@ if (base) {
 base->fp = fp; base->pc = pc; base->ts = ts;
 SaveRegisters(base->g);
 value *newfp = base->l;
-memcpy(newfp, fp + program[pc + 2], (size_t)program[pc + 3]*sizeof(value));
+memcpy(newfp, fp + program[pc + 2], program[pc + 3]*sizeof(value));
 fp = newfp;
 pc = newpc + 4;
 }
@@ -12735,10 +12735,7 @@ goto *dynOpcodes[ts + program[pc]];
 out_0:
 {
 buffer *bp = g[0].p;
-int size = GetSize(bp->sf);
-char temp[size + 1];
-strncpy(temp, bp->data, size);
-puts(temp);
+puts(bp->data);
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -12746,10 +12743,7 @@ goto *dynOpcodes[ts + program[pc]];
 out_1:
 {
 buffer *bp = g[1].p;
-int size = GetSize(bp->sf);
-char temp[size + 1];
-strncpy(temp, bp->data, size);
-puts(temp);
+puts(bp->data);
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -12757,10 +12751,7 @@ goto *dynOpcodes[ts + program[pc]];
 out_2:
 {
 buffer *bp = g[2].p;
-int size = GetSize(bp->sf);
-char temp[size + 1];
-strncpy(temp, bp->data, size);
-puts(temp);
+puts(bp->data);
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -12768,10 +12759,7 @@ goto *dynOpcodes[ts + program[pc]];
 out_3:
 {
 buffer *bp = g[3].p;
-int size = GetSize(bp->sf);
-char temp[size + 1];
-strncpy(temp, bp->data, size);
-puts(temp);
+puts(bp->data);
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -12779,10 +12767,7 @@ goto *dynOpcodes[ts + program[pc]];
 out_4:
 {
 buffer *bp = g[4].p;
-int size = GetSize(bp->sf);
-char temp[size + 1];
-strncpy(temp, bp->data, size);
-puts(temp);
+puts(bp->data);
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -12790,10 +12775,7 @@ goto *dynOpcodes[ts + program[pc]];
 out_5:
 {
 buffer *bp = g[5].p;
-int size = GetSize(bp->sf);
-char temp[size + 1];
-strncpy(temp, bp->data, size);
-puts(temp);
+puts(bp->data);
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }

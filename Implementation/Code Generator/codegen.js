@@ -695,10 +695,7 @@ var lookups = [
             name: 'out', pcChange: 1,
             legal: [p],
             template: 'buffer *bp = /*<0>*/.p;\n' +
-                'int size = GetSize(bp->sf);\n' +
-                'char temp[size + 1];\n' +
-                'strncpy(temp, bp->data, size);\n' +
-                'puts(temp);\n'
+                'puts(bp->data);\n'
         }]
     }
 ];

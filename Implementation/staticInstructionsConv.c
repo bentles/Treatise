@@ -788,10 +788,7 @@ out:
 int16_t arg0 = GetArg0(program[pc]);
 if (IsPointer(g[arg0])) {
 buffer *bp = g[arg0].p;
-int size = GetSize(bp->sf);
-char temp[size + 1];
-strncpy(temp, bp->data, size);
-puts(temp);
+puts(bp->data);
 pc++;
 }
 else {
