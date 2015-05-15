@@ -908,7 +908,7 @@ InstructionGenerator.prototype = {
         {
             this.lookup.instructions.forEach(function(inst){
                 ifpart = (ifpart === '')? 'if ' :'else if ';                
-                this.code += ifpart + this.getTypeCheck(inst, vm) + ' {\n' ;
+                this.code += ifpart + this.getTypeCheck(inst, vm, call) + ' {\n' ;
                 //NB: call is undefined if VM is conv
                 this.code += this.substituteIntoTemplate(inst.template, vm, call);
                 this.code += this.changePC(inst.pcChange);
@@ -922,7 +922,7 @@ InstructionGenerator.prototype = {
         }
     },
 
-    getTypeCheck: function(inst, vm)
+    getTypeCheck: function(inst, vm, call)
     {
         if (vm !== convVM && vm !== hybrVM) {
             throw "Illegal VM type for type checking";
@@ -930,9 +930,9 @@ InstructionGenerator.prototype = {
         
         var legals = inst.legal.map(function(legl, index){
             if (legl === i)
-                return 'IsInt(g[' + ((vm === convVM) ? 'arg' : '') + index + '])';
+                return 'IsInt(g[' + ((vm === convVM) ? 'arg' + index : '' + call[index]) + '])';
             else
-                return 'IsPointer(g[' +  ((vm === convVM) ? 'arg' : '') + index + '])';            
+                return 'IsPointer(g[' + ((vm === convVM) ? 'arg' + index : '' + call[index]) + '])';     
         });
         
         return '(' + legals.join([seperator = ' && ']) + ')' ;        
