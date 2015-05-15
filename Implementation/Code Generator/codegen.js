@@ -732,15 +732,25 @@ function Generator(lookups, statics, numregisters, numtypes, opcodeSizeInBytes) 
     this.numregisters = numregisters;
     this.numtypes = numtypes;
     this.opcodesize = opcodeSizeInBytes;
-    this.lookuptable = new Array(Math.pow(numtypes, numregisters) * Math.pow(2, opcodeSizeInBytes));
+    this.lookuptable = [];
     this.opcodetable = [];
     this.numstates = Math.pow(numtypes, numregisters);
     this.instgenerators = [];
 }
 
 Generator.prototype = {
-    generate: function(vm) {
+    init: function(vm) {
         this.code = '';
+        if (vm === typeVM)                                            
+            this.lookuptable = new Array(Math.pow(this.numtypes, this.numregisters) * //num of states
+                                         Math.pow(2, this.opcodesize)); //num of possible opcodes per state
+        else if (vm === convVM)
+            this.lookuptable = new Array(lookups.length + statics.length);
+        else if (vm === hybrVM)
+            this.lookuptable = new Array(Math.pow(2, this.opcodesize));
+    },
+    generate: function(vm) {
+        this.init(vm);
         //create generators and save code
         lookups.forEach(function(lookup) {
             var instGen = new InstructionGenerator(lookup, this.numregisters, this.numtypes, this.opcodesize);
@@ -767,7 +777,8 @@ Generator.prototype = {
          */
 
         //Are states used? Only 1 state when we don't care about states
-        var numstates = (vm === convVM || vm === hybrVM) ? this.numstates : 1;
+        var numstates = (vm === convVM || vm === hybrVM) ? 1 : this.numstates;
+        console.log(numstates);
 
         for (var state = 0; state < numstates; state++) {
             //lookup table per state
@@ -949,8 +960,7 @@ InstructionGenerator.prototype = {
                     if (vm === typeVM)
                         lookup = this.isLegal(call, stateRegisters, inst);
                     else if (vm === hybrVM)
-                        lookup = this.lookup.name;
-                        
+                        lookup = this.lookup.name;                        
                     if (lookup)               
                         this.lookuptable[i] = this.getLookupAddress(lookup, call);
                     
@@ -1141,7 +1151,7 @@ var fs = require('fs');
 
 var names = ['type state VM','conventional VM', 'hybrid VM'];
 var suffixes = ['', 'Conv', 'Hybr'];
-for (var n = 0; n < 3; n++)
+for (var n = 2; n < 3; n++)
 {
     //Generate VM
     CodeGenerator.generate(n);
