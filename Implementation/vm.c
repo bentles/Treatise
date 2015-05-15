@@ -110,7 +110,15 @@ int main(int argc, char *argv[])
 	//[state : 6 bits][opcode : 11 bits] => the table has max 2^17 = 131072
 	//elements
 	static void *dynOpcodes[] = {
-      #include "dynamicOpcodes.c"
+#ifdef TYPE
+#include "dynamicOpcodes.c"
+#endif /*TYPE*/
+#ifdef CONV
+#include "dynamicOpcodesConv.c"
+#endif /*CONV*/
+#ifdef HYBR
+#include "dynamicOpcodesHybr.c"
+#endif /*HYBR*/
       };
 
     //Handle args and read in binary file
@@ -156,9 +164,17 @@ FILE *filep = fopen(argv[1], "rb");
      *     g[0] = g[0] + g[0];
      *     pc += 2;
      *     goto *dynOpcodes[ts + program[pc]];
-     */    
+     */
     
-  #include "staticInstructions.c"
-//    #include "staticInstructionsConv.c"
+#ifdef TYPE
+#include "staticInstructions.c"
+#endif /*TYPE*/
+#ifdef CONV
+#include "staticInstructionsConv.c"
+#endif /*CONV*/
+#ifdef HYBR
+#include "staticInstructionsHybr.c"
+#endif /*TYPE*/
+    
     return 0;
 }

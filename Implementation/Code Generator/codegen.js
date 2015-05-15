@@ -908,7 +908,7 @@ InstructionGenerator.prototype = {
         {
             this.lookup.instructions.forEach(function(inst){
                 ifpart = (ifpart === '')? 'if ' :'else if ';                
-                this.code += ifpart + this.getConvenTypeCheck(inst) + ' {\n' ;
+                this.code += ifpart + this.getTypeCheck(inst, vm) + ' {\n' ;
                 //NB: call is undefined if VM is conv
                 this.code += this.substituteIntoTemplate(inst.template, vm, call);
                 this.code += this.changePC(inst.pcChange);
@@ -922,13 +922,17 @@ InstructionGenerator.prototype = {
         }
     },
 
-    getConvenTypeCheck: function(inst)
+    getTypeCheck: function(inst, vm)
     {
+        if (vm !== convVM && vm !== hybrVM) {
+            throw "Illegal VM type for type checking";
+        }
+        
         var legals = inst.legal.map(function(legl, index){
             if (legl === i)
-                return 'IsInt(g[arg' + index + '])';
+                return 'IsInt(g[' + ((vm === convVM) ? 'arg' : '') + index + '])';
             else
-                return 'IsPointer(g[arg' + index + '])';            
+                return 'IsPointer(g[' +  ((vm === convVM) ? 'arg' : '') + index + '])';            
         });
         
         return '(' + legals.join([seperator = ' && ']) + ')' ;        
@@ -1101,7 +1105,7 @@ InstructionGenerator.prototype = {
 
             return subbedString;
         } else
-            return '';
+           return '';
     },
 
     getStaticInstructionName: function(name, call) {
@@ -1151,7 +1155,7 @@ var fs = require('fs');
 
 var names = ['type state VM','conventional VM', 'hybrid VM'];
 var suffixes = ['', 'Conv', 'Hybr'];
-for (var n = 2; n < 3; n++)
+for (var n = 0; n < 3; n++)
 {
     //Generate VM
     CodeGenerator.generate(n);
