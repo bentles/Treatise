@@ -680,12 +680,22 @@ var lookups = [
             name: 'in', pcChange: 1,
             legal: [p],
             template:
-            'buffer *bp = /*<0>*/.p;\n' +
-            'int size = GetSize(bp->sf);\n' +
-            'if (fgets(bp->data, size, stdin) == NULL) {\n' +
-            '    fprintf(stderr, "input error");\n' +
-            '    return 1;\n' +
-            '}\n'
+                'buffer *bp = /*<0>*/.p;\n' +
+                'int size = GetSize(bp->sf);\n' +
+                'if (fgets(bp->data, size, stdin) == NULL) {\n' +
+                '    if (feof(stdin))\n' +
+                '        bp->data[0] = 3;\n' +
+                '    else {\n' +
+                '        fprintf(stderr, "input error");\n' +
+                '        return 1;\n' +
+                '    }\n' +
+                '}\n' +
+                'else {\n' +
+                '    size_t ln = strlen(bp->data) - 1;\n' +
+                "    if (bp->data[ln] == '\\n')\n" +
+                "        bp->data[ln] = '\\0';\n"  +
+                '}\n'
+                
         }]
     },
     {
@@ -699,7 +709,6 @@ var lookups = [
         }]
     }
 ];
-
 var statics = [
     'error:\n' +
         '{\n' +
@@ -717,7 +726,6 @@ var statics = [
 var numTypes = 2;
 var numRegisters = 6;
 var opcodeSizeInBytes = 11;
-
 
 function Generator(lookups, statics, numregisters, numtypes, opcodeSizeInBytes) {
     this.code = '';
@@ -759,10 +767,9 @@ Generator.prototype = {
          */
 
         //Are states used? Only 1 state when we don't care about states
-        var numstates = vm == 0 ? this.numstates : 1;
+        var numstates = (vm === convVM || vm === hybrVM) ? this.numstates : 1;
 
         for (var state = 0; state < numstates; state++) {
-
             //lookup table per state
             var stateTable = [];
             
@@ -771,7 +778,7 @@ Generator.prototype = {
                     generator.genLookups(state, vm);
 
                     //only need to do this once not for every state
-                    if (state == 0)
+                    if (state === 0)
                         this.opcodetable.push("'" + generator.lookup.name+ "'" + ' => ' + stateTable.length);
                     
                     stateTable = stateTable.concat(generator.lookuptable);
@@ -825,45 +832,57 @@ InstructionGenerator.prototype = {
             this.code += "{\n";
             //get args the old fashioned way
             this.code += this.getArgsFromInst();
-            this.genConvVMCodeWithTypeChecking(vm);
+            this.genVMCodeWithTypeChecking(vm);
             this.code += this.goto(vm);
             this.code += "}\n\n";    
+        }
+        else if (vm === hybrVM)
+        {
+            //iterate over all ways to call fn: add_0_0, add_0_1 etc...
+            this.callables.forEach(function(call, i) {
+
+                //write the code:
+                //==============
+                //write out label
+                this.code += this.getLabel(this.lookup.name, call);
+                this.code += '{\n';
+                //we already know args from call                
+                this.genVMCodeWithTypeChecking(vm, call);
+                this.code += this.goto(vm);
+                this.code += "}\n\n";    
+            }, this);                    
+            
         }
         else if (vm === typeVM)
         {        
             //iterate over different instructions
             this.lookup.instructions.forEach(function(inst) {
-                //iterate over all possible calls
                 if (inst.genCode !== false) {
-                    if (vm === 0)
-                    {
-                        //iterate over all ways to call fn: add_0_0, add_0_1 etc...
-                        this.callables.forEach(function(call, i) {
+                    //iterate over all ways to call fn: add_0_0, add_0_1 etc...
+                    this.callables.forEach(function(call, i) {
 
-                            //write the code:
-                            //==============
-                            //write out label
-                            this.code += this.getLabel(inst.name, call);
-                            this.code += '{\n';
+                        //write the code:
+                        //==============
+                        //write out label
+                        this.code += this.getLabel(inst.name, call);
+                        this.code += '{\n';
 
-                            //write instruction for arguments
-                            //this includes state changes
-                            this.code += this.substituteIntoTemplate(inst.template, vm, call);
-                            //update pc
-                            this.code += this.changePC(inst.pcChange);
-                            //goto next instruction
-                            this.code += this.goto(vm);
-                            this.code += '}\n\n';
-                        }, this);
-                    }
-
+                        //write instruction for arguments
+                        //this includes state changes
+                        this.code += this.substituteIntoTemplate(inst.template, vm, call);
+                        //update pc
+                        this.code += this.changePC(inst.pcChange);
+                        //goto next instruction
+                        this.code += this.goto(vm);
+                        this.code += '}\n\n';
+                    }, this);
+                    
                 }
-
             }, this);
         }      
     },
 
-    genConvVMCodeWithTypeChecking: function(vm)
+    genVMCodeWithTypeChecking: function(vm, call)
     {
         var ifpart = '';
         
@@ -879,7 +898,10 @@ InstructionGenerator.prototype = {
             this.lookup.instructions.forEach(function(inst){
                 ifpart = (ifpart === '')? 'if ' :'else if ';                
                 this.code += ifpart + this.getConvenTypeCheck(inst) + ' {\n' ;
-                this.code += this.substituteIntoTemplate(inst.template, vm);
+                if (vm === convVM)
+                    this.code += this.substituteIntoTemplate(inst.template, vm);
+                else if (vm === hybrVM)
+                    this.code += this.substituteIntoTemplate(inst.template, vm, call);
                 this.code += this.changePC(inst.pcChange);
                 this.code += '}\n';                
             }, this);
@@ -913,24 +935,32 @@ InstructionGenerator.prototype = {
 
     //generate the lookup table for all instructions for a given state
     genLookups: function(state, vm) {
+        if (vm === typeVM || vm === hybrVM)
+        {
+            //fill lookup table with &&error
+            var k = 0;
+            while (k < this.callables.length) {
+                this.lookuptable[k] = '&&error';
+                k++;
+            }
 
-        //fill lookup table with &&error
-        var k = 0;
-        while (k < this.callables.length) {
-            this.lookuptable[k] = '&&error';
-            k++;
-        }
-
-        var stateRegisters = this.stateToBase(state, this.numtypes, this.numregisters);
-
-        this.lookup.instructions.forEach(function(inst) {
-            this.callables.forEach(function(call, i) {
-                var lookup = this.isLegal(call, stateRegisters, inst);
-                if (lookup)               
-                    this.lookuptable[i] = this.getLookupAddress(lookup, call);
-                
+            var stateRegisters = this.stateToBase(state, this.numtypes, this.numregisters);
+            var lookup;
+            this.lookup.instructions.forEach(function(inst) {
+                this.callables.forEach(function(call, i) {
+                    if (vm === typeVM)
+                        lookup = this.isLegal(call, stateRegisters, inst);
+                    else if (vm === hybrVM)
+                        lookup = this.lookup.name;
+                        
+                    if (lookup)               
+                        this.lookuptable[i] = this.getLookupAddress(lookup, call);
+                    
+                }, this);
             }, this);
-        }, this);
+        }
+        else if (vm === convVM)
+            this.lookuptable = ['&&' + this.lookup.name];     
     },
 
     getArgsFromInst: function(inst) {
@@ -1038,7 +1068,7 @@ InstructionGenerator.prototype = {
                 token = '/*<state:' + j + '>*/';
                 if (vm === typeVM)
                     subbedString = findAndReplace(token, subbedString, this.changeState(call[0], j) + ';\n');
-                else if (vm === convVM)
+                else if (vm === convVM || vm === hybrVM)
                     subbedString = findAndReplace(token, subbedString, ''); //remove state changes
 
                 //replace /*<state:0:1>*/ with ts &= 101111
@@ -1047,7 +1077,7 @@ InstructionGenerator.prototype = {
 
                     if (vm === typeVM)                    
                         subbedString = findAndReplace(token, subbedString, 'ts ' + this.changeState(k,j));                    
-                    else if (vm === convVM)
+                    else if (vm === convVM || vm === hybrVM)
                         subbedString = findAndReplace(token, subbedString, ''); //remove state changes
                 }
             }
@@ -1055,7 +1085,7 @@ InstructionGenerator.prototype = {
             //replace /*<0>*/, /*<1>*/ etc with g[0], g[1]
             for (var i = 0; i < this.lookup.inputs; i++) {
                 token = '/*<' + i + '>*/';
-                if (vm === typeVM)
+                if (vm === typeVM || vm === hybrVM)
                     subbedString = findAndReplace(token, subbedString, 'g[' + call[i] + ']');
                 else if (vm === convVM)
                     subbedString = findAndReplace(token, subbedString, 'g[arg' + i + ']');
@@ -1111,32 +1141,28 @@ InstructionGenerator.prototype = {
 var CodeGenerator = new Generator(lookups, statics, numRegisters, numTypes, opcodeSizeInBytes);
 var fs = require('fs');
 
-//VM 0 - state driven VM
-CodeGenerator.generate(typeVM);
+var names = ['type state VM','conventional VM', 'hybrid VM'];
+var suffixes = ['', 'Conv', 'Hybr'];
+for (var n = 0; n < 3; n++)
+{
+    //Generate VM
+    CodeGenerator.generate(n);
 
-//Code
-fs.writeFileSync('../staticInstructions.c', '');
-console.log('File overwritten');
-fs.appendFileSync('../staticInstructions.c', CodeGenerator.getCode());
-console.log('Code written to file');
+    //Get and Save Code
+    fs.writeFileSync('../staticInstructions' + suffixes[n] +'.c', '');
+    console.log('File overwritten - ' + names[n]);
+    fs.appendFileSync('../staticInstructions' + suffixes[n] +'.c', CodeGenerator.getCode());
+    console.log('Code written to file - ' + names[n]);
 
-//lookup table
-fs.writeFileSync('../dynamicOpcodes.c', '');
-console.log('File overwritten');
-fs.appendFileSync('../dynamicOpcodes.c', CodeGenerator.getLookupTable());
-console.log('Code written to file');
+    //Get and save Lookup Table
+    fs.writeFileSync('../dynamicOpcodes' + suffixes[n] + '.c', '');
+    console.log('File overwritten - ' + names[n]);
+    fs.appendFileSync('../dynamicOpcodes' + suffixes[n] + '.c', CodeGenerator.getLookupTable());
+    console.log('Code written to file - ' + names[n]);
+}
 
 //opcode table
 fs.writeFileSync('../staticOpcodes.rb', '');
 console.log('File overwritten');
 fs.appendFileSync('../staticOpcodes.rb', CodeGenerator.getOpcodes());
-console.log('Code written to file');
-
-//VM 1 - standard style VM
-CodeGenerator.generate(convVM);
-
-//Code
-fs.writeFileSync('../staticInstructionsConv.c', '');
-console.log('File overwritten');
-fs.appendFileSync('../staticInstructionsConv.c', CodeGenerator.getCode());
 console.log('Code written to file');

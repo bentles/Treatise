@@ -12665,8 +12665,17 @@ in_0:
 buffer *bp = g[0].p;
 int size = GetSize(bp->sf);
 if (fgets(bp->data, size, stdin) == NULL) {
-    fprintf(stderr, "input error");
-    return 1;
+    if (feof(stdin))
+        bp->data[0] = 3;
+    else {
+        fprintf(stderr, "input error");
+        return 1;
+    }
+}
+else {
+    size_t ln = strlen(bp->data) - 1;
+    if (bp->data[ln] == '\n')
+        bp->data[ln] = '\0';
 }
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -12677,8 +12686,17 @@ in_1:
 buffer *bp = g[1].p;
 int size = GetSize(bp->sf);
 if (fgets(bp->data, size, stdin) == NULL) {
-    fprintf(stderr, "input error");
-    return 1;
+    if (feof(stdin))
+        bp->data[0] = 3;
+    else {
+        fprintf(stderr, "input error");
+        return 1;
+    }
+}
+else {
+    size_t ln = strlen(bp->data) - 1;
+    if (bp->data[ln] == '\n')
+        bp->data[ln] = '\0';
 }
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -12689,8 +12707,17 @@ in_2:
 buffer *bp = g[2].p;
 int size = GetSize(bp->sf);
 if (fgets(bp->data, size, stdin) == NULL) {
-    fprintf(stderr, "input error");
-    return 1;
+    if (feof(stdin))
+        bp->data[0] = 3;
+    else {
+        fprintf(stderr, "input error");
+        return 1;
+    }
+}
+else {
+    size_t ln = strlen(bp->data) - 1;
+    if (bp->data[ln] == '\n')
+        bp->data[ln] = '\0';
 }
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -12701,8 +12728,17 @@ in_3:
 buffer *bp = g[3].p;
 int size = GetSize(bp->sf);
 if (fgets(bp->data, size, stdin) == NULL) {
-    fprintf(stderr, "input error");
-    return 1;
+    if (feof(stdin))
+        bp->data[0] = 3;
+    else {
+        fprintf(stderr, "input error");
+        return 1;
+    }
+}
+else {
+    size_t ln = strlen(bp->data) - 1;
+    if (bp->data[ln] == '\n')
+        bp->data[ln] = '\0';
 }
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -12713,8 +12749,17 @@ in_4:
 buffer *bp = g[4].p;
 int size = GetSize(bp->sf);
 if (fgets(bp->data, size, stdin) == NULL) {
-    fprintf(stderr, "input error");
-    return 1;
+    if (feof(stdin))
+        bp->data[0] = 3;
+    else {
+        fprintf(stderr, "input error");
+        return 1;
+    }
+}
+else {
+    size_t ln = strlen(bp->data) - 1;
+    if (bp->data[ln] == '\n')
+        bp->data[ln] = '\0';
 }
 pc++;
 goto *dynOpcodes[ts + program[pc]];
@@ -12725,8 +12770,17 @@ in_5:
 buffer *bp = g[5].p;
 int size = GetSize(bp->sf);
 if (fgets(bp->data, size, stdin) == NULL) {
-    fprintf(stderr, "input error");
-    return 1;
+    if (feof(stdin))
+        bp->data[0] = 3;
+    else {
+        fprintf(stderr, "input error");
+        return 1;
+    }
+}
+else {
+    size_t ln = strlen(bp->data) - 1;
+    if (bp->data[ln] == '\n')
+        bp->data[ln] = '\0';
 }
 pc++;
 goto *dynOpcodes[ts + program[pc]];

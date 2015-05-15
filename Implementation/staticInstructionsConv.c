@@ -771,8 +771,17 @@ if (IsPointer(g[arg0])) {
 buffer *bp = g[arg0].p;
 int size = GetSize(bp->sf);
 if (fgets(bp->data, size, stdin) == NULL) {
-    fprintf(stderr, "input error");
-    return 1;
+    if (feof(stdin))
+        bp->data[0] = 3;
+    else {
+        fprintf(stderr, "input error");
+        return 1;
+    }
+}
+else {
+    size_t ln = strlen(bp->data) - 1;
+    if (bp->data[ln] == '\n')
+        bp->data[ln] = '\0';
 }
 pc++;
 }
