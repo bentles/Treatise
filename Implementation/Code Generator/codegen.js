@@ -840,7 +840,6 @@ InstructionGenerator.prototype = {
         {
             //iterate over all ways to call fn: add_0_0, add_0_1 etc...
             this.callables.forEach(function(call, i) {
-
                 //write the code:
                 //==============
                 //write out label
@@ -890,7 +889,8 @@ InstructionGenerator.prototype = {
         if (this.lookup.inputs === 0 ||this.lookup.instructions[0].legal.every(function(x){ return x === g; }))
         {
             //write them out without type checking
-            this.code += this.substituteIntoTemplate(this.lookup.instructions[0].template, vm);
+            //NB: call is undefined if VM is conv
+            this.code += this.substituteIntoTemplate(this.lookup.instructions[0].template, vm, call);
             this.code += this.changePC(this.lookup.instructions[0].pcChange);
         }
         else
@@ -898,10 +898,8 @@ InstructionGenerator.prototype = {
             this.lookup.instructions.forEach(function(inst){
                 ifpart = (ifpart === '')? 'if ' :'else if ';                
                 this.code += ifpart + this.getConvenTypeCheck(inst) + ' {\n' ;
-                if (vm === convVM)
-                    this.code += this.substituteIntoTemplate(inst.template, vm);
-                else if (vm === hybrVM)
-                    this.code += this.substituteIntoTemplate(inst.template, vm, call);
+                //NB: call is undefined if VM is conv
+                this.code += this.substituteIntoTemplate(inst.template, vm, call);
                 this.code += this.changePC(inst.pcChange);
                 this.code += '}\n';                
             }, this);
@@ -926,7 +924,7 @@ InstructionGenerator.prototype = {
     },
 
     goto: function(vm) {
-        if (vm === typeVM)
+        if (vm === typeVM || vm === hybrVM)
             return 'goto *dynOpcodes[ts + program[pc]];\n';
         else if (vm === convVM)
             return 'goto *dynOpcodes[GetOpcode(program[pc])];\n';
