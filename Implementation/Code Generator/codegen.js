@@ -392,15 +392,15 @@ var lookups = [
         }]
     },
     {
-        name: 'getm',
-        inputs: 2,
+        name: 'geto',
+        inputs: 3,
         instructions: [
             {
-                name: 'getm',
-                pcChange: 2,
-                legal: [i, p],
-                template: 'int16_t constant = program[pc + 1];\n' +
-                    'value val = ((object *)(/*<1>*/.p))->data[constant];\n' +
+                name: 'geto',
+                pcChange: 1,
+                legal: [i, p, i],
+                template: 
+                    'value val = ((object *)(/*<1>*/.p))->data[/*<2>*/.i];\n' +
                     'if (val.tag != ' + i + ') {\n' +
                     '/*<0>*/.tag = val.tag;\n' +
                     '/*<state:' + p + '>*/' +
@@ -411,11 +411,11 @@ var lookups = [
                     '}\n' 
             },
             {
-                name: 'getmp',
-                pcChange: 2,
-                legal: [p, p],
+                name: 'getop',
+                pcChange: 1,
+                legal: [p, p, i],
                 template: 'int16_t constant = program[pc + 1];\n' +
-                    'value val = ((object *)(/*<1>*/.p))->data[constant];\n' +
+                    'value val = ((object *)(/*<1>*/.p))->data[/*<2>*/.i];\n' +
                     'if (val.tag == ' + i + ') {\n' +
                     '/*<tag+state:' + i + '>*/' +
                     '/*<0>*/.i = val.i;\n' +
@@ -426,24 +426,24 @@ var lookups = [
     },
     //TODO: can I make this better?
     {
-        name: 'setm',
-        inputs: 2,
+        name: 'seto',
+        inputs: 3,
         instructions: [
             {
-                name: 'setm',
-                pcChange: 2,
-                legal: [p, i], 
-                template: 'int16_t constant = program[pc + 1];\n' +
-                    'value *vp = &(((object *)(/*<0>*/.p))->data[constant]);\n' +
+                name: 'seto',
+                pcChange: 1,
+                legal: [p, i, i], 
+                template: 
+                    'value *vp = &(((object *)(/*<0>*/.p))->data[/*<2>*/.i]);\n' +
                     'vp->tag ='+ i +';\n' +
                     'vp->i = /*<1>*/.i;\n'
             },
             {
-                name: 'setmp',
-                pcChange: 2,
-                legal: [p, p],
-                template: 'int16_t constant = program[pc + 1];\n' +
-                    'value *vp = &(((object *)(/*<0>*/.p))->data[constant]);\n' +
+                name: 'setop',
+                pcChange: 1,
+                legal: [p, p, i],
+                template: 
+                    'value *vp = &(((object *)(/*<0>*/.p))->data[/*<2>*/.i]);\n' +
                     'vp->tag = /*<1>*/.tag;\n' +
                     'vp->p = /*<1>*/.p;\n'
             }]
@@ -625,12 +625,12 @@ var lookups = [
         }]
     },
     {
-        name: 'newp',
-        inputs: 1,
+        name: 'newo',
+        inputs: 2,
         instructions: [{
-            name: 'newp', pcChange: 1, legal: [g],
-            template: getConst('size') +
-                'object *base = (object*)malloc(sizeof(object) + sizeof(value)*size);\n' +
+            name: 'newo', pcChange: 1, legal: [g,i],
+            template:
+                'object *base = (object*)malloc(sizeof(object) + sizeof(value)*/*<1>*/.i);\n' +
                 'if (base) {\n' +
                 'base->sf = MakeSizeAndFlags(size,0);\n' +
                 '/*<0>*/.tag = 2;\n' +
@@ -644,22 +644,22 @@ var lookups = [
         }]
     },
     {
-        name: 'newa',
+        name: 'newb',
         inputs: 2,
         callCondition: noTrivialFor([0,1]),
         instructions: [{
-            name: 'newa', pcChange: 1, legal: [g, i],
+            name: 'newb', pcChange: 1, legal: [g, i],
             template:  
             'buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*/*<1>*/.i);\n' +
                 'if (base) {\n' +
-                'base->sf = MakeSizeAndFlags(/*<1>*/.i,0);\n' +
-                '/*<0>*/.tag = 4;\n' +
-                '/*<state:' + p + '>*/' +
-                '/*<0>*/.p = base;\n' +
+                '    base->sf = MakeSizeAndFlags(/*<1>*/.i,0);\n' +
+                '    /*<0>*/.tag = 4;\n' +
+                '    /*<state:' + p + '>*/' +
+                '    /*<0>*/.p = base;\n' +
                 '}\n' +
                 'else {\n' +
-                'fprintf(stderr, "malloc failed");\n' +
-                'return 1;\n' +
+                '    fprintf(stderr, "malloc failed");\n' +
+                '    return 1;\n' +
                 '}\n'
             
         }]
@@ -731,16 +731,18 @@ function Generator(lookups, statics, numregisters, numtypes, opcodeSizeInBytes) 
     this.code = '';
     this.numregisters = numregisters;
     this.numtypes = numtypes;
+    this.numstates = Math.pow(numtypes, numregisters);
     this.opcodesize = opcodeSizeInBytes;
     this.lookuptable = [];
     this.opcodetable = [];
-    this.numstates = Math.pow(numtypes, numregisters);
     this.instgenerators = [];
 }
 
 Generator.prototype = {
     init: function(vm) {
         this.code = '';
+        this.opcodetable = [];
+        this.instgenerators = [];
         if (vm === typeVM)                                            
             this.lookuptable = new Array(Math.pow(this.numtypes, this.numregisters) * //num of states
                                          Math.pow(2, this.opcodesize)); //num of possible opcodes per state
@@ -788,10 +790,12 @@ Generator.prototype = {
                 function(generator) {
                     generator.genLookups(state, vm);
 
-                    //only need to do this once not for every state
-                    if (state === 0)
+                    //only need to do this once not for every state, only for type VM
+                    if (state === 0 && vm === typeVM)
+                    {
                         this.opcodetable.push("'" + generator.lookup.name+ "'" + ' => ' + stateTable.length);
-                    
+                        console.log("'" + generator.lookup.name+ "'" + ' => ' + stateTable.length);
+                    }
                     stateTable = stateTable.concat(generator.lookuptable);
                 }, this);
 
@@ -1157,6 +1161,8 @@ var names = ['type state VM','conventional VM', 'hybrid VM'];
 var suffixes = ['', 'Conv', 'Hybr'];
 for (var n = 0; n < 3; n++)
 {
+    console.log('generating for ' + names[n] + ':');
+
     //Generate VM
     CodeGenerator.generate(n);
 
@@ -1173,6 +1179,8 @@ for (var n = 0; n < 3; n++)
     console.log('Code written to file - ' + names[n]);
 }
 
+CodeGenerator.generate(typeVM);
+console.log('assembler table');
 //opcode table
 fs.writeFileSync('../staticOpcodes.rb', '');
 console.log('File overwritten');

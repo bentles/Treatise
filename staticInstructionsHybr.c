@@ -6634,11 +6634,10 @@ return 1;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_0_0:
+geto_0_0_0:
 {
-if (IsInt(g[0]) && IsPointer(g[0])) {
-int16_t constant = program[pc + 1];
-value val = ((object *)(g[0].p))->data[constant];
+if (IsInt(g[0]) && IsPointer(g[0]) && IsInt(g[0])) {
+value val = ((object *)(g[0].p))->data[g[0].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
 g[0].p = val.p;
@@ -6646,31 +6645,30 @@ g[0].p = val.p;
 else {
 g[0].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[0])) {
+else if (IsPointer(g[0]) && IsPointer(g[0]) && IsInt(g[0])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[0].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[0].i];
 if (val.tag == 0) {
 g[0].tag = 0;
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
 g[0].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_0_1:
+geto_0_0_1:
 {
-if (IsInt(g[0]) && IsPointer(g[1])) {
-int16_t constant = program[pc + 1];
-value val = ((object *)(g[1].p))->data[constant];
+if (IsInt(g[0]) && IsPointer(g[0]) && IsInt(g[1])) {
+value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
 g[0].p = val.p;
@@ -6678,31 +6676,30 @@ g[0].p = val.p;
 else {
 g[0].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[1])) {
+else if (IsPointer(g[0]) && IsPointer(g[0]) && IsInt(g[1])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[1].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag == 0) {
 g[0].tag = 0;
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
 g[0].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_0_2:
+geto_0_0_2:
 {
-if (IsInt(g[0]) && IsPointer(g[2])) {
-int16_t constant = program[pc + 1];
-value val = ((object *)(g[2].p))->data[constant];
+if (IsInt(g[0]) && IsPointer(g[0]) && IsInt(g[2])) {
+value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
 g[0].p = val.p;
@@ -6710,31 +6707,30 @@ g[0].p = val.p;
 else {
 g[0].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[2])) {
+else if (IsPointer(g[0]) && IsPointer(g[0]) && IsInt(g[2])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[2].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag == 0) {
 g[0].tag = 0;
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
 g[0].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_0_3:
+geto_0_0_3:
 {
-if (IsInt(g[0]) && IsPointer(g[3])) {
-int16_t constant = program[pc + 1];
-value val = ((object *)(g[3].p))->data[constant];
+if (IsInt(g[0]) && IsPointer(g[0]) && IsInt(g[3])) {
+value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
 g[0].p = val.p;
@@ -6742,31 +6738,30 @@ g[0].p = val.p;
 else {
 g[0].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[3])) {
+else if (IsPointer(g[0]) && IsPointer(g[0]) && IsInt(g[3])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[3].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag == 0) {
 g[0].tag = 0;
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
 g[0].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_0_4:
+geto_0_0_4:
 {
-if (IsInt(g[0]) && IsPointer(g[4])) {
-int16_t constant = program[pc + 1];
-value val = ((object *)(g[4].p))->data[constant];
+if (IsInt(g[0]) && IsPointer(g[0]) && IsInt(g[4])) {
+value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
 g[0].p = val.p;
@@ -6774,31 +6769,30 @@ g[0].p = val.p;
 else {
 g[0].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[4])) {
+else if (IsPointer(g[0]) && IsPointer(g[0]) && IsInt(g[4])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[4].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag == 0) {
 g[0].tag = 0;
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
 g[0].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_0_5:
+geto_0_0_5:
 {
-if (IsInt(g[0]) && IsPointer(g[5])) {
-int16_t constant = program[pc + 1];
-value val = ((object *)(g[5].p))->data[constant];
+if (IsInt(g[0]) && IsPointer(g[0]) && IsInt(g[5])) {
+value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
 g[0].p = val.p;
@@ -6806,31 +6800,960 @@ g[0].p = val.p;
 else {
 g[0].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[5])) {
+else if (IsPointer(g[0]) && IsPointer(g[0]) && IsInt(g[5])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[5].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag == 0) {
 g[0].tag = 0;
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
 g[0].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_1_0:
+geto_0_1_0:
 {
-if (IsInt(g[1]) && IsPointer(g[0])) {
+if (IsInt(g[0]) && IsPointer(g[1]) && IsInt(g[0])) {
+value val = ((object *)(g[1].p))->data[g[0].i];
+if (val.tag != 0) {
+g[0].tag = val.tag;
+g[0].p = val.p;
+}
+else {
+g[0].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[1]) && IsInt(g[0])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[0].p))->data[constant];
+value val = ((object *)(g[1].p))->data[g[0].i];
+if (val.tag == 0) {
+g[0].tag = 0;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_0_1_1:
+{
+if (IsInt(g[0]) && IsPointer(g[1]) && IsInt(g[1])) {
+value val = ((object *)(g[1].p))->data[g[1].i];
+if (val.tag != 0) {
+g[0].tag = val.tag;
+g[0].p = val.p;
+}
+else {
+g[0].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[1]) && IsInt(g[1])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[g[1].i];
+if (val.tag == 0) {
+g[0].tag = 0;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_0_1_2:
+{
+if (IsInt(g[0]) && IsPointer(g[1]) && IsInt(g[2])) {
+value val = ((object *)(g[1].p))->data[g[2].i];
+if (val.tag != 0) {
+g[0].tag = val.tag;
+g[0].p = val.p;
+}
+else {
+g[0].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[1]) && IsInt(g[2])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[g[2].i];
+if (val.tag == 0) {
+g[0].tag = 0;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_0_1_3:
+{
+if (IsInt(g[0]) && IsPointer(g[1]) && IsInt(g[3])) {
+value val = ((object *)(g[1].p))->data[g[3].i];
+if (val.tag != 0) {
+g[0].tag = val.tag;
+g[0].p = val.p;
+}
+else {
+g[0].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[1]) && IsInt(g[3])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[g[3].i];
+if (val.tag == 0) {
+g[0].tag = 0;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_0_1_4:
+{
+if (IsInt(g[0]) && IsPointer(g[1]) && IsInt(g[4])) {
+value val = ((object *)(g[1].p))->data[g[4].i];
+if (val.tag != 0) {
+g[0].tag = val.tag;
+g[0].p = val.p;
+}
+else {
+g[0].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[1]) && IsInt(g[4])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[g[4].i];
+if (val.tag == 0) {
+g[0].tag = 0;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_0_1_5:
+{
+if (IsInt(g[0]) && IsPointer(g[1]) && IsInt(g[5])) {
+value val = ((object *)(g[1].p))->data[g[5].i];
+if (val.tag != 0) {
+g[0].tag = val.tag;
+g[0].p = val.p;
+}
+else {
+g[0].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[1]) && IsInt(g[5])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[g[5].i];
+if (val.tag == 0) {
+g[0].tag = 0;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_0_2_0:
+{
+if (IsInt(g[0]) && IsPointer(g[2]) && IsInt(g[0])) {
+value val = ((object *)(g[2].p))->data[g[0].i];
+if (val.tag != 0) {
+g[0].tag = val.tag;
+g[0].p = val.p;
+}
+else {
+g[0].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[2]) && IsInt(g[0])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[0].i];
+if (val.tag == 0) {
+g[0].tag = 0;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_0_2_1:
+{
+if (IsInt(g[0]) && IsPointer(g[2]) && IsInt(g[1])) {
+value val = ((object *)(g[2].p))->data[g[1].i];
+if (val.tag != 0) {
+g[0].tag = val.tag;
+g[0].p = val.p;
+}
+else {
+g[0].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[2]) && IsInt(g[1])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[1].i];
+if (val.tag == 0) {
+g[0].tag = 0;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_0_2_2:
+{
+if (IsInt(g[0]) && IsPointer(g[2]) && IsInt(g[2])) {
+value val = ((object *)(g[2].p))->data[g[2].i];
+if (val.tag != 0) {
+g[0].tag = val.tag;
+g[0].p = val.p;
+}
+else {
+g[0].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[2]) && IsInt(g[2])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[2].i];
+if (val.tag == 0) {
+g[0].tag = 0;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_0_2_3:
+{
+if (IsInt(g[0]) && IsPointer(g[2]) && IsInt(g[3])) {
+value val = ((object *)(g[2].p))->data[g[3].i];
+if (val.tag != 0) {
+g[0].tag = val.tag;
+g[0].p = val.p;
+}
+else {
+g[0].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[2]) && IsInt(g[3])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[3].i];
+if (val.tag == 0) {
+g[0].tag = 0;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_0_2_4:
+{
+if (IsInt(g[0]) && IsPointer(g[2]) && IsInt(g[4])) {
+value val = ((object *)(g[2].p))->data[g[4].i];
+if (val.tag != 0) {
+g[0].tag = val.tag;
+g[0].p = val.p;
+}
+else {
+g[0].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[2]) && IsInt(g[4])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[4].i];
+if (val.tag == 0) {
+g[0].tag = 0;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_0_2_5:
+{
+if (IsInt(g[0]) && IsPointer(g[2]) && IsInt(g[5])) {
+value val = ((object *)(g[2].p))->data[g[5].i];
+if (val.tag != 0) {
+g[0].tag = val.tag;
+g[0].p = val.p;
+}
+else {
+g[0].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[2]) && IsInt(g[5])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[5].i];
+if (val.tag == 0) {
+g[0].tag = 0;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_0_3_0:
+{
+if (IsInt(g[0]) && IsPointer(g[3]) && IsInt(g[0])) {
+value val = ((object *)(g[3].p))->data[g[0].i];
+if (val.tag != 0) {
+g[0].tag = val.tag;
+g[0].p = val.p;
+}
+else {
+g[0].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[3]) && IsInt(g[0])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[0].i];
+if (val.tag == 0) {
+g[0].tag = 0;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_0_3_1:
+{
+if (IsInt(g[0]) && IsPointer(g[3]) && IsInt(g[1])) {
+value val = ((object *)(g[3].p))->data[g[1].i];
+if (val.tag != 0) {
+g[0].tag = val.tag;
+g[0].p = val.p;
+}
+else {
+g[0].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[3]) && IsInt(g[1])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[1].i];
+if (val.tag == 0) {
+g[0].tag = 0;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_0_3_2:
+{
+if (IsInt(g[0]) && IsPointer(g[3]) && IsInt(g[2])) {
+value val = ((object *)(g[3].p))->data[g[2].i];
+if (val.tag != 0) {
+g[0].tag = val.tag;
+g[0].p = val.p;
+}
+else {
+g[0].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[3]) && IsInt(g[2])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[2].i];
+if (val.tag == 0) {
+g[0].tag = 0;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_0_3_3:
+{
+if (IsInt(g[0]) && IsPointer(g[3]) && IsInt(g[3])) {
+value val = ((object *)(g[3].p))->data[g[3].i];
+if (val.tag != 0) {
+g[0].tag = val.tag;
+g[0].p = val.p;
+}
+else {
+g[0].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[3]) && IsInt(g[3])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[3].i];
+if (val.tag == 0) {
+g[0].tag = 0;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_0_3_4:
+{
+if (IsInt(g[0]) && IsPointer(g[3]) && IsInt(g[4])) {
+value val = ((object *)(g[3].p))->data[g[4].i];
+if (val.tag != 0) {
+g[0].tag = val.tag;
+g[0].p = val.p;
+}
+else {
+g[0].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[3]) && IsInt(g[4])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[4].i];
+if (val.tag == 0) {
+g[0].tag = 0;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_0_3_5:
+{
+if (IsInt(g[0]) && IsPointer(g[3]) && IsInt(g[5])) {
+value val = ((object *)(g[3].p))->data[g[5].i];
+if (val.tag != 0) {
+g[0].tag = val.tag;
+g[0].p = val.p;
+}
+else {
+g[0].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[3]) && IsInt(g[5])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[5].i];
+if (val.tag == 0) {
+g[0].tag = 0;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_0_4_0:
+{
+if (IsInt(g[0]) && IsPointer(g[4]) && IsInt(g[0])) {
+value val = ((object *)(g[4].p))->data[g[0].i];
+if (val.tag != 0) {
+g[0].tag = val.tag;
+g[0].p = val.p;
+}
+else {
+g[0].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[4]) && IsInt(g[0])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[0].i];
+if (val.tag == 0) {
+g[0].tag = 0;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_0_4_1:
+{
+if (IsInt(g[0]) && IsPointer(g[4]) && IsInt(g[1])) {
+value val = ((object *)(g[4].p))->data[g[1].i];
+if (val.tag != 0) {
+g[0].tag = val.tag;
+g[0].p = val.p;
+}
+else {
+g[0].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[4]) && IsInt(g[1])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[1].i];
+if (val.tag == 0) {
+g[0].tag = 0;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_0_4_2:
+{
+if (IsInt(g[0]) && IsPointer(g[4]) && IsInt(g[2])) {
+value val = ((object *)(g[4].p))->data[g[2].i];
+if (val.tag != 0) {
+g[0].tag = val.tag;
+g[0].p = val.p;
+}
+else {
+g[0].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[4]) && IsInt(g[2])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[2].i];
+if (val.tag == 0) {
+g[0].tag = 0;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_0_4_3:
+{
+if (IsInt(g[0]) && IsPointer(g[4]) && IsInt(g[3])) {
+value val = ((object *)(g[4].p))->data[g[3].i];
+if (val.tag != 0) {
+g[0].tag = val.tag;
+g[0].p = val.p;
+}
+else {
+g[0].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[4]) && IsInt(g[3])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[3].i];
+if (val.tag == 0) {
+g[0].tag = 0;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_0_4_4:
+{
+if (IsInt(g[0]) && IsPointer(g[4]) && IsInt(g[4])) {
+value val = ((object *)(g[4].p))->data[g[4].i];
+if (val.tag != 0) {
+g[0].tag = val.tag;
+g[0].p = val.p;
+}
+else {
+g[0].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[4]) && IsInt(g[4])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[4].i];
+if (val.tag == 0) {
+g[0].tag = 0;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_0_4_5:
+{
+if (IsInt(g[0]) && IsPointer(g[4]) && IsInt(g[5])) {
+value val = ((object *)(g[4].p))->data[g[5].i];
+if (val.tag != 0) {
+g[0].tag = val.tag;
+g[0].p = val.p;
+}
+else {
+g[0].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[4]) && IsInt(g[5])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[5].i];
+if (val.tag == 0) {
+g[0].tag = 0;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_0_5_0:
+{
+if (IsInt(g[0]) && IsPointer(g[5]) && IsInt(g[0])) {
+value val = ((object *)(g[5].p))->data[g[0].i];
+if (val.tag != 0) {
+g[0].tag = val.tag;
+g[0].p = val.p;
+}
+else {
+g[0].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[5]) && IsInt(g[0])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[0].i];
+if (val.tag == 0) {
+g[0].tag = 0;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_0_5_1:
+{
+if (IsInt(g[0]) && IsPointer(g[5]) && IsInt(g[1])) {
+value val = ((object *)(g[5].p))->data[g[1].i];
+if (val.tag != 0) {
+g[0].tag = val.tag;
+g[0].p = val.p;
+}
+else {
+g[0].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[5]) && IsInt(g[1])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[1].i];
+if (val.tag == 0) {
+g[0].tag = 0;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_0_5_2:
+{
+if (IsInt(g[0]) && IsPointer(g[5]) && IsInt(g[2])) {
+value val = ((object *)(g[5].p))->data[g[2].i];
+if (val.tag != 0) {
+g[0].tag = val.tag;
+g[0].p = val.p;
+}
+else {
+g[0].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[5]) && IsInt(g[2])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[2].i];
+if (val.tag == 0) {
+g[0].tag = 0;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_0_5_3:
+{
+if (IsInt(g[0]) && IsPointer(g[5]) && IsInt(g[3])) {
+value val = ((object *)(g[5].p))->data[g[3].i];
+if (val.tag != 0) {
+g[0].tag = val.tag;
+g[0].p = val.p;
+}
+else {
+g[0].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[5]) && IsInt(g[3])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[3].i];
+if (val.tag == 0) {
+g[0].tag = 0;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_0_5_4:
+{
+if (IsInt(g[0]) && IsPointer(g[5]) && IsInt(g[4])) {
+value val = ((object *)(g[5].p))->data[g[4].i];
+if (val.tag != 0) {
+g[0].tag = val.tag;
+g[0].p = val.p;
+}
+else {
+g[0].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[5]) && IsInt(g[4])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[4].i];
+if (val.tag == 0) {
+g[0].tag = 0;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_0_5_5:
+{
+if (IsInt(g[0]) && IsPointer(g[5]) && IsInt(g[5])) {
+value val = ((object *)(g[5].p))->data[g[5].i];
+if (val.tag != 0) {
+g[0].tag = val.tag;
+g[0].p = val.p;
+}
+else {
+g[0].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[5]) && IsInt(g[5])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[5].i];
+if (val.tag == 0) {
+g[0].tag = 0;
+g[0].i = val.i;
+}
+g[0].tag = val.tag;
+g[0].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_1_0_0:
+{
+if (IsInt(g[1]) && IsPointer(g[0]) && IsInt(g[0])) {
+value val = ((object *)(g[0].p))->data[g[0].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
 g[1].p = val.p;
@@ -6838,31 +7761,30 @@ g[1].p = val.p;
 else {
 g[1].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[0])) {
+else if (IsPointer(g[1]) && IsPointer(g[0]) && IsInt(g[0])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[0].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[0].i];
 if (val.tag == 0) {
 g[1].tag = 0;
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
 g[1].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_1_1:
+geto_1_0_1:
 {
-if (IsInt(g[1]) && IsPointer(g[1])) {
-int16_t constant = program[pc + 1];
-value val = ((object *)(g[1].p))->data[constant];
+if (IsInt(g[1]) && IsPointer(g[0]) && IsInt(g[1])) {
+value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
 g[1].p = val.p;
@@ -6870,31 +7792,30 @@ g[1].p = val.p;
 else {
 g[1].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[1])) {
+else if (IsPointer(g[1]) && IsPointer(g[0]) && IsInt(g[1])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[1].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag == 0) {
 g[1].tag = 0;
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
 g[1].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_1_2:
+geto_1_0_2:
 {
-if (IsInt(g[1]) && IsPointer(g[2])) {
-int16_t constant = program[pc + 1];
-value val = ((object *)(g[2].p))->data[constant];
+if (IsInt(g[1]) && IsPointer(g[0]) && IsInt(g[2])) {
+value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
 g[1].p = val.p;
@@ -6902,31 +7823,30 @@ g[1].p = val.p;
 else {
 g[1].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[2])) {
+else if (IsPointer(g[1]) && IsPointer(g[0]) && IsInt(g[2])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[2].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag == 0) {
 g[1].tag = 0;
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
 g[1].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_1_3:
+geto_1_0_3:
 {
-if (IsInt(g[1]) && IsPointer(g[3])) {
-int16_t constant = program[pc + 1];
-value val = ((object *)(g[3].p))->data[constant];
+if (IsInt(g[1]) && IsPointer(g[0]) && IsInt(g[3])) {
+value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
 g[1].p = val.p;
@@ -6934,31 +7854,30 @@ g[1].p = val.p;
 else {
 g[1].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[3])) {
+else if (IsPointer(g[1]) && IsPointer(g[0]) && IsInt(g[3])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[3].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag == 0) {
 g[1].tag = 0;
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
 g[1].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_1_4:
+geto_1_0_4:
 {
-if (IsInt(g[1]) && IsPointer(g[4])) {
-int16_t constant = program[pc + 1];
-value val = ((object *)(g[4].p))->data[constant];
+if (IsInt(g[1]) && IsPointer(g[0]) && IsInt(g[4])) {
+value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
 g[1].p = val.p;
@@ -6966,31 +7885,30 @@ g[1].p = val.p;
 else {
 g[1].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[4])) {
+else if (IsPointer(g[1]) && IsPointer(g[0]) && IsInt(g[4])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[4].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag == 0) {
 g[1].tag = 0;
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
 g[1].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_1_5:
+geto_1_0_5:
 {
-if (IsInt(g[1]) && IsPointer(g[5])) {
-int16_t constant = program[pc + 1];
-value val = ((object *)(g[5].p))->data[constant];
+if (IsInt(g[1]) && IsPointer(g[0]) && IsInt(g[5])) {
+value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
 g[1].p = val.p;
@@ -6998,31 +7916,960 @@ g[1].p = val.p;
 else {
 g[1].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[5])) {
+else if (IsPointer(g[1]) && IsPointer(g[0]) && IsInt(g[5])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[5].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag == 0) {
 g[1].tag = 0;
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
 g[1].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_2_0:
+geto_1_1_0:
 {
-if (IsInt(g[2]) && IsPointer(g[0])) {
+if (IsInt(g[1]) && IsPointer(g[1]) && IsInt(g[0])) {
+value val = ((object *)(g[1].p))->data[g[0].i];
+if (val.tag != 0) {
+g[1].tag = val.tag;
+g[1].p = val.p;
+}
+else {
+g[1].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[1]) && IsInt(g[0])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[0].p))->data[constant];
+value val = ((object *)(g[1].p))->data[g[0].i];
+if (val.tag == 0) {
+g[1].tag = 0;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_1_1_1:
+{
+if (IsInt(g[1]) && IsPointer(g[1]) && IsInt(g[1])) {
+value val = ((object *)(g[1].p))->data[g[1].i];
+if (val.tag != 0) {
+g[1].tag = val.tag;
+g[1].p = val.p;
+}
+else {
+g[1].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[1]) && IsInt(g[1])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[g[1].i];
+if (val.tag == 0) {
+g[1].tag = 0;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_1_1_2:
+{
+if (IsInt(g[1]) && IsPointer(g[1]) && IsInt(g[2])) {
+value val = ((object *)(g[1].p))->data[g[2].i];
+if (val.tag != 0) {
+g[1].tag = val.tag;
+g[1].p = val.p;
+}
+else {
+g[1].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[1]) && IsInt(g[2])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[g[2].i];
+if (val.tag == 0) {
+g[1].tag = 0;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_1_1_3:
+{
+if (IsInt(g[1]) && IsPointer(g[1]) && IsInt(g[3])) {
+value val = ((object *)(g[1].p))->data[g[3].i];
+if (val.tag != 0) {
+g[1].tag = val.tag;
+g[1].p = val.p;
+}
+else {
+g[1].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[1]) && IsInt(g[3])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[g[3].i];
+if (val.tag == 0) {
+g[1].tag = 0;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_1_1_4:
+{
+if (IsInt(g[1]) && IsPointer(g[1]) && IsInt(g[4])) {
+value val = ((object *)(g[1].p))->data[g[4].i];
+if (val.tag != 0) {
+g[1].tag = val.tag;
+g[1].p = val.p;
+}
+else {
+g[1].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[1]) && IsInt(g[4])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[g[4].i];
+if (val.tag == 0) {
+g[1].tag = 0;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_1_1_5:
+{
+if (IsInt(g[1]) && IsPointer(g[1]) && IsInt(g[5])) {
+value val = ((object *)(g[1].p))->data[g[5].i];
+if (val.tag != 0) {
+g[1].tag = val.tag;
+g[1].p = val.p;
+}
+else {
+g[1].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[1]) && IsInt(g[5])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[g[5].i];
+if (val.tag == 0) {
+g[1].tag = 0;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_1_2_0:
+{
+if (IsInt(g[1]) && IsPointer(g[2]) && IsInt(g[0])) {
+value val = ((object *)(g[2].p))->data[g[0].i];
+if (val.tag != 0) {
+g[1].tag = val.tag;
+g[1].p = val.p;
+}
+else {
+g[1].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[2]) && IsInt(g[0])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[0].i];
+if (val.tag == 0) {
+g[1].tag = 0;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_1_2_1:
+{
+if (IsInt(g[1]) && IsPointer(g[2]) && IsInt(g[1])) {
+value val = ((object *)(g[2].p))->data[g[1].i];
+if (val.tag != 0) {
+g[1].tag = val.tag;
+g[1].p = val.p;
+}
+else {
+g[1].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[2]) && IsInt(g[1])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[1].i];
+if (val.tag == 0) {
+g[1].tag = 0;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_1_2_2:
+{
+if (IsInt(g[1]) && IsPointer(g[2]) && IsInt(g[2])) {
+value val = ((object *)(g[2].p))->data[g[2].i];
+if (val.tag != 0) {
+g[1].tag = val.tag;
+g[1].p = val.p;
+}
+else {
+g[1].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[2]) && IsInt(g[2])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[2].i];
+if (val.tag == 0) {
+g[1].tag = 0;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_1_2_3:
+{
+if (IsInt(g[1]) && IsPointer(g[2]) && IsInt(g[3])) {
+value val = ((object *)(g[2].p))->data[g[3].i];
+if (val.tag != 0) {
+g[1].tag = val.tag;
+g[1].p = val.p;
+}
+else {
+g[1].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[2]) && IsInt(g[3])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[3].i];
+if (val.tag == 0) {
+g[1].tag = 0;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_1_2_4:
+{
+if (IsInt(g[1]) && IsPointer(g[2]) && IsInt(g[4])) {
+value val = ((object *)(g[2].p))->data[g[4].i];
+if (val.tag != 0) {
+g[1].tag = val.tag;
+g[1].p = val.p;
+}
+else {
+g[1].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[2]) && IsInt(g[4])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[4].i];
+if (val.tag == 0) {
+g[1].tag = 0;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_1_2_5:
+{
+if (IsInt(g[1]) && IsPointer(g[2]) && IsInt(g[5])) {
+value val = ((object *)(g[2].p))->data[g[5].i];
+if (val.tag != 0) {
+g[1].tag = val.tag;
+g[1].p = val.p;
+}
+else {
+g[1].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[2]) && IsInt(g[5])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[5].i];
+if (val.tag == 0) {
+g[1].tag = 0;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_1_3_0:
+{
+if (IsInt(g[1]) && IsPointer(g[3]) && IsInt(g[0])) {
+value val = ((object *)(g[3].p))->data[g[0].i];
+if (val.tag != 0) {
+g[1].tag = val.tag;
+g[1].p = val.p;
+}
+else {
+g[1].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[3]) && IsInt(g[0])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[0].i];
+if (val.tag == 0) {
+g[1].tag = 0;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_1_3_1:
+{
+if (IsInt(g[1]) && IsPointer(g[3]) && IsInt(g[1])) {
+value val = ((object *)(g[3].p))->data[g[1].i];
+if (val.tag != 0) {
+g[1].tag = val.tag;
+g[1].p = val.p;
+}
+else {
+g[1].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[3]) && IsInt(g[1])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[1].i];
+if (val.tag == 0) {
+g[1].tag = 0;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_1_3_2:
+{
+if (IsInt(g[1]) && IsPointer(g[3]) && IsInt(g[2])) {
+value val = ((object *)(g[3].p))->data[g[2].i];
+if (val.tag != 0) {
+g[1].tag = val.tag;
+g[1].p = val.p;
+}
+else {
+g[1].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[3]) && IsInt(g[2])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[2].i];
+if (val.tag == 0) {
+g[1].tag = 0;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_1_3_3:
+{
+if (IsInt(g[1]) && IsPointer(g[3]) && IsInt(g[3])) {
+value val = ((object *)(g[3].p))->data[g[3].i];
+if (val.tag != 0) {
+g[1].tag = val.tag;
+g[1].p = val.p;
+}
+else {
+g[1].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[3]) && IsInt(g[3])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[3].i];
+if (val.tag == 0) {
+g[1].tag = 0;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_1_3_4:
+{
+if (IsInt(g[1]) && IsPointer(g[3]) && IsInt(g[4])) {
+value val = ((object *)(g[3].p))->data[g[4].i];
+if (val.tag != 0) {
+g[1].tag = val.tag;
+g[1].p = val.p;
+}
+else {
+g[1].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[3]) && IsInt(g[4])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[4].i];
+if (val.tag == 0) {
+g[1].tag = 0;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_1_3_5:
+{
+if (IsInt(g[1]) && IsPointer(g[3]) && IsInt(g[5])) {
+value val = ((object *)(g[3].p))->data[g[5].i];
+if (val.tag != 0) {
+g[1].tag = val.tag;
+g[1].p = val.p;
+}
+else {
+g[1].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[3]) && IsInt(g[5])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[5].i];
+if (val.tag == 0) {
+g[1].tag = 0;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_1_4_0:
+{
+if (IsInt(g[1]) && IsPointer(g[4]) && IsInt(g[0])) {
+value val = ((object *)(g[4].p))->data[g[0].i];
+if (val.tag != 0) {
+g[1].tag = val.tag;
+g[1].p = val.p;
+}
+else {
+g[1].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[4]) && IsInt(g[0])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[0].i];
+if (val.tag == 0) {
+g[1].tag = 0;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_1_4_1:
+{
+if (IsInt(g[1]) && IsPointer(g[4]) && IsInt(g[1])) {
+value val = ((object *)(g[4].p))->data[g[1].i];
+if (val.tag != 0) {
+g[1].tag = val.tag;
+g[1].p = val.p;
+}
+else {
+g[1].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[4]) && IsInt(g[1])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[1].i];
+if (val.tag == 0) {
+g[1].tag = 0;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_1_4_2:
+{
+if (IsInt(g[1]) && IsPointer(g[4]) && IsInt(g[2])) {
+value val = ((object *)(g[4].p))->data[g[2].i];
+if (val.tag != 0) {
+g[1].tag = val.tag;
+g[1].p = val.p;
+}
+else {
+g[1].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[4]) && IsInt(g[2])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[2].i];
+if (val.tag == 0) {
+g[1].tag = 0;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_1_4_3:
+{
+if (IsInt(g[1]) && IsPointer(g[4]) && IsInt(g[3])) {
+value val = ((object *)(g[4].p))->data[g[3].i];
+if (val.tag != 0) {
+g[1].tag = val.tag;
+g[1].p = val.p;
+}
+else {
+g[1].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[4]) && IsInt(g[3])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[3].i];
+if (val.tag == 0) {
+g[1].tag = 0;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_1_4_4:
+{
+if (IsInt(g[1]) && IsPointer(g[4]) && IsInt(g[4])) {
+value val = ((object *)(g[4].p))->data[g[4].i];
+if (val.tag != 0) {
+g[1].tag = val.tag;
+g[1].p = val.p;
+}
+else {
+g[1].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[4]) && IsInt(g[4])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[4].i];
+if (val.tag == 0) {
+g[1].tag = 0;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_1_4_5:
+{
+if (IsInt(g[1]) && IsPointer(g[4]) && IsInt(g[5])) {
+value val = ((object *)(g[4].p))->data[g[5].i];
+if (val.tag != 0) {
+g[1].tag = val.tag;
+g[1].p = val.p;
+}
+else {
+g[1].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[4]) && IsInt(g[5])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[5].i];
+if (val.tag == 0) {
+g[1].tag = 0;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_1_5_0:
+{
+if (IsInt(g[1]) && IsPointer(g[5]) && IsInt(g[0])) {
+value val = ((object *)(g[5].p))->data[g[0].i];
+if (val.tag != 0) {
+g[1].tag = val.tag;
+g[1].p = val.p;
+}
+else {
+g[1].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[5]) && IsInt(g[0])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[0].i];
+if (val.tag == 0) {
+g[1].tag = 0;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_1_5_1:
+{
+if (IsInt(g[1]) && IsPointer(g[5]) && IsInt(g[1])) {
+value val = ((object *)(g[5].p))->data[g[1].i];
+if (val.tag != 0) {
+g[1].tag = val.tag;
+g[1].p = val.p;
+}
+else {
+g[1].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[5]) && IsInt(g[1])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[1].i];
+if (val.tag == 0) {
+g[1].tag = 0;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_1_5_2:
+{
+if (IsInt(g[1]) && IsPointer(g[5]) && IsInt(g[2])) {
+value val = ((object *)(g[5].p))->data[g[2].i];
+if (val.tag != 0) {
+g[1].tag = val.tag;
+g[1].p = val.p;
+}
+else {
+g[1].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[5]) && IsInt(g[2])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[2].i];
+if (val.tag == 0) {
+g[1].tag = 0;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_1_5_3:
+{
+if (IsInt(g[1]) && IsPointer(g[5]) && IsInt(g[3])) {
+value val = ((object *)(g[5].p))->data[g[3].i];
+if (val.tag != 0) {
+g[1].tag = val.tag;
+g[1].p = val.p;
+}
+else {
+g[1].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[5]) && IsInt(g[3])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[3].i];
+if (val.tag == 0) {
+g[1].tag = 0;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_1_5_4:
+{
+if (IsInt(g[1]) && IsPointer(g[5]) && IsInt(g[4])) {
+value val = ((object *)(g[5].p))->data[g[4].i];
+if (val.tag != 0) {
+g[1].tag = val.tag;
+g[1].p = val.p;
+}
+else {
+g[1].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[5]) && IsInt(g[4])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[4].i];
+if (val.tag == 0) {
+g[1].tag = 0;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_1_5_5:
+{
+if (IsInt(g[1]) && IsPointer(g[5]) && IsInt(g[5])) {
+value val = ((object *)(g[5].p))->data[g[5].i];
+if (val.tag != 0) {
+g[1].tag = val.tag;
+g[1].p = val.p;
+}
+else {
+g[1].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[5]) && IsInt(g[5])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[5].i];
+if (val.tag == 0) {
+g[1].tag = 0;
+g[1].i = val.i;
+}
+g[1].tag = val.tag;
+g[1].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_2_0_0:
+{
+if (IsInt(g[2]) && IsPointer(g[0]) && IsInt(g[0])) {
+value val = ((object *)(g[0].p))->data[g[0].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
 g[2].p = val.p;
@@ -7030,31 +8877,30 @@ g[2].p = val.p;
 else {
 g[2].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[0])) {
+else if (IsPointer(g[2]) && IsPointer(g[0]) && IsInt(g[0])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[0].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[0].i];
 if (val.tag == 0) {
 g[2].tag = 0;
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
 g[2].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_2_1:
+geto_2_0_1:
 {
-if (IsInt(g[2]) && IsPointer(g[1])) {
-int16_t constant = program[pc + 1];
-value val = ((object *)(g[1].p))->data[constant];
+if (IsInt(g[2]) && IsPointer(g[0]) && IsInt(g[1])) {
+value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
 g[2].p = val.p;
@@ -7062,31 +8908,30 @@ g[2].p = val.p;
 else {
 g[2].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[1])) {
+else if (IsPointer(g[2]) && IsPointer(g[0]) && IsInt(g[1])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[1].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag == 0) {
 g[2].tag = 0;
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
 g[2].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_2_2:
+geto_2_0_2:
 {
-if (IsInt(g[2]) && IsPointer(g[2])) {
-int16_t constant = program[pc + 1];
-value val = ((object *)(g[2].p))->data[constant];
+if (IsInt(g[2]) && IsPointer(g[0]) && IsInt(g[2])) {
+value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
 g[2].p = val.p;
@@ -7094,31 +8939,30 @@ g[2].p = val.p;
 else {
 g[2].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[2])) {
+else if (IsPointer(g[2]) && IsPointer(g[0]) && IsInt(g[2])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[2].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag == 0) {
 g[2].tag = 0;
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
 g[2].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_2_3:
+geto_2_0_3:
 {
-if (IsInt(g[2]) && IsPointer(g[3])) {
-int16_t constant = program[pc + 1];
-value val = ((object *)(g[3].p))->data[constant];
+if (IsInt(g[2]) && IsPointer(g[0]) && IsInt(g[3])) {
+value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
 g[2].p = val.p;
@@ -7126,31 +8970,30 @@ g[2].p = val.p;
 else {
 g[2].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[3])) {
+else if (IsPointer(g[2]) && IsPointer(g[0]) && IsInt(g[3])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[3].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag == 0) {
 g[2].tag = 0;
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
 g[2].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_2_4:
+geto_2_0_4:
 {
-if (IsInt(g[2]) && IsPointer(g[4])) {
-int16_t constant = program[pc + 1];
-value val = ((object *)(g[4].p))->data[constant];
+if (IsInt(g[2]) && IsPointer(g[0]) && IsInt(g[4])) {
+value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
 g[2].p = val.p;
@@ -7158,31 +9001,30 @@ g[2].p = val.p;
 else {
 g[2].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[4])) {
+else if (IsPointer(g[2]) && IsPointer(g[0]) && IsInt(g[4])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[4].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag == 0) {
 g[2].tag = 0;
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
 g[2].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_2_5:
+geto_2_0_5:
 {
-if (IsInt(g[2]) && IsPointer(g[5])) {
-int16_t constant = program[pc + 1];
-value val = ((object *)(g[5].p))->data[constant];
+if (IsInt(g[2]) && IsPointer(g[0]) && IsInt(g[5])) {
+value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
 g[2].p = val.p;
@@ -7190,31 +9032,960 @@ g[2].p = val.p;
 else {
 g[2].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[5])) {
+else if (IsPointer(g[2]) && IsPointer(g[0]) && IsInt(g[5])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[5].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag == 0) {
 g[2].tag = 0;
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
 g[2].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_3_0:
+geto_2_1_0:
 {
-if (IsInt(g[3]) && IsPointer(g[0])) {
+if (IsInt(g[2]) && IsPointer(g[1]) && IsInt(g[0])) {
+value val = ((object *)(g[1].p))->data[g[0].i];
+if (val.tag != 0) {
+g[2].tag = val.tag;
+g[2].p = val.p;
+}
+else {
+g[2].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[1]) && IsInt(g[0])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[0].p))->data[constant];
+value val = ((object *)(g[1].p))->data[g[0].i];
+if (val.tag == 0) {
+g[2].tag = 0;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_2_1_1:
+{
+if (IsInt(g[2]) && IsPointer(g[1]) && IsInt(g[1])) {
+value val = ((object *)(g[1].p))->data[g[1].i];
+if (val.tag != 0) {
+g[2].tag = val.tag;
+g[2].p = val.p;
+}
+else {
+g[2].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[1]) && IsInt(g[1])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[g[1].i];
+if (val.tag == 0) {
+g[2].tag = 0;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_2_1_2:
+{
+if (IsInt(g[2]) && IsPointer(g[1]) && IsInt(g[2])) {
+value val = ((object *)(g[1].p))->data[g[2].i];
+if (val.tag != 0) {
+g[2].tag = val.tag;
+g[2].p = val.p;
+}
+else {
+g[2].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[1]) && IsInt(g[2])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[g[2].i];
+if (val.tag == 0) {
+g[2].tag = 0;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_2_1_3:
+{
+if (IsInt(g[2]) && IsPointer(g[1]) && IsInt(g[3])) {
+value val = ((object *)(g[1].p))->data[g[3].i];
+if (val.tag != 0) {
+g[2].tag = val.tag;
+g[2].p = val.p;
+}
+else {
+g[2].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[1]) && IsInt(g[3])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[g[3].i];
+if (val.tag == 0) {
+g[2].tag = 0;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_2_1_4:
+{
+if (IsInt(g[2]) && IsPointer(g[1]) && IsInt(g[4])) {
+value val = ((object *)(g[1].p))->data[g[4].i];
+if (val.tag != 0) {
+g[2].tag = val.tag;
+g[2].p = val.p;
+}
+else {
+g[2].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[1]) && IsInt(g[4])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[g[4].i];
+if (val.tag == 0) {
+g[2].tag = 0;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_2_1_5:
+{
+if (IsInt(g[2]) && IsPointer(g[1]) && IsInt(g[5])) {
+value val = ((object *)(g[1].p))->data[g[5].i];
+if (val.tag != 0) {
+g[2].tag = val.tag;
+g[2].p = val.p;
+}
+else {
+g[2].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[1]) && IsInt(g[5])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[g[5].i];
+if (val.tag == 0) {
+g[2].tag = 0;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_2_2_0:
+{
+if (IsInt(g[2]) && IsPointer(g[2]) && IsInt(g[0])) {
+value val = ((object *)(g[2].p))->data[g[0].i];
+if (val.tag != 0) {
+g[2].tag = val.tag;
+g[2].p = val.p;
+}
+else {
+g[2].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[2]) && IsInt(g[0])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[0].i];
+if (val.tag == 0) {
+g[2].tag = 0;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_2_2_1:
+{
+if (IsInt(g[2]) && IsPointer(g[2]) && IsInt(g[1])) {
+value val = ((object *)(g[2].p))->data[g[1].i];
+if (val.tag != 0) {
+g[2].tag = val.tag;
+g[2].p = val.p;
+}
+else {
+g[2].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[2]) && IsInt(g[1])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[1].i];
+if (val.tag == 0) {
+g[2].tag = 0;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_2_2_2:
+{
+if (IsInt(g[2]) && IsPointer(g[2]) && IsInt(g[2])) {
+value val = ((object *)(g[2].p))->data[g[2].i];
+if (val.tag != 0) {
+g[2].tag = val.tag;
+g[2].p = val.p;
+}
+else {
+g[2].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[2]) && IsInt(g[2])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[2].i];
+if (val.tag == 0) {
+g[2].tag = 0;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_2_2_3:
+{
+if (IsInt(g[2]) && IsPointer(g[2]) && IsInt(g[3])) {
+value val = ((object *)(g[2].p))->data[g[3].i];
+if (val.tag != 0) {
+g[2].tag = val.tag;
+g[2].p = val.p;
+}
+else {
+g[2].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[2]) && IsInt(g[3])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[3].i];
+if (val.tag == 0) {
+g[2].tag = 0;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_2_2_4:
+{
+if (IsInt(g[2]) && IsPointer(g[2]) && IsInt(g[4])) {
+value val = ((object *)(g[2].p))->data[g[4].i];
+if (val.tag != 0) {
+g[2].tag = val.tag;
+g[2].p = val.p;
+}
+else {
+g[2].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[2]) && IsInt(g[4])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[4].i];
+if (val.tag == 0) {
+g[2].tag = 0;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_2_2_5:
+{
+if (IsInt(g[2]) && IsPointer(g[2]) && IsInt(g[5])) {
+value val = ((object *)(g[2].p))->data[g[5].i];
+if (val.tag != 0) {
+g[2].tag = val.tag;
+g[2].p = val.p;
+}
+else {
+g[2].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[2]) && IsInt(g[5])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[5].i];
+if (val.tag == 0) {
+g[2].tag = 0;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_2_3_0:
+{
+if (IsInt(g[2]) && IsPointer(g[3]) && IsInt(g[0])) {
+value val = ((object *)(g[3].p))->data[g[0].i];
+if (val.tag != 0) {
+g[2].tag = val.tag;
+g[2].p = val.p;
+}
+else {
+g[2].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[3]) && IsInt(g[0])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[0].i];
+if (val.tag == 0) {
+g[2].tag = 0;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_2_3_1:
+{
+if (IsInt(g[2]) && IsPointer(g[3]) && IsInt(g[1])) {
+value val = ((object *)(g[3].p))->data[g[1].i];
+if (val.tag != 0) {
+g[2].tag = val.tag;
+g[2].p = val.p;
+}
+else {
+g[2].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[3]) && IsInt(g[1])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[1].i];
+if (val.tag == 0) {
+g[2].tag = 0;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_2_3_2:
+{
+if (IsInt(g[2]) && IsPointer(g[3]) && IsInt(g[2])) {
+value val = ((object *)(g[3].p))->data[g[2].i];
+if (val.tag != 0) {
+g[2].tag = val.tag;
+g[2].p = val.p;
+}
+else {
+g[2].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[3]) && IsInt(g[2])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[2].i];
+if (val.tag == 0) {
+g[2].tag = 0;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_2_3_3:
+{
+if (IsInt(g[2]) && IsPointer(g[3]) && IsInt(g[3])) {
+value val = ((object *)(g[3].p))->data[g[3].i];
+if (val.tag != 0) {
+g[2].tag = val.tag;
+g[2].p = val.p;
+}
+else {
+g[2].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[3]) && IsInt(g[3])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[3].i];
+if (val.tag == 0) {
+g[2].tag = 0;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_2_3_4:
+{
+if (IsInt(g[2]) && IsPointer(g[3]) && IsInt(g[4])) {
+value val = ((object *)(g[3].p))->data[g[4].i];
+if (val.tag != 0) {
+g[2].tag = val.tag;
+g[2].p = val.p;
+}
+else {
+g[2].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[3]) && IsInt(g[4])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[4].i];
+if (val.tag == 0) {
+g[2].tag = 0;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_2_3_5:
+{
+if (IsInt(g[2]) && IsPointer(g[3]) && IsInt(g[5])) {
+value val = ((object *)(g[3].p))->data[g[5].i];
+if (val.tag != 0) {
+g[2].tag = val.tag;
+g[2].p = val.p;
+}
+else {
+g[2].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[3]) && IsInt(g[5])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[5].i];
+if (val.tag == 0) {
+g[2].tag = 0;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_2_4_0:
+{
+if (IsInt(g[2]) && IsPointer(g[4]) && IsInt(g[0])) {
+value val = ((object *)(g[4].p))->data[g[0].i];
+if (val.tag != 0) {
+g[2].tag = val.tag;
+g[2].p = val.p;
+}
+else {
+g[2].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[4]) && IsInt(g[0])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[0].i];
+if (val.tag == 0) {
+g[2].tag = 0;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_2_4_1:
+{
+if (IsInt(g[2]) && IsPointer(g[4]) && IsInt(g[1])) {
+value val = ((object *)(g[4].p))->data[g[1].i];
+if (val.tag != 0) {
+g[2].tag = val.tag;
+g[2].p = val.p;
+}
+else {
+g[2].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[4]) && IsInt(g[1])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[1].i];
+if (val.tag == 0) {
+g[2].tag = 0;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_2_4_2:
+{
+if (IsInt(g[2]) && IsPointer(g[4]) && IsInt(g[2])) {
+value val = ((object *)(g[4].p))->data[g[2].i];
+if (val.tag != 0) {
+g[2].tag = val.tag;
+g[2].p = val.p;
+}
+else {
+g[2].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[4]) && IsInt(g[2])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[2].i];
+if (val.tag == 0) {
+g[2].tag = 0;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_2_4_3:
+{
+if (IsInt(g[2]) && IsPointer(g[4]) && IsInt(g[3])) {
+value val = ((object *)(g[4].p))->data[g[3].i];
+if (val.tag != 0) {
+g[2].tag = val.tag;
+g[2].p = val.p;
+}
+else {
+g[2].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[4]) && IsInt(g[3])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[3].i];
+if (val.tag == 0) {
+g[2].tag = 0;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_2_4_4:
+{
+if (IsInt(g[2]) && IsPointer(g[4]) && IsInt(g[4])) {
+value val = ((object *)(g[4].p))->data[g[4].i];
+if (val.tag != 0) {
+g[2].tag = val.tag;
+g[2].p = val.p;
+}
+else {
+g[2].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[4]) && IsInt(g[4])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[4].i];
+if (val.tag == 0) {
+g[2].tag = 0;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_2_4_5:
+{
+if (IsInt(g[2]) && IsPointer(g[4]) && IsInt(g[5])) {
+value val = ((object *)(g[4].p))->data[g[5].i];
+if (val.tag != 0) {
+g[2].tag = val.tag;
+g[2].p = val.p;
+}
+else {
+g[2].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[4]) && IsInt(g[5])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[5].i];
+if (val.tag == 0) {
+g[2].tag = 0;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_2_5_0:
+{
+if (IsInt(g[2]) && IsPointer(g[5]) && IsInt(g[0])) {
+value val = ((object *)(g[5].p))->data[g[0].i];
+if (val.tag != 0) {
+g[2].tag = val.tag;
+g[2].p = val.p;
+}
+else {
+g[2].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[5]) && IsInt(g[0])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[0].i];
+if (val.tag == 0) {
+g[2].tag = 0;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_2_5_1:
+{
+if (IsInt(g[2]) && IsPointer(g[5]) && IsInt(g[1])) {
+value val = ((object *)(g[5].p))->data[g[1].i];
+if (val.tag != 0) {
+g[2].tag = val.tag;
+g[2].p = val.p;
+}
+else {
+g[2].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[5]) && IsInt(g[1])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[1].i];
+if (val.tag == 0) {
+g[2].tag = 0;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_2_5_2:
+{
+if (IsInt(g[2]) && IsPointer(g[5]) && IsInt(g[2])) {
+value val = ((object *)(g[5].p))->data[g[2].i];
+if (val.tag != 0) {
+g[2].tag = val.tag;
+g[2].p = val.p;
+}
+else {
+g[2].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[5]) && IsInt(g[2])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[2].i];
+if (val.tag == 0) {
+g[2].tag = 0;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_2_5_3:
+{
+if (IsInt(g[2]) && IsPointer(g[5]) && IsInt(g[3])) {
+value val = ((object *)(g[5].p))->data[g[3].i];
+if (val.tag != 0) {
+g[2].tag = val.tag;
+g[2].p = val.p;
+}
+else {
+g[2].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[5]) && IsInt(g[3])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[3].i];
+if (val.tag == 0) {
+g[2].tag = 0;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_2_5_4:
+{
+if (IsInt(g[2]) && IsPointer(g[5]) && IsInt(g[4])) {
+value val = ((object *)(g[5].p))->data[g[4].i];
+if (val.tag != 0) {
+g[2].tag = val.tag;
+g[2].p = val.p;
+}
+else {
+g[2].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[5]) && IsInt(g[4])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[4].i];
+if (val.tag == 0) {
+g[2].tag = 0;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_2_5_5:
+{
+if (IsInt(g[2]) && IsPointer(g[5]) && IsInt(g[5])) {
+value val = ((object *)(g[5].p))->data[g[5].i];
+if (val.tag != 0) {
+g[2].tag = val.tag;
+g[2].p = val.p;
+}
+else {
+g[2].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[5]) && IsInt(g[5])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[5].i];
+if (val.tag == 0) {
+g[2].tag = 0;
+g[2].i = val.i;
+}
+g[2].tag = val.tag;
+g[2].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_3_0_0:
+{
+if (IsInt(g[3]) && IsPointer(g[0]) && IsInt(g[0])) {
+value val = ((object *)(g[0].p))->data[g[0].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
 g[3].p = val.p;
@@ -7222,31 +9993,30 @@ g[3].p = val.p;
 else {
 g[3].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[0])) {
+else if (IsPointer(g[3]) && IsPointer(g[0]) && IsInt(g[0])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[0].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[0].i];
 if (val.tag == 0) {
 g[3].tag = 0;
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
 g[3].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_3_1:
+geto_3_0_1:
 {
-if (IsInt(g[3]) && IsPointer(g[1])) {
-int16_t constant = program[pc + 1];
-value val = ((object *)(g[1].p))->data[constant];
+if (IsInt(g[3]) && IsPointer(g[0]) && IsInt(g[1])) {
+value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
 g[3].p = val.p;
@@ -7254,31 +10024,30 @@ g[3].p = val.p;
 else {
 g[3].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[1])) {
+else if (IsPointer(g[3]) && IsPointer(g[0]) && IsInt(g[1])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[1].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag == 0) {
 g[3].tag = 0;
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
 g[3].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_3_2:
+geto_3_0_2:
 {
-if (IsInt(g[3]) && IsPointer(g[2])) {
-int16_t constant = program[pc + 1];
-value val = ((object *)(g[2].p))->data[constant];
+if (IsInt(g[3]) && IsPointer(g[0]) && IsInt(g[2])) {
+value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
 g[3].p = val.p;
@@ -7286,31 +10055,30 @@ g[3].p = val.p;
 else {
 g[3].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[2])) {
+else if (IsPointer(g[3]) && IsPointer(g[0]) && IsInt(g[2])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[2].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag == 0) {
 g[3].tag = 0;
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
 g[3].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_3_3:
+geto_3_0_3:
 {
-if (IsInt(g[3]) && IsPointer(g[3])) {
-int16_t constant = program[pc + 1];
-value val = ((object *)(g[3].p))->data[constant];
+if (IsInt(g[3]) && IsPointer(g[0]) && IsInt(g[3])) {
+value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
 g[3].p = val.p;
@@ -7318,31 +10086,30 @@ g[3].p = val.p;
 else {
 g[3].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[3])) {
+else if (IsPointer(g[3]) && IsPointer(g[0]) && IsInt(g[3])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[3].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag == 0) {
 g[3].tag = 0;
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
 g[3].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_3_4:
+geto_3_0_4:
 {
-if (IsInt(g[3]) && IsPointer(g[4])) {
-int16_t constant = program[pc + 1];
-value val = ((object *)(g[4].p))->data[constant];
+if (IsInt(g[3]) && IsPointer(g[0]) && IsInt(g[4])) {
+value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
 g[3].p = val.p;
@@ -7350,31 +10117,30 @@ g[3].p = val.p;
 else {
 g[3].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[4])) {
+else if (IsPointer(g[3]) && IsPointer(g[0]) && IsInt(g[4])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[4].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag == 0) {
 g[3].tag = 0;
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
 g[3].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_3_5:
+geto_3_0_5:
 {
-if (IsInt(g[3]) && IsPointer(g[5])) {
-int16_t constant = program[pc + 1];
-value val = ((object *)(g[5].p))->data[constant];
+if (IsInt(g[3]) && IsPointer(g[0]) && IsInt(g[5])) {
+value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
 g[3].p = val.p;
@@ -7382,31 +10148,960 @@ g[3].p = val.p;
 else {
 g[3].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[5])) {
+else if (IsPointer(g[3]) && IsPointer(g[0]) && IsInt(g[5])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[5].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag == 0) {
 g[3].tag = 0;
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
 g[3].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_4_0:
+geto_3_1_0:
 {
-if (IsInt(g[4]) && IsPointer(g[0])) {
+if (IsInt(g[3]) && IsPointer(g[1]) && IsInt(g[0])) {
+value val = ((object *)(g[1].p))->data[g[0].i];
+if (val.tag != 0) {
+g[3].tag = val.tag;
+g[3].p = val.p;
+}
+else {
+g[3].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[1]) && IsInt(g[0])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[0].p))->data[constant];
+value val = ((object *)(g[1].p))->data[g[0].i];
+if (val.tag == 0) {
+g[3].tag = 0;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_3_1_1:
+{
+if (IsInt(g[3]) && IsPointer(g[1]) && IsInt(g[1])) {
+value val = ((object *)(g[1].p))->data[g[1].i];
+if (val.tag != 0) {
+g[3].tag = val.tag;
+g[3].p = val.p;
+}
+else {
+g[3].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[1]) && IsInt(g[1])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[g[1].i];
+if (val.tag == 0) {
+g[3].tag = 0;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_3_1_2:
+{
+if (IsInt(g[3]) && IsPointer(g[1]) && IsInt(g[2])) {
+value val = ((object *)(g[1].p))->data[g[2].i];
+if (val.tag != 0) {
+g[3].tag = val.tag;
+g[3].p = val.p;
+}
+else {
+g[3].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[1]) && IsInt(g[2])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[g[2].i];
+if (val.tag == 0) {
+g[3].tag = 0;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_3_1_3:
+{
+if (IsInt(g[3]) && IsPointer(g[1]) && IsInt(g[3])) {
+value val = ((object *)(g[1].p))->data[g[3].i];
+if (val.tag != 0) {
+g[3].tag = val.tag;
+g[3].p = val.p;
+}
+else {
+g[3].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[1]) && IsInt(g[3])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[g[3].i];
+if (val.tag == 0) {
+g[3].tag = 0;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_3_1_4:
+{
+if (IsInt(g[3]) && IsPointer(g[1]) && IsInt(g[4])) {
+value val = ((object *)(g[1].p))->data[g[4].i];
+if (val.tag != 0) {
+g[3].tag = val.tag;
+g[3].p = val.p;
+}
+else {
+g[3].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[1]) && IsInt(g[4])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[g[4].i];
+if (val.tag == 0) {
+g[3].tag = 0;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_3_1_5:
+{
+if (IsInt(g[3]) && IsPointer(g[1]) && IsInt(g[5])) {
+value val = ((object *)(g[1].p))->data[g[5].i];
+if (val.tag != 0) {
+g[3].tag = val.tag;
+g[3].p = val.p;
+}
+else {
+g[3].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[1]) && IsInt(g[5])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[g[5].i];
+if (val.tag == 0) {
+g[3].tag = 0;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_3_2_0:
+{
+if (IsInt(g[3]) && IsPointer(g[2]) && IsInt(g[0])) {
+value val = ((object *)(g[2].p))->data[g[0].i];
+if (val.tag != 0) {
+g[3].tag = val.tag;
+g[3].p = val.p;
+}
+else {
+g[3].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[2]) && IsInt(g[0])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[0].i];
+if (val.tag == 0) {
+g[3].tag = 0;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_3_2_1:
+{
+if (IsInt(g[3]) && IsPointer(g[2]) && IsInt(g[1])) {
+value val = ((object *)(g[2].p))->data[g[1].i];
+if (val.tag != 0) {
+g[3].tag = val.tag;
+g[3].p = val.p;
+}
+else {
+g[3].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[2]) && IsInt(g[1])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[1].i];
+if (val.tag == 0) {
+g[3].tag = 0;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_3_2_2:
+{
+if (IsInt(g[3]) && IsPointer(g[2]) && IsInt(g[2])) {
+value val = ((object *)(g[2].p))->data[g[2].i];
+if (val.tag != 0) {
+g[3].tag = val.tag;
+g[3].p = val.p;
+}
+else {
+g[3].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[2]) && IsInt(g[2])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[2].i];
+if (val.tag == 0) {
+g[3].tag = 0;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_3_2_3:
+{
+if (IsInt(g[3]) && IsPointer(g[2]) && IsInt(g[3])) {
+value val = ((object *)(g[2].p))->data[g[3].i];
+if (val.tag != 0) {
+g[3].tag = val.tag;
+g[3].p = val.p;
+}
+else {
+g[3].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[2]) && IsInt(g[3])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[3].i];
+if (val.tag == 0) {
+g[3].tag = 0;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_3_2_4:
+{
+if (IsInt(g[3]) && IsPointer(g[2]) && IsInt(g[4])) {
+value val = ((object *)(g[2].p))->data[g[4].i];
+if (val.tag != 0) {
+g[3].tag = val.tag;
+g[3].p = val.p;
+}
+else {
+g[3].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[2]) && IsInt(g[4])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[4].i];
+if (val.tag == 0) {
+g[3].tag = 0;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_3_2_5:
+{
+if (IsInt(g[3]) && IsPointer(g[2]) && IsInt(g[5])) {
+value val = ((object *)(g[2].p))->data[g[5].i];
+if (val.tag != 0) {
+g[3].tag = val.tag;
+g[3].p = val.p;
+}
+else {
+g[3].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[2]) && IsInt(g[5])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[5].i];
+if (val.tag == 0) {
+g[3].tag = 0;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_3_3_0:
+{
+if (IsInt(g[3]) && IsPointer(g[3]) && IsInt(g[0])) {
+value val = ((object *)(g[3].p))->data[g[0].i];
+if (val.tag != 0) {
+g[3].tag = val.tag;
+g[3].p = val.p;
+}
+else {
+g[3].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[3]) && IsInt(g[0])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[0].i];
+if (val.tag == 0) {
+g[3].tag = 0;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_3_3_1:
+{
+if (IsInt(g[3]) && IsPointer(g[3]) && IsInt(g[1])) {
+value val = ((object *)(g[3].p))->data[g[1].i];
+if (val.tag != 0) {
+g[3].tag = val.tag;
+g[3].p = val.p;
+}
+else {
+g[3].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[3]) && IsInt(g[1])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[1].i];
+if (val.tag == 0) {
+g[3].tag = 0;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_3_3_2:
+{
+if (IsInt(g[3]) && IsPointer(g[3]) && IsInt(g[2])) {
+value val = ((object *)(g[3].p))->data[g[2].i];
+if (val.tag != 0) {
+g[3].tag = val.tag;
+g[3].p = val.p;
+}
+else {
+g[3].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[3]) && IsInt(g[2])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[2].i];
+if (val.tag == 0) {
+g[3].tag = 0;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_3_3_3:
+{
+if (IsInt(g[3]) && IsPointer(g[3]) && IsInt(g[3])) {
+value val = ((object *)(g[3].p))->data[g[3].i];
+if (val.tag != 0) {
+g[3].tag = val.tag;
+g[3].p = val.p;
+}
+else {
+g[3].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[3]) && IsInt(g[3])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[3].i];
+if (val.tag == 0) {
+g[3].tag = 0;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_3_3_4:
+{
+if (IsInt(g[3]) && IsPointer(g[3]) && IsInt(g[4])) {
+value val = ((object *)(g[3].p))->data[g[4].i];
+if (val.tag != 0) {
+g[3].tag = val.tag;
+g[3].p = val.p;
+}
+else {
+g[3].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[3]) && IsInt(g[4])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[4].i];
+if (val.tag == 0) {
+g[3].tag = 0;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_3_3_5:
+{
+if (IsInt(g[3]) && IsPointer(g[3]) && IsInt(g[5])) {
+value val = ((object *)(g[3].p))->data[g[5].i];
+if (val.tag != 0) {
+g[3].tag = val.tag;
+g[3].p = val.p;
+}
+else {
+g[3].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[3]) && IsInt(g[5])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[5].i];
+if (val.tag == 0) {
+g[3].tag = 0;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_3_4_0:
+{
+if (IsInt(g[3]) && IsPointer(g[4]) && IsInt(g[0])) {
+value val = ((object *)(g[4].p))->data[g[0].i];
+if (val.tag != 0) {
+g[3].tag = val.tag;
+g[3].p = val.p;
+}
+else {
+g[3].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[4]) && IsInt(g[0])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[0].i];
+if (val.tag == 0) {
+g[3].tag = 0;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_3_4_1:
+{
+if (IsInt(g[3]) && IsPointer(g[4]) && IsInt(g[1])) {
+value val = ((object *)(g[4].p))->data[g[1].i];
+if (val.tag != 0) {
+g[3].tag = val.tag;
+g[3].p = val.p;
+}
+else {
+g[3].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[4]) && IsInt(g[1])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[1].i];
+if (val.tag == 0) {
+g[3].tag = 0;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_3_4_2:
+{
+if (IsInt(g[3]) && IsPointer(g[4]) && IsInt(g[2])) {
+value val = ((object *)(g[4].p))->data[g[2].i];
+if (val.tag != 0) {
+g[3].tag = val.tag;
+g[3].p = val.p;
+}
+else {
+g[3].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[4]) && IsInt(g[2])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[2].i];
+if (val.tag == 0) {
+g[3].tag = 0;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_3_4_3:
+{
+if (IsInt(g[3]) && IsPointer(g[4]) && IsInt(g[3])) {
+value val = ((object *)(g[4].p))->data[g[3].i];
+if (val.tag != 0) {
+g[3].tag = val.tag;
+g[3].p = val.p;
+}
+else {
+g[3].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[4]) && IsInt(g[3])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[3].i];
+if (val.tag == 0) {
+g[3].tag = 0;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_3_4_4:
+{
+if (IsInt(g[3]) && IsPointer(g[4]) && IsInt(g[4])) {
+value val = ((object *)(g[4].p))->data[g[4].i];
+if (val.tag != 0) {
+g[3].tag = val.tag;
+g[3].p = val.p;
+}
+else {
+g[3].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[4]) && IsInt(g[4])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[4].i];
+if (val.tag == 0) {
+g[3].tag = 0;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_3_4_5:
+{
+if (IsInt(g[3]) && IsPointer(g[4]) && IsInt(g[5])) {
+value val = ((object *)(g[4].p))->data[g[5].i];
+if (val.tag != 0) {
+g[3].tag = val.tag;
+g[3].p = val.p;
+}
+else {
+g[3].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[4]) && IsInt(g[5])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[5].i];
+if (val.tag == 0) {
+g[3].tag = 0;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_3_5_0:
+{
+if (IsInt(g[3]) && IsPointer(g[5]) && IsInt(g[0])) {
+value val = ((object *)(g[5].p))->data[g[0].i];
+if (val.tag != 0) {
+g[3].tag = val.tag;
+g[3].p = val.p;
+}
+else {
+g[3].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[5]) && IsInt(g[0])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[0].i];
+if (val.tag == 0) {
+g[3].tag = 0;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_3_5_1:
+{
+if (IsInt(g[3]) && IsPointer(g[5]) && IsInt(g[1])) {
+value val = ((object *)(g[5].p))->data[g[1].i];
+if (val.tag != 0) {
+g[3].tag = val.tag;
+g[3].p = val.p;
+}
+else {
+g[3].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[5]) && IsInt(g[1])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[1].i];
+if (val.tag == 0) {
+g[3].tag = 0;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_3_5_2:
+{
+if (IsInt(g[3]) && IsPointer(g[5]) && IsInt(g[2])) {
+value val = ((object *)(g[5].p))->data[g[2].i];
+if (val.tag != 0) {
+g[3].tag = val.tag;
+g[3].p = val.p;
+}
+else {
+g[3].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[5]) && IsInt(g[2])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[2].i];
+if (val.tag == 0) {
+g[3].tag = 0;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_3_5_3:
+{
+if (IsInt(g[3]) && IsPointer(g[5]) && IsInt(g[3])) {
+value val = ((object *)(g[5].p))->data[g[3].i];
+if (val.tag != 0) {
+g[3].tag = val.tag;
+g[3].p = val.p;
+}
+else {
+g[3].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[5]) && IsInt(g[3])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[3].i];
+if (val.tag == 0) {
+g[3].tag = 0;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_3_5_4:
+{
+if (IsInt(g[3]) && IsPointer(g[5]) && IsInt(g[4])) {
+value val = ((object *)(g[5].p))->data[g[4].i];
+if (val.tag != 0) {
+g[3].tag = val.tag;
+g[3].p = val.p;
+}
+else {
+g[3].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[5]) && IsInt(g[4])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[4].i];
+if (val.tag == 0) {
+g[3].tag = 0;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_3_5_5:
+{
+if (IsInt(g[3]) && IsPointer(g[5]) && IsInt(g[5])) {
+value val = ((object *)(g[5].p))->data[g[5].i];
+if (val.tag != 0) {
+g[3].tag = val.tag;
+g[3].p = val.p;
+}
+else {
+g[3].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[5]) && IsInt(g[5])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[5].i];
+if (val.tag == 0) {
+g[3].tag = 0;
+g[3].i = val.i;
+}
+g[3].tag = val.tag;
+g[3].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_4_0_0:
+{
+if (IsInt(g[4]) && IsPointer(g[0]) && IsInt(g[0])) {
+value val = ((object *)(g[0].p))->data[g[0].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
 g[4].p = val.p;
@@ -7414,31 +11109,30 @@ g[4].p = val.p;
 else {
 g[4].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[0])) {
+else if (IsPointer(g[4]) && IsPointer(g[0]) && IsInt(g[0])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[0].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[0].i];
 if (val.tag == 0) {
 g[4].tag = 0;
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
 g[4].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_4_1:
+geto_4_0_1:
 {
-if (IsInt(g[4]) && IsPointer(g[1])) {
-int16_t constant = program[pc + 1];
-value val = ((object *)(g[1].p))->data[constant];
+if (IsInt(g[4]) && IsPointer(g[0]) && IsInt(g[1])) {
+value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
 g[4].p = val.p;
@@ -7446,31 +11140,30 @@ g[4].p = val.p;
 else {
 g[4].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[1])) {
+else if (IsPointer(g[4]) && IsPointer(g[0]) && IsInt(g[1])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[1].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag == 0) {
 g[4].tag = 0;
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
 g[4].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_4_2:
+geto_4_0_2:
 {
-if (IsInt(g[4]) && IsPointer(g[2])) {
-int16_t constant = program[pc + 1];
-value val = ((object *)(g[2].p))->data[constant];
+if (IsInt(g[4]) && IsPointer(g[0]) && IsInt(g[2])) {
+value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
 g[4].p = val.p;
@@ -7478,31 +11171,30 @@ g[4].p = val.p;
 else {
 g[4].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[2])) {
+else if (IsPointer(g[4]) && IsPointer(g[0]) && IsInt(g[2])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[2].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag == 0) {
 g[4].tag = 0;
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
 g[4].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_4_3:
+geto_4_0_3:
 {
-if (IsInt(g[4]) && IsPointer(g[3])) {
-int16_t constant = program[pc + 1];
-value val = ((object *)(g[3].p))->data[constant];
+if (IsInt(g[4]) && IsPointer(g[0]) && IsInt(g[3])) {
+value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
 g[4].p = val.p;
@@ -7510,31 +11202,30 @@ g[4].p = val.p;
 else {
 g[4].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[3])) {
+else if (IsPointer(g[4]) && IsPointer(g[0]) && IsInt(g[3])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[3].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag == 0) {
 g[4].tag = 0;
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
 g[4].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_4_4:
+geto_4_0_4:
 {
-if (IsInt(g[4]) && IsPointer(g[4])) {
-int16_t constant = program[pc + 1];
-value val = ((object *)(g[4].p))->data[constant];
+if (IsInt(g[4]) && IsPointer(g[0]) && IsInt(g[4])) {
+value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
 g[4].p = val.p;
@@ -7542,31 +11233,30 @@ g[4].p = val.p;
 else {
 g[4].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[4])) {
+else if (IsPointer(g[4]) && IsPointer(g[0]) && IsInt(g[4])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[4].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag == 0) {
 g[4].tag = 0;
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
 g[4].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_4_5:
+geto_4_0_5:
 {
-if (IsInt(g[4]) && IsPointer(g[5])) {
-int16_t constant = program[pc + 1];
-value val = ((object *)(g[5].p))->data[constant];
+if (IsInt(g[4]) && IsPointer(g[0]) && IsInt(g[5])) {
+value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
 g[4].p = val.p;
@@ -7574,31 +11264,960 @@ g[4].p = val.p;
 else {
 g[4].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[5])) {
+else if (IsPointer(g[4]) && IsPointer(g[0]) && IsInt(g[5])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[5].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag == 0) {
 g[4].tag = 0;
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
 g[4].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_5_0:
+geto_4_1_0:
 {
-if (IsInt(g[5]) && IsPointer(g[0])) {
+if (IsInt(g[4]) && IsPointer(g[1]) && IsInt(g[0])) {
+value val = ((object *)(g[1].p))->data[g[0].i];
+if (val.tag != 0) {
+g[4].tag = val.tag;
+g[4].p = val.p;
+}
+else {
+g[4].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[1]) && IsInt(g[0])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[0].p))->data[constant];
+value val = ((object *)(g[1].p))->data[g[0].i];
+if (val.tag == 0) {
+g[4].tag = 0;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_4_1_1:
+{
+if (IsInt(g[4]) && IsPointer(g[1]) && IsInt(g[1])) {
+value val = ((object *)(g[1].p))->data[g[1].i];
+if (val.tag != 0) {
+g[4].tag = val.tag;
+g[4].p = val.p;
+}
+else {
+g[4].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[1]) && IsInt(g[1])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[g[1].i];
+if (val.tag == 0) {
+g[4].tag = 0;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_4_1_2:
+{
+if (IsInt(g[4]) && IsPointer(g[1]) && IsInt(g[2])) {
+value val = ((object *)(g[1].p))->data[g[2].i];
+if (val.tag != 0) {
+g[4].tag = val.tag;
+g[4].p = val.p;
+}
+else {
+g[4].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[1]) && IsInt(g[2])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[g[2].i];
+if (val.tag == 0) {
+g[4].tag = 0;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_4_1_3:
+{
+if (IsInt(g[4]) && IsPointer(g[1]) && IsInt(g[3])) {
+value val = ((object *)(g[1].p))->data[g[3].i];
+if (val.tag != 0) {
+g[4].tag = val.tag;
+g[4].p = val.p;
+}
+else {
+g[4].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[1]) && IsInt(g[3])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[g[3].i];
+if (val.tag == 0) {
+g[4].tag = 0;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_4_1_4:
+{
+if (IsInt(g[4]) && IsPointer(g[1]) && IsInt(g[4])) {
+value val = ((object *)(g[1].p))->data[g[4].i];
+if (val.tag != 0) {
+g[4].tag = val.tag;
+g[4].p = val.p;
+}
+else {
+g[4].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[1]) && IsInt(g[4])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[g[4].i];
+if (val.tag == 0) {
+g[4].tag = 0;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_4_1_5:
+{
+if (IsInt(g[4]) && IsPointer(g[1]) && IsInt(g[5])) {
+value val = ((object *)(g[1].p))->data[g[5].i];
+if (val.tag != 0) {
+g[4].tag = val.tag;
+g[4].p = val.p;
+}
+else {
+g[4].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[1]) && IsInt(g[5])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[g[5].i];
+if (val.tag == 0) {
+g[4].tag = 0;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_4_2_0:
+{
+if (IsInt(g[4]) && IsPointer(g[2]) && IsInt(g[0])) {
+value val = ((object *)(g[2].p))->data[g[0].i];
+if (val.tag != 0) {
+g[4].tag = val.tag;
+g[4].p = val.p;
+}
+else {
+g[4].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[2]) && IsInt(g[0])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[0].i];
+if (val.tag == 0) {
+g[4].tag = 0;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_4_2_1:
+{
+if (IsInt(g[4]) && IsPointer(g[2]) && IsInt(g[1])) {
+value val = ((object *)(g[2].p))->data[g[1].i];
+if (val.tag != 0) {
+g[4].tag = val.tag;
+g[4].p = val.p;
+}
+else {
+g[4].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[2]) && IsInt(g[1])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[1].i];
+if (val.tag == 0) {
+g[4].tag = 0;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_4_2_2:
+{
+if (IsInt(g[4]) && IsPointer(g[2]) && IsInt(g[2])) {
+value val = ((object *)(g[2].p))->data[g[2].i];
+if (val.tag != 0) {
+g[4].tag = val.tag;
+g[4].p = val.p;
+}
+else {
+g[4].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[2]) && IsInt(g[2])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[2].i];
+if (val.tag == 0) {
+g[4].tag = 0;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_4_2_3:
+{
+if (IsInt(g[4]) && IsPointer(g[2]) && IsInt(g[3])) {
+value val = ((object *)(g[2].p))->data[g[3].i];
+if (val.tag != 0) {
+g[4].tag = val.tag;
+g[4].p = val.p;
+}
+else {
+g[4].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[2]) && IsInt(g[3])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[3].i];
+if (val.tag == 0) {
+g[4].tag = 0;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_4_2_4:
+{
+if (IsInt(g[4]) && IsPointer(g[2]) && IsInt(g[4])) {
+value val = ((object *)(g[2].p))->data[g[4].i];
+if (val.tag != 0) {
+g[4].tag = val.tag;
+g[4].p = val.p;
+}
+else {
+g[4].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[2]) && IsInt(g[4])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[4].i];
+if (val.tag == 0) {
+g[4].tag = 0;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_4_2_5:
+{
+if (IsInt(g[4]) && IsPointer(g[2]) && IsInt(g[5])) {
+value val = ((object *)(g[2].p))->data[g[5].i];
+if (val.tag != 0) {
+g[4].tag = val.tag;
+g[4].p = val.p;
+}
+else {
+g[4].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[2]) && IsInt(g[5])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[5].i];
+if (val.tag == 0) {
+g[4].tag = 0;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_4_3_0:
+{
+if (IsInt(g[4]) && IsPointer(g[3]) && IsInt(g[0])) {
+value val = ((object *)(g[3].p))->data[g[0].i];
+if (val.tag != 0) {
+g[4].tag = val.tag;
+g[4].p = val.p;
+}
+else {
+g[4].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[3]) && IsInt(g[0])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[0].i];
+if (val.tag == 0) {
+g[4].tag = 0;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_4_3_1:
+{
+if (IsInt(g[4]) && IsPointer(g[3]) && IsInt(g[1])) {
+value val = ((object *)(g[3].p))->data[g[1].i];
+if (val.tag != 0) {
+g[4].tag = val.tag;
+g[4].p = val.p;
+}
+else {
+g[4].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[3]) && IsInt(g[1])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[1].i];
+if (val.tag == 0) {
+g[4].tag = 0;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_4_3_2:
+{
+if (IsInt(g[4]) && IsPointer(g[3]) && IsInt(g[2])) {
+value val = ((object *)(g[3].p))->data[g[2].i];
+if (val.tag != 0) {
+g[4].tag = val.tag;
+g[4].p = val.p;
+}
+else {
+g[4].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[3]) && IsInt(g[2])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[2].i];
+if (val.tag == 0) {
+g[4].tag = 0;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_4_3_3:
+{
+if (IsInt(g[4]) && IsPointer(g[3]) && IsInt(g[3])) {
+value val = ((object *)(g[3].p))->data[g[3].i];
+if (val.tag != 0) {
+g[4].tag = val.tag;
+g[4].p = val.p;
+}
+else {
+g[4].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[3]) && IsInt(g[3])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[3].i];
+if (val.tag == 0) {
+g[4].tag = 0;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_4_3_4:
+{
+if (IsInt(g[4]) && IsPointer(g[3]) && IsInt(g[4])) {
+value val = ((object *)(g[3].p))->data[g[4].i];
+if (val.tag != 0) {
+g[4].tag = val.tag;
+g[4].p = val.p;
+}
+else {
+g[4].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[3]) && IsInt(g[4])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[4].i];
+if (val.tag == 0) {
+g[4].tag = 0;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_4_3_5:
+{
+if (IsInt(g[4]) && IsPointer(g[3]) && IsInt(g[5])) {
+value val = ((object *)(g[3].p))->data[g[5].i];
+if (val.tag != 0) {
+g[4].tag = val.tag;
+g[4].p = val.p;
+}
+else {
+g[4].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[3]) && IsInt(g[5])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[5].i];
+if (val.tag == 0) {
+g[4].tag = 0;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_4_4_0:
+{
+if (IsInt(g[4]) && IsPointer(g[4]) && IsInt(g[0])) {
+value val = ((object *)(g[4].p))->data[g[0].i];
+if (val.tag != 0) {
+g[4].tag = val.tag;
+g[4].p = val.p;
+}
+else {
+g[4].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[4]) && IsInt(g[0])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[0].i];
+if (val.tag == 0) {
+g[4].tag = 0;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_4_4_1:
+{
+if (IsInt(g[4]) && IsPointer(g[4]) && IsInt(g[1])) {
+value val = ((object *)(g[4].p))->data[g[1].i];
+if (val.tag != 0) {
+g[4].tag = val.tag;
+g[4].p = val.p;
+}
+else {
+g[4].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[4]) && IsInt(g[1])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[1].i];
+if (val.tag == 0) {
+g[4].tag = 0;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_4_4_2:
+{
+if (IsInt(g[4]) && IsPointer(g[4]) && IsInt(g[2])) {
+value val = ((object *)(g[4].p))->data[g[2].i];
+if (val.tag != 0) {
+g[4].tag = val.tag;
+g[4].p = val.p;
+}
+else {
+g[4].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[4]) && IsInt(g[2])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[2].i];
+if (val.tag == 0) {
+g[4].tag = 0;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_4_4_3:
+{
+if (IsInt(g[4]) && IsPointer(g[4]) && IsInt(g[3])) {
+value val = ((object *)(g[4].p))->data[g[3].i];
+if (val.tag != 0) {
+g[4].tag = val.tag;
+g[4].p = val.p;
+}
+else {
+g[4].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[4]) && IsInt(g[3])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[3].i];
+if (val.tag == 0) {
+g[4].tag = 0;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_4_4_4:
+{
+if (IsInt(g[4]) && IsPointer(g[4]) && IsInt(g[4])) {
+value val = ((object *)(g[4].p))->data[g[4].i];
+if (val.tag != 0) {
+g[4].tag = val.tag;
+g[4].p = val.p;
+}
+else {
+g[4].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[4]) && IsInt(g[4])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[4].i];
+if (val.tag == 0) {
+g[4].tag = 0;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_4_4_5:
+{
+if (IsInt(g[4]) && IsPointer(g[4]) && IsInt(g[5])) {
+value val = ((object *)(g[4].p))->data[g[5].i];
+if (val.tag != 0) {
+g[4].tag = val.tag;
+g[4].p = val.p;
+}
+else {
+g[4].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[4]) && IsInt(g[5])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[5].i];
+if (val.tag == 0) {
+g[4].tag = 0;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_4_5_0:
+{
+if (IsInt(g[4]) && IsPointer(g[5]) && IsInt(g[0])) {
+value val = ((object *)(g[5].p))->data[g[0].i];
+if (val.tag != 0) {
+g[4].tag = val.tag;
+g[4].p = val.p;
+}
+else {
+g[4].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[5]) && IsInt(g[0])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[0].i];
+if (val.tag == 0) {
+g[4].tag = 0;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_4_5_1:
+{
+if (IsInt(g[4]) && IsPointer(g[5]) && IsInt(g[1])) {
+value val = ((object *)(g[5].p))->data[g[1].i];
+if (val.tag != 0) {
+g[4].tag = val.tag;
+g[4].p = val.p;
+}
+else {
+g[4].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[5]) && IsInt(g[1])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[1].i];
+if (val.tag == 0) {
+g[4].tag = 0;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_4_5_2:
+{
+if (IsInt(g[4]) && IsPointer(g[5]) && IsInt(g[2])) {
+value val = ((object *)(g[5].p))->data[g[2].i];
+if (val.tag != 0) {
+g[4].tag = val.tag;
+g[4].p = val.p;
+}
+else {
+g[4].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[5]) && IsInt(g[2])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[2].i];
+if (val.tag == 0) {
+g[4].tag = 0;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_4_5_3:
+{
+if (IsInt(g[4]) && IsPointer(g[5]) && IsInt(g[3])) {
+value val = ((object *)(g[5].p))->data[g[3].i];
+if (val.tag != 0) {
+g[4].tag = val.tag;
+g[4].p = val.p;
+}
+else {
+g[4].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[5]) && IsInt(g[3])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[3].i];
+if (val.tag == 0) {
+g[4].tag = 0;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_4_5_4:
+{
+if (IsInt(g[4]) && IsPointer(g[5]) && IsInt(g[4])) {
+value val = ((object *)(g[5].p))->data[g[4].i];
+if (val.tag != 0) {
+g[4].tag = val.tag;
+g[4].p = val.p;
+}
+else {
+g[4].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[5]) && IsInt(g[4])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[4].i];
+if (val.tag == 0) {
+g[4].tag = 0;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_4_5_5:
+{
+if (IsInt(g[4]) && IsPointer(g[5]) && IsInt(g[5])) {
+value val = ((object *)(g[5].p))->data[g[5].i];
+if (val.tag != 0) {
+g[4].tag = val.tag;
+g[4].p = val.p;
+}
+else {
+g[4].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[5]) && IsInt(g[5])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[5].i];
+if (val.tag == 0) {
+g[4].tag = 0;
+g[4].i = val.i;
+}
+g[4].tag = val.tag;
+g[4].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_5_0_0:
+{
+if (IsInt(g[5]) && IsPointer(g[0]) && IsInt(g[0])) {
+value val = ((object *)(g[0].p))->data[g[0].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
 g[5].p = val.p;
@@ -7606,31 +12225,30 @@ g[5].p = val.p;
 else {
 g[5].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[0])) {
+else if (IsPointer(g[5]) && IsPointer(g[0]) && IsInt(g[0])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[0].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[0].i];
 if (val.tag == 0) {
 g[5].tag = 0;
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
 g[5].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_5_1:
+geto_5_0_1:
 {
-if (IsInt(g[5]) && IsPointer(g[1])) {
-int16_t constant = program[pc + 1];
-value val = ((object *)(g[1].p))->data[constant];
+if (IsInt(g[5]) && IsPointer(g[0]) && IsInt(g[1])) {
+value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
 g[5].p = val.p;
@@ -7638,31 +12256,30 @@ g[5].p = val.p;
 else {
 g[5].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[1])) {
+else if (IsPointer(g[5]) && IsPointer(g[0]) && IsInt(g[1])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[1].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag == 0) {
 g[5].tag = 0;
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
 g[5].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_5_2:
+geto_5_0_2:
 {
-if (IsInt(g[5]) && IsPointer(g[2])) {
-int16_t constant = program[pc + 1];
-value val = ((object *)(g[2].p))->data[constant];
+if (IsInt(g[5]) && IsPointer(g[0]) && IsInt(g[2])) {
+value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
 g[5].p = val.p;
@@ -7670,31 +12287,30 @@ g[5].p = val.p;
 else {
 g[5].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[2])) {
+else if (IsPointer(g[5]) && IsPointer(g[0]) && IsInt(g[2])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[2].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag == 0) {
 g[5].tag = 0;
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
 g[5].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_5_3:
+geto_5_0_3:
 {
-if (IsInt(g[5]) && IsPointer(g[3])) {
-int16_t constant = program[pc + 1];
-value val = ((object *)(g[3].p))->data[constant];
+if (IsInt(g[5]) && IsPointer(g[0]) && IsInt(g[3])) {
+value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
 g[5].p = val.p;
@@ -7702,31 +12318,30 @@ g[5].p = val.p;
 else {
 g[5].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[3])) {
+else if (IsPointer(g[5]) && IsPointer(g[0]) && IsInt(g[3])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[3].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag == 0) {
 g[5].tag = 0;
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
 g[5].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_5_4:
+geto_5_0_4:
 {
-if (IsInt(g[5]) && IsPointer(g[4])) {
-int16_t constant = program[pc + 1];
-value val = ((object *)(g[4].p))->data[constant];
+if (IsInt(g[5]) && IsPointer(g[0]) && IsInt(g[4])) {
+value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
 g[5].p = val.p;
@@ -7734,31 +12349,30 @@ g[5].p = val.p;
 else {
 g[5].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[4])) {
+else if (IsPointer(g[5]) && IsPointer(g[0]) && IsInt(g[4])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[4].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag == 0) {
 g[5].tag = 0;
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
 g[5].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-getm_5_5:
+geto_5_0_5:
 {
-if (IsInt(g[5]) && IsPointer(g[5])) {
-int16_t constant = program[pc + 1];
-value val = ((object *)(g[5].p))->data[constant];
+if (IsInt(g[5]) && IsPointer(g[0]) && IsInt(g[5])) {
+value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
 g[5].p = val.p;
@@ -7766,849 +12380,5487 @@ g[5].p = val.p;
 else {
 g[5].i = val.i;
 }
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[5])) {
+else if (IsPointer(g[5]) && IsPointer(g[0]) && IsInt(g[5])) {
 int16_t constant = program[pc + 1];
-value val = ((object *)(g[5].p))->data[constant];
+value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag == 0) {
 g[5].tag = 0;
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
 g[5].p = val.p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: getm");
+fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-setm_0_0:
+geto_5_1_0:
 {
-if (IsPointer(g[0]) && IsInt(g[0])) {
+if (IsInt(g[5]) && IsPointer(g[1]) && IsInt(g[0])) {
+value val = ((object *)(g[1].p))->data[g[0].i];
+if (val.tag != 0) {
+g[5].tag = val.tag;
+g[5].p = val.p;
+}
+else {
+g[5].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[1]) && IsInt(g[0])) {
 int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[0].p))->data[constant]);
+value val = ((object *)(g[1].p))->data[g[0].i];
+if (val.tag == 0) {
+g[5].tag = 0;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_5_1_1:
+{
+if (IsInt(g[5]) && IsPointer(g[1]) && IsInt(g[1])) {
+value val = ((object *)(g[1].p))->data[g[1].i];
+if (val.tag != 0) {
+g[5].tag = val.tag;
+g[5].p = val.p;
+}
+else {
+g[5].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[1]) && IsInt(g[1])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[g[1].i];
+if (val.tag == 0) {
+g[5].tag = 0;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_5_1_2:
+{
+if (IsInt(g[5]) && IsPointer(g[1]) && IsInt(g[2])) {
+value val = ((object *)(g[1].p))->data[g[2].i];
+if (val.tag != 0) {
+g[5].tag = val.tag;
+g[5].p = val.p;
+}
+else {
+g[5].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[1]) && IsInt(g[2])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[g[2].i];
+if (val.tag == 0) {
+g[5].tag = 0;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_5_1_3:
+{
+if (IsInt(g[5]) && IsPointer(g[1]) && IsInt(g[3])) {
+value val = ((object *)(g[1].p))->data[g[3].i];
+if (val.tag != 0) {
+g[5].tag = val.tag;
+g[5].p = val.p;
+}
+else {
+g[5].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[1]) && IsInt(g[3])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[g[3].i];
+if (val.tag == 0) {
+g[5].tag = 0;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_5_1_4:
+{
+if (IsInt(g[5]) && IsPointer(g[1]) && IsInt(g[4])) {
+value val = ((object *)(g[1].p))->data[g[4].i];
+if (val.tag != 0) {
+g[5].tag = val.tag;
+g[5].p = val.p;
+}
+else {
+g[5].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[1]) && IsInt(g[4])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[g[4].i];
+if (val.tag == 0) {
+g[5].tag = 0;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_5_1_5:
+{
+if (IsInt(g[5]) && IsPointer(g[1]) && IsInt(g[5])) {
+value val = ((object *)(g[1].p))->data[g[5].i];
+if (val.tag != 0) {
+g[5].tag = val.tag;
+g[5].p = val.p;
+}
+else {
+g[5].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[1]) && IsInt(g[5])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[1].p))->data[g[5].i];
+if (val.tag == 0) {
+g[5].tag = 0;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_5_2_0:
+{
+if (IsInt(g[5]) && IsPointer(g[2]) && IsInt(g[0])) {
+value val = ((object *)(g[2].p))->data[g[0].i];
+if (val.tag != 0) {
+g[5].tag = val.tag;
+g[5].p = val.p;
+}
+else {
+g[5].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[2]) && IsInt(g[0])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[0].i];
+if (val.tag == 0) {
+g[5].tag = 0;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_5_2_1:
+{
+if (IsInt(g[5]) && IsPointer(g[2]) && IsInt(g[1])) {
+value val = ((object *)(g[2].p))->data[g[1].i];
+if (val.tag != 0) {
+g[5].tag = val.tag;
+g[5].p = val.p;
+}
+else {
+g[5].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[2]) && IsInt(g[1])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[1].i];
+if (val.tag == 0) {
+g[5].tag = 0;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_5_2_2:
+{
+if (IsInt(g[5]) && IsPointer(g[2]) && IsInt(g[2])) {
+value val = ((object *)(g[2].p))->data[g[2].i];
+if (val.tag != 0) {
+g[5].tag = val.tag;
+g[5].p = val.p;
+}
+else {
+g[5].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[2]) && IsInt(g[2])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[2].i];
+if (val.tag == 0) {
+g[5].tag = 0;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_5_2_3:
+{
+if (IsInt(g[5]) && IsPointer(g[2]) && IsInt(g[3])) {
+value val = ((object *)(g[2].p))->data[g[3].i];
+if (val.tag != 0) {
+g[5].tag = val.tag;
+g[5].p = val.p;
+}
+else {
+g[5].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[2]) && IsInt(g[3])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[3].i];
+if (val.tag == 0) {
+g[5].tag = 0;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_5_2_4:
+{
+if (IsInt(g[5]) && IsPointer(g[2]) && IsInt(g[4])) {
+value val = ((object *)(g[2].p))->data[g[4].i];
+if (val.tag != 0) {
+g[5].tag = val.tag;
+g[5].p = val.p;
+}
+else {
+g[5].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[2]) && IsInt(g[4])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[4].i];
+if (val.tag == 0) {
+g[5].tag = 0;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_5_2_5:
+{
+if (IsInt(g[5]) && IsPointer(g[2]) && IsInt(g[5])) {
+value val = ((object *)(g[2].p))->data[g[5].i];
+if (val.tag != 0) {
+g[5].tag = val.tag;
+g[5].p = val.p;
+}
+else {
+g[5].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[2]) && IsInt(g[5])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[2].p))->data[g[5].i];
+if (val.tag == 0) {
+g[5].tag = 0;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_5_3_0:
+{
+if (IsInt(g[5]) && IsPointer(g[3]) && IsInt(g[0])) {
+value val = ((object *)(g[3].p))->data[g[0].i];
+if (val.tag != 0) {
+g[5].tag = val.tag;
+g[5].p = val.p;
+}
+else {
+g[5].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[3]) && IsInt(g[0])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[0].i];
+if (val.tag == 0) {
+g[5].tag = 0;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_5_3_1:
+{
+if (IsInt(g[5]) && IsPointer(g[3]) && IsInt(g[1])) {
+value val = ((object *)(g[3].p))->data[g[1].i];
+if (val.tag != 0) {
+g[5].tag = val.tag;
+g[5].p = val.p;
+}
+else {
+g[5].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[3]) && IsInt(g[1])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[1].i];
+if (val.tag == 0) {
+g[5].tag = 0;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_5_3_2:
+{
+if (IsInt(g[5]) && IsPointer(g[3]) && IsInt(g[2])) {
+value val = ((object *)(g[3].p))->data[g[2].i];
+if (val.tag != 0) {
+g[5].tag = val.tag;
+g[5].p = val.p;
+}
+else {
+g[5].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[3]) && IsInt(g[2])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[2].i];
+if (val.tag == 0) {
+g[5].tag = 0;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_5_3_3:
+{
+if (IsInt(g[5]) && IsPointer(g[3]) && IsInt(g[3])) {
+value val = ((object *)(g[3].p))->data[g[3].i];
+if (val.tag != 0) {
+g[5].tag = val.tag;
+g[5].p = val.p;
+}
+else {
+g[5].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[3]) && IsInt(g[3])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[3].i];
+if (val.tag == 0) {
+g[5].tag = 0;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_5_3_4:
+{
+if (IsInt(g[5]) && IsPointer(g[3]) && IsInt(g[4])) {
+value val = ((object *)(g[3].p))->data[g[4].i];
+if (val.tag != 0) {
+g[5].tag = val.tag;
+g[5].p = val.p;
+}
+else {
+g[5].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[3]) && IsInt(g[4])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[4].i];
+if (val.tag == 0) {
+g[5].tag = 0;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_5_3_5:
+{
+if (IsInt(g[5]) && IsPointer(g[3]) && IsInt(g[5])) {
+value val = ((object *)(g[3].p))->data[g[5].i];
+if (val.tag != 0) {
+g[5].tag = val.tag;
+g[5].p = val.p;
+}
+else {
+g[5].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[3]) && IsInt(g[5])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[3].p))->data[g[5].i];
+if (val.tag == 0) {
+g[5].tag = 0;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_5_4_0:
+{
+if (IsInt(g[5]) && IsPointer(g[4]) && IsInt(g[0])) {
+value val = ((object *)(g[4].p))->data[g[0].i];
+if (val.tag != 0) {
+g[5].tag = val.tag;
+g[5].p = val.p;
+}
+else {
+g[5].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[4]) && IsInt(g[0])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[0].i];
+if (val.tag == 0) {
+g[5].tag = 0;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_5_4_1:
+{
+if (IsInt(g[5]) && IsPointer(g[4]) && IsInt(g[1])) {
+value val = ((object *)(g[4].p))->data[g[1].i];
+if (val.tag != 0) {
+g[5].tag = val.tag;
+g[5].p = val.p;
+}
+else {
+g[5].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[4]) && IsInt(g[1])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[1].i];
+if (val.tag == 0) {
+g[5].tag = 0;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_5_4_2:
+{
+if (IsInt(g[5]) && IsPointer(g[4]) && IsInt(g[2])) {
+value val = ((object *)(g[4].p))->data[g[2].i];
+if (val.tag != 0) {
+g[5].tag = val.tag;
+g[5].p = val.p;
+}
+else {
+g[5].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[4]) && IsInt(g[2])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[2].i];
+if (val.tag == 0) {
+g[5].tag = 0;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_5_4_3:
+{
+if (IsInt(g[5]) && IsPointer(g[4]) && IsInt(g[3])) {
+value val = ((object *)(g[4].p))->data[g[3].i];
+if (val.tag != 0) {
+g[5].tag = val.tag;
+g[5].p = val.p;
+}
+else {
+g[5].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[4]) && IsInt(g[3])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[3].i];
+if (val.tag == 0) {
+g[5].tag = 0;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_5_4_4:
+{
+if (IsInt(g[5]) && IsPointer(g[4]) && IsInt(g[4])) {
+value val = ((object *)(g[4].p))->data[g[4].i];
+if (val.tag != 0) {
+g[5].tag = val.tag;
+g[5].p = val.p;
+}
+else {
+g[5].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[4]) && IsInt(g[4])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[4].i];
+if (val.tag == 0) {
+g[5].tag = 0;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_5_4_5:
+{
+if (IsInt(g[5]) && IsPointer(g[4]) && IsInt(g[5])) {
+value val = ((object *)(g[4].p))->data[g[5].i];
+if (val.tag != 0) {
+g[5].tag = val.tag;
+g[5].p = val.p;
+}
+else {
+g[5].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[4]) && IsInt(g[5])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[4].p))->data[g[5].i];
+if (val.tag == 0) {
+g[5].tag = 0;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_5_5_0:
+{
+if (IsInt(g[5]) && IsPointer(g[5]) && IsInt(g[0])) {
+value val = ((object *)(g[5].p))->data[g[0].i];
+if (val.tag != 0) {
+g[5].tag = val.tag;
+g[5].p = val.p;
+}
+else {
+g[5].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[5]) && IsInt(g[0])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[0].i];
+if (val.tag == 0) {
+g[5].tag = 0;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_5_5_1:
+{
+if (IsInt(g[5]) && IsPointer(g[5]) && IsInt(g[1])) {
+value val = ((object *)(g[5].p))->data[g[1].i];
+if (val.tag != 0) {
+g[5].tag = val.tag;
+g[5].p = val.p;
+}
+else {
+g[5].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[5]) && IsInt(g[1])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[1].i];
+if (val.tag == 0) {
+g[5].tag = 0;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_5_5_2:
+{
+if (IsInt(g[5]) && IsPointer(g[5]) && IsInt(g[2])) {
+value val = ((object *)(g[5].p))->data[g[2].i];
+if (val.tag != 0) {
+g[5].tag = val.tag;
+g[5].p = val.p;
+}
+else {
+g[5].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[5]) && IsInt(g[2])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[2].i];
+if (val.tag == 0) {
+g[5].tag = 0;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_5_5_3:
+{
+if (IsInt(g[5]) && IsPointer(g[5]) && IsInt(g[3])) {
+value val = ((object *)(g[5].p))->data[g[3].i];
+if (val.tag != 0) {
+g[5].tag = val.tag;
+g[5].p = val.p;
+}
+else {
+g[5].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[5]) && IsInt(g[3])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[3].i];
+if (val.tag == 0) {
+g[5].tag = 0;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_5_5_4:
+{
+if (IsInt(g[5]) && IsPointer(g[5]) && IsInt(g[4])) {
+value val = ((object *)(g[5].p))->data[g[4].i];
+if (val.tag != 0) {
+g[5].tag = val.tag;
+g[5].p = val.p;
+}
+else {
+g[5].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[5]) && IsInt(g[4])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[4].i];
+if (val.tag == 0) {
+g[5].tag = 0;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+geto_5_5_5:
+{
+if (IsInt(g[5]) && IsPointer(g[5]) && IsInt(g[5])) {
+value val = ((object *)(g[5].p))->data[g[5].i];
+if (val.tag != 0) {
+g[5].tag = val.tag;
+g[5].p = val.p;
+}
+else {
+g[5].i = val.i;
+}
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[5]) && IsInt(g[5])) {
+int16_t constant = program[pc + 1];
+value val = ((object *)(g[5].p))->data[g[5].i];
+if (val.tag == 0) {
+g[5].tag = 0;
+g[5].i = val.i;
+}
+g[5].tag = val.tag;
+g[5].p = val.p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: geto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_0_0_0:
+{
+if (IsPointer(g[0]) && IsInt(g[0]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[0].p))->data[g[0].i]);
 vp->tag =0;
 vp->i = g[0].i;
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[0])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[0].p))->data[constant]);
+else if (IsPointer(g[0]) && IsPointer(g[0]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[0].p))->data[g[0].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
+fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-setm_0_1:
+seto_0_0_1:
 {
-if (IsPointer(g[0]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[0].p))->data[constant]);
-vp->tag =0;
-vp->i = g[1].i;
-pc += 2;
-}
-else if (IsPointer(g[0]) && IsPointer(g[1])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[0].p))->data[constant]);
-vp->tag = g[1].tag;
-vp->p = g[1].p;
-pc += 2;
-}
-else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
-return 1;
-}
-goto *dynOpcodes[ts + program[pc]];
-}
-
-setm_0_2:
-{
-if (IsPointer(g[0]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[0].p))->data[constant]);
-vp->tag =0;
-vp->i = g[2].i;
-pc += 2;
-}
-else if (IsPointer(g[0]) && IsPointer(g[2])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[0].p))->data[constant]);
-vp->tag = g[2].tag;
-vp->p = g[2].p;
-pc += 2;
-}
-else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
-return 1;
-}
-goto *dynOpcodes[ts + program[pc]];
-}
-
-setm_0_3:
-{
-if (IsPointer(g[0]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[0].p))->data[constant]);
-vp->tag =0;
-vp->i = g[3].i;
-pc += 2;
-}
-else if (IsPointer(g[0]) && IsPointer(g[3])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[0].p))->data[constant]);
-vp->tag = g[3].tag;
-vp->p = g[3].p;
-pc += 2;
-}
-else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
-return 1;
-}
-goto *dynOpcodes[ts + program[pc]];
-}
-
-setm_0_4:
-{
-if (IsPointer(g[0]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[0].p))->data[constant]);
-vp->tag =0;
-vp->i = g[4].i;
-pc += 2;
-}
-else if (IsPointer(g[0]) && IsPointer(g[4])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[0].p))->data[constant]);
-vp->tag = g[4].tag;
-vp->p = g[4].p;
-pc += 2;
-}
-else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
-return 1;
-}
-goto *dynOpcodes[ts + program[pc]];
-}
-
-setm_0_5:
-{
-if (IsPointer(g[0]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[0].p))->data[constant]);
-vp->tag =0;
-vp->i = g[5].i;
-pc += 2;
-}
-else if (IsPointer(g[0]) && IsPointer(g[5])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[0].p))->data[constant]);
-vp->tag = g[5].tag;
-vp->p = g[5].p;
-pc += 2;
-}
-else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
-return 1;
-}
-goto *dynOpcodes[ts + program[pc]];
-}
-
-setm_1_0:
-{
-if (IsPointer(g[1]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[1].p))->data[constant]);
+if (IsPointer(g[0]) && IsInt(g[0]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[0].p))->data[g[1].i]);
 vp->tag =0;
 vp->i = g[0].i;
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[0])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[1].p))->data[constant]);
+else if (IsPointer(g[0]) && IsPointer(g[0]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[0].p))->data[g[1].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
+fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-setm_1_1:
+seto_0_0_2:
 {
-if (IsPointer(g[1]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[1].p))->data[constant]);
-vp->tag =0;
-vp->i = g[1].i;
-pc += 2;
-}
-else if (IsPointer(g[1]) && IsPointer(g[1])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[1].p))->data[constant]);
-vp->tag = g[1].tag;
-vp->p = g[1].p;
-pc += 2;
-}
-else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
-return 1;
-}
-goto *dynOpcodes[ts + program[pc]];
-}
-
-setm_1_2:
-{
-if (IsPointer(g[1]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[1].p))->data[constant]);
-vp->tag =0;
-vp->i = g[2].i;
-pc += 2;
-}
-else if (IsPointer(g[1]) && IsPointer(g[2])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[1].p))->data[constant]);
-vp->tag = g[2].tag;
-vp->p = g[2].p;
-pc += 2;
-}
-else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
-return 1;
-}
-goto *dynOpcodes[ts + program[pc]];
-}
-
-setm_1_3:
-{
-if (IsPointer(g[1]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[1].p))->data[constant]);
-vp->tag =0;
-vp->i = g[3].i;
-pc += 2;
-}
-else if (IsPointer(g[1]) && IsPointer(g[3])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[1].p))->data[constant]);
-vp->tag = g[3].tag;
-vp->p = g[3].p;
-pc += 2;
-}
-else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
-return 1;
-}
-goto *dynOpcodes[ts + program[pc]];
-}
-
-setm_1_4:
-{
-if (IsPointer(g[1]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[1].p))->data[constant]);
-vp->tag =0;
-vp->i = g[4].i;
-pc += 2;
-}
-else if (IsPointer(g[1]) && IsPointer(g[4])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[1].p))->data[constant]);
-vp->tag = g[4].tag;
-vp->p = g[4].p;
-pc += 2;
-}
-else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
-return 1;
-}
-goto *dynOpcodes[ts + program[pc]];
-}
-
-setm_1_5:
-{
-if (IsPointer(g[1]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[1].p))->data[constant]);
-vp->tag =0;
-vp->i = g[5].i;
-pc += 2;
-}
-else if (IsPointer(g[1]) && IsPointer(g[5])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[1].p))->data[constant]);
-vp->tag = g[5].tag;
-vp->p = g[5].p;
-pc += 2;
-}
-else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
-return 1;
-}
-goto *dynOpcodes[ts + program[pc]];
-}
-
-setm_2_0:
-{
-if (IsPointer(g[2]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[2].p))->data[constant]);
+if (IsPointer(g[0]) && IsInt(g[0]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[0].p))->data[g[2].i]);
 vp->tag =0;
 vp->i = g[0].i;
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[0])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[2].p))->data[constant]);
+else if (IsPointer(g[0]) && IsPointer(g[0]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[0].p))->data[g[2].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
+fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-setm_2_1:
+seto_0_0_3:
 {
-if (IsPointer(g[2]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[2].p))->data[constant]);
-vp->tag =0;
-vp->i = g[1].i;
-pc += 2;
-}
-else if (IsPointer(g[2]) && IsPointer(g[1])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[2].p))->data[constant]);
-vp->tag = g[1].tag;
-vp->p = g[1].p;
-pc += 2;
-}
-else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
-return 1;
-}
-goto *dynOpcodes[ts + program[pc]];
-}
-
-setm_2_2:
-{
-if (IsPointer(g[2]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[2].p))->data[constant]);
-vp->tag =0;
-vp->i = g[2].i;
-pc += 2;
-}
-else if (IsPointer(g[2]) && IsPointer(g[2])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[2].p))->data[constant]);
-vp->tag = g[2].tag;
-vp->p = g[2].p;
-pc += 2;
-}
-else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
-return 1;
-}
-goto *dynOpcodes[ts + program[pc]];
-}
-
-setm_2_3:
-{
-if (IsPointer(g[2]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[2].p))->data[constant]);
-vp->tag =0;
-vp->i = g[3].i;
-pc += 2;
-}
-else if (IsPointer(g[2]) && IsPointer(g[3])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[2].p))->data[constant]);
-vp->tag = g[3].tag;
-vp->p = g[3].p;
-pc += 2;
-}
-else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
-return 1;
-}
-goto *dynOpcodes[ts + program[pc]];
-}
-
-setm_2_4:
-{
-if (IsPointer(g[2]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[2].p))->data[constant]);
-vp->tag =0;
-vp->i = g[4].i;
-pc += 2;
-}
-else if (IsPointer(g[2]) && IsPointer(g[4])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[2].p))->data[constant]);
-vp->tag = g[4].tag;
-vp->p = g[4].p;
-pc += 2;
-}
-else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
-return 1;
-}
-goto *dynOpcodes[ts + program[pc]];
-}
-
-setm_2_5:
-{
-if (IsPointer(g[2]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[2].p))->data[constant]);
-vp->tag =0;
-vp->i = g[5].i;
-pc += 2;
-}
-else if (IsPointer(g[2]) && IsPointer(g[5])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[2].p))->data[constant]);
-vp->tag = g[5].tag;
-vp->p = g[5].p;
-pc += 2;
-}
-else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
-return 1;
-}
-goto *dynOpcodes[ts + program[pc]];
-}
-
-setm_3_0:
-{
-if (IsPointer(g[3]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[3].p))->data[constant]);
+if (IsPointer(g[0]) && IsInt(g[0]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[0].p))->data[g[3].i]);
 vp->tag =0;
 vp->i = g[0].i;
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[0])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[3].p))->data[constant]);
+else if (IsPointer(g[0]) && IsPointer(g[0]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[0].p))->data[g[3].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
+fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-setm_3_1:
+seto_0_0_4:
 {
-if (IsPointer(g[3]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[3].p))->data[constant]);
-vp->tag =0;
-vp->i = g[1].i;
-pc += 2;
-}
-else if (IsPointer(g[3]) && IsPointer(g[1])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[3].p))->data[constant]);
-vp->tag = g[1].tag;
-vp->p = g[1].p;
-pc += 2;
-}
-else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
-return 1;
-}
-goto *dynOpcodes[ts + program[pc]];
-}
-
-setm_3_2:
-{
-if (IsPointer(g[3]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[3].p))->data[constant]);
-vp->tag =0;
-vp->i = g[2].i;
-pc += 2;
-}
-else if (IsPointer(g[3]) && IsPointer(g[2])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[3].p))->data[constant]);
-vp->tag = g[2].tag;
-vp->p = g[2].p;
-pc += 2;
-}
-else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
-return 1;
-}
-goto *dynOpcodes[ts + program[pc]];
-}
-
-setm_3_3:
-{
-if (IsPointer(g[3]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[3].p))->data[constant]);
-vp->tag =0;
-vp->i = g[3].i;
-pc += 2;
-}
-else if (IsPointer(g[3]) && IsPointer(g[3])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[3].p))->data[constant]);
-vp->tag = g[3].tag;
-vp->p = g[3].p;
-pc += 2;
-}
-else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
-return 1;
-}
-goto *dynOpcodes[ts + program[pc]];
-}
-
-setm_3_4:
-{
-if (IsPointer(g[3]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[3].p))->data[constant]);
-vp->tag =0;
-vp->i = g[4].i;
-pc += 2;
-}
-else if (IsPointer(g[3]) && IsPointer(g[4])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[3].p))->data[constant]);
-vp->tag = g[4].tag;
-vp->p = g[4].p;
-pc += 2;
-}
-else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
-return 1;
-}
-goto *dynOpcodes[ts + program[pc]];
-}
-
-setm_3_5:
-{
-if (IsPointer(g[3]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[3].p))->data[constant]);
-vp->tag =0;
-vp->i = g[5].i;
-pc += 2;
-}
-else if (IsPointer(g[3]) && IsPointer(g[5])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[3].p))->data[constant]);
-vp->tag = g[5].tag;
-vp->p = g[5].p;
-pc += 2;
-}
-else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
-return 1;
-}
-goto *dynOpcodes[ts + program[pc]];
-}
-
-setm_4_0:
-{
-if (IsPointer(g[4]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[4].p))->data[constant]);
+if (IsPointer(g[0]) && IsInt(g[0]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[0].p))->data[g[4].i]);
 vp->tag =0;
 vp->i = g[0].i;
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[0])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[4].p))->data[constant]);
+else if (IsPointer(g[0]) && IsPointer(g[0]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[0].p))->data[g[4].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
+fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-setm_4_1:
+seto_0_0_5:
 {
-if (IsPointer(g[4]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[4].p))->data[constant]);
-vp->tag =0;
-vp->i = g[1].i;
-pc += 2;
-}
-else if (IsPointer(g[4]) && IsPointer(g[1])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[4].p))->data[constant]);
-vp->tag = g[1].tag;
-vp->p = g[1].p;
-pc += 2;
-}
-else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
-return 1;
-}
-goto *dynOpcodes[ts + program[pc]];
-}
-
-setm_4_2:
-{
-if (IsPointer(g[4]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[4].p))->data[constant]);
-vp->tag =0;
-vp->i = g[2].i;
-pc += 2;
-}
-else if (IsPointer(g[4]) && IsPointer(g[2])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[4].p))->data[constant]);
-vp->tag = g[2].tag;
-vp->p = g[2].p;
-pc += 2;
-}
-else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
-return 1;
-}
-goto *dynOpcodes[ts + program[pc]];
-}
-
-setm_4_3:
-{
-if (IsPointer(g[4]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[4].p))->data[constant]);
-vp->tag =0;
-vp->i = g[3].i;
-pc += 2;
-}
-else if (IsPointer(g[4]) && IsPointer(g[3])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[4].p))->data[constant]);
-vp->tag = g[3].tag;
-vp->p = g[3].p;
-pc += 2;
-}
-else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
-return 1;
-}
-goto *dynOpcodes[ts + program[pc]];
-}
-
-setm_4_4:
-{
-if (IsPointer(g[4]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[4].p))->data[constant]);
-vp->tag =0;
-vp->i = g[4].i;
-pc += 2;
-}
-else if (IsPointer(g[4]) && IsPointer(g[4])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[4].p))->data[constant]);
-vp->tag = g[4].tag;
-vp->p = g[4].p;
-pc += 2;
-}
-else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
-return 1;
-}
-goto *dynOpcodes[ts + program[pc]];
-}
-
-setm_4_5:
-{
-if (IsPointer(g[4]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[4].p))->data[constant]);
-vp->tag =0;
-vp->i = g[5].i;
-pc += 2;
-}
-else if (IsPointer(g[4]) && IsPointer(g[5])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[4].p))->data[constant]);
-vp->tag = g[5].tag;
-vp->p = g[5].p;
-pc += 2;
-}
-else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
-return 1;
-}
-goto *dynOpcodes[ts + program[pc]];
-}
-
-setm_5_0:
-{
-if (IsPointer(g[5]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[5].p))->data[constant]);
+if (IsPointer(g[0]) && IsInt(g[0]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[0].p))->data[g[5].i]);
 vp->tag =0;
 vp->i = g[0].i;
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[0])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[5].p))->data[constant]);
+else if (IsPointer(g[0]) && IsPointer(g[0]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[0].p))->data[g[5].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
+fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-setm_5_1:
+seto_0_1_0:
 {
-if (IsPointer(g[5]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[5].p))->data[constant]);
+if (IsPointer(g[0]) && IsInt(g[1]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[0].p))->data[g[0].i]);
 vp->tag =0;
 vp->i = g[1].i;
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[1])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[5].p))->data[constant]);
+else if (IsPointer(g[0]) && IsPointer(g[1]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[0].p))->data[g[0].i]);
 vp->tag = g[1].tag;
 vp->p = g[1].p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
+fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-setm_5_2:
+seto_0_1_1:
 {
-if (IsPointer(g[5]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[5].p))->data[constant]);
+if (IsPointer(g[0]) && IsInt(g[1]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[0].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[1]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[0].p))->data[g[1].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_0_1_2:
+{
+if (IsPointer(g[0]) && IsInt(g[1]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[0].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[1]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[0].p))->data[g[2].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_0_1_3:
+{
+if (IsPointer(g[0]) && IsInt(g[1]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[0].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[1]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[0].p))->data[g[3].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_0_1_4:
+{
+if (IsPointer(g[0]) && IsInt(g[1]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[0].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[1]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[0].p))->data[g[4].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_0_1_5:
+{
+if (IsPointer(g[0]) && IsInt(g[1]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[0].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[1]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[0].p))->data[g[5].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_0_2_0:
+{
+if (IsPointer(g[0]) && IsInt(g[2]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[0].p))->data[g[0].i]);
 vp->tag =0;
 vp->i = g[2].i;
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[2])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[5].p))->data[constant]);
+else if (IsPointer(g[0]) && IsPointer(g[2]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[0].p))->data[g[0].i]);
 vp->tag = g[2].tag;
 vp->p = g[2].p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
+fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-setm_5_3:
+seto_0_2_1:
 {
-if (IsPointer(g[5]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[5].p))->data[constant]);
+if (IsPointer(g[0]) && IsInt(g[2]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[0].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[2]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[0].p))->data[g[1].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_0_2_2:
+{
+if (IsPointer(g[0]) && IsInt(g[2]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[0].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[2]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[0].p))->data[g[2].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_0_2_3:
+{
+if (IsPointer(g[0]) && IsInt(g[2]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[0].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[2]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[0].p))->data[g[3].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_0_2_4:
+{
+if (IsPointer(g[0]) && IsInt(g[2]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[0].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[2]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[0].p))->data[g[4].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_0_2_5:
+{
+if (IsPointer(g[0]) && IsInt(g[2]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[0].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[2]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[0].p))->data[g[5].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_0_3_0:
+{
+if (IsPointer(g[0]) && IsInt(g[3]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[0].p))->data[g[0].i]);
 vp->tag =0;
 vp->i = g[3].i;
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[3])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[5].p))->data[constant]);
+else if (IsPointer(g[0]) && IsPointer(g[3]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[0].p))->data[g[0].i]);
 vp->tag = g[3].tag;
 vp->p = g[3].p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
+fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-setm_5_4:
+seto_0_3_1:
 {
-if (IsPointer(g[5]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[5].p))->data[constant]);
+if (IsPointer(g[0]) && IsInt(g[3]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[0].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[3]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[0].p))->data[g[1].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_0_3_2:
+{
+if (IsPointer(g[0]) && IsInt(g[3]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[0].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[3]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[0].p))->data[g[2].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_0_3_3:
+{
+if (IsPointer(g[0]) && IsInt(g[3]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[0].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[3]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[0].p))->data[g[3].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_0_3_4:
+{
+if (IsPointer(g[0]) && IsInt(g[3]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[0].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[3]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[0].p))->data[g[4].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_0_3_5:
+{
+if (IsPointer(g[0]) && IsInt(g[3]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[0].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[3]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[0].p))->data[g[5].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_0_4_0:
+{
+if (IsPointer(g[0]) && IsInt(g[4]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[0].p))->data[g[0].i]);
 vp->tag =0;
 vp->i = g[4].i;
-pc += 2;
+pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[4])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[5].p))->data[constant]);
+else if (IsPointer(g[0]) && IsPointer(g[4]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[0].p))->data[g[0].i]);
 vp->tag = g[4].tag;
 vp->p = g[4].p;
-pc += 2;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
+fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-setm_5_5:
+seto_0_4_1:
 {
-if (IsPointer(g[5]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[5].p))->data[constant]);
+if (IsPointer(g[0]) && IsInt(g[4]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[0].p))->data[g[1].i]);
 vp->tag =0;
-vp->i = g[5].i;
-pc += 2;
+vp->i = g[4].i;
+pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[5])) {
-int16_t constant = program[pc + 1];
-value *vp = &(((object *)(g[5].p))->data[constant]);
-vp->tag = g[5].tag;
-vp->p = g[5].p;
-pc += 2;
+else if (IsPointer(g[0]) && IsPointer(g[4]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[0].p))->data[g[1].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: setm");
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_0_4_2:
+{
+if (IsPointer(g[0]) && IsInt(g[4]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[0].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[4]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[0].p))->data[g[2].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_0_4_3:
+{
+if (IsPointer(g[0]) && IsInt(g[4]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[0].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[4]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[0].p))->data[g[3].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_0_4_4:
+{
+if (IsPointer(g[0]) && IsInt(g[4]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[0].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[4]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[0].p))->data[g[4].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_0_4_5:
+{
+if (IsPointer(g[0]) && IsInt(g[4]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[0].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[4]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[0].p))->data[g[5].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_0_5_0:
+{
+if (IsPointer(g[0]) && IsInt(g[5]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[0].p))->data[g[0].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[5]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[0].p))->data[g[0].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_0_5_1:
+{
+if (IsPointer(g[0]) && IsInt(g[5]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[0].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[5]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[0].p))->data[g[1].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_0_5_2:
+{
+if (IsPointer(g[0]) && IsInt(g[5]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[0].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[5]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[0].p))->data[g[2].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_0_5_3:
+{
+if (IsPointer(g[0]) && IsInt(g[5]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[0].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[5]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[0].p))->data[g[3].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_0_5_4:
+{
+if (IsPointer(g[0]) && IsInt(g[5]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[0].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[5]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[0].p))->data[g[4].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_0_5_5:
+{
+if (IsPointer(g[0]) && IsInt(g[5]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[0].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[0]) && IsPointer(g[5]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[0].p))->data[g[5].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_0_0:
+{
+if (IsPointer(g[1]) && IsInt(g[0]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[1].p))->data[g[0].i]);
+vp->tag =0;
+vp->i = g[0].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[0]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[1].p))->data[g[0].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_0_1:
+{
+if (IsPointer(g[1]) && IsInt(g[0]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[1].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[0].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[0]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[1].p))->data[g[1].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_0_2:
+{
+if (IsPointer(g[1]) && IsInt(g[0]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[1].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[0].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[0]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[1].p))->data[g[2].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_0_3:
+{
+if (IsPointer(g[1]) && IsInt(g[0]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[1].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[0].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[0]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[1].p))->data[g[3].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_0_4:
+{
+if (IsPointer(g[1]) && IsInt(g[0]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[1].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[0].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[0]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[1].p))->data[g[4].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_0_5:
+{
+if (IsPointer(g[1]) && IsInt(g[0]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[1].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[0].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[0]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[1].p))->data[g[5].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_1_0:
+{
+if (IsPointer(g[1]) && IsInt(g[1]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[1].p))->data[g[0].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[1]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[1].p))->data[g[0].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_1_1:
+{
+if (IsPointer(g[1]) && IsInt(g[1]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[1].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[1]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[1].p))->data[g[1].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_1_2:
+{
+if (IsPointer(g[1]) && IsInt(g[1]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[1].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[1]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[1].p))->data[g[2].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_1_3:
+{
+if (IsPointer(g[1]) && IsInt(g[1]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[1].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[1]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[1].p))->data[g[3].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_1_4:
+{
+if (IsPointer(g[1]) && IsInt(g[1]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[1].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[1]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[1].p))->data[g[4].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_1_5:
+{
+if (IsPointer(g[1]) && IsInt(g[1]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[1].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[1]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[1].p))->data[g[5].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_2_0:
+{
+if (IsPointer(g[1]) && IsInt(g[2]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[1].p))->data[g[0].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[2]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[1].p))->data[g[0].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_2_1:
+{
+if (IsPointer(g[1]) && IsInt(g[2]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[1].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[2]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[1].p))->data[g[1].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_2_2:
+{
+if (IsPointer(g[1]) && IsInt(g[2]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[1].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[2]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[1].p))->data[g[2].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_2_3:
+{
+if (IsPointer(g[1]) && IsInt(g[2]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[1].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[2]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[1].p))->data[g[3].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_2_4:
+{
+if (IsPointer(g[1]) && IsInt(g[2]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[1].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[2]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[1].p))->data[g[4].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_2_5:
+{
+if (IsPointer(g[1]) && IsInt(g[2]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[1].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[2]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[1].p))->data[g[5].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_3_0:
+{
+if (IsPointer(g[1]) && IsInt(g[3]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[1].p))->data[g[0].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[3]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[1].p))->data[g[0].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_3_1:
+{
+if (IsPointer(g[1]) && IsInt(g[3]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[1].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[3]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[1].p))->data[g[1].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_3_2:
+{
+if (IsPointer(g[1]) && IsInt(g[3]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[1].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[3]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[1].p))->data[g[2].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_3_3:
+{
+if (IsPointer(g[1]) && IsInt(g[3]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[1].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[3]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[1].p))->data[g[3].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_3_4:
+{
+if (IsPointer(g[1]) && IsInt(g[3]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[1].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[3]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[1].p))->data[g[4].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_3_5:
+{
+if (IsPointer(g[1]) && IsInt(g[3]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[1].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[3]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[1].p))->data[g[5].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_4_0:
+{
+if (IsPointer(g[1]) && IsInt(g[4]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[1].p))->data[g[0].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[4]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[1].p))->data[g[0].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_4_1:
+{
+if (IsPointer(g[1]) && IsInt(g[4]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[1].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[4]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[1].p))->data[g[1].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_4_2:
+{
+if (IsPointer(g[1]) && IsInt(g[4]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[1].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[4]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[1].p))->data[g[2].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_4_3:
+{
+if (IsPointer(g[1]) && IsInt(g[4]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[1].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[4]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[1].p))->data[g[3].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_4_4:
+{
+if (IsPointer(g[1]) && IsInt(g[4]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[1].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[4]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[1].p))->data[g[4].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_4_5:
+{
+if (IsPointer(g[1]) && IsInt(g[4]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[1].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[4]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[1].p))->data[g[5].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_5_0:
+{
+if (IsPointer(g[1]) && IsInt(g[5]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[1].p))->data[g[0].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[5]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[1].p))->data[g[0].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_5_1:
+{
+if (IsPointer(g[1]) && IsInt(g[5]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[1].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[5]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[1].p))->data[g[1].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_5_2:
+{
+if (IsPointer(g[1]) && IsInt(g[5]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[1].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[5]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[1].p))->data[g[2].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_5_3:
+{
+if (IsPointer(g[1]) && IsInt(g[5]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[1].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[5]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[1].p))->data[g[3].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_5_4:
+{
+if (IsPointer(g[1]) && IsInt(g[5]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[1].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[5]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[1].p))->data[g[4].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_1_5_5:
+{
+if (IsPointer(g[1]) && IsInt(g[5]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[1].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[1]) && IsPointer(g[5]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[1].p))->data[g[5].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_0_0:
+{
+if (IsPointer(g[2]) && IsInt(g[0]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[2].p))->data[g[0].i]);
+vp->tag =0;
+vp->i = g[0].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[0]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[2].p))->data[g[0].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_0_1:
+{
+if (IsPointer(g[2]) && IsInt(g[0]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[2].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[0].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[0]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[2].p))->data[g[1].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_0_2:
+{
+if (IsPointer(g[2]) && IsInt(g[0]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[2].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[0].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[0]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[2].p))->data[g[2].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_0_3:
+{
+if (IsPointer(g[2]) && IsInt(g[0]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[2].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[0].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[0]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[2].p))->data[g[3].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_0_4:
+{
+if (IsPointer(g[2]) && IsInt(g[0]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[2].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[0].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[0]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[2].p))->data[g[4].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_0_5:
+{
+if (IsPointer(g[2]) && IsInt(g[0]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[2].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[0].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[0]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[2].p))->data[g[5].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_1_0:
+{
+if (IsPointer(g[2]) && IsInt(g[1]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[2].p))->data[g[0].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[1]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[2].p))->data[g[0].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_1_1:
+{
+if (IsPointer(g[2]) && IsInt(g[1]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[2].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[1]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[2].p))->data[g[1].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_1_2:
+{
+if (IsPointer(g[2]) && IsInt(g[1]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[2].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[1]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[2].p))->data[g[2].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_1_3:
+{
+if (IsPointer(g[2]) && IsInt(g[1]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[2].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[1]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[2].p))->data[g[3].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_1_4:
+{
+if (IsPointer(g[2]) && IsInt(g[1]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[2].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[1]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[2].p))->data[g[4].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_1_5:
+{
+if (IsPointer(g[2]) && IsInt(g[1]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[2].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[1]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[2].p))->data[g[5].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_2_0:
+{
+if (IsPointer(g[2]) && IsInt(g[2]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[2].p))->data[g[0].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[2]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[2].p))->data[g[0].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_2_1:
+{
+if (IsPointer(g[2]) && IsInt(g[2]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[2].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[2]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[2].p))->data[g[1].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_2_2:
+{
+if (IsPointer(g[2]) && IsInt(g[2]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[2].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[2]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[2].p))->data[g[2].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_2_3:
+{
+if (IsPointer(g[2]) && IsInt(g[2]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[2].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[2]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[2].p))->data[g[3].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_2_4:
+{
+if (IsPointer(g[2]) && IsInt(g[2]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[2].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[2]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[2].p))->data[g[4].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_2_5:
+{
+if (IsPointer(g[2]) && IsInt(g[2]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[2].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[2]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[2].p))->data[g[5].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_3_0:
+{
+if (IsPointer(g[2]) && IsInt(g[3]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[2].p))->data[g[0].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[3]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[2].p))->data[g[0].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_3_1:
+{
+if (IsPointer(g[2]) && IsInt(g[3]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[2].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[3]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[2].p))->data[g[1].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_3_2:
+{
+if (IsPointer(g[2]) && IsInt(g[3]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[2].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[3]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[2].p))->data[g[2].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_3_3:
+{
+if (IsPointer(g[2]) && IsInt(g[3]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[2].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[3]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[2].p))->data[g[3].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_3_4:
+{
+if (IsPointer(g[2]) && IsInt(g[3]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[2].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[3]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[2].p))->data[g[4].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_3_5:
+{
+if (IsPointer(g[2]) && IsInt(g[3]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[2].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[3]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[2].p))->data[g[5].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_4_0:
+{
+if (IsPointer(g[2]) && IsInt(g[4]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[2].p))->data[g[0].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[4]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[2].p))->data[g[0].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_4_1:
+{
+if (IsPointer(g[2]) && IsInt(g[4]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[2].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[4]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[2].p))->data[g[1].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_4_2:
+{
+if (IsPointer(g[2]) && IsInt(g[4]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[2].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[4]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[2].p))->data[g[2].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_4_3:
+{
+if (IsPointer(g[2]) && IsInt(g[4]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[2].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[4]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[2].p))->data[g[3].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_4_4:
+{
+if (IsPointer(g[2]) && IsInt(g[4]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[2].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[4]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[2].p))->data[g[4].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_4_5:
+{
+if (IsPointer(g[2]) && IsInt(g[4]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[2].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[4]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[2].p))->data[g[5].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_5_0:
+{
+if (IsPointer(g[2]) && IsInt(g[5]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[2].p))->data[g[0].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[5]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[2].p))->data[g[0].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_5_1:
+{
+if (IsPointer(g[2]) && IsInt(g[5]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[2].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[5]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[2].p))->data[g[1].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_5_2:
+{
+if (IsPointer(g[2]) && IsInt(g[5]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[2].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[5]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[2].p))->data[g[2].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_5_3:
+{
+if (IsPointer(g[2]) && IsInt(g[5]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[2].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[5]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[2].p))->data[g[3].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_5_4:
+{
+if (IsPointer(g[2]) && IsInt(g[5]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[2].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[5]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[2].p))->data[g[4].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_2_5_5:
+{
+if (IsPointer(g[2]) && IsInt(g[5]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[2].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[2]) && IsPointer(g[5]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[2].p))->data[g[5].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_0_0:
+{
+if (IsPointer(g[3]) && IsInt(g[0]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[3].p))->data[g[0].i]);
+vp->tag =0;
+vp->i = g[0].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[0]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[3].p))->data[g[0].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_0_1:
+{
+if (IsPointer(g[3]) && IsInt(g[0]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[3].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[0].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[0]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[3].p))->data[g[1].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_0_2:
+{
+if (IsPointer(g[3]) && IsInt(g[0]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[3].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[0].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[0]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[3].p))->data[g[2].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_0_3:
+{
+if (IsPointer(g[3]) && IsInt(g[0]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[3].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[0].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[0]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[3].p))->data[g[3].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_0_4:
+{
+if (IsPointer(g[3]) && IsInt(g[0]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[3].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[0].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[0]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[3].p))->data[g[4].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_0_5:
+{
+if (IsPointer(g[3]) && IsInt(g[0]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[3].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[0].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[0]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[3].p))->data[g[5].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_1_0:
+{
+if (IsPointer(g[3]) && IsInt(g[1]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[3].p))->data[g[0].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[1]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[3].p))->data[g[0].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_1_1:
+{
+if (IsPointer(g[3]) && IsInt(g[1]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[3].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[1]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[3].p))->data[g[1].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_1_2:
+{
+if (IsPointer(g[3]) && IsInt(g[1]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[3].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[1]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[3].p))->data[g[2].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_1_3:
+{
+if (IsPointer(g[3]) && IsInt(g[1]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[3].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[1]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[3].p))->data[g[3].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_1_4:
+{
+if (IsPointer(g[3]) && IsInt(g[1]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[3].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[1]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[3].p))->data[g[4].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_1_5:
+{
+if (IsPointer(g[3]) && IsInt(g[1]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[3].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[1]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[3].p))->data[g[5].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_2_0:
+{
+if (IsPointer(g[3]) && IsInt(g[2]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[3].p))->data[g[0].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[2]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[3].p))->data[g[0].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_2_1:
+{
+if (IsPointer(g[3]) && IsInt(g[2]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[3].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[2]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[3].p))->data[g[1].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_2_2:
+{
+if (IsPointer(g[3]) && IsInt(g[2]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[3].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[2]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[3].p))->data[g[2].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_2_3:
+{
+if (IsPointer(g[3]) && IsInt(g[2]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[3].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[2]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[3].p))->data[g[3].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_2_4:
+{
+if (IsPointer(g[3]) && IsInt(g[2]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[3].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[2]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[3].p))->data[g[4].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_2_5:
+{
+if (IsPointer(g[3]) && IsInt(g[2]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[3].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[2]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[3].p))->data[g[5].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_3_0:
+{
+if (IsPointer(g[3]) && IsInt(g[3]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[3].p))->data[g[0].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[3]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[3].p))->data[g[0].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_3_1:
+{
+if (IsPointer(g[3]) && IsInt(g[3]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[3].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[3]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[3].p))->data[g[1].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_3_2:
+{
+if (IsPointer(g[3]) && IsInt(g[3]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[3].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[3]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[3].p))->data[g[2].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_3_3:
+{
+if (IsPointer(g[3]) && IsInt(g[3]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[3].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[3]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[3].p))->data[g[3].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_3_4:
+{
+if (IsPointer(g[3]) && IsInt(g[3]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[3].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[3]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[3].p))->data[g[4].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_3_5:
+{
+if (IsPointer(g[3]) && IsInt(g[3]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[3].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[3]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[3].p))->data[g[5].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_4_0:
+{
+if (IsPointer(g[3]) && IsInt(g[4]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[3].p))->data[g[0].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[4]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[3].p))->data[g[0].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_4_1:
+{
+if (IsPointer(g[3]) && IsInt(g[4]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[3].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[4]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[3].p))->data[g[1].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_4_2:
+{
+if (IsPointer(g[3]) && IsInt(g[4]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[3].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[4]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[3].p))->data[g[2].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_4_3:
+{
+if (IsPointer(g[3]) && IsInt(g[4]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[3].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[4]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[3].p))->data[g[3].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_4_4:
+{
+if (IsPointer(g[3]) && IsInt(g[4]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[3].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[4]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[3].p))->data[g[4].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_4_5:
+{
+if (IsPointer(g[3]) && IsInt(g[4]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[3].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[4]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[3].p))->data[g[5].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_5_0:
+{
+if (IsPointer(g[3]) && IsInt(g[5]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[3].p))->data[g[0].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[5]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[3].p))->data[g[0].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_5_1:
+{
+if (IsPointer(g[3]) && IsInt(g[5]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[3].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[5]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[3].p))->data[g[1].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_5_2:
+{
+if (IsPointer(g[3]) && IsInt(g[5]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[3].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[5]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[3].p))->data[g[2].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_5_3:
+{
+if (IsPointer(g[3]) && IsInt(g[5]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[3].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[5]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[3].p))->data[g[3].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_5_4:
+{
+if (IsPointer(g[3]) && IsInt(g[5]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[3].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[5]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[3].p))->data[g[4].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_3_5_5:
+{
+if (IsPointer(g[3]) && IsInt(g[5]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[3].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[3]) && IsPointer(g[5]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[3].p))->data[g[5].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_0_0:
+{
+if (IsPointer(g[4]) && IsInt(g[0]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[4].p))->data[g[0].i]);
+vp->tag =0;
+vp->i = g[0].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[0]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[4].p))->data[g[0].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_0_1:
+{
+if (IsPointer(g[4]) && IsInt(g[0]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[4].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[0].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[0]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[4].p))->data[g[1].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_0_2:
+{
+if (IsPointer(g[4]) && IsInt(g[0]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[4].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[0].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[0]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[4].p))->data[g[2].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_0_3:
+{
+if (IsPointer(g[4]) && IsInt(g[0]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[4].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[0].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[0]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[4].p))->data[g[3].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_0_4:
+{
+if (IsPointer(g[4]) && IsInt(g[0]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[4].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[0].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[0]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[4].p))->data[g[4].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_0_5:
+{
+if (IsPointer(g[4]) && IsInt(g[0]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[4].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[0].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[0]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[4].p))->data[g[5].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_1_0:
+{
+if (IsPointer(g[4]) && IsInt(g[1]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[4].p))->data[g[0].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[1]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[4].p))->data[g[0].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_1_1:
+{
+if (IsPointer(g[4]) && IsInt(g[1]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[4].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[1]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[4].p))->data[g[1].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_1_2:
+{
+if (IsPointer(g[4]) && IsInt(g[1]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[4].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[1]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[4].p))->data[g[2].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_1_3:
+{
+if (IsPointer(g[4]) && IsInt(g[1]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[4].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[1]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[4].p))->data[g[3].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_1_4:
+{
+if (IsPointer(g[4]) && IsInt(g[1]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[4].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[1]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[4].p))->data[g[4].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_1_5:
+{
+if (IsPointer(g[4]) && IsInt(g[1]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[4].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[1]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[4].p))->data[g[5].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_2_0:
+{
+if (IsPointer(g[4]) && IsInt(g[2]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[4].p))->data[g[0].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[2]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[4].p))->data[g[0].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_2_1:
+{
+if (IsPointer(g[4]) && IsInt(g[2]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[4].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[2]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[4].p))->data[g[1].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_2_2:
+{
+if (IsPointer(g[4]) && IsInt(g[2]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[4].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[2]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[4].p))->data[g[2].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_2_3:
+{
+if (IsPointer(g[4]) && IsInt(g[2]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[4].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[2]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[4].p))->data[g[3].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_2_4:
+{
+if (IsPointer(g[4]) && IsInt(g[2]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[4].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[2]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[4].p))->data[g[4].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_2_5:
+{
+if (IsPointer(g[4]) && IsInt(g[2]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[4].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[2]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[4].p))->data[g[5].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_3_0:
+{
+if (IsPointer(g[4]) && IsInt(g[3]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[4].p))->data[g[0].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[3]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[4].p))->data[g[0].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_3_1:
+{
+if (IsPointer(g[4]) && IsInt(g[3]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[4].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[3]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[4].p))->data[g[1].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_3_2:
+{
+if (IsPointer(g[4]) && IsInt(g[3]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[4].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[3]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[4].p))->data[g[2].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_3_3:
+{
+if (IsPointer(g[4]) && IsInt(g[3]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[4].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[3]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[4].p))->data[g[3].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_3_4:
+{
+if (IsPointer(g[4]) && IsInt(g[3]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[4].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[3]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[4].p))->data[g[4].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_3_5:
+{
+if (IsPointer(g[4]) && IsInt(g[3]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[4].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[3]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[4].p))->data[g[5].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_4_0:
+{
+if (IsPointer(g[4]) && IsInt(g[4]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[4].p))->data[g[0].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[4]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[4].p))->data[g[0].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_4_1:
+{
+if (IsPointer(g[4]) && IsInt(g[4]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[4].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[4]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[4].p))->data[g[1].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_4_2:
+{
+if (IsPointer(g[4]) && IsInt(g[4]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[4].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[4]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[4].p))->data[g[2].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_4_3:
+{
+if (IsPointer(g[4]) && IsInt(g[4]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[4].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[4]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[4].p))->data[g[3].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_4_4:
+{
+if (IsPointer(g[4]) && IsInt(g[4]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[4].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[4]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[4].p))->data[g[4].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_4_5:
+{
+if (IsPointer(g[4]) && IsInt(g[4]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[4].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[4]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[4].p))->data[g[5].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_5_0:
+{
+if (IsPointer(g[4]) && IsInt(g[5]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[4].p))->data[g[0].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[5]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[4].p))->data[g[0].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_5_1:
+{
+if (IsPointer(g[4]) && IsInt(g[5]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[4].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[5]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[4].p))->data[g[1].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_5_2:
+{
+if (IsPointer(g[4]) && IsInt(g[5]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[4].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[5]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[4].p))->data[g[2].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_5_3:
+{
+if (IsPointer(g[4]) && IsInt(g[5]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[4].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[5]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[4].p))->data[g[3].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_5_4:
+{
+if (IsPointer(g[4]) && IsInt(g[5]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[4].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[5]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[4].p))->data[g[4].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_4_5_5:
+{
+if (IsPointer(g[4]) && IsInt(g[5]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[4].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[4]) && IsPointer(g[5]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[4].p))->data[g[5].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_0_0:
+{
+if (IsPointer(g[5]) && IsInt(g[0]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[5].p))->data[g[0].i]);
+vp->tag =0;
+vp->i = g[0].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[0]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[5].p))->data[g[0].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_0_1:
+{
+if (IsPointer(g[5]) && IsInt(g[0]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[5].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[0].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[0]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[5].p))->data[g[1].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_0_2:
+{
+if (IsPointer(g[5]) && IsInt(g[0]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[5].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[0].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[0]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[5].p))->data[g[2].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_0_3:
+{
+if (IsPointer(g[5]) && IsInt(g[0]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[5].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[0].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[0]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[5].p))->data[g[3].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_0_4:
+{
+if (IsPointer(g[5]) && IsInt(g[0]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[5].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[0].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[0]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[5].p))->data[g[4].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_0_5:
+{
+if (IsPointer(g[5]) && IsInt(g[0]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[5].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[0].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[0]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[5].p))->data[g[5].i]);
+vp->tag = g[0].tag;
+vp->p = g[0].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_1_0:
+{
+if (IsPointer(g[5]) && IsInt(g[1]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[5].p))->data[g[0].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[1]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[5].p))->data[g[0].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_1_1:
+{
+if (IsPointer(g[5]) && IsInt(g[1]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[5].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[1]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[5].p))->data[g[1].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_1_2:
+{
+if (IsPointer(g[5]) && IsInt(g[1]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[5].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[1]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[5].p))->data[g[2].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_1_3:
+{
+if (IsPointer(g[5]) && IsInt(g[1]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[5].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[1]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[5].p))->data[g[3].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_1_4:
+{
+if (IsPointer(g[5]) && IsInt(g[1]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[5].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[1]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[5].p))->data[g[4].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_1_5:
+{
+if (IsPointer(g[5]) && IsInt(g[1]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[5].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[1].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[1]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[5].p))->data[g[5].i]);
+vp->tag = g[1].tag;
+vp->p = g[1].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_2_0:
+{
+if (IsPointer(g[5]) && IsInt(g[2]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[5].p))->data[g[0].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[2]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[5].p))->data[g[0].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_2_1:
+{
+if (IsPointer(g[5]) && IsInt(g[2]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[5].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[2]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[5].p))->data[g[1].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_2_2:
+{
+if (IsPointer(g[5]) && IsInt(g[2]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[5].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[2]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[5].p))->data[g[2].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_2_3:
+{
+if (IsPointer(g[5]) && IsInt(g[2]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[5].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[2]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[5].p))->data[g[3].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_2_4:
+{
+if (IsPointer(g[5]) && IsInt(g[2]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[5].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[2]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[5].p))->data[g[4].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_2_5:
+{
+if (IsPointer(g[5]) && IsInt(g[2]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[5].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[2].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[2]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[5].p))->data[g[5].i]);
+vp->tag = g[2].tag;
+vp->p = g[2].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_3_0:
+{
+if (IsPointer(g[5]) && IsInt(g[3]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[5].p))->data[g[0].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[3]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[5].p))->data[g[0].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_3_1:
+{
+if (IsPointer(g[5]) && IsInt(g[3]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[5].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[3]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[5].p))->data[g[1].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_3_2:
+{
+if (IsPointer(g[5]) && IsInt(g[3]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[5].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[3]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[5].p))->data[g[2].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_3_3:
+{
+if (IsPointer(g[5]) && IsInt(g[3]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[5].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[3]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[5].p))->data[g[3].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_3_4:
+{
+if (IsPointer(g[5]) && IsInt(g[3]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[5].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[3]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[5].p))->data[g[4].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_3_5:
+{
+if (IsPointer(g[5]) && IsInt(g[3]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[5].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[3].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[3]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[5].p))->data[g[5].i]);
+vp->tag = g[3].tag;
+vp->p = g[3].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_4_0:
+{
+if (IsPointer(g[5]) && IsInt(g[4]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[5].p))->data[g[0].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[4]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[5].p))->data[g[0].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_4_1:
+{
+if (IsPointer(g[5]) && IsInt(g[4]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[5].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[4]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[5].p))->data[g[1].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_4_2:
+{
+if (IsPointer(g[5]) && IsInt(g[4]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[5].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[4]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[5].p))->data[g[2].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_4_3:
+{
+if (IsPointer(g[5]) && IsInt(g[4]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[5].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[4]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[5].p))->data[g[3].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_4_4:
+{
+if (IsPointer(g[5]) && IsInt(g[4]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[5].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[4]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[5].p))->data[g[4].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_4_5:
+{
+if (IsPointer(g[5]) && IsInt(g[4]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[5].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[4].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[4]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[5].p))->data[g[5].i]);
+vp->tag = g[4].tag;
+vp->p = g[4].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_5_0:
+{
+if (IsPointer(g[5]) && IsInt(g[5]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[5].p))->data[g[0].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[5]) && IsInt(g[0])) {
+value *vp = &(((object *)(g[5].p))->data[g[0].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_5_1:
+{
+if (IsPointer(g[5]) && IsInt(g[5]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[5].p))->data[g[1].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[5]) && IsInt(g[1])) {
+value *vp = &(((object *)(g[5].p))->data[g[1].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_5_2:
+{
+if (IsPointer(g[5]) && IsInt(g[5]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[5].p))->data[g[2].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[5]) && IsInt(g[2])) {
+value *vp = &(((object *)(g[5].p))->data[g[2].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_5_3:
+{
+if (IsPointer(g[5]) && IsInt(g[5]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[5].p))->data[g[3].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[5]) && IsInt(g[3])) {
+value *vp = &(((object *)(g[5].p))->data[g[3].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_5_4:
+{
+if (IsPointer(g[5]) && IsInt(g[5]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[5].p))->data[g[4].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[5]) && IsInt(g[4])) {
+value *vp = &(((object *)(g[5].p))->data[g[4].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+seto_5_5_5:
+{
+if (IsPointer(g[5]) && IsInt(g[5]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[5].p))->data[g[5].i]);
+vp->tag =0;
+vp->i = g[5].i;
+pc++;
+}
+else if (IsPointer(g[5]) && IsPointer(g[5]) && IsInt(g[5])) {
+value *vp = &(((object *)(g[5].p))->data[g[5].i]);
+vp->tag = g[5].tag;
+vp->p = g[5].p;
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
@@ -16011,11 +25263,10 @@ pc += 4;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newp_0:
+newo_0_0:
 {
-int16_t dsize = program[pc +1];
-int64_t size = *((int64_t*)(&program[pc + dsize]));
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*size);
+if (IsPointer(g[0]) && IsInt(g[0])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[0].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[0].tag = 2;
@@ -16026,14 +25277,128 @@ fprintf(stderr, "malloc failed");
 return 1;
 }
 pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newp_1:
+newo_0_1:
 {
-int16_t dsize = program[pc +1];
-int64_t size = *((int64_t*)(&program[pc + dsize]));
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*size);
+if (IsPointer(g[0]) && IsInt(g[1])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[1].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[0].tag = 2;
+g[0].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newo_0_2:
+{
+if (IsPointer(g[0]) && IsInt(g[2])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[2].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[0].tag = 2;
+g[0].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newo_0_3:
+{
+if (IsPointer(g[0]) && IsInt(g[3])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[3].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[0].tag = 2;
+g[0].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newo_0_4:
+{
+if (IsPointer(g[0]) && IsInt(g[4])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[4].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[0].tag = 2;
+g[0].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newo_0_5:
+{
+if (IsPointer(g[0]) && IsInt(g[5])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[5].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[0].tag = 2;
+g[0].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newo_1_0:
+{
+if (IsPointer(g[1]) && IsInt(g[0])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[0].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[1].tag = 2;
@@ -16044,14 +25409,128 @@ fprintf(stderr, "malloc failed");
 return 1;
 }
 pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newp_2:
+newo_1_1:
 {
-int16_t dsize = program[pc +1];
-int64_t size = *((int64_t*)(&program[pc + dsize]));
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*size);
+if (IsPointer(g[1]) && IsInt(g[1])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[1].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[1].tag = 2;
+g[1].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newo_1_2:
+{
+if (IsPointer(g[1]) && IsInt(g[2])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[2].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[1].tag = 2;
+g[1].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newo_1_3:
+{
+if (IsPointer(g[1]) && IsInt(g[3])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[3].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[1].tag = 2;
+g[1].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newo_1_4:
+{
+if (IsPointer(g[1]) && IsInt(g[4])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[4].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[1].tag = 2;
+g[1].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newo_1_5:
+{
+if (IsPointer(g[1]) && IsInt(g[5])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[5].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[1].tag = 2;
+g[1].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newo_2_0:
+{
+if (IsPointer(g[2]) && IsInt(g[0])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[0].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[2].tag = 2;
@@ -16062,14 +25541,128 @@ fprintf(stderr, "malloc failed");
 return 1;
 }
 pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newp_3:
+newo_2_1:
 {
-int16_t dsize = program[pc +1];
-int64_t size = *((int64_t*)(&program[pc + dsize]));
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*size);
+if (IsPointer(g[2]) && IsInt(g[1])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[1].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[2].tag = 2;
+g[2].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newo_2_2:
+{
+if (IsPointer(g[2]) && IsInt(g[2])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[2].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[2].tag = 2;
+g[2].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newo_2_3:
+{
+if (IsPointer(g[2]) && IsInt(g[3])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[3].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[2].tag = 2;
+g[2].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newo_2_4:
+{
+if (IsPointer(g[2]) && IsInt(g[4])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[4].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[2].tag = 2;
+g[2].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newo_2_5:
+{
+if (IsPointer(g[2]) && IsInt(g[5])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[5].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[2].tag = 2;
+g[2].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newo_3_0:
+{
+if (IsPointer(g[3]) && IsInt(g[0])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[0].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[3].tag = 2;
@@ -16080,14 +25673,128 @@ fprintf(stderr, "malloc failed");
 return 1;
 }
 pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newp_4:
+newo_3_1:
 {
-int16_t dsize = program[pc +1];
-int64_t size = *((int64_t*)(&program[pc + dsize]));
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*size);
+if (IsPointer(g[3]) && IsInt(g[1])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[1].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[3].tag = 2;
+g[3].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newo_3_2:
+{
+if (IsPointer(g[3]) && IsInt(g[2])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[2].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[3].tag = 2;
+g[3].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newo_3_3:
+{
+if (IsPointer(g[3]) && IsInt(g[3])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[3].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[3].tag = 2;
+g[3].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newo_3_4:
+{
+if (IsPointer(g[3]) && IsInt(g[4])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[4].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[3].tag = 2;
+g[3].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newo_3_5:
+{
+if (IsPointer(g[3]) && IsInt(g[5])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[5].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[3].tag = 2;
+g[3].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newo_4_0:
+{
+if (IsPointer(g[4]) && IsInt(g[0])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[0].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[4].tag = 2;
@@ -16098,14 +25805,128 @@ fprintf(stderr, "malloc failed");
 return 1;
 }
 pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newp_5:
+newo_4_1:
 {
-int16_t dsize = program[pc +1];
-int64_t size = *((int64_t*)(&program[pc + dsize]));
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*size);
+if (IsPointer(g[4]) && IsInt(g[1])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[1].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[4].tag = 2;
+g[4].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newo_4_2:
+{
+if (IsPointer(g[4]) && IsInt(g[2])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[2].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[4].tag = 2;
+g[4].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newo_4_3:
+{
+if (IsPointer(g[4]) && IsInt(g[3])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[3].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[4].tag = 2;
+g[4].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newo_4_4:
+{
+if (IsPointer(g[4]) && IsInt(g[4])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[4].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[4].tag = 2;
+g[4].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newo_4_5:
+{
+if (IsPointer(g[4]) && IsInt(g[5])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[5].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[4].tag = 2;
+g[4].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newo_5_0:
+{
+if (IsPointer(g[5]) && IsInt(g[0])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[0].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[5].tag = 2;
@@ -16116,664 +25937,779 @@ fprintf(stderr, "malloc failed");
 return 1;
 }
 pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_0_1:
+newo_5_1:
+{
+if (IsPointer(g[5]) && IsInt(g[1])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[1].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[5].tag = 2;
+g[5].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newo_5_2:
+{
+if (IsPointer(g[5]) && IsInt(g[2])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[2].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[5].tag = 2;
+g[5].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newo_5_3:
+{
+if (IsPointer(g[5]) && IsInt(g[3])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[3].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[5].tag = 2;
+g[5].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newo_5_4:
+{
+if (IsPointer(g[5]) && IsInt(g[4])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[4].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[5].tag = 2;
+g[5].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newo_5_5:
+{
+if (IsPointer(g[5]) && IsInt(g[5])) {
+object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[5].i);
+if (base) {
+base->sf = MakeSizeAndFlags(size,0);
+g[5].tag = 2;
+g[5].p = base;
+}
+else {
+fprintf(stderr, "malloc failed");
+return 1;
+}
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: newo");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+newb_0_1:
 {
 if (IsPointer(g[0]) && IsInt(g[1])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[1].i);
 if (base) {
-base->sf = MakeSizeAndFlags(g[1].i,0);
-g[0].tag = 4;
-g[0].p = base;
+    base->sf = MakeSizeAndFlags(g[1].i,0);
+    g[0].tag = 4;
+        g[0].p = base;
 }
 else {
-fprintf(stderr, "malloc failed");
-return 1;
+    fprintf(stderr, "malloc failed");
+    return 1;
 }
 pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: newa");
+fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_0_2:
+newb_0_2:
 {
 if (IsPointer(g[0]) && IsInt(g[2])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[2].i);
 if (base) {
-base->sf = MakeSizeAndFlags(g[2].i,0);
-g[0].tag = 4;
-g[0].p = base;
+    base->sf = MakeSizeAndFlags(g[2].i,0);
+    g[0].tag = 4;
+        g[0].p = base;
 }
 else {
-fprintf(stderr, "malloc failed");
-return 1;
+    fprintf(stderr, "malloc failed");
+    return 1;
 }
 pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: newa");
+fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_0_3:
+newb_0_3:
 {
 if (IsPointer(g[0]) && IsInt(g[3])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[3].i);
 if (base) {
-base->sf = MakeSizeAndFlags(g[3].i,0);
-g[0].tag = 4;
-g[0].p = base;
+    base->sf = MakeSizeAndFlags(g[3].i,0);
+    g[0].tag = 4;
+        g[0].p = base;
 }
 else {
-fprintf(stderr, "malloc failed");
-return 1;
+    fprintf(stderr, "malloc failed");
+    return 1;
 }
 pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: newa");
+fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_0_4:
+newb_0_4:
 {
 if (IsPointer(g[0]) && IsInt(g[4])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[4].i);
 if (base) {
-base->sf = MakeSizeAndFlags(g[4].i,0);
-g[0].tag = 4;
-g[0].p = base;
+    base->sf = MakeSizeAndFlags(g[4].i,0);
+    g[0].tag = 4;
+        g[0].p = base;
 }
 else {
-fprintf(stderr, "malloc failed");
-return 1;
+    fprintf(stderr, "malloc failed");
+    return 1;
 }
 pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: newa");
+fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_0_5:
+newb_0_5:
 {
 if (IsPointer(g[0]) && IsInt(g[5])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[5].i);
 if (base) {
-base->sf = MakeSizeAndFlags(g[5].i,0);
-g[0].tag = 4;
-g[0].p = base;
+    base->sf = MakeSizeAndFlags(g[5].i,0);
+    g[0].tag = 4;
+        g[0].p = base;
 }
 else {
-fprintf(stderr, "malloc failed");
-return 1;
+    fprintf(stderr, "malloc failed");
+    return 1;
 }
 pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: newa");
+fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_1_0:
+newb_1_0:
 {
 if (IsPointer(g[1]) && IsInt(g[0])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[0].i);
 if (base) {
-base->sf = MakeSizeAndFlags(g[0].i,0);
-g[1].tag = 4;
-g[1].p = base;
+    base->sf = MakeSizeAndFlags(g[0].i,0);
+    g[1].tag = 4;
+        g[1].p = base;
 }
 else {
-fprintf(stderr, "malloc failed");
-return 1;
+    fprintf(stderr, "malloc failed");
+    return 1;
 }
 pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: newa");
+fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_1_2:
+newb_1_2:
 {
 if (IsPointer(g[1]) && IsInt(g[2])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[2].i);
 if (base) {
-base->sf = MakeSizeAndFlags(g[2].i,0);
-g[1].tag = 4;
-g[1].p = base;
+    base->sf = MakeSizeAndFlags(g[2].i,0);
+    g[1].tag = 4;
+        g[1].p = base;
 }
 else {
-fprintf(stderr, "malloc failed");
-return 1;
+    fprintf(stderr, "malloc failed");
+    return 1;
 }
 pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: newa");
+fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_1_3:
+newb_1_3:
 {
 if (IsPointer(g[1]) && IsInt(g[3])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[3].i);
 if (base) {
-base->sf = MakeSizeAndFlags(g[3].i,0);
-g[1].tag = 4;
-g[1].p = base;
+    base->sf = MakeSizeAndFlags(g[3].i,0);
+    g[1].tag = 4;
+        g[1].p = base;
 }
 else {
-fprintf(stderr, "malloc failed");
-return 1;
+    fprintf(stderr, "malloc failed");
+    return 1;
 }
 pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: newa");
+fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_1_4:
+newb_1_4:
 {
 if (IsPointer(g[1]) && IsInt(g[4])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[4].i);
 if (base) {
-base->sf = MakeSizeAndFlags(g[4].i,0);
-g[1].tag = 4;
-g[1].p = base;
+    base->sf = MakeSizeAndFlags(g[4].i,0);
+    g[1].tag = 4;
+        g[1].p = base;
 }
 else {
-fprintf(stderr, "malloc failed");
-return 1;
+    fprintf(stderr, "malloc failed");
+    return 1;
 }
 pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: newa");
+fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_1_5:
+newb_1_5:
 {
 if (IsPointer(g[1]) && IsInt(g[5])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[5].i);
 if (base) {
-base->sf = MakeSizeAndFlags(g[5].i,0);
-g[1].tag = 4;
-g[1].p = base;
+    base->sf = MakeSizeAndFlags(g[5].i,0);
+    g[1].tag = 4;
+        g[1].p = base;
 }
 else {
-fprintf(stderr, "malloc failed");
-return 1;
+    fprintf(stderr, "malloc failed");
+    return 1;
 }
 pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: newa");
+fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_2_0:
+newb_2_0:
 {
 if (IsPointer(g[2]) && IsInt(g[0])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[0].i);
 if (base) {
-base->sf = MakeSizeAndFlags(g[0].i,0);
-g[2].tag = 4;
-g[2].p = base;
+    base->sf = MakeSizeAndFlags(g[0].i,0);
+    g[2].tag = 4;
+        g[2].p = base;
 }
 else {
-fprintf(stderr, "malloc failed");
-return 1;
+    fprintf(stderr, "malloc failed");
+    return 1;
 }
 pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: newa");
+fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_2_1:
+newb_2_1:
 {
 if (IsPointer(g[2]) && IsInt(g[1])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[1].i);
 if (base) {
-base->sf = MakeSizeAndFlags(g[1].i,0);
-g[2].tag = 4;
-g[2].p = base;
+    base->sf = MakeSizeAndFlags(g[1].i,0);
+    g[2].tag = 4;
+        g[2].p = base;
 }
 else {
-fprintf(stderr, "malloc failed");
-return 1;
+    fprintf(stderr, "malloc failed");
+    return 1;
 }
 pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: newa");
+fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_2_3:
+newb_2_3:
 {
 if (IsPointer(g[2]) && IsInt(g[3])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[3].i);
 if (base) {
-base->sf = MakeSizeAndFlags(g[3].i,0);
-g[2].tag = 4;
-g[2].p = base;
+    base->sf = MakeSizeAndFlags(g[3].i,0);
+    g[2].tag = 4;
+        g[2].p = base;
 }
 else {
-fprintf(stderr, "malloc failed");
-return 1;
+    fprintf(stderr, "malloc failed");
+    return 1;
 }
 pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: newa");
+fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_2_4:
+newb_2_4:
 {
 if (IsPointer(g[2]) && IsInt(g[4])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[4].i);
 if (base) {
-base->sf = MakeSizeAndFlags(g[4].i,0);
-g[2].tag = 4;
-g[2].p = base;
+    base->sf = MakeSizeAndFlags(g[4].i,0);
+    g[2].tag = 4;
+        g[2].p = base;
 }
 else {
-fprintf(stderr, "malloc failed");
-return 1;
+    fprintf(stderr, "malloc failed");
+    return 1;
 }
 pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: newa");
+fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_2_5:
+newb_2_5:
 {
 if (IsPointer(g[2]) && IsInt(g[5])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[5].i);
 if (base) {
-base->sf = MakeSizeAndFlags(g[5].i,0);
-g[2].tag = 4;
-g[2].p = base;
+    base->sf = MakeSizeAndFlags(g[5].i,0);
+    g[2].tag = 4;
+        g[2].p = base;
 }
 else {
-fprintf(stderr, "malloc failed");
-return 1;
+    fprintf(stderr, "malloc failed");
+    return 1;
 }
 pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: newa");
+fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_3_0:
+newb_3_0:
 {
 if (IsPointer(g[3]) && IsInt(g[0])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[0].i);
 if (base) {
-base->sf = MakeSizeAndFlags(g[0].i,0);
-g[3].tag = 4;
-g[3].p = base;
+    base->sf = MakeSizeAndFlags(g[0].i,0);
+    g[3].tag = 4;
+        g[3].p = base;
 }
 else {
-fprintf(stderr, "malloc failed");
-return 1;
+    fprintf(stderr, "malloc failed");
+    return 1;
 }
 pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: newa");
+fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_3_1:
+newb_3_1:
 {
 if (IsPointer(g[3]) && IsInt(g[1])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[1].i);
 if (base) {
-base->sf = MakeSizeAndFlags(g[1].i,0);
-g[3].tag = 4;
-g[3].p = base;
+    base->sf = MakeSizeAndFlags(g[1].i,0);
+    g[3].tag = 4;
+        g[3].p = base;
 }
 else {
-fprintf(stderr, "malloc failed");
-return 1;
+    fprintf(stderr, "malloc failed");
+    return 1;
 }
 pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: newa");
+fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_3_2:
+newb_3_2:
 {
 if (IsPointer(g[3]) && IsInt(g[2])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[2].i);
 if (base) {
-base->sf = MakeSizeAndFlags(g[2].i,0);
-g[3].tag = 4;
-g[3].p = base;
+    base->sf = MakeSizeAndFlags(g[2].i,0);
+    g[3].tag = 4;
+        g[3].p = base;
 }
 else {
-fprintf(stderr, "malloc failed");
-return 1;
+    fprintf(stderr, "malloc failed");
+    return 1;
 }
 pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: newa");
+fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_3_4:
+newb_3_4:
 {
 if (IsPointer(g[3]) && IsInt(g[4])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[4].i);
 if (base) {
-base->sf = MakeSizeAndFlags(g[4].i,0);
-g[3].tag = 4;
-g[3].p = base;
+    base->sf = MakeSizeAndFlags(g[4].i,0);
+    g[3].tag = 4;
+        g[3].p = base;
 }
 else {
-fprintf(stderr, "malloc failed");
-return 1;
+    fprintf(stderr, "malloc failed");
+    return 1;
 }
 pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: newa");
+fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_3_5:
+newb_3_5:
 {
 if (IsPointer(g[3]) && IsInt(g[5])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[5].i);
 if (base) {
-base->sf = MakeSizeAndFlags(g[5].i,0);
-g[3].tag = 4;
-g[3].p = base;
+    base->sf = MakeSizeAndFlags(g[5].i,0);
+    g[3].tag = 4;
+        g[3].p = base;
 }
 else {
-fprintf(stderr, "malloc failed");
-return 1;
+    fprintf(stderr, "malloc failed");
+    return 1;
 }
 pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: newa");
+fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_4_0:
+newb_4_0:
 {
 if (IsPointer(g[4]) && IsInt(g[0])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[0].i);
 if (base) {
-base->sf = MakeSizeAndFlags(g[0].i,0);
-g[4].tag = 4;
-g[4].p = base;
+    base->sf = MakeSizeAndFlags(g[0].i,0);
+    g[4].tag = 4;
+        g[4].p = base;
 }
 else {
-fprintf(stderr, "malloc failed");
-return 1;
+    fprintf(stderr, "malloc failed");
+    return 1;
 }
 pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: newa");
+fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_4_1:
+newb_4_1:
 {
 if (IsPointer(g[4]) && IsInt(g[1])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[1].i);
 if (base) {
-base->sf = MakeSizeAndFlags(g[1].i,0);
-g[4].tag = 4;
-g[4].p = base;
+    base->sf = MakeSizeAndFlags(g[1].i,0);
+    g[4].tag = 4;
+        g[4].p = base;
 }
 else {
-fprintf(stderr, "malloc failed");
-return 1;
+    fprintf(stderr, "malloc failed");
+    return 1;
 }
 pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: newa");
+fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_4_2:
+newb_4_2:
 {
 if (IsPointer(g[4]) && IsInt(g[2])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[2].i);
 if (base) {
-base->sf = MakeSizeAndFlags(g[2].i,0);
-g[4].tag = 4;
-g[4].p = base;
+    base->sf = MakeSizeAndFlags(g[2].i,0);
+    g[4].tag = 4;
+        g[4].p = base;
 }
 else {
-fprintf(stderr, "malloc failed");
-return 1;
+    fprintf(stderr, "malloc failed");
+    return 1;
 }
 pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: newa");
+fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_4_3:
+newb_4_3:
 {
 if (IsPointer(g[4]) && IsInt(g[3])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[3].i);
 if (base) {
-base->sf = MakeSizeAndFlags(g[3].i,0);
-g[4].tag = 4;
-g[4].p = base;
+    base->sf = MakeSizeAndFlags(g[3].i,0);
+    g[4].tag = 4;
+        g[4].p = base;
 }
 else {
-fprintf(stderr, "malloc failed");
-return 1;
+    fprintf(stderr, "malloc failed");
+    return 1;
 }
 pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: newa");
+fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_4_5:
+newb_4_5:
 {
 if (IsPointer(g[4]) && IsInt(g[5])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[5].i);
 if (base) {
-base->sf = MakeSizeAndFlags(g[5].i,0);
-g[4].tag = 4;
-g[4].p = base;
+    base->sf = MakeSizeAndFlags(g[5].i,0);
+    g[4].tag = 4;
+        g[4].p = base;
 }
 else {
-fprintf(stderr, "malloc failed");
-return 1;
+    fprintf(stderr, "malloc failed");
+    return 1;
 }
 pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: newa");
+fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_5_0:
+newb_5_0:
 {
 if (IsPointer(g[5]) && IsInt(g[0])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[0].i);
 if (base) {
-base->sf = MakeSizeAndFlags(g[0].i,0);
-g[5].tag = 4;
-g[5].p = base;
+    base->sf = MakeSizeAndFlags(g[0].i,0);
+    g[5].tag = 4;
+        g[5].p = base;
 }
 else {
-fprintf(stderr, "malloc failed");
-return 1;
+    fprintf(stderr, "malloc failed");
+    return 1;
 }
 pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: newa");
+fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_5_1:
+newb_5_1:
 {
 if (IsPointer(g[5]) && IsInt(g[1])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[1].i);
 if (base) {
-base->sf = MakeSizeAndFlags(g[1].i,0);
-g[5].tag = 4;
-g[5].p = base;
+    base->sf = MakeSizeAndFlags(g[1].i,0);
+    g[5].tag = 4;
+        g[5].p = base;
 }
 else {
-fprintf(stderr, "malloc failed");
-return 1;
+    fprintf(stderr, "malloc failed");
+    return 1;
 }
 pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: newa");
+fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_5_2:
+newb_5_2:
 {
 if (IsPointer(g[5]) && IsInt(g[2])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[2].i);
 if (base) {
-base->sf = MakeSizeAndFlags(g[2].i,0);
-g[5].tag = 4;
-g[5].p = base;
+    base->sf = MakeSizeAndFlags(g[2].i,0);
+    g[5].tag = 4;
+        g[5].p = base;
 }
 else {
-fprintf(stderr, "malloc failed");
-return 1;
+    fprintf(stderr, "malloc failed");
+    return 1;
 }
 pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: newa");
+fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_5_3:
+newb_5_3:
 {
 if (IsPointer(g[5]) && IsInt(g[3])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[3].i);
 if (base) {
-base->sf = MakeSizeAndFlags(g[3].i,0);
-g[5].tag = 4;
-g[5].p = base;
+    base->sf = MakeSizeAndFlags(g[3].i,0);
+    g[5].tag = 4;
+        g[5].p = base;
 }
 else {
-fprintf(stderr, "malloc failed");
-return 1;
+    fprintf(stderr, "malloc failed");
+    return 1;
 }
 pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: newa");
+fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
 }
 
-newa_5_4:
+newb_5_4:
 {
 if (IsPointer(g[5]) && IsInt(g[4])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[4].i);
 if (base) {
-base->sf = MakeSizeAndFlags(g[4].i,0);
-g[5].tag = 4;
-g[5].p = base;
+    base->sf = MakeSizeAndFlags(g[4].i,0);
+    g[5].tag = 4;
+        g[5].p = base;
 }
 else {
-fprintf(stderr, "malloc failed");
-return 1;
+    fprintf(stderr, "malloc failed");
+    return 1;
 }
 pc++;
 }
 else {
-fprintf(stderr, "type error, illegal types used for instruction: newa");
+fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
 goto *dynOpcodes[ts + program[pc]];
