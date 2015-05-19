@@ -9,4 +9,4 @@ optimised: vm.c codegen
 	gcc -D HYBR -O3 -o bin/vmh vm.c
 
 codegen: Code\ Generator/codegen.js
-	node Code\ Generator/codegen.js
+	cd Code\ Generator && node codegen.js

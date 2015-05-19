@@ -28,7 +28,7 @@ null p${1:i}
 getl r${1:i}, ${2:index16}
 getlp p${1:i}, ${2:index16}
 setl ${1:index16}, r${2:i}
-setlp p${1:i}, ${2:indeesx16}
+setlp p${1:i}, ${2:index16}
 getm r${1:i}, p${2:j}, ${3:index16}
 getmp p${1:i}, p${2:j}, ${3:index16}
 setm p${1:i}, r${2:j}, ${3:index16}
@@ -37,6 +37,8 @@ geta r${1:i}, p${2:j}, r${3:k≠j}
 getap p${1:i}, p${2:j}, r${3:k≠j}
 seta p${1:i}, r${2:j≠i}, r${3:k}
 setap p${1:i}, r${2:j≠i}, p${3:k}
+geto r${1:i}, p${2:j}, r${3:k≠j}
+seto p${1:i}, r${2:j≠i}, r${3:k}
 getb r${1:i}, p${2:j}, r${3:k≠j}
 setb p${1:i}, r${2:j≠i}, r${3:k}
 jmp ${1:disp16}
@@ -51,6 +53,7 @@ ret
 newp p${1:i}}, ${2:disp16}
 newpa p${1:i}, r${2:j≠i}
 newa p${1:i}, r${2:j≠i}
+newo p${1:i}, r${2:j≠i}
 err ${1:disp16}
 in p${1:i}
 out p${1:i}

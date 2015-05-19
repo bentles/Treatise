@@ -103,7 +103,7 @@ var lookups = [
             legal: [i, i],
             template:
                 'g[0].i = /*<0>*/.i % /*<1>*/.i;\n' +
-            '/*<0>*/.i /= /*<1>*/.i;\n' +
+                '/*<0>*/.i /= /*<1>*/.i;\n' +
                 'g[0].tag = 0;\n' +
                 'ts &= 0xF800;\n' 
         }]
@@ -394,6 +394,7 @@ var lookups = [
     {
         name: 'geto',
         inputs: 3,
+        callCondition: noTrivialFor([1,2]),
         instructions: [
             {
                 name: 'geto',
@@ -428,24 +429,25 @@ var lookups = [
     {
         name: 'seto',
         inputs: 3,
+        callCondition: noTrivialFor([0,1]),
         instructions: [
             {
                 name: 'seto',
                 pcChange: 1,
                 legal: [p, i, i], 
                 template: 
-                    'value *vp = &(((object *)(/*<0>*/.p))->data[/*<2>*/.i]);\n' +
+                    'value *vp = &(((object *)(/*<0>*/.p))->data[/*<1>*/.i]);\n' +
                     'vp->tag ='+ i +';\n' +
-                    'vp->i = /*<1>*/.i;\n'
+                    'vp->i = /*<2>*/.i;\n'
             },
             {
                 name: 'setop',
                 pcChange: 1,
                 legal: [p, p, i],
                 template: 
-                    'value *vp = &(((object *)(/*<0>*/.p))->data[/*<2>*/.i]);\n' +
-                    'vp->tag = /*<1>*/.tag;\n' +
-                    'vp->p = /*<1>*/.p;\n'
+                    'value *vp = &(((object *)(/*<0>*/.p))->data[/*<1>*/.i]);\n' +
+                    'vp->tag = /*<2>*/.tag;\n' +
+                    'vp->p = /*<2>*/.p;\n'
             }]
     },    
     {
@@ -627,6 +629,7 @@ var lookups = [
     {
         name: 'newo',
         inputs: 2,
+        callCondition: noTrivialFor([0,1]),
         instructions: [{
             name: 'newo', pcChange: 1, legal: [g,i],
             template:
@@ -705,7 +708,11 @@ var lookups = [
             name: 'out', pcChange: 1,
             legal: [p],
             template: 'buffer *bp = /*<0>*/.p;\n' +
-                'puts(bp->data);\n'
+                'int size = GetSize(bp->sf);\n' +
+                'char temp[size + 1];\n' +
+                'strncpy(temp, bp->data, size);\n' +
+                "temp[size + 1] = '\0';" +
+                'puts(temp);\n'
         }]
     }
 ];
@@ -791,11 +798,9 @@ Generator.prototype = {
                     generator.genLookups(state, vm);
 
                     //only need to do this once not for every state, only for type VM
-                    if (state === 0 && vm === typeVM)
-                    {
+                    if (state === 0 && vm === typeVM)                    
                         this.opcodetable.push("'" + generator.lookup.name+ "'" + ' => ' + stateTable.length);
-                        console.log("'" + generator.lookup.name+ "'" + ' => ' + stateTable.length);
-                    }
+
                     stateTable = stateTable.concat(generator.lookuptable);
                 }, this);
 

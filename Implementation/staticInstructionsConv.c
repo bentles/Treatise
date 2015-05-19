@@ -512,15 +512,15 @@ int16_t arg0 = GetArg0(program[pc]);
 int16_t arg1 = GetArg1(program[pc]);
 int16_t arg2 = GetArg2(program[pc]);
 if (IsPointer(g[arg0]) && IsInt(g[arg1]) && IsInt(g[arg2])) {
-value *vp = &(((object *)(g[arg0].p))->data[g[arg2].i]);
+value *vp = &(((object *)(g[arg0].p))->data[g[arg1].i]);
 vp->tag =0;
-vp->i = g[arg1].i;
+vp->i = g[arg2].i;
 pc++;
 }
 else if (IsPointer(g[arg0]) && IsPointer(g[arg1]) && IsInt(g[arg2])) {
-value *vp = &(((object *)(g[arg0].p))->data[g[arg2].i]);
-vp->tag = g[arg1].tag;
-vp->p = g[arg1].p;
+value *vp = &(((object *)(g[arg0].p))->data[g[arg1].i]);
+vp->tag = g[arg2].tag;
+vp->p = g[arg2].p;
 pc++;
 }
 else {
@@ -801,7 +801,10 @@ out:
 int16_t arg0 = GetArg0(program[pc]);
 if (IsPointer(g[arg0])) {
 buffer *bp = g[arg0].p;
-puts(bp->data);
+int size = GetSize(bp->sf);
+char temp[size + 1];
+strncpy(temp, bp->data, size);
+temp[size + 1] = ' ';puts(temp);
 pc++;
 }
 else {
