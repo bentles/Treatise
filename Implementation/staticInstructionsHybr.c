@@ -23393,7 +23393,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_0_1:
 {
-if (IsPointer(g[0]) && IsInt(g[1])) {
+if (IsInt(g[1])) {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[1].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
@@ -23415,7 +23415,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_0_2:
 {
-if (IsPointer(g[0]) && IsInt(g[2])) {
+if (IsInt(g[2])) {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[2].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
@@ -23437,7 +23437,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_0_3:
 {
-if (IsPointer(g[0]) && IsInt(g[3])) {
+if (IsInt(g[3])) {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[3].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
@@ -23459,7 +23459,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_0_4:
 {
-if (IsPointer(g[0]) && IsInt(g[4])) {
+if (IsInt(g[4])) {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[4].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
@@ -23481,7 +23481,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_0_5:
 {
-if (IsPointer(g[0]) && IsInt(g[5])) {
+if (IsInt(g[5])) {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[5].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
@@ -23503,7 +23503,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_1_0:
 {
-if (IsPointer(g[1]) && IsInt(g[0])) {
+if (IsInt(g[0])) {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[0].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
@@ -23525,7 +23525,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_1_2:
 {
-if (IsPointer(g[1]) && IsInt(g[2])) {
+if (IsInt(g[2])) {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[2].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
@@ -23547,7 +23547,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_1_3:
 {
-if (IsPointer(g[1]) && IsInt(g[3])) {
+if (IsInt(g[3])) {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[3].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
@@ -23569,7 +23569,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_1_4:
 {
-if (IsPointer(g[1]) && IsInt(g[4])) {
+if (IsInt(g[4])) {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[4].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
@@ -23591,7 +23591,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_1_5:
 {
-if (IsPointer(g[1]) && IsInt(g[5])) {
+if (IsInt(g[5])) {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[5].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
@@ -23613,7 +23613,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_2_0:
 {
-if (IsPointer(g[2]) && IsInt(g[0])) {
+if (IsInt(g[0])) {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[0].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
@@ -23635,7 +23635,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_2_1:
 {
-if (IsPointer(g[2]) && IsInt(g[1])) {
+if (IsInt(g[1])) {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[1].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
@@ -23657,7 +23657,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_2_3:
 {
-if (IsPointer(g[2]) && IsInt(g[3])) {
+if (IsInt(g[3])) {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[3].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
@@ -23679,7 +23679,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_2_4:
 {
-if (IsPointer(g[2]) && IsInt(g[4])) {
+if (IsInt(g[4])) {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[4].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
@@ -23701,7 +23701,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_2_5:
 {
-if (IsPointer(g[2]) && IsInt(g[5])) {
+if (IsInt(g[5])) {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[5].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
@@ -23723,7 +23723,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_3_0:
 {
-if (IsPointer(g[3]) && IsInt(g[0])) {
+if (IsInt(g[0])) {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[0].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
@@ -23745,7 +23745,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_3_1:
 {
-if (IsPointer(g[3]) && IsInt(g[1])) {
+if (IsInt(g[1])) {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[1].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
@@ -23767,7 +23767,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_3_2:
 {
-if (IsPointer(g[3]) && IsInt(g[2])) {
+if (IsInt(g[2])) {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[2].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
@@ -23789,7 +23789,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_3_4:
 {
-if (IsPointer(g[3]) && IsInt(g[4])) {
+if (IsInt(g[4])) {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[4].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
@@ -23811,7 +23811,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_3_5:
 {
-if (IsPointer(g[3]) && IsInt(g[5])) {
+if (IsInt(g[5])) {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[5].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
@@ -23833,7 +23833,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_4_0:
 {
-if (IsPointer(g[4]) && IsInt(g[0])) {
+if (IsInt(g[0])) {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[0].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
@@ -23855,7 +23855,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_4_1:
 {
-if (IsPointer(g[4]) && IsInt(g[1])) {
+if (IsInt(g[1])) {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[1].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
@@ -23877,7 +23877,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_4_2:
 {
-if (IsPointer(g[4]) && IsInt(g[2])) {
+if (IsInt(g[2])) {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[2].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
@@ -23899,7 +23899,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_4_3:
 {
-if (IsPointer(g[4]) && IsInt(g[3])) {
+if (IsInt(g[3])) {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[3].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
@@ -23921,7 +23921,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_4_5:
 {
-if (IsPointer(g[4]) && IsInt(g[5])) {
+if (IsInt(g[5])) {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[5].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
@@ -23943,7 +23943,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_5_0:
 {
-if (IsPointer(g[5]) && IsInt(g[0])) {
+if (IsInt(g[0])) {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[0].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
@@ -23965,7 +23965,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_5_1:
 {
-if (IsPointer(g[5]) && IsInt(g[1])) {
+if (IsInt(g[1])) {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[1].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
@@ -23987,7 +23987,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_5_2:
 {
-if (IsPointer(g[5]) && IsInt(g[2])) {
+if (IsInt(g[2])) {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[2].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
@@ -24009,7 +24009,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_5_3:
 {
-if (IsPointer(g[5]) && IsInt(g[3])) {
+if (IsInt(g[3])) {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[3].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
@@ -24031,7 +24031,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_5_4:
 {
-if (IsPointer(g[5]) && IsInt(g[4])) {
+if (IsInt(g[4])) {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[4].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
@@ -24053,7 +24053,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newb_0_1:
 {
-if (IsPointer(g[0]) && IsInt(g[1])) {
+if (IsInt(g[1])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[1].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[1].i,0);
@@ -24075,7 +24075,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newb_0_2:
 {
-if (IsPointer(g[0]) && IsInt(g[2])) {
+if (IsInt(g[2])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[2].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[2].i,0);
@@ -24097,7 +24097,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newb_0_3:
 {
-if (IsPointer(g[0]) && IsInt(g[3])) {
+if (IsInt(g[3])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[3].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[3].i,0);
@@ -24119,7 +24119,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newb_0_4:
 {
-if (IsPointer(g[0]) && IsInt(g[4])) {
+if (IsInt(g[4])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[4].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[4].i,0);
@@ -24141,7 +24141,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newb_0_5:
 {
-if (IsPointer(g[0]) && IsInt(g[5])) {
+if (IsInt(g[5])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[5].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[5].i,0);
@@ -24163,7 +24163,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newb_1_0:
 {
-if (IsPointer(g[1]) && IsInt(g[0])) {
+if (IsInt(g[0])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[0].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[0].i,0);
@@ -24185,7 +24185,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newb_1_2:
 {
-if (IsPointer(g[1]) && IsInt(g[2])) {
+if (IsInt(g[2])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[2].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[2].i,0);
@@ -24207,7 +24207,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newb_1_3:
 {
-if (IsPointer(g[1]) && IsInt(g[3])) {
+if (IsInt(g[3])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[3].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[3].i,0);
@@ -24229,7 +24229,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newb_1_4:
 {
-if (IsPointer(g[1]) && IsInt(g[4])) {
+if (IsInt(g[4])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[4].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[4].i,0);
@@ -24251,7 +24251,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newb_1_5:
 {
-if (IsPointer(g[1]) && IsInt(g[5])) {
+if (IsInt(g[5])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[5].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[5].i,0);
@@ -24273,7 +24273,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newb_2_0:
 {
-if (IsPointer(g[2]) && IsInt(g[0])) {
+if (IsInt(g[0])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[0].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[0].i,0);
@@ -24295,7 +24295,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newb_2_1:
 {
-if (IsPointer(g[2]) && IsInt(g[1])) {
+if (IsInt(g[1])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[1].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[1].i,0);
@@ -24317,7 +24317,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newb_2_3:
 {
-if (IsPointer(g[2]) && IsInt(g[3])) {
+if (IsInt(g[3])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[3].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[3].i,0);
@@ -24339,7 +24339,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newb_2_4:
 {
-if (IsPointer(g[2]) && IsInt(g[4])) {
+if (IsInt(g[4])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[4].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[4].i,0);
@@ -24361,7 +24361,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newb_2_5:
 {
-if (IsPointer(g[2]) && IsInt(g[5])) {
+if (IsInt(g[5])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[5].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[5].i,0);
@@ -24383,7 +24383,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newb_3_0:
 {
-if (IsPointer(g[3]) && IsInt(g[0])) {
+if (IsInt(g[0])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[0].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[0].i,0);
@@ -24405,7 +24405,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newb_3_1:
 {
-if (IsPointer(g[3]) && IsInt(g[1])) {
+if (IsInt(g[1])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[1].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[1].i,0);
@@ -24427,7 +24427,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newb_3_2:
 {
-if (IsPointer(g[3]) && IsInt(g[2])) {
+if (IsInt(g[2])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[2].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[2].i,0);
@@ -24449,7 +24449,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newb_3_4:
 {
-if (IsPointer(g[3]) && IsInt(g[4])) {
+if (IsInt(g[4])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[4].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[4].i,0);
@@ -24471,7 +24471,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newb_3_5:
 {
-if (IsPointer(g[3]) && IsInt(g[5])) {
+if (IsInt(g[5])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[5].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[5].i,0);
@@ -24493,7 +24493,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newb_4_0:
 {
-if (IsPointer(g[4]) && IsInt(g[0])) {
+if (IsInt(g[0])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[0].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[0].i,0);
@@ -24515,7 +24515,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newb_4_1:
 {
-if (IsPointer(g[4]) && IsInt(g[1])) {
+if (IsInt(g[1])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[1].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[1].i,0);
@@ -24537,7 +24537,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newb_4_2:
 {
-if (IsPointer(g[4]) && IsInt(g[2])) {
+if (IsInt(g[2])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[2].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[2].i,0);
@@ -24559,7 +24559,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newb_4_3:
 {
-if (IsPointer(g[4]) && IsInt(g[3])) {
+if (IsInt(g[3])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[3].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[3].i,0);
@@ -24581,7 +24581,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newb_4_5:
 {
-if (IsPointer(g[4]) && IsInt(g[5])) {
+if (IsInt(g[5])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[5].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[5].i,0);
@@ -24603,7 +24603,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newb_5_0:
 {
-if (IsPointer(g[5]) && IsInt(g[0])) {
+if (IsInt(g[0])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[0].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[0].i,0);
@@ -24625,7 +24625,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newb_5_1:
 {
-if (IsPointer(g[5]) && IsInt(g[1])) {
+if (IsInt(g[1])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[1].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[1].i,0);
@@ -24647,7 +24647,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newb_5_2:
 {
-if (IsPointer(g[5]) && IsInt(g[2])) {
+if (IsInt(g[2])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[2].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[2].i,0);
@@ -24669,7 +24669,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newb_5_3:
 {
-if (IsPointer(g[5]) && IsInt(g[3])) {
+if (IsInt(g[3])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[3].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[3].i,0);
@@ -24691,7 +24691,7 @@ goto *dynOpcodes[ts + program[pc]];
 
 newb_5_4:
 {
-if (IsPointer(g[5]) && IsInt(g[4])) {
+if (IsInt(g[4])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[4].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[4].i,0);
@@ -24715,7 +24715,7 @@ err:
 {
 int16_t derrdisp = program[pc +1];
 int64_t errdisp = *((int64_t*)(&program[pc + derrdisp]));
-fprintf(stderr, "err case"); 
+printf("0:%d 1:%d 2:%d 3:%d 4:%d 5:%d\n", g[0].i, g[1].i, g[2].i, g[3].i, g[4].i, g[5].i); 
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }

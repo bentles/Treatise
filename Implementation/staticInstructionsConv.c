@@ -715,7 +715,7 @@ newo:
 {
 int16_t arg0 = GetArg0(program[pc]);
 int16_t arg1 = GetArg1(program[pc]);
-if (IsPointer(g[arg0]) && IsInt(g[arg1])) {
+if (IsInt(g[arg1])) {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[arg1].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
@@ -739,7 +739,7 @@ newb:
 {
 int16_t arg0 = GetArg0(program[pc]);
 int16_t arg1 = GetArg1(program[pc]);
-if (IsPointer(g[arg0]) && IsInt(g[arg1])) {
+if (IsInt(g[arg1])) {
 buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[arg1].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[arg1].i,0);
@@ -763,7 +763,7 @@ err:
 {
 int16_t derrdisp = program[pc +1];
 int64_t errdisp = *((int64_t*)(&program[pc + derrdisp]));
-fprintf(stderr, "err case"); 
+printf("0:%d 1:%d 2:%d 3:%d 4:%d 5:%d\n", g[0].i, g[1].i, g[2].i, g[3].i, g[4].i, g[5].i); 
 pc++;
 goto *dynOpcodes[GetOpcode(program[pc])];
 }

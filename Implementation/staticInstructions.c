@@ -19855,7 +19855,7 @@ err:
 {
 int16_t derrdisp = program[pc +1];
 int64_t errdisp = *((int64_t*)(&program[pc + derrdisp]));
-fprintf(stderr, "err case"); 
+printf("0:%d 1:%d 2:%d 3:%d 4:%d 5:%d\n", g[0].i, g[1].i, g[2].i, g[3].i, g[4].i, g[5].i); 
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }

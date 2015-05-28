@@ -673,7 +673,7 @@ var lookups = [
         instructions: [{
             name: 'err', pcChange: 1, 
             template: getConst('errdisp') +
-            'fprintf(stderr, "err case"); \n'
+            'printf("0:%d 1:%d 2:%d 3:%d 4:%d 5:%d\\n", g[0].i, g[1].i, g[2].i, g[3].i, g[4].i, g[5].i); \n'
         }]
     },
     {
@@ -938,12 +938,15 @@ InstructionGenerator.prototype = {
         }
         
         var legals = inst.legal.map(function(legl, index){
-            if (legl === i)
+            if (legl === g)
+                return false; 
+            else if (legl === i)
                 return 'IsInt(g[' + ((vm === convVM) ? 'arg' + index : '' + call[index]) + '])';
             else
                 return 'IsPointer(g[' + ((vm === convVM) ? 'arg' + index : '' + call[index]) + '])';     
         });
         
+        legals = legals.filter(function(x){return x;});
         return '(' + legals.join([seperator = ' && ']) + ')' ;        
     },
 
