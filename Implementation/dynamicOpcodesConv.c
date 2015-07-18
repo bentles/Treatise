@@ -42,5 +42,6 @@
 &&err,
 &&in,
 &&out,
+&&print,
 &&undefined,
 &&undefined

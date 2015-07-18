@@ -1,93 +1,17 @@
-/* Opcode Layout for Standard VM
- * =============================
- *  15        15  14           9  8          6  5          3  2          0
- * [empty: 1 bit][opcode: 6 bits][arg2: 3 bits][arg1: 3 bits][arg0: 3 bits]
- *
- * Really tempting to put the arguments in backwards
- */
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
 #include <inttypes.h>
 #include <string.h>
-   
-/* Convenience Defines for Standard VM
- * ===================================
- * Getting Arguments and Opcode:
+#include "datatypes.h"
+#include "standardvm.h"
+#include "stackframe.h"
+
+/* Opcode Layout for Standard VM
+ * =============================
+ *  15        15  14           9  8          6  5          3  2          0
+ * [empty: 1 bit][opcode: 6 bits][arg2: 3 bits][arg1: 3 bits][arg0: 3 bits]
  */
-#define GetArg0(inst) ((inst) & 0x7) 
-#define GetArg1(inst) (((inst) & 0x38) >> 0x3)
-#define GetArg2(inst) (((inst) & 0x1FF) >> 0x6) 
-
-#define IsInt(x) ((x).tag == 0 ? 1 : 0)
-#define IsPointer(x) ((x).tag >= 1 ? 1 : 0)
-#define GetOpcode(inst) ((inst) >> 0x9)
-
-/* Values
- * ======
- * tag - tells us which type of value we have (how to read union)
- * union - the actual value
- */
-typedef struct ValueStruct value;
-struct ValueStruct
-{
-	int tag;
-	/* 0 - 64 bit int
-	 * 1 - value pointer / NULL
-     * 2 - object pointer
-     * 3 - pointer-only pointer
-     * 4 - pointer-free pointer
-	 */
-	union
-	{
-		int64_t i;
-		void *p;    
-    };
-};
-
-/* Object
- * ======
- * A general-purpose collection of fields
- */
-#define MakeSizeAndFlags(size,flags)(((size)<<2)|(flags))
-#define GetFlags(v)((v) & 3)
-#define GetSize(v)((v) >> 2)
-
-typedef struct ObjectStruct object;
-struct ObjectStruct
-{
-    int64_t sf; //size and flags
-    value data[];
-};
-
-/* Buffer (pointer-free)
- * =====================
- * A byte addressable buffer
- */
-typedef struct BufferStruct buffer;
-struct BufferStruct
-{
-    int64_t sf; //size and flags
-    int8_t data[];
-};
-
-/* Stack Frame
- * ===========
- * A convenient struct for keeping registers from the last stack frame
- */
-//#define saveRegisters(sf) for(int i = 0; i < 4; i++){sf.g[i] = g[i + 1}
-#define SaveRegisters(saveg) {saveg[0] = g[1]; saveg[1] = g[2]; saveg[2] = g[3]; saveg[3] = g[4];}
-#define RestoreRegisters(saveg) {g[1] = saveg[0]; g[2] = saveg[1]; g[3] = saveg[2]; g[4] = saveg[3];}
-
-typedef struct StackFrameStruct stackframe;
-struct StackFrameStruct
-{
-    value *fp;
-    int64_t pc;
-    int64_t ts;
-    value g[4]; //g1 .. g4
-    value l[];  //local vars starting with the arguments
-};
 
 /* Registers
  * =========
@@ -96,6 +20,7 @@ struct StackFrameStruct
  * fp - frame pointer
  * ts - type state
  */
+
 #define NR_REGISTERS 6
 #define REG_SAVE 56
     
@@ -119,7 +44,7 @@ int main(int argc, char *argv[])
 #ifdef HYBR
 #include "dynamicOpcodesHybr.c"
 #endif /*HYBR*/
-      };
+    };
 
     //Handle args and read in binary file
 if (argc < 2)
@@ -161,16 +86,15 @@ FILE *filep = fopen(argv[1], "rb");
 #endif
     }
 
-    /* staticInstructions
-     * ==================
-     * example for reference:
-     *
-     * add0_0:
-     *     g[0] = g[0] + g[0];
-     *     pc += 2;
-     *     goto *dynOpcodes[ts + program[pc]];
-     */
-    
+/* staticInstructions
+ * ==================
+ * example for reference:
+ *
+ * add0_0:
+ *     g[0] = g[0] + g[0];
+ *     pc += 2;
+ *     goto *dynOpcodes[ts + program[pc]];
+ */    
 #ifdef TYPE
 #include "staticInstructions.c"
 #endif /*TYPE*/

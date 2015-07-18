@@ -1597,8 +1597,9 @@ goto *dynOpcodes[ts + program[pc]];
 div_0_1:
 {
 if (IsInt(g[0]) && IsInt(g[1])) {
-g[0].i = g[0].i % g[1].i;
+int64_t temp = g[0].i % g[1].i;
 g[0].i /= g[1].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1613,8 +1614,9 @@ goto *dynOpcodes[ts + program[pc]];
 div_0_2:
 {
 if (IsInt(g[0]) && IsInt(g[2])) {
-g[0].i = g[0].i % g[2].i;
+int64_t temp = g[0].i % g[2].i;
 g[0].i /= g[2].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1629,8 +1631,9 @@ goto *dynOpcodes[ts + program[pc]];
 div_0_3:
 {
 if (IsInt(g[0]) && IsInt(g[3])) {
-g[0].i = g[0].i % g[3].i;
+int64_t temp = g[0].i % g[3].i;
 g[0].i /= g[3].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1645,8 +1648,9 @@ goto *dynOpcodes[ts + program[pc]];
 div_0_4:
 {
 if (IsInt(g[0]) && IsInt(g[4])) {
-g[0].i = g[0].i % g[4].i;
+int64_t temp = g[0].i % g[4].i;
 g[0].i /= g[4].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1661,8 +1665,9 @@ goto *dynOpcodes[ts + program[pc]];
 div_0_5:
 {
 if (IsInt(g[0]) && IsInt(g[5])) {
-g[0].i = g[0].i % g[5].i;
+int64_t temp = g[0].i % g[5].i;
 g[0].i /= g[5].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1677,8 +1682,9 @@ goto *dynOpcodes[ts + program[pc]];
 div_1_0:
 {
 if (IsInt(g[1]) && IsInt(g[0])) {
-g[0].i = g[1].i % g[0].i;
+int64_t temp = g[1].i % g[0].i;
 g[1].i /= g[0].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1693,8 +1699,9 @@ goto *dynOpcodes[ts + program[pc]];
 div_1_2:
 {
 if (IsInt(g[1]) && IsInt(g[2])) {
-g[0].i = g[1].i % g[2].i;
+int64_t temp = g[1].i % g[2].i;
 g[1].i /= g[2].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1709,8 +1716,9 @@ goto *dynOpcodes[ts + program[pc]];
 div_1_3:
 {
 if (IsInt(g[1]) && IsInt(g[3])) {
-g[0].i = g[1].i % g[3].i;
+int64_t temp = g[1].i % g[3].i;
 g[1].i /= g[3].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1725,8 +1733,9 @@ goto *dynOpcodes[ts + program[pc]];
 div_1_4:
 {
 if (IsInt(g[1]) && IsInt(g[4])) {
-g[0].i = g[1].i % g[4].i;
+int64_t temp = g[1].i % g[4].i;
 g[1].i /= g[4].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1741,8 +1750,9 @@ goto *dynOpcodes[ts + program[pc]];
 div_1_5:
 {
 if (IsInt(g[1]) && IsInt(g[5])) {
-g[0].i = g[1].i % g[5].i;
+int64_t temp = g[1].i % g[5].i;
 g[1].i /= g[5].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1757,8 +1767,9 @@ goto *dynOpcodes[ts + program[pc]];
 div_2_0:
 {
 if (IsInt(g[2]) && IsInt(g[0])) {
-g[0].i = g[2].i % g[0].i;
+int64_t temp = g[2].i % g[0].i;
 g[2].i /= g[0].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1773,8 +1784,9 @@ goto *dynOpcodes[ts + program[pc]];
 div_2_1:
 {
 if (IsInt(g[2]) && IsInt(g[1])) {
-g[0].i = g[2].i % g[1].i;
+int64_t temp = g[2].i % g[1].i;
 g[2].i /= g[1].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1789,8 +1801,9 @@ goto *dynOpcodes[ts + program[pc]];
 div_2_3:
 {
 if (IsInt(g[2]) && IsInt(g[3])) {
-g[0].i = g[2].i % g[3].i;
+int64_t temp = g[2].i % g[3].i;
 g[2].i /= g[3].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1805,8 +1818,9 @@ goto *dynOpcodes[ts + program[pc]];
 div_2_4:
 {
 if (IsInt(g[2]) && IsInt(g[4])) {
-g[0].i = g[2].i % g[4].i;
+int64_t temp = g[2].i % g[4].i;
 g[2].i /= g[4].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1821,8 +1835,9 @@ goto *dynOpcodes[ts + program[pc]];
 div_2_5:
 {
 if (IsInt(g[2]) && IsInt(g[5])) {
-g[0].i = g[2].i % g[5].i;
+int64_t temp = g[2].i % g[5].i;
 g[2].i /= g[5].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1837,8 +1852,9 @@ goto *dynOpcodes[ts + program[pc]];
 div_3_0:
 {
 if (IsInt(g[3]) && IsInt(g[0])) {
-g[0].i = g[3].i % g[0].i;
+int64_t temp = g[3].i % g[0].i;
 g[3].i /= g[0].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1853,8 +1869,9 @@ goto *dynOpcodes[ts + program[pc]];
 div_3_1:
 {
 if (IsInt(g[3]) && IsInt(g[1])) {
-g[0].i = g[3].i % g[1].i;
+int64_t temp = g[3].i % g[1].i;
 g[3].i /= g[1].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1869,8 +1886,9 @@ goto *dynOpcodes[ts + program[pc]];
 div_3_2:
 {
 if (IsInt(g[3]) && IsInt(g[2])) {
-g[0].i = g[3].i % g[2].i;
+int64_t temp = g[3].i % g[2].i;
 g[3].i /= g[2].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1885,8 +1903,9 @@ goto *dynOpcodes[ts + program[pc]];
 div_3_4:
 {
 if (IsInt(g[3]) && IsInt(g[4])) {
-g[0].i = g[3].i % g[4].i;
+int64_t temp = g[3].i % g[4].i;
 g[3].i /= g[4].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1901,8 +1920,9 @@ goto *dynOpcodes[ts + program[pc]];
 div_3_5:
 {
 if (IsInt(g[3]) && IsInt(g[5])) {
-g[0].i = g[3].i % g[5].i;
+int64_t temp = g[3].i % g[5].i;
 g[3].i /= g[5].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1917,8 +1937,9 @@ goto *dynOpcodes[ts + program[pc]];
 div_4_0:
 {
 if (IsInt(g[4]) && IsInt(g[0])) {
-g[0].i = g[4].i % g[0].i;
+int64_t temp = g[4].i % g[0].i;
 g[4].i /= g[0].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1933,8 +1954,9 @@ goto *dynOpcodes[ts + program[pc]];
 div_4_1:
 {
 if (IsInt(g[4]) && IsInt(g[1])) {
-g[0].i = g[4].i % g[1].i;
+int64_t temp = g[4].i % g[1].i;
 g[4].i /= g[1].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1949,8 +1971,9 @@ goto *dynOpcodes[ts + program[pc]];
 div_4_2:
 {
 if (IsInt(g[4]) && IsInt(g[2])) {
-g[0].i = g[4].i % g[2].i;
+int64_t temp = g[4].i % g[2].i;
 g[4].i /= g[2].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1965,8 +1988,9 @@ goto *dynOpcodes[ts + program[pc]];
 div_4_3:
 {
 if (IsInt(g[4]) && IsInt(g[3])) {
-g[0].i = g[4].i % g[3].i;
+int64_t temp = g[4].i % g[3].i;
 g[4].i /= g[3].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1981,8 +2005,9 @@ goto *dynOpcodes[ts + program[pc]];
 div_4_5:
 {
 if (IsInt(g[4]) && IsInt(g[5])) {
-g[0].i = g[4].i % g[5].i;
+int64_t temp = g[4].i % g[5].i;
 g[4].i /= g[5].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1997,8 +2022,9 @@ goto *dynOpcodes[ts + program[pc]];
 div_5_0:
 {
 if (IsInt(g[5]) && IsInt(g[0])) {
-g[0].i = g[5].i % g[0].i;
+int64_t temp = g[5].i % g[0].i;
 g[5].i /= g[0].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -2013,8 +2039,9 @@ goto *dynOpcodes[ts + program[pc]];
 div_5_1:
 {
 if (IsInt(g[5]) && IsInt(g[1])) {
-g[0].i = g[5].i % g[1].i;
+int64_t temp = g[5].i % g[1].i;
 g[5].i /= g[1].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -2029,8 +2056,9 @@ goto *dynOpcodes[ts + program[pc]];
 div_5_2:
 {
 if (IsInt(g[5]) && IsInt(g[2])) {
-g[0].i = g[5].i % g[2].i;
+int64_t temp = g[5].i % g[2].i;
 g[5].i /= g[2].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -2045,8 +2073,9 @@ goto *dynOpcodes[ts + program[pc]];
 div_5_3:
 {
 if (IsInt(g[5]) && IsInt(g[3])) {
-g[0].i = g[5].i % g[3].i;
+int64_t temp = g[5].i % g[3].i;
 g[5].i /= g[3].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -2061,8 +2090,9 @@ goto *dynOpcodes[ts + program[pc]];
 div_5_4:
 {
 if (IsInt(g[5]) && IsInt(g[4])) {
-g[0].i = g[5].i % g[4].i;
+int64_t temp = g[5].i % g[4].i;
 g[5].i /= g[4].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -2079,8 +2109,9 @@ divc_0:
 if (IsInt(g[0])) {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-g[0].i = g[0].i % constant;
+int64_t temp = g[0].i % constant;
 g[0].i /= constant;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc += 2;
@@ -2097,8 +2128,9 @@ divc_1:
 if (IsInt(g[1])) {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-g[0].i = g[1].i % constant;
+int64_t temp = g[1].i % constant;
 g[1].i /= constant;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc += 2;
@@ -2115,8 +2147,9 @@ divc_2:
 if (IsInt(g[2])) {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-g[0].i = g[2].i % constant;
+int64_t temp = g[2].i % constant;
 g[2].i /= constant;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc += 2;
@@ -2133,8 +2166,9 @@ divc_3:
 if (IsInt(g[3])) {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-g[0].i = g[3].i % constant;
+int64_t temp = g[3].i % constant;
 g[3].i /= constant;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc += 2;
@@ -2151,8 +2185,9 @@ divc_4:
 if (IsInt(g[4])) {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-g[0].i = g[4].i % constant;
+int64_t temp = g[4].i % constant;
 g[4].i /= constant;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc += 2;
@@ -2169,8 +2204,9 @@ divc_5:
 if (IsInt(g[5])) {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-g[0].i = g[5].i % constant;
+int64_t temp = g[5].i % constant;
 g[5].i /= constant;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc += 2;
@@ -12222,7 +12258,7 @@ vp->tag =0;
 vp->i = g[0].i;
 pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[1]) && IsInt(g[0])) {
+else if (IsPointer(g[0]) && IsInt(g[1]) && IsPointer(g[0])) {
 value *vp = &(((object *)(g[0].p))->data[g[1].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
@@ -12243,7 +12279,7 @@ vp->tag =0;
 vp->i = g[1].i;
 pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[1]) && IsInt(g[1])) {
+else if (IsPointer(g[0]) && IsInt(g[1]) && IsPointer(g[1])) {
 value *vp = &(((object *)(g[0].p))->data[g[1].i]);
 vp->tag = g[1].tag;
 vp->p = g[1].p;
@@ -12264,7 +12300,7 @@ vp->tag =0;
 vp->i = g[2].i;
 pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[1]) && IsInt(g[2])) {
+else if (IsPointer(g[0]) && IsInt(g[1]) && IsPointer(g[2])) {
 value *vp = &(((object *)(g[0].p))->data[g[1].i]);
 vp->tag = g[2].tag;
 vp->p = g[2].p;
@@ -12285,7 +12321,7 @@ vp->tag =0;
 vp->i = g[3].i;
 pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[1]) && IsInt(g[3])) {
+else if (IsPointer(g[0]) && IsInt(g[1]) && IsPointer(g[3])) {
 value *vp = &(((object *)(g[0].p))->data[g[1].i]);
 vp->tag = g[3].tag;
 vp->p = g[3].p;
@@ -12306,7 +12342,7 @@ vp->tag =0;
 vp->i = g[4].i;
 pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[1]) && IsInt(g[4])) {
+else if (IsPointer(g[0]) && IsInt(g[1]) && IsPointer(g[4])) {
 value *vp = &(((object *)(g[0].p))->data[g[1].i]);
 vp->tag = g[4].tag;
 vp->p = g[4].p;
@@ -12327,7 +12363,7 @@ vp->tag =0;
 vp->i = g[5].i;
 pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[1]) && IsInt(g[5])) {
+else if (IsPointer(g[0]) && IsInt(g[1]) && IsPointer(g[5])) {
 value *vp = &(((object *)(g[0].p))->data[g[1].i]);
 vp->tag = g[5].tag;
 vp->p = g[5].p;
@@ -12348,7 +12384,7 @@ vp->tag =0;
 vp->i = g[0].i;
 pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[2]) && IsInt(g[0])) {
+else if (IsPointer(g[0]) && IsInt(g[2]) && IsPointer(g[0])) {
 value *vp = &(((object *)(g[0].p))->data[g[2].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
@@ -12369,7 +12405,7 @@ vp->tag =0;
 vp->i = g[1].i;
 pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[2]) && IsInt(g[1])) {
+else if (IsPointer(g[0]) && IsInt(g[2]) && IsPointer(g[1])) {
 value *vp = &(((object *)(g[0].p))->data[g[2].i]);
 vp->tag = g[1].tag;
 vp->p = g[1].p;
@@ -12390,7 +12426,7 @@ vp->tag =0;
 vp->i = g[2].i;
 pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[2]) && IsInt(g[2])) {
+else if (IsPointer(g[0]) && IsInt(g[2]) && IsPointer(g[2])) {
 value *vp = &(((object *)(g[0].p))->data[g[2].i]);
 vp->tag = g[2].tag;
 vp->p = g[2].p;
@@ -12411,7 +12447,7 @@ vp->tag =0;
 vp->i = g[3].i;
 pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[2]) && IsInt(g[3])) {
+else if (IsPointer(g[0]) && IsInt(g[2]) && IsPointer(g[3])) {
 value *vp = &(((object *)(g[0].p))->data[g[2].i]);
 vp->tag = g[3].tag;
 vp->p = g[3].p;
@@ -12432,7 +12468,7 @@ vp->tag =0;
 vp->i = g[4].i;
 pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[2]) && IsInt(g[4])) {
+else if (IsPointer(g[0]) && IsInt(g[2]) && IsPointer(g[4])) {
 value *vp = &(((object *)(g[0].p))->data[g[2].i]);
 vp->tag = g[4].tag;
 vp->p = g[4].p;
@@ -12453,7 +12489,7 @@ vp->tag =0;
 vp->i = g[5].i;
 pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[2]) && IsInt(g[5])) {
+else if (IsPointer(g[0]) && IsInt(g[2]) && IsPointer(g[5])) {
 value *vp = &(((object *)(g[0].p))->data[g[2].i]);
 vp->tag = g[5].tag;
 vp->p = g[5].p;
@@ -12474,7 +12510,7 @@ vp->tag =0;
 vp->i = g[0].i;
 pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[3]) && IsInt(g[0])) {
+else if (IsPointer(g[0]) && IsInt(g[3]) && IsPointer(g[0])) {
 value *vp = &(((object *)(g[0].p))->data[g[3].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
@@ -12495,7 +12531,7 @@ vp->tag =0;
 vp->i = g[1].i;
 pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[3]) && IsInt(g[1])) {
+else if (IsPointer(g[0]) && IsInt(g[3]) && IsPointer(g[1])) {
 value *vp = &(((object *)(g[0].p))->data[g[3].i]);
 vp->tag = g[1].tag;
 vp->p = g[1].p;
@@ -12516,7 +12552,7 @@ vp->tag =0;
 vp->i = g[2].i;
 pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[3]) && IsInt(g[2])) {
+else if (IsPointer(g[0]) && IsInt(g[3]) && IsPointer(g[2])) {
 value *vp = &(((object *)(g[0].p))->data[g[3].i]);
 vp->tag = g[2].tag;
 vp->p = g[2].p;
@@ -12537,7 +12573,7 @@ vp->tag =0;
 vp->i = g[3].i;
 pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[3]) && IsInt(g[3])) {
+else if (IsPointer(g[0]) && IsInt(g[3]) && IsPointer(g[3])) {
 value *vp = &(((object *)(g[0].p))->data[g[3].i]);
 vp->tag = g[3].tag;
 vp->p = g[3].p;
@@ -12558,7 +12594,7 @@ vp->tag =0;
 vp->i = g[4].i;
 pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[3]) && IsInt(g[4])) {
+else if (IsPointer(g[0]) && IsInt(g[3]) && IsPointer(g[4])) {
 value *vp = &(((object *)(g[0].p))->data[g[3].i]);
 vp->tag = g[4].tag;
 vp->p = g[4].p;
@@ -12579,7 +12615,7 @@ vp->tag =0;
 vp->i = g[5].i;
 pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[3]) && IsInt(g[5])) {
+else if (IsPointer(g[0]) && IsInt(g[3]) && IsPointer(g[5])) {
 value *vp = &(((object *)(g[0].p))->data[g[3].i]);
 vp->tag = g[5].tag;
 vp->p = g[5].p;
@@ -12600,7 +12636,7 @@ vp->tag =0;
 vp->i = g[0].i;
 pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[4]) && IsInt(g[0])) {
+else if (IsPointer(g[0]) && IsInt(g[4]) && IsPointer(g[0])) {
 value *vp = &(((object *)(g[0].p))->data[g[4].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
@@ -12621,7 +12657,7 @@ vp->tag =0;
 vp->i = g[1].i;
 pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[4]) && IsInt(g[1])) {
+else if (IsPointer(g[0]) && IsInt(g[4]) && IsPointer(g[1])) {
 value *vp = &(((object *)(g[0].p))->data[g[4].i]);
 vp->tag = g[1].tag;
 vp->p = g[1].p;
@@ -12642,7 +12678,7 @@ vp->tag =0;
 vp->i = g[2].i;
 pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[4]) && IsInt(g[2])) {
+else if (IsPointer(g[0]) && IsInt(g[4]) && IsPointer(g[2])) {
 value *vp = &(((object *)(g[0].p))->data[g[4].i]);
 vp->tag = g[2].tag;
 vp->p = g[2].p;
@@ -12663,7 +12699,7 @@ vp->tag =0;
 vp->i = g[3].i;
 pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[4]) && IsInt(g[3])) {
+else if (IsPointer(g[0]) && IsInt(g[4]) && IsPointer(g[3])) {
 value *vp = &(((object *)(g[0].p))->data[g[4].i]);
 vp->tag = g[3].tag;
 vp->p = g[3].p;
@@ -12684,7 +12720,7 @@ vp->tag =0;
 vp->i = g[4].i;
 pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[4]) && IsInt(g[4])) {
+else if (IsPointer(g[0]) && IsInt(g[4]) && IsPointer(g[4])) {
 value *vp = &(((object *)(g[0].p))->data[g[4].i]);
 vp->tag = g[4].tag;
 vp->p = g[4].p;
@@ -12705,7 +12741,7 @@ vp->tag =0;
 vp->i = g[5].i;
 pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[4]) && IsInt(g[5])) {
+else if (IsPointer(g[0]) && IsInt(g[4]) && IsPointer(g[5])) {
 value *vp = &(((object *)(g[0].p))->data[g[4].i]);
 vp->tag = g[5].tag;
 vp->p = g[5].p;
@@ -12726,7 +12762,7 @@ vp->tag =0;
 vp->i = g[0].i;
 pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[5]) && IsInt(g[0])) {
+else if (IsPointer(g[0]) && IsInt(g[5]) && IsPointer(g[0])) {
 value *vp = &(((object *)(g[0].p))->data[g[5].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
@@ -12747,7 +12783,7 @@ vp->tag =0;
 vp->i = g[1].i;
 pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[5]) && IsInt(g[1])) {
+else if (IsPointer(g[0]) && IsInt(g[5]) && IsPointer(g[1])) {
 value *vp = &(((object *)(g[0].p))->data[g[5].i]);
 vp->tag = g[1].tag;
 vp->p = g[1].p;
@@ -12768,7 +12804,7 @@ vp->tag =0;
 vp->i = g[2].i;
 pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[5]) && IsInt(g[2])) {
+else if (IsPointer(g[0]) && IsInt(g[5]) && IsPointer(g[2])) {
 value *vp = &(((object *)(g[0].p))->data[g[5].i]);
 vp->tag = g[2].tag;
 vp->p = g[2].p;
@@ -12789,7 +12825,7 @@ vp->tag =0;
 vp->i = g[3].i;
 pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[5]) && IsInt(g[3])) {
+else if (IsPointer(g[0]) && IsInt(g[5]) && IsPointer(g[3])) {
 value *vp = &(((object *)(g[0].p))->data[g[5].i]);
 vp->tag = g[3].tag;
 vp->p = g[3].p;
@@ -12810,7 +12846,7 @@ vp->tag =0;
 vp->i = g[4].i;
 pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[5]) && IsInt(g[4])) {
+else if (IsPointer(g[0]) && IsInt(g[5]) && IsPointer(g[4])) {
 value *vp = &(((object *)(g[0].p))->data[g[5].i]);
 vp->tag = g[4].tag;
 vp->p = g[4].p;
@@ -12831,7 +12867,7 @@ vp->tag =0;
 vp->i = g[5].i;
 pc++;
 }
-else if (IsPointer(g[0]) && IsPointer(g[5]) && IsInt(g[5])) {
+else if (IsPointer(g[0]) && IsInt(g[5]) && IsPointer(g[5])) {
 value *vp = &(((object *)(g[0].p))->data[g[5].i]);
 vp->tag = g[5].tag;
 vp->p = g[5].p;
@@ -12852,7 +12888,7 @@ vp->tag =0;
 vp->i = g[0].i;
 pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[0]) && IsInt(g[0])) {
+else if (IsPointer(g[1]) && IsInt(g[0]) && IsPointer(g[0])) {
 value *vp = &(((object *)(g[1].p))->data[g[0].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
@@ -12873,7 +12909,7 @@ vp->tag =0;
 vp->i = g[1].i;
 pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[0]) && IsInt(g[1])) {
+else if (IsPointer(g[1]) && IsInt(g[0]) && IsPointer(g[1])) {
 value *vp = &(((object *)(g[1].p))->data[g[0].i]);
 vp->tag = g[1].tag;
 vp->p = g[1].p;
@@ -12894,7 +12930,7 @@ vp->tag =0;
 vp->i = g[2].i;
 pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[0]) && IsInt(g[2])) {
+else if (IsPointer(g[1]) && IsInt(g[0]) && IsPointer(g[2])) {
 value *vp = &(((object *)(g[1].p))->data[g[0].i]);
 vp->tag = g[2].tag;
 vp->p = g[2].p;
@@ -12915,7 +12951,7 @@ vp->tag =0;
 vp->i = g[3].i;
 pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[0]) && IsInt(g[3])) {
+else if (IsPointer(g[1]) && IsInt(g[0]) && IsPointer(g[3])) {
 value *vp = &(((object *)(g[1].p))->data[g[0].i]);
 vp->tag = g[3].tag;
 vp->p = g[3].p;
@@ -12936,7 +12972,7 @@ vp->tag =0;
 vp->i = g[4].i;
 pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[0]) && IsInt(g[4])) {
+else if (IsPointer(g[1]) && IsInt(g[0]) && IsPointer(g[4])) {
 value *vp = &(((object *)(g[1].p))->data[g[0].i]);
 vp->tag = g[4].tag;
 vp->p = g[4].p;
@@ -12957,7 +12993,7 @@ vp->tag =0;
 vp->i = g[5].i;
 pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[0]) && IsInt(g[5])) {
+else if (IsPointer(g[1]) && IsInt(g[0]) && IsPointer(g[5])) {
 value *vp = &(((object *)(g[1].p))->data[g[0].i]);
 vp->tag = g[5].tag;
 vp->p = g[5].p;
@@ -12978,7 +13014,7 @@ vp->tag =0;
 vp->i = g[0].i;
 pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[2]) && IsInt(g[0])) {
+else if (IsPointer(g[1]) && IsInt(g[2]) && IsPointer(g[0])) {
 value *vp = &(((object *)(g[1].p))->data[g[2].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
@@ -12999,7 +13035,7 @@ vp->tag =0;
 vp->i = g[1].i;
 pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[2]) && IsInt(g[1])) {
+else if (IsPointer(g[1]) && IsInt(g[2]) && IsPointer(g[1])) {
 value *vp = &(((object *)(g[1].p))->data[g[2].i]);
 vp->tag = g[1].tag;
 vp->p = g[1].p;
@@ -13020,7 +13056,7 @@ vp->tag =0;
 vp->i = g[2].i;
 pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[2]) && IsInt(g[2])) {
+else if (IsPointer(g[1]) && IsInt(g[2]) && IsPointer(g[2])) {
 value *vp = &(((object *)(g[1].p))->data[g[2].i]);
 vp->tag = g[2].tag;
 vp->p = g[2].p;
@@ -13041,7 +13077,7 @@ vp->tag =0;
 vp->i = g[3].i;
 pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[2]) && IsInt(g[3])) {
+else if (IsPointer(g[1]) && IsInt(g[2]) && IsPointer(g[3])) {
 value *vp = &(((object *)(g[1].p))->data[g[2].i]);
 vp->tag = g[3].tag;
 vp->p = g[3].p;
@@ -13062,7 +13098,7 @@ vp->tag =0;
 vp->i = g[4].i;
 pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[2]) && IsInt(g[4])) {
+else if (IsPointer(g[1]) && IsInt(g[2]) && IsPointer(g[4])) {
 value *vp = &(((object *)(g[1].p))->data[g[2].i]);
 vp->tag = g[4].tag;
 vp->p = g[4].p;
@@ -13083,7 +13119,7 @@ vp->tag =0;
 vp->i = g[5].i;
 pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[2]) && IsInt(g[5])) {
+else if (IsPointer(g[1]) && IsInt(g[2]) && IsPointer(g[5])) {
 value *vp = &(((object *)(g[1].p))->data[g[2].i]);
 vp->tag = g[5].tag;
 vp->p = g[5].p;
@@ -13104,7 +13140,7 @@ vp->tag =0;
 vp->i = g[0].i;
 pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[3]) && IsInt(g[0])) {
+else if (IsPointer(g[1]) && IsInt(g[3]) && IsPointer(g[0])) {
 value *vp = &(((object *)(g[1].p))->data[g[3].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
@@ -13125,7 +13161,7 @@ vp->tag =0;
 vp->i = g[1].i;
 pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[3]) && IsInt(g[1])) {
+else if (IsPointer(g[1]) && IsInt(g[3]) && IsPointer(g[1])) {
 value *vp = &(((object *)(g[1].p))->data[g[3].i]);
 vp->tag = g[1].tag;
 vp->p = g[1].p;
@@ -13146,7 +13182,7 @@ vp->tag =0;
 vp->i = g[2].i;
 pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[3]) && IsInt(g[2])) {
+else if (IsPointer(g[1]) && IsInt(g[3]) && IsPointer(g[2])) {
 value *vp = &(((object *)(g[1].p))->data[g[3].i]);
 vp->tag = g[2].tag;
 vp->p = g[2].p;
@@ -13167,7 +13203,7 @@ vp->tag =0;
 vp->i = g[3].i;
 pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[3]) && IsInt(g[3])) {
+else if (IsPointer(g[1]) && IsInt(g[3]) && IsPointer(g[3])) {
 value *vp = &(((object *)(g[1].p))->data[g[3].i]);
 vp->tag = g[3].tag;
 vp->p = g[3].p;
@@ -13188,7 +13224,7 @@ vp->tag =0;
 vp->i = g[4].i;
 pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[3]) && IsInt(g[4])) {
+else if (IsPointer(g[1]) && IsInt(g[3]) && IsPointer(g[4])) {
 value *vp = &(((object *)(g[1].p))->data[g[3].i]);
 vp->tag = g[4].tag;
 vp->p = g[4].p;
@@ -13209,7 +13245,7 @@ vp->tag =0;
 vp->i = g[5].i;
 pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[3]) && IsInt(g[5])) {
+else if (IsPointer(g[1]) && IsInt(g[3]) && IsPointer(g[5])) {
 value *vp = &(((object *)(g[1].p))->data[g[3].i]);
 vp->tag = g[5].tag;
 vp->p = g[5].p;
@@ -13230,7 +13266,7 @@ vp->tag =0;
 vp->i = g[0].i;
 pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[4]) && IsInt(g[0])) {
+else if (IsPointer(g[1]) && IsInt(g[4]) && IsPointer(g[0])) {
 value *vp = &(((object *)(g[1].p))->data[g[4].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
@@ -13251,7 +13287,7 @@ vp->tag =0;
 vp->i = g[1].i;
 pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[4]) && IsInt(g[1])) {
+else if (IsPointer(g[1]) && IsInt(g[4]) && IsPointer(g[1])) {
 value *vp = &(((object *)(g[1].p))->data[g[4].i]);
 vp->tag = g[1].tag;
 vp->p = g[1].p;
@@ -13272,7 +13308,7 @@ vp->tag =0;
 vp->i = g[2].i;
 pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[4]) && IsInt(g[2])) {
+else if (IsPointer(g[1]) && IsInt(g[4]) && IsPointer(g[2])) {
 value *vp = &(((object *)(g[1].p))->data[g[4].i]);
 vp->tag = g[2].tag;
 vp->p = g[2].p;
@@ -13293,7 +13329,7 @@ vp->tag =0;
 vp->i = g[3].i;
 pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[4]) && IsInt(g[3])) {
+else if (IsPointer(g[1]) && IsInt(g[4]) && IsPointer(g[3])) {
 value *vp = &(((object *)(g[1].p))->data[g[4].i]);
 vp->tag = g[3].tag;
 vp->p = g[3].p;
@@ -13314,7 +13350,7 @@ vp->tag =0;
 vp->i = g[4].i;
 pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[4]) && IsInt(g[4])) {
+else if (IsPointer(g[1]) && IsInt(g[4]) && IsPointer(g[4])) {
 value *vp = &(((object *)(g[1].p))->data[g[4].i]);
 vp->tag = g[4].tag;
 vp->p = g[4].p;
@@ -13335,7 +13371,7 @@ vp->tag =0;
 vp->i = g[5].i;
 pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[4]) && IsInt(g[5])) {
+else if (IsPointer(g[1]) && IsInt(g[4]) && IsPointer(g[5])) {
 value *vp = &(((object *)(g[1].p))->data[g[4].i]);
 vp->tag = g[5].tag;
 vp->p = g[5].p;
@@ -13356,7 +13392,7 @@ vp->tag =0;
 vp->i = g[0].i;
 pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[5]) && IsInt(g[0])) {
+else if (IsPointer(g[1]) && IsInt(g[5]) && IsPointer(g[0])) {
 value *vp = &(((object *)(g[1].p))->data[g[5].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
@@ -13377,7 +13413,7 @@ vp->tag =0;
 vp->i = g[1].i;
 pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[5]) && IsInt(g[1])) {
+else if (IsPointer(g[1]) && IsInt(g[5]) && IsPointer(g[1])) {
 value *vp = &(((object *)(g[1].p))->data[g[5].i]);
 vp->tag = g[1].tag;
 vp->p = g[1].p;
@@ -13398,7 +13434,7 @@ vp->tag =0;
 vp->i = g[2].i;
 pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[5]) && IsInt(g[2])) {
+else if (IsPointer(g[1]) && IsInt(g[5]) && IsPointer(g[2])) {
 value *vp = &(((object *)(g[1].p))->data[g[5].i]);
 vp->tag = g[2].tag;
 vp->p = g[2].p;
@@ -13419,7 +13455,7 @@ vp->tag =0;
 vp->i = g[3].i;
 pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[5]) && IsInt(g[3])) {
+else if (IsPointer(g[1]) && IsInt(g[5]) && IsPointer(g[3])) {
 value *vp = &(((object *)(g[1].p))->data[g[5].i]);
 vp->tag = g[3].tag;
 vp->p = g[3].p;
@@ -13440,7 +13476,7 @@ vp->tag =0;
 vp->i = g[4].i;
 pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[5]) && IsInt(g[4])) {
+else if (IsPointer(g[1]) && IsInt(g[5]) && IsPointer(g[4])) {
 value *vp = &(((object *)(g[1].p))->data[g[5].i]);
 vp->tag = g[4].tag;
 vp->p = g[4].p;
@@ -13461,7 +13497,7 @@ vp->tag =0;
 vp->i = g[5].i;
 pc++;
 }
-else if (IsPointer(g[1]) && IsPointer(g[5]) && IsInt(g[5])) {
+else if (IsPointer(g[1]) && IsInt(g[5]) && IsPointer(g[5])) {
 value *vp = &(((object *)(g[1].p))->data[g[5].i]);
 vp->tag = g[5].tag;
 vp->p = g[5].p;
@@ -13482,7 +13518,7 @@ vp->tag =0;
 vp->i = g[0].i;
 pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[0]) && IsInt(g[0])) {
+else if (IsPointer(g[2]) && IsInt(g[0]) && IsPointer(g[0])) {
 value *vp = &(((object *)(g[2].p))->data[g[0].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
@@ -13503,7 +13539,7 @@ vp->tag =0;
 vp->i = g[1].i;
 pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[0]) && IsInt(g[1])) {
+else if (IsPointer(g[2]) && IsInt(g[0]) && IsPointer(g[1])) {
 value *vp = &(((object *)(g[2].p))->data[g[0].i]);
 vp->tag = g[1].tag;
 vp->p = g[1].p;
@@ -13524,7 +13560,7 @@ vp->tag =0;
 vp->i = g[2].i;
 pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[0]) && IsInt(g[2])) {
+else if (IsPointer(g[2]) && IsInt(g[0]) && IsPointer(g[2])) {
 value *vp = &(((object *)(g[2].p))->data[g[0].i]);
 vp->tag = g[2].tag;
 vp->p = g[2].p;
@@ -13545,7 +13581,7 @@ vp->tag =0;
 vp->i = g[3].i;
 pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[0]) && IsInt(g[3])) {
+else if (IsPointer(g[2]) && IsInt(g[0]) && IsPointer(g[3])) {
 value *vp = &(((object *)(g[2].p))->data[g[0].i]);
 vp->tag = g[3].tag;
 vp->p = g[3].p;
@@ -13566,7 +13602,7 @@ vp->tag =0;
 vp->i = g[4].i;
 pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[0]) && IsInt(g[4])) {
+else if (IsPointer(g[2]) && IsInt(g[0]) && IsPointer(g[4])) {
 value *vp = &(((object *)(g[2].p))->data[g[0].i]);
 vp->tag = g[4].tag;
 vp->p = g[4].p;
@@ -13587,7 +13623,7 @@ vp->tag =0;
 vp->i = g[5].i;
 pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[0]) && IsInt(g[5])) {
+else if (IsPointer(g[2]) && IsInt(g[0]) && IsPointer(g[5])) {
 value *vp = &(((object *)(g[2].p))->data[g[0].i]);
 vp->tag = g[5].tag;
 vp->p = g[5].p;
@@ -13608,7 +13644,7 @@ vp->tag =0;
 vp->i = g[0].i;
 pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[1]) && IsInt(g[0])) {
+else if (IsPointer(g[2]) && IsInt(g[1]) && IsPointer(g[0])) {
 value *vp = &(((object *)(g[2].p))->data[g[1].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
@@ -13629,7 +13665,7 @@ vp->tag =0;
 vp->i = g[1].i;
 pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[1]) && IsInt(g[1])) {
+else if (IsPointer(g[2]) && IsInt(g[1]) && IsPointer(g[1])) {
 value *vp = &(((object *)(g[2].p))->data[g[1].i]);
 vp->tag = g[1].tag;
 vp->p = g[1].p;
@@ -13650,7 +13686,7 @@ vp->tag =0;
 vp->i = g[2].i;
 pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[1]) && IsInt(g[2])) {
+else if (IsPointer(g[2]) && IsInt(g[1]) && IsPointer(g[2])) {
 value *vp = &(((object *)(g[2].p))->data[g[1].i]);
 vp->tag = g[2].tag;
 vp->p = g[2].p;
@@ -13671,7 +13707,7 @@ vp->tag =0;
 vp->i = g[3].i;
 pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[1]) && IsInt(g[3])) {
+else if (IsPointer(g[2]) && IsInt(g[1]) && IsPointer(g[3])) {
 value *vp = &(((object *)(g[2].p))->data[g[1].i]);
 vp->tag = g[3].tag;
 vp->p = g[3].p;
@@ -13692,7 +13728,7 @@ vp->tag =0;
 vp->i = g[4].i;
 pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[1]) && IsInt(g[4])) {
+else if (IsPointer(g[2]) && IsInt(g[1]) && IsPointer(g[4])) {
 value *vp = &(((object *)(g[2].p))->data[g[1].i]);
 vp->tag = g[4].tag;
 vp->p = g[4].p;
@@ -13713,7 +13749,7 @@ vp->tag =0;
 vp->i = g[5].i;
 pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[1]) && IsInt(g[5])) {
+else if (IsPointer(g[2]) && IsInt(g[1]) && IsPointer(g[5])) {
 value *vp = &(((object *)(g[2].p))->data[g[1].i]);
 vp->tag = g[5].tag;
 vp->p = g[5].p;
@@ -13734,7 +13770,7 @@ vp->tag =0;
 vp->i = g[0].i;
 pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[3]) && IsInt(g[0])) {
+else if (IsPointer(g[2]) && IsInt(g[3]) && IsPointer(g[0])) {
 value *vp = &(((object *)(g[2].p))->data[g[3].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
@@ -13755,7 +13791,7 @@ vp->tag =0;
 vp->i = g[1].i;
 pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[3]) && IsInt(g[1])) {
+else if (IsPointer(g[2]) && IsInt(g[3]) && IsPointer(g[1])) {
 value *vp = &(((object *)(g[2].p))->data[g[3].i]);
 vp->tag = g[1].tag;
 vp->p = g[1].p;
@@ -13776,7 +13812,7 @@ vp->tag =0;
 vp->i = g[2].i;
 pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[3]) && IsInt(g[2])) {
+else if (IsPointer(g[2]) && IsInt(g[3]) && IsPointer(g[2])) {
 value *vp = &(((object *)(g[2].p))->data[g[3].i]);
 vp->tag = g[2].tag;
 vp->p = g[2].p;
@@ -13797,7 +13833,7 @@ vp->tag =0;
 vp->i = g[3].i;
 pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[3]) && IsInt(g[3])) {
+else if (IsPointer(g[2]) && IsInt(g[3]) && IsPointer(g[3])) {
 value *vp = &(((object *)(g[2].p))->data[g[3].i]);
 vp->tag = g[3].tag;
 vp->p = g[3].p;
@@ -13818,7 +13854,7 @@ vp->tag =0;
 vp->i = g[4].i;
 pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[3]) && IsInt(g[4])) {
+else if (IsPointer(g[2]) && IsInt(g[3]) && IsPointer(g[4])) {
 value *vp = &(((object *)(g[2].p))->data[g[3].i]);
 vp->tag = g[4].tag;
 vp->p = g[4].p;
@@ -13839,7 +13875,7 @@ vp->tag =0;
 vp->i = g[5].i;
 pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[3]) && IsInt(g[5])) {
+else if (IsPointer(g[2]) && IsInt(g[3]) && IsPointer(g[5])) {
 value *vp = &(((object *)(g[2].p))->data[g[3].i]);
 vp->tag = g[5].tag;
 vp->p = g[5].p;
@@ -13860,7 +13896,7 @@ vp->tag =0;
 vp->i = g[0].i;
 pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[4]) && IsInt(g[0])) {
+else if (IsPointer(g[2]) && IsInt(g[4]) && IsPointer(g[0])) {
 value *vp = &(((object *)(g[2].p))->data[g[4].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
@@ -13881,7 +13917,7 @@ vp->tag =0;
 vp->i = g[1].i;
 pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[4]) && IsInt(g[1])) {
+else if (IsPointer(g[2]) && IsInt(g[4]) && IsPointer(g[1])) {
 value *vp = &(((object *)(g[2].p))->data[g[4].i]);
 vp->tag = g[1].tag;
 vp->p = g[1].p;
@@ -13902,7 +13938,7 @@ vp->tag =0;
 vp->i = g[2].i;
 pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[4]) && IsInt(g[2])) {
+else if (IsPointer(g[2]) && IsInt(g[4]) && IsPointer(g[2])) {
 value *vp = &(((object *)(g[2].p))->data[g[4].i]);
 vp->tag = g[2].tag;
 vp->p = g[2].p;
@@ -13923,7 +13959,7 @@ vp->tag =0;
 vp->i = g[3].i;
 pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[4]) && IsInt(g[3])) {
+else if (IsPointer(g[2]) && IsInt(g[4]) && IsPointer(g[3])) {
 value *vp = &(((object *)(g[2].p))->data[g[4].i]);
 vp->tag = g[3].tag;
 vp->p = g[3].p;
@@ -13944,7 +13980,7 @@ vp->tag =0;
 vp->i = g[4].i;
 pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[4]) && IsInt(g[4])) {
+else if (IsPointer(g[2]) && IsInt(g[4]) && IsPointer(g[4])) {
 value *vp = &(((object *)(g[2].p))->data[g[4].i]);
 vp->tag = g[4].tag;
 vp->p = g[4].p;
@@ -13965,7 +14001,7 @@ vp->tag =0;
 vp->i = g[5].i;
 pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[4]) && IsInt(g[5])) {
+else if (IsPointer(g[2]) && IsInt(g[4]) && IsPointer(g[5])) {
 value *vp = &(((object *)(g[2].p))->data[g[4].i]);
 vp->tag = g[5].tag;
 vp->p = g[5].p;
@@ -13986,7 +14022,7 @@ vp->tag =0;
 vp->i = g[0].i;
 pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[5]) && IsInt(g[0])) {
+else if (IsPointer(g[2]) && IsInt(g[5]) && IsPointer(g[0])) {
 value *vp = &(((object *)(g[2].p))->data[g[5].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
@@ -14007,7 +14043,7 @@ vp->tag =0;
 vp->i = g[1].i;
 pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[5]) && IsInt(g[1])) {
+else if (IsPointer(g[2]) && IsInt(g[5]) && IsPointer(g[1])) {
 value *vp = &(((object *)(g[2].p))->data[g[5].i]);
 vp->tag = g[1].tag;
 vp->p = g[1].p;
@@ -14028,7 +14064,7 @@ vp->tag =0;
 vp->i = g[2].i;
 pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[5]) && IsInt(g[2])) {
+else if (IsPointer(g[2]) && IsInt(g[5]) && IsPointer(g[2])) {
 value *vp = &(((object *)(g[2].p))->data[g[5].i]);
 vp->tag = g[2].tag;
 vp->p = g[2].p;
@@ -14049,7 +14085,7 @@ vp->tag =0;
 vp->i = g[3].i;
 pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[5]) && IsInt(g[3])) {
+else if (IsPointer(g[2]) && IsInt(g[5]) && IsPointer(g[3])) {
 value *vp = &(((object *)(g[2].p))->data[g[5].i]);
 vp->tag = g[3].tag;
 vp->p = g[3].p;
@@ -14070,7 +14106,7 @@ vp->tag =0;
 vp->i = g[4].i;
 pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[5]) && IsInt(g[4])) {
+else if (IsPointer(g[2]) && IsInt(g[5]) && IsPointer(g[4])) {
 value *vp = &(((object *)(g[2].p))->data[g[5].i]);
 vp->tag = g[4].tag;
 vp->p = g[4].p;
@@ -14091,7 +14127,7 @@ vp->tag =0;
 vp->i = g[5].i;
 pc++;
 }
-else if (IsPointer(g[2]) && IsPointer(g[5]) && IsInt(g[5])) {
+else if (IsPointer(g[2]) && IsInt(g[5]) && IsPointer(g[5])) {
 value *vp = &(((object *)(g[2].p))->data[g[5].i]);
 vp->tag = g[5].tag;
 vp->p = g[5].p;
@@ -14112,7 +14148,7 @@ vp->tag =0;
 vp->i = g[0].i;
 pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[0]) && IsInt(g[0])) {
+else if (IsPointer(g[3]) && IsInt(g[0]) && IsPointer(g[0])) {
 value *vp = &(((object *)(g[3].p))->data[g[0].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
@@ -14133,7 +14169,7 @@ vp->tag =0;
 vp->i = g[1].i;
 pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[0]) && IsInt(g[1])) {
+else if (IsPointer(g[3]) && IsInt(g[0]) && IsPointer(g[1])) {
 value *vp = &(((object *)(g[3].p))->data[g[0].i]);
 vp->tag = g[1].tag;
 vp->p = g[1].p;
@@ -14154,7 +14190,7 @@ vp->tag =0;
 vp->i = g[2].i;
 pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[0]) && IsInt(g[2])) {
+else if (IsPointer(g[3]) && IsInt(g[0]) && IsPointer(g[2])) {
 value *vp = &(((object *)(g[3].p))->data[g[0].i]);
 vp->tag = g[2].tag;
 vp->p = g[2].p;
@@ -14175,7 +14211,7 @@ vp->tag =0;
 vp->i = g[3].i;
 pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[0]) && IsInt(g[3])) {
+else if (IsPointer(g[3]) && IsInt(g[0]) && IsPointer(g[3])) {
 value *vp = &(((object *)(g[3].p))->data[g[0].i]);
 vp->tag = g[3].tag;
 vp->p = g[3].p;
@@ -14196,7 +14232,7 @@ vp->tag =0;
 vp->i = g[4].i;
 pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[0]) && IsInt(g[4])) {
+else if (IsPointer(g[3]) && IsInt(g[0]) && IsPointer(g[4])) {
 value *vp = &(((object *)(g[3].p))->data[g[0].i]);
 vp->tag = g[4].tag;
 vp->p = g[4].p;
@@ -14217,7 +14253,7 @@ vp->tag =0;
 vp->i = g[5].i;
 pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[0]) && IsInt(g[5])) {
+else if (IsPointer(g[3]) && IsInt(g[0]) && IsPointer(g[5])) {
 value *vp = &(((object *)(g[3].p))->data[g[0].i]);
 vp->tag = g[5].tag;
 vp->p = g[5].p;
@@ -14238,7 +14274,7 @@ vp->tag =0;
 vp->i = g[0].i;
 pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[1]) && IsInt(g[0])) {
+else if (IsPointer(g[3]) && IsInt(g[1]) && IsPointer(g[0])) {
 value *vp = &(((object *)(g[3].p))->data[g[1].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
@@ -14259,7 +14295,7 @@ vp->tag =0;
 vp->i = g[1].i;
 pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[1]) && IsInt(g[1])) {
+else if (IsPointer(g[3]) && IsInt(g[1]) && IsPointer(g[1])) {
 value *vp = &(((object *)(g[3].p))->data[g[1].i]);
 vp->tag = g[1].tag;
 vp->p = g[1].p;
@@ -14280,7 +14316,7 @@ vp->tag =0;
 vp->i = g[2].i;
 pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[1]) && IsInt(g[2])) {
+else if (IsPointer(g[3]) && IsInt(g[1]) && IsPointer(g[2])) {
 value *vp = &(((object *)(g[3].p))->data[g[1].i]);
 vp->tag = g[2].tag;
 vp->p = g[2].p;
@@ -14301,7 +14337,7 @@ vp->tag =0;
 vp->i = g[3].i;
 pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[1]) && IsInt(g[3])) {
+else if (IsPointer(g[3]) && IsInt(g[1]) && IsPointer(g[3])) {
 value *vp = &(((object *)(g[3].p))->data[g[1].i]);
 vp->tag = g[3].tag;
 vp->p = g[3].p;
@@ -14322,7 +14358,7 @@ vp->tag =0;
 vp->i = g[4].i;
 pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[1]) && IsInt(g[4])) {
+else if (IsPointer(g[3]) && IsInt(g[1]) && IsPointer(g[4])) {
 value *vp = &(((object *)(g[3].p))->data[g[1].i]);
 vp->tag = g[4].tag;
 vp->p = g[4].p;
@@ -14343,7 +14379,7 @@ vp->tag =0;
 vp->i = g[5].i;
 pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[1]) && IsInt(g[5])) {
+else if (IsPointer(g[3]) && IsInt(g[1]) && IsPointer(g[5])) {
 value *vp = &(((object *)(g[3].p))->data[g[1].i]);
 vp->tag = g[5].tag;
 vp->p = g[5].p;
@@ -14364,7 +14400,7 @@ vp->tag =0;
 vp->i = g[0].i;
 pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[2]) && IsInt(g[0])) {
+else if (IsPointer(g[3]) && IsInt(g[2]) && IsPointer(g[0])) {
 value *vp = &(((object *)(g[3].p))->data[g[2].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
@@ -14385,7 +14421,7 @@ vp->tag =0;
 vp->i = g[1].i;
 pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[2]) && IsInt(g[1])) {
+else if (IsPointer(g[3]) && IsInt(g[2]) && IsPointer(g[1])) {
 value *vp = &(((object *)(g[3].p))->data[g[2].i]);
 vp->tag = g[1].tag;
 vp->p = g[1].p;
@@ -14406,7 +14442,7 @@ vp->tag =0;
 vp->i = g[2].i;
 pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[2]) && IsInt(g[2])) {
+else if (IsPointer(g[3]) && IsInt(g[2]) && IsPointer(g[2])) {
 value *vp = &(((object *)(g[3].p))->data[g[2].i]);
 vp->tag = g[2].tag;
 vp->p = g[2].p;
@@ -14427,7 +14463,7 @@ vp->tag =0;
 vp->i = g[3].i;
 pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[2]) && IsInt(g[3])) {
+else if (IsPointer(g[3]) && IsInt(g[2]) && IsPointer(g[3])) {
 value *vp = &(((object *)(g[3].p))->data[g[2].i]);
 vp->tag = g[3].tag;
 vp->p = g[3].p;
@@ -14448,7 +14484,7 @@ vp->tag =0;
 vp->i = g[4].i;
 pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[2]) && IsInt(g[4])) {
+else if (IsPointer(g[3]) && IsInt(g[2]) && IsPointer(g[4])) {
 value *vp = &(((object *)(g[3].p))->data[g[2].i]);
 vp->tag = g[4].tag;
 vp->p = g[4].p;
@@ -14469,7 +14505,7 @@ vp->tag =0;
 vp->i = g[5].i;
 pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[2]) && IsInt(g[5])) {
+else if (IsPointer(g[3]) && IsInt(g[2]) && IsPointer(g[5])) {
 value *vp = &(((object *)(g[3].p))->data[g[2].i]);
 vp->tag = g[5].tag;
 vp->p = g[5].p;
@@ -14490,7 +14526,7 @@ vp->tag =0;
 vp->i = g[0].i;
 pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[4]) && IsInt(g[0])) {
+else if (IsPointer(g[3]) && IsInt(g[4]) && IsPointer(g[0])) {
 value *vp = &(((object *)(g[3].p))->data[g[4].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
@@ -14511,7 +14547,7 @@ vp->tag =0;
 vp->i = g[1].i;
 pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[4]) && IsInt(g[1])) {
+else if (IsPointer(g[3]) && IsInt(g[4]) && IsPointer(g[1])) {
 value *vp = &(((object *)(g[3].p))->data[g[4].i]);
 vp->tag = g[1].tag;
 vp->p = g[1].p;
@@ -14532,7 +14568,7 @@ vp->tag =0;
 vp->i = g[2].i;
 pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[4]) && IsInt(g[2])) {
+else if (IsPointer(g[3]) && IsInt(g[4]) && IsPointer(g[2])) {
 value *vp = &(((object *)(g[3].p))->data[g[4].i]);
 vp->tag = g[2].tag;
 vp->p = g[2].p;
@@ -14553,7 +14589,7 @@ vp->tag =0;
 vp->i = g[3].i;
 pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[4]) && IsInt(g[3])) {
+else if (IsPointer(g[3]) && IsInt(g[4]) && IsPointer(g[3])) {
 value *vp = &(((object *)(g[3].p))->data[g[4].i]);
 vp->tag = g[3].tag;
 vp->p = g[3].p;
@@ -14574,7 +14610,7 @@ vp->tag =0;
 vp->i = g[4].i;
 pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[4]) && IsInt(g[4])) {
+else if (IsPointer(g[3]) && IsInt(g[4]) && IsPointer(g[4])) {
 value *vp = &(((object *)(g[3].p))->data[g[4].i]);
 vp->tag = g[4].tag;
 vp->p = g[4].p;
@@ -14595,7 +14631,7 @@ vp->tag =0;
 vp->i = g[5].i;
 pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[4]) && IsInt(g[5])) {
+else if (IsPointer(g[3]) && IsInt(g[4]) && IsPointer(g[5])) {
 value *vp = &(((object *)(g[3].p))->data[g[4].i]);
 vp->tag = g[5].tag;
 vp->p = g[5].p;
@@ -14616,7 +14652,7 @@ vp->tag =0;
 vp->i = g[0].i;
 pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[5]) && IsInt(g[0])) {
+else if (IsPointer(g[3]) && IsInt(g[5]) && IsPointer(g[0])) {
 value *vp = &(((object *)(g[3].p))->data[g[5].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
@@ -14637,7 +14673,7 @@ vp->tag =0;
 vp->i = g[1].i;
 pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[5]) && IsInt(g[1])) {
+else if (IsPointer(g[3]) && IsInt(g[5]) && IsPointer(g[1])) {
 value *vp = &(((object *)(g[3].p))->data[g[5].i]);
 vp->tag = g[1].tag;
 vp->p = g[1].p;
@@ -14658,7 +14694,7 @@ vp->tag =0;
 vp->i = g[2].i;
 pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[5]) && IsInt(g[2])) {
+else if (IsPointer(g[3]) && IsInt(g[5]) && IsPointer(g[2])) {
 value *vp = &(((object *)(g[3].p))->data[g[5].i]);
 vp->tag = g[2].tag;
 vp->p = g[2].p;
@@ -14679,7 +14715,7 @@ vp->tag =0;
 vp->i = g[3].i;
 pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[5]) && IsInt(g[3])) {
+else if (IsPointer(g[3]) && IsInt(g[5]) && IsPointer(g[3])) {
 value *vp = &(((object *)(g[3].p))->data[g[5].i]);
 vp->tag = g[3].tag;
 vp->p = g[3].p;
@@ -14700,7 +14736,7 @@ vp->tag =0;
 vp->i = g[4].i;
 pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[5]) && IsInt(g[4])) {
+else if (IsPointer(g[3]) && IsInt(g[5]) && IsPointer(g[4])) {
 value *vp = &(((object *)(g[3].p))->data[g[5].i]);
 vp->tag = g[4].tag;
 vp->p = g[4].p;
@@ -14721,7 +14757,7 @@ vp->tag =0;
 vp->i = g[5].i;
 pc++;
 }
-else if (IsPointer(g[3]) && IsPointer(g[5]) && IsInt(g[5])) {
+else if (IsPointer(g[3]) && IsInt(g[5]) && IsPointer(g[5])) {
 value *vp = &(((object *)(g[3].p))->data[g[5].i]);
 vp->tag = g[5].tag;
 vp->p = g[5].p;
@@ -14742,7 +14778,7 @@ vp->tag =0;
 vp->i = g[0].i;
 pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[0]) && IsInt(g[0])) {
+else if (IsPointer(g[4]) && IsInt(g[0]) && IsPointer(g[0])) {
 value *vp = &(((object *)(g[4].p))->data[g[0].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
@@ -14763,7 +14799,7 @@ vp->tag =0;
 vp->i = g[1].i;
 pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[0]) && IsInt(g[1])) {
+else if (IsPointer(g[4]) && IsInt(g[0]) && IsPointer(g[1])) {
 value *vp = &(((object *)(g[4].p))->data[g[0].i]);
 vp->tag = g[1].tag;
 vp->p = g[1].p;
@@ -14784,7 +14820,7 @@ vp->tag =0;
 vp->i = g[2].i;
 pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[0]) && IsInt(g[2])) {
+else if (IsPointer(g[4]) && IsInt(g[0]) && IsPointer(g[2])) {
 value *vp = &(((object *)(g[4].p))->data[g[0].i]);
 vp->tag = g[2].tag;
 vp->p = g[2].p;
@@ -14805,7 +14841,7 @@ vp->tag =0;
 vp->i = g[3].i;
 pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[0]) && IsInt(g[3])) {
+else if (IsPointer(g[4]) && IsInt(g[0]) && IsPointer(g[3])) {
 value *vp = &(((object *)(g[4].p))->data[g[0].i]);
 vp->tag = g[3].tag;
 vp->p = g[3].p;
@@ -14826,7 +14862,7 @@ vp->tag =0;
 vp->i = g[4].i;
 pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[0]) && IsInt(g[4])) {
+else if (IsPointer(g[4]) && IsInt(g[0]) && IsPointer(g[4])) {
 value *vp = &(((object *)(g[4].p))->data[g[0].i]);
 vp->tag = g[4].tag;
 vp->p = g[4].p;
@@ -14847,7 +14883,7 @@ vp->tag =0;
 vp->i = g[5].i;
 pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[0]) && IsInt(g[5])) {
+else if (IsPointer(g[4]) && IsInt(g[0]) && IsPointer(g[5])) {
 value *vp = &(((object *)(g[4].p))->data[g[0].i]);
 vp->tag = g[5].tag;
 vp->p = g[5].p;
@@ -14868,7 +14904,7 @@ vp->tag =0;
 vp->i = g[0].i;
 pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[1]) && IsInt(g[0])) {
+else if (IsPointer(g[4]) && IsInt(g[1]) && IsPointer(g[0])) {
 value *vp = &(((object *)(g[4].p))->data[g[1].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
@@ -14889,7 +14925,7 @@ vp->tag =0;
 vp->i = g[1].i;
 pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[1]) && IsInt(g[1])) {
+else if (IsPointer(g[4]) && IsInt(g[1]) && IsPointer(g[1])) {
 value *vp = &(((object *)(g[4].p))->data[g[1].i]);
 vp->tag = g[1].tag;
 vp->p = g[1].p;
@@ -14910,7 +14946,7 @@ vp->tag =0;
 vp->i = g[2].i;
 pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[1]) && IsInt(g[2])) {
+else if (IsPointer(g[4]) && IsInt(g[1]) && IsPointer(g[2])) {
 value *vp = &(((object *)(g[4].p))->data[g[1].i]);
 vp->tag = g[2].tag;
 vp->p = g[2].p;
@@ -14931,7 +14967,7 @@ vp->tag =0;
 vp->i = g[3].i;
 pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[1]) && IsInt(g[3])) {
+else if (IsPointer(g[4]) && IsInt(g[1]) && IsPointer(g[3])) {
 value *vp = &(((object *)(g[4].p))->data[g[1].i]);
 vp->tag = g[3].tag;
 vp->p = g[3].p;
@@ -14952,7 +14988,7 @@ vp->tag =0;
 vp->i = g[4].i;
 pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[1]) && IsInt(g[4])) {
+else if (IsPointer(g[4]) && IsInt(g[1]) && IsPointer(g[4])) {
 value *vp = &(((object *)(g[4].p))->data[g[1].i]);
 vp->tag = g[4].tag;
 vp->p = g[4].p;
@@ -14973,7 +15009,7 @@ vp->tag =0;
 vp->i = g[5].i;
 pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[1]) && IsInt(g[5])) {
+else if (IsPointer(g[4]) && IsInt(g[1]) && IsPointer(g[5])) {
 value *vp = &(((object *)(g[4].p))->data[g[1].i]);
 vp->tag = g[5].tag;
 vp->p = g[5].p;
@@ -14994,7 +15030,7 @@ vp->tag =0;
 vp->i = g[0].i;
 pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[2]) && IsInt(g[0])) {
+else if (IsPointer(g[4]) && IsInt(g[2]) && IsPointer(g[0])) {
 value *vp = &(((object *)(g[4].p))->data[g[2].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
@@ -15015,7 +15051,7 @@ vp->tag =0;
 vp->i = g[1].i;
 pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[2]) && IsInt(g[1])) {
+else if (IsPointer(g[4]) && IsInt(g[2]) && IsPointer(g[1])) {
 value *vp = &(((object *)(g[4].p))->data[g[2].i]);
 vp->tag = g[1].tag;
 vp->p = g[1].p;
@@ -15036,7 +15072,7 @@ vp->tag =0;
 vp->i = g[2].i;
 pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[2]) && IsInt(g[2])) {
+else if (IsPointer(g[4]) && IsInt(g[2]) && IsPointer(g[2])) {
 value *vp = &(((object *)(g[4].p))->data[g[2].i]);
 vp->tag = g[2].tag;
 vp->p = g[2].p;
@@ -15057,7 +15093,7 @@ vp->tag =0;
 vp->i = g[3].i;
 pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[2]) && IsInt(g[3])) {
+else if (IsPointer(g[4]) && IsInt(g[2]) && IsPointer(g[3])) {
 value *vp = &(((object *)(g[4].p))->data[g[2].i]);
 vp->tag = g[3].tag;
 vp->p = g[3].p;
@@ -15078,7 +15114,7 @@ vp->tag =0;
 vp->i = g[4].i;
 pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[2]) && IsInt(g[4])) {
+else if (IsPointer(g[4]) && IsInt(g[2]) && IsPointer(g[4])) {
 value *vp = &(((object *)(g[4].p))->data[g[2].i]);
 vp->tag = g[4].tag;
 vp->p = g[4].p;
@@ -15099,7 +15135,7 @@ vp->tag =0;
 vp->i = g[5].i;
 pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[2]) && IsInt(g[5])) {
+else if (IsPointer(g[4]) && IsInt(g[2]) && IsPointer(g[5])) {
 value *vp = &(((object *)(g[4].p))->data[g[2].i]);
 vp->tag = g[5].tag;
 vp->p = g[5].p;
@@ -15120,7 +15156,7 @@ vp->tag =0;
 vp->i = g[0].i;
 pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[3]) && IsInt(g[0])) {
+else if (IsPointer(g[4]) && IsInt(g[3]) && IsPointer(g[0])) {
 value *vp = &(((object *)(g[4].p))->data[g[3].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
@@ -15141,7 +15177,7 @@ vp->tag =0;
 vp->i = g[1].i;
 pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[3]) && IsInt(g[1])) {
+else if (IsPointer(g[4]) && IsInt(g[3]) && IsPointer(g[1])) {
 value *vp = &(((object *)(g[4].p))->data[g[3].i]);
 vp->tag = g[1].tag;
 vp->p = g[1].p;
@@ -15162,7 +15198,7 @@ vp->tag =0;
 vp->i = g[2].i;
 pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[3]) && IsInt(g[2])) {
+else if (IsPointer(g[4]) && IsInt(g[3]) && IsPointer(g[2])) {
 value *vp = &(((object *)(g[4].p))->data[g[3].i]);
 vp->tag = g[2].tag;
 vp->p = g[2].p;
@@ -15183,7 +15219,7 @@ vp->tag =0;
 vp->i = g[3].i;
 pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[3]) && IsInt(g[3])) {
+else if (IsPointer(g[4]) && IsInt(g[3]) && IsPointer(g[3])) {
 value *vp = &(((object *)(g[4].p))->data[g[3].i]);
 vp->tag = g[3].tag;
 vp->p = g[3].p;
@@ -15204,7 +15240,7 @@ vp->tag =0;
 vp->i = g[4].i;
 pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[3]) && IsInt(g[4])) {
+else if (IsPointer(g[4]) && IsInt(g[3]) && IsPointer(g[4])) {
 value *vp = &(((object *)(g[4].p))->data[g[3].i]);
 vp->tag = g[4].tag;
 vp->p = g[4].p;
@@ -15225,7 +15261,7 @@ vp->tag =0;
 vp->i = g[5].i;
 pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[3]) && IsInt(g[5])) {
+else if (IsPointer(g[4]) && IsInt(g[3]) && IsPointer(g[5])) {
 value *vp = &(((object *)(g[4].p))->data[g[3].i]);
 vp->tag = g[5].tag;
 vp->p = g[5].p;
@@ -15246,7 +15282,7 @@ vp->tag =0;
 vp->i = g[0].i;
 pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[5]) && IsInt(g[0])) {
+else if (IsPointer(g[4]) && IsInt(g[5]) && IsPointer(g[0])) {
 value *vp = &(((object *)(g[4].p))->data[g[5].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
@@ -15267,7 +15303,7 @@ vp->tag =0;
 vp->i = g[1].i;
 pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[5]) && IsInt(g[1])) {
+else if (IsPointer(g[4]) && IsInt(g[5]) && IsPointer(g[1])) {
 value *vp = &(((object *)(g[4].p))->data[g[5].i]);
 vp->tag = g[1].tag;
 vp->p = g[1].p;
@@ -15288,7 +15324,7 @@ vp->tag =0;
 vp->i = g[2].i;
 pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[5]) && IsInt(g[2])) {
+else if (IsPointer(g[4]) && IsInt(g[5]) && IsPointer(g[2])) {
 value *vp = &(((object *)(g[4].p))->data[g[5].i]);
 vp->tag = g[2].tag;
 vp->p = g[2].p;
@@ -15309,7 +15345,7 @@ vp->tag =0;
 vp->i = g[3].i;
 pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[5]) && IsInt(g[3])) {
+else if (IsPointer(g[4]) && IsInt(g[5]) && IsPointer(g[3])) {
 value *vp = &(((object *)(g[4].p))->data[g[5].i]);
 vp->tag = g[3].tag;
 vp->p = g[3].p;
@@ -15330,7 +15366,7 @@ vp->tag =0;
 vp->i = g[4].i;
 pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[5]) && IsInt(g[4])) {
+else if (IsPointer(g[4]) && IsInt(g[5]) && IsPointer(g[4])) {
 value *vp = &(((object *)(g[4].p))->data[g[5].i]);
 vp->tag = g[4].tag;
 vp->p = g[4].p;
@@ -15351,7 +15387,7 @@ vp->tag =0;
 vp->i = g[5].i;
 pc++;
 }
-else if (IsPointer(g[4]) && IsPointer(g[5]) && IsInt(g[5])) {
+else if (IsPointer(g[4]) && IsInt(g[5]) && IsPointer(g[5])) {
 value *vp = &(((object *)(g[4].p))->data[g[5].i]);
 vp->tag = g[5].tag;
 vp->p = g[5].p;
@@ -15372,7 +15408,7 @@ vp->tag =0;
 vp->i = g[0].i;
 pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[0]) && IsInt(g[0])) {
+else if (IsPointer(g[5]) && IsInt(g[0]) && IsPointer(g[0])) {
 value *vp = &(((object *)(g[5].p))->data[g[0].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
@@ -15393,7 +15429,7 @@ vp->tag =0;
 vp->i = g[1].i;
 pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[0]) && IsInt(g[1])) {
+else if (IsPointer(g[5]) && IsInt(g[0]) && IsPointer(g[1])) {
 value *vp = &(((object *)(g[5].p))->data[g[0].i]);
 vp->tag = g[1].tag;
 vp->p = g[1].p;
@@ -15414,7 +15450,7 @@ vp->tag =0;
 vp->i = g[2].i;
 pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[0]) && IsInt(g[2])) {
+else if (IsPointer(g[5]) && IsInt(g[0]) && IsPointer(g[2])) {
 value *vp = &(((object *)(g[5].p))->data[g[0].i]);
 vp->tag = g[2].tag;
 vp->p = g[2].p;
@@ -15435,7 +15471,7 @@ vp->tag =0;
 vp->i = g[3].i;
 pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[0]) && IsInt(g[3])) {
+else if (IsPointer(g[5]) && IsInt(g[0]) && IsPointer(g[3])) {
 value *vp = &(((object *)(g[5].p))->data[g[0].i]);
 vp->tag = g[3].tag;
 vp->p = g[3].p;
@@ -15456,7 +15492,7 @@ vp->tag =0;
 vp->i = g[4].i;
 pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[0]) && IsInt(g[4])) {
+else if (IsPointer(g[5]) && IsInt(g[0]) && IsPointer(g[4])) {
 value *vp = &(((object *)(g[5].p))->data[g[0].i]);
 vp->tag = g[4].tag;
 vp->p = g[4].p;
@@ -15477,7 +15513,7 @@ vp->tag =0;
 vp->i = g[5].i;
 pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[0]) && IsInt(g[5])) {
+else if (IsPointer(g[5]) && IsInt(g[0]) && IsPointer(g[5])) {
 value *vp = &(((object *)(g[5].p))->data[g[0].i]);
 vp->tag = g[5].tag;
 vp->p = g[5].p;
@@ -15498,7 +15534,7 @@ vp->tag =0;
 vp->i = g[0].i;
 pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[1]) && IsInt(g[0])) {
+else if (IsPointer(g[5]) && IsInt(g[1]) && IsPointer(g[0])) {
 value *vp = &(((object *)(g[5].p))->data[g[1].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
@@ -15519,7 +15555,7 @@ vp->tag =0;
 vp->i = g[1].i;
 pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[1]) && IsInt(g[1])) {
+else if (IsPointer(g[5]) && IsInt(g[1]) && IsPointer(g[1])) {
 value *vp = &(((object *)(g[5].p))->data[g[1].i]);
 vp->tag = g[1].tag;
 vp->p = g[1].p;
@@ -15540,7 +15576,7 @@ vp->tag =0;
 vp->i = g[2].i;
 pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[1]) && IsInt(g[2])) {
+else if (IsPointer(g[5]) && IsInt(g[1]) && IsPointer(g[2])) {
 value *vp = &(((object *)(g[5].p))->data[g[1].i]);
 vp->tag = g[2].tag;
 vp->p = g[2].p;
@@ -15561,7 +15597,7 @@ vp->tag =0;
 vp->i = g[3].i;
 pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[1]) && IsInt(g[3])) {
+else if (IsPointer(g[5]) && IsInt(g[1]) && IsPointer(g[3])) {
 value *vp = &(((object *)(g[5].p))->data[g[1].i]);
 vp->tag = g[3].tag;
 vp->p = g[3].p;
@@ -15582,7 +15618,7 @@ vp->tag =0;
 vp->i = g[4].i;
 pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[1]) && IsInt(g[4])) {
+else if (IsPointer(g[5]) && IsInt(g[1]) && IsPointer(g[4])) {
 value *vp = &(((object *)(g[5].p))->data[g[1].i]);
 vp->tag = g[4].tag;
 vp->p = g[4].p;
@@ -15603,7 +15639,7 @@ vp->tag =0;
 vp->i = g[5].i;
 pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[1]) && IsInt(g[5])) {
+else if (IsPointer(g[5]) && IsInt(g[1]) && IsPointer(g[5])) {
 value *vp = &(((object *)(g[5].p))->data[g[1].i]);
 vp->tag = g[5].tag;
 vp->p = g[5].p;
@@ -15624,7 +15660,7 @@ vp->tag =0;
 vp->i = g[0].i;
 pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[2]) && IsInt(g[0])) {
+else if (IsPointer(g[5]) && IsInt(g[2]) && IsPointer(g[0])) {
 value *vp = &(((object *)(g[5].p))->data[g[2].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
@@ -15645,7 +15681,7 @@ vp->tag =0;
 vp->i = g[1].i;
 pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[2]) && IsInt(g[1])) {
+else if (IsPointer(g[5]) && IsInt(g[2]) && IsPointer(g[1])) {
 value *vp = &(((object *)(g[5].p))->data[g[2].i]);
 vp->tag = g[1].tag;
 vp->p = g[1].p;
@@ -15666,7 +15702,7 @@ vp->tag =0;
 vp->i = g[2].i;
 pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[2]) && IsInt(g[2])) {
+else if (IsPointer(g[5]) && IsInt(g[2]) && IsPointer(g[2])) {
 value *vp = &(((object *)(g[5].p))->data[g[2].i]);
 vp->tag = g[2].tag;
 vp->p = g[2].p;
@@ -15687,7 +15723,7 @@ vp->tag =0;
 vp->i = g[3].i;
 pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[2]) && IsInt(g[3])) {
+else if (IsPointer(g[5]) && IsInt(g[2]) && IsPointer(g[3])) {
 value *vp = &(((object *)(g[5].p))->data[g[2].i]);
 vp->tag = g[3].tag;
 vp->p = g[3].p;
@@ -15708,7 +15744,7 @@ vp->tag =0;
 vp->i = g[4].i;
 pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[2]) && IsInt(g[4])) {
+else if (IsPointer(g[5]) && IsInt(g[2]) && IsPointer(g[4])) {
 value *vp = &(((object *)(g[5].p))->data[g[2].i]);
 vp->tag = g[4].tag;
 vp->p = g[4].p;
@@ -15729,7 +15765,7 @@ vp->tag =0;
 vp->i = g[5].i;
 pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[2]) && IsInt(g[5])) {
+else if (IsPointer(g[5]) && IsInt(g[2]) && IsPointer(g[5])) {
 value *vp = &(((object *)(g[5].p))->data[g[2].i]);
 vp->tag = g[5].tag;
 vp->p = g[5].p;
@@ -15750,7 +15786,7 @@ vp->tag =0;
 vp->i = g[0].i;
 pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[3]) && IsInt(g[0])) {
+else if (IsPointer(g[5]) && IsInt(g[3]) && IsPointer(g[0])) {
 value *vp = &(((object *)(g[5].p))->data[g[3].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
@@ -15771,7 +15807,7 @@ vp->tag =0;
 vp->i = g[1].i;
 pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[3]) && IsInt(g[1])) {
+else if (IsPointer(g[5]) && IsInt(g[3]) && IsPointer(g[1])) {
 value *vp = &(((object *)(g[5].p))->data[g[3].i]);
 vp->tag = g[1].tag;
 vp->p = g[1].p;
@@ -15792,7 +15828,7 @@ vp->tag =0;
 vp->i = g[2].i;
 pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[3]) && IsInt(g[2])) {
+else if (IsPointer(g[5]) && IsInt(g[3]) && IsPointer(g[2])) {
 value *vp = &(((object *)(g[5].p))->data[g[3].i]);
 vp->tag = g[2].tag;
 vp->p = g[2].p;
@@ -15813,7 +15849,7 @@ vp->tag =0;
 vp->i = g[3].i;
 pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[3]) && IsInt(g[3])) {
+else if (IsPointer(g[5]) && IsInt(g[3]) && IsPointer(g[3])) {
 value *vp = &(((object *)(g[5].p))->data[g[3].i]);
 vp->tag = g[3].tag;
 vp->p = g[3].p;
@@ -15834,7 +15870,7 @@ vp->tag =0;
 vp->i = g[4].i;
 pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[3]) && IsInt(g[4])) {
+else if (IsPointer(g[5]) && IsInt(g[3]) && IsPointer(g[4])) {
 value *vp = &(((object *)(g[5].p))->data[g[3].i]);
 vp->tag = g[4].tag;
 vp->p = g[4].p;
@@ -15855,7 +15891,7 @@ vp->tag =0;
 vp->i = g[5].i;
 pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[3]) && IsInt(g[5])) {
+else if (IsPointer(g[5]) && IsInt(g[3]) && IsPointer(g[5])) {
 value *vp = &(((object *)(g[5].p))->data[g[3].i]);
 vp->tag = g[5].tag;
 vp->p = g[5].p;
@@ -15876,7 +15912,7 @@ vp->tag =0;
 vp->i = g[0].i;
 pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[4]) && IsInt(g[0])) {
+else if (IsPointer(g[5]) && IsInt(g[4]) && IsPointer(g[0])) {
 value *vp = &(((object *)(g[5].p))->data[g[4].i]);
 vp->tag = g[0].tag;
 vp->p = g[0].p;
@@ -15897,7 +15933,7 @@ vp->tag =0;
 vp->i = g[1].i;
 pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[4]) && IsInt(g[1])) {
+else if (IsPointer(g[5]) && IsInt(g[4]) && IsPointer(g[1])) {
 value *vp = &(((object *)(g[5].p))->data[g[4].i]);
 vp->tag = g[1].tag;
 vp->p = g[1].p;
@@ -15918,7 +15954,7 @@ vp->tag =0;
 vp->i = g[2].i;
 pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[4]) && IsInt(g[2])) {
+else if (IsPointer(g[5]) && IsInt(g[4]) && IsPointer(g[2])) {
 value *vp = &(((object *)(g[5].p))->data[g[4].i]);
 vp->tag = g[2].tag;
 vp->p = g[2].p;
@@ -15939,7 +15975,7 @@ vp->tag =0;
 vp->i = g[3].i;
 pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[4]) && IsInt(g[3])) {
+else if (IsPointer(g[5]) && IsInt(g[4]) && IsPointer(g[3])) {
 value *vp = &(((object *)(g[5].p))->data[g[4].i]);
 vp->tag = g[3].tag;
 vp->p = g[3].p;
@@ -15960,7 +15996,7 @@ vp->tag =0;
 vp->i = g[4].i;
 pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[4]) && IsInt(g[4])) {
+else if (IsPointer(g[5]) && IsInt(g[4]) && IsPointer(g[4])) {
 value *vp = &(((object *)(g[5].p))->data[g[4].i]);
 vp->tag = g[4].tag;
 vp->p = g[4].p;
@@ -15981,7 +16017,7 @@ vp->tag =0;
 vp->i = g[5].i;
 pc++;
 }
-else if (IsPointer(g[5]) && IsPointer(g[4]) && IsInt(g[5])) {
+else if (IsPointer(g[5]) && IsInt(g[4]) && IsPointer(g[5])) {
 value *vp = &(((object *)(g[5].p))->data[g[4].i]);
 vp->tag = g[5].tag;
 vp->p = g[5].p;
@@ -23252,13 +23288,13 @@ goto *dynOpcodes[ts + program[pc]];
 
 jnullp_0:
 {
-if (IsInt(g[0])) {
-if (g[0].p == NULL)
-pc += program[pc + 2];
+if (IsPointer(g[0])) {
+if (g[0].p != NULL)
+pc += program[pc + 1];
 else
-pc += program[pc + 3];
+pc += program[pc + 2];
 }
-else if (IsPointer(g[0])) {
+else if (IsInt(g[0])) {
 pc += 5;
 }
 else {
@@ -23270,13 +23306,13 @@ goto *dynOpcodes[ts + program[pc]];
 
 jnullp_1:
 {
-if (IsInt(g[1])) {
-if (g[1].p == NULL)
-pc += program[pc + 2];
+if (IsPointer(g[1])) {
+if (g[1].p != NULL)
+pc += program[pc + 1];
 else
-pc += program[pc + 3];
+pc += program[pc + 2];
 }
-else if (IsPointer(g[1])) {
+else if (IsInt(g[1])) {
 pc += 5;
 }
 else {
@@ -23288,13 +23324,13 @@ goto *dynOpcodes[ts + program[pc]];
 
 jnullp_2:
 {
-if (IsInt(g[2])) {
-if (g[2].p == NULL)
-pc += program[pc + 2];
+if (IsPointer(g[2])) {
+if (g[2].p != NULL)
+pc += program[pc + 1];
 else
-pc += program[pc + 3];
+pc += program[pc + 2];
 }
-else if (IsPointer(g[2])) {
+else if (IsInt(g[2])) {
 pc += 5;
 }
 else {
@@ -23306,13 +23342,13 @@ goto *dynOpcodes[ts + program[pc]];
 
 jnullp_3:
 {
-if (IsInt(g[3])) {
-if (g[3].p == NULL)
-pc += program[pc + 2];
+if (IsPointer(g[3])) {
+if (g[3].p != NULL)
+pc += program[pc + 1];
 else
-pc += program[pc + 3];
+pc += program[pc + 2];
 }
-else if (IsPointer(g[3])) {
+else if (IsInt(g[3])) {
 pc += 5;
 }
 else {
@@ -23324,13 +23360,13 @@ goto *dynOpcodes[ts + program[pc]];
 
 jnullp_4:
 {
-if (IsInt(g[4])) {
-if (g[4].p == NULL)
-pc += program[pc + 2];
+if (IsPointer(g[4])) {
+if (g[4].p != NULL)
+pc += program[pc + 1];
 else
-pc += program[pc + 3];
+pc += program[pc + 2];
 }
-else if (IsPointer(g[4])) {
+else if (IsInt(g[4])) {
 pc += 5;
 }
 else {
@@ -23342,13 +23378,13 @@ goto *dynOpcodes[ts + program[pc]];
 
 jnullp_5:
 {
-if (IsInt(g[5])) {
-if (g[5].p == NULL)
-pc += program[pc + 2];
+if (IsPointer(g[5])) {
+if (g[5].p != NULL)
+pc += program[pc + 1];
 else
-pc += program[pc + 3];
+pc += program[pc + 2];
 }
-else if (IsPointer(g[5])) {
+else if (IsInt(g[5])) {
 pc += 5;
 }
 else {
@@ -24727,7 +24763,7 @@ buffer *bp = g[0].p;
 int size = GetSize(bp->sf);
 if (fgets(bp->data, size, stdin) == NULL) {
     if (feof(stdin))
-        bp->data[0] = 3;
+        bp->data[0] = 0;
     else {
         fprintf(stderr, "input error");
         return 1;
@@ -24754,7 +24790,7 @@ buffer *bp = g[1].p;
 int size = GetSize(bp->sf);
 if (fgets(bp->data, size, stdin) == NULL) {
     if (feof(stdin))
-        bp->data[0] = 3;
+        bp->data[0] = 0;
     else {
         fprintf(stderr, "input error");
         return 1;
@@ -24781,7 +24817,7 @@ buffer *bp = g[2].p;
 int size = GetSize(bp->sf);
 if (fgets(bp->data, size, stdin) == NULL) {
     if (feof(stdin))
-        bp->data[0] = 3;
+        bp->data[0] = 0;
     else {
         fprintf(stderr, "input error");
         return 1;
@@ -24808,7 +24844,7 @@ buffer *bp = g[3].p;
 int size = GetSize(bp->sf);
 if (fgets(bp->data, size, stdin) == NULL) {
     if (feof(stdin))
-        bp->data[0] = 3;
+        bp->data[0] = 0;
     else {
         fprintf(stderr, "input error");
         return 1;
@@ -24835,7 +24871,7 @@ buffer *bp = g[4].p;
 int size = GetSize(bp->sf);
 if (fgets(bp->data, size, stdin) == NULL) {
     if (feof(stdin))
-        bp->data[0] = 3;
+        bp->data[0] = 0;
     else {
         fprintf(stderr, "input error");
         return 1;
@@ -24862,7 +24898,7 @@ buffer *bp = g[5].p;
 int size = GetSize(bp->sf);
 if (fgets(bp->data, size, stdin) == NULL) {
     if (feof(stdin))
-        bp->data[0] = 3;
+        bp->data[0] = 0;
     else {
         fprintf(stderr, "input error");
         return 1;
@@ -24886,10 +24922,7 @@ out_0:
 {
 if (IsPointer(g[0])) {
 buffer *bp = g[0].p;
-int size = GetSize(bp->sf);
-char temp[size + 1];
-strncpy(temp, bp->data, size);
-temp[size + 1] = ' ';puts(temp);
+fwrite(bp->data, sizeof(int8_t), GetSize(bp->sf), stdout);
 pc++;
 }
 else {
@@ -24903,10 +24936,7 @@ out_1:
 {
 if (IsPointer(g[1])) {
 buffer *bp = g[1].p;
-int size = GetSize(bp->sf);
-char temp[size + 1];
-strncpy(temp, bp->data, size);
-temp[size + 1] = ' ';puts(temp);
+fwrite(bp->data, sizeof(int8_t), GetSize(bp->sf), stdout);
 pc++;
 }
 else {
@@ -24920,10 +24950,7 @@ out_2:
 {
 if (IsPointer(g[2])) {
 buffer *bp = g[2].p;
-int size = GetSize(bp->sf);
-char temp[size + 1];
-strncpy(temp, bp->data, size);
-temp[size + 1] = ' ';puts(temp);
+fwrite(bp->data, sizeof(int8_t), GetSize(bp->sf), stdout);
 pc++;
 }
 else {
@@ -24937,10 +24964,7 @@ out_3:
 {
 if (IsPointer(g[3])) {
 buffer *bp = g[3].p;
-int size = GetSize(bp->sf);
-char temp[size + 1];
-strncpy(temp, bp->data, size);
-temp[size + 1] = ' ';puts(temp);
+fwrite(bp->data, sizeof(int8_t), GetSize(bp->sf), stdout);
 pc++;
 }
 else {
@@ -24954,10 +24978,7 @@ out_4:
 {
 if (IsPointer(g[4])) {
 buffer *bp = g[4].p;
-int size = GetSize(bp->sf);
-char temp[size + 1];
-strncpy(temp, bp->data, size);
-temp[size + 1] = ' ';puts(temp);
+fwrite(bp->data, sizeof(int8_t), GetSize(bp->sf), stdout);
 pc++;
 }
 else {
@@ -24971,10 +24992,7 @@ out_5:
 {
 if (IsPointer(g[5])) {
 buffer *bp = g[5].p;
-int size = GetSize(bp->sf);
-char temp[size + 1];
-strncpy(temp, bp->data, size);
-temp[size + 1] = ' ';puts(temp);
+fwrite(bp->data, sizeof(int8_t), GetSize(bp->sf), stdout);
 pc++;
 }
 else {
@@ -24984,15 +25002,99 @@ return 1;
 goto *dynOpcodes[ts + program[pc]];
 }
 
+print_0:
+{
+if (IsPointer(g[0])) {
+buffer *bp = g[0].p;
+puts(bp->data);
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: print");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+print_1:
+{
+if (IsPointer(g[1])) {
+buffer *bp = g[1].p;
+puts(bp->data);
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: print");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+print_2:
+{
+if (IsPointer(g[2])) {
+buffer *bp = g[2].p;
+puts(bp->data);
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: print");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+print_3:
+{
+if (IsPointer(g[3])) {
+buffer *bp = g[3].p;
+puts(bp->data);
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: print");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+print_4:
+{
+if (IsPointer(g[4])) {
+buffer *bp = g[4].p;
+puts(bp->data);
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: print");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
+print_5:
+{
+if (IsPointer(g[5])) {
+buffer *bp = g[5].p;
+puts(bp->data);
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: print");
+return 1;
+}
+goto *dynOpcodes[ts + program[pc]];
+}
+
 error:
 {
-fprintf(stderr, "Error");
+fprintf(stdout, "Error");
 return 1;
 }
 
 undefined:
 {
-fprintf(stderr,"undefined");
+fprintf(stdout,"undefined");
 return 1;
 }
 

@@ -876,8 +876,9 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_0_1:
 {
-g[0].i = g[0].i % g[1].i;
+int64_t temp = g[0].i % g[1].i;
 g[0].i /= g[1].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -886,8 +887,9 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_0_2:
 {
-g[0].i = g[0].i % g[2].i;
+int64_t temp = g[0].i % g[2].i;
 g[0].i /= g[2].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -896,8 +898,9 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_0_3:
 {
-g[0].i = g[0].i % g[3].i;
+int64_t temp = g[0].i % g[3].i;
 g[0].i /= g[3].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -906,8 +909,9 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_0_4:
 {
-g[0].i = g[0].i % g[4].i;
+int64_t temp = g[0].i % g[4].i;
 g[0].i /= g[4].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -916,8 +920,9 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_0_5:
 {
-g[0].i = g[0].i % g[5].i;
+int64_t temp = g[0].i % g[5].i;
 g[0].i /= g[5].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -926,8 +931,9 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_1_0:
 {
-g[0].i = g[1].i % g[0].i;
+int64_t temp = g[1].i % g[0].i;
 g[1].i /= g[0].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -936,8 +942,9 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_1_2:
 {
-g[0].i = g[1].i % g[2].i;
+int64_t temp = g[1].i % g[2].i;
 g[1].i /= g[2].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -946,8 +953,9 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_1_3:
 {
-g[0].i = g[1].i % g[3].i;
+int64_t temp = g[1].i % g[3].i;
 g[1].i /= g[3].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -956,8 +964,9 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_1_4:
 {
-g[0].i = g[1].i % g[4].i;
+int64_t temp = g[1].i % g[4].i;
 g[1].i /= g[4].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -966,8 +975,9 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_1_5:
 {
-g[0].i = g[1].i % g[5].i;
+int64_t temp = g[1].i % g[5].i;
 g[1].i /= g[5].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -976,8 +986,9 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_2_0:
 {
-g[0].i = g[2].i % g[0].i;
+int64_t temp = g[2].i % g[0].i;
 g[2].i /= g[0].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -986,8 +997,9 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_2_1:
 {
-g[0].i = g[2].i % g[1].i;
+int64_t temp = g[2].i % g[1].i;
 g[2].i /= g[1].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -996,8 +1008,9 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_2_3:
 {
-g[0].i = g[2].i % g[3].i;
+int64_t temp = g[2].i % g[3].i;
 g[2].i /= g[3].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1006,8 +1019,9 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_2_4:
 {
-g[0].i = g[2].i % g[4].i;
+int64_t temp = g[2].i % g[4].i;
 g[2].i /= g[4].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1016,8 +1030,9 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_2_5:
 {
-g[0].i = g[2].i % g[5].i;
+int64_t temp = g[2].i % g[5].i;
 g[2].i /= g[5].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1026,8 +1041,9 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_3_0:
 {
-g[0].i = g[3].i % g[0].i;
+int64_t temp = g[3].i % g[0].i;
 g[3].i /= g[0].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1036,8 +1052,9 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_3_1:
 {
-g[0].i = g[3].i % g[1].i;
+int64_t temp = g[3].i % g[1].i;
 g[3].i /= g[1].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1046,8 +1063,9 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_3_2:
 {
-g[0].i = g[3].i % g[2].i;
+int64_t temp = g[3].i % g[2].i;
 g[3].i /= g[2].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1056,8 +1074,9 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_3_4:
 {
-g[0].i = g[3].i % g[4].i;
+int64_t temp = g[3].i % g[4].i;
 g[3].i /= g[4].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1066,8 +1085,9 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_3_5:
 {
-g[0].i = g[3].i % g[5].i;
+int64_t temp = g[3].i % g[5].i;
 g[3].i /= g[5].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1076,8 +1096,9 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_4_0:
 {
-g[0].i = g[4].i % g[0].i;
+int64_t temp = g[4].i % g[0].i;
 g[4].i /= g[0].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1086,8 +1107,9 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_4_1:
 {
-g[0].i = g[4].i % g[1].i;
+int64_t temp = g[4].i % g[1].i;
 g[4].i /= g[1].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1096,8 +1118,9 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_4_2:
 {
-g[0].i = g[4].i % g[2].i;
+int64_t temp = g[4].i % g[2].i;
 g[4].i /= g[2].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1106,8 +1129,9 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_4_3:
 {
-g[0].i = g[4].i % g[3].i;
+int64_t temp = g[4].i % g[3].i;
 g[4].i /= g[3].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1116,8 +1140,9 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_4_5:
 {
-g[0].i = g[4].i % g[5].i;
+int64_t temp = g[4].i % g[5].i;
 g[4].i /= g[5].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1126,8 +1151,9 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_5_0:
 {
-g[0].i = g[5].i % g[0].i;
+int64_t temp = g[5].i % g[0].i;
 g[5].i /= g[0].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1136,8 +1162,9 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_5_1:
 {
-g[0].i = g[5].i % g[1].i;
+int64_t temp = g[5].i % g[1].i;
 g[5].i /= g[1].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1146,8 +1173,9 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_5_2:
 {
-g[0].i = g[5].i % g[2].i;
+int64_t temp = g[5].i % g[2].i;
 g[5].i /= g[2].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1156,8 +1184,9 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_5_3:
 {
-g[0].i = g[5].i % g[3].i;
+int64_t temp = g[5].i % g[3].i;
 g[5].i /= g[3].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1166,8 +1195,9 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_5_4:
 {
-g[0].i = g[5].i % g[4].i;
+int64_t temp = g[5].i % g[4].i;
 g[5].i /= g[4].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -1178,8 +1208,9 @@ divc_0:
 {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-g[0].i = g[0].i % constant;
+int64_t temp = g[0].i % constant;
 g[0].i /= constant;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc += 2;
@@ -1190,8 +1221,9 @@ divc_1:
 {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-g[0].i = g[1].i % constant;
+int64_t temp = g[1].i % constant;
 g[1].i /= constant;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc += 2;
@@ -1202,8 +1234,9 @@ divc_2:
 {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-g[0].i = g[2].i % constant;
+int64_t temp = g[2].i % constant;
 g[2].i /= constant;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc += 2;
@@ -1214,8 +1247,9 @@ divc_3:
 {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-g[0].i = g[3].i % constant;
+int64_t temp = g[3].i % constant;
 g[3].i /= constant;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc += 2;
@@ -1226,8 +1260,9 @@ divc_4:
 {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-g[0].i = g[4].i % constant;
+int64_t temp = g[4].i % constant;
 g[4].i /= constant;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc += 2;
@@ -1238,8 +1273,9 @@ divc_5:
 {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-g[0].i = g[5].i % constant;
+int64_t temp = g[5].i % constant;
 g[5].i /= constant;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc += 2;
@@ -18746,55 +18782,55 @@ goto *dynOpcodes[ts + program[pc]];
 
 jnullp_0:
 {
-if (g[0].p == NULL)
-pc += program[pc + 2];
+if (g[0].p != NULL)
+pc += program[pc + 1];
 else
-pc += program[pc + 3];
+pc += program[pc + 2];
 goto *dynOpcodes[ts + program[pc]];
 }
 
 jnullp_1:
 {
-if (g[1].p == NULL)
-pc += program[pc + 2];
+if (g[1].p != NULL)
+pc += program[pc + 1];
 else
-pc += program[pc + 3];
+pc += program[pc + 2];
 goto *dynOpcodes[ts + program[pc]];
 }
 
 jnullp_2:
 {
-if (g[2].p == NULL)
-pc += program[pc + 2];
+if (g[2].p != NULL)
+pc += program[pc + 1];
 else
-pc += program[pc + 3];
+pc += program[pc + 2];
 goto *dynOpcodes[ts + program[pc]];
 }
 
 jnullp_3:
 {
-if (g[3].p == NULL)
-pc += program[pc + 2];
+if (g[3].p != NULL)
+pc += program[pc + 1];
 else
-pc += program[pc + 3];
+pc += program[pc + 2];
 goto *dynOpcodes[ts + program[pc]];
 }
 
 jnullp_4:
 {
-if (g[4].p == NULL)
-pc += program[pc + 2];
+if (g[4].p != NULL)
+pc += program[pc + 1];
 else
-pc += program[pc + 3];
+pc += program[pc + 2];
 goto *dynOpcodes[ts + program[pc]];
 }
 
 jnullp_5:
 {
-if (g[5].p == NULL)
-pc += program[pc + 2];
+if (g[5].p != NULL)
+pc += program[pc + 1];
 else
-pc += program[pc + 3];
+pc += program[pc + 2];
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19866,7 +19902,7 @@ buffer *bp = g[0].p;
 int size = GetSize(bp->sf);
 if (fgets(bp->data, size, stdin) == NULL) {
     if (feof(stdin))
-        bp->data[0] = 3;
+        bp->data[0] = 0;
     else {
         fprintf(stderr, "input error");
         return 1;
@@ -19887,7 +19923,7 @@ buffer *bp = g[1].p;
 int size = GetSize(bp->sf);
 if (fgets(bp->data, size, stdin) == NULL) {
     if (feof(stdin))
-        bp->data[0] = 3;
+        bp->data[0] = 0;
     else {
         fprintf(stderr, "input error");
         return 1;
@@ -19908,7 +19944,7 @@ buffer *bp = g[2].p;
 int size = GetSize(bp->sf);
 if (fgets(bp->data, size, stdin) == NULL) {
     if (feof(stdin))
-        bp->data[0] = 3;
+        bp->data[0] = 0;
     else {
         fprintf(stderr, "input error");
         return 1;
@@ -19929,7 +19965,7 @@ buffer *bp = g[3].p;
 int size = GetSize(bp->sf);
 if (fgets(bp->data, size, stdin) == NULL) {
     if (feof(stdin))
-        bp->data[0] = 3;
+        bp->data[0] = 0;
     else {
         fprintf(stderr, "input error");
         return 1;
@@ -19950,7 +19986,7 @@ buffer *bp = g[4].p;
 int size = GetSize(bp->sf);
 if (fgets(bp->data, size, stdin) == NULL) {
     if (feof(stdin))
-        bp->data[0] = 3;
+        bp->data[0] = 0;
     else {
         fprintf(stderr, "input error");
         return 1;
@@ -19971,7 +20007,7 @@ buffer *bp = g[5].p;
 int size = GetSize(bp->sf);
 if (fgets(bp->data, size, stdin) == NULL) {
     if (feof(stdin))
-        bp->data[0] = 3;
+        bp->data[0] = 0;
     else {
         fprintf(stderr, "input error");
         return 1;
@@ -19989,10 +20025,7 @@ goto *dynOpcodes[ts + program[pc]];
 out_0:
 {
 buffer *bp = g[0].p;
-int size = GetSize(bp->sf);
-char temp[size + 1];
-strncpy(temp, bp->data, size);
-temp[size + 1] = ' ';puts(temp);
+fwrite(bp->data, sizeof(int8_t), GetSize(bp->sf), stdout);
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -20000,10 +20033,7 @@ goto *dynOpcodes[ts + program[pc]];
 out_1:
 {
 buffer *bp = g[1].p;
-int size = GetSize(bp->sf);
-char temp[size + 1];
-strncpy(temp, bp->data, size);
-temp[size + 1] = ' ';puts(temp);
+fwrite(bp->data, sizeof(int8_t), GetSize(bp->sf), stdout);
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -20011,10 +20041,7 @@ goto *dynOpcodes[ts + program[pc]];
 out_2:
 {
 buffer *bp = g[2].p;
-int size = GetSize(bp->sf);
-char temp[size + 1];
-strncpy(temp, bp->data, size);
-temp[size + 1] = ' ';puts(temp);
+fwrite(bp->data, sizeof(int8_t), GetSize(bp->sf), stdout);
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -20022,10 +20049,7 @@ goto *dynOpcodes[ts + program[pc]];
 out_3:
 {
 buffer *bp = g[3].p;
-int size = GetSize(bp->sf);
-char temp[size + 1];
-strncpy(temp, bp->data, size);
-temp[size + 1] = ' ';puts(temp);
+fwrite(bp->data, sizeof(int8_t), GetSize(bp->sf), stdout);
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -20033,10 +20057,7 @@ goto *dynOpcodes[ts + program[pc]];
 out_4:
 {
 buffer *bp = g[4].p;
-int size = GetSize(bp->sf);
-char temp[size + 1];
-strncpy(temp, bp->data, size);
-temp[size + 1] = ' ';puts(temp);
+fwrite(bp->data, sizeof(int8_t), GetSize(bp->sf), stdout);
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -20044,23 +20065,68 @@ goto *dynOpcodes[ts + program[pc]];
 out_5:
 {
 buffer *bp = g[5].p;
-int size = GetSize(bp->sf);
-char temp[size + 1];
-strncpy(temp, bp->data, size);
-temp[size + 1] = ' ';puts(temp);
+fwrite(bp->data, sizeof(int8_t), GetSize(bp->sf), stdout);
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+print_0:
+{
+buffer *bp = g[0].p;
+puts(bp->data);
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+print_1:
+{
+buffer *bp = g[1].p;
+puts(bp->data);
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+print_2:
+{
+buffer *bp = g[2].p;
+puts(bp->data);
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+print_3:
+{
+buffer *bp = g[3].p;
+puts(bp->data);
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+print_4:
+{
+buffer *bp = g[4].p;
+puts(bp->data);
+pc++;
+goto *dynOpcodes[ts + program[pc]];
+}
+
+print_5:
+{
+buffer *bp = g[5].p;
+puts(bp->data);
 pc++;
 goto *dynOpcodes[ts + program[pc]];
 }
 
 error:
 {
-fprintf(stderr, "Error");
+fprintf(stdout, "Error");
 return 1;
 }
 
 undefined:
 {
-fprintf(stderr,"undefined");
+fprintf(stdout,"undefined");
 return 1;
 }
 

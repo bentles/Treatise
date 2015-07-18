@@ -102,8 +102,9 @@ var lookups = [
             pcChange: 1,
             legal: [i, i],
             template:
-                'g[0].i = /*<0>*/.i % /*<1>*/.i;\n' +
+                'int64_t temp = /*<0>*/.i % /*<1>*/.i;\n' +
                 '/*<0>*/.i /= /*<1>*/.i;\n' +
+                'g[0].i = temp;\n' +
                 'g[0].tag = 0;\n' +
                 'ts &= 0xF800;\n' 
         }]
@@ -116,8 +117,9 @@ var lookups = [
             pcChange: 2,
             legal: [i],
             template: getConst('constant') +
-                'g[0].i = /*<0>*/.i % constant;\n' +
+                'int64_t temp = /*<0>*/.i % constant;\n' +
                 '/*<0>*/.i /= constant;\n' +
+                'g[0].i = temp;\n' +
                 'g[0].tag = 0;\n' +
                 'ts &= 0xF800;\n' 
         }]
@@ -443,7 +445,7 @@ var lookups = [
             {
                 name: 'setop',
                 pcChange: 1,
-                legal: [p, p, i],
+                legal: [p, i, p],
                 template: 
                     'value *vp = &(((object *)(/*<0>*/.p))->data[/*<1>*/.i]);\n' +
                     'vp->tag = /*<2>*/.tag;\n' +
@@ -573,17 +575,16 @@ var lookups = [
     {
         name: 'jnullp',
         inputs: 1,
-        callCondition: noTrivialFor([0,1]),
         instructions: [{
             name: 'jnullp',
-            legal: [i],
-            template: 'if (/*<0>*/.p == NULL)\n' +
-                'pc += program[pc + 2];\n' +
+            legal: [p],
+            template: 'if (/*<0>*/.p != NULL)\n' +
+                'pc += program[pc + 1];\n' +
                 'else\n' +
-                'pc += program[pc + 3];\n'
+                'pc += program[pc + 2];\n'
         }, {
             name: 'jcmpcft',
-            legal: [p],
+            legal: [i],
             pcChange: 5,
             genCode: false
         }]
@@ -687,7 +688,7 @@ var lookups = [
                 'int size = GetSize(bp->sf);\n' +
                 'if (fgets(bp->data, size, stdin) == NULL) {\n' +
                 '    if (feof(stdin))\n' +
-                '        bp->data[0] = 3;\n' +
+                '        bp->data[0] = 0;\n' +
                 '    else {\n' +
                 '        fprintf(stderr, "input error");\n' +
                 '        return 1;\n' +
@@ -708,24 +709,30 @@ var lookups = [
             name: 'out', pcChange: 1,
             legal: [p],
             template: 'buffer *bp = /*<0>*/.p;\n' +
-                'int size = GetSize(bp->sf);\n' +
-                'char temp[size + 1];\n' +
-                'strncpy(temp, bp->data, size);\n' +
-                "temp[size + 1] = '\0';" +
-                'puts(temp);\n'
+                'fwrite(bp->data, sizeof(int8_t), GetSize(bp->sf), stdout);\n'
+        }]
+    },
+        {
+        name: 'print',
+        inputs: 1,
+        instructions: [{
+            name: 'print', pcChange: 1,
+            legal: [p],
+            template: 'buffer *bp = /*<0>*/.p;\n' +
+                'puts(bp->data);\n'
         }]
     }
 ];
 var statics = [
     'error:\n' +
         '{\n' +
-        'fprintf(stderr, "Error");\n' +
+        'fprintf(stdout, "Error");\n' +
         'return 1;\n' +
         '}\n\n',
 
     'undefined:\n' +
         '{\n' +
-        'fprintf(stderr,"undefined");\n' +
+        'fprintf(stdout,"undefined");\n' +
         'return 1;\n' +
         '}\n\n'
 ];

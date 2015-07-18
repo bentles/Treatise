@@ -96,8 +96,9 @@ div:
 int16_t arg0 = GetArg0(program[pc]);
 int16_t arg1 = GetArg1(program[pc]);
 if (IsInt(g[arg0]) && IsInt(g[arg1])) {
-g[0].i = g[arg0].i % g[arg1].i;
+int64_t temp = g[arg0].i % g[arg1].i;
 g[arg0].i /= g[arg1].i;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc++;
@@ -115,8 +116,9 @@ int16_t arg0 = GetArg0(program[pc]);
 if (IsInt(g[arg0])) {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-g[0].i = g[arg0].i % constant;
+int64_t temp = g[arg0].i % constant;
 g[arg0].i /= constant;
+g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
 pc += 2;
@@ -517,7 +519,7 @@ vp->tag =0;
 vp->i = g[arg2].i;
 pc++;
 }
-else if (IsPointer(g[arg0]) && IsPointer(g[arg1]) && IsInt(g[arg2])) {
+else if (IsPointer(g[arg0]) && IsInt(g[arg1]) && IsPointer(g[arg2])) {
 value *vp = &(((object *)(g[arg0].p))->data[g[arg1].i]);
 vp->tag = g[arg2].tag;
 vp->p = g[arg2].p;
@@ -662,13 +664,13 @@ goto *dynOpcodes[GetOpcode(program[pc])];
 jnullp:
 {
 int16_t arg0 = GetArg0(program[pc]);
-if (IsInt(g[arg0])) {
-if (g[arg0].p == NULL)
-pc += program[pc + 2];
+if (IsPointer(g[arg0])) {
+if (g[arg0].p != NULL)
+pc += program[pc + 1];
 else
-pc += program[pc + 3];
+pc += program[pc + 2];
 }
-else if (IsPointer(g[arg0])) {
+else if (IsInt(g[arg0])) {
 pc += 5;
 }
 else {
@@ -776,7 +778,7 @@ buffer *bp = g[arg0].p;
 int size = GetSize(bp->sf);
 if (fgets(bp->data, size, stdin) == NULL) {
     if (feof(stdin))
-        bp->data[0] = 3;
+        bp->data[0] = 0;
     else {
         fprintf(stderr, "input error");
         return 1;
@@ -801,10 +803,7 @@ out:
 int16_t arg0 = GetArg0(program[pc]);
 if (IsPointer(g[arg0])) {
 buffer *bp = g[arg0].p;
-int size = GetSize(bp->sf);
-char temp[size + 1];
-strncpy(temp, bp->data, size);
-temp[size + 1] = ' ';puts(temp);
+fwrite(bp->data, sizeof(int8_t), GetSize(bp->sf), stdout);
 pc++;
 }
 else {
@@ -814,15 +813,30 @@ return 1;
 goto *dynOpcodes[GetOpcode(program[pc])];
 }
 
+print:
+{
+int16_t arg0 = GetArg0(program[pc]);
+if (IsPointer(g[arg0])) {
+buffer *bp = g[arg0].p;
+puts(bp->data);
+pc++;
+}
+else {
+fprintf(stderr, "type error, illegal types used for instruction: print");
+return 1;
+}
+goto *dynOpcodes[GetOpcode(program[pc])];
+}
+
 error:
 {
-fprintf(stderr, "Error");
+fprintf(stdout, "Error");
 return 1;
 }
 
 undefined:
 {
-fprintf(stderr,"undefined");
+fprintf(stdout,"undefined");
 return 1;
 }
 
