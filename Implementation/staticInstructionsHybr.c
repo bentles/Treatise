@@ -8,6 +8,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[0].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21,6 +24,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -34,6 +40,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[2].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -47,6 +56,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[3].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -60,6 +72,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[4].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -73,6 +88,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[5].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -86,6 +104,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[6].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -99,6 +120,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[7].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -112,6 +136,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[8].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -125,6 +152,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[9].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -138,6 +168,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[10].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -151,6 +184,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[11].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -164,6 +200,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[12].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -177,6 +216,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[13].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -190,6 +232,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[14].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -203,6 +248,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[15].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -216,6 +264,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[16].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -229,6 +280,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[17].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -242,6 +296,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[18].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -255,6 +312,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[19].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -268,6 +328,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[20].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -281,6 +344,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[21].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -294,6 +360,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[22].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -307,6 +376,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[23].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -320,6 +392,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[24].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -333,6 +408,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[25].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -346,6 +424,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[26].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -359,6 +440,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[27].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -372,6 +456,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[28].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -385,6 +472,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[29].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -398,6 +488,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[30].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -411,6 +504,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[31].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -424,6 +520,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[32].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -437,6 +536,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[33].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -450,6 +552,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[34].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -463,6 +568,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: add");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[35].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -478,6 +586,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: addc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[36].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -493,6 +604,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: addc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[37].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -508,6 +622,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: addc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[38].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -523,6 +640,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: addc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[39].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -538,6 +658,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: addc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[40].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -553,6 +676,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: addc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[41].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -566,6 +692,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[42].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -579,6 +708,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[43].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -592,6 +724,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[44].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -605,6 +740,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[45].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -618,6 +756,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[46].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -631,6 +772,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[47].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -644,6 +788,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[48].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -657,6 +804,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[49].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -670,6 +820,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[50].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -683,6 +836,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[51].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -696,6 +852,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[52].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -709,6 +868,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[53].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -722,6 +884,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[54].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -735,6 +900,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[55].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -748,6 +916,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[56].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -761,6 +932,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[57].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -774,6 +948,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[58].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -787,6 +964,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[59].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -800,6 +980,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[60].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -813,6 +996,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[61].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -826,6 +1012,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[62].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -839,6 +1028,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[63].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -852,6 +1044,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[64].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -865,6 +1060,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[65].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -878,6 +1076,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[66].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -891,6 +1092,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[67].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -904,6 +1108,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[68].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -917,6 +1124,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[69].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -930,6 +1140,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[70].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -943,6 +1156,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[71].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -958,6 +1174,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: csub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[72].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -973,6 +1192,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: csub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[73].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -988,6 +1210,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: csub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[74].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1003,6 +1228,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: csub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[75].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1018,6 +1246,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: csub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[76].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1033,6 +1264,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: csub");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[77].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1046,6 +1280,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[78].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1059,6 +1296,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[79].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1072,6 +1312,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[80].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1085,6 +1328,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[81].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1098,6 +1344,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[82].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1111,6 +1360,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[83].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1124,6 +1376,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[84].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1137,6 +1392,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[85].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1150,6 +1408,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[86].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1163,6 +1424,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[87].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1176,6 +1440,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[88].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1189,6 +1456,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[89].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1202,6 +1472,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[90].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1215,6 +1488,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[91].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1228,6 +1504,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[92].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1241,6 +1520,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[93].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1254,6 +1536,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[94].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1267,6 +1552,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[95].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1280,6 +1568,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[96].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1293,6 +1584,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[97].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1306,6 +1600,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[98].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1319,6 +1616,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[99].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1332,6 +1632,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[100].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1345,6 +1648,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[101].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1358,6 +1664,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[102].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1371,6 +1680,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[103].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1384,6 +1696,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[104].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1397,6 +1712,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[105].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1410,6 +1728,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[106].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1423,6 +1744,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[107].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1436,6 +1760,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[108].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1449,6 +1776,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[109].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1462,6 +1792,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[110].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1475,6 +1808,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[111].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1488,6 +1824,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[112].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1501,6 +1840,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mul");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[113].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1516,6 +1858,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mulc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[114].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1531,6 +1876,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mulc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[115].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1546,6 +1894,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mulc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[116].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1561,6 +1912,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mulc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[117].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1576,6 +1930,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mulc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[118].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1591,6 +1948,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mulc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[119].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1608,6 +1968,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: div");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[120].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1625,6 +1988,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: div");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[121].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1642,6 +2008,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: div");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[122].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1659,6 +2028,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: div");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[123].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1676,6 +2048,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: div");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[124].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1693,6 +2068,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: div");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[125].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1710,6 +2088,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: div");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[126].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1727,6 +2108,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: div");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[127].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1744,6 +2128,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: div");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[128].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1761,6 +2148,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: div");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[129].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1778,6 +2168,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: div");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[130].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1795,6 +2188,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: div");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[131].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1812,6 +2208,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: div");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[132].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1829,6 +2228,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: div");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[133].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1846,6 +2248,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: div");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[134].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1863,6 +2268,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: div");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[135].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1880,6 +2288,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: div");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[136].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1897,6 +2308,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: div");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[137].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1914,6 +2328,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: div");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[138].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1931,6 +2348,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: div");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[139].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1948,6 +2368,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: div");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[140].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1965,6 +2388,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: div");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[141].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1982,6 +2408,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: div");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[142].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -1999,6 +2428,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: div");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[143].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2016,6 +2448,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: div");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[144].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2033,6 +2468,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: div");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[145].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2050,6 +2488,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: div");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[146].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2067,6 +2508,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: div");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[147].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2084,6 +2528,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: div");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[148].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2101,6 +2548,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: div");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[149].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2120,6 +2570,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: divc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[150].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2139,6 +2592,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: divc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[151].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2158,6 +2614,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: divc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[152].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2177,6 +2636,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: divc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[153].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2196,6 +2658,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: divc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[154].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2215,6 +2680,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: divc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[155].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2228,6 +2696,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: and");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[156].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2241,6 +2712,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: and");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[157].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2254,6 +2728,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: and");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[158].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2267,6 +2744,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: and");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[159].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2280,6 +2760,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: and");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[160].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2293,6 +2776,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: and");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[161].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2306,6 +2792,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: and");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[162].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2319,6 +2808,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: and");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[163].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2332,6 +2824,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: and");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[164].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2345,6 +2840,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: and");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[165].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2358,6 +2856,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: and");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[166].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2371,6 +2872,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: and");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[167].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2384,6 +2888,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: and");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[168].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2397,6 +2904,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: and");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[169].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2410,6 +2920,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: and");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[170].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2423,6 +2936,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: and");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[171].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2436,6 +2952,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: and");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[172].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2449,6 +2968,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: and");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[173].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2462,6 +2984,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: and");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[174].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2475,6 +3000,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: and");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[175].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2488,6 +3016,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: and");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[176].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2501,6 +3032,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: and");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[177].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2514,6 +3048,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: and");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[178].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2527,6 +3064,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: and");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[179].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2540,6 +3080,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: and");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[180].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2553,6 +3096,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: and");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[181].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2566,6 +3112,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: and");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[182].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2579,6 +3128,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: and");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[183].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2592,6 +3144,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: and");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[184].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2605,6 +3160,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: and");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[185].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2620,6 +3178,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: andc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[186].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2635,6 +3196,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: andc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[187].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2650,6 +3214,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: andc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[188].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2665,6 +3232,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: andc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[189].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2680,6 +3250,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: andc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[190].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2695,6 +3268,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: andc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[191].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2708,6 +3284,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: or");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[192].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2721,6 +3300,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: or");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[193].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2734,6 +3316,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: or");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[194].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2747,6 +3332,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: or");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[195].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2760,6 +3348,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: or");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[196].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2773,6 +3364,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: or");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[197].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2786,6 +3380,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: or");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[198].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2799,6 +3396,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: or");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[199].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2812,6 +3412,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: or");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[200].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2825,6 +3428,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: or");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[201].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2838,6 +3444,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: or");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[202].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2851,6 +3460,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: or");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[203].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2864,6 +3476,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: or");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[204].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2877,6 +3492,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: or");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[205].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2890,6 +3508,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: or");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[206].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2903,6 +3524,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: or");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[207].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2916,6 +3540,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: or");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[208].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2929,6 +3556,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: or");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[209].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2942,6 +3572,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: or");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[210].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2955,6 +3588,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: or");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[211].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2968,6 +3604,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: or");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[212].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2981,6 +3620,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: or");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[213].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -2994,6 +3636,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: or");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[214].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3007,6 +3652,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: or");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[215].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3020,6 +3668,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: or");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[216].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3033,6 +3684,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: or");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[217].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3046,6 +3700,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: or");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[218].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3059,6 +3716,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: or");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[219].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3072,6 +3732,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: or");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[220].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3085,6 +3748,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: or");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[221].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3100,6 +3766,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: orc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[222].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3115,6 +3784,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: orc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[223].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3130,6 +3802,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: orc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[224].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3145,6 +3820,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: orc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[225].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3160,6 +3838,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: orc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[226].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3175,6 +3856,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: orc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[227].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3188,6 +3872,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: xor");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[228].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3201,6 +3888,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: xor");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[229].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3214,6 +3904,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: xor");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[230].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3227,6 +3920,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: xor");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[231].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3240,6 +3936,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: xor");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[232].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3253,6 +3952,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: xor");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[233].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3266,6 +3968,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: xor");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[234].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3279,6 +3984,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: xor");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[235].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3292,6 +4000,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: xor");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[236].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3305,6 +4016,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: xor");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[237].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3318,6 +4032,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: xor");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[238].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3331,6 +4048,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: xor");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[239].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3344,6 +4064,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: xor");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[240].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3357,6 +4080,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: xor");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[241].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3370,6 +4096,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: xor");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[242].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3383,6 +4112,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: xor");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[243].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3396,6 +4128,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: xor");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[244].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3409,6 +4144,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: xor");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[245].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3422,6 +4160,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: xor");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[246].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3435,6 +4176,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: xor");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[247].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3448,6 +4192,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: xor");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[248].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3461,6 +4208,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: xor");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[249].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3474,6 +4224,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: xor");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[250].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3487,6 +4240,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: xor");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[251].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3500,6 +4256,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: xor");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[252].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3513,6 +4272,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: xor");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[253].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3526,6 +4288,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: xor");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[254].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3539,6 +4304,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: xor");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[255].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3552,6 +4320,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: xor");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[256].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3565,6 +4336,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: xor");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[257].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3578,6 +4352,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[258].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3591,6 +4368,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[259].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3604,6 +4384,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[260].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3617,6 +4400,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[261].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3630,6 +4416,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[262].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3643,6 +4432,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[263].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3656,6 +4448,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[264].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3669,6 +4464,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[265].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3682,6 +4480,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[266].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3695,6 +4496,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[267].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3708,6 +4512,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[268].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3721,6 +4528,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[269].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3734,6 +4544,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[270].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3747,6 +4560,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[271].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3760,6 +4576,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[272].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3773,6 +4592,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[273].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3786,6 +4608,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[274].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3799,6 +4624,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[275].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3812,6 +4640,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[276].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3825,6 +4656,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[277].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3838,6 +4672,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[278].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3851,6 +4688,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[279].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3864,6 +4704,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[280].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3877,6 +4720,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[281].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3890,6 +4736,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[282].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3903,6 +4752,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[283].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3916,6 +4768,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[284].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3929,6 +4784,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[285].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3942,6 +4800,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[286].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3955,6 +4816,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[287].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3970,6 +4834,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shlc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[288].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -3985,6 +4852,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shlc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[289].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4000,6 +4870,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shlc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[290].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4015,6 +4888,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shlc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[291].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4030,6 +4906,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shlc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[292].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4045,6 +4924,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shlc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[293].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4060,6 +4942,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: cshl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[294].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4075,6 +4960,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: cshl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[295].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4090,6 +4978,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: cshl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[296].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4105,6 +4996,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: cshl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[297].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4120,6 +5014,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: cshl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[298].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4135,6 +5032,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: cshl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[299].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4148,6 +5048,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[300].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4161,6 +5064,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[301].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4174,6 +5080,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[302].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4187,6 +5096,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[303].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4200,6 +5112,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[304].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4213,6 +5128,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[305].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4226,6 +5144,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[306].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4239,6 +5160,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[307].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4252,6 +5176,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[308].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4265,6 +5192,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[309].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4278,6 +5208,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[310].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4291,6 +5224,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[311].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4304,6 +5240,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[312].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4317,6 +5256,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[313].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4330,6 +5272,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[314].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4343,6 +5288,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[315].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4356,6 +5304,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[316].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4369,6 +5320,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[317].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4382,6 +5336,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[318].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4395,6 +5352,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[319].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4408,6 +5368,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[320].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4421,6 +5384,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[321].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4434,6 +5400,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[322].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4447,6 +5416,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[323].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4460,6 +5432,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[324].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4473,6 +5448,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[325].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4486,6 +5464,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[326].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4499,6 +5480,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[327].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4512,6 +5496,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[328].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4525,6 +5512,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[329].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4539,6 +5529,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shrc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[330].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4553,6 +5546,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shrc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[331].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4567,6 +5563,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shrc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[332].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4581,6 +5580,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shrc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[333].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4595,6 +5597,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shrc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[334].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4609,6 +5614,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: shrc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[335].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4623,6 +5631,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: cshr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[336].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4637,6 +5648,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: cshr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[337].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4651,6 +5665,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: cshr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[338].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4665,6 +5682,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: cshr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[339].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4679,6 +5699,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: cshr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[340].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4693,6 +5716,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: cshr");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[341].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4706,6 +5732,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[342].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4719,6 +5748,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[343].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4732,6 +5764,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[344].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4745,6 +5780,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[345].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4758,6 +5796,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[346].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4771,6 +5812,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[347].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4784,6 +5828,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[348].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4797,6 +5844,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[349].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4810,6 +5860,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[350].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4823,6 +5876,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[351].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4836,6 +5892,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[352].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4849,6 +5908,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[353].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4862,6 +5924,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[354].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4875,6 +5940,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[355].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4888,6 +5956,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[356].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4901,6 +5972,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[357].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4914,6 +5988,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[358].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4927,6 +6004,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[359].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4940,6 +6020,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[360].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4953,6 +6036,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[361].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4966,6 +6052,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[362].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4979,6 +6068,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[363].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -4992,6 +6084,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[364].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5005,6 +6100,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[365].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5018,6 +6116,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[366].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5031,6 +6132,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[367].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5044,6 +6148,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[368].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5057,6 +6164,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[369].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5070,6 +6180,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[370].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5083,6 +6196,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[371].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5097,6 +6213,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sarc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[372].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5111,6 +6230,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sarc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[373].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5125,6 +6247,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sarc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[374].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5139,6 +6264,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sarc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[375].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5153,6 +6281,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sarc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[376].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5167,6 +6298,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: sarc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[377].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5181,6 +6315,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: csar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[378].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5195,6 +6332,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: csar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[379].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5209,6 +6349,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: csar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[380].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5223,6 +6366,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: csar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[381].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5237,6 +6383,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: csar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[382].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5251,6 +6400,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: csar");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[383].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5279,6 +6431,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mov");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[384].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5307,6 +6462,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mov");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[385].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5335,6 +6493,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mov");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[386].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5363,6 +6524,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mov");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[387].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5391,6 +6555,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mov");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[388].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5419,6 +6586,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mov");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[389].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5447,6 +6617,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mov");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[390].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5475,6 +6648,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mov");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[391].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5503,6 +6679,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mov");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[392].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5531,6 +6710,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mov");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[393].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5559,6 +6741,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mov");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[394].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5587,6 +6772,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mov");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[395].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5615,6 +6803,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mov");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[396].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5643,6 +6834,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mov");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[397].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5671,6 +6865,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mov");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[398].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5699,6 +6896,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mov");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[399].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5727,6 +6927,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mov");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[400].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5755,6 +6958,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mov");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[401].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5783,6 +6989,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mov");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[402].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5811,6 +7020,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mov");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[403].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5839,6 +7051,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mov");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[404].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5867,6 +7082,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mov");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[405].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5895,6 +7113,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mov");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[406].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5923,6 +7144,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mov");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[407].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5951,6 +7175,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mov");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[408].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -5979,6 +7206,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mov");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[409].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6007,6 +7237,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mov");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[410].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6035,6 +7268,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mov");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[411].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6063,6 +7299,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mov");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[412].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6091,6 +7330,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: mov");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[413].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6113,6 +7355,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: movc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[414].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6135,6 +7380,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: movc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[415].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6157,6 +7405,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: movc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[416].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6179,6 +7430,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: movc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[417].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6201,6 +7455,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: movc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[418].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6223,6 +7480,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: movc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[419].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6241,6 +7501,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: null");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[420].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6259,6 +7522,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: null");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[421].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6277,6 +7543,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: null");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[422].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6295,6 +7564,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: null");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[423].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6313,6 +7585,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: null");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[424].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6331,6 +7606,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: null");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[425].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6364,6 +7642,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[426].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6397,6 +7678,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[427].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6430,6 +7714,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[428].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6463,6 +7750,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[429].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6496,6 +7786,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[430].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6529,6 +7822,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[431].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6552,6 +7848,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[432].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6575,6 +7874,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[433].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6598,6 +7900,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[434].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6621,6 +7926,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[435].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6644,6 +7952,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[436].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6667,6 +7978,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setl");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[437].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6698,6 +8012,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[438].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6729,6 +8046,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[439].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6760,6 +8080,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[440].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6791,6 +8114,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[441].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6822,6 +8148,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[442].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6853,6 +8182,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[443].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6884,6 +8216,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[444].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6915,6 +8250,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[445].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6946,6 +8284,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[446].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -6977,6 +8318,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[447].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -7008,6 +8352,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[448].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -7039,6 +8386,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[449].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -7070,6 +8420,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[450].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -7101,6 +8454,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[451].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -7132,6 +8488,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[452].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -7163,6 +8522,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[453].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -7194,6 +8556,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[454].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -7225,6 +8590,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[455].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -7256,6 +8624,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[456].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -7287,6 +8658,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[457].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -7318,6 +8692,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[458].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -7349,6 +8726,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[459].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -7380,6 +8760,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[460].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -7411,6 +8794,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[461].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -7442,6 +8828,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[462].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -7473,6 +8862,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[463].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -7504,6 +8896,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[464].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -7535,6 +8930,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[465].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -7566,6 +8964,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[466].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -7597,6 +8998,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[467].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -7628,6 +9032,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[468].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -7659,6 +9066,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[469].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -7690,6 +9100,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[470].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -7721,6 +9134,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[471].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -7752,6 +9168,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[472].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -7783,6 +9202,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[473].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -7814,6 +9236,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[474].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -7845,6 +9270,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[475].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -7876,6 +9304,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[476].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -7907,6 +9338,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[477].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -7938,6 +9372,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[478].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -7969,6 +9406,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[479].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -8000,6 +9440,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[480].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -8031,6 +9474,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[481].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -8062,6 +9508,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[482].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -8093,6 +9542,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[483].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -8124,6 +9576,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[484].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -8155,6 +9610,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[485].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -8186,6 +9644,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[486].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -8217,6 +9678,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[487].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -8248,6 +9712,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[488].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -8279,6 +9746,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[489].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -8310,6 +9780,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[490].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -8341,6 +9814,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[491].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -8372,6 +9848,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[492].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -8403,6 +9882,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[493].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -8434,6 +9916,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[494].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -8465,6 +9950,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[495].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -8496,6 +9984,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[496].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -8527,6 +10018,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[497].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -8558,6 +10052,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[498].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -8589,6 +10086,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[499].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -8620,6 +10120,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[500].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -8651,6 +10154,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[501].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -8682,6 +10188,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[502].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -8713,6 +10222,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[503].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -8744,6 +10256,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[504].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -8775,6 +10290,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[505].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -8806,6 +10324,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[506].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -8837,6 +10358,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[507].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -8868,6 +10392,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[508].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -8899,6 +10426,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[509].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -8930,6 +10460,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[510].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -8961,6 +10494,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[511].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -8992,6 +10528,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[512].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -9023,6 +10562,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[513].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -9054,6 +10596,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[514].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -9085,6 +10630,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[515].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -9116,6 +10664,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[516].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -9147,6 +10698,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[517].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -9178,6 +10732,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[518].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -9209,6 +10766,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[519].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -9240,6 +10800,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[520].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -9271,6 +10834,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[521].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -9302,6 +10868,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[522].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -9333,6 +10902,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[523].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -9364,6 +10936,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[524].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -9395,6 +10970,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[525].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -9426,6 +11004,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[526].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -9457,6 +11038,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[527].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -9488,6 +11072,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[528].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -9519,6 +11106,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[529].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -9550,6 +11140,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[530].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -9581,6 +11174,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[531].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -9612,6 +11208,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[532].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -9643,6 +11242,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[533].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -9674,6 +11276,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[534].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -9705,6 +11310,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[535].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -9736,6 +11344,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[536].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -9767,6 +11378,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[537].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -9798,6 +11412,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[538].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -9829,6 +11446,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[539].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -9860,6 +11480,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[540].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -9891,6 +11514,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[541].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -9922,6 +11548,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[542].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -9953,6 +11582,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[543].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -9984,6 +11616,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[544].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -10015,6 +11650,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[545].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -10046,6 +11684,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[546].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -10077,6 +11718,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[547].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -10108,6 +11752,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[548].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -10139,6 +11786,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[549].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -10170,6 +11820,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[550].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -10201,6 +11854,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[551].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -10232,6 +11888,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[552].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -10263,6 +11922,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[553].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -10294,6 +11956,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[554].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -10325,6 +11990,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[555].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -10356,6 +12024,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[556].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -10387,6 +12058,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[557].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -10418,6 +12092,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[558].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -10449,6 +12126,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[559].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -10480,6 +12160,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[560].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -10511,6 +12194,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[561].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -10542,6 +12228,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[562].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -10573,6 +12262,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[563].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -10604,6 +12296,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[564].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -10635,6 +12330,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[565].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -10666,6 +12364,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[566].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -10697,6 +12398,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[567].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -10728,6 +12432,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[568].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -10759,6 +12466,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[569].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -10790,6 +12500,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[570].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -10821,6 +12534,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[571].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -10852,6 +12568,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[572].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -10883,6 +12602,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[573].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -10914,6 +12636,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[574].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -10945,6 +12670,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[575].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -10976,6 +12704,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[576].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11007,6 +12738,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[577].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11038,6 +12772,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[578].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11069,6 +12806,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[579].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11100,6 +12840,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[580].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11131,6 +12874,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[581].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11162,6 +12908,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[582].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11193,6 +12942,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[583].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11224,6 +12976,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[584].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11255,6 +13010,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[585].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11286,6 +13044,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[586].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11317,6 +13078,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[587].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11348,6 +13112,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[588].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11379,6 +13146,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[589].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11410,6 +13180,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[590].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11441,6 +13214,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[591].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11472,6 +13248,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[592].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11503,6 +13282,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[593].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11534,6 +13316,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[594].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11565,6 +13350,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[595].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11596,6 +13384,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[596].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11627,6 +13418,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[597].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11658,6 +13452,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[598].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11689,6 +13486,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[599].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11720,6 +13520,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[600].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11751,6 +13554,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[601].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11782,6 +13588,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[602].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11813,6 +13622,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[603].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11844,6 +13656,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[604].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11875,6 +13690,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[605].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11906,6 +13724,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[606].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11937,6 +13758,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[607].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11968,6 +13792,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[608].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -11999,6 +13826,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[609].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12030,6 +13860,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[610].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12061,6 +13894,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[611].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12092,6 +13928,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[612].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12123,6 +13962,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[613].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12154,6 +13996,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[614].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12185,6 +14030,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[615].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12216,6 +14064,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[616].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12247,6 +14098,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: geto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[617].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12268,6 +14122,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[618].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12289,6 +14146,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[619].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12310,6 +14170,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[620].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12331,6 +14194,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[621].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12352,6 +14218,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[622].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12373,6 +14242,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[623].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12394,6 +14266,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[624].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12415,6 +14290,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[625].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12436,6 +14314,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[626].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12457,6 +14338,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[627].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12478,6 +14362,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[628].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12499,6 +14386,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[629].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12520,6 +14410,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[630].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12541,6 +14434,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[631].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12562,6 +14458,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[632].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12583,6 +14482,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[633].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12604,6 +14506,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[634].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12625,6 +14530,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[635].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12646,6 +14554,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[636].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12667,6 +14578,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[637].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12688,6 +14602,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[638].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12709,6 +14626,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[639].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12730,6 +14650,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[640].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12751,6 +14674,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[641].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12772,6 +14698,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[642].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12793,6 +14722,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[643].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12814,6 +14746,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[644].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12835,6 +14770,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[645].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12856,6 +14794,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[646].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12877,6 +14818,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[647].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12898,6 +14842,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[648].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12919,6 +14866,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[649].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12940,6 +14890,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[650].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12961,6 +14914,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[651].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -12982,6 +14938,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[652].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13003,6 +14962,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[653].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13024,6 +14986,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[654].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13045,6 +15010,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[655].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13066,6 +15034,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[656].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13087,6 +15058,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[657].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13108,6 +15082,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[658].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13129,6 +15106,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[659].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13150,6 +15130,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[660].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13171,6 +15154,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[661].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13192,6 +15178,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[662].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13213,6 +15202,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[663].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13234,6 +15226,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[664].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13255,6 +15250,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[665].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13276,6 +15274,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[666].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13297,6 +15298,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[667].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13318,6 +15322,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[668].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13339,6 +15346,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[669].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13360,6 +15370,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[670].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13381,6 +15394,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[671].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13402,6 +15418,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[672].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13423,6 +15442,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[673].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13444,6 +15466,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[674].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13465,6 +15490,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[675].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13486,6 +15514,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[676].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13507,6 +15538,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[677].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13528,6 +15562,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[678].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13549,6 +15586,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[679].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13570,6 +15610,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[680].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13591,6 +15634,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[681].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13612,6 +15658,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[682].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13633,6 +15682,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[683].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13654,6 +15706,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[684].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13675,6 +15730,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[685].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13696,6 +15754,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[686].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13717,6 +15778,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[687].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13738,6 +15802,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[688].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13759,6 +15826,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[689].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13780,6 +15850,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[690].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13801,6 +15874,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[691].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13822,6 +15898,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[692].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13843,6 +15922,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[693].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13864,6 +15946,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[694].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13885,6 +15970,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[695].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13906,6 +15994,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[696].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13927,6 +16018,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[697].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13948,6 +16042,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[698].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13969,6 +16066,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[699].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -13990,6 +16090,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[700].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14011,6 +16114,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[701].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14032,6 +16138,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[702].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14053,6 +16162,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[703].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14074,6 +16186,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[704].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14095,6 +16210,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[705].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14116,6 +16234,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[706].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14137,6 +16258,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[707].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14158,6 +16282,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[708].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14179,6 +16306,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[709].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14200,6 +16330,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[710].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14221,6 +16354,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[711].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14242,6 +16378,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[712].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14263,6 +16402,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[713].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14284,6 +16426,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[714].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14305,6 +16450,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[715].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14326,6 +16474,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[716].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14347,6 +16498,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[717].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14368,6 +16522,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[718].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14389,6 +16546,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[719].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14410,6 +16570,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[720].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14431,6 +16594,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[721].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14452,6 +16618,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[722].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14473,6 +16642,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[723].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14494,6 +16666,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[724].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14515,6 +16690,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[725].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14536,6 +16714,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[726].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14557,6 +16738,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[727].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14578,6 +16762,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[728].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14599,6 +16786,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[729].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14620,6 +16810,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[730].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14641,6 +16834,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[731].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14662,6 +16858,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[732].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14683,6 +16882,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[733].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14704,6 +16906,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[734].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14725,6 +16930,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[735].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14746,6 +16954,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[736].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14767,6 +16978,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[737].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14788,6 +17002,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[738].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14809,6 +17026,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[739].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14830,6 +17050,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[740].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14851,6 +17074,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[741].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14872,6 +17098,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[742].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14893,6 +17122,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[743].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14914,6 +17146,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[744].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14935,6 +17170,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[745].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14956,6 +17194,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[746].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14977,6 +17218,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[747].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -14998,6 +17242,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[748].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15019,6 +17266,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[749].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15040,6 +17290,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[750].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15061,6 +17314,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[751].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15082,6 +17338,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[752].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15103,6 +17362,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[753].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15124,6 +17386,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[754].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15145,6 +17410,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[755].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15166,6 +17434,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[756].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15187,6 +17458,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[757].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15208,6 +17482,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[758].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15229,6 +17506,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[759].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15250,6 +17530,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[760].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15271,6 +17554,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[761].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15292,6 +17578,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[762].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15313,6 +17602,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[763].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15334,6 +17626,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[764].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15355,6 +17650,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[765].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15376,6 +17674,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[766].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15397,6 +17698,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[767].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15418,6 +17722,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[768].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15439,6 +17746,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[769].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15460,6 +17770,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[770].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15481,6 +17794,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[771].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15502,6 +17818,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[772].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15523,6 +17842,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[773].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15544,6 +17866,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[774].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15565,6 +17890,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[775].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15586,6 +17914,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[776].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15607,6 +17938,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[777].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15628,6 +17962,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[778].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15649,6 +17986,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[779].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15670,6 +18010,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[780].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15691,6 +18034,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[781].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15712,6 +18058,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[782].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15733,6 +18082,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[783].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15754,6 +18106,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[784].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15775,6 +18130,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[785].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15796,6 +18154,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[786].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15817,6 +18178,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[787].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15838,6 +18202,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[788].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15859,6 +18226,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[789].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15880,6 +18250,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[790].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15901,6 +18274,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[791].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15922,6 +18298,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[792].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15943,6 +18322,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[793].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15964,6 +18346,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[794].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -15985,6 +18370,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[795].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16006,6 +18394,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[796].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16027,6 +18418,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: seto");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[797].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16047,6 +18441,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[798].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16067,6 +18464,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[799].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16087,6 +18487,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[800].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16107,6 +18510,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[801].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16127,6 +18533,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[802].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16147,6 +18556,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[803].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16167,6 +18579,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[804].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16187,6 +18602,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[805].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16207,6 +18625,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[806].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16227,6 +18648,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[807].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16247,6 +18671,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[808].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16267,6 +18694,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[809].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16287,6 +18717,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[810].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16307,6 +18740,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[811].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16327,6 +18763,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[812].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16347,6 +18786,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[813].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16367,6 +18809,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[814].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16387,6 +18832,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[815].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16407,6 +18855,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[816].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16427,6 +18878,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[817].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16447,6 +18901,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[818].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16467,6 +18924,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[819].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16487,6 +18947,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[820].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16507,6 +18970,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[821].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16527,6 +18993,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[822].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16547,6 +19016,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[823].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16567,6 +19039,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[824].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16587,6 +19062,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[825].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16607,6 +19085,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[826].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16627,6 +19108,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[827].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16647,6 +19131,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[828].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16667,6 +19154,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[829].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16687,6 +19177,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[830].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16707,6 +19200,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[831].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16727,6 +19223,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[832].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16747,6 +19246,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[833].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16767,6 +19269,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[834].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16787,6 +19292,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[835].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16807,6 +19315,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[836].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16827,6 +19338,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[837].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16847,6 +19361,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[838].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16867,6 +19384,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[839].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16887,6 +19407,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[840].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16907,6 +19430,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[841].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16927,6 +19453,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[842].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16947,6 +19476,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[843].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16967,6 +19499,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[844].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -16987,6 +19522,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[845].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17007,6 +19545,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[846].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17027,6 +19568,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[847].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17047,6 +19591,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[848].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17067,6 +19614,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[849].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17087,6 +19637,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[850].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17107,6 +19660,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[851].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17127,6 +19683,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[852].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17147,6 +19706,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[853].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17167,6 +19729,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[854].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17187,6 +19752,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[855].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17207,6 +19775,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[856].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17227,6 +19798,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[857].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17247,6 +19821,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[858].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17267,6 +19844,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[859].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17287,6 +19867,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[860].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17307,6 +19890,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[861].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17327,6 +19913,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[862].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17347,6 +19936,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[863].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17367,6 +19959,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[864].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17387,6 +19982,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[865].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17407,6 +20005,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[866].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17427,6 +20028,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[867].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17447,6 +20051,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[868].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17467,6 +20074,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[869].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17487,6 +20097,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[870].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17507,6 +20120,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[871].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17527,6 +20143,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[872].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17547,6 +20166,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[873].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17567,6 +20189,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[874].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17587,6 +20212,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[875].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17607,6 +20235,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[876].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17627,6 +20258,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[877].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17647,6 +20281,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[878].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17667,6 +20304,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[879].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17687,6 +20327,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[880].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17707,6 +20350,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[881].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17727,6 +20373,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[882].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17747,6 +20396,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[883].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17767,6 +20419,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[884].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17787,6 +20442,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[885].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17807,6 +20465,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[886].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17827,6 +20488,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[887].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17847,6 +20511,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[888].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17867,6 +20534,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[889].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17887,6 +20557,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[890].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17907,6 +20580,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[891].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17927,6 +20603,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[892].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17947,6 +20626,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[893].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17967,6 +20649,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[894].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -17987,6 +20672,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[895].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18007,6 +20695,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[896].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18027,6 +20718,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[897].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18047,6 +20741,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[898].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18067,6 +20764,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[899].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18087,6 +20787,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[900].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18107,6 +20810,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[901].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18127,6 +20833,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[902].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18147,6 +20856,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[903].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18167,6 +20879,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[904].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18187,6 +20902,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[905].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18207,6 +20925,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[906].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18227,6 +20948,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[907].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18247,6 +20971,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[908].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18267,6 +20994,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[909].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18287,6 +21017,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[910].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18307,6 +21040,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[911].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18327,6 +21063,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[912].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18347,6 +21086,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[913].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18367,6 +21109,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[914].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18387,6 +21132,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[915].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18407,6 +21155,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[916].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18427,6 +21178,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[917].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18447,6 +21201,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[918].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18467,6 +21224,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[919].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18487,6 +21247,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[920].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18507,6 +21270,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[921].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18527,6 +21293,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[922].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18547,6 +21316,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[923].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18567,6 +21339,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[924].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18587,6 +21362,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[925].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18607,6 +21385,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[926].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18627,6 +21408,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[927].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18647,6 +21431,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[928].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18667,6 +21454,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[929].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18687,6 +21477,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[930].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18707,6 +21500,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[931].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18727,6 +21523,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[932].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18747,6 +21546,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[933].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18767,6 +21569,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[934].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18787,6 +21592,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[935].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18807,6 +21615,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[936].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18827,6 +21638,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[937].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18847,6 +21661,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[938].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18867,6 +21684,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[939].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18887,6 +21707,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[940].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18907,6 +21730,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[941].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18927,6 +21753,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[942].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18947,6 +21776,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[943].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18967,6 +21799,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[944].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -18987,6 +21822,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[945].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19007,6 +21845,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[946].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19027,6 +21868,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[947].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19047,6 +21891,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[948].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19067,6 +21914,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[949].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19087,6 +21937,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[950].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19107,6 +21960,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[951].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19127,6 +21983,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[952].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19147,6 +22006,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[953].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19167,6 +22029,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[954].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19187,6 +22052,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[955].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19207,6 +22075,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[956].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19227,6 +22098,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[957].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19247,6 +22121,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[958].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19267,6 +22144,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[959].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19287,6 +22167,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[960].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19307,6 +22190,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[961].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19327,6 +22213,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[962].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19347,6 +22236,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[963].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19367,6 +22259,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[964].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19387,6 +22282,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[965].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19407,6 +22305,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[966].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19427,6 +22328,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[967].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19447,6 +22351,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[968].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19467,6 +22374,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[969].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19487,6 +22397,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[970].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19507,6 +22420,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[971].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19527,6 +22443,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[972].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19547,6 +22466,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[973].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19567,6 +22489,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[974].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19587,6 +22512,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[975].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19607,6 +22535,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[976].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19627,6 +22558,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: getb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[977].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19641,6 +22575,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[978].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19655,6 +22592,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[979].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19669,6 +22609,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[980].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19683,6 +22626,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[981].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19697,6 +22643,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[982].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19711,6 +22660,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[983].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19725,6 +22677,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[984].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19739,6 +22694,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[985].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19753,6 +22711,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[986].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19767,6 +22728,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[987].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19781,6 +22745,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[988].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19795,6 +22762,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[989].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19809,6 +22779,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[990].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19823,6 +22796,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[991].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19837,6 +22813,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[992].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19851,6 +22830,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[993].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19865,6 +22847,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[994].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19879,6 +22864,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[995].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19893,6 +22881,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[996].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19907,6 +22898,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[997].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19921,6 +22915,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[998].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19935,6 +22932,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[999].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19949,6 +22949,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1000].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19963,6 +22966,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1001].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19977,6 +22983,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1002].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -19991,6 +23000,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1003].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20005,6 +23017,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1004].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20019,6 +23034,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1005].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20033,6 +23051,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1006].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20047,6 +23068,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1007].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20061,6 +23085,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1008].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20075,6 +23102,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1009].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20089,6 +23119,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1010].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20103,6 +23136,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1011].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20117,6 +23153,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1012].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20131,6 +23170,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1013].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20145,6 +23187,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1014].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20159,6 +23204,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1015].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20173,6 +23221,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1016].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20187,6 +23238,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1017].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20201,6 +23255,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1018].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20215,6 +23272,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1019].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20229,6 +23289,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1020].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20243,6 +23306,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1021].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20257,6 +23323,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1022].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20271,6 +23340,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1023].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20285,6 +23357,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1024].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20299,6 +23374,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1025].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20313,6 +23391,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1026].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20327,6 +23408,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1027].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20341,6 +23425,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1028].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20355,6 +23442,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1029].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20369,6 +23459,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1030].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20383,6 +23476,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1031].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20397,6 +23493,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1032].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20411,6 +23510,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1033].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20425,6 +23527,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1034].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20439,6 +23544,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1035].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20453,6 +23561,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1036].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20467,6 +23578,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1037].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20481,6 +23595,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1038].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20495,6 +23612,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1039].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20509,6 +23629,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1040].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20523,6 +23646,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1041].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20537,6 +23663,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1042].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20551,6 +23680,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1043].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20565,6 +23697,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1044].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20579,6 +23714,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1045].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20593,6 +23731,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1046].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20607,6 +23748,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1047].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20621,6 +23765,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1048].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20635,6 +23782,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1049].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20649,6 +23799,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1050].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20663,6 +23816,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1051].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20677,6 +23833,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1052].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20691,6 +23850,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1053].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20705,6 +23867,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1054].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20719,6 +23884,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1055].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20733,6 +23901,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1056].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20747,6 +23918,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1057].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20761,6 +23935,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1058].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20775,6 +23952,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1059].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20789,6 +23969,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1060].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20803,6 +23986,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1061].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20817,6 +24003,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1062].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20831,6 +24020,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1063].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20845,6 +24037,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1064].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20859,6 +24054,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1065].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20873,6 +24071,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1066].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20887,6 +24088,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1067].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20901,6 +24105,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1068].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20915,6 +24122,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1069].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20929,6 +24139,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1070].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20943,6 +24156,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1071].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20957,6 +24173,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1072].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20971,6 +24190,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1073].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20985,6 +24207,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1074].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -20999,6 +24224,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1075].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21013,6 +24241,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1076].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21027,6 +24258,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1077].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21041,6 +24275,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1078].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21055,6 +24292,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1079].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21069,6 +24309,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1080].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21083,6 +24326,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1081].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21097,6 +24343,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1082].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21111,6 +24360,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1083].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21125,6 +24377,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1084].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21139,6 +24394,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1085].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21153,6 +24411,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1086].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21167,6 +24428,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1087].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21181,6 +24445,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1088].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21195,6 +24462,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1089].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21209,6 +24479,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1090].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21223,6 +24496,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1091].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21237,6 +24513,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1092].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21251,6 +24530,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1093].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21265,6 +24547,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1094].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21279,6 +24564,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1095].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21293,6 +24581,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1096].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21307,6 +24598,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1097].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21321,6 +24615,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1098].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21335,6 +24632,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1099].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21349,6 +24649,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1100].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21363,6 +24666,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1101].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21377,6 +24683,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1102].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21391,6 +24700,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1103].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21405,6 +24717,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1104].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21419,6 +24734,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1105].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21433,6 +24751,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1106].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21447,6 +24768,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1107].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21461,6 +24785,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1108].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21475,6 +24802,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1109].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21489,6 +24819,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1110].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21503,6 +24836,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1111].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21517,6 +24853,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1112].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21531,6 +24870,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1113].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21545,6 +24887,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1114].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21559,6 +24904,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1115].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21573,6 +24921,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1116].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21587,6 +24938,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1117].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21601,6 +24955,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1118].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21615,6 +24972,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1119].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21629,6 +24989,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1120].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21643,6 +25006,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1121].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21657,6 +25023,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1122].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21671,6 +25040,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1123].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21685,6 +25057,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1124].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21699,6 +25074,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1125].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21713,6 +25091,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1126].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21727,6 +25108,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1127].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21741,6 +25125,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1128].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21755,6 +25142,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1129].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21769,6 +25159,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1130].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21783,6 +25176,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1131].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21797,6 +25193,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1132].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21811,6 +25210,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1133].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21825,6 +25227,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1134].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21839,6 +25244,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1135].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21853,6 +25261,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1136].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21867,6 +25278,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1137].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21881,6 +25295,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1138].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21895,6 +25312,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1139].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21909,6 +25329,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1140].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21923,6 +25346,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1141].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21937,6 +25363,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1142].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21951,6 +25380,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1143].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21965,6 +25397,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1144].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21979,6 +25414,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1145].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -21993,6 +25431,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1146].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22007,6 +25448,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1147].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22021,6 +25465,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1148].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22035,6 +25482,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1149].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22049,6 +25499,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1150].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22063,6 +25516,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1151].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22077,6 +25533,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1152].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22091,6 +25550,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1153].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22105,6 +25567,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1154].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22119,6 +25584,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1155].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22133,6 +25601,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1156].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22147,12 +25618,18 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: setb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1157].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
 jmp:
 {
 pc += program[pc+1];
+#ifdef STATS
+opcodeCounters[1158].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22161,6 +25638,9 @@ jmpf:
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
 pc += constant;
+#ifdef STATS
+opcodeCounters[1159].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22181,6 +25661,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: swtch");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1160].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22201,6 +25684,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: swtch");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1161].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22221,6 +25707,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: swtch");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1162].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22241,6 +25730,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: swtch");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1163].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22261,6 +25753,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: swtch");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1164].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22281,6 +25776,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: swtch");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1165].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22310,6 +25808,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1166].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22339,6 +25840,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1167].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22368,6 +25872,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1168].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22397,6 +25904,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1169].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22426,6 +25936,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1170].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22455,6 +25968,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1171].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22484,6 +26000,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1172].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22513,6 +26032,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1173].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22542,6 +26064,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1174].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22571,6 +26096,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1175].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22600,6 +26128,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1176].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22629,6 +26160,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1177].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22658,6 +26192,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1178].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22687,6 +26224,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1179].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22716,6 +26256,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1180].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22745,6 +26288,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1181].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22774,6 +26320,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1182].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22803,6 +26352,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1183].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22832,6 +26384,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1184].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22861,6 +26416,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1185].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22890,6 +26448,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1186].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22919,6 +26480,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1187].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22948,6 +26512,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1188].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -22977,6 +26544,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1189].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23006,6 +26576,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1190].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23035,6 +26608,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1191].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23064,6 +26640,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1192].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23093,6 +26672,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1193].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23122,6 +26704,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1194].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23151,6 +26736,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1195].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23173,6 +26761,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmpc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1196].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23195,6 +26786,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmpc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1197].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23217,6 +26811,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmpc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1198].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23239,6 +26836,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmpc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1199].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23261,6 +26861,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmpc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1200].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23283,6 +26886,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jcmpc");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1201].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23301,6 +26907,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jnullp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1202].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23319,6 +26928,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jnullp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1203].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23337,6 +26949,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jnullp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1204].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23355,6 +26970,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jnullp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1205].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23373,6 +26991,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jnullp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1206].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23391,6 +27012,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: jnullp");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1207].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23412,6 +27036,9 @@ else {
 fprintf(stderr, "malloc failed");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1208].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23422,8 +27049,16 @@ fp = cur->fp; pc = cur->pc; ts = (cur->ts & 0xF000) | (ts & 0x10800);
 RestoreRegisters(cur->g);
 free(cur);//probably does a thing 
 if (fp == NULL)
-return 0;
+{
+    #ifdef STATS
+    printStats();
+    #endif /* STATS */
+    return 0;
+}
 pc += 4;
+#ifdef STATS
+opcodeCounters[1209].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23446,6 +27081,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newo");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1210].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23468,6 +27106,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newo");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1211].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23490,6 +27131,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newo");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1212].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23512,6 +27156,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newo");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1213].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23534,6 +27181,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newo");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1214].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23556,6 +27206,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newo");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1215].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23578,6 +27231,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newo");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1216].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23600,6 +27256,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newo");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1217].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23622,6 +27281,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newo");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1218].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23644,6 +27306,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newo");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1219].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23666,6 +27331,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newo");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1220].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23688,6 +27356,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newo");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1221].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23710,6 +27381,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newo");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1222].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23732,6 +27406,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newo");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1223].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23754,6 +27431,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newo");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1224].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23776,6 +27456,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newo");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1225].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23798,6 +27481,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newo");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1226].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23820,6 +27506,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newo");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1227].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23842,6 +27531,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newo");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1228].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23864,6 +27556,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newo");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1229].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23886,6 +27581,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newo");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1230].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23908,6 +27606,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newo");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1231].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23930,6 +27631,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newo");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1232].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23952,6 +27656,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newo");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1233].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23974,6 +27681,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newo");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1234].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -23996,6 +27706,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newo");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1235].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24018,6 +27731,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newo");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1236].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24040,6 +27756,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newo");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1237].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24062,6 +27781,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newo");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1238].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24084,6 +27806,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newo");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1239].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24106,6 +27831,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1240].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24128,6 +27856,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1241].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24150,6 +27881,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1242].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24172,6 +27906,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1243].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24194,6 +27931,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1244].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24216,6 +27956,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1245].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24238,6 +27981,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1246].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24260,6 +28006,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1247].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24282,6 +28031,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1248].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24304,6 +28056,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1249].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24326,6 +28081,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1250].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24348,6 +28106,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1251].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24370,6 +28131,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1252].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24392,6 +28156,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1253].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24414,6 +28181,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1254].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24436,6 +28206,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1255].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24458,6 +28231,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1256].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24480,6 +28256,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1257].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24502,6 +28281,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1258].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24524,6 +28306,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1259].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24546,6 +28331,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1260].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24568,6 +28356,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1261].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24590,6 +28381,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1262].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24612,6 +28406,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1263].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24634,6 +28431,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1264].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24656,6 +28456,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1265].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24678,6 +28481,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1266].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24700,6 +28506,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1267].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24722,6 +28531,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1268].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24744,6 +28556,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: newb");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1269].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24751,8 +28566,11 @@ err:
 {
 int16_t derrdisp = program[pc +1];
 int64_t errdisp = *((int64_t*)(&program[pc + derrdisp]));
-printf("0:%d 1:%d 2:%d 3:%d 4:%d 5:%d\n", g[0].i, g[1].i, g[2].i, g[3].i, g[4].i, g[5].i); 
+printf("0:%d 1:%d 2:%d 3:%d 4:%d 5:%d\n", g[0].i, g[1].i, g[2].i, g[3].i,  g[4].i, g[5].i); 
 pc++;
+#ifdef STATS
+opcodeCounters[1270].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24780,6 +28598,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: in");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1271].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24807,6 +28628,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: in");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1272].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24834,6 +28658,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: in");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1273].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24861,6 +28688,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: in");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1274].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24888,6 +28718,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: in");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1275].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24915,6 +28748,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: in");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1276].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24929,6 +28765,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: out");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1277].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24943,6 +28782,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: out");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1278].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24957,6 +28799,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: out");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1279].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24971,6 +28816,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: out");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1280].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24985,6 +28833,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: out");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1281].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -24999,6 +28850,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: out");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1282].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -25013,6 +28867,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: print");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1283].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -25027,6 +28884,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: print");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1284].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -25041,6 +28901,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: print");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1285].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -25055,6 +28918,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: print");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1286].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -25069,6 +28935,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: print");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1287].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 
@@ -25083,6 +28952,9 @@ else {
 fprintf(stderr, "type error, illegal types used for instruction: print");
 return 1;
 }
+#ifdef STATS
+opcodeCounters[1288].count++;
+#endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
 

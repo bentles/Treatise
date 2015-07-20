@@ -7,6 +7,10 @@
 #include "standardvm.h"
 #include "stackframe.h"
 
+#ifdef STATS
+#include "stats.h"
+#endif /* STATS */
+
 /* Opcode Layout for Standard VM
  * =============================
  *  15        15  14           9  8          6  5          3  2          0
