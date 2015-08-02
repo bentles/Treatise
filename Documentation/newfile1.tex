@@ -6,7 +6,9 @@
 \usepackage{graphicx}
 \usepackage{babel}
 \usepackage{listings}
+\usepackage{verbatimbox}
 \renewcommand{\lstlistingname}{Listing}
+
 
 \begin{document}
 
@@ -17,8 +19,7 @@ Applications}
 \rule[0.5ex]{1\columnwidth}{2pt}
 
 \begin{figure}[tph]
- \centerline{ \includegraphics[scale=0.5]{/home/stevetest/Documents/University/Treatise/image1.jpeg}}
-
+ \centerline{ \includegraphics[scale=0.5]{nmmu.jpg}}
 \end{figure}
 
 
@@ -50,12 +51,7 @@ Applications}
 \section*{Declaration of Own Work}
 
 
-\paragraph{I declare that the entirety of the work contained in this treatise
-is my own, original work, that I am the sole author thereof (save
-to the extent explicitly otherwise stated), that reproduction and
-publication thereof by Nelson Mandela Metropolitan University will
-not infringe any third party rights that I have not previously in
-its entirety or in part submitted it for obtaining any qualification. }
+\paragraph{}
 
 
 \paragraph{Signature:.................. Date:..................}
@@ -442,8 +438,6 @@ add:
 }
 \end{lstlisting}
 
-
-
 \paragraph{Another method is indirect threading. In indirect threading we keep
 a lookup table of the addresses of code for each instruction and have
 each instruction jump to the next by reading the opcode of the next
@@ -505,8 +499,7 @@ Runtime (CLR) make use of stack virtual machines{[}x{]}. }
 \subsubsection{JIT Compilation}
 
 
-\paragraph{Both the JVM and CLR make use of JIT compilation {[}x{]}. JIT compilation
-allows for code that is executed often enough to be compiled into
+\paragraph{Both the JVM and CLR make use of JIT compilation {[}x{]}. JIT compilation allows for code that is executed often enough to be compiled into
 native machine code at runtime. JIT compilation does not preclude
 the bytecode of a many-instance application being shared but each
 instance of the application is JIT compiling that code. So it is likely
@@ -569,7 +562,7 @@ operands or aguments. The interpreter performs the necessary shifts
 and bitmasking to get the values out of the fields.}
 
 \begin{figure}[tph]
-\protect\caption{\protect\includegraphics[scale=0.6]{/home/stevetest/opcode}}
+% \protect\caption{\protect\includegraphics[scale=0.6]{/home/stevetest/opcode}}
 \end{figure}
 
 
@@ -627,7 +620,241 @@ and perform the correct jumps for each instance of the VM by consulting
 the state register and looking up the addresses in the lookup table.}
 
 
+\section{Solution Design}
+
+\paragraph{Three virtual machines are presented as solutions. These VMs are spaced along a scale for how much they expand out the behaviour of each instruction to match the state of the virtual machine. At the lowest end of the scale is the control virtual machine which shall be referred to as the Conventional VM. One step up from that is a VM that expands out all cases of arguments for each instruction. This will be referred to as the Hybrid VM. A further step takes us to the Type-State virtual machine which, like the hybrid VM, expands out all cases of arguments for each instruction, but then further expands out for every case of the combinations of types those arguments could take on.
+}
+
+\paragraph{On the lowest end of this scale the VM is simpler to implement and uses fewer instructions, but each instruction is less specific and so the complexity lies within the instructions. This is the conventional design for this type of VM.
+}
+
+\paragraph{On the highest end of the scale the VM is more difficult to implement and uses more instructions, but each instruction is very specifically geared to exact state of the VM so each instruction is very simple.
+}
+
+\subsection{Common Elements}
+
+\paragraph{The three virtual machines are designed to be as similar as possible except for the aspects that the experiment examines. Those elements common to all VMs shall be expanded upon here and those specific to each shall be examined seperately.
+}
+
+\subsubsection{Values}
+
+
+\begin{lstlisting}
+typedef struct ValueStruct value;
+struct ValueStruct
+{
+	int tag;
+	union
+	{
+		int64_t i;
+		void *p;    
+	};
+};
+\end{lstlisting}
+
+\paragraph{As this is a dynamic ISA virtual machine, types are associated with values instead of variables [lua VM]. The implementation for a value is simple enough to include here} 
+
+\paragraph{A value represents one of four types depending on the tag. The value is either an integer (tag = 0), a pointer to a value or NULL (tag = 1), a pointer to an object (tag = 2) or a pointer to a buffer (tag = 4).
+}
+
+\subsubsection{Objects}
+
+\paragraph{Objects are a simple built-in data structure for storing ordered fields of values. Objects are implemented as a struct with an array of values and an integer field for storing the length of the array.}
+
+\subsubsection{Buffers}
+
+\paragraph{Buffers are a data structure that exposes the native byte to the VM so that string handling may be performed without having to create a value for each character. The implementation is, once again a struct with an array of bytes and a size field that holds the length of the array.}
+
+\subsubsection{Registers}
+
+\paragraph{All virtual machines make use of 6 general purpose registers. These registers are implemented as an array of 6 values. A further two registers are found in all VMs, that is the program counter, which will be referred to as PC and the frame pointer which will be referred to as FP. These are a 64 bit integer and a value pointer respectively.
+	}
+
+\subsubsection{Stack Frames}
+
+\paragraph{All VMs make use of identical Stack Frames for subroutine calls. Each stack frame stores: 
+}
+
+\begin{itemize} 
+	\item The previous FP, PC and an additional register that goes unused except in the Type-State VM. 
+	\item The general purpose registers except the first and last
+	\item The local variables used in that stack frame 
+\end{itemize}
+
+\paragraph{Registers are saved upon calling a subroutine and restored when the subroutine returns. The first and last general purpose registers are used for return values.
+}
+
+\subsubsection{Addressing}
+
+\subsubsection{Instructions}
+
+\paragraph{All virtual machines support an identical set of instructions. How these are implemented is quite different for each VM but the functionality of each instruction does not change between virtual machines. }
+
+\paragraph{Instruction words are 16 bits long.	Each instruction may have a maximum of two operands. If the instruction has multiple operands and a result, the result will be stored in the first of the two operands.} 
+
+\paragraph{Instruction operands refer to one of the 6 general purpose registers. In some cases the next instruction word is a 16 bit constant value that is used by the instruction and in others the next instruction word is used as a 16 bit PC-relative address for a 64 bit constant value. These will be denoted as const16 and const64 respectively and their implementation will be expanded upon later.}
+
+\paragraph{In some cases, specific argument combinations for an instruction have been removed as they produce trivial results. For instance the subtract operation cannot be used with the same register for both arguments. Since the result of this operation is always zero and there already is an instruction to set a register to zero, there is no need to include this case. This has little bearing on the conventional VM (which can do these operations) but plays a role in the other two VMs. }
+
+\paragraph{The set of instructions is as follows:}
+
+\subsection*{Arithmetic Instructions}
+
+\paragraph{Arithmetic instructions provide some basic arithmetic operations for registers that contain integers. If a register that does not contain an integer is selected, an error is signalled and the VM halts. All arithmetic instructions increment the program counter. Those that make use of a constant that is looked up in the next instruction word increment the program counter again so that the PC points to the next instruction and not the data contained in the next word. The PC is incremented after the operation performed by the instruction.}
+
+\addvbuffer[12pt 8pt]{\begin{tabular}{| l | l |}
+		\hline
+		$add(g _{i}, g _{j}) $ & $ g _{i} \longleftarrow  g _{i} + g _{j} $\\
+		\hline
+		$addc(g _{i}, const _{64}) $ & $ g _{i} \longleftarrow  g _{i} + const _{64} $\\
+		\hline
+		$sub(g _{i}, g _{j\neq i}) $ & $ g _{i} \longleftarrow  g _{i} - g _{j} $\\
+		\hline
+		$csub(const _{64}, g _{i}) $ & $ g _{i} \longleftarrow const _{64} - g _{i} $\\
+		\hline
+		$mul(g _{i}, g _{j}) $ & $ g _{i} \longleftarrow  g _{i} \times g _{j} $\\
+		\hline
+		$mulc(g _{i}, const _{64}) $ & $ g _{i} \longleftarrow  g _{i} \times const _{64} $\\
+		\hline
+		$div(g _{i}, g _{j\neq i}) $ & $ g _{i} \longleftarrow  g _{i} \div g _{j}; g _{0} \longleftarrow  g _{i} \textbf{ mod } g _{j} $\\
+		\hline
+		$divc(g _{i}, const _{64}) $ & $ g _{i} \longleftarrow  g _{i} \div const _{64}; g _{0} \longleftarrow  g _{i} \textbf{ mod } const _{64} $\\
+		\hline
+	\end{tabular}}
+	
+\paragraph{The functioning of these operations is obvious except for the two division instructions where the first argument is g0. In this case g0 mod gj (or const64 as the case may be) is stored in g0 as the final result. The implementation used to bring this about is: }
+
+\begin{itemize} 
+\item find the modulus first and store it in a temporary variable \\
+\item perform the division, storing the result in register gi \\
+\item store the temporary variable in gi
+\end{itemize}
+	
+\subsection*{Bit Manipulation Instructions}
+
+		
+\addvbuffer[12pt 8pt]{\begin{tabular}{| l | l |}
+	\hline
+$and(g _{i}, g _{j\neq i}) $ & $g _{0} \longleftarrow  g _{i} \textbf{ and } g _{j} $ \\
+	\hline
+$andc(g _{i}, const _{64}) $ & $ g _{0} \longleftarrow  g _{i} \textbf{ and } const _{64} $ \\
+	\hline
+$or(g _{i}, g _{j \neq i}) $ & $g _{0} \longleftarrow  g _{i} \textbf{ or } g _{j} $  \\
+	\hline
+$orc(g _{i}, const _{64}) $ & $ g _{0} \longleftarrow  g _{i} \textbf{ or } const _{64} $ \\
+	\hline
+$xor(g _{i}, g _{j \neq i}) $ & $g _{0} \longleftarrow  g _{i} \textbf{ xor } g _{j} $ \\
+	\hline
+$shl(g _{i}, g _{j}) $ & $g _{0} \longleftarrow  g _{i} << g _{j} $ \\
+	\hline
+$shlc(g _{i}, const _{16}) $ & $ g _{0} \longleftarrow  g _{i} << const _{16} $ \\
+	\hline
+$cshl(const _{64}, g _{i})$ & $ g _{0} \longleftarrow  const _{64} << g _{i}  $ \\
+	\hline
+$shr(g _{i}, g _{j}) $ & $g _{0} \longleftarrow  g _{i} >> g _{j} $ \\
+	\hline
+$shrc(g _{i}, const _{16}) $ & $ g _{0} \longleftarrow  g _{i} >> const _{16} $ \\
+	\hline
+$cshr(const _{64}, g _{i})$ & $ g _{0} \longleftarrow  const _{64} >> g _{i}  $  \\
+	\hline
+$sar(g _{i}, g _{j}) $ & $ g _{0} \longleftarrow  g _{i} >>> const _{16} $  \\
+	\hline
+$sarc(g _{i}, const _{16}) $ & $ g _{0} \longleftarrow  g _{i} >>> const _{16} $ \\
+	\hline
+$csar(const _{64}, g _{i})$ & $ g _{0} \longleftarrow  const _{64} >>> g _{i}  $ \\
+	\hline
+\end{tabular}}	
+
+\paragraph{These instructions are for performing bitwise logical operations on integer operands and constants. The PC is incremented in the same manner as for the arithmetic instructions. The shr and shl instructions are the logical shifts whereas sar is the arithmetic right shift. The arithmetic left shift is the same operation as shl.}
+
+\subsection*{Data Movement Instructions}
+\paragraph{These instructions allow for values to be moved between registers.}
+
+\addvbuffer[12pt 8pt]{\begin{tabular}{| l | l |}	
+	\hline
+$mov(g_{i}, g_{j \neq i}) $ & $g_{i} \longleftarrow g_{j} $ \\
+	\hline
+$movc(g_{i}, const_{64})$ & $g_{i} \longleftarrow const_{64} $ \\
+	\hline
+$null(g_{i})$ & $g_{i} \longleftarrow NULL $ \\
+	\hline
+\end{tabular}}	
+
+
+\subsection*{Memory Access}
+
+\addvbuffer[12pt 8pt]{\begin{tabular}{| l | l |}
+		\hline
+		$getl(g_{i}, const_{16})$ & $g_{i} \longleftarrow mem[fp + const_{16}]$ \\
+		\hline
+		$setl(const_{16}, g_{i})$ & $mem[fp + const_{16}] \longleftarrow g_{i}$ \\
+		\hline
+		$geto(g_{i}, g_{j}, g_{k\neq j})$ & $g_{i} \longleftarrow mem[g_{j} + header + g_{k}*scale]$ \\
+		\hline
+		$seto(g_{i}: g_{j}, g_{k\neq j})$ & $mem[p_{i} + header + r_{j}*scale]$ \\
+		\hline
+		getb & a \\
+		\hline
+		setb & a \\
+		\hline
+	\end{tabular}}	
+
+\paragraph{These instructions allow for getting and setting of locals (getl, setl), objects (geto, seto) and buffers (getb, setb).}
+
+
+
+\subsection*{Control Flow Instructions}
+\addvbuffer[12pt 8pt]{\begin{tabular}{| l | l |}	
+	\hline	
+jmp & a \\
+	\hline
+jmpf & a \\
+	\hline
+swtch & a \\
+	\hline
+jcmp & a \\
+	\hline
+jcmpc & a \\
+	\hline
+jnullp & a \\
+	\hline
+\end{tabular}}	
+\subsection*{Function Call and Return}
+\addvbuffer[12pt 8pt]{\begin{tabular}{| l | l |}
+	\hline	
+call & a \\
+	\hline
+ret & a \\
+	\hline	
+\end{tabular}}
+\subsection*{Pragmatic Higher-Level Instructions}
+\addvbuffer[12pt 8pt]{\begin{tabular}{| l | l |}	
+	\hline
+newo & a \\
+	\hline
+newb & a \\
+	\hline
+err & a \\
+	\hline
+in & a \\
+	\hline
+out & a \\
+	\hline
+print & a \\
+	\hline
+\end{tabular}}
+
+
+\subsection{Conventional VM}
+
+\subsubsection{opcode}
+
+\paragraph{The}
+
+
 \paragraph{\newpage{}}
+
+
 
 \bibliographystyle{plain}
 \bibliography{/home/stevetest/a}
