@@ -716,9 +716,18 @@ struct ValueStruct
 		\hline
 		$mulc(g _{i}, const _{64}) $ & $ g _{i} \longleftarrow  g _{i} \times const _{64} $\\
 		\hline
-		$div(g _{i}, g _{j\neq i}) $ & $ g _{i} \longleftarrow  g _{i} \div g _{j}; g _{0} \longleftarrow  g _{i} \textbf{ mod } g _{j} $\\
+	
+		$div(g _{i}, g _{j\neq i}) $ & 
+		\begin{tabular}{@{}l@{}}
+			$ g _{i} \longleftarrow  g _{i} \div g _{j}$ \\		
+			$g _{0} \longleftarrow  g _{i} \textbf{ mod } g _{j} $\end{tabular}\\
+				 
 		\hline
-		$divc(g _{i}, const _{64}) $ & $ g _{i} \longleftarrow  g _{i} \div const _{64}; g _{0} \longleftarrow  g _{i} \textbf{ mod } const _{64} $\\
+		$div(g _{i}, const _{64}) $ & 
+		\begin{tabular}{@{}l@{}}
+			$ g _{i} \longleftarrow  g _{i} \div const_{64}$ \\		
+			$g _{0} \longleftarrow  g _{i} \textbf{ mod } const_{64} $
+		\end{tabular}\\
 		\hline
 	\end{tabular}}
 	
@@ -776,7 +785,7 @@ $mov(g_{i}, g_{j \neq i}) $ & $g_{i} \longleftarrow g_{j} $ \\
 	\hline
 $movc(g_{i}, const_{64})$ & $g_{i} \longleftarrow const_{64} $ \\
 	\hline
-$null(g_{i})$ & $g_{i} \longleftarrow NULL $ \\
+$null(g_{i})$ & $g_{i} \longleftarrow null $ \\
 	\hline
 \end{tabular}}	
 
@@ -789,13 +798,13 @@ $null(g_{i})$ & $g_{i} \longleftarrow NULL $ \\
 		\hline
 		$setl(const_{16}, g_{i})$ & $mem[fp + const_{16}] \longleftarrow g_{i}$ \\
 		\hline
-		$geto(g_{i}, g_{j}, g_{k\neq j})$ & $g_{i} \longleftarrow mem[g_{j} + header + g_{k}*scale]$ \\
+		$geto(g_{i}, g_{j}, g_{k\neq j})$ & $g_{i} \longleftarrow g_{j}[header + g_{k}*scale]$ \\
 		\hline
-		$seto(g_{i}: g_{j}, g_{k\neq j})$ & $mem[p_{i} + header + r_{j}*scale]$ \\
+		$seto(g_{i}: g_{j \neq i}, g_{k})$ & $g_{i}[header + g_{j}*scale] \longleftarrow g_{k}$ \\
 		\hline
-		getb & a \\
+		$getb(g_{i}, g_{j}, g_{k\neq j})$ & $g_{i} \longleftarrow g_{j}[header + g_{k}*scale]$ \\
 		\hline
-		setb & a \\
+		$setb(g_{i}: g_{j \neq i}, g_{k})$ & $g_{i}[header + g_{j}*scale] \longleftarrow g_{k}$ \\
 		\hline
 	\end{tabular}}	
 
@@ -804,29 +813,76 @@ $null(g_{i})$ & $g_{i} \longleftarrow NULL $ \\
 
 
 \subsection*{Control Flow Instructions}
+
+\paragraph{These instructions allow for jumps in execution in the program. All jumps are relative to the PC value at the start of the instruction (i.e. PC is not modified by the instruction until the jump takes place).}
+
 \addvbuffer[12pt 8pt]{\begin{tabular}{| l | l |}	
 	\hline	
-jmp & a \\
+$jmp(const_{16})$ &  $pc \longleftarrow pc + const_{16}$ \\
 	\hline
-jmpf & a \\
+$jmpf(const_{64})$ &  $pc \longleftarrow pc + const_{64}$ \\
 	\hline
-swtch & a \\
+$switch$ & $todo: me$ \\
 	\hline
-jcmp & a \\
+	\begin{tabular}{@{}l@{}}
+	$jcmp(g_{i}, r_{j\neq i},less_{16},$\\
+    $equal_{16},greater_{16}) $ 
+	\end{tabular}	
+    & 
+	\begin{tabular}{@{}l@{}}
+	$ pc \longleftarrow $ \\
+	$ case :g_{i} < g_{j}: pc + less_{16}  $ \\		
+	$ case :g_{i} = g_{j}: pc + equal_{16}$ \\
+	$ case :g_{i} > g_{j}: pc + greater_{16}$
+	\end{tabular}\\ 
 	\hline
-jcmpc & a \\
+	\begin{tabular}{@{}l@{}}
+	$jcmpc (g_{i}, const_{64},	less_{16}, $ \\
+	$equal_{16},greater_{16})$ \\
+	\end{tabular}
+	 & \begin{tabular}{@{}l@{}}	
+	$ pc \longleftarrow $ \\
+	$ case: g_{i} < const_{64}: pc + less_{16}  $ \\		
+	$ case: g_{i} = const_{64}: pc + equal_{16}$ \\
+	$ case: g_{i} > const_{64}: pc + greater_{16}$
+	\end{tabular} \\
 	\hline
-jnullp & a \\
+	$jnullp( pi,not-null-disp16,null-disp16)$
+	& \begin{tabular}{@{}l@{}}	
+	$pc \longleftarrow$ \\
+	$case: g_{i} \neq null: pc + not-null-disp_{16}$ \\
+	$case: g_{i} = null: pc + null-disp_{16}$ \\
+	\end{tabular} 
+\\
 	\hline
 \end{tabular}}	
 \subsection*{Function Call and Return}
+\paragraph{}
+
 \addvbuffer[12pt 8pt]{\begin{tabular}{| l | l |}
 	\hline	
-call & a \\
+$call(disp_{16},
+first_{16}, count_{16})$ & $
+newpc \longleftarrow pc + disp_{16};
+sizep \longleftarrow program[newpc];
+size \longleftarrow sizeof(stackframe) + sizeof(value) * sizep;
+stackframe *base = (stackframe*)malloc(size);
+if (base) {
+	base->fp = fp; base->pc = pc; base->ts = ts;
+	SaveRegisters(base->g);
+	value *newfp = base->l;
+	memcpy(newfp, fp + program[pc + 2], program[pc + 3]*sizeof(value));
+	fp = newfp;
+	pc = newpc + 4;
+
+
+
+$ \\
 	\hline
-ret & a \\
+$ret$ & $$ \\
 	\hline	
 \end{tabular}}
+
 \subsection*{Pragmatic Higher-Level Instructions}
 \addvbuffer[12pt 8pt]{\begin{tabular}{| l | l |}	
 	\hline

@@ -114,8 +114,8 @@ div:
 int16_t arg0 = GetArg0(program[pc]);
 int16_t arg1 = GetArg1(program[pc]);
 if (IsInt(g[arg0]) && IsInt(g[arg1])) {
-int64_t temp = g[arg0].i % g[arg1].i;
-g[arg0].i /= g[arg1].i;
+int64_t temp = g[arg0].i / g[arg1].i;
+g[arg0].i %= g[arg1].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -137,8 +137,8 @@ int16_t arg0 = GetArg0(program[pc]);
 if (IsInt(g[arg0])) {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-int64_t temp = g[arg0].i % constant;
-g[arg0].i /= constant;
+int64_t temp = g[arg0].i / constant;
+g[arg0].i %= constant;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -956,6 +956,10 @@ int16_t arg0 = GetArg0(program[pc]);
 if (IsPointer(g[arg0])) {
 buffer *bp = g[arg0].p;
 puts(bp->data);
+pc++;
+}
+else if (IsInt(g[arg0])) {
+printf("%d\n", g[arg0].i);
 pc++;
 }
 else {

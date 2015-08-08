@@ -92,7 +92,6 @@ var lookups = [
             template: getConst('constant') + '/*<0>*/.i *= constant;\n'
         }]
     },
-    //TODO customise div based on type state?
     {
         name: 'div',
         inputs: 2,
@@ -102,8 +101,8 @@ var lookups = [
             pcChange: 1,
             legal: [i, i],
             template:
-                'int64_t temp = /*<0>*/.i % /*<1>*/.i;\n' +
-                '/*<0>*/.i /= /*<1>*/.i;\n' +
+                'int64_t temp = /*<0>*/.i / /*<1>*/.i;\n' +
+                '/*<0>*/.i %= /*<1>*/.i;\n' +
                 'g[0].i = temp;\n' +
                 'g[0].tag = 0;\n' +
                 'ts &= 0xF800;\n' 
@@ -117,8 +116,8 @@ var lookups = [
             pcChange: 2,
             legal: [i],
             template: getConst('constant') +
-                'int64_t temp = /*<0>*/.i % constant;\n' +
-                '/*<0>*/.i /= constant;\n' +
+                'int64_t temp = /*<0>*/.i / constant;\n' +
+                '/*<0>*/.i %= constant;\n' +
                 'g[0].i = temp;\n' +
                 'g[0].tag = 0;\n' +
                 'ts &= 0xF800;\n' 
@@ -718,15 +717,22 @@ var lookups = [
                 'fwrite(bp->data, sizeof(int8_t), GetSize(bp->sf), stdout);\n'
         }]
     },
-        {
+    {
         name: 'print',
         inputs: 1,
-        instructions: [{
-            name: 'print', pcChange: 1,
-            legal: [p],
-            template: 'buffer *bp = /*<0>*/.p;\n' +
-                'puts(bp->data);\n'
-        }]
+        instructions: [
+            {
+                name: 'printp', pcChange: 1,
+                legal: [p],
+                template: 'buffer *bp = /*<0>*/.p;\n' +
+                    'puts(bp->data);\n'
+            },
+            {
+                name: 'print', pcChange: 1,
+                legal: [i],
+                template: 'printf("%d\\n", /*<0>*/.i);\n'
+            }
+        ]
     }
 ];
 var statics = [
@@ -1239,6 +1245,7 @@ var names = ['type state VM','conventional VM', 'hybrid VM'];
 var suffixes = ['', 'Conv', 'Hybr'];
 for (var n = 0; n < 3; n++)
 {
+    console.log('\n');
     console.log('generating for ' + names[n] + ':\n==========================================');
 
     //Generate VM
@@ -1260,6 +1267,7 @@ for (var n = 0; n < 3; n++)
     console.log('Code written to file: lookup table - ' + names[n]);
 }
 
+console.log('\n');
 CodeGenerator.generate(typeVM);
 console.log('generating table for use with assembler:\n==========================================');
 //opcode table

@@ -1957,8 +1957,8 @@ goto *dynOpcodes[ts + program[pc]];
 div_0_1:
 {
 if (IsInt(g[0]) && IsInt(g[1])) {
-int64_t temp = g[0].i % g[1].i;
-g[0].i /= g[1].i;
+int64_t temp = g[0].i / g[1].i;
+g[0].i %= g[1].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1977,8 +1977,8 @@ goto *dynOpcodes[ts + program[pc]];
 div_0_2:
 {
 if (IsInt(g[0]) && IsInt(g[2])) {
-int64_t temp = g[0].i % g[2].i;
-g[0].i /= g[2].i;
+int64_t temp = g[0].i / g[2].i;
+g[0].i %= g[2].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1997,8 +1997,8 @@ goto *dynOpcodes[ts + program[pc]];
 div_0_3:
 {
 if (IsInt(g[0]) && IsInt(g[3])) {
-int64_t temp = g[0].i % g[3].i;
-g[0].i /= g[3].i;
+int64_t temp = g[0].i / g[3].i;
+g[0].i %= g[3].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -2017,8 +2017,8 @@ goto *dynOpcodes[ts + program[pc]];
 div_0_4:
 {
 if (IsInt(g[0]) && IsInt(g[4])) {
-int64_t temp = g[0].i % g[4].i;
-g[0].i /= g[4].i;
+int64_t temp = g[0].i / g[4].i;
+g[0].i %= g[4].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -2037,8 +2037,8 @@ goto *dynOpcodes[ts + program[pc]];
 div_0_5:
 {
 if (IsInt(g[0]) && IsInt(g[5])) {
-int64_t temp = g[0].i % g[5].i;
-g[0].i /= g[5].i;
+int64_t temp = g[0].i / g[5].i;
+g[0].i %= g[5].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -2057,8 +2057,8 @@ goto *dynOpcodes[ts + program[pc]];
 div_1_0:
 {
 if (IsInt(g[1]) && IsInt(g[0])) {
-int64_t temp = g[1].i % g[0].i;
-g[1].i /= g[0].i;
+int64_t temp = g[1].i / g[0].i;
+g[1].i %= g[0].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -2077,8 +2077,8 @@ goto *dynOpcodes[ts + program[pc]];
 div_1_2:
 {
 if (IsInt(g[1]) && IsInt(g[2])) {
-int64_t temp = g[1].i % g[2].i;
-g[1].i /= g[2].i;
+int64_t temp = g[1].i / g[2].i;
+g[1].i %= g[2].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -2097,8 +2097,8 @@ goto *dynOpcodes[ts + program[pc]];
 div_1_3:
 {
 if (IsInt(g[1]) && IsInt(g[3])) {
-int64_t temp = g[1].i % g[3].i;
-g[1].i /= g[3].i;
+int64_t temp = g[1].i / g[3].i;
+g[1].i %= g[3].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -2117,8 +2117,8 @@ goto *dynOpcodes[ts + program[pc]];
 div_1_4:
 {
 if (IsInt(g[1]) && IsInt(g[4])) {
-int64_t temp = g[1].i % g[4].i;
-g[1].i /= g[4].i;
+int64_t temp = g[1].i / g[4].i;
+g[1].i %= g[4].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -2137,8 +2137,8 @@ goto *dynOpcodes[ts + program[pc]];
 div_1_5:
 {
 if (IsInt(g[1]) && IsInt(g[5])) {
-int64_t temp = g[1].i % g[5].i;
-g[1].i /= g[5].i;
+int64_t temp = g[1].i / g[5].i;
+g[1].i %= g[5].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -2157,8 +2157,8 @@ goto *dynOpcodes[ts + program[pc]];
 div_2_0:
 {
 if (IsInt(g[2]) && IsInt(g[0])) {
-int64_t temp = g[2].i % g[0].i;
-g[2].i /= g[0].i;
+int64_t temp = g[2].i / g[0].i;
+g[2].i %= g[0].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -2177,8 +2177,8 @@ goto *dynOpcodes[ts + program[pc]];
 div_2_1:
 {
 if (IsInt(g[2]) && IsInt(g[1])) {
-int64_t temp = g[2].i % g[1].i;
-g[2].i /= g[1].i;
+int64_t temp = g[2].i / g[1].i;
+g[2].i %= g[1].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -2197,8 +2197,8 @@ goto *dynOpcodes[ts + program[pc]];
 div_2_3:
 {
 if (IsInt(g[2]) && IsInt(g[3])) {
-int64_t temp = g[2].i % g[3].i;
-g[2].i /= g[3].i;
+int64_t temp = g[2].i / g[3].i;
+g[2].i %= g[3].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -2217,8 +2217,8 @@ goto *dynOpcodes[ts + program[pc]];
 div_2_4:
 {
 if (IsInt(g[2]) && IsInt(g[4])) {
-int64_t temp = g[2].i % g[4].i;
-g[2].i /= g[4].i;
+int64_t temp = g[2].i / g[4].i;
+g[2].i %= g[4].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -2237,8 +2237,8 @@ goto *dynOpcodes[ts + program[pc]];
 div_2_5:
 {
 if (IsInt(g[2]) && IsInt(g[5])) {
-int64_t temp = g[2].i % g[5].i;
-g[2].i /= g[5].i;
+int64_t temp = g[2].i / g[5].i;
+g[2].i %= g[5].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -2257,8 +2257,8 @@ goto *dynOpcodes[ts + program[pc]];
 div_3_0:
 {
 if (IsInt(g[3]) && IsInt(g[0])) {
-int64_t temp = g[3].i % g[0].i;
-g[3].i /= g[0].i;
+int64_t temp = g[3].i / g[0].i;
+g[3].i %= g[0].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -2277,8 +2277,8 @@ goto *dynOpcodes[ts + program[pc]];
 div_3_1:
 {
 if (IsInt(g[3]) && IsInt(g[1])) {
-int64_t temp = g[3].i % g[1].i;
-g[3].i /= g[1].i;
+int64_t temp = g[3].i / g[1].i;
+g[3].i %= g[1].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -2297,8 +2297,8 @@ goto *dynOpcodes[ts + program[pc]];
 div_3_2:
 {
 if (IsInt(g[3]) && IsInt(g[2])) {
-int64_t temp = g[3].i % g[2].i;
-g[3].i /= g[2].i;
+int64_t temp = g[3].i / g[2].i;
+g[3].i %= g[2].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -2317,8 +2317,8 @@ goto *dynOpcodes[ts + program[pc]];
 div_3_4:
 {
 if (IsInt(g[3]) && IsInt(g[4])) {
-int64_t temp = g[3].i % g[4].i;
-g[3].i /= g[4].i;
+int64_t temp = g[3].i / g[4].i;
+g[3].i %= g[4].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -2337,8 +2337,8 @@ goto *dynOpcodes[ts + program[pc]];
 div_3_5:
 {
 if (IsInt(g[3]) && IsInt(g[5])) {
-int64_t temp = g[3].i % g[5].i;
-g[3].i /= g[5].i;
+int64_t temp = g[3].i / g[5].i;
+g[3].i %= g[5].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -2357,8 +2357,8 @@ goto *dynOpcodes[ts + program[pc]];
 div_4_0:
 {
 if (IsInt(g[4]) && IsInt(g[0])) {
-int64_t temp = g[4].i % g[0].i;
-g[4].i /= g[0].i;
+int64_t temp = g[4].i / g[0].i;
+g[4].i %= g[0].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -2377,8 +2377,8 @@ goto *dynOpcodes[ts + program[pc]];
 div_4_1:
 {
 if (IsInt(g[4]) && IsInt(g[1])) {
-int64_t temp = g[4].i % g[1].i;
-g[4].i /= g[1].i;
+int64_t temp = g[4].i / g[1].i;
+g[4].i %= g[1].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -2397,8 +2397,8 @@ goto *dynOpcodes[ts + program[pc]];
 div_4_2:
 {
 if (IsInt(g[4]) && IsInt(g[2])) {
-int64_t temp = g[4].i % g[2].i;
-g[4].i /= g[2].i;
+int64_t temp = g[4].i / g[2].i;
+g[4].i %= g[2].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -2417,8 +2417,8 @@ goto *dynOpcodes[ts + program[pc]];
 div_4_3:
 {
 if (IsInt(g[4]) && IsInt(g[3])) {
-int64_t temp = g[4].i % g[3].i;
-g[4].i /= g[3].i;
+int64_t temp = g[4].i / g[3].i;
+g[4].i %= g[3].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -2437,8 +2437,8 @@ goto *dynOpcodes[ts + program[pc]];
 div_4_5:
 {
 if (IsInt(g[4]) && IsInt(g[5])) {
-int64_t temp = g[4].i % g[5].i;
-g[4].i /= g[5].i;
+int64_t temp = g[4].i / g[5].i;
+g[4].i %= g[5].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -2457,8 +2457,8 @@ goto *dynOpcodes[ts + program[pc]];
 div_5_0:
 {
 if (IsInt(g[5]) && IsInt(g[0])) {
-int64_t temp = g[5].i % g[0].i;
-g[5].i /= g[0].i;
+int64_t temp = g[5].i / g[0].i;
+g[5].i %= g[0].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -2477,8 +2477,8 @@ goto *dynOpcodes[ts + program[pc]];
 div_5_1:
 {
 if (IsInt(g[5]) && IsInt(g[1])) {
-int64_t temp = g[5].i % g[1].i;
-g[5].i /= g[1].i;
+int64_t temp = g[5].i / g[1].i;
+g[5].i %= g[1].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -2497,8 +2497,8 @@ goto *dynOpcodes[ts + program[pc]];
 div_5_2:
 {
 if (IsInt(g[5]) && IsInt(g[2])) {
-int64_t temp = g[5].i % g[2].i;
-g[5].i /= g[2].i;
+int64_t temp = g[5].i / g[2].i;
+g[5].i %= g[2].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -2517,8 +2517,8 @@ goto *dynOpcodes[ts + program[pc]];
 div_5_3:
 {
 if (IsInt(g[5]) && IsInt(g[3])) {
-int64_t temp = g[5].i % g[3].i;
-g[5].i /= g[3].i;
+int64_t temp = g[5].i / g[3].i;
+g[5].i %= g[3].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -2537,8 +2537,8 @@ goto *dynOpcodes[ts + program[pc]];
 div_5_4:
 {
 if (IsInt(g[5]) && IsInt(g[4])) {
-int64_t temp = g[5].i % g[4].i;
-g[5].i /= g[4].i;
+int64_t temp = g[5].i / g[4].i;
+g[5].i %= g[4].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -2559,8 +2559,8 @@ divc_0:
 if (IsInt(g[0])) {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-int64_t temp = g[0].i % constant;
-g[0].i /= constant;
+int64_t temp = g[0].i / constant;
+g[0].i %= constant;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -2581,8 +2581,8 @@ divc_1:
 if (IsInt(g[1])) {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-int64_t temp = g[1].i % constant;
-g[1].i /= constant;
+int64_t temp = g[1].i / constant;
+g[1].i %= constant;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -2603,8 +2603,8 @@ divc_2:
 if (IsInt(g[2])) {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-int64_t temp = g[2].i % constant;
-g[2].i /= constant;
+int64_t temp = g[2].i / constant;
+g[2].i %= constant;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -2625,8 +2625,8 @@ divc_3:
 if (IsInt(g[3])) {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-int64_t temp = g[3].i % constant;
-g[3].i /= constant;
+int64_t temp = g[3].i / constant;
+g[3].i %= constant;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -2647,8 +2647,8 @@ divc_4:
 if (IsInt(g[4])) {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-int64_t temp = g[4].i % constant;
-g[4].i /= constant;
+int64_t temp = g[4].i / constant;
+g[4].i %= constant;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -2669,8 +2669,8 @@ divc_5:
 if (IsInt(g[5])) {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-int64_t temp = g[5].i % constant;
-g[5].i /= constant;
+int64_t temp = g[5].i / constant;
+g[5].i %= constant;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -28863,6 +28863,10 @@ buffer *bp = g[0].p;
 puts(bp->data);
 pc++;
 }
+else if (IsInt(g[0])) {
+printf("%d\n", g[0].i);
+pc++;
+}
 else {
 fprintf(stderr, "type error, illegal types used for instruction: print");
 return 1;
@@ -28878,6 +28882,10 @@ print_1:
 if (IsPointer(g[1])) {
 buffer *bp = g[1].p;
 puts(bp->data);
+pc++;
+}
+else if (IsInt(g[1])) {
+printf("%d\n", g[1].i);
 pc++;
 }
 else {
@@ -28897,6 +28905,10 @@ buffer *bp = g[2].p;
 puts(bp->data);
 pc++;
 }
+else if (IsInt(g[2])) {
+printf("%d\n", g[2].i);
+pc++;
+}
 else {
 fprintf(stderr, "type error, illegal types used for instruction: print");
 return 1;
@@ -28912,6 +28924,10 @@ print_3:
 if (IsPointer(g[3])) {
 buffer *bp = g[3].p;
 puts(bp->data);
+pc++;
+}
+else if (IsInt(g[3])) {
+printf("%d\n", g[3].i);
 pc++;
 }
 else {
@@ -28931,6 +28947,10 @@ buffer *bp = g[4].p;
 puts(bp->data);
 pc++;
 }
+else if (IsInt(g[4])) {
+printf("%d\n", g[4].i);
+pc++;
+}
 else {
 fprintf(stderr, "type error, illegal types used for instruction: print");
 return 1;
@@ -28946,6 +28966,10 @@ print_5:
 if (IsPointer(g[5])) {
 buffer *bp = g[5].p;
 puts(bp->data);
+pc++;
+}
+else if (IsInt(g[5])) {
+printf("%d\n", g[5].i);
 pc++;
 }
 else {

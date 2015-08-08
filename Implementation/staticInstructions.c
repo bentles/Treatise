@@ -1236,8 +1236,8 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_0_1:
 {
-int64_t temp = g[0].i % g[1].i;
-g[0].i /= g[1].i;
+int64_t temp = g[0].i / g[1].i;
+g[0].i %= g[1].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1250,8 +1250,8 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_0_2:
 {
-int64_t temp = g[0].i % g[2].i;
-g[0].i /= g[2].i;
+int64_t temp = g[0].i / g[2].i;
+g[0].i %= g[2].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1264,8 +1264,8 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_0_3:
 {
-int64_t temp = g[0].i % g[3].i;
-g[0].i /= g[3].i;
+int64_t temp = g[0].i / g[3].i;
+g[0].i %= g[3].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1278,8 +1278,8 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_0_4:
 {
-int64_t temp = g[0].i % g[4].i;
-g[0].i /= g[4].i;
+int64_t temp = g[0].i / g[4].i;
+g[0].i %= g[4].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1292,8 +1292,8 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_0_5:
 {
-int64_t temp = g[0].i % g[5].i;
-g[0].i /= g[5].i;
+int64_t temp = g[0].i / g[5].i;
+g[0].i %= g[5].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1306,8 +1306,8 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_1_0:
 {
-int64_t temp = g[1].i % g[0].i;
-g[1].i /= g[0].i;
+int64_t temp = g[1].i / g[0].i;
+g[1].i %= g[0].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1320,8 +1320,8 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_1_2:
 {
-int64_t temp = g[1].i % g[2].i;
-g[1].i /= g[2].i;
+int64_t temp = g[1].i / g[2].i;
+g[1].i %= g[2].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1334,8 +1334,8 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_1_3:
 {
-int64_t temp = g[1].i % g[3].i;
-g[1].i /= g[3].i;
+int64_t temp = g[1].i / g[3].i;
+g[1].i %= g[3].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1348,8 +1348,8 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_1_4:
 {
-int64_t temp = g[1].i % g[4].i;
-g[1].i /= g[4].i;
+int64_t temp = g[1].i / g[4].i;
+g[1].i %= g[4].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1362,8 +1362,8 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_1_5:
 {
-int64_t temp = g[1].i % g[5].i;
-g[1].i /= g[5].i;
+int64_t temp = g[1].i / g[5].i;
+g[1].i %= g[5].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1376,8 +1376,8 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_2_0:
 {
-int64_t temp = g[2].i % g[0].i;
-g[2].i /= g[0].i;
+int64_t temp = g[2].i / g[0].i;
+g[2].i %= g[0].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1390,8 +1390,8 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_2_1:
 {
-int64_t temp = g[2].i % g[1].i;
-g[2].i /= g[1].i;
+int64_t temp = g[2].i / g[1].i;
+g[2].i %= g[1].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1404,8 +1404,8 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_2_3:
 {
-int64_t temp = g[2].i % g[3].i;
-g[2].i /= g[3].i;
+int64_t temp = g[2].i / g[3].i;
+g[2].i %= g[3].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1418,8 +1418,8 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_2_4:
 {
-int64_t temp = g[2].i % g[4].i;
-g[2].i /= g[4].i;
+int64_t temp = g[2].i / g[4].i;
+g[2].i %= g[4].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1432,8 +1432,8 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_2_5:
 {
-int64_t temp = g[2].i % g[5].i;
-g[2].i /= g[5].i;
+int64_t temp = g[2].i / g[5].i;
+g[2].i %= g[5].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1446,8 +1446,8 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_3_0:
 {
-int64_t temp = g[3].i % g[0].i;
-g[3].i /= g[0].i;
+int64_t temp = g[3].i / g[0].i;
+g[3].i %= g[0].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1460,8 +1460,8 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_3_1:
 {
-int64_t temp = g[3].i % g[1].i;
-g[3].i /= g[1].i;
+int64_t temp = g[3].i / g[1].i;
+g[3].i %= g[1].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1474,8 +1474,8 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_3_2:
 {
-int64_t temp = g[3].i % g[2].i;
-g[3].i /= g[2].i;
+int64_t temp = g[3].i / g[2].i;
+g[3].i %= g[2].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1488,8 +1488,8 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_3_4:
 {
-int64_t temp = g[3].i % g[4].i;
-g[3].i /= g[4].i;
+int64_t temp = g[3].i / g[4].i;
+g[3].i %= g[4].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1502,8 +1502,8 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_3_5:
 {
-int64_t temp = g[3].i % g[5].i;
-g[3].i /= g[5].i;
+int64_t temp = g[3].i / g[5].i;
+g[3].i %= g[5].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1516,8 +1516,8 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_4_0:
 {
-int64_t temp = g[4].i % g[0].i;
-g[4].i /= g[0].i;
+int64_t temp = g[4].i / g[0].i;
+g[4].i %= g[0].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1530,8 +1530,8 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_4_1:
 {
-int64_t temp = g[4].i % g[1].i;
-g[4].i /= g[1].i;
+int64_t temp = g[4].i / g[1].i;
+g[4].i %= g[1].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1544,8 +1544,8 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_4_2:
 {
-int64_t temp = g[4].i % g[2].i;
-g[4].i /= g[2].i;
+int64_t temp = g[4].i / g[2].i;
+g[4].i %= g[2].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1558,8 +1558,8 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_4_3:
 {
-int64_t temp = g[4].i % g[3].i;
-g[4].i /= g[3].i;
+int64_t temp = g[4].i / g[3].i;
+g[4].i %= g[3].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1572,8 +1572,8 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_4_5:
 {
-int64_t temp = g[4].i % g[5].i;
-g[4].i /= g[5].i;
+int64_t temp = g[4].i / g[5].i;
+g[4].i %= g[5].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1586,8 +1586,8 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_5_0:
 {
-int64_t temp = g[5].i % g[0].i;
-g[5].i /= g[0].i;
+int64_t temp = g[5].i / g[0].i;
+g[5].i %= g[0].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1600,8 +1600,8 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_5_1:
 {
-int64_t temp = g[5].i % g[1].i;
-g[5].i /= g[1].i;
+int64_t temp = g[5].i / g[1].i;
+g[5].i %= g[1].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1614,8 +1614,8 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_5_2:
 {
-int64_t temp = g[5].i % g[2].i;
-g[5].i /= g[2].i;
+int64_t temp = g[5].i / g[2].i;
+g[5].i %= g[2].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1628,8 +1628,8 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_5_3:
 {
-int64_t temp = g[5].i % g[3].i;
-g[5].i /= g[3].i;
+int64_t temp = g[5].i / g[3].i;
+g[5].i %= g[3].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1642,8 +1642,8 @@ goto *dynOpcodes[ts + program[pc]];
 
 div_5_4:
 {
-int64_t temp = g[5].i % g[4].i;
-g[5].i /= g[4].i;
+int64_t temp = g[5].i / g[4].i;
+g[5].i %= g[4].i;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1658,8 +1658,8 @@ divc_0:
 {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-int64_t temp = g[0].i % constant;
-g[0].i /= constant;
+int64_t temp = g[0].i / constant;
+g[0].i %= constant;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1674,8 +1674,8 @@ divc_1:
 {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-int64_t temp = g[1].i % constant;
-g[1].i /= constant;
+int64_t temp = g[1].i / constant;
+g[1].i %= constant;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1690,8 +1690,8 @@ divc_2:
 {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-int64_t temp = g[2].i % constant;
-g[2].i /= constant;
+int64_t temp = g[2].i / constant;
+g[2].i %= constant;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1706,8 +1706,8 @@ divc_3:
 {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-int64_t temp = g[3].i % constant;
-g[3].i /= constant;
+int64_t temp = g[3].i / constant;
+g[3].i %= constant;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1722,8 +1722,8 @@ divc_4:
 {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-int64_t temp = g[4].i % constant;
-g[4].i /= constant;
+int64_t temp = g[4].i / constant;
+g[4].i %= constant;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -1738,8 +1738,8 @@ divc_5:
 {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-int64_t temp = g[5].i % constant;
-g[5].i /= constant;
+int64_t temp = g[5].i / constant;
+g[5].i %= constant;
 g[0].i = temp;
 g[0].tag = 0;
 ts &= 0xF800;
@@ -26084,7 +26084,7 @@ opcodeCounters[2002].count++;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-print_0:
+printp_0:
 {
 buffer *bp = g[0].p;
 puts(bp->data);
@@ -26095,7 +26095,7 @@ opcodeCounters[2003].count++;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-print_1:
+printp_1:
 {
 buffer *bp = g[1].p;
 puts(bp->data);
@@ -26106,7 +26106,7 @@ opcodeCounters[2004].count++;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-print_2:
+printp_2:
 {
 buffer *bp = g[2].p;
 puts(bp->data);
@@ -26117,7 +26117,7 @@ opcodeCounters[2005].count++;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-print_3:
+printp_3:
 {
 buffer *bp = g[3].p;
 puts(bp->data);
@@ -26128,7 +26128,7 @@ opcodeCounters[2006].count++;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-print_4:
+printp_4:
 {
 buffer *bp = g[4].p;
 puts(bp->data);
@@ -26139,13 +26139,73 @@ opcodeCounters[2007].count++;
 goto *dynOpcodes[ts + program[pc]];
 }
 
-print_5:
+printp_5:
 {
 buffer *bp = g[5].p;
 puts(bp->data);
 pc++;
 #ifdef STATS
 opcodeCounters[2008].count++;
+#endif /* STATS */
+goto *dynOpcodes[ts + program[pc]];
+}
+
+print_0:
+{
+printf("%d\n", g[0].i);
+pc++;
+#ifdef STATS
+opcodeCounters[2009].count++;
+#endif /* STATS */
+goto *dynOpcodes[ts + program[pc]];
+}
+
+print_1:
+{
+printf("%d\n", g[1].i);
+pc++;
+#ifdef STATS
+opcodeCounters[2010].count++;
+#endif /* STATS */
+goto *dynOpcodes[ts + program[pc]];
+}
+
+print_2:
+{
+printf("%d\n", g[2].i);
+pc++;
+#ifdef STATS
+opcodeCounters[2011].count++;
+#endif /* STATS */
+goto *dynOpcodes[ts + program[pc]];
+}
+
+print_3:
+{
+printf("%d\n", g[3].i);
+pc++;
+#ifdef STATS
+opcodeCounters[2012].count++;
+#endif /* STATS */
+goto *dynOpcodes[ts + program[pc]];
+}
+
+print_4:
+{
+printf("%d\n", g[4].i);
+pc++;
+#ifdef STATS
+opcodeCounters[2013].count++;
+#endif /* STATS */
+goto *dynOpcodes[ts + program[pc]];
+}
+
+print_5:
+{
+printf("%d\n", g[5].i);
+pc++;
+#ifdef STATS
+opcodeCounters[2014].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
