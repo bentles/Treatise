@@ -889,6 +889,29 @@ opcodeCounters[40].count++;
 goto *dynOpcodes[GetOpcode(program[pc])];
 }
 
+movsc:
+{
+int16_t arg0 = GetArg0(program[pc]);
+int16_t dconstant = program[pc +1];
+int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*constant);
+if (base) {
+    base->sf = MakeSizeAndFlags(constant,0);
+    strcpy((int8_t *)&(base->data) ,(int8_t *)&program[pc + dconstant + 4]);
+    g[arg0].tag = 4;
+        g[arg0].p = base;
+}
+else {
+    fprintf(stderr, "malloc failed");
+    return 1;
+}
+pc += 2;
+#ifdef STATS
+opcodeCounters[41].count++;
+#endif /* STATS */
+goto *dynOpcodes[GetOpcode(program[pc])];
+}
+
 err:
 {
 int16_t derrdisp = program[pc +1];
@@ -896,7 +919,7 @@ int64_t errdisp = *((int64_t*)(&program[pc + derrdisp]));
 printf("0:%d 1:%d 2:%d 3:%d 4:%d 5:%d\n", g[0].i, g[1].i, g[2].i, g[3].i,  g[4].i, g[5].i); 
 pc++;
 #ifdef STATS
-opcodeCounters[41].count++;
+opcodeCounters[42].count++;
 #endif /* STATS */
 goto *dynOpcodes[GetOpcode(program[pc])];
 }
@@ -927,7 +950,7 @@ fprintf(stderr, "type error, illegal types used for instruction: in");
 return 1;
 }
 #ifdef STATS
-opcodeCounters[42].count++;
+opcodeCounters[43].count++;
 #endif /* STATS */
 goto *dynOpcodes[GetOpcode(program[pc])];
 }
@@ -945,7 +968,7 @@ fprintf(stderr, "type error, illegal types used for instruction: out");
 return 1;
 }
 #ifdef STATS
-opcodeCounters[43].count++;
+opcodeCounters[44].count++;
 #endif /* STATS */
 goto *dynOpcodes[GetOpcode(program[pc])];
 }
@@ -967,7 +990,7 @@ fprintf(stderr, "type error, illegal types used for instruction: print");
 return 1;
 }
 #ifdef STATS
-opcodeCounters[44].count++;
+opcodeCounters[45].count++;
 #endif /* STATS */
 goto *dynOpcodes[GetOpcode(program[pc])];
 }

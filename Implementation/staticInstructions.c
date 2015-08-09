@@ -25862,6 +25862,144 @@ opcodeCounters[1989].count++;
 goto *dynOpcodes[ts + program[pc]];
 }
 
+movsc_0:
+{
+int16_t dconstant = program[pc +1];
+int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*constant);
+if (base) {
+    base->sf = MakeSizeAndFlags(constant,0);
+    strcpy((int8_t *)&(base->data) ,(int8_t *)&program[pc + dconstant + 4]);
+    g[0].tag = 4;
+    ts |= 0x10000 /*100000*/;
+    g[0].p = base;
+}
+else {
+    fprintf(stderr, "malloc failed");
+    return 1;
+}
+pc += 2;
+#ifdef STATS
+opcodeCounters[1990].count++;
+#endif /* STATS */
+goto *dynOpcodes[ts + program[pc]];
+}
+
+movsc_1:
+{
+int16_t dconstant = program[pc +1];
+int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*constant);
+if (base) {
+    base->sf = MakeSizeAndFlags(constant,0);
+    strcpy((int8_t *)&(base->data) ,(int8_t *)&program[pc + dconstant + 4]);
+    g[1].tag = 4;
+    ts |= 0x8000 /*010000*/;
+    g[1].p = base;
+}
+else {
+    fprintf(stderr, "malloc failed");
+    return 1;
+}
+pc += 2;
+#ifdef STATS
+opcodeCounters[1991].count++;
+#endif /* STATS */
+goto *dynOpcodes[ts + program[pc]];
+}
+
+movsc_2:
+{
+int16_t dconstant = program[pc +1];
+int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*constant);
+if (base) {
+    base->sf = MakeSizeAndFlags(constant,0);
+    strcpy((int8_t *)&(base->data) ,(int8_t *)&program[pc + dconstant + 4]);
+    g[2].tag = 4;
+    ts |= 0x4000 /*001000*/;
+    g[2].p = base;
+}
+else {
+    fprintf(stderr, "malloc failed");
+    return 1;
+}
+pc += 2;
+#ifdef STATS
+opcodeCounters[1992].count++;
+#endif /* STATS */
+goto *dynOpcodes[ts + program[pc]];
+}
+
+movsc_3:
+{
+int16_t dconstant = program[pc +1];
+int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*constant);
+if (base) {
+    base->sf = MakeSizeAndFlags(constant,0);
+    strcpy((int8_t *)&(base->data) ,(int8_t *)&program[pc + dconstant + 4]);
+    g[3].tag = 4;
+    ts |= 0x2000 /*000100*/;
+    g[3].p = base;
+}
+else {
+    fprintf(stderr, "malloc failed");
+    return 1;
+}
+pc += 2;
+#ifdef STATS
+opcodeCounters[1993].count++;
+#endif /* STATS */
+goto *dynOpcodes[ts + program[pc]];
+}
+
+movsc_4:
+{
+int16_t dconstant = program[pc +1];
+int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*constant);
+if (base) {
+    base->sf = MakeSizeAndFlags(constant,0);
+    strcpy((int8_t *)&(base->data) ,(int8_t *)&program[pc + dconstant + 4]);
+    g[4].tag = 4;
+    ts |= 0x1000 /*000010*/;
+    g[4].p = base;
+}
+else {
+    fprintf(stderr, "malloc failed");
+    return 1;
+}
+pc += 2;
+#ifdef STATS
+opcodeCounters[1994].count++;
+#endif /* STATS */
+goto *dynOpcodes[ts + program[pc]];
+}
+
+movsc_5:
+{
+int16_t dconstant = program[pc +1];
+int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*constant);
+if (base) {
+    base->sf = MakeSizeAndFlags(constant,0);
+    strcpy((int8_t *)&(base->data) ,(int8_t *)&program[pc + dconstant + 4]);
+    g[5].tag = 4;
+    ts |= 0x800 /*000001*/;
+    g[5].p = base;
+}
+else {
+    fprintf(stderr, "malloc failed");
+    return 1;
+}
+pc += 2;
+#ifdef STATS
+opcodeCounters[1995].count++;
+#endif /* STATS */
+goto *dynOpcodes[ts + program[pc]];
+}
+
 err:
 {
 int16_t derrdisp = program[pc +1];
@@ -25869,7 +26007,7 @@ int64_t errdisp = *((int64_t*)(&program[pc + derrdisp]));
 printf("0:%d 1:%d 2:%d 3:%d 4:%d 5:%d\n", g[0].i, g[1].i, g[2].i, g[3].i,  g[4].i, g[5].i); 
 pc++;
 #ifdef STATS
-opcodeCounters[1990].count++;
+opcodeCounters[1996].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -25893,7 +26031,7 @@ else {
 }
 pc++;
 #ifdef STATS
-opcodeCounters[1991].count++;
+opcodeCounters[1997].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -25917,7 +26055,7 @@ else {
 }
 pc++;
 #ifdef STATS
-opcodeCounters[1992].count++;
+opcodeCounters[1998].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -25941,7 +26079,7 @@ else {
 }
 pc++;
 #ifdef STATS
-opcodeCounters[1993].count++;
+opcodeCounters[1999].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -25965,7 +26103,7 @@ else {
 }
 pc++;
 #ifdef STATS
-opcodeCounters[1994].count++;
+opcodeCounters[2000].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -25989,7 +26127,7 @@ else {
 }
 pc++;
 #ifdef STATS
-opcodeCounters[1995].count++;
+opcodeCounters[2001].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -26013,7 +26151,7 @@ else {
 }
 pc++;
 #ifdef STATS
-opcodeCounters[1996].count++;
+opcodeCounters[2002].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -26024,7 +26162,7 @@ buffer *bp = g[0].p;
 fwrite(bp->data, sizeof(int8_t), GetSize(bp->sf), stdout);
 pc++;
 #ifdef STATS
-opcodeCounters[1997].count++;
+opcodeCounters[2003].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -26035,7 +26173,7 @@ buffer *bp = g[1].p;
 fwrite(bp->data, sizeof(int8_t), GetSize(bp->sf), stdout);
 pc++;
 #ifdef STATS
-opcodeCounters[1998].count++;
+opcodeCounters[2004].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -26046,7 +26184,7 @@ buffer *bp = g[2].p;
 fwrite(bp->data, sizeof(int8_t), GetSize(bp->sf), stdout);
 pc++;
 #ifdef STATS
-opcodeCounters[1999].count++;
+opcodeCounters[2005].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -26057,7 +26195,7 @@ buffer *bp = g[3].p;
 fwrite(bp->data, sizeof(int8_t), GetSize(bp->sf), stdout);
 pc++;
 #ifdef STATS
-opcodeCounters[2000].count++;
+opcodeCounters[2006].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -26068,7 +26206,7 @@ buffer *bp = g[4].p;
 fwrite(bp->data, sizeof(int8_t), GetSize(bp->sf), stdout);
 pc++;
 #ifdef STATS
-opcodeCounters[2001].count++;
+opcodeCounters[2007].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -26079,7 +26217,7 @@ buffer *bp = g[5].p;
 fwrite(bp->data, sizeof(int8_t), GetSize(bp->sf), stdout);
 pc++;
 #ifdef STATS
-opcodeCounters[2002].count++;
+opcodeCounters[2008].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -26090,7 +26228,7 @@ buffer *bp = g[0].p;
 puts(bp->data);
 pc++;
 #ifdef STATS
-opcodeCounters[2003].count++;
+opcodeCounters[2009].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -26101,7 +26239,7 @@ buffer *bp = g[1].p;
 puts(bp->data);
 pc++;
 #ifdef STATS
-opcodeCounters[2004].count++;
+opcodeCounters[2010].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -26112,7 +26250,7 @@ buffer *bp = g[2].p;
 puts(bp->data);
 pc++;
 #ifdef STATS
-opcodeCounters[2005].count++;
+opcodeCounters[2011].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -26123,7 +26261,7 @@ buffer *bp = g[3].p;
 puts(bp->data);
 pc++;
 #ifdef STATS
-opcodeCounters[2006].count++;
+opcodeCounters[2012].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -26134,7 +26272,7 @@ buffer *bp = g[4].p;
 puts(bp->data);
 pc++;
 #ifdef STATS
-opcodeCounters[2007].count++;
+opcodeCounters[2013].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -26145,7 +26283,7 @@ buffer *bp = g[5].p;
 puts(bp->data);
 pc++;
 #ifdef STATS
-opcodeCounters[2008].count++;
+opcodeCounters[2014].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -26155,7 +26293,7 @@ print_0:
 printf("%d\n", g[0].i);
 pc++;
 #ifdef STATS
-opcodeCounters[2009].count++;
+opcodeCounters[2015].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -26165,7 +26303,7 @@ print_1:
 printf("%d\n", g[1].i);
 pc++;
 #ifdef STATS
-opcodeCounters[2010].count++;
+opcodeCounters[2016].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -26175,7 +26313,7 @@ print_2:
 printf("%d\n", g[2].i);
 pc++;
 #ifdef STATS
-opcodeCounters[2011].count++;
+opcodeCounters[2017].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -26185,7 +26323,7 @@ print_3:
 printf("%d\n", g[3].i);
 pc++;
 #ifdef STATS
-opcodeCounters[2012].count++;
+opcodeCounters[2018].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -26195,7 +26333,7 @@ print_4:
 printf("%d\n", g[4].i);
 pc++;
 #ifdef STATS
-opcodeCounters[2013].count++;
+opcodeCounters[2019].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -26205,7 +26343,7 @@ print_5:
 printf("%d\n", g[5].i);
 pc++;
 #ifdef STATS
-opcodeCounters[2014].count++;
+opcodeCounters[2020].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }

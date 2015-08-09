@@ -39,6 +39,7 @@
 &&ret,
 &&newo,
 &&newb,
+&&movsc,
 &&err,
 &&in,
 &&out,

@@ -673,6 +673,30 @@ var lookups = [
         }]
     },
     {
+        name: 'movsc',
+        inputs: 1,
+        instructions: [
+            {
+                name: 'movsc', pcChange: 2, legal: [g],
+                template:
+                getConst('constant') +
+                    'buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*constant);\n' +
+                    'if (base) {\n' +
+                    '    base->sf = MakeSizeAndFlags(constant,0);\n' +
+                    '    strcpy((int8_t *)&(base->data) ,(int8_t *)&program[pc + dconstant + 4]);\n' +
+                    '    /*<0>*/.tag = 4;\n' +
+                    '    /*<state:' + p + '>*/' +
+                    '    /*<0>*/.p = base;\n' +
+                    '}\n' +
+                    'else {\n' +
+                    '    fprintf(stderr, "malloc failed");\n' +
+                    '    return 1;\n' +
+                    '}\n'
+            }
+
+        ]
+    },
+    {
         name: 'err',
         inputs: 0,
         instructions: [{

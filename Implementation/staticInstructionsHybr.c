@@ -28562,6 +28562,138 @@ opcodeCounters[1269].count++;
 goto *dynOpcodes[ts + program[pc]];
 }
 
+movsc_0:
+{
+int16_t dconstant = program[pc +1];
+int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*constant);
+if (base) {
+    base->sf = MakeSizeAndFlags(constant,0);
+    strcpy((int8_t *)&(base->data) ,(int8_t *)&program[pc + dconstant + 4]);
+    g[0].tag = 4;
+        g[0].p = base;
+}
+else {
+    fprintf(stderr, "malloc failed");
+    return 1;
+}
+pc += 2;
+#ifdef STATS
+opcodeCounters[1270].count++;
+#endif /* STATS */
+goto *dynOpcodes[ts + program[pc]];
+}
+
+movsc_1:
+{
+int16_t dconstant = program[pc +1];
+int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*constant);
+if (base) {
+    base->sf = MakeSizeAndFlags(constant,0);
+    strcpy((int8_t *)&(base->data) ,(int8_t *)&program[pc + dconstant + 4]);
+    g[1].tag = 4;
+        g[1].p = base;
+}
+else {
+    fprintf(stderr, "malloc failed");
+    return 1;
+}
+pc += 2;
+#ifdef STATS
+opcodeCounters[1271].count++;
+#endif /* STATS */
+goto *dynOpcodes[ts + program[pc]];
+}
+
+movsc_2:
+{
+int16_t dconstant = program[pc +1];
+int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*constant);
+if (base) {
+    base->sf = MakeSizeAndFlags(constant,0);
+    strcpy((int8_t *)&(base->data) ,(int8_t *)&program[pc + dconstant + 4]);
+    g[2].tag = 4;
+        g[2].p = base;
+}
+else {
+    fprintf(stderr, "malloc failed");
+    return 1;
+}
+pc += 2;
+#ifdef STATS
+opcodeCounters[1272].count++;
+#endif /* STATS */
+goto *dynOpcodes[ts + program[pc]];
+}
+
+movsc_3:
+{
+int16_t dconstant = program[pc +1];
+int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*constant);
+if (base) {
+    base->sf = MakeSizeAndFlags(constant,0);
+    strcpy((int8_t *)&(base->data) ,(int8_t *)&program[pc + dconstant + 4]);
+    g[3].tag = 4;
+        g[3].p = base;
+}
+else {
+    fprintf(stderr, "malloc failed");
+    return 1;
+}
+pc += 2;
+#ifdef STATS
+opcodeCounters[1273].count++;
+#endif /* STATS */
+goto *dynOpcodes[ts + program[pc]];
+}
+
+movsc_4:
+{
+int16_t dconstant = program[pc +1];
+int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*constant);
+if (base) {
+    base->sf = MakeSizeAndFlags(constant,0);
+    strcpy((int8_t *)&(base->data) ,(int8_t *)&program[pc + dconstant + 4]);
+    g[4].tag = 4;
+        g[4].p = base;
+}
+else {
+    fprintf(stderr, "malloc failed");
+    return 1;
+}
+pc += 2;
+#ifdef STATS
+opcodeCounters[1274].count++;
+#endif /* STATS */
+goto *dynOpcodes[ts + program[pc]];
+}
+
+movsc_5:
+{
+int16_t dconstant = program[pc +1];
+int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*constant);
+if (base) {
+    base->sf = MakeSizeAndFlags(constant,0);
+    strcpy((int8_t *)&(base->data) ,(int8_t *)&program[pc + dconstant + 4]);
+    g[5].tag = 4;
+        g[5].p = base;
+}
+else {
+    fprintf(stderr, "malloc failed");
+    return 1;
+}
+pc += 2;
+#ifdef STATS
+opcodeCounters[1275].count++;
+#endif /* STATS */
+goto *dynOpcodes[ts + program[pc]];
+}
+
 err:
 {
 int16_t derrdisp = program[pc +1];
@@ -28569,7 +28701,7 @@ int64_t errdisp = *((int64_t*)(&program[pc + derrdisp]));
 printf("0:%d 1:%d 2:%d 3:%d 4:%d 5:%d\n", g[0].i, g[1].i, g[2].i, g[3].i,  g[4].i, g[5].i); 
 pc++;
 #ifdef STATS
-opcodeCounters[1270].count++;
+opcodeCounters[1276].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -28599,7 +28731,7 @@ fprintf(stderr, "type error, illegal types used for instruction: in");
 return 1;
 }
 #ifdef STATS
-opcodeCounters[1271].count++;
+opcodeCounters[1277].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -28629,7 +28761,7 @@ fprintf(stderr, "type error, illegal types used for instruction: in");
 return 1;
 }
 #ifdef STATS
-opcodeCounters[1272].count++;
+opcodeCounters[1278].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -28659,7 +28791,7 @@ fprintf(stderr, "type error, illegal types used for instruction: in");
 return 1;
 }
 #ifdef STATS
-opcodeCounters[1273].count++;
+opcodeCounters[1279].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -28689,7 +28821,7 @@ fprintf(stderr, "type error, illegal types used for instruction: in");
 return 1;
 }
 #ifdef STATS
-opcodeCounters[1274].count++;
+opcodeCounters[1280].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -28719,7 +28851,7 @@ fprintf(stderr, "type error, illegal types used for instruction: in");
 return 1;
 }
 #ifdef STATS
-opcodeCounters[1275].count++;
+opcodeCounters[1281].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -28749,7 +28881,7 @@ fprintf(stderr, "type error, illegal types used for instruction: in");
 return 1;
 }
 #ifdef STATS
-opcodeCounters[1276].count++;
+opcodeCounters[1282].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -28766,7 +28898,7 @@ fprintf(stderr, "type error, illegal types used for instruction: out");
 return 1;
 }
 #ifdef STATS
-opcodeCounters[1277].count++;
+opcodeCounters[1283].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -28783,7 +28915,7 @@ fprintf(stderr, "type error, illegal types used for instruction: out");
 return 1;
 }
 #ifdef STATS
-opcodeCounters[1278].count++;
+opcodeCounters[1284].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -28800,7 +28932,7 @@ fprintf(stderr, "type error, illegal types used for instruction: out");
 return 1;
 }
 #ifdef STATS
-opcodeCounters[1279].count++;
+opcodeCounters[1285].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -28817,7 +28949,7 @@ fprintf(stderr, "type error, illegal types used for instruction: out");
 return 1;
 }
 #ifdef STATS
-opcodeCounters[1280].count++;
+opcodeCounters[1286].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -28834,7 +28966,7 @@ fprintf(stderr, "type error, illegal types used for instruction: out");
 return 1;
 }
 #ifdef STATS
-opcodeCounters[1281].count++;
+opcodeCounters[1287].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -28851,7 +28983,7 @@ fprintf(stderr, "type error, illegal types used for instruction: out");
 return 1;
 }
 #ifdef STATS
-opcodeCounters[1282].count++;
+opcodeCounters[1288].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -28872,7 +29004,7 @@ fprintf(stderr, "type error, illegal types used for instruction: print");
 return 1;
 }
 #ifdef STATS
-opcodeCounters[1283].count++;
+opcodeCounters[1289].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -28893,7 +29025,7 @@ fprintf(stderr, "type error, illegal types used for instruction: print");
 return 1;
 }
 #ifdef STATS
-opcodeCounters[1284].count++;
+opcodeCounters[1290].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -28914,7 +29046,7 @@ fprintf(stderr, "type error, illegal types used for instruction: print");
 return 1;
 }
 #ifdef STATS
-opcodeCounters[1285].count++;
+opcodeCounters[1291].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -28935,7 +29067,7 @@ fprintf(stderr, "type error, illegal types used for instruction: print");
 return 1;
 }
 #ifdef STATS
-opcodeCounters[1286].count++;
+opcodeCounters[1292].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -28956,7 +29088,7 @@ fprintf(stderr, "type error, illegal types used for instruction: print");
 return 1;
 }
 #ifdef STATS
-opcodeCounters[1287].count++;
+opcodeCounters[1293].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }
@@ -28977,7 +29109,7 @@ fprintf(stderr, "type error, illegal types used for instruction: print");
 return 1;
 }
 #ifdef STATS
-opcodeCounters[1288].count++;
+opcodeCounters[1294].count++;
 #endif /* STATS */
 goto *dynOpcodes[ts + program[pc]];
 }

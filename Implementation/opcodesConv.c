@@ -39,6 +39,7 @@
 (Counter){"ret",0},
 (Counter){"newo",0},
 (Counter){"newb",0},
+(Counter){"movsc",0},
 (Counter){"err",0},
 (Counter){"in",0},
 (Counter){"out",0},
