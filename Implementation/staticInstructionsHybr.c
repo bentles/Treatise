@@ -1957,10 +1957,10 @@ goto *dynOpcodes[ts + program[pc]];
 div_0_1:
 {
 if (IsInt(g[0]) && IsInt(g[1])) {
-int64_t temp = g[0].i / g[1].i;
-g[0].i %= g[1].i;
-g[0].i = temp;
+int64_t temp = g[0].i;
+g[0].i = temp % g[1].i;
 g[0].tag = 0;
+g[0].i = temp / g[1].i;
 ts &= 0xF800;
 pc++;
 }
@@ -1977,10 +1977,10 @@ goto *dynOpcodes[ts + program[pc]];
 div_0_2:
 {
 if (IsInt(g[0]) && IsInt(g[2])) {
-int64_t temp = g[0].i / g[2].i;
-g[0].i %= g[2].i;
-g[0].i = temp;
+int64_t temp = g[0].i;
+g[0].i = temp % g[2].i;
 g[0].tag = 0;
+g[0].i = temp / g[2].i;
 ts &= 0xF800;
 pc++;
 }
@@ -1997,10 +1997,10 @@ goto *dynOpcodes[ts + program[pc]];
 div_0_3:
 {
 if (IsInt(g[0]) && IsInt(g[3])) {
-int64_t temp = g[0].i / g[3].i;
-g[0].i %= g[3].i;
-g[0].i = temp;
+int64_t temp = g[0].i;
+g[0].i = temp % g[3].i;
 g[0].tag = 0;
+g[0].i = temp / g[3].i;
 ts &= 0xF800;
 pc++;
 }
@@ -2017,10 +2017,10 @@ goto *dynOpcodes[ts + program[pc]];
 div_0_4:
 {
 if (IsInt(g[0]) && IsInt(g[4])) {
-int64_t temp = g[0].i / g[4].i;
-g[0].i %= g[4].i;
-g[0].i = temp;
+int64_t temp = g[0].i;
+g[0].i = temp % g[4].i;
 g[0].tag = 0;
+g[0].i = temp / g[4].i;
 ts &= 0xF800;
 pc++;
 }
@@ -2037,10 +2037,10 @@ goto *dynOpcodes[ts + program[pc]];
 div_0_5:
 {
 if (IsInt(g[0]) && IsInt(g[5])) {
-int64_t temp = g[0].i / g[5].i;
-g[0].i %= g[5].i;
-g[0].i = temp;
+int64_t temp = g[0].i;
+g[0].i = temp % g[5].i;
 g[0].tag = 0;
+g[0].i = temp / g[5].i;
 ts &= 0xF800;
 pc++;
 }
@@ -2057,10 +2057,10 @@ goto *dynOpcodes[ts + program[pc]];
 div_1_0:
 {
 if (IsInt(g[1]) && IsInt(g[0])) {
-int64_t temp = g[1].i / g[0].i;
-g[1].i %= g[0].i;
-g[0].i = temp;
+int64_t temp = g[1].i;
+g[0].i = temp % g[0].i;
 g[0].tag = 0;
+g[1].i = temp / g[0].i;
 ts &= 0xF800;
 pc++;
 }
@@ -2077,10 +2077,10 @@ goto *dynOpcodes[ts + program[pc]];
 div_1_2:
 {
 if (IsInt(g[1]) && IsInt(g[2])) {
-int64_t temp = g[1].i / g[2].i;
-g[1].i %= g[2].i;
-g[0].i = temp;
+int64_t temp = g[1].i;
+g[0].i = temp % g[2].i;
 g[0].tag = 0;
+g[1].i = temp / g[2].i;
 ts &= 0xF800;
 pc++;
 }
@@ -2097,10 +2097,10 @@ goto *dynOpcodes[ts + program[pc]];
 div_1_3:
 {
 if (IsInt(g[1]) && IsInt(g[3])) {
-int64_t temp = g[1].i / g[3].i;
-g[1].i %= g[3].i;
-g[0].i = temp;
+int64_t temp = g[1].i;
+g[0].i = temp % g[3].i;
 g[0].tag = 0;
+g[1].i = temp / g[3].i;
 ts &= 0xF800;
 pc++;
 }
@@ -2117,10 +2117,10 @@ goto *dynOpcodes[ts + program[pc]];
 div_1_4:
 {
 if (IsInt(g[1]) && IsInt(g[4])) {
-int64_t temp = g[1].i / g[4].i;
-g[1].i %= g[4].i;
-g[0].i = temp;
+int64_t temp = g[1].i;
+g[0].i = temp % g[4].i;
 g[0].tag = 0;
+g[1].i = temp / g[4].i;
 ts &= 0xF800;
 pc++;
 }
@@ -2137,10 +2137,10 @@ goto *dynOpcodes[ts + program[pc]];
 div_1_5:
 {
 if (IsInt(g[1]) && IsInt(g[5])) {
-int64_t temp = g[1].i / g[5].i;
-g[1].i %= g[5].i;
-g[0].i = temp;
+int64_t temp = g[1].i;
+g[0].i = temp % g[5].i;
 g[0].tag = 0;
+g[1].i = temp / g[5].i;
 ts &= 0xF800;
 pc++;
 }
@@ -2157,10 +2157,10 @@ goto *dynOpcodes[ts + program[pc]];
 div_2_0:
 {
 if (IsInt(g[2]) && IsInt(g[0])) {
-int64_t temp = g[2].i / g[0].i;
-g[2].i %= g[0].i;
-g[0].i = temp;
+int64_t temp = g[2].i;
+g[0].i = temp % g[0].i;
 g[0].tag = 0;
+g[2].i = temp / g[0].i;
 ts &= 0xF800;
 pc++;
 }
@@ -2177,10 +2177,10 @@ goto *dynOpcodes[ts + program[pc]];
 div_2_1:
 {
 if (IsInt(g[2]) && IsInt(g[1])) {
-int64_t temp = g[2].i / g[1].i;
-g[2].i %= g[1].i;
-g[0].i = temp;
+int64_t temp = g[2].i;
+g[0].i = temp % g[1].i;
 g[0].tag = 0;
+g[2].i = temp / g[1].i;
 ts &= 0xF800;
 pc++;
 }
@@ -2197,10 +2197,10 @@ goto *dynOpcodes[ts + program[pc]];
 div_2_3:
 {
 if (IsInt(g[2]) && IsInt(g[3])) {
-int64_t temp = g[2].i / g[3].i;
-g[2].i %= g[3].i;
-g[0].i = temp;
+int64_t temp = g[2].i;
+g[0].i = temp % g[3].i;
 g[0].tag = 0;
+g[2].i = temp / g[3].i;
 ts &= 0xF800;
 pc++;
 }
@@ -2217,10 +2217,10 @@ goto *dynOpcodes[ts + program[pc]];
 div_2_4:
 {
 if (IsInt(g[2]) && IsInt(g[4])) {
-int64_t temp = g[2].i / g[4].i;
-g[2].i %= g[4].i;
-g[0].i = temp;
+int64_t temp = g[2].i;
+g[0].i = temp % g[4].i;
 g[0].tag = 0;
+g[2].i = temp / g[4].i;
 ts &= 0xF800;
 pc++;
 }
@@ -2237,10 +2237,10 @@ goto *dynOpcodes[ts + program[pc]];
 div_2_5:
 {
 if (IsInt(g[2]) && IsInt(g[5])) {
-int64_t temp = g[2].i / g[5].i;
-g[2].i %= g[5].i;
-g[0].i = temp;
+int64_t temp = g[2].i;
+g[0].i = temp % g[5].i;
 g[0].tag = 0;
+g[2].i = temp / g[5].i;
 ts &= 0xF800;
 pc++;
 }
@@ -2257,10 +2257,10 @@ goto *dynOpcodes[ts + program[pc]];
 div_3_0:
 {
 if (IsInt(g[3]) && IsInt(g[0])) {
-int64_t temp = g[3].i / g[0].i;
-g[3].i %= g[0].i;
-g[0].i = temp;
+int64_t temp = g[3].i;
+g[0].i = temp % g[0].i;
 g[0].tag = 0;
+g[3].i = temp / g[0].i;
 ts &= 0xF800;
 pc++;
 }
@@ -2277,10 +2277,10 @@ goto *dynOpcodes[ts + program[pc]];
 div_3_1:
 {
 if (IsInt(g[3]) && IsInt(g[1])) {
-int64_t temp = g[3].i / g[1].i;
-g[3].i %= g[1].i;
-g[0].i = temp;
+int64_t temp = g[3].i;
+g[0].i = temp % g[1].i;
 g[0].tag = 0;
+g[3].i = temp / g[1].i;
 ts &= 0xF800;
 pc++;
 }
@@ -2297,10 +2297,10 @@ goto *dynOpcodes[ts + program[pc]];
 div_3_2:
 {
 if (IsInt(g[3]) && IsInt(g[2])) {
-int64_t temp = g[3].i / g[2].i;
-g[3].i %= g[2].i;
-g[0].i = temp;
+int64_t temp = g[3].i;
+g[0].i = temp % g[2].i;
 g[0].tag = 0;
+g[3].i = temp / g[2].i;
 ts &= 0xF800;
 pc++;
 }
@@ -2317,10 +2317,10 @@ goto *dynOpcodes[ts + program[pc]];
 div_3_4:
 {
 if (IsInt(g[3]) && IsInt(g[4])) {
-int64_t temp = g[3].i / g[4].i;
-g[3].i %= g[4].i;
-g[0].i = temp;
+int64_t temp = g[3].i;
+g[0].i = temp % g[4].i;
 g[0].tag = 0;
+g[3].i = temp / g[4].i;
 ts &= 0xF800;
 pc++;
 }
@@ -2337,10 +2337,10 @@ goto *dynOpcodes[ts + program[pc]];
 div_3_5:
 {
 if (IsInt(g[3]) && IsInt(g[5])) {
-int64_t temp = g[3].i / g[5].i;
-g[3].i %= g[5].i;
-g[0].i = temp;
+int64_t temp = g[3].i;
+g[0].i = temp % g[5].i;
 g[0].tag = 0;
+g[3].i = temp / g[5].i;
 ts &= 0xF800;
 pc++;
 }
@@ -2357,10 +2357,10 @@ goto *dynOpcodes[ts + program[pc]];
 div_4_0:
 {
 if (IsInt(g[4]) && IsInt(g[0])) {
-int64_t temp = g[4].i / g[0].i;
-g[4].i %= g[0].i;
-g[0].i = temp;
+int64_t temp = g[4].i;
+g[0].i = temp % g[0].i;
 g[0].tag = 0;
+g[4].i = temp / g[0].i;
 ts &= 0xF800;
 pc++;
 }
@@ -2377,10 +2377,10 @@ goto *dynOpcodes[ts + program[pc]];
 div_4_1:
 {
 if (IsInt(g[4]) && IsInt(g[1])) {
-int64_t temp = g[4].i / g[1].i;
-g[4].i %= g[1].i;
-g[0].i = temp;
+int64_t temp = g[4].i;
+g[0].i = temp % g[1].i;
 g[0].tag = 0;
+g[4].i = temp / g[1].i;
 ts &= 0xF800;
 pc++;
 }
@@ -2397,10 +2397,10 @@ goto *dynOpcodes[ts + program[pc]];
 div_4_2:
 {
 if (IsInt(g[4]) && IsInt(g[2])) {
-int64_t temp = g[4].i / g[2].i;
-g[4].i %= g[2].i;
-g[0].i = temp;
+int64_t temp = g[4].i;
+g[0].i = temp % g[2].i;
 g[0].tag = 0;
+g[4].i = temp / g[2].i;
 ts &= 0xF800;
 pc++;
 }
@@ -2417,10 +2417,10 @@ goto *dynOpcodes[ts + program[pc]];
 div_4_3:
 {
 if (IsInt(g[4]) && IsInt(g[3])) {
-int64_t temp = g[4].i / g[3].i;
-g[4].i %= g[3].i;
-g[0].i = temp;
+int64_t temp = g[4].i;
+g[0].i = temp % g[3].i;
 g[0].tag = 0;
+g[4].i = temp / g[3].i;
 ts &= 0xF800;
 pc++;
 }
@@ -2437,10 +2437,10 @@ goto *dynOpcodes[ts + program[pc]];
 div_4_5:
 {
 if (IsInt(g[4]) && IsInt(g[5])) {
-int64_t temp = g[4].i / g[5].i;
-g[4].i %= g[5].i;
-g[0].i = temp;
+int64_t temp = g[4].i;
+g[0].i = temp % g[5].i;
 g[0].tag = 0;
+g[4].i = temp / g[5].i;
 ts &= 0xF800;
 pc++;
 }
@@ -2457,10 +2457,10 @@ goto *dynOpcodes[ts + program[pc]];
 div_5_0:
 {
 if (IsInt(g[5]) && IsInt(g[0])) {
-int64_t temp = g[5].i / g[0].i;
-g[5].i %= g[0].i;
-g[0].i = temp;
+int64_t temp = g[5].i;
+g[0].i = temp % g[0].i;
 g[0].tag = 0;
+g[5].i = temp / g[0].i;
 ts &= 0xF800;
 pc++;
 }
@@ -2477,10 +2477,10 @@ goto *dynOpcodes[ts + program[pc]];
 div_5_1:
 {
 if (IsInt(g[5]) && IsInt(g[1])) {
-int64_t temp = g[5].i / g[1].i;
-g[5].i %= g[1].i;
-g[0].i = temp;
+int64_t temp = g[5].i;
+g[0].i = temp % g[1].i;
 g[0].tag = 0;
+g[5].i = temp / g[1].i;
 ts &= 0xF800;
 pc++;
 }
@@ -2497,10 +2497,10 @@ goto *dynOpcodes[ts + program[pc]];
 div_5_2:
 {
 if (IsInt(g[5]) && IsInt(g[2])) {
-int64_t temp = g[5].i / g[2].i;
-g[5].i %= g[2].i;
-g[0].i = temp;
+int64_t temp = g[5].i;
+g[0].i = temp % g[2].i;
 g[0].tag = 0;
+g[5].i = temp / g[2].i;
 ts &= 0xF800;
 pc++;
 }
@@ -2517,10 +2517,10 @@ goto *dynOpcodes[ts + program[pc]];
 div_5_3:
 {
 if (IsInt(g[5]) && IsInt(g[3])) {
-int64_t temp = g[5].i / g[3].i;
-g[5].i %= g[3].i;
-g[0].i = temp;
+int64_t temp = g[5].i;
+g[0].i = temp % g[3].i;
 g[0].tag = 0;
+g[5].i = temp / g[3].i;
 ts &= 0xF800;
 pc++;
 }
@@ -2537,10 +2537,10 @@ goto *dynOpcodes[ts + program[pc]];
 div_5_4:
 {
 if (IsInt(g[5]) && IsInt(g[4])) {
-int64_t temp = g[5].i / g[4].i;
-g[5].i %= g[4].i;
-g[0].i = temp;
+int64_t temp = g[5].i;
+g[0].i = temp % g[4].i;
 g[0].tag = 0;
+g[5].i = temp / g[4].i;
 ts &= 0xF800;
 pc++;
 }
@@ -2559,10 +2559,10 @@ divc_0:
 if (IsInt(g[0])) {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-int64_t temp = g[0].i / constant;
-g[0].i %= constant;
-g[0].i = temp;
+int64_t temp = g[0].i;
+g[0].i = temp % constant;
 g[0].tag = 0;
+g[0].i = temp / constant;
 ts &= 0xF800;
 pc += 2;
 }
@@ -2581,10 +2581,10 @@ divc_1:
 if (IsInt(g[1])) {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-int64_t temp = g[1].i / constant;
-g[1].i %= constant;
-g[0].i = temp;
+int64_t temp = g[1].i;
+g[0].i = temp % constant;
 g[0].tag = 0;
+g[1].i = temp / constant;
 ts &= 0xF800;
 pc += 2;
 }
@@ -2603,10 +2603,10 @@ divc_2:
 if (IsInt(g[2])) {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-int64_t temp = g[2].i / constant;
-g[2].i %= constant;
-g[0].i = temp;
+int64_t temp = g[2].i;
+g[0].i = temp % constant;
 g[0].tag = 0;
+g[2].i = temp / constant;
 ts &= 0xF800;
 pc += 2;
 }
@@ -2625,10 +2625,10 @@ divc_3:
 if (IsInt(g[3])) {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-int64_t temp = g[3].i / constant;
-g[3].i %= constant;
-g[0].i = temp;
+int64_t temp = g[3].i;
+g[0].i = temp % constant;
 g[0].tag = 0;
+g[3].i = temp / constant;
 ts &= 0xF800;
 pc += 2;
 }
@@ -2647,10 +2647,10 @@ divc_4:
 if (IsInt(g[4])) {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-int64_t temp = g[4].i / constant;
-g[4].i %= constant;
-g[0].i = temp;
+int64_t temp = g[4].i;
+g[0].i = temp % constant;
 g[0].tag = 0;
+g[4].i = temp / constant;
 ts &= 0xF800;
 pc += 2;
 }
@@ -2669,10 +2669,10 @@ divc_5:
 if (IsInt(g[5])) {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-int64_t temp = g[5].i / constant;
-g[5].i %= constant;
-g[0].i = temp;
+int64_t temp = g[5].i;
+g[0].i = temp % constant;
 g[0].tag = 0;
+g[5].i = temp / constant;
 ts &= 0xF800;
 pc += 2;
 }

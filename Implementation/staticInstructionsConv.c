@@ -114,10 +114,10 @@ div:
 int16_t arg0 = GetArg0(program[pc]);
 int16_t arg1 = GetArg1(program[pc]);
 if (IsInt(g[arg0]) && IsInt(g[arg1])) {
-int64_t temp = g[arg0].i / g[arg1].i;
-g[arg0].i %= g[arg1].i;
-g[0].i = temp;
+int64_t temp = g[arg0].i;
+g[0].i = temp % g[arg1].i;
 g[0].tag = 0;
+g[arg0].i = temp / g[arg1].i;
 ts &= 0xF800;
 pc++;
 }
@@ -137,10 +137,10 @@ int16_t arg0 = GetArg0(program[pc]);
 if (IsInt(g[arg0])) {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-int64_t temp = g[arg0].i / constant;
-g[arg0].i %= constant;
-g[0].i = temp;
+int64_t temp = g[arg0].i;
+g[0].i = temp % constant;
 g[0].tag = 0;
+g[arg0].i = temp / constant;
 ts &= 0xF800;
 pc += 2;
 }

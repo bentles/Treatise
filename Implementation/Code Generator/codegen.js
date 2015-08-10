@@ -101,10 +101,10 @@ var lookups = [
             pcChange: 1,
             legal: [i, i],
             template:
-                'int64_t temp = /*<0>*/.i / /*<1>*/.i;\n' +
-                '/*<0>*/.i %= /*<1>*/.i;\n' +
-                'g[0].i = temp;\n' +
+                'int64_t temp = /*<0>*/.i;\n' +
+                'g[0].i = temp % /*<1>*/.i;\n' +
                 'g[0].tag = 0;\n' +
+                '/*<0>*/.i = temp / /*<1>*/.i;\n' +
                 'ts &= 0xF800;\n' 
         }]
     },
@@ -116,10 +116,10 @@ var lookups = [
             pcChange: 2,
             legal: [i],
             template: getConst('constant') +
-                'int64_t temp = /*<0>*/.i / constant;\n' +
-                '/*<0>*/.i %= constant;\n' +
-                'g[0].i = temp;\n' +
+                'int64_t temp = /*<0>*/.i;\n' +
+                'g[0].i = temp % constant;\n' +
                 'g[0].tag = 0;\n' +
+                '/*<0>*/.i = temp / constant;\n' +
                 'ts &= 0xF800;\n' 
         }]
     },
