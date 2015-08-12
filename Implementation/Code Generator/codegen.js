@@ -101,10 +101,11 @@ var lookups = [
             pcChange: 1,
             legal: [i, i],
             template:
-                'int64_t temp = /*<0>*/.i;\n' +
-                'g[0].i = temp % /*<1>*/.i;\n' +
+            'int64_t divtemp = /*<0>*/.i / /*<1>*/.i;\n' +
+                'int64_t modtemp = /*<0>*/.i % /*<1>*/.i;\n' +
+                'g[0].i = modtemp;\n' +
                 'g[0].tag = 0;\n' +
-                '/*<0>*/.i = temp / /*<1>*/.i;\n' +
+                '/*<0>*/.i = divtemp;\n' +
                 'ts &= 0xF800;\n' 
         }]
     },
@@ -116,10 +117,11 @@ var lookups = [
             pcChange: 2,
             legal: [i],
             template: getConst('constant') +
-                'int64_t temp = /*<0>*/.i;\n' +
-                'g[0].i = temp % constant;\n' +
+                'int64_t divtemp = /*<0>*/.i / constant;\n' +
+                'int64_t modtemp = /*<0>*/.i % constant;\n' +
+                'g[0].i = modtemp;\n' +
                 'g[0].tag = 0;\n' +
-                '/*<0>*/.i = temp / constant;\n' +
+                '/*<0>*/.i = divtemp;\n' +
                 'ts &= 0xF800;\n' 
         }]
     },
@@ -194,7 +196,7 @@ var lookups = [
             name: 'shlc',
             pcChange: 2,
             legal: [i],
-            template: getConst('constant') + '/*<0>*/.i <<= constant;\n'
+            template: 'int16_t constant = program[pc + 1];\n' + '/*<0>*/.i <<= constant;\n'
         }]
     },
     {
@@ -216,7 +218,7 @@ var lookups = [
             name: 'shr',
             pcChange: 1,
             legal: [i, i],
-            template: '/*<0>*/.i = (uint64_t)/*<0>*/.i >> /*<0>*/.i;\n'
+            template: '/*<0>*/.i = (int64_t)((uint64_t)/*<0>*/.i >> /*<0>*/.i);\n'
         }]
     },
     {
@@ -227,7 +229,7 @@ var lookups = [
             pcChange: 2,
             legal: [i],
             template: 'int16_t constant = program[pc + 1];\n' +
-                '/*<0>*/.i = (uint64_t)/*<0>*/.i >> constant;\n'
+                '/*<0>*/.i = (int64_t)((uint64_t)/*<0>*/.i >> constant);\n'
         }]
     },
     {

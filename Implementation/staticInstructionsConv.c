@@ -114,10 +114,11 @@ div:
 int16_t arg0 = GetArg0(program[pc]);
 int16_t arg1 = GetArg1(program[pc]);
 if (IsInt(g[arg0]) && IsInt(g[arg1])) {
-int64_t temp = g[arg0].i;
-g[0].i = temp % g[arg1].i;
+int64_t divtemp = g[arg0].i / g[arg1].i;
+int64_t modtemp = g[arg0].i % g[arg1].i;
+g[0].i = modtemp;
 g[0].tag = 0;
-g[arg0].i = temp / g[arg1].i;
+g[arg0].i = divtemp;
 ts &= 0xF800;
 pc++;
 }
@@ -137,10 +138,11 @@ int16_t arg0 = GetArg0(program[pc]);
 if (IsInt(g[arg0])) {
 int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
-int64_t temp = g[arg0].i;
-g[0].i = temp % constant;
+int64_t divtemp = g[arg0].i / constant;
+int64_t modtemp = g[arg0].i % constant;
+g[0].i = modtemp;
 g[0].tag = 0;
-g[arg0].i = temp / constant;
+g[arg0].i = divtemp;
 ts &= 0xF800;
 pc += 2;
 }
@@ -268,8 +270,7 @@ shlc:
 {
 int16_t arg0 = GetArg0(program[pc]);
 if (IsInt(g[arg0])) {
-int16_t dconstant = program[pc +1];
-int64_t constant = *((int64_t*)(&program[pc + dconstant]));
+int16_t constant = program[pc + 1];
 g[arg0].i <<= constant;
 pc += 2;
 }
@@ -307,7 +308,7 @@ shr:
 int16_t arg0 = GetArg0(program[pc]);
 int16_t arg1 = GetArg1(program[pc]);
 if (IsInt(g[arg0]) && IsInt(g[arg1])) {
-g[arg0].i = (uint64_t)g[arg0].i >> g[arg0].i;
+g[arg0].i = (int64_t)((uint64_t)g[arg0].i >> g[arg0].i);
 pc++;
 }
 else {
@@ -325,7 +326,7 @@ shrc:
 int16_t arg0 = GetArg0(program[pc]);
 if (IsInt(g[arg0])) {
 int16_t constant = program[pc + 1];
-g[arg0].i = (uint64_t)g[arg0].i >> constant;
+g[arg0].i = (int64_t)((uint64_t)g[arg0].i >> constant);
 pc += 2;
 }
 else {
