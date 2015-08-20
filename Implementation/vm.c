@@ -94,9 +94,9 @@ FILE *filep = fopen(argv[1], "rb");
  * ==================
  * example for reference:
  *
- * add0_0:
- *     g[0] = g[0] + g[0];
- *     pc += 2;
+ * add_0_0:
+ *     g[0].i += g[0];
+ *     pc++;
  *     goto *dynOpcodes[ts + program[pc]];
  */    
 #ifdef TYPE
