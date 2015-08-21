@@ -56,24 +56,13 @@ Applications}
 \section{Introduction}
 
 \subsection{Dynamically Typed Languages}
-Dynamically typed languages are the foundation on which the modern website is
-built. Javascript is, primarily, the language that powers interactive websites
-where elements on the page can be added and removed and changed in real time
-based on what the user does. PHP is the most commonly used language for server-side scripting. This is what allows web pages to have dynamic
-content. That a page can be personalised on a per-user basis or generated as
-it is needed to exist is, for the majority of web sites, brought about by these
-languages. Several other dynamically typed languages are commonly used for
-server-side scripting. These include ruby, python and javascript.
+Dynamically typed languages are the foundation on which the modern website is built. Javascript is, primarily, the language that powers interactive websites where  elements on the page can be added and removed and changed in real time
+based on what the user does. PHP is the most commonly used language for server-side scripting (do I need a citation here?). This is what allows web pages to have dynamic content. That a page can be personalised on a per-user basis or generated as it is needed to exist is, for the majority of web sites, brought about by these languages. Several other dynamically typed languages are commonly used for server-side scripting. These include ruby, python and javascript.
 
 \subsection{Role of Interpreters in Dynamically Typed Languages}
 Dynamically typed languages are commonly paired with an interpreter. That is,
-these languages are not compiled to machine code that can be run on some architecture.
-Instead, it is the job of a seperate program to determine the meaning of the program
-and perform the instructions on actual hardware. Sometimes this is done by parsing
-the text of the program directly and executing the code line by line, but a more common (is it??) approach is the compile the source code to an intermediary langauge
-called byte-code. The interpreter reads and executes the byte code instead of the 
-original program. This is easier and faster becuse the byte-code has a very simple,
-consistent structure.
+these languages are not compiled to machine code that can be run on some architecture. Instead, it is the job of a seperate program to determine the meaning of the program and perform the instructions on actual hardware. Sometimes this is done by parsing the text of the program directly and executing the code line by line, but a more common (is it??) approach is the compile the source code to an intermediary langauge called byte-code. The interpreter reads and executes the byte code instead of the original program. This is easier and faster becuse the byte-code has a very simple, consistent structure. The former is generally called an interpreter and the latter is generally called a ``Virtual Machine''\cite{Shi2007}.
+
 
 \subsection{Virtual Machines}
 
@@ -81,8 +70,6 @@ To best describe the virtual machine presented in this treatise,
 a quick summary of virtual machines follows. The heirarchy of virtual
 machines is presented and our virtual machine is situated within it.
 Some important virtual machine terminology is introduced.
-
-\subsubsection{What is a Virtual Machine?}
 
 A \emph{virtual machine} or \emph{VM} is a computer program that
 ``executes software in the same manner as the machine for which the
@@ -96,108 +83,6 @@ This means that we can use a virtual machine to run programs that
 are incompatable with the host. The virtual machine allows this by
 providing a mapping of its state to the state of the host machine
 on which it is running \cite[pg4]{JamesE.Smith2005}.
-
-\subsubsection{The Types of Virtual Machines}
-
-Virtual machines come in two varieties: \emph{process }virtual machines
-and \emph{system} virtual machines.
-
-A process virtual machine is ``capable of supporting an individual
-process''\cite[pg9]{JamesE.Smith2005}. This means that the host
-runs the guest for as long as a process on the guest machine needs
-it. Once the process has completed its execution the guest machine
-terminates\cite[pg9]{JamesE.Smith2005}. An example of a process virtual
-machine is the Java Virtual Machine or JVM. All java programs run
-on the JVM. An instance of the JVM is started when you execute a java
-program and killed when its execution is complete.
-
-A system virtual machine ``provides a complete system environment''
-''\cite[pg9]{JamesE.Smith2005}. This means that it can support an
-entire operating system on the guest machine and the many processes
-that the guest operating system executes. A system virtual machine
-will terminate when the system is shut down.
-
-\subsubsection{The Types of Process Virtual Machines}
-
-Since this treatise outlines a process virtual machine we shall look
-at the different types of process virtual machines and ignore the
-finer details of system virtual machines. Process virtual machines
-can be divided into two categories: \emph{multiprogrammed} \emph{systems}
-and \emph{dynamic} \emph{translators}. These are divided along whether
-or not the guest machine uses the same instruction set architecture
-as the host machine.
-
-With multiprogramming the guest and host use the same instruction
-set. Multiprogramming is supported by most operating systems and allows
-a user to run many processes at once by making each process think
-it has access to an entire machine instead of only part of a machine
-''\cite[pg13]{JamesE.Smith2005}. The OS creates an environment per
-process that it terminates when that process ends execution.
-
-With dynamic translators the instruction set of the host and guest
-generally do not match. The virtual machine translates blocks of instructions
-meant for the machine it is emulating and translates them into instructions
-to be run on the host. Not all code is translated in a dynamic translater.
-Only code that is used often enough will be translated as there is
-an overhead involved with translating code. The code that is not translated
-is interpreted. Interpreted instructions are read, their meaning interpreted
-and then executed. This interpretation step must happen each time
-a piece of code is executed so code that is executed enough times
-will be dynamically translated and cached so later execution is faster.
-Dynamically translating in this manner is known as ju\emph{st-in-time
-compilation} (JIT compilation).
-
-\subsubsection{Dynamic vs Statically Typed Programming Languages}
-
-A dynamically typed language is one in which the type information
-is associated with values \cite[pg4]{RobertoIerusalimschy}(REF lua
-VM intro). An example of a dynamically typed language is javascript
-where the var keyword is used for variables and the type is inferred
-from the value stored into a variable. A statically typed language
-is one in which the type information is associated with the variable.
-An example of this is java where variables are declared using keywords
-that define their type (\emph{int}, \emph{string} etc).
-
-\subsubsection{Where Our VM is Situated}
-
-The virtual machine described in this treatise is a process virtual
-machine. This process machine will have a new instruction set architecture
-and hence will differ from any host machine's ISA. The virtual machine
-does not make use of JIT compilation. It is entirely interpreted.
-It is also dynamically typed.
-
-\subsection{A Virtual Machine for Many Instance Applications}
-
-Modern process virtual machines make use of JIT compilers. Both JVM
-and .Net make use of a JIT compiler \cite{MSDN,Oracle}. For applications
-that run many concurrent instances, like a web server which which
-starts up a new process for every client, a virtual machine that makes
-use of a JIT compiler defeats the benefits of read-only memory sharing.
-Since memory sharing is not possible when using a JIT compiler, if
-we wish to take advantage of it a JIT-less virtual machine is needed.
-However the JIT compiler compiler is an important feature of a VM
-that allows for code given to it at runtime to be compiled into machine
-code that can run directly on the host. This compiled code is cached
-and allows for future execution to be faster. Sacrificing the JIT
-compiler to allow memory sharing presents us with a need to find alternative
-ways to let our programs execute quickly.
-
-\subsubsection{Type-Mapping}
-
-The idea to be explored for a more performant JIT-Less VM for a dynamically
-typed language is to make use of a \emph{finite state space}. The
-VM has a small number of registers and instructions that it can perform.
-For a dynamically typed VM these instructions may be able to take
-arguments of different types. For instance an instruction to add may
-take two integers or an integer and a float or two floats. The instruction
-has to discover the types of the arguments and perform the correct
-action. A finite state machine can be used to keep track of the types
-of the values in all of the registers. Whenever the type in a register
-is changed, the finite state machine makes a state transition that
-keeps track of that change. This means we can use the state of the
-finite state machine to jump to specialised versions of each instruction
-for each combination of inputs. This is an untested approach that
-may improve the performance of our VM.
 
 \subsection{Project Scope}
 
@@ -227,10 +112,102 @@ important.
 \subsection{Overview of Treatise}
 
 To be completed
-
 \newpage{}
 
 \section{Literature Review, Existing systems and Modern Processors}
+
+\subsection{The Types of Virtual Machines}
+
+Virtual machines come in two varieties: \emph{process }virtual machines
+and \emph{system} virtual machines.
+
+A process virtual machine is ``capable of supporting an individual
+process''\cite[pg9]{JamesE.Smith2005}. This means that the host
+runs the guest for as long as a process on the guest machine needs
+it. Once the process has completed its execution the guest machine
+terminates\cite[pg9]{JamesE.Smith2005}. An example of a process virtual
+machine is the Java Virtual Machine or JVM. All java programs run
+on the JVM. An instance of the JVM is started when you execute a java
+program and killed when its execution is complete.
+
+A system virtual machine ``provides a complete system environment''
+''\cite[pg9]{JamesE.Smith2005}. This means that it can support an
+entire operating system on the guest machine and the many processes
+that the guest operating system executes. A system virtual machine
+will terminate when the system is shut down.
+
+\subsection{The Types of Process Virtual Machines}
+
+Since this treatise outlines a process virtual machine we shall look
+at the different types of process virtual machines and ignore the
+finer details of system virtual machines. Process virtual machines
+can be divided into two categories: \emph{multiprogrammed} \emph{systems}
+and \emph{dynamic} \emph{translators}. These are divided along whether
+or not the guest machine uses the same instruction set architecture
+as the host machine.
+
+With multiprogramming the guest and host use the same instruction
+set. Multiprogramming is supported by most operating systems and allows
+a user to run many processes at once by making each process think
+it has access to an entire machine instead of only part of a machine
+''\cite[pg13]{JamesE.Smith2005}. The OS creates an environment per
+process that it terminates when that process ends execution.
+
+With dynamic translators the instruction set of the host and guest
+generally do not match. The virtual machine translates blocks of instructions
+meant for the machine it is emulating and translates them into instructions
+to be run on the host. Not all code is translated in a dynamic translater.
+Only code that is used often enough will be translated as there is
+an overhead involved with translating code. The code that is not translated
+is interpreted. Interpreted instructions are read, their meaning interpreted
+and then executed. This interpretation step must happen each time
+a piece of code is executed so code that is executed enough times
+will be dynamically translated and cached so later execution is faster.
+Dynamically translating in this manner is known as ju\emph{st-in-time
+compilation} (JIT compilation).
+
+\subsection{Dynamic vs Statically Typed Programming Languages}
+
+A dynamically typed language is one in which the type information
+is associated with values \cite[pg4]{RobertoIerusalimschy}(REF lua
+VM intro). An example of a dynamically typed language is javascript
+where the var keyword is used for variables and the type is inferred
+from the value stored into a variable. A statically typed language
+is one in which the type information is associated with the variable.
+An example of this is java where variables are declared using keywords
+that define their type (\emph{int}, \emph{string} etc).
+
+\subsection{Where Our VM is Situated}
+
+The virtual machine described in this treatise is a process virtual
+machine. This process machine will have a new instruction set architecture
+and hence will differ from any host machine's ISA. The virtual machine
+does not make use of JIT compilation. It is entirely interpreted.
+It is also dynamically typed.
+
+\subsection{A Virtual Machine for Many Instance Applications}
+
+Modern process virtual machines make use of JIT compilers. Both JVM
+and .Net make use of a JIT compiler \cite{MSDN,Oracle}. For applications
+that run many concurrent instances, like a web server which which
+starts up a new process for every client, a virtual machine that makes
+use of a JIT compiler defeats the benefits of read-only memory sharing.
+Since memory sharing is not possible when using a JIT compiler, if
+we wish to take advantage of it a JIT-less virtual machine is needed.
+However the JIT compiler compiler is an important feature of a VM
+that allows for code given to it at runtime to be compiled into machine
+code that can run directly on the host. This compiled code is cached
+and allows for future execution to be faster. Sacrificing the JIT
+compiler to allow memory sharing presents us with a need to find alternative
+ways to let our programs execute quickly.
+
+\subsection{Type-Mapping and Argument Case Expansion}
+
+A type-mapped VM is one which keeps track of the state of the types of its registers. This is beneficial because every instruction in a conventional VM design must first verify the types of its inputs before it can act on them. These type checks can be eliminated with type-mapping and intructions can be customised based on the types of the inputs they receive. This is closely coupled with the idea of argument case expansion. For Type-Mapping to be effective the VM must dispatch on its current type state. This is what eliminates the type checking step. But if the VM does not also dispatch on the arguments for the next instruction it cannot know which version of the instruction is appropriate. Argument case expansion means having a version of each instruction for every combination of arguments.
+
+
+
+
 
 \subsection{Modern Processor Architecture}
 
