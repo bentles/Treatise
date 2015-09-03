@@ -27,4 +27,7 @@ void printStats(void)
         printf("%s, %d\n", cur.name, cur.count);
         cur = opcodeCounters[++i];
     }
+
+    puts("\nType state switching statistics:\n============================\n");
+    printf("Nr of switches: %d\n", stateSwitches);
 }

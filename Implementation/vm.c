@@ -35,6 +35,11 @@ int64_t ts = 0; //matches what registers are init to
 
 int main(int argc, char *argv[])
 {
+    //init stateSwitches variable
+#ifdef STATS
+    stateSwitches = 0;
+#endif /* STATS */
+    
 	//state with static opcode as lower bits is an index into this table
 	//[state : 6 bits][opcode : 11 bits] => the table has max 2^17 = 131072
 	//elements

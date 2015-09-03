@@ -9,7 +9,7 @@
 typedef struct ValueStruct value;
 struct ValueStruct
 {
-	int tag;
+	int64_t tag;
 	/* 0 - 64 bit int
 	 * 1 - value pointer / NULL
      * 2 - object pointer

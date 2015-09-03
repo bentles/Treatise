@@ -119,7 +119,6 @@ int64_t modtemp = g[arg0].i % g[arg1].i;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[arg0].i = divtemp;
-ts &= 0xF800;
 pc++;
 }
 else {
@@ -143,7 +142,6 @@ int64_t modtemp = g[arg0].i % constant;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[arg0].i = divtemp;
-ts &= 0xF800;
 pc += 2;
 }
 else {
@@ -841,7 +839,7 @@ newo:
 int16_t arg0 = GetArg0(program[pc]);
 int16_t arg1 = GetArg1(program[pc]);
 if (IsInt(g[arg1])) {
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[arg1].i);
+object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[arg1].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[arg0].tag = 2;

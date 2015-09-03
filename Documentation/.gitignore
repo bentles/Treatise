@@ -1,1 +1,6 @@
 *.log
+*.pdf
+*.desktop.*
+*.desktop
+*.bak
+\#*#

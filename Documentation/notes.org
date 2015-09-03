@@ -1,0 +1,18 @@
+* chp1
+** easier coupling
+dynamic typed languages "glue languages"
+- why dynamic not static for these
+** interpreters
+*** 3 types of interpreters
+**** line by line text interpretation
+**** AST
+***** intruduce idea of AST
+**** bytecode
+***** focusing on this one
+** how a VM is organised in high level language
+** project outline
+*** project objectives
+**** implementing 
+**** evaluating
+*** scope
+*** risks

@@ -106,7 +106,7 @@ var lookups = [
                 'g[0].i = modtemp;\n' +
                 'g[0].tag = 0;\n' +
                 '/*<0>*/.i = divtemp;\n' +
-                'ts &= 0xF800;\n' 
+                '/*<state:0:0>*/' 
         }]
     },
     {
@@ -122,7 +122,7 @@ var lookups = [
                 'g[0].i = modtemp;\n' +
                 'g[0].tag = 0;\n' +
                 '/*<0>*/.i = divtemp;\n' +
-                'ts &= 0xF800;\n' 
+                '/*<state:0:0>*/' 
         }]
     },
     {
@@ -640,7 +640,7 @@ var lookups = [
         instructions: [{
             name: 'newo', pcChange: 1, legal: [g,i],
             template:
-                'object *base = (object*)malloc(sizeof(object) + sizeof(value)*/*<1>*/.i);\n' +
+                'object *base = (object*)malloc(sizeof(object) + sizeof(value)* /*<1>*/.i);\n' +
                 'if (base) {\n' +
                 'base->sf = MakeSizeAndFlags(size,0);\n' +
                 '/*<0>*/.tag = 2;\n' +
@@ -1147,7 +1147,19 @@ InstructionGenerator.prototype = {
 
         hexMask += parseInt(bitMask + '0'.repeat(this.opcodesize), 2).toString(16);
         //Set the Tag and edit the state
-        return (andoperator? 'ts &= 0x' : 'ts |= 0x') + hexMask + ' /*' + bitMask + '*/';
+
+        var debugStart = "#ifdef STATS\n" +
+                "int64_t prevts = ts;\n" +
+                "#endif\n";
+        
+        var tsUpdate = (andoperator? 'ts &= 0x' : 'ts |= 0x') + hexMask + '; /*' + bitMask + '*/\n';
+
+        var debugEnd = "#ifdef STATS\n" +
+                "if (prevts != ts)\n" +
+                "    stateSwitches++;\n" +
+                "#endif\n";
+        
+        return debugStart + tsUpdate + debugEnd;
     },
 
     changePC: function(pcChange) {
@@ -1189,7 +1201,7 @@ InstructionGenerator.prototype = {
                 token = '/*<state:' + j + '>*/';
                 if (vm === typeVM)
                     subbedString = findAndReplace(token, subbedString,
-                                                  this.changeState(call[0], j) + ';\n');
+                                                  this.changeState(call[0], j));
                 else if (vm === convVM || vm === hybrVM)
                     subbedString = findAndReplace(token, subbedString, ''); //remove state changes
 
@@ -1198,8 +1210,7 @@ InstructionGenerator.prototype = {
                     token = '/*<state:' + j + ':' + k +'>*/';
 
                     if (vm === typeVM) {                    
-                        subbedString = findAndReplace(token, subbedString, 'ts '
-                                                      + this.changeState(k,j));
+                        subbedString = findAndReplace(token, subbedString, this.changeState(k,j));
                     }
                     else if (vm === convVM || vm === hybrVM) {
                         subbedString = findAndReplace(token, subbedString, '');

@@ -1,6 +1,7 @@
 #ifndef STATS_H
 #define STATS_H
 
+int stateSwitches;
 /*
 Ease of use counter for how many times a method is used
 */

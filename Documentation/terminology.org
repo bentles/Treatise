@@ -1,0 +1,17 @@
+* Terminology
+** Instructions vs opcodes
+** Arguments vs inputs vs operands
+Actual values for quotient and divisor are arguments, registers that hold each are operands
+- actual values are arguments
+- registers that hold the arguments are operands
+** operand case expansion and type case expansion
+** what to call operand case expansion VM
+*** opcode dispatch, operand lookup, type dispatch (conventional VM)
+*** opcode-operand dispatch VM
+*** opcode-operand-type dispatch VM
+** new terminology: dispatch code
+comprised of
+- opcode 
+  - instruction number
+  - register combination
+- type state (types of all registers)

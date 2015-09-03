@@ -1241,7 +1241,14 @@ int64_t modtemp = g[0].i % g[1].i;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[0].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[120].count++;
@@ -1256,7 +1263,14 @@ int64_t modtemp = g[0].i % g[2].i;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[0].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[121].count++;
@@ -1271,7 +1285,14 @@ int64_t modtemp = g[0].i % g[3].i;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[0].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[122].count++;
@@ -1286,7 +1307,14 @@ int64_t modtemp = g[0].i % g[4].i;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[0].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[123].count++;
@@ -1301,7 +1329,14 @@ int64_t modtemp = g[0].i % g[5].i;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[0].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[124].count++;
@@ -1316,7 +1351,14 @@ int64_t modtemp = g[1].i % g[0].i;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[1].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[125].count++;
@@ -1331,7 +1373,14 @@ int64_t modtemp = g[1].i % g[2].i;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[1].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[126].count++;
@@ -1346,7 +1395,14 @@ int64_t modtemp = g[1].i % g[3].i;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[1].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[127].count++;
@@ -1361,7 +1417,14 @@ int64_t modtemp = g[1].i % g[4].i;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[1].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[128].count++;
@@ -1376,7 +1439,14 @@ int64_t modtemp = g[1].i % g[5].i;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[1].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[129].count++;
@@ -1391,7 +1461,14 @@ int64_t modtemp = g[2].i % g[0].i;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[2].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[130].count++;
@@ -1406,7 +1483,14 @@ int64_t modtemp = g[2].i % g[1].i;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[2].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[131].count++;
@@ -1421,7 +1505,14 @@ int64_t modtemp = g[2].i % g[3].i;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[2].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[132].count++;
@@ -1436,7 +1527,14 @@ int64_t modtemp = g[2].i % g[4].i;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[2].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[133].count++;
@@ -1451,7 +1549,14 @@ int64_t modtemp = g[2].i % g[5].i;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[2].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[134].count++;
@@ -1466,7 +1571,14 @@ int64_t modtemp = g[3].i % g[0].i;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[3].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[135].count++;
@@ -1481,7 +1593,14 @@ int64_t modtemp = g[3].i % g[1].i;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[3].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[136].count++;
@@ -1496,7 +1615,14 @@ int64_t modtemp = g[3].i % g[2].i;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[3].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[137].count++;
@@ -1511,7 +1637,14 @@ int64_t modtemp = g[3].i % g[4].i;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[3].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[138].count++;
@@ -1526,7 +1659,14 @@ int64_t modtemp = g[3].i % g[5].i;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[3].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[139].count++;
@@ -1541,7 +1681,14 @@ int64_t modtemp = g[4].i % g[0].i;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[4].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[140].count++;
@@ -1556,7 +1703,14 @@ int64_t modtemp = g[4].i % g[1].i;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[4].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[141].count++;
@@ -1571,7 +1725,14 @@ int64_t modtemp = g[4].i % g[2].i;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[4].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[142].count++;
@@ -1586,7 +1747,14 @@ int64_t modtemp = g[4].i % g[3].i;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[4].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[143].count++;
@@ -1601,7 +1769,14 @@ int64_t modtemp = g[4].i % g[5].i;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[4].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[144].count++;
@@ -1616,7 +1791,14 @@ int64_t modtemp = g[5].i % g[0].i;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[5].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[145].count++;
@@ -1631,7 +1813,14 @@ int64_t modtemp = g[5].i % g[1].i;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[5].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[146].count++;
@@ -1646,7 +1835,14 @@ int64_t modtemp = g[5].i % g[2].i;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[5].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[147].count++;
@@ -1661,7 +1857,14 @@ int64_t modtemp = g[5].i % g[3].i;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[5].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[148].count++;
@@ -1676,7 +1879,14 @@ int64_t modtemp = g[5].i % g[4].i;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[5].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[149].count++;
@@ -1693,7 +1903,14 @@ int64_t modtemp = g[0].i % constant;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[0].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc += 2;
 #ifdef STATS
 opcodeCounters[150].count++;
@@ -1710,7 +1927,14 @@ int64_t modtemp = g[1].i % constant;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[1].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc += 2;
 #ifdef STATS
 opcodeCounters[151].count++;
@@ -1727,7 +1951,14 @@ int64_t modtemp = g[2].i % constant;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[2].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc += 2;
 #ifdef STATS
 opcodeCounters[152].count++;
@@ -1744,7 +1975,14 @@ int64_t modtemp = g[3].i % constant;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[3].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc += 2;
 #ifdef STATS
 opcodeCounters[153].count++;
@@ -1761,7 +1999,14 @@ int64_t modtemp = g[4].i % constant;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[4].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc += 2;
 #ifdef STATS
 opcodeCounters[154].count++;
@@ -1778,7 +2023,14 @@ int64_t modtemp = g[5].i % constant;
 g[0].i = modtemp;
 g[0].tag = 0;
 g[5].i = divtemp;
-ts &= 0xF800;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc += 2;
 #ifdef STATS
 opcodeCounters[155].count++;
@@ -4766,7 +5018,14 @@ movip_0_1:
 {
 g[0].p = g[1].p;
 g[0].tag = g[1].tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[444].count++;
@@ -4778,7 +5037,14 @@ movip_0_2:
 {
 g[0].p = g[2].p;
 g[0].tag = g[2].tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[445].count++;
@@ -4790,7 +5056,14 @@ movip_0_3:
 {
 g[0].p = g[3].p;
 g[0].tag = g[3].tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[446].count++;
@@ -4802,7 +5075,14 @@ movip_0_4:
 {
 g[0].p = g[4].p;
 g[0].tag = g[4].tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[447].count++;
@@ -4814,7 +5094,14 @@ movip_0_5:
 {
 g[0].p = g[5].p;
 g[0].tag = g[5].tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[448].count++;
@@ -4826,7 +5113,14 @@ movip_1_0:
 {
 g[1].p = g[0].p;
 g[1].tag = g[0].tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[449].count++;
@@ -4838,7 +5132,14 @@ movip_1_2:
 {
 g[1].p = g[2].p;
 g[1].tag = g[2].tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[450].count++;
@@ -4850,7 +5151,14 @@ movip_1_3:
 {
 g[1].p = g[3].p;
 g[1].tag = g[3].tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[451].count++;
@@ -4862,7 +5170,14 @@ movip_1_4:
 {
 g[1].p = g[4].p;
 g[1].tag = g[4].tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[452].count++;
@@ -4874,7 +5189,14 @@ movip_1_5:
 {
 g[1].p = g[5].p;
 g[1].tag = g[5].tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[453].count++;
@@ -4886,7 +5208,14 @@ movip_2_0:
 {
 g[2].p = g[0].p;
 g[2].tag = g[0].tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[454].count++;
@@ -4898,7 +5227,14 @@ movip_2_1:
 {
 g[2].p = g[1].p;
 g[2].tag = g[1].tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[455].count++;
@@ -4910,7 +5246,14 @@ movip_2_3:
 {
 g[2].p = g[3].p;
 g[2].tag = g[3].tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[456].count++;
@@ -4922,7 +5265,14 @@ movip_2_4:
 {
 g[2].p = g[4].p;
 g[2].tag = g[4].tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[457].count++;
@@ -4934,7 +5284,14 @@ movip_2_5:
 {
 g[2].p = g[5].p;
 g[2].tag = g[5].tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[458].count++;
@@ -4946,7 +5303,14 @@ movip_3_0:
 {
 g[3].p = g[0].p;
 g[3].tag = g[0].tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[459].count++;
@@ -4958,7 +5322,14 @@ movip_3_1:
 {
 g[3].p = g[1].p;
 g[3].tag = g[1].tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[460].count++;
@@ -4970,7 +5341,14 @@ movip_3_2:
 {
 g[3].p = g[2].p;
 g[3].tag = g[2].tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[461].count++;
@@ -4982,7 +5360,14 @@ movip_3_4:
 {
 g[3].p = g[4].p;
 g[3].tag = g[4].tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[462].count++;
@@ -4994,7 +5379,14 @@ movip_3_5:
 {
 g[3].p = g[5].p;
 g[3].tag = g[5].tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[463].count++;
@@ -5006,7 +5398,14 @@ movip_4_0:
 {
 g[4].p = g[0].p;
 g[4].tag = g[0].tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[464].count++;
@@ -5018,7 +5417,14 @@ movip_4_1:
 {
 g[4].p = g[1].p;
 g[4].tag = g[1].tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[465].count++;
@@ -5030,7 +5436,14 @@ movip_4_2:
 {
 g[4].p = g[2].p;
 g[4].tag = g[2].tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[466].count++;
@@ -5042,7 +5455,14 @@ movip_4_3:
 {
 g[4].p = g[3].p;
 g[4].tag = g[3].tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[467].count++;
@@ -5054,7 +5474,14 @@ movip_4_5:
 {
 g[4].p = g[5].p;
 g[4].tag = g[5].tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[468].count++;
@@ -5066,7 +5493,14 @@ movip_5_0:
 {
 g[5].p = g[0].p;
 g[5].tag = g[0].tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[469].count++;
@@ -5078,7 +5512,14 @@ movip_5_1:
 {
 g[5].p = g[1].p;
 g[5].tag = g[1].tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[470].count++;
@@ -5090,7 +5531,14 @@ movip_5_2:
 {
 g[5].p = g[2].p;
 g[5].tag = g[2].tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[471].count++;
@@ -5102,7 +5550,14 @@ movip_5_3:
 {
 g[5].p = g[3].p;
 g[5].tag = g[3].tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[472].count++;
@@ -5114,7 +5569,14 @@ movip_5_4:
 {
 g[5].p = g[4].p;
 g[5].tag = g[4].tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[473].count++;
@@ -5126,7 +5588,14 @@ movpi_0_1:
 {
 g[0].i = g[1].i;
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[474].count++;
@@ -5138,7 +5607,14 @@ movpi_0_2:
 {
 g[0].i = g[2].i;
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[475].count++;
@@ -5150,7 +5626,14 @@ movpi_0_3:
 {
 g[0].i = g[3].i;
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[476].count++;
@@ -5162,7 +5645,14 @@ movpi_0_4:
 {
 g[0].i = g[4].i;
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[477].count++;
@@ -5174,7 +5664,14 @@ movpi_0_5:
 {
 g[0].i = g[5].i;
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[478].count++;
@@ -5186,7 +5683,14 @@ movpi_1_0:
 {
 g[1].i = g[0].i;
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[479].count++;
@@ -5198,7 +5702,14 @@ movpi_1_2:
 {
 g[1].i = g[2].i;
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[480].count++;
@@ -5210,7 +5721,14 @@ movpi_1_3:
 {
 g[1].i = g[3].i;
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[481].count++;
@@ -5222,7 +5740,14 @@ movpi_1_4:
 {
 g[1].i = g[4].i;
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[482].count++;
@@ -5234,7 +5759,14 @@ movpi_1_5:
 {
 g[1].i = g[5].i;
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[483].count++;
@@ -5246,7 +5778,14 @@ movpi_2_0:
 {
 g[2].i = g[0].i;
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[484].count++;
@@ -5258,7 +5797,14 @@ movpi_2_1:
 {
 g[2].i = g[1].i;
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[485].count++;
@@ -5270,7 +5816,14 @@ movpi_2_3:
 {
 g[2].i = g[3].i;
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[486].count++;
@@ -5282,7 +5835,14 @@ movpi_2_4:
 {
 g[2].i = g[4].i;
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[487].count++;
@@ -5294,7 +5854,14 @@ movpi_2_5:
 {
 g[2].i = g[5].i;
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[488].count++;
@@ -5306,7 +5873,14 @@ movpi_3_0:
 {
 g[3].i = g[0].i;
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[489].count++;
@@ -5318,7 +5892,14 @@ movpi_3_1:
 {
 g[3].i = g[1].i;
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[490].count++;
@@ -5330,7 +5911,14 @@ movpi_3_2:
 {
 g[3].i = g[2].i;
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[491].count++;
@@ -5342,7 +5930,14 @@ movpi_3_4:
 {
 g[3].i = g[4].i;
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[492].count++;
@@ -5354,7 +5949,14 @@ movpi_3_5:
 {
 g[3].i = g[5].i;
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[493].count++;
@@ -5366,7 +5968,14 @@ movpi_4_0:
 {
 g[4].i = g[0].i;
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[494].count++;
@@ -5378,7 +5987,14 @@ movpi_4_1:
 {
 g[4].i = g[1].i;
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[495].count++;
@@ -5390,7 +6006,14 @@ movpi_4_2:
 {
 g[4].i = g[2].i;
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[496].count++;
@@ -5402,7 +6025,14 @@ movpi_4_3:
 {
 g[4].i = g[3].i;
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[497].count++;
@@ -5414,7 +6044,14 @@ movpi_4_5:
 {
 g[4].i = g[5].i;
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[498].count++;
@@ -5426,7 +6063,14 @@ movpi_5_0:
 {
 g[5].i = g[0].i;
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[499].count++;
@@ -5438,7 +6082,14 @@ movpi_5_1:
 {
 g[5].i = g[1].i;
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[500].count++;
@@ -5450,7 +6101,14 @@ movpi_5_2:
 {
 g[5].i = g[2].i;
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[501].count++;
@@ -5462,7 +6120,14 @@ movpi_5_3:
 {
 g[5].i = g[3].i;
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[502].count++;
@@ -5474,7 +6139,14 @@ movpi_5_4:
 {
 g[5].i = g[4].i;
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[503].count++;
@@ -5560,7 +6232,14 @@ int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
 g[0].i = constant;
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc += 2;
 #ifdef STATS
 opcodeCounters[510].count++;
@@ -5574,7 +6253,14 @@ int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
 g[1].i = constant;
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc += 2;
 #ifdef STATS
 opcodeCounters[511].count++;
@@ -5588,7 +6274,14 @@ int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
 g[2].i = constant;
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc += 2;
 #ifdef STATS
 opcodeCounters[512].count++;
@@ -5602,7 +6295,14 @@ int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
 g[3].i = constant;
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc += 2;
 #ifdef STATS
 opcodeCounters[513].count++;
@@ -5616,7 +6316,14 @@ int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
 g[4].i = constant;
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc += 2;
 #ifdef STATS
 opcodeCounters[514].count++;
@@ -5630,7 +6337,14 @@ int16_t dconstant = program[pc +1];
 int64_t constant = *((int64_t*)(&program[pc + dconstant]));
 g[5].i = constant;
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc += 2;
 #ifdef STATS
 opcodeCounters[515].count++;
@@ -5702,7 +6416,14 @@ movin_0:
 {
 g[0].p = NULL;
 g[0].tag = 1;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[522].count++;
@@ -5714,7 +6435,14 @@ movin_1:
 {
 g[1].p = NULL;
 g[1].tag = 1;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[523].count++;
@@ -5726,7 +6454,14 @@ movin_2:
 {
 g[2].p = NULL;
 g[2].tag = 1;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[524].count++;
@@ -5738,7 +6473,14 @@ movin_3:
 {
 g[3].p = NULL;
 g[3].tag = 1;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[525].count++;
@@ -5750,7 +6492,14 @@ movin_4:
 {
 g[4].p = NULL;
 g[4].tag = 1;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[526].count++;
@@ -5762,7 +6511,14 @@ movin_5:
 {
 g[5].p = NULL;
 g[5].tag = 1;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 pc++;
 #ifdef STATS
 opcodeCounters[527].count++;
@@ -5776,7 +6532,14 @@ int16_t constant = program[pc + 1];
 value val = fp[constant];
 if (val.tag != 0) {
 g[0].tag = val.tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = val.p;
 }
 else {
@@ -5795,7 +6558,14 @@ int16_t constant = program[pc + 1];
 value val = fp[constant];
 if (val.tag != 0) {
 g[1].tag = val.tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = val.p;
 }
 else {
@@ -5814,7 +6584,14 @@ int16_t constant = program[pc + 1];
 value val = fp[constant];
 if (val.tag != 0) {
 g[2].tag = val.tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = val.p;
 }
 else {
@@ -5833,7 +6610,14 @@ int16_t constant = program[pc + 1];
 value val = fp[constant];
 if (val.tag != 0) {
 g[3].tag = val.tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = val.p;
 }
 else {
@@ -5852,7 +6636,14 @@ int16_t constant = program[pc + 1];
 value val = fp[constant];
 if (val.tag != 0) {
 g[4].tag = val.tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = val.p;
 }
 else {
@@ -5871,7 +6662,14 @@ int16_t constant = program[pc + 1];
 value val = fp[constant];
 if (val.tag != 0) {
 g[5].tag = val.tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = val.p;
 }
 else {
@@ -5890,7 +6688,14 @@ int16_t constant = program[pc + 1];
 value val = fp[constant];
 if (val.tag == 0) {
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val.i;
 }
 else {g[0].tag = val.tag;
@@ -5909,7 +6714,14 @@ int16_t constant = program[pc + 1];
 value val = fp[constant];
 if (val.tag == 0) {
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val.i;
 }
 else {g[1].tag = val.tag;
@@ -5928,7 +6740,14 @@ int16_t constant = program[pc + 1];
 value val = fp[constant];
 if (val.tag == 0) {
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val.i;
 }
 else {g[2].tag = val.tag;
@@ -5947,7 +6766,14 @@ int16_t constant = program[pc + 1];
 value val = fp[constant];
 if (val.tag == 0) {
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val.i;
 }
 else {g[3].tag = val.tag;
@@ -5966,7 +6792,14 @@ int16_t constant = program[pc + 1];
 value val = fp[constant];
 if (val.tag == 0) {
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val.i;
 }
 else {g[4].tag = val.tag;
@@ -5985,7 +6818,14 @@ int16_t constant = program[pc + 1];
 value val = fp[constant];
 if (val.tag == 0) {
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val.i;
 }
 else {g[5].tag = val.tag;
@@ -6159,7 +6999,14 @@ geto_0_0_1:
 value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = val.p;
 }
 else {
@@ -6177,7 +7024,14 @@ geto_0_0_2:
 value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = val.p;
 }
 else {
@@ -6195,7 +7049,14 @@ geto_0_0_3:
 value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = val.p;
 }
 else {
@@ -6213,7 +7074,14 @@ geto_0_0_4:
 value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = val.p;
 }
 else {
@@ -6231,7 +7099,14 @@ geto_0_0_5:
 value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = val.p;
 }
 else {
@@ -6249,7 +7124,14 @@ geto_0_1_0:
 value val = ((object *)(g[1].p))->data[g[0].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = val.p;
 }
 else {
@@ -6267,7 +7149,14 @@ geto_0_1_2:
 value val = ((object *)(g[1].p))->data[g[2].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = val.p;
 }
 else {
@@ -6285,7 +7174,14 @@ geto_0_1_3:
 value val = ((object *)(g[1].p))->data[g[3].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = val.p;
 }
 else {
@@ -6303,7 +7199,14 @@ geto_0_1_4:
 value val = ((object *)(g[1].p))->data[g[4].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = val.p;
 }
 else {
@@ -6321,7 +7224,14 @@ geto_0_1_5:
 value val = ((object *)(g[1].p))->data[g[5].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = val.p;
 }
 else {
@@ -6339,7 +7249,14 @@ geto_0_2_0:
 value val = ((object *)(g[2].p))->data[g[0].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = val.p;
 }
 else {
@@ -6357,7 +7274,14 @@ geto_0_2_1:
 value val = ((object *)(g[2].p))->data[g[1].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = val.p;
 }
 else {
@@ -6375,7 +7299,14 @@ geto_0_2_3:
 value val = ((object *)(g[2].p))->data[g[3].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = val.p;
 }
 else {
@@ -6393,7 +7324,14 @@ geto_0_2_4:
 value val = ((object *)(g[2].p))->data[g[4].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = val.p;
 }
 else {
@@ -6411,7 +7349,14 @@ geto_0_2_5:
 value val = ((object *)(g[2].p))->data[g[5].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = val.p;
 }
 else {
@@ -6429,7 +7374,14 @@ geto_0_3_0:
 value val = ((object *)(g[3].p))->data[g[0].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = val.p;
 }
 else {
@@ -6447,7 +7399,14 @@ geto_0_3_1:
 value val = ((object *)(g[3].p))->data[g[1].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = val.p;
 }
 else {
@@ -6465,7 +7424,14 @@ geto_0_3_2:
 value val = ((object *)(g[3].p))->data[g[2].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = val.p;
 }
 else {
@@ -6483,7 +7449,14 @@ geto_0_3_4:
 value val = ((object *)(g[3].p))->data[g[4].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = val.p;
 }
 else {
@@ -6501,7 +7474,14 @@ geto_0_3_5:
 value val = ((object *)(g[3].p))->data[g[5].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = val.p;
 }
 else {
@@ -6519,7 +7499,14 @@ geto_0_4_0:
 value val = ((object *)(g[4].p))->data[g[0].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = val.p;
 }
 else {
@@ -6537,7 +7524,14 @@ geto_0_4_1:
 value val = ((object *)(g[4].p))->data[g[1].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = val.p;
 }
 else {
@@ -6555,7 +7549,14 @@ geto_0_4_2:
 value val = ((object *)(g[4].p))->data[g[2].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = val.p;
 }
 else {
@@ -6573,7 +7574,14 @@ geto_0_4_3:
 value val = ((object *)(g[4].p))->data[g[3].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = val.p;
 }
 else {
@@ -6591,7 +7599,14 @@ geto_0_4_5:
 value val = ((object *)(g[4].p))->data[g[5].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = val.p;
 }
 else {
@@ -6609,7 +7624,14 @@ geto_0_5_0:
 value val = ((object *)(g[5].p))->data[g[0].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = val.p;
 }
 else {
@@ -6627,7 +7649,14 @@ geto_0_5_1:
 value val = ((object *)(g[5].p))->data[g[1].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = val.p;
 }
 else {
@@ -6645,7 +7674,14 @@ geto_0_5_2:
 value val = ((object *)(g[5].p))->data[g[2].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = val.p;
 }
 else {
@@ -6663,7 +7699,14 @@ geto_0_5_3:
 value val = ((object *)(g[5].p))->data[g[3].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = val.p;
 }
 else {
@@ -6681,7 +7724,14 @@ geto_0_5_4:
 value val = ((object *)(g[5].p))->data[g[4].i];
 if (val.tag != 0) {
 g[0].tag = val.tag;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = val.p;
 }
 else {
@@ -6699,7 +7749,14 @@ geto_1_0_1:
 value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = val.p;
 }
 else {
@@ -6717,7 +7774,14 @@ geto_1_0_2:
 value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = val.p;
 }
 else {
@@ -6735,7 +7799,14 @@ geto_1_0_3:
 value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = val.p;
 }
 else {
@@ -6753,7 +7824,14 @@ geto_1_0_4:
 value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = val.p;
 }
 else {
@@ -6771,7 +7849,14 @@ geto_1_0_5:
 value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = val.p;
 }
 else {
@@ -6789,7 +7874,14 @@ geto_1_1_0:
 value val = ((object *)(g[1].p))->data[g[0].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = val.p;
 }
 else {
@@ -6807,7 +7899,14 @@ geto_1_1_2:
 value val = ((object *)(g[1].p))->data[g[2].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = val.p;
 }
 else {
@@ -6825,7 +7924,14 @@ geto_1_1_3:
 value val = ((object *)(g[1].p))->data[g[3].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = val.p;
 }
 else {
@@ -6843,7 +7949,14 @@ geto_1_1_4:
 value val = ((object *)(g[1].p))->data[g[4].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = val.p;
 }
 else {
@@ -6861,7 +7974,14 @@ geto_1_1_5:
 value val = ((object *)(g[1].p))->data[g[5].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = val.p;
 }
 else {
@@ -6879,7 +7999,14 @@ geto_1_2_0:
 value val = ((object *)(g[2].p))->data[g[0].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = val.p;
 }
 else {
@@ -6897,7 +8024,14 @@ geto_1_2_1:
 value val = ((object *)(g[2].p))->data[g[1].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = val.p;
 }
 else {
@@ -6915,7 +8049,14 @@ geto_1_2_3:
 value val = ((object *)(g[2].p))->data[g[3].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = val.p;
 }
 else {
@@ -6933,7 +8074,14 @@ geto_1_2_4:
 value val = ((object *)(g[2].p))->data[g[4].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = val.p;
 }
 else {
@@ -6951,7 +8099,14 @@ geto_1_2_5:
 value val = ((object *)(g[2].p))->data[g[5].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = val.p;
 }
 else {
@@ -6969,7 +8124,14 @@ geto_1_3_0:
 value val = ((object *)(g[3].p))->data[g[0].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = val.p;
 }
 else {
@@ -6987,7 +8149,14 @@ geto_1_3_1:
 value val = ((object *)(g[3].p))->data[g[1].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = val.p;
 }
 else {
@@ -7005,7 +8174,14 @@ geto_1_3_2:
 value val = ((object *)(g[3].p))->data[g[2].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = val.p;
 }
 else {
@@ -7023,7 +8199,14 @@ geto_1_3_4:
 value val = ((object *)(g[3].p))->data[g[4].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = val.p;
 }
 else {
@@ -7041,7 +8224,14 @@ geto_1_3_5:
 value val = ((object *)(g[3].p))->data[g[5].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = val.p;
 }
 else {
@@ -7059,7 +8249,14 @@ geto_1_4_0:
 value val = ((object *)(g[4].p))->data[g[0].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = val.p;
 }
 else {
@@ -7077,7 +8274,14 @@ geto_1_4_1:
 value val = ((object *)(g[4].p))->data[g[1].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = val.p;
 }
 else {
@@ -7095,7 +8299,14 @@ geto_1_4_2:
 value val = ((object *)(g[4].p))->data[g[2].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = val.p;
 }
 else {
@@ -7113,7 +8324,14 @@ geto_1_4_3:
 value val = ((object *)(g[4].p))->data[g[3].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = val.p;
 }
 else {
@@ -7131,7 +8349,14 @@ geto_1_4_5:
 value val = ((object *)(g[4].p))->data[g[5].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = val.p;
 }
 else {
@@ -7149,7 +8374,14 @@ geto_1_5_0:
 value val = ((object *)(g[5].p))->data[g[0].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = val.p;
 }
 else {
@@ -7167,7 +8399,14 @@ geto_1_5_1:
 value val = ((object *)(g[5].p))->data[g[1].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = val.p;
 }
 else {
@@ -7185,7 +8424,14 @@ geto_1_5_2:
 value val = ((object *)(g[5].p))->data[g[2].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = val.p;
 }
 else {
@@ -7203,7 +8449,14 @@ geto_1_5_3:
 value val = ((object *)(g[5].p))->data[g[3].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = val.p;
 }
 else {
@@ -7221,7 +8474,14 @@ geto_1_5_4:
 value val = ((object *)(g[5].p))->data[g[4].i];
 if (val.tag != 0) {
 g[1].tag = val.tag;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = val.p;
 }
 else {
@@ -7239,7 +8499,14 @@ geto_2_0_1:
 value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = val.p;
 }
 else {
@@ -7257,7 +8524,14 @@ geto_2_0_2:
 value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = val.p;
 }
 else {
@@ -7275,7 +8549,14 @@ geto_2_0_3:
 value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = val.p;
 }
 else {
@@ -7293,7 +8574,14 @@ geto_2_0_4:
 value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = val.p;
 }
 else {
@@ -7311,7 +8599,14 @@ geto_2_0_5:
 value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = val.p;
 }
 else {
@@ -7329,7 +8624,14 @@ geto_2_1_0:
 value val = ((object *)(g[1].p))->data[g[0].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = val.p;
 }
 else {
@@ -7347,7 +8649,14 @@ geto_2_1_2:
 value val = ((object *)(g[1].p))->data[g[2].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = val.p;
 }
 else {
@@ -7365,7 +8674,14 @@ geto_2_1_3:
 value val = ((object *)(g[1].p))->data[g[3].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = val.p;
 }
 else {
@@ -7383,7 +8699,14 @@ geto_2_1_4:
 value val = ((object *)(g[1].p))->data[g[4].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = val.p;
 }
 else {
@@ -7401,7 +8724,14 @@ geto_2_1_5:
 value val = ((object *)(g[1].p))->data[g[5].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = val.p;
 }
 else {
@@ -7419,7 +8749,14 @@ geto_2_2_0:
 value val = ((object *)(g[2].p))->data[g[0].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = val.p;
 }
 else {
@@ -7437,7 +8774,14 @@ geto_2_2_1:
 value val = ((object *)(g[2].p))->data[g[1].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = val.p;
 }
 else {
@@ -7455,7 +8799,14 @@ geto_2_2_3:
 value val = ((object *)(g[2].p))->data[g[3].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = val.p;
 }
 else {
@@ -7473,7 +8824,14 @@ geto_2_2_4:
 value val = ((object *)(g[2].p))->data[g[4].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = val.p;
 }
 else {
@@ -7491,7 +8849,14 @@ geto_2_2_5:
 value val = ((object *)(g[2].p))->data[g[5].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = val.p;
 }
 else {
@@ -7509,7 +8874,14 @@ geto_2_3_0:
 value val = ((object *)(g[3].p))->data[g[0].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = val.p;
 }
 else {
@@ -7527,7 +8899,14 @@ geto_2_3_1:
 value val = ((object *)(g[3].p))->data[g[1].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = val.p;
 }
 else {
@@ -7545,7 +8924,14 @@ geto_2_3_2:
 value val = ((object *)(g[3].p))->data[g[2].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = val.p;
 }
 else {
@@ -7563,7 +8949,14 @@ geto_2_3_4:
 value val = ((object *)(g[3].p))->data[g[4].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = val.p;
 }
 else {
@@ -7581,7 +8974,14 @@ geto_2_3_5:
 value val = ((object *)(g[3].p))->data[g[5].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = val.p;
 }
 else {
@@ -7599,7 +8999,14 @@ geto_2_4_0:
 value val = ((object *)(g[4].p))->data[g[0].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = val.p;
 }
 else {
@@ -7617,7 +9024,14 @@ geto_2_4_1:
 value val = ((object *)(g[4].p))->data[g[1].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = val.p;
 }
 else {
@@ -7635,7 +9049,14 @@ geto_2_4_2:
 value val = ((object *)(g[4].p))->data[g[2].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = val.p;
 }
 else {
@@ -7653,7 +9074,14 @@ geto_2_4_3:
 value val = ((object *)(g[4].p))->data[g[3].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = val.p;
 }
 else {
@@ -7671,7 +9099,14 @@ geto_2_4_5:
 value val = ((object *)(g[4].p))->data[g[5].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = val.p;
 }
 else {
@@ -7689,7 +9124,14 @@ geto_2_5_0:
 value val = ((object *)(g[5].p))->data[g[0].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = val.p;
 }
 else {
@@ -7707,7 +9149,14 @@ geto_2_5_1:
 value val = ((object *)(g[5].p))->data[g[1].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = val.p;
 }
 else {
@@ -7725,7 +9174,14 @@ geto_2_5_2:
 value val = ((object *)(g[5].p))->data[g[2].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = val.p;
 }
 else {
@@ -7743,7 +9199,14 @@ geto_2_5_3:
 value val = ((object *)(g[5].p))->data[g[3].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = val.p;
 }
 else {
@@ -7761,7 +9224,14 @@ geto_2_5_4:
 value val = ((object *)(g[5].p))->data[g[4].i];
 if (val.tag != 0) {
 g[2].tag = val.tag;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = val.p;
 }
 else {
@@ -7779,7 +9249,14 @@ geto_3_0_1:
 value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = val.p;
 }
 else {
@@ -7797,7 +9274,14 @@ geto_3_0_2:
 value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = val.p;
 }
 else {
@@ -7815,7 +9299,14 @@ geto_3_0_3:
 value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = val.p;
 }
 else {
@@ -7833,7 +9324,14 @@ geto_3_0_4:
 value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = val.p;
 }
 else {
@@ -7851,7 +9349,14 @@ geto_3_0_5:
 value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = val.p;
 }
 else {
@@ -7869,7 +9374,14 @@ geto_3_1_0:
 value val = ((object *)(g[1].p))->data[g[0].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = val.p;
 }
 else {
@@ -7887,7 +9399,14 @@ geto_3_1_2:
 value val = ((object *)(g[1].p))->data[g[2].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = val.p;
 }
 else {
@@ -7905,7 +9424,14 @@ geto_3_1_3:
 value val = ((object *)(g[1].p))->data[g[3].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = val.p;
 }
 else {
@@ -7923,7 +9449,14 @@ geto_3_1_4:
 value val = ((object *)(g[1].p))->data[g[4].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = val.p;
 }
 else {
@@ -7941,7 +9474,14 @@ geto_3_1_5:
 value val = ((object *)(g[1].p))->data[g[5].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = val.p;
 }
 else {
@@ -7959,7 +9499,14 @@ geto_3_2_0:
 value val = ((object *)(g[2].p))->data[g[0].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = val.p;
 }
 else {
@@ -7977,7 +9524,14 @@ geto_3_2_1:
 value val = ((object *)(g[2].p))->data[g[1].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = val.p;
 }
 else {
@@ -7995,7 +9549,14 @@ geto_3_2_3:
 value val = ((object *)(g[2].p))->data[g[3].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = val.p;
 }
 else {
@@ -8013,7 +9574,14 @@ geto_3_2_4:
 value val = ((object *)(g[2].p))->data[g[4].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = val.p;
 }
 else {
@@ -8031,7 +9599,14 @@ geto_3_2_5:
 value val = ((object *)(g[2].p))->data[g[5].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = val.p;
 }
 else {
@@ -8049,7 +9624,14 @@ geto_3_3_0:
 value val = ((object *)(g[3].p))->data[g[0].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = val.p;
 }
 else {
@@ -8067,7 +9649,14 @@ geto_3_3_1:
 value val = ((object *)(g[3].p))->data[g[1].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = val.p;
 }
 else {
@@ -8085,7 +9674,14 @@ geto_3_3_2:
 value val = ((object *)(g[3].p))->data[g[2].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = val.p;
 }
 else {
@@ -8103,7 +9699,14 @@ geto_3_3_4:
 value val = ((object *)(g[3].p))->data[g[4].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = val.p;
 }
 else {
@@ -8121,7 +9724,14 @@ geto_3_3_5:
 value val = ((object *)(g[3].p))->data[g[5].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = val.p;
 }
 else {
@@ -8139,7 +9749,14 @@ geto_3_4_0:
 value val = ((object *)(g[4].p))->data[g[0].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = val.p;
 }
 else {
@@ -8157,7 +9774,14 @@ geto_3_4_1:
 value val = ((object *)(g[4].p))->data[g[1].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = val.p;
 }
 else {
@@ -8175,7 +9799,14 @@ geto_3_4_2:
 value val = ((object *)(g[4].p))->data[g[2].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = val.p;
 }
 else {
@@ -8193,7 +9824,14 @@ geto_3_4_3:
 value val = ((object *)(g[4].p))->data[g[3].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = val.p;
 }
 else {
@@ -8211,7 +9849,14 @@ geto_3_4_5:
 value val = ((object *)(g[4].p))->data[g[5].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = val.p;
 }
 else {
@@ -8229,7 +9874,14 @@ geto_3_5_0:
 value val = ((object *)(g[5].p))->data[g[0].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = val.p;
 }
 else {
@@ -8247,7 +9899,14 @@ geto_3_5_1:
 value val = ((object *)(g[5].p))->data[g[1].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = val.p;
 }
 else {
@@ -8265,7 +9924,14 @@ geto_3_5_2:
 value val = ((object *)(g[5].p))->data[g[2].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = val.p;
 }
 else {
@@ -8283,7 +9949,14 @@ geto_3_5_3:
 value val = ((object *)(g[5].p))->data[g[3].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = val.p;
 }
 else {
@@ -8301,7 +9974,14 @@ geto_3_5_4:
 value val = ((object *)(g[5].p))->data[g[4].i];
 if (val.tag != 0) {
 g[3].tag = val.tag;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = val.p;
 }
 else {
@@ -8319,7 +9999,14 @@ geto_4_0_1:
 value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = val.p;
 }
 else {
@@ -8337,7 +10024,14 @@ geto_4_0_2:
 value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = val.p;
 }
 else {
@@ -8355,7 +10049,14 @@ geto_4_0_3:
 value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = val.p;
 }
 else {
@@ -8373,7 +10074,14 @@ geto_4_0_4:
 value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = val.p;
 }
 else {
@@ -8391,7 +10099,14 @@ geto_4_0_5:
 value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = val.p;
 }
 else {
@@ -8409,7 +10124,14 @@ geto_4_1_0:
 value val = ((object *)(g[1].p))->data[g[0].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = val.p;
 }
 else {
@@ -8427,7 +10149,14 @@ geto_4_1_2:
 value val = ((object *)(g[1].p))->data[g[2].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = val.p;
 }
 else {
@@ -8445,7 +10174,14 @@ geto_4_1_3:
 value val = ((object *)(g[1].p))->data[g[3].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = val.p;
 }
 else {
@@ -8463,7 +10199,14 @@ geto_4_1_4:
 value val = ((object *)(g[1].p))->data[g[4].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = val.p;
 }
 else {
@@ -8481,7 +10224,14 @@ geto_4_1_5:
 value val = ((object *)(g[1].p))->data[g[5].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = val.p;
 }
 else {
@@ -8499,7 +10249,14 @@ geto_4_2_0:
 value val = ((object *)(g[2].p))->data[g[0].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = val.p;
 }
 else {
@@ -8517,7 +10274,14 @@ geto_4_2_1:
 value val = ((object *)(g[2].p))->data[g[1].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = val.p;
 }
 else {
@@ -8535,7 +10299,14 @@ geto_4_2_3:
 value val = ((object *)(g[2].p))->data[g[3].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = val.p;
 }
 else {
@@ -8553,7 +10324,14 @@ geto_4_2_4:
 value val = ((object *)(g[2].p))->data[g[4].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = val.p;
 }
 else {
@@ -8571,7 +10349,14 @@ geto_4_2_5:
 value val = ((object *)(g[2].p))->data[g[5].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = val.p;
 }
 else {
@@ -8589,7 +10374,14 @@ geto_4_3_0:
 value val = ((object *)(g[3].p))->data[g[0].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = val.p;
 }
 else {
@@ -8607,7 +10399,14 @@ geto_4_3_1:
 value val = ((object *)(g[3].p))->data[g[1].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = val.p;
 }
 else {
@@ -8625,7 +10424,14 @@ geto_4_3_2:
 value val = ((object *)(g[3].p))->data[g[2].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = val.p;
 }
 else {
@@ -8643,7 +10449,14 @@ geto_4_3_4:
 value val = ((object *)(g[3].p))->data[g[4].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = val.p;
 }
 else {
@@ -8661,7 +10474,14 @@ geto_4_3_5:
 value val = ((object *)(g[3].p))->data[g[5].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = val.p;
 }
 else {
@@ -8679,7 +10499,14 @@ geto_4_4_0:
 value val = ((object *)(g[4].p))->data[g[0].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = val.p;
 }
 else {
@@ -8697,7 +10524,14 @@ geto_4_4_1:
 value val = ((object *)(g[4].p))->data[g[1].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = val.p;
 }
 else {
@@ -8715,7 +10549,14 @@ geto_4_4_2:
 value val = ((object *)(g[4].p))->data[g[2].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = val.p;
 }
 else {
@@ -8733,7 +10574,14 @@ geto_4_4_3:
 value val = ((object *)(g[4].p))->data[g[3].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = val.p;
 }
 else {
@@ -8751,7 +10599,14 @@ geto_4_4_5:
 value val = ((object *)(g[4].p))->data[g[5].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = val.p;
 }
 else {
@@ -8769,7 +10624,14 @@ geto_4_5_0:
 value val = ((object *)(g[5].p))->data[g[0].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = val.p;
 }
 else {
@@ -8787,7 +10649,14 @@ geto_4_5_1:
 value val = ((object *)(g[5].p))->data[g[1].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = val.p;
 }
 else {
@@ -8805,7 +10674,14 @@ geto_4_5_2:
 value val = ((object *)(g[5].p))->data[g[2].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = val.p;
 }
 else {
@@ -8823,7 +10699,14 @@ geto_4_5_3:
 value val = ((object *)(g[5].p))->data[g[3].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = val.p;
 }
 else {
@@ -8841,7 +10724,14 @@ geto_4_5_4:
 value val = ((object *)(g[5].p))->data[g[4].i];
 if (val.tag != 0) {
 g[4].tag = val.tag;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = val.p;
 }
 else {
@@ -8859,7 +10749,14 @@ geto_5_0_1:
 value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = val.p;
 }
 else {
@@ -8877,7 +10774,14 @@ geto_5_0_2:
 value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = val.p;
 }
 else {
@@ -8895,7 +10799,14 @@ geto_5_0_3:
 value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = val.p;
 }
 else {
@@ -8913,7 +10824,14 @@ geto_5_0_4:
 value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = val.p;
 }
 else {
@@ -8931,7 +10849,14 @@ geto_5_0_5:
 value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = val.p;
 }
 else {
@@ -8949,7 +10874,14 @@ geto_5_1_0:
 value val = ((object *)(g[1].p))->data[g[0].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = val.p;
 }
 else {
@@ -8967,7 +10899,14 @@ geto_5_1_2:
 value val = ((object *)(g[1].p))->data[g[2].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = val.p;
 }
 else {
@@ -8985,7 +10924,14 @@ geto_5_1_3:
 value val = ((object *)(g[1].p))->data[g[3].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = val.p;
 }
 else {
@@ -9003,7 +10949,14 @@ geto_5_1_4:
 value val = ((object *)(g[1].p))->data[g[4].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = val.p;
 }
 else {
@@ -9021,7 +10974,14 @@ geto_5_1_5:
 value val = ((object *)(g[1].p))->data[g[5].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = val.p;
 }
 else {
@@ -9039,7 +10999,14 @@ geto_5_2_0:
 value val = ((object *)(g[2].p))->data[g[0].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = val.p;
 }
 else {
@@ -9057,7 +11024,14 @@ geto_5_2_1:
 value val = ((object *)(g[2].p))->data[g[1].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = val.p;
 }
 else {
@@ -9075,7 +11049,14 @@ geto_5_2_3:
 value val = ((object *)(g[2].p))->data[g[3].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = val.p;
 }
 else {
@@ -9093,7 +11074,14 @@ geto_5_2_4:
 value val = ((object *)(g[2].p))->data[g[4].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = val.p;
 }
 else {
@@ -9111,7 +11099,14 @@ geto_5_2_5:
 value val = ((object *)(g[2].p))->data[g[5].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = val.p;
 }
 else {
@@ -9129,7 +11124,14 @@ geto_5_3_0:
 value val = ((object *)(g[3].p))->data[g[0].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = val.p;
 }
 else {
@@ -9147,7 +11149,14 @@ geto_5_3_1:
 value val = ((object *)(g[3].p))->data[g[1].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = val.p;
 }
 else {
@@ -9165,7 +11174,14 @@ geto_5_3_2:
 value val = ((object *)(g[3].p))->data[g[2].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = val.p;
 }
 else {
@@ -9183,7 +11199,14 @@ geto_5_3_4:
 value val = ((object *)(g[3].p))->data[g[4].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = val.p;
 }
 else {
@@ -9201,7 +11224,14 @@ geto_5_3_5:
 value val = ((object *)(g[3].p))->data[g[5].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = val.p;
 }
 else {
@@ -9219,7 +11249,14 @@ geto_5_4_0:
 value val = ((object *)(g[4].p))->data[g[0].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = val.p;
 }
 else {
@@ -9237,7 +11274,14 @@ geto_5_4_1:
 value val = ((object *)(g[4].p))->data[g[1].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = val.p;
 }
 else {
@@ -9255,7 +11299,14 @@ geto_5_4_2:
 value val = ((object *)(g[4].p))->data[g[2].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = val.p;
 }
 else {
@@ -9273,7 +11324,14 @@ geto_5_4_3:
 value val = ((object *)(g[4].p))->data[g[3].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = val.p;
 }
 else {
@@ -9291,7 +11349,14 @@ geto_5_4_5:
 value val = ((object *)(g[4].p))->data[g[5].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = val.p;
 }
 else {
@@ -9309,7 +11374,14 @@ geto_5_5_0:
 value val = ((object *)(g[5].p))->data[g[0].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = val.p;
 }
 else {
@@ -9327,7 +11399,14 @@ geto_5_5_1:
 value val = ((object *)(g[5].p))->data[g[1].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = val.p;
 }
 else {
@@ -9345,7 +11424,14 @@ geto_5_5_2:
 value val = ((object *)(g[5].p))->data[g[2].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = val.p;
 }
 else {
@@ -9363,7 +11449,14 @@ geto_5_5_3:
 value val = ((object *)(g[5].p))->data[g[3].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = val.p;
 }
 else {
@@ -9381,7 +11474,14 @@ geto_5_5_4:
 value val = ((object *)(g[5].p))->data[g[4].i];
 if (val.tag != 0) {
 g[5].tag = val.tag;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = val.p;
 }
 else {
@@ -9400,7 +11500,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag == 0) {
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
@@ -9418,7 +11525,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag == 0) {
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
@@ -9436,7 +11550,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag == 0) {
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
@@ -9454,7 +11575,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag == 0) {
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
@@ -9472,7 +11600,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag == 0) {
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
@@ -9490,7 +11625,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[0].i];
 if (val.tag == 0) {
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
@@ -9508,7 +11650,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[2].i];
 if (val.tag == 0) {
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
@@ -9526,7 +11675,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[3].i];
 if (val.tag == 0) {
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
@@ -9544,7 +11700,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[4].i];
 if (val.tag == 0) {
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
@@ -9562,7 +11725,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[5].i];
 if (val.tag == 0) {
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
@@ -9580,7 +11750,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[0].i];
 if (val.tag == 0) {
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
@@ -9598,7 +11775,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[1].i];
 if (val.tag == 0) {
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
@@ -9616,7 +11800,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[3].i];
 if (val.tag == 0) {
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
@@ -9634,7 +11825,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[4].i];
 if (val.tag == 0) {
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
@@ -9652,7 +11850,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[5].i];
 if (val.tag == 0) {
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
@@ -9670,7 +11875,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[0].i];
 if (val.tag == 0) {
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
@@ -9688,7 +11900,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[1].i];
 if (val.tag == 0) {
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
@@ -9706,7 +11925,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[2].i];
 if (val.tag == 0) {
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
@@ -9724,7 +11950,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[4].i];
 if (val.tag == 0) {
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
@@ -9742,7 +11975,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[5].i];
 if (val.tag == 0) {
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
@@ -9760,7 +12000,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[0].i];
 if (val.tag == 0) {
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
@@ -9778,7 +12025,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[1].i];
 if (val.tag == 0) {
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
@@ -9796,7 +12050,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[2].i];
 if (val.tag == 0) {
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
@@ -9814,7 +12075,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[3].i];
 if (val.tag == 0) {
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
@@ -9832,7 +12100,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[5].i];
 if (val.tag == 0) {
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
@@ -9850,7 +12125,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[0].i];
 if (val.tag == 0) {
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
@@ -9868,7 +12150,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[1].i];
 if (val.tag == 0) {
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
@@ -9886,7 +12175,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[2].i];
 if (val.tag == 0) {
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
@@ -9904,7 +12200,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[3].i];
 if (val.tag == 0) {
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
@@ -9922,7 +12225,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[4].i];
 if (val.tag == 0) {
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val.i;
 }
 g[0].tag = val.tag;
@@ -9940,7 +12250,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag == 0) {
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
@@ -9958,7 +12275,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag == 0) {
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
@@ -9976,7 +12300,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag == 0) {
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
@@ -9994,7 +12325,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag == 0) {
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
@@ -10012,7 +12350,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag == 0) {
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
@@ -10030,7 +12375,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[0].i];
 if (val.tag == 0) {
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
@@ -10048,7 +12400,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[2].i];
 if (val.tag == 0) {
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
@@ -10066,7 +12425,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[3].i];
 if (val.tag == 0) {
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
@@ -10084,7 +12450,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[4].i];
 if (val.tag == 0) {
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
@@ -10102,7 +12475,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[5].i];
 if (val.tag == 0) {
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
@@ -10120,7 +12500,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[0].i];
 if (val.tag == 0) {
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
@@ -10138,7 +12525,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[1].i];
 if (val.tag == 0) {
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
@@ -10156,7 +12550,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[3].i];
 if (val.tag == 0) {
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
@@ -10174,7 +12575,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[4].i];
 if (val.tag == 0) {
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
@@ -10192,7 +12600,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[5].i];
 if (val.tag == 0) {
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
@@ -10210,7 +12625,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[0].i];
 if (val.tag == 0) {
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
@@ -10228,7 +12650,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[1].i];
 if (val.tag == 0) {
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
@@ -10246,7 +12675,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[2].i];
 if (val.tag == 0) {
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
@@ -10264,7 +12700,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[4].i];
 if (val.tag == 0) {
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
@@ -10282,7 +12725,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[5].i];
 if (val.tag == 0) {
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
@@ -10300,7 +12750,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[0].i];
 if (val.tag == 0) {
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
@@ -10318,7 +12775,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[1].i];
 if (val.tag == 0) {
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
@@ -10336,7 +12800,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[2].i];
 if (val.tag == 0) {
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
@@ -10354,7 +12825,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[3].i];
 if (val.tag == 0) {
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
@@ -10372,7 +12850,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[5].i];
 if (val.tag == 0) {
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
@@ -10390,7 +12875,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[0].i];
 if (val.tag == 0) {
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
@@ -10408,7 +12900,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[1].i];
 if (val.tag == 0) {
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
@@ -10426,7 +12925,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[2].i];
 if (val.tag == 0) {
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
@@ -10444,7 +12950,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[3].i];
 if (val.tag == 0) {
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
@@ -10462,7 +12975,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[4].i];
 if (val.tag == 0) {
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val.i;
 }
 g[1].tag = val.tag;
@@ -10480,7 +13000,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag == 0) {
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
@@ -10498,7 +13025,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag == 0) {
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
@@ -10516,7 +13050,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag == 0) {
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
@@ -10534,7 +13075,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag == 0) {
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
@@ -10552,7 +13100,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag == 0) {
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
@@ -10570,7 +13125,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[0].i];
 if (val.tag == 0) {
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
@@ -10588,7 +13150,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[2].i];
 if (val.tag == 0) {
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
@@ -10606,7 +13175,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[3].i];
 if (val.tag == 0) {
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
@@ -10624,7 +13200,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[4].i];
 if (val.tag == 0) {
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
@@ -10642,7 +13225,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[5].i];
 if (val.tag == 0) {
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
@@ -10660,7 +13250,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[0].i];
 if (val.tag == 0) {
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
@@ -10678,7 +13275,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[1].i];
 if (val.tag == 0) {
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
@@ -10696,7 +13300,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[3].i];
 if (val.tag == 0) {
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
@@ -10714,7 +13325,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[4].i];
 if (val.tag == 0) {
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
@@ -10732,7 +13350,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[5].i];
 if (val.tag == 0) {
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
@@ -10750,7 +13375,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[0].i];
 if (val.tag == 0) {
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
@@ -10768,7 +13400,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[1].i];
 if (val.tag == 0) {
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
@@ -10786,7 +13425,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[2].i];
 if (val.tag == 0) {
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
@@ -10804,7 +13450,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[4].i];
 if (val.tag == 0) {
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
@@ -10822,7 +13475,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[5].i];
 if (val.tag == 0) {
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
@@ -10840,7 +13500,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[0].i];
 if (val.tag == 0) {
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
@@ -10858,7 +13525,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[1].i];
 if (val.tag == 0) {
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
@@ -10876,7 +13550,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[2].i];
 if (val.tag == 0) {
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
@@ -10894,7 +13575,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[3].i];
 if (val.tag == 0) {
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
@@ -10912,7 +13600,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[5].i];
 if (val.tag == 0) {
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
@@ -10930,7 +13625,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[0].i];
 if (val.tag == 0) {
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
@@ -10948,7 +13650,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[1].i];
 if (val.tag == 0) {
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
@@ -10966,7 +13675,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[2].i];
 if (val.tag == 0) {
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
@@ -10984,7 +13700,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[3].i];
 if (val.tag == 0) {
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
@@ -11002,7 +13725,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[4].i];
 if (val.tag == 0) {
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val.i;
 }
 g[2].tag = val.tag;
@@ -11020,7 +13750,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag == 0) {
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
@@ -11038,7 +13775,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag == 0) {
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
@@ -11056,7 +13800,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag == 0) {
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
@@ -11074,7 +13825,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag == 0) {
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
@@ -11092,7 +13850,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag == 0) {
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
@@ -11110,7 +13875,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[0].i];
 if (val.tag == 0) {
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
@@ -11128,7 +13900,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[2].i];
 if (val.tag == 0) {
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
@@ -11146,7 +13925,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[3].i];
 if (val.tag == 0) {
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
@@ -11164,7 +13950,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[4].i];
 if (val.tag == 0) {
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
@@ -11182,7 +13975,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[5].i];
 if (val.tag == 0) {
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
@@ -11200,7 +14000,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[0].i];
 if (val.tag == 0) {
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
@@ -11218,7 +14025,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[1].i];
 if (val.tag == 0) {
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
@@ -11236,7 +14050,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[3].i];
 if (val.tag == 0) {
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
@@ -11254,7 +14075,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[4].i];
 if (val.tag == 0) {
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
@@ -11272,7 +14100,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[5].i];
 if (val.tag == 0) {
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
@@ -11290,7 +14125,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[0].i];
 if (val.tag == 0) {
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
@@ -11308,7 +14150,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[1].i];
 if (val.tag == 0) {
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
@@ -11326,7 +14175,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[2].i];
 if (val.tag == 0) {
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
@@ -11344,7 +14200,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[4].i];
 if (val.tag == 0) {
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
@@ -11362,7 +14225,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[5].i];
 if (val.tag == 0) {
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
@@ -11380,7 +14250,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[0].i];
 if (val.tag == 0) {
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
@@ -11398,7 +14275,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[1].i];
 if (val.tag == 0) {
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
@@ -11416,7 +14300,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[2].i];
 if (val.tag == 0) {
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
@@ -11434,7 +14325,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[3].i];
 if (val.tag == 0) {
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
@@ -11452,7 +14350,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[5].i];
 if (val.tag == 0) {
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
@@ -11470,7 +14375,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[0].i];
 if (val.tag == 0) {
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
@@ -11488,7 +14400,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[1].i];
 if (val.tag == 0) {
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
@@ -11506,7 +14425,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[2].i];
 if (val.tag == 0) {
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
@@ -11524,7 +14450,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[3].i];
 if (val.tag == 0) {
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
@@ -11542,7 +14475,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[4].i];
 if (val.tag == 0) {
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val.i;
 }
 g[3].tag = val.tag;
@@ -11560,7 +14500,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag == 0) {
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
@@ -11578,7 +14525,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag == 0) {
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
@@ -11596,7 +14550,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag == 0) {
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
@@ -11614,7 +14575,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag == 0) {
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
@@ -11632,7 +14600,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag == 0) {
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
@@ -11650,7 +14625,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[0].i];
 if (val.tag == 0) {
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
@@ -11668,7 +14650,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[2].i];
 if (val.tag == 0) {
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
@@ -11686,7 +14675,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[3].i];
 if (val.tag == 0) {
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
@@ -11704,7 +14700,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[4].i];
 if (val.tag == 0) {
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
@@ -11722,7 +14725,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[5].i];
 if (val.tag == 0) {
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
@@ -11740,7 +14750,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[0].i];
 if (val.tag == 0) {
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
@@ -11758,7 +14775,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[1].i];
 if (val.tag == 0) {
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
@@ -11776,7 +14800,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[3].i];
 if (val.tag == 0) {
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
@@ -11794,7 +14825,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[4].i];
 if (val.tag == 0) {
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
@@ -11812,7 +14850,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[5].i];
 if (val.tag == 0) {
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
@@ -11830,7 +14875,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[0].i];
 if (val.tag == 0) {
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
@@ -11848,7 +14900,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[1].i];
 if (val.tag == 0) {
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
@@ -11866,7 +14925,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[2].i];
 if (val.tag == 0) {
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
@@ -11884,7 +14950,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[4].i];
 if (val.tag == 0) {
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
@@ -11902,7 +14975,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[5].i];
 if (val.tag == 0) {
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
@@ -11920,7 +15000,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[0].i];
 if (val.tag == 0) {
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
@@ -11938,7 +15025,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[1].i];
 if (val.tag == 0) {
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
@@ -11956,7 +15050,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[2].i];
 if (val.tag == 0) {
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
@@ -11974,7 +15075,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[3].i];
 if (val.tag == 0) {
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
@@ -11992,7 +15100,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[5].i];
 if (val.tag == 0) {
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
@@ -12010,7 +15125,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[0].i];
 if (val.tag == 0) {
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
@@ -12028,7 +15150,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[1].i];
 if (val.tag == 0) {
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
@@ -12046,7 +15175,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[2].i];
 if (val.tag == 0) {
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
@@ -12064,7 +15200,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[3].i];
 if (val.tag == 0) {
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
@@ -12082,7 +15225,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[4].i];
 if (val.tag == 0) {
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val.i;
 }
 g[4].tag = val.tag;
@@ -12100,7 +15250,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag == 0) {
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
@@ -12118,7 +15275,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag == 0) {
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
@@ -12136,7 +15300,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag == 0) {
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
@@ -12154,7 +15325,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag == 0) {
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
@@ -12172,7 +15350,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag == 0) {
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
@@ -12190,7 +15375,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[0].i];
 if (val.tag == 0) {
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
@@ -12208,7 +15400,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[2].i];
 if (val.tag == 0) {
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
@@ -12226,7 +15425,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[3].i];
 if (val.tag == 0) {
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
@@ -12244,7 +15450,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[4].i];
 if (val.tag == 0) {
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
@@ -12262,7 +15475,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[5].i];
 if (val.tag == 0) {
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
@@ -12280,7 +15500,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[0].i];
 if (val.tag == 0) {
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
@@ -12298,7 +15525,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[1].i];
 if (val.tag == 0) {
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
@@ -12316,7 +15550,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[3].i];
 if (val.tag == 0) {
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
@@ -12334,7 +15575,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[4].i];
 if (val.tag == 0) {
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
@@ -12352,7 +15600,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[5].i];
 if (val.tag == 0) {
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
@@ -12370,7 +15625,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[0].i];
 if (val.tag == 0) {
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
@@ -12388,7 +15650,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[1].i];
 if (val.tag == 0) {
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
@@ -12406,7 +15675,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[2].i];
 if (val.tag == 0) {
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
@@ -12424,7 +15700,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[4].i];
 if (val.tag == 0) {
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
@@ -12442,7 +15725,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[5].i];
 if (val.tag == 0) {
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
@@ -12460,7 +15750,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[0].i];
 if (val.tag == 0) {
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
@@ -12478,7 +15775,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[1].i];
 if (val.tag == 0) {
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
@@ -12496,7 +15800,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[2].i];
 if (val.tag == 0) {
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
@@ -12514,7 +15825,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[3].i];
 if (val.tag == 0) {
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
@@ -12532,7 +15850,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[5].i];
 if (val.tag == 0) {
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
@@ -12550,7 +15875,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[0].i];
 if (val.tag == 0) {
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
@@ -12568,7 +15900,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[1].i];
 if (val.tag == 0) {
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
@@ -12586,7 +15925,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[2].i];
 if (val.tag == 0) {
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
@@ -12604,7 +15950,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[3].i];
 if (val.tag == 0) {
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
@@ -12622,7 +15975,14 @@ int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[4].i];
 if (val.tag == 0) {
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val.i;
 }
 g[5].tag = val.tag;
@@ -18938,7 +22298,14 @@ getbp_0_0_1:
 {
 uint8_t val = ((buffer *)(g[0].p))->data[g[1].i];
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val;
 pc++;
 #ifdef STATS
@@ -18951,7 +22318,14 @@ getbp_0_0_2:
 {
 uint8_t val = ((buffer *)(g[0].p))->data[g[2].i];
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val;
 pc++;
 #ifdef STATS
@@ -18964,7 +22338,14 @@ getbp_0_0_3:
 {
 uint8_t val = ((buffer *)(g[0].p))->data[g[3].i];
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val;
 pc++;
 #ifdef STATS
@@ -18977,7 +22358,14 @@ getbp_0_0_4:
 {
 uint8_t val = ((buffer *)(g[0].p))->data[g[4].i];
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val;
 pc++;
 #ifdef STATS
@@ -18990,7 +22378,14 @@ getbp_0_0_5:
 {
 uint8_t val = ((buffer *)(g[0].p))->data[g[5].i];
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val;
 pc++;
 #ifdef STATS
@@ -19003,7 +22398,14 @@ getbp_0_1_0:
 {
 uint8_t val = ((buffer *)(g[1].p))->data[g[0].i];
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val;
 pc++;
 #ifdef STATS
@@ -19016,7 +22418,14 @@ getbp_0_1_2:
 {
 uint8_t val = ((buffer *)(g[1].p))->data[g[2].i];
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val;
 pc++;
 #ifdef STATS
@@ -19029,7 +22438,14 @@ getbp_0_1_3:
 {
 uint8_t val = ((buffer *)(g[1].p))->data[g[3].i];
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val;
 pc++;
 #ifdef STATS
@@ -19042,7 +22458,14 @@ getbp_0_1_4:
 {
 uint8_t val = ((buffer *)(g[1].p))->data[g[4].i];
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val;
 pc++;
 #ifdef STATS
@@ -19055,7 +22478,14 @@ getbp_0_1_5:
 {
 uint8_t val = ((buffer *)(g[1].p))->data[g[5].i];
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val;
 pc++;
 #ifdef STATS
@@ -19068,7 +22498,14 @@ getbp_0_2_0:
 {
 uint8_t val = ((buffer *)(g[2].p))->data[g[0].i];
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val;
 pc++;
 #ifdef STATS
@@ -19081,7 +22518,14 @@ getbp_0_2_1:
 {
 uint8_t val = ((buffer *)(g[2].p))->data[g[1].i];
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val;
 pc++;
 #ifdef STATS
@@ -19094,7 +22538,14 @@ getbp_0_2_3:
 {
 uint8_t val = ((buffer *)(g[2].p))->data[g[3].i];
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val;
 pc++;
 #ifdef STATS
@@ -19107,7 +22558,14 @@ getbp_0_2_4:
 {
 uint8_t val = ((buffer *)(g[2].p))->data[g[4].i];
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val;
 pc++;
 #ifdef STATS
@@ -19120,7 +22578,14 @@ getbp_0_2_5:
 {
 uint8_t val = ((buffer *)(g[2].p))->data[g[5].i];
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val;
 pc++;
 #ifdef STATS
@@ -19133,7 +22598,14 @@ getbp_0_3_0:
 {
 uint8_t val = ((buffer *)(g[3].p))->data[g[0].i];
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val;
 pc++;
 #ifdef STATS
@@ -19146,7 +22618,14 @@ getbp_0_3_1:
 {
 uint8_t val = ((buffer *)(g[3].p))->data[g[1].i];
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val;
 pc++;
 #ifdef STATS
@@ -19159,7 +22638,14 @@ getbp_0_3_2:
 {
 uint8_t val = ((buffer *)(g[3].p))->data[g[2].i];
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val;
 pc++;
 #ifdef STATS
@@ -19172,7 +22658,14 @@ getbp_0_3_4:
 {
 uint8_t val = ((buffer *)(g[3].p))->data[g[4].i];
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val;
 pc++;
 #ifdef STATS
@@ -19185,7 +22678,14 @@ getbp_0_3_5:
 {
 uint8_t val = ((buffer *)(g[3].p))->data[g[5].i];
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val;
 pc++;
 #ifdef STATS
@@ -19198,7 +22698,14 @@ getbp_0_4_0:
 {
 uint8_t val = ((buffer *)(g[4].p))->data[g[0].i];
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val;
 pc++;
 #ifdef STATS
@@ -19211,7 +22718,14 @@ getbp_0_4_1:
 {
 uint8_t val = ((buffer *)(g[4].p))->data[g[1].i];
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val;
 pc++;
 #ifdef STATS
@@ -19224,7 +22738,14 @@ getbp_0_4_2:
 {
 uint8_t val = ((buffer *)(g[4].p))->data[g[2].i];
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val;
 pc++;
 #ifdef STATS
@@ -19237,7 +22758,14 @@ getbp_0_4_3:
 {
 uint8_t val = ((buffer *)(g[4].p))->data[g[3].i];
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val;
 pc++;
 #ifdef STATS
@@ -19250,7 +22778,14 @@ getbp_0_4_5:
 {
 uint8_t val = ((buffer *)(g[4].p))->data[g[5].i];
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val;
 pc++;
 #ifdef STATS
@@ -19263,7 +22798,14 @@ getbp_0_5_0:
 {
 uint8_t val = ((buffer *)(g[5].p))->data[g[0].i];
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val;
 pc++;
 #ifdef STATS
@@ -19276,7 +22818,14 @@ getbp_0_5_1:
 {
 uint8_t val = ((buffer *)(g[5].p))->data[g[1].i];
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val;
 pc++;
 #ifdef STATS
@@ -19289,7 +22838,14 @@ getbp_0_5_2:
 {
 uint8_t val = ((buffer *)(g[5].p))->data[g[2].i];
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val;
 pc++;
 #ifdef STATS
@@ -19302,7 +22858,14 @@ getbp_0_5_3:
 {
 uint8_t val = ((buffer *)(g[5].p))->data[g[3].i];
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val;
 pc++;
 #ifdef STATS
@@ -19315,7 +22878,14 @@ getbp_0_5_4:
 {
 uint8_t val = ((buffer *)(g[5].p))->data[g[4].i];
 g[0].tag = 0;
-ts &= 0xf800 /*011111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0xf800; /*011111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].i = val;
 pc++;
 #ifdef STATS
@@ -19328,7 +22898,14 @@ getbp_1_0_1:
 {
 uint8_t val = ((buffer *)(g[0].p))->data[g[1].i];
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val;
 pc++;
 #ifdef STATS
@@ -19341,7 +22918,14 @@ getbp_1_0_2:
 {
 uint8_t val = ((buffer *)(g[0].p))->data[g[2].i];
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val;
 pc++;
 #ifdef STATS
@@ -19354,7 +22938,14 @@ getbp_1_0_3:
 {
 uint8_t val = ((buffer *)(g[0].p))->data[g[3].i];
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val;
 pc++;
 #ifdef STATS
@@ -19367,7 +22958,14 @@ getbp_1_0_4:
 {
 uint8_t val = ((buffer *)(g[0].p))->data[g[4].i];
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val;
 pc++;
 #ifdef STATS
@@ -19380,7 +22978,14 @@ getbp_1_0_5:
 {
 uint8_t val = ((buffer *)(g[0].p))->data[g[5].i];
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val;
 pc++;
 #ifdef STATS
@@ -19393,7 +22998,14 @@ getbp_1_1_0:
 {
 uint8_t val = ((buffer *)(g[1].p))->data[g[0].i];
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val;
 pc++;
 #ifdef STATS
@@ -19406,7 +23018,14 @@ getbp_1_1_2:
 {
 uint8_t val = ((buffer *)(g[1].p))->data[g[2].i];
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val;
 pc++;
 #ifdef STATS
@@ -19419,7 +23038,14 @@ getbp_1_1_3:
 {
 uint8_t val = ((buffer *)(g[1].p))->data[g[3].i];
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val;
 pc++;
 #ifdef STATS
@@ -19432,7 +23058,14 @@ getbp_1_1_4:
 {
 uint8_t val = ((buffer *)(g[1].p))->data[g[4].i];
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val;
 pc++;
 #ifdef STATS
@@ -19445,7 +23078,14 @@ getbp_1_1_5:
 {
 uint8_t val = ((buffer *)(g[1].p))->data[g[5].i];
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val;
 pc++;
 #ifdef STATS
@@ -19458,7 +23098,14 @@ getbp_1_2_0:
 {
 uint8_t val = ((buffer *)(g[2].p))->data[g[0].i];
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val;
 pc++;
 #ifdef STATS
@@ -19471,7 +23118,14 @@ getbp_1_2_1:
 {
 uint8_t val = ((buffer *)(g[2].p))->data[g[1].i];
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val;
 pc++;
 #ifdef STATS
@@ -19484,7 +23138,14 @@ getbp_1_2_3:
 {
 uint8_t val = ((buffer *)(g[2].p))->data[g[3].i];
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val;
 pc++;
 #ifdef STATS
@@ -19497,7 +23158,14 @@ getbp_1_2_4:
 {
 uint8_t val = ((buffer *)(g[2].p))->data[g[4].i];
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val;
 pc++;
 #ifdef STATS
@@ -19510,7 +23178,14 @@ getbp_1_2_5:
 {
 uint8_t val = ((buffer *)(g[2].p))->data[g[5].i];
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val;
 pc++;
 #ifdef STATS
@@ -19523,7 +23198,14 @@ getbp_1_3_0:
 {
 uint8_t val = ((buffer *)(g[3].p))->data[g[0].i];
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val;
 pc++;
 #ifdef STATS
@@ -19536,7 +23218,14 @@ getbp_1_3_1:
 {
 uint8_t val = ((buffer *)(g[3].p))->data[g[1].i];
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val;
 pc++;
 #ifdef STATS
@@ -19549,7 +23238,14 @@ getbp_1_3_2:
 {
 uint8_t val = ((buffer *)(g[3].p))->data[g[2].i];
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val;
 pc++;
 #ifdef STATS
@@ -19562,7 +23258,14 @@ getbp_1_3_4:
 {
 uint8_t val = ((buffer *)(g[3].p))->data[g[4].i];
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val;
 pc++;
 #ifdef STATS
@@ -19575,7 +23278,14 @@ getbp_1_3_5:
 {
 uint8_t val = ((buffer *)(g[3].p))->data[g[5].i];
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val;
 pc++;
 #ifdef STATS
@@ -19588,7 +23298,14 @@ getbp_1_4_0:
 {
 uint8_t val = ((buffer *)(g[4].p))->data[g[0].i];
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val;
 pc++;
 #ifdef STATS
@@ -19601,7 +23318,14 @@ getbp_1_4_1:
 {
 uint8_t val = ((buffer *)(g[4].p))->data[g[1].i];
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val;
 pc++;
 #ifdef STATS
@@ -19614,7 +23338,14 @@ getbp_1_4_2:
 {
 uint8_t val = ((buffer *)(g[4].p))->data[g[2].i];
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val;
 pc++;
 #ifdef STATS
@@ -19627,7 +23358,14 @@ getbp_1_4_3:
 {
 uint8_t val = ((buffer *)(g[4].p))->data[g[3].i];
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val;
 pc++;
 #ifdef STATS
@@ -19640,7 +23378,14 @@ getbp_1_4_5:
 {
 uint8_t val = ((buffer *)(g[4].p))->data[g[5].i];
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val;
 pc++;
 #ifdef STATS
@@ -19653,7 +23398,14 @@ getbp_1_5_0:
 {
 uint8_t val = ((buffer *)(g[5].p))->data[g[0].i];
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val;
 pc++;
 #ifdef STATS
@@ -19666,7 +23418,14 @@ getbp_1_5_1:
 {
 uint8_t val = ((buffer *)(g[5].p))->data[g[1].i];
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val;
 pc++;
 #ifdef STATS
@@ -19679,7 +23438,14 @@ getbp_1_5_2:
 {
 uint8_t val = ((buffer *)(g[5].p))->data[g[2].i];
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val;
 pc++;
 #ifdef STATS
@@ -19692,7 +23458,14 @@ getbp_1_5_3:
 {
 uint8_t val = ((buffer *)(g[5].p))->data[g[3].i];
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val;
 pc++;
 #ifdef STATS
@@ -19705,7 +23478,14 @@ getbp_1_5_4:
 {
 uint8_t val = ((buffer *)(g[5].p))->data[g[4].i];
 g[1].tag = 0;
-ts &= 0x17800 /*101111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x17800; /*101111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].i = val;
 pc++;
 #ifdef STATS
@@ -19718,7 +23498,14 @@ getbp_2_0_1:
 {
 uint8_t val = ((buffer *)(g[0].p))->data[g[1].i];
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val;
 pc++;
 #ifdef STATS
@@ -19731,7 +23518,14 @@ getbp_2_0_2:
 {
 uint8_t val = ((buffer *)(g[0].p))->data[g[2].i];
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val;
 pc++;
 #ifdef STATS
@@ -19744,7 +23538,14 @@ getbp_2_0_3:
 {
 uint8_t val = ((buffer *)(g[0].p))->data[g[3].i];
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val;
 pc++;
 #ifdef STATS
@@ -19757,7 +23558,14 @@ getbp_2_0_4:
 {
 uint8_t val = ((buffer *)(g[0].p))->data[g[4].i];
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val;
 pc++;
 #ifdef STATS
@@ -19770,7 +23578,14 @@ getbp_2_0_5:
 {
 uint8_t val = ((buffer *)(g[0].p))->data[g[5].i];
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val;
 pc++;
 #ifdef STATS
@@ -19783,7 +23598,14 @@ getbp_2_1_0:
 {
 uint8_t val = ((buffer *)(g[1].p))->data[g[0].i];
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val;
 pc++;
 #ifdef STATS
@@ -19796,7 +23618,14 @@ getbp_2_1_2:
 {
 uint8_t val = ((buffer *)(g[1].p))->data[g[2].i];
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val;
 pc++;
 #ifdef STATS
@@ -19809,7 +23638,14 @@ getbp_2_1_3:
 {
 uint8_t val = ((buffer *)(g[1].p))->data[g[3].i];
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val;
 pc++;
 #ifdef STATS
@@ -19822,7 +23658,14 @@ getbp_2_1_4:
 {
 uint8_t val = ((buffer *)(g[1].p))->data[g[4].i];
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val;
 pc++;
 #ifdef STATS
@@ -19835,7 +23678,14 @@ getbp_2_1_5:
 {
 uint8_t val = ((buffer *)(g[1].p))->data[g[5].i];
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val;
 pc++;
 #ifdef STATS
@@ -19848,7 +23698,14 @@ getbp_2_2_0:
 {
 uint8_t val = ((buffer *)(g[2].p))->data[g[0].i];
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val;
 pc++;
 #ifdef STATS
@@ -19861,7 +23718,14 @@ getbp_2_2_1:
 {
 uint8_t val = ((buffer *)(g[2].p))->data[g[1].i];
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val;
 pc++;
 #ifdef STATS
@@ -19874,7 +23738,14 @@ getbp_2_2_3:
 {
 uint8_t val = ((buffer *)(g[2].p))->data[g[3].i];
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val;
 pc++;
 #ifdef STATS
@@ -19887,7 +23758,14 @@ getbp_2_2_4:
 {
 uint8_t val = ((buffer *)(g[2].p))->data[g[4].i];
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val;
 pc++;
 #ifdef STATS
@@ -19900,7 +23778,14 @@ getbp_2_2_5:
 {
 uint8_t val = ((buffer *)(g[2].p))->data[g[5].i];
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val;
 pc++;
 #ifdef STATS
@@ -19913,7 +23798,14 @@ getbp_2_3_0:
 {
 uint8_t val = ((buffer *)(g[3].p))->data[g[0].i];
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val;
 pc++;
 #ifdef STATS
@@ -19926,7 +23818,14 @@ getbp_2_3_1:
 {
 uint8_t val = ((buffer *)(g[3].p))->data[g[1].i];
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val;
 pc++;
 #ifdef STATS
@@ -19939,7 +23838,14 @@ getbp_2_3_2:
 {
 uint8_t val = ((buffer *)(g[3].p))->data[g[2].i];
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val;
 pc++;
 #ifdef STATS
@@ -19952,7 +23858,14 @@ getbp_2_3_4:
 {
 uint8_t val = ((buffer *)(g[3].p))->data[g[4].i];
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val;
 pc++;
 #ifdef STATS
@@ -19965,7 +23878,14 @@ getbp_2_3_5:
 {
 uint8_t val = ((buffer *)(g[3].p))->data[g[5].i];
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val;
 pc++;
 #ifdef STATS
@@ -19978,7 +23898,14 @@ getbp_2_4_0:
 {
 uint8_t val = ((buffer *)(g[4].p))->data[g[0].i];
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val;
 pc++;
 #ifdef STATS
@@ -19991,7 +23918,14 @@ getbp_2_4_1:
 {
 uint8_t val = ((buffer *)(g[4].p))->data[g[1].i];
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val;
 pc++;
 #ifdef STATS
@@ -20004,7 +23938,14 @@ getbp_2_4_2:
 {
 uint8_t val = ((buffer *)(g[4].p))->data[g[2].i];
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val;
 pc++;
 #ifdef STATS
@@ -20017,7 +23958,14 @@ getbp_2_4_3:
 {
 uint8_t val = ((buffer *)(g[4].p))->data[g[3].i];
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val;
 pc++;
 #ifdef STATS
@@ -20030,7 +23978,14 @@ getbp_2_4_5:
 {
 uint8_t val = ((buffer *)(g[4].p))->data[g[5].i];
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val;
 pc++;
 #ifdef STATS
@@ -20043,7 +23998,14 @@ getbp_2_5_0:
 {
 uint8_t val = ((buffer *)(g[5].p))->data[g[0].i];
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val;
 pc++;
 #ifdef STATS
@@ -20056,7 +24018,14 @@ getbp_2_5_1:
 {
 uint8_t val = ((buffer *)(g[5].p))->data[g[1].i];
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val;
 pc++;
 #ifdef STATS
@@ -20069,7 +24038,14 @@ getbp_2_5_2:
 {
 uint8_t val = ((buffer *)(g[5].p))->data[g[2].i];
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val;
 pc++;
 #ifdef STATS
@@ -20082,7 +24058,14 @@ getbp_2_5_3:
 {
 uint8_t val = ((buffer *)(g[5].p))->data[g[3].i];
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val;
 pc++;
 #ifdef STATS
@@ -20095,7 +24078,14 @@ getbp_2_5_4:
 {
 uint8_t val = ((buffer *)(g[5].p))->data[g[4].i];
 g[2].tag = 0;
-ts &= 0x1b800 /*110111*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1b800; /*110111*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].i = val;
 pc++;
 #ifdef STATS
@@ -20108,7 +24098,14 @@ getbp_3_0_1:
 {
 uint8_t val = ((buffer *)(g[0].p))->data[g[1].i];
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val;
 pc++;
 #ifdef STATS
@@ -20121,7 +24118,14 @@ getbp_3_0_2:
 {
 uint8_t val = ((buffer *)(g[0].p))->data[g[2].i];
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val;
 pc++;
 #ifdef STATS
@@ -20134,7 +24138,14 @@ getbp_3_0_3:
 {
 uint8_t val = ((buffer *)(g[0].p))->data[g[3].i];
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val;
 pc++;
 #ifdef STATS
@@ -20147,7 +24158,14 @@ getbp_3_0_4:
 {
 uint8_t val = ((buffer *)(g[0].p))->data[g[4].i];
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val;
 pc++;
 #ifdef STATS
@@ -20160,7 +24178,14 @@ getbp_3_0_5:
 {
 uint8_t val = ((buffer *)(g[0].p))->data[g[5].i];
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val;
 pc++;
 #ifdef STATS
@@ -20173,7 +24198,14 @@ getbp_3_1_0:
 {
 uint8_t val = ((buffer *)(g[1].p))->data[g[0].i];
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val;
 pc++;
 #ifdef STATS
@@ -20186,7 +24218,14 @@ getbp_3_1_2:
 {
 uint8_t val = ((buffer *)(g[1].p))->data[g[2].i];
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val;
 pc++;
 #ifdef STATS
@@ -20199,7 +24238,14 @@ getbp_3_1_3:
 {
 uint8_t val = ((buffer *)(g[1].p))->data[g[3].i];
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val;
 pc++;
 #ifdef STATS
@@ -20212,7 +24258,14 @@ getbp_3_1_4:
 {
 uint8_t val = ((buffer *)(g[1].p))->data[g[4].i];
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val;
 pc++;
 #ifdef STATS
@@ -20225,7 +24278,14 @@ getbp_3_1_5:
 {
 uint8_t val = ((buffer *)(g[1].p))->data[g[5].i];
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val;
 pc++;
 #ifdef STATS
@@ -20238,7 +24298,14 @@ getbp_3_2_0:
 {
 uint8_t val = ((buffer *)(g[2].p))->data[g[0].i];
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val;
 pc++;
 #ifdef STATS
@@ -20251,7 +24318,14 @@ getbp_3_2_1:
 {
 uint8_t val = ((buffer *)(g[2].p))->data[g[1].i];
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val;
 pc++;
 #ifdef STATS
@@ -20264,7 +24338,14 @@ getbp_3_2_3:
 {
 uint8_t val = ((buffer *)(g[2].p))->data[g[3].i];
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val;
 pc++;
 #ifdef STATS
@@ -20277,7 +24358,14 @@ getbp_3_2_4:
 {
 uint8_t val = ((buffer *)(g[2].p))->data[g[4].i];
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val;
 pc++;
 #ifdef STATS
@@ -20290,7 +24378,14 @@ getbp_3_2_5:
 {
 uint8_t val = ((buffer *)(g[2].p))->data[g[5].i];
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val;
 pc++;
 #ifdef STATS
@@ -20303,7 +24398,14 @@ getbp_3_3_0:
 {
 uint8_t val = ((buffer *)(g[3].p))->data[g[0].i];
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val;
 pc++;
 #ifdef STATS
@@ -20316,7 +24418,14 @@ getbp_3_3_1:
 {
 uint8_t val = ((buffer *)(g[3].p))->data[g[1].i];
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val;
 pc++;
 #ifdef STATS
@@ -20329,7 +24438,14 @@ getbp_3_3_2:
 {
 uint8_t val = ((buffer *)(g[3].p))->data[g[2].i];
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val;
 pc++;
 #ifdef STATS
@@ -20342,7 +24458,14 @@ getbp_3_3_4:
 {
 uint8_t val = ((buffer *)(g[3].p))->data[g[4].i];
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val;
 pc++;
 #ifdef STATS
@@ -20355,7 +24478,14 @@ getbp_3_3_5:
 {
 uint8_t val = ((buffer *)(g[3].p))->data[g[5].i];
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val;
 pc++;
 #ifdef STATS
@@ -20368,7 +24498,14 @@ getbp_3_4_0:
 {
 uint8_t val = ((buffer *)(g[4].p))->data[g[0].i];
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val;
 pc++;
 #ifdef STATS
@@ -20381,7 +24518,14 @@ getbp_3_4_1:
 {
 uint8_t val = ((buffer *)(g[4].p))->data[g[1].i];
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val;
 pc++;
 #ifdef STATS
@@ -20394,7 +24538,14 @@ getbp_3_4_2:
 {
 uint8_t val = ((buffer *)(g[4].p))->data[g[2].i];
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val;
 pc++;
 #ifdef STATS
@@ -20407,7 +24558,14 @@ getbp_3_4_3:
 {
 uint8_t val = ((buffer *)(g[4].p))->data[g[3].i];
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val;
 pc++;
 #ifdef STATS
@@ -20420,7 +24578,14 @@ getbp_3_4_5:
 {
 uint8_t val = ((buffer *)(g[4].p))->data[g[5].i];
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val;
 pc++;
 #ifdef STATS
@@ -20433,7 +24598,14 @@ getbp_3_5_0:
 {
 uint8_t val = ((buffer *)(g[5].p))->data[g[0].i];
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val;
 pc++;
 #ifdef STATS
@@ -20446,7 +24618,14 @@ getbp_3_5_1:
 {
 uint8_t val = ((buffer *)(g[5].p))->data[g[1].i];
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val;
 pc++;
 #ifdef STATS
@@ -20459,7 +24638,14 @@ getbp_3_5_2:
 {
 uint8_t val = ((buffer *)(g[5].p))->data[g[2].i];
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val;
 pc++;
 #ifdef STATS
@@ -20472,7 +24658,14 @@ getbp_3_5_3:
 {
 uint8_t val = ((buffer *)(g[5].p))->data[g[3].i];
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val;
 pc++;
 #ifdef STATS
@@ -20485,7 +24678,14 @@ getbp_3_5_4:
 {
 uint8_t val = ((buffer *)(g[5].p))->data[g[4].i];
 g[3].tag = 0;
-ts &= 0x1d800 /*111011*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1d800; /*111011*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].i = val;
 pc++;
 #ifdef STATS
@@ -20498,7 +24698,14 @@ getbp_4_0_1:
 {
 uint8_t val = ((buffer *)(g[0].p))->data[g[1].i];
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val;
 pc++;
 #ifdef STATS
@@ -20511,7 +24718,14 @@ getbp_4_0_2:
 {
 uint8_t val = ((buffer *)(g[0].p))->data[g[2].i];
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val;
 pc++;
 #ifdef STATS
@@ -20524,7 +24738,14 @@ getbp_4_0_3:
 {
 uint8_t val = ((buffer *)(g[0].p))->data[g[3].i];
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val;
 pc++;
 #ifdef STATS
@@ -20537,7 +24758,14 @@ getbp_4_0_4:
 {
 uint8_t val = ((buffer *)(g[0].p))->data[g[4].i];
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val;
 pc++;
 #ifdef STATS
@@ -20550,7 +24778,14 @@ getbp_4_0_5:
 {
 uint8_t val = ((buffer *)(g[0].p))->data[g[5].i];
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val;
 pc++;
 #ifdef STATS
@@ -20563,7 +24798,14 @@ getbp_4_1_0:
 {
 uint8_t val = ((buffer *)(g[1].p))->data[g[0].i];
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val;
 pc++;
 #ifdef STATS
@@ -20576,7 +24818,14 @@ getbp_4_1_2:
 {
 uint8_t val = ((buffer *)(g[1].p))->data[g[2].i];
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val;
 pc++;
 #ifdef STATS
@@ -20589,7 +24838,14 @@ getbp_4_1_3:
 {
 uint8_t val = ((buffer *)(g[1].p))->data[g[3].i];
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val;
 pc++;
 #ifdef STATS
@@ -20602,7 +24858,14 @@ getbp_4_1_4:
 {
 uint8_t val = ((buffer *)(g[1].p))->data[g[4].i];
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val;
 pc++;
 #ifdef STATS
@@ -20615,7 +24878,14 @@ getbp_4_1_5:
 {
 uint8_t val = ((buffer *)(g[1].p))->data[g[5].i];
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val;
 pc++;
 #ifdef STATS
@@ -20628,7 +24898,14 @@ getbp_4_2_0:
 {
 uint8_t val = ((buffer *)(g[2].p))->data[g[0].i];
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val;
 pc++;
 #ifdef STATS
@@ -20641,7 +24918,14 @@ getbp_4_2_1:
 {
 uint8_t val = ((buffer *)(g[2].p))->data[g[1].i];
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val;
 pc++;
 #ifdef STATS
@@ -20654,7 +24938,14 @@ getbp_4_2_3:
 {
 uint8_t val = ((buffer *)(g[2].p))->data[g[3].i];
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val;
 pc++;
 #ifdef STATS
@@ -20667,7 +24958,14 @@ getbp_4_2_4:
 {
 uint8_t val = ((buffer *)(g[2].p))->data[g[4].i];
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val;
 pc++;
 #ifdef STATS
@@ -20680,7 +24978,14 @@ getbp_4_2_5:
 {
 uint8_t val = ((buffer *)(g[2].p))->data[g[5].i];
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val;
 pc++;
 #ifdef STATS
@@ -20693,7 +24998,14 @@ getbp_4_3_0:
 {
 uint8_t val = ((buffer *)(g[3].p))->data[g[0].i];
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val;
 pc++;
 #ifdef STATS
@@ -20706,7 +25018,14 @@ getbp_4_3_1:
 {
 uint8_t val = ((buffer *)(g[3].p))->data[g[1].i];
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val;
 pc++;
 #ifdef STATS
@@ -20719,7 +25038,14 @@ getbp_4_3_2:
 {
 uint8_t val = ((buffer *)(g[3].p))->data[g[2].i];
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val;
 pc++;
 #ifdef STATS
@@ -20732,7 +25058,14 @@ getbp_4_3_4:
 {
 uint8_t val = ((buffer *)(g[3].p))->data[g[4].i];
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val;
 pc++;
 #ifdef STATS
@@ -20745,7 +25078,14 @@ getbp_4_3_5:
 {
 uint8_t val = ((buffer *)(g[3].p))->data[g[5].i];
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val;
 pc++;
 #ifdef STATS
@@ -20758,7 +25098,14 @@ getbp_4_4_0:
 {
 uint8_t val = ((buffer *)(g[4].p))->data[g[0].i];
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val;
 pc++;
 #ifdef STATS
@@ -20771,7 +25118,14 @@ getbp_4_4_1:
 {
 uint8_t val = ((buffer *)(g[4].p))->data[g[1].i];
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val;
 pc++;
 #ifdef STATS
@@ -20784,7 +25138,14 @@ getbp_4_4_2:
 {
 uint8_t val = ((buffer *)(g[4].p))->data[g[2].i];
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val;
 pc++;
 #ifdef STATS
@@ -20797,7 +25158,14 @@ getbp_4_4_3:
 {
 uint8_t val = ((buffer *)(g[4].p))->data[g[3].i];
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val;
 pc++;
 #ifdef STATS
@@ -20810,7 +25178,14 @@ getbp_4_4_5:
 {
 uint8_t val = ((buffer *)(g[4].p))->data[g[5].i];
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val;
 pc++;
 #ifdef STATS
@@ -20823,7 +25198,14 @@ getbp_4_5_0:
 {
 uint8_t val = ((buffer *)(g[5].p))->data[g[0].i];
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val;
 pc++;
 #ifdef STATS
@@ -20836,7 +25218,14 @@ getbp_4_5_1:
 {
 uint8_t val = ((buffer *)(g[5].p))->data[g[1].i];
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val;
 pc++;
 #ifdef STATS
@@ -20849,7 +25238,14 @@ getbp_4_5_2:
 {
 uint8_t val = ((buffer *)(g[5].p))->data[g[2].i];
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val;
 pc++;
 #ifdef STATS
@@ -20862,7 +25258,14 @@ getbp_4_5_3:
 {
 uint8_t val = ((buffer *)(g[5].p))->data[g[3].i];
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val;
 pc++;
 #ifdef STATS
@@ -20875,7 +25278,14 @@ getbp_4_5_4:
 {
 uint8_t val = ((buffer *)(g[5].p))->data[g[4].i];
 g[4].tag = 0;
-ts &= 0x1e800 /*111101*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1e800; /*111101*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].i = val;
 pc++;
 #ifdef STATS
@@ -20888,7 +25298,14 @@ getbp_5_0_1:
 {
 uint8_t val = ((buffer *)(g[0].p))->data[g[1].i];
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val;
 pc++;
 #ifdef STATS
@@ -20901,7 +25318,14 @@ getbp_5_0_2:
 {
 uint8_t val = ((buffer *)(g[0].p))->data[g[2].i];
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val;
 pc++;
 #ifdef STATS
@@ -20914,7 +25338,14 @@ getbp_5_0_3:
 {
 uint8_t val = ((buffer *)(g[0].p))->data[g[3].i];
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val;
 pc++;
 #ifdef STATS
@@ -20927,7 +25358,14 @@ getbp_5_0_4:
 {
 uint8_t val = ((buffer *)(g[0].p))->data[g[4].i];
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val;
 pc++;
 #ifdef STATS
@@ -20940,7 +25378,14 @@ getbp_5_0_5:
 {
 uint8_t val = ((buffer *)(g[0].p))->data[g[5].i];
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val;
 pc++;
 #ifdef STATS
@@ -20953,7 +25398,14 @@ getbp_5_1_0:
 {
 uint8_t val = ((buffer *)(g[1].p))->data[g[0].i];
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val;
 pc++;
 #ifdef STATS
@@ -20966,7 +25418,14 @@ getbp_5_1_2:
 {
 uint8_t val = ((buffer *)(g[1].p))->data[g[2].i];
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val;
 pc++;
 #ifdef STATS
@@ -20979,7 +25438,14 @@ getbp_5_1_3:
 {
 uint8_t val = ((buffer *)(g[1].p))->data[g[3].i];
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val;
 pc++;
 #ifdef STATS
@@ -20992,7 +25458,14 @@ getbp_5_1_4:
 {
 uint8_t val = ((buffer *)(g[1].p))->data[g[4].i];
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val;
 pc++;
 #ifdef STATS
@@ -21005,7 +25478,14 @@ getbp_5_1_5:
 {
 uint8_t val = ((buffer *)(g[1].p))->data[g[5].i];
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val;
 pc++;
 #ifdef STATS
@@ -21018,7 +25498,14 @@ getbp_5_2_0:
 {
 uint8_t val = ((buffer *)(g[2].p))->data[g[0].i];
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val;
 pc++;
 #ifdef STATS
@@ -21031,7 +25518,14 @@ getbp_5_2_1:
 {
 uint8_t val = ((buffer *)(g[2].p))->data[g[1].i];
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val;
 pc++;
 #ifdef STATS
@@ -21044,7 +25538,14 @@ getbp_5_2_3:
 {
 uint8_t val = ((buffer *)(g[2].p))->data[g[3].i];
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val;
 pc++;
 #ifdef STATS
@@ -21057,7 +25558,14 @@ getbp_5_2_4:
 {
 uint8_t val = ((buffer *)(g[2].p))->data[g[4].i];
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val;
 pc++;
 #ifdef STATS
@@ -21070,7 +25578,14 @@ getbp_5_2_5:
 {
 uint8_t val = ((buffer *)(g[2].p))->data[g[5].i];
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val;
 pc++;
 #ifdef STATS
@@ -21083,7 +25598,14 @@ getbp_5_3_0:
 {
 uint8_t val = ((buffer *)(g[3].p))->data[g[0].i];
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val;
 pc++;
 #ifdef STATS
@@ -21096,7 +25618,14 @@ getbp_5_3_1:
 {
 uint8_t val = ((buffer *)(g[3].p))->data[g[1].i];
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val;
 pc++;
 #ifdef STATS
@@ -21109,7 +25638,14 @@ getbp_5_3_2:
 {
 uint8_t val = ((buffer *)(g[3].p))->data[g[2].i];
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val;
 pc++;
 #ifdef STATS
@@ -21122,7 +25658,14 @@ getbp_5_3_4:
 {
 uint8_t val = ((buffer *)(g[3].p))->data[g[4].i];
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val;
 pc++;
 #ifdef STATS
@@ -21135,7 +25678,14 @@ getbp_5_3_5:
 {
 uint8_t val = ((buffer *)(g[3].p))->data[g[5].i];
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val;
 pc++;
 #ifdef STATS
@@ -21148,7 +25698,14 @@ getbp_5_4_0:
 {
 uint8_t val = ((buffer *)(g[4].p))->data[g[0].i];
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val;
 pc++;
 #ifdef STATS
@@ -21161,7 +25718,14 @@ getbp_5_4_1:
 {
 uint8_t val = ((buffer *)(g[4].p))->data[g[1].i];
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val;
 pc++;
 #ifdef STATS
@@ -21174,7 +25738,14 @@ getbp_5_4_2:
 {
 uint8_t val = ((buffer *)(g[4].p))->data[g[2].i];
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val;
 pc++;
 #ifdef STATS
@@ -21187,7 +25758,14 @@ getbp_5_4_3:
 {
 uint8_t val = ((buffer *)(g[4].p))->data[g[3].i];
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val;
 pc++;
 #ifdef STATS
@@ -21200,7 +25778,14 @@ getbp_5_4_5:
 {
 uint8_t val = ((buffer *)(g[4].p))->data[g[5].i];
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val;
 pc++;
 #ifdef STATS
@@ -21213,7 +25798,14 @@ getbp_5_5_0:
 {
 uint8_t val = ((buffer *)(g[5].p))->data[g[0].i];
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val;
 pc++;
 #ifdef STATS
@@ -21226,7 +25818,14 @@ getbp_5_5_1:
 {
 uint8_t val = ((buffer *)(g[5].p))->data[g[1].i];
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val;
 pc++;
 #ifdef STATS
@@ -21239,7 +25838,14 @@ getbp_5_5_2:
 {
 uint8_t val = ((buffer *)(g[5].p))->data[g[2].i];
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val;
 pc++;
 #ifdef STATS
@@ -21252,7 +25858,14 @@ getbp_5_5_3:
 {
 uint8_t val = ((buffer *)(g[5].p))->data[g[3].i];
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val;
 pc++;
 #ifdef STATS
@@ -21265,7 +25878,14 @@ getbp_5_5_4:
 {
 uint8_t val = ((buffer *)(g[5].p))->data[g[4].i];
 g[5].tag = 0;
-ts &= 0x1f000 /*111110*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts &= 0x1f000; /*111110*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].i = val;
 pc++;
 #ifdef STATS
@@ -24694,11 +29314,18 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_0_1:
 {
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[1].i);
+object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[1].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[0].tag = 2;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = base;
 }
 else {
@@ -24714,11 +29341,18 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_0_2:
 {
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[2].i);
+object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[2].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[0].tag = 2;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = base;
 }
 else {
@@ -24734,11 +29368,18 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_0_3:
 {
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[3].i);
+object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[3].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[0].tag = 2;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = base;
 }
 else {
@@ -24754,11 +29395,18 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_0_4:
 {
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[4].i);
+object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[4].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[0].tag = 2;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = base;
 }
 else {
@@ -24774,11 +29422,18 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_0_5:
 {
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[5].i);
+object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[5].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[0].tag = 2;
-ts |= 0x10000 /*100000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[0].p = base;
 }
 else {
@@ -24794,11 +29449,18 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_1_0:
 {
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[0].i);
+object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[0].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[1].tag = 2;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = base;
 }
 else {
@@ -24814,11 +29476,18 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_1_2:
 {
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[2].i);
+object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[2].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[1].tag = 2;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = base;
 }
 else {
@@ -24834,11 +29503,18 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_1_3:
 {
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[3].i);
+object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[3].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[1].tag = 2;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = base;
 }
 else {
@@ -24854,11 +29530,18 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_1_4:
 {
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[4].i);
+object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[4].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[1].tag = 2;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = base;
 }
 else {
@@ -24874,11 +29557,18 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_1_5:
 {
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[5].i);
+object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[5].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[1].tag = 2;
-ts |= 0x8000 /*010000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[1].p = base;
 }
 else {
@@ -24894,11 +29584,18 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_2_0:
 {
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[0].i);
+object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[0].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[2].tag = 2;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = base;
 }
 else {
@@ -24914,11 +29611,18 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_2_1:
 {
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[1].i);
+object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[1].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[2].tag = 2;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = base;
 }
 else {
@@ -24934,11 +29638,18 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_2_3:
 {
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[3].i);
+object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[3].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[2].tag = 2;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = base;
 }
 else {
@@ -24954,11 +29665,18 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_2_4:
 {
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[4].i);
+object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[4].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[2].tag = 2;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = base;
 }
 else {
@@ -24974,11 +29692,18 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_2_5:
 {
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[5].i);
+object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[5].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[2].tag = 2;
-ts |= 0x4000 /*001000*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[2].p = base;
 }
 else {
@@ -24994,11 +29719,18 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_3_0:
 {
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[0].i);
+object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[0].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[3].tag = 2;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = base;
 }
 else {
@@ -25014,11 +29746,18 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_3_1:
 {
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[1].i);
+object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[1].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[3].tag = 2;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = base;
 }
 else {
@@ -25034,11 +29773,18 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_3_2:
 {
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[2].i);
+object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[2].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[3].tag = 2;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = base;
 }
 else {
@@ -25054,11 +29800,18 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_3_4:
 {
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[4].i);
+object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[4].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[3].tag = 2;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = base;
 }
 else {
@@ -25074,11 +29827,18 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_3_5:
 {
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[5].i);
+object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[5].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[3].tag = 2;
-ts |= 0x2000 /*000100*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[3].p = base;
 }
 else {
@@ -25094,11 +29854,18 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_4_0:
 {
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[0].i);
+object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[0].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[4].tag = 2;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = base;
 }
 else {
@@ -25114,11 +29881,18 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_4_1:
 {
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[1].i);
+object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[1].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[4].tag = 2;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = base;
 }
 else {
@@ -25134,11 +29908,18 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_4_2:
 {
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[2].i);
+object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[2].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[4].tag = 2;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = base;
 }
 else {
@@ -25154,11 +29935,18 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_4_3:
 {
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[3].i);
+object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[3].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[4].tag = 2;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = base;
 }
 else {
@@ -25174,11 +29962,18 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_4_5:
 {
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[5].i);
+object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[5].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[4].tag = 2;
-ts |= 0x1000 /*000010*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[4].p = base;
 }
 else {
@@ -25194,11 +29989,18 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_5_0:
 {
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[0].i);
+object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[0].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[5].tag = 2;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = base;
 }
 else {
@@ -25214,11 +30016,18 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_5_1:
 {
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[1].i);
+object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[1].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[5].tag = 2;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = base;
 }
 else {
@@ -25234,11 +30043,18 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_5_2:
 {
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[2].i);
+object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[2].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[5].tag = 2;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = base;
 }
 else {
@@ -25254,11 +30070,18 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_5_3:
 {
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[3].i);
+object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[3].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[5].tag = 2;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = base;
 }
 else {
@@ -25274,11 +30097,18 @@ goto *dynOpcodes[ts + program[pc]];
 
 newo_5_4:
 {
-object *base = (object*)malloc(sizeof(object) + sizeof(value)*g[4].i);
+object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[4].i);
 if (base) {
 base->sf = MakeSizeAndFlags(size,0);
 g[5].tag = 2;
-ts |= 0x800 /*000001*/;
+#ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
 g[5].p = base;
 }
 else {
@@ -25298,7 +30128,14 @@ buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[1].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[1].i,0);
     g[0].tag = 4;
-    ts |= 0x10000 /*100000*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[0].p = base;
 }
 else {
@@ -25318,7 +30155,14 @@ buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[2].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[2].i,0);
     g[0].tag = 4;
-    ts |= 0x10000 /*100000*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[0].p = base;
 }
 else {
@@ -25338,7 +30182,14 @@ buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[3].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[3].i,0);
     g[0].tag = 4;
-    ts |= 0x10000 /*100000*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[0].p = base;
 }
 else {
@@ -25358,7 +30209,14 @@ buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[4].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[4].i,0);
     g[0].tag = 4;
-    ts |= 0x10000 /*100000*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[0].p = base;
 }
 else {
@@ -25378,7 +30236,14 @@ buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[5].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[5].i,0);
     g[0].tag = 4;
-    ts |= 0x10000 /*100000*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[0].p = base;
 }
 else {
@@ -25398,7 +30263,14 @@ buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[0].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[0].i,0);
     g[1].tag = 4;
-    ts |= 0x8000 /*010000*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[1].p = base;
 }
 else {
@@ -25418,7 +30290,14 @@ buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[2].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[2].i,0);
     g[1].tag = 4;
-    ts |= 0x8000 /*010000*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[1].p = base;
 }
 else {
@@ -25438,7 +30317,14 @@ buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[3].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[3].i,0);
     g[1].tag = 4;
-    ts |= 0x8000 /*010000*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[1].p = base;
 }
 else {
@@ -25458,7 +30344,14 @@ buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[4].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[4].i,0);
     g[1].tag = 4;
-    ts |= 0x8000 /*010000*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[1].p = base;
 }
 else {
@@ -25478,7 +30371,14 @@ buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[5].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[5].i,0);
     g[1].tag = 4;
-    ts |= 0x8000 /*010000*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[1].p = base;
 }
 else {
@@ -25498,7 +30398,14 @@ buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[0].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[0].i,0);
     g[2].tag = 4;
-    ts |= 0x4000 /*001000*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[2].p = base;
 }
 else {
@@ -25518,7 +30425,14 @@ buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[1].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[1].i,0);
     g[2].tag = 4;
-    ts |= 0x4000 /*001000*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[2].p = base;
 }
 else {
@@ -25538,7 +30452,14 @@ buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[3].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[3].i,0);
     g[2].tag = 4;
-    ts |= 0x4000 /*001000*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[2].p = base;
 }
 else {
@@ -25558,7 +30479,14 @@ buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[4].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[4].i,0);
     g[2].tag = 4;
-    ts |= 0x4000 /*001000*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[2].p = base;
 }
 else {
@@ -25578,7 +30506,14 @@ buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[5].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[5].i,0);
     g[2].tag = 4;
-    ts |= 0x4000 /*001000*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[2].p = base;
 }
 else {
@@ -25598,7 +30533,14 @@ buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[0].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[0].i,0);
     g[3].tag = 4;
-    ts |= 0x2000 /*000100*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[3].p = base;
 }
 else {
@@ -25618,7 +30560,14 @@ buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[1].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[1].i,0);
     g[3].tag = 4;
-    ts |= 0x2000 /*000100*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[3].p = base;
 }
 else {
@@ -25638,7 +30587,14 @@ buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[2].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[2].i,0);
     g[3].tag = 4;
-    ts |= 0x2000 /*000100*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[3].p = base;
 }
 else {
@@ -25658,7 +30614,14 @@ buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[4].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[4].i,0);
     g[3].tag = 4;
-    ts |= 0x2000 /*000100*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[3].p = base;
 }
 else {
@@ -25678,7 +30641,14 @@ buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[5].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[5].i,0);
     g[3].tag = 4;
-    ts |= 0x2000 /*000100*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[3].p = base;
 }
 else {
@@ -25698,7 +30668,14 @@ buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[0].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[0].i,0);
     g[4].tag = 4;
-    ts |= 0x1000 /*000010*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[4].p = base;
 }
 else {
@@ -25718,7 +30695,14 @@ buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[1].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[1].i,0);
     g[4].tag = 4;
-    ts |= 0x1000 /*000010*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[4].p = base;
 }
 else {
@@ -25738,7 +30722,14 @@ buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[2].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[2].i,0);
     g[4].tag = 4;
-    ts |= 0x1000 /*000010*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[4].p = base;
 }
 else {
@@ -25758,7 +30749,14 @@ buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[3].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[3].i,0);
     g[4].tag = 4;
-    ts |= 0x1000 /*000010*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[4].p = base;
 }
 else {
@@ -25778,7 +30776,14 @@ buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[5].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[5].i,0);
     g[4].tag = 4;
-    ts |= 0x1000 /*000010*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[4].p = base;
 }
 else {
@@ -25798,7 +30803,14 @@ buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[0].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[0].i,0);
     g[5].tag = 4;
-    ts |= 0x800 /*000001*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[5].p = base;
 }
 else {
@@ -25818,7 +30830,14 @@ buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[1].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[1].i,0);
     g[5].tag = 4;
-    ts |= 0x800 /*000001*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[5].p = base;
 }
 else {
@@ -25838,7 +30857,14 @@ buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[2].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[2].i,0);
     g[5].tag = 4;
-    ts |= 0x800 /*000001*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[5].p = base;
 }
 else {
@@ -25858,7 +30884,14 @@ buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[3].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[3].i,0);
     g[5].tag = 4;
-    ts |= 0x800 /*000001*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[5].p = base;
 }
 else {
@@ -25878,7 +30911,14 @@ buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*g[4].i);
 if (base) {
     base->sf = MakeSizeAndFlags(g[4].i,0);
     g[5].tag = 4;
-    ts |= 0x800 /*000001*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[5].p = base;
 }
 else {
@@ -25901,7 +30941,14 @@ if (base) {
     base->sf = MakeSizeAndFlags(constant,0);
     strcpy((int8_t *)&(base->data) ,(int8_t *)&program[pc + dconstant + 4]);
     g[0].tag = 4;
-    ts |= 0x10000 /*100000*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x10000; /*100000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[0].p = base;
 }
 else {
@@ -25924,7 +30971,14 @@ if (base) {
     base->sf = MakeSizeAndFlags(constant,0);
     strcpy((int8_t *)&(base->data) ,(int8_t *)&program[pc + dconstant + 4]);
     g[1].tag = 4;
-    ts |= 0x8000 /*010000*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x8000; /*010000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[1].p = base;
 }
 else {
@@ -25947,7 +31001,14 @@ if (base) {
     base->sf = MakeSizeAndFlags(constant,0);
     strcpy((int8_t *)&(base->data) ,(int8_t *)&program[pc + dconstant + 4]);
     g[2].tag = 4;
-    ts |= 0x4000 /*001000*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x4000; /*001000*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[2].p = base;
 }
 else {
@@ -25970,7 +31031,14 @@ if (base) {
     base->sf = MakeSizeAndFlags(constant,0);
     strcpy((int8_t *)&(base->data) ,(int8_t *)&program[pc + dconstant + 4]);
     g[3].tag = 4;
-    ts |= 0x2000 /*000100*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x2000; /*000100*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[3].p = base;
 }
 else {
@@ -25993,7 +31061,14 @@ if (base) {
     base->sf = MakeSizeAndFlags(constant,0);
     strcpy((int8_t *)&(base->data) ,(int8_t *)&program[pc + dconstant + 4]);
     g[4].tag = 4;
-    ts |= 0x1000 /*000010*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x1000; /*000010*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[4].p = base;
 }
 else {
@@ -26016,7 +31091,14 @@ if (base) {
     base->sf = MakeSizeAndFlags(constant,0);
     strcpy((int8_t *)&(base->data) ,(int8_t *)&program[pc + dconstant + 4]);
     g[5].tag = 4;
-    ts |= 0x800 /*000001*/;
+    #ifdef STATS
+int64_t prevts = ts;
+#endif
+ts |= 0x800; /*000001*/
+#ifdef STATS
+if (prevts != ts)
+    stateSwitches++;
+#endif
     g[5].p = base;
 }
 else {
