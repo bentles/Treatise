@@ -16,6 +16,7 @@ Applications}
 \rule[0.5ex]{1\columnwidth}{2pt}
 
 \begin{figure}[tph]
+
  \centerline{ \includegraphics[scale=0.5]{nmmu.jpg}}
 \end{figure}
 
@@ -61,18 +62,30 @@ context
 objectives of research
 
 \subsection{Dynamically Typed Languages}
-Dynamically typed languages are the foundation on which the modern website is built. Javascript is, primarily, the language that powers interactive websites where  elements on the page can be added and removed and changed in real time
-based on what the user does. PHP is the most commonly used language for server-side scripting (do I need a citation here?). This is what allows web pages to have dynamic content. That a page can be personalised on a per-user basis or generated as it is needed to exist is, for the majority of web sites, brought about by these languages. Several other dynamically typed languages are commonly used for server-side scripting. These include ruby, python and javascript.
+Dynamically typed languages are the foundation on which the modern website is built. Currently there are two major web-development languages: JavaScript and PHP. All major browsers have JavaScript engines (virtual machines) which can interpret and execute JavaScript code. Developers use JavaScript to create interactive websites. PHP on the other hand is the most commonly used language for server-side scripting. This is what allows web pages to have dynamic content. Pages can be generated as needed and personalised for each user using PHP. Several other dynamically typed languages are commonly used for server-side scripting. These include Ruby (Ruby on Rails), Python (Django) and JavaScript (Node.js).
+Dynamically typed languages play the role of "glue" languages that stick together different software components. A prime example is the Lua programming language which is used for video game scripting. In this instance the video game's engine is written in C++ for better performance but the logic of the game is a Lua script that runs on the Lua virtual machine. Since lua is a higher-level language it can be used to more easily express the less performance-critical elements of the game. Another example is the Bash command language which acts as glue for the GNU core utilities which are written in C. Each program in the coreutils performs a simple operation but these can easily be composed using a Bash script or command to create complex behaviour. Dynamic languages are ideal for tasks like this because they have simple, terse syntax and powerful abstractions.
 
 \subsection{Interpreting Dynamically Typed Languages}
-Dynamically typed languages are commonly paired with an interpreter. That is,
-these languages are not compiled to machine code that can be run on some architecture. Instead, it is the job of a seperate program to determine the meaning of the program and perform the instructions on actual hardware. Sometimes this is done by parsing the text of the program directly and executing the code line by line, but a more common (is it??) approach is the compile the source code to an intermediary langauge called byte-code. The interpreter reads and executes the byte code instead of the original program. This is easier and faster becuse the byte-code has a very simple, consistent structure. The former is generally called an interpreter and the latter is generally called a ``Virtual Machine''\cite{Shi2007}.
+Dynamically typed languages are commonly paired with an interpreter. That is, these languages are not compiled to machine code that can be run on some architecture. Instead, it is the job of a seperate program to determine the meaning of the program and perform the instructions on actual hardware. There are three main approeaches to interpreting dynamically typed languages:
 
+\subsubsection{Line by Line}
+In line by line interpretation the program is parsed one line at a time. Each line is executed before moving on to the next line in the program. This is ideal for command-line interface operating systems where the primary mode of interaction is entering single-line commands. Some examples of langauges with this type of interpreter are: Bash, CMD.EXE, Python and Ruby.
 
-\subsection{Virtual Machines}
+\subsubsection{Abstract Syntax Tree}
+Abstract syntax tree or AST interpreters parse the entire program and build an abstract syntax tree that represents the structure of the program. This tree can then be traversed in the correct order to execute the program. Exmaples??
 
-To best describe the virtual machine presented in this treatise, a quick summary of virtual machines follows. The heirarchy of virtual machines is presented and our virtual machine is situated within it. Some important virtual machine terminology is introduced. 
-A \emph{virtual machine} or \emph{VM} is a computer program that ``executes software in the same manner as the machine for which the software was developed'' \cite[pg9]{JamesE.Smith2005}. This program is designed to run on some real machine. We call the real machine that a virtual machine is running on the \emph{host} and the virtual machine the \emph{guest. }The guest machine provides an execution environment for software that is designed to run either on the guest itself or on an actual machine that the virtual machine is emulating. This means that we can use a virtual machine to run programs that are incompatable with the host. The virtual machine allows this by providing a mapping of its state to the state of the host machine on which it is running \cite[pg4]{JamesE.Smith2005}.
+\subsubsection{Bytecode}
+Bytecode interpreters interpret a pre-compiled bytecode that is much like machine code executed by the CPU. This can be stored compactly and executed by decoding the opcode and performing the instruction associated with it. This approach is found in the statically typed languages Java and C\# but dynamically typed languages like Lua share the same approach. Bytecode interpreters are also called virtual machines because of they perform the same tasks as a real CPU: fetching, decoding and executing instructions.
+
+\subsection{Workings of a Virtual Machine} 
+When reading in bytecode, the virtual machine needs some whay to know what it is currently reading. This is slightly more complex than just keeping track of how far into the program the VM has read as the program can have instructions that allow the virtual machine to jump between different points in the program. This is how loops and functions are implemented. The instruction pointer (or IP) is used for this purpose.
+ 
+The core of the virtual machine is its dispatch mechanism. The machine reads the instruction that the instruction pointer points to and then must determine what subroutine needs to be called to execute the instruction. Selecting and moving execution to this subroutine is called ``dispatch''. How to implement this dispatch mechanism is a complex topic that will be discussed in more depth in chapter 3.
+
+The subroutines are the virtual machine's instruction set. A VM usually has instructions for performing arithmetic instructions (add and divide), bit manipulation (xor or and), controlling the flow of the program (jump and various conditional jumps) and for storing and accessing values. The design of an instruction set, much like a CPU's instruction set is a creative process. The set of instructions a virtual machine has is the decision of the designer.
+
+\subsection{Project Objectives}
+The objective of this project is to implement a novel virtual machine design for a dynamically typed language. 
 
 \subsection{Project Scope}
 
@@ -89,6 +102,11 @@ To be completed
 \newpage{}
 
 \section{Literature Review, Existing systems and Modern Processors}
+
+\subsection{Virtual Machines}
+
+To best describe the virtual machine presented in this treatise, a quick summary of virtual machines follows. The heirarchy of virtual machines is presented and our virtual machine is situated within it. Some important virtual machine terminology is introduced. 
+A \emph{virtual machine} or \emph{VM} is a computer program that ``executes software in the same manner as the machine for which the software was developed'' \cite[pg9]{JamesE.Smith2005}. This program is designed to run on some real machine. We call the real machine that a virtual machine is running on the \emph{host} and the virtual machine the \emph{guest. }The guest machine provides an execution environment for software that is designed to run either on the guest itself or on an actual machine that the virtual machine is emulating. This means that we can use a virtual machine to run programs that are incompatable with the host. The virtual machine allows this by providing a mapping of its state to the state of the host machine on which it is running \cite[pg4]{JamesE.Smith2005}.
 
 \subsection{The Types of Virtual Machines}
 

@@ -15,3 +15,4 @@ comprised of
   - instruction number
   - register combination
 - type state (types of all registers)
+** list of intstructions = program, but instruction is also the code in the VM
