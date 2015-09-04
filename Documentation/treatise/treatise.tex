@@ -61,6 +61,19 @@ give reader indication of what to expect
 context
 objectives of research
 
+\subsection{???}
+
+In chapter 2, the virtual machine as a concept will be introduced and the different types of virtual machines will be covered. Existing solutions to the problem of a VM for dynamically typed language will be examined and some theory about modern processors will be covered. This theory informs some of the design decisions of the virtual machine.
+
+In chapter 3, the implementation details and decisions made in the design of the VM will be covered. This chapter will cover how the VM works, what instructions it supports and how it implements these instructions. This chapter will also discuss the trade-offs of the virtual machine's design against the conventional approach.
+
+In chapter 4, the experimental design and benchmarks will be discussed. Which benchmarks were chosen and what they can tell us about the virtual machine will be discussed in this chapter. It will also detail the exact details of how the experiment was conducted so that it may be repeatable with similar hardware.
+
+In chapter 5, the results of the experiment will be discussed and analysed and the performance benefits of the virtual machine will be examined.
+
+Lastly in chapter 6, conclusions will be drawn about whether and in what instances the implementation for the virtual machine is useful and what its strengths and weaknesses are.  
+
+
 \subsection{Dynamically Typed Languages}
 Dynamically typed languages are the foundation on which the modern website is built. Currently there are two major web-development languages: JavaScript and PHP. All major browsers have JavaScript engines (virtual machines) which can interpret and execute JavaScript code. Developers use JavaScript to create interactive websites. PHP on the other hand is the most commonly used language for server-side scripting. This is what allows web pages to have dynamic content. Pages can be generated as needed and personalised for each user using PHP. Several other dynamically typed languages are commonly used for server-side scripting. These include Ruby (Ruby on Rails), Python (Django) and JavaScript (Node.js).
 Dynamically typed languages play the role of "glue" languages that stick together different software components. A prime example is the Lua programming language which is used for video game scripting. In this instance the video game's engine is written in C++ for better performance but the logic of the game is a Lua script that runs on the Lua virtual machine. Since lua is a higher-level language it can be used to more easily express the less performance-critical elements of the game. Another example is the Bash command language which acts as glue for the GNU core utilities which are written in C. Each program in the coreutils performs a simple operation but these can easily be composed using a Bash script or command to create complex behaviour. Dynamic languages are ideal for tasks like this because they have simple, terse syntax and powerful abstractions.
@@ -85,11 +98,11 @@ The core of the virtual machine is its dispatch mechanism. The machine reads the
 The subroutines are the virtual machine's instruction set. A VM usually has instructions for performing arithmetic instructions (add and divide), bit manipulation (xor or and), controlling the flow of the program (jump and various conditional jumps) and for storing and accessing values. The design of an instruction set, much like a CPU's instruction set is a creative process. The set of instructions a virtual machine has is the decision of the designer.
 
 \subsection{Project Objectives}
-The objective of this project is to implement a novel virtual machine design for a dynamically typed language. 
+The objective of this project is to implement and benchmark a novel virtual machine design for a dynamically typed language. In order to benchmark the performance of the virtual machine an additional virtual machine must be developed using a more conventional VM design against which the benchmark running times can be measured. The project will determine what kind of performance benefits can be gained from this type of virtual machine.
 
 \subsection{Project Scope}
 
-The project is to develop an implementation of a VM of this nature and run predetermined benchmarks on it against an alternate version of it that does not make use of type-mapping. This experiment should show what benefits the approach has. The VM will only have around 35 instructions and 2 types: integer and pointer. There will be no compiler or assembler implementation required and the VM will not be required to perform garbage collection. The VM will also not have to be robust in how it interacts with the operating system it is running on nor in how it handles errors.
+The project is to develop an implementation of a VM of this nature and run predetermined benchmarks on it against an alternate version of it that does not make use of type-mapping. This experiment should show what benefits the approach has. There will be no compiler or assembler implementation required and the VM will not be required to perform garbage collection. The VM will also not have to be robust in how it interacts with the operating system it is running on nor in how it handles errors.
 
 \subsection{Risks}
 
