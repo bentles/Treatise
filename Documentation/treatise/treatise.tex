@@ -55,19 +55,14 @@ Applications}
 \newpage{}
 
 \section{Introduction}
-
-high level discussion
-give reader indication of what to expect
-context
-objectives of research
-
 In the last x years, software applications programming has seen a shift away from compiled languages that run natively on hardware towards interpreted languages that require the use of another program, called an interpreter to execute them. This has several advantages. One is portability. If you have an interpreter that runs on different hardware and operating systems you can run your interpreted programs in these different environments with no change to your code. Another advantage is that memory can be managed. This helps prevent bugs and security issues and takes the burden of managing memory off the programmer. The disadvantage of interpreted languages is that they must necessarily be slower than equivalent native code. For systems programming and big-budget video games, natively compiled languages are preferred as the performance hit is considered to be too great but for general applications programming interpreted languages are preferred. For business systems this usually means Java and C\# and for web development this means JavaScript and PHP.
 
-Given the popularity of these languages, research into interpreter performance is an important field.  
+Given the popularity of these languages, research into interpreter performance is important. 
 
 \subsection{Dynamically Typed Languages}
 Dynamically typed languages are the foundation on which the modern website is built. Currently there are two major web-development languages: JavaScript and PHP. All major browsers have JavaScript engines (virtual machines) which can interpret and execute JavaScript code. Developers use JavaScript to create interactive websites. PHP on the other hand is the most commonly used language for server-side scripting. This is what allows web pages to have dynamic content. Pages can be generated as needed and personalised for each user using PHP. Several other dynamically typed languages are commonly used for server-side scripting. These include Ruby (Ruby on Rails), Python (Django) and JavaScript (Node.js).
-Dynamically typed languages play the role of "glue" languages that stick together different software components. A prime example is the Lua programming language which is used for video game scripting. In this instance the video game's engine is written in C++ for better performance but the logic of the game is a Lua script that runs on the Lua virtual machine. Since lua is a higher-level language it can be used to more easily express the less performance-critical elements of the game. Another example is the Bash command language which acts as glue for the GNU core utilities which are written in C. Each program in the coreutils performs a simple operation but these can easily be composed using a Bash script or command to create complex behaviour. Dynamic languages are ideal for tasks like this because they have simple, terse syntax and powerful abstractions.
+
+Dynamically typed languages also play the role of "glue" languages that stick together different software components. A prime example is the Lua programming language which is used for video game scripting. In this instance the video game's engine is written in C++ for better performance but the logic of the game is a Lua script that runs on the Lua virtual machine. Since Lua is a higher-level language it can be used to more easily express the less performance-critical elements of the game. Another example is the Bash command language which acts as glue for the GNU core utilities which are written in C. Each program in the coreutils performs a simple operation but these can easily be composed using a Bash script or command to create complex behaviour. Dynamic languages are ideal for tasks like this because they have simple, terse syntax and powerful abstractions.
 
 \subsection{Interpreting Dynamically Typed Languages}
 Dynamically typed languages are commonly paired with an interpreter. That is, these languages are not compiled to machine code that can be run on some architecture. Instead, it is the job of a seperate program to determine the meaning of the program and perform the instructions on actual hardware. There are three main approeaches to interpreting dynamically typed languages:
