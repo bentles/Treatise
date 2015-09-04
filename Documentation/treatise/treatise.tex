@@ -61,18 +61,9 @@ give reader indication of what to expect
 context
 objectives of research
 
-\subsection{???}
+In the last x years, software applications programming has seen a shift away from compiled languages that run natively on hardware towards interpreted languages that require the use of another program, called an interpreter to execute them. This has several advantages. One is portability. If you have an interpreter that runs on different hardware and operating systems you can run your interpreted programs in these different environments with no change to your code. Another advantage is that memory can be managed. This helps prevent bugs and security issues and takes the burden of managing memory off the programmer. The disadvantage of interpreted languages is that they must necessarily be slower than equivalent native code. For systems programming and big-budget video games, natively compiled languages are preferred as the performance hit is considered to be too great but for general applications programming interpreted languages are preferred. For business systems this usually means Java and C\# and for web development this means JavaScript and PHP.
 
-In chapter 2, the virtual machine as a concept will be introduced and the different types of virtual machines will be covered. Existing solutions to the problem of a VM for dynamically typed language will be examined and some theory about modern processors will be covered. This theory informs some of the design decisions of the virtual machine.
-
-In chapter 3, the implementation details and decisions made in the design of the VM will be covered. This chapter will cover how the VM works, what instructions it supports and how it implements these instructions. This chapter will also discuss the trade-offs of the virtual machine's design against the conventional approach.
-
-In chapter 4, the experimental design and benchmarks will be discussed. Which benchmarks were chosen and what they can tell us about the virtual machine will be discussed in this chapter. It will also detail the exact details of how the experiment was conducted so that it may be repeatable with similar hardware.
-
-In chapter 5, the results of the experiment will be discussed and analysed and the performance benefits of the virtual machine will be examined.
-
-Lastly in chapter 6, conclusions will be drawn about whether and in what instances the implementation for the virtual machine is useful and what its strengths and weaknesses are.  
-
+Given the popularity of these languages, research into interpreter performance is an important field.  
 
 \subsection{Dynamically Typed Languages}
 Dynamically typed languages are the foundation on which the modern website is built. Currently there are two major web-development languages: JavaScript and PHP. All major browsers have JavaScript engines (virtual machines) which can interpret and execute JavaScript code. Developers use JavaScript to create interactive websites. PHP on the other hand is the most commonly used language for server-side scripting. This is what allows web pages to have dynamic content. Pages can be generated as needed and personalised for each user using PHP. Several other dynamically typed languages are commonly used for server-side scripting. These include Ruby (Ruby on Rails), Python (Django) and JavaScript (Node.js).
@@ -110,6 +101,17 @@ The risks of the project are mainly about its structure and how it can be critic
 important.
 
 \subsection{Overview of Treatise}
+
+In chapter 2, the virtual machine as a concept will be introduced and the different types of virtual machines will be covered. Existing solutions to the problem of a VM for dynamically typed language will be examined and some theory about modern processors will be covered. This theory informs some of the design decisions of the virtual machine.
+
+In chapter 3, the implementation details and decisions made in the design of the VM will be covered. This chapter will cover how the VM works, what instructions it supports and how it implements these instructions. This chapter will also discuss the trade-offs of the virtual machine's design against the conventional approach.
+
+In chapter 4, the experimental design and benchmarks will be discussed. Which benchmarks were chosen and what they can tell us about the virtual machine will be discussed in this chapter. It will also detail the exact details of how the experiment was conducted so that it may be repeatable with similar hardware.
+
+In chapter 5, the results of the experiment will be discussed and analysed and the performance benefits of the virtual machine will be examined.
+
+Lastly in chapter 6, conclusions will be drawn about whether and in what instances the implementation for the virtual machine is useful and what its strengths and weaknesses are.
+
 
 To be completed
 \newpage{}

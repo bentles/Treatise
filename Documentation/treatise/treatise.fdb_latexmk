@@ -1,8 +1,8 @@
 # Fdb version 3
-["bibtex treatise"] 1441365312 "treatise.aux" "treatise.bbl" "treatise" 1441365313
+["bibtex treatise"] 1441368411 "treatise.aux" "treatise.bbl" "treatise" 1441368411
   "/home/stevetest/a.bib" 0 -1 0 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "treatise.aux" 1441365313 4622 cb00fbdd62ac7aa68223384a4146d2c2 ""
+  "treatise.aux" 1441368411 4552 cefb0d61223a67707bcf6a7c98f12b00 ""
   "treatise.bcf" 0 -1 0 ""
   (generated)
   "treatise.bbl"
@@ -52,7 +52,7 @@
   "treatise.log"
   "treatise.dvi"
   "treatise.aux"
-["pdflatex"] 1441365312 "treatise.tex" "treatise.pdf" "treatise" 1441365313
+["pdflatex"] 1441368411 "treatise.tex" "treatise.pdf" "treatise" 1441368411
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map" 1396833912 1422999 120086736902aeebe94d194ffde31e04 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm" 1136768653 3584 2d666ecf6d466d8b007246bc2f94d9da ""
@@ -126,10 +126,10 @@
   "/usr/share/texlive/texmf-var/web2c/pdftex/pdflatex.fmt" 1434744892 722553 f63209125c427ff118655d68e010a808 ""
   "nmmu.jpg" 1437507716 227222 c989c3ed1e400121a4281069080494eb ""
   "pipeline.png" 1427026632 6161 696a7840fbcca52be4681b8396a4d80b ""
-  "treatise.aux" 1441365313 4622 cb00fbdd62ac7aa68223384a4146d2c2 ""
+  "treatise.aux" 1441368411 4552 cefb0d61223a67707bcf6a7c98f12b00 ""
   "treatise.bbl" 0 -1 0 "bibtex treatise"
-  "treatise.tex" 1441365303 41658 0b4ad77fb81fc1e72d63b1a1ec1d6ebc ""
+  "treatise.tex" 1441368408 42813 a01311f177c81b4b4a9a564e90dbfe09 ""
   (generated)
+  "treatise.aux"
   "treatise.log"
   "treatise.pdf"
-  "treatise.aux"
