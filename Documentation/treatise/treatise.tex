@@ -5,7 +5,13 @@
 \usepackage{babel}
 \usepackage{listings}
 \usepackage{verbatimbox}
+\usepackage{apacite}
+\usepackage{url}
 \renewcommand{\lstlistingname}{Listing}
+\usepackage{courier}
+%make lstlisting use monospace fonts
+\lstset{basicstyle=\footnotesize\ttfamily,breaklines=true}
+\lstset{framextopmargin=50pt}
 
 \begin{document}
 
@@ -13,17 +19,17 @@
 Applications}
 
 \maketitle
-\rule[0.5ex]{1\columnwidth}{2pt}
+%\rule[0.5ex]{1\columnwidth}{2pt}
 
 \begin{figure}[tph]
 
- \centerline{ \includegraphics[scale=0.5]{nmmu.jpg}}
+\includegraphics[scale=0.5]{nmmu.jpg}
 \end{figure}
 
-\author{ \centerline{ Author: Douglas Bentley}}
-\author{ \centerline{ Supervisor: Kevin Naudé}}
+\author{ Author: Douglas Bentley}
+\author{ Supervisor: Kevin Naudé}
 
-\rule[0.5ex]{1\columnwidth}{2pt}
+%\rule[0.5ex]{1\columnwidth}{2pt}
 
 \title{Submitted in partial fulfilment of the degree Baccalaureus Scientiae
 (Honores) in Computer Science at the Nelson Mandela Metropolitan University}
@@ -55,7 +61,7 @@ Applications}
 \newpage{}
 
 \section{Introduction}
-In the last x years, software applications programming has seen a shift away from compiled languages that run natively on hardware towards interpreted languages that require the use of another program, called an interpreter to execute them. This has several advantages. One is portability. If you have an interpreter that runs on different hardware and operating systems you can run your interpreted programs in these different environments with no change to your code. Another advantage is that memory can be managed. This helps prevent bugs and security issues and takes the burden of managing memory off the programmer. The disadvantage of interpreted languages is that they must necessarily be slower than equivalent native code. For systems programming and big-budget video games, natively compiled languages are preferred as the performance hit is considered to be too great but for general applications programming interpreted languages are preferred. For business systems this usually means Java and C\# and for web development this means JavaScript and PHP.
+In the last 20 years, software applications programming has seen a shift away from compiled languages that run natively on hardware towards interpreted languages that require the use of another program, called an interpreter to execute them. This has several advantages. One is portability. If you have an interpreter that runs on different hardware and operating systems you can run your interpreted programs in these different environments with no change to your code. Another advantage is that memory can be managed. This helps prevent bugs and security issues and takes the burden of managing memory off the programmer. The disadvantage of interpreted languages is that they must necessarily be slower than equivalent native code. For systems programming and big-budget video games, natively compiled languages are preferred as the performance hit is considered to be too great but for general applications programming interpreted languages are preferred. For business systems this usually means Java and C\# and for web development this means JavaScript and PHP.
 
 Given the popularity of these languages, research into interpreter performance is important. 
 
@@ -71,13 +77,20 @@ Dynamically typed languages are commonly paired with an interpreter. That is, th
 In line by line interpretation the program is parsed one line at a time. Each line is executed before moving on to the next line in the program. This is ideal for command-line interface operating systems where the primary mode of interaction is entering single-line commands. Some examples of langauges with this type of interpreter are: Bash, CMD.EXE, Python and Ruby.
 
 \subsubsection{Abstract Syntax Tree}
-Abstract syntax tree or AST interpreters parse the entire program and build an abstract syntax tree that represents the structure of the program. This tree can then be traversed in the correct order to execute the program. Exmaples??
+Abstract syntax tree or AST interpreters parse the entire program and build an abstract syntax tree that represents the structure of the program. This tree can then be traversed in the correct order to execute the program. The abstract syntax tree has a node for each construct in the abstract syntax of the programming language. Arithmetic operations are nodes for example where each branch off them is an expression or constant. 
+
+\begin{figure}
+	\includegraphics{ast.jpeg}
+	\caption{Abstract Syntax Tree}
+	\label{fig:ast}
+\end{figure}
+	
 
 \subsubsection{Bytecode}
 Bytecode interpreters interpret a pre-compiled bytecode that is much like machine code executed by the CPU. This can be stored compactly and executed by decoding the opcode and performing the instruction associated with it. This approach is found in the statically typed languages Java and C\# but dynamically typed languages like Lua share the same approach. Bytecode interpreters are also called virtual machines because of they perform the same tasks as a real CPU: fetching, decoding and executing instructions.
 
-\subsection{Workings of a Virtual Machine} 
-When reading in bytecode, the virtual machine needs some whay to know what it is currently reading. This is slightly more complex than just keeping track of how far into the program the VM has read as the program can have instructions that allow the virtual machine to jump between different points in the program. This is how loops and functions are implemented. The instruction pointer (or IP) is used for this purpose.
+\subsection{How Virtual Machine's Work} 
+When reading in bytecode, the virtual machine needs some way to know what it is currently reading. This is slightly more complex than just keeping track of how far into the program the VM has read as the program can have instructions that allow the virtual machine to jump between different points in the program. This is how loops and conditional are implemented. The instruction pointer (or IP) is used for this purpose.
  
 The core of the virtual machine is its dispatch mechanism. The machine reads the instruction that the instruction pointer points to and then must determine what subroutine needs to be called to execute the instruction. Selecting and moving execution to this subroutine is called ``dispatch''. How to implement this dispatch mechanism is a complex topic that will be discussed in more depth in chapter 3.
 
@@ -105,7 +118,7 @@ In chapter 4, the experimental design and benchmarks will be discussed. Which be
 
 In chapter 5, the results of the experiment will be discussed and analysed and the performance benefits of the virtual machine will be examined.
 
-Lastly in chapter 6, conclusions will be drawn about whether and in what instances the implementation for the virtual machine is useful and what its strengths and weaknesses are.
+Lastly in chapter 6, conclusions will be drawn about in what instances the implementation for the virtual machine is useful and what its strengths and weaknesses are.
 
 
 To be completed
@@ -116,7 +129,7 @@ To be completed
 \subsection{Virtual Machines}
 
 To best describe the virtual machine presented in this treatise, a quick summary of virtual machines follows. The heirarchy of virtual machines is presented and our virtual machine is situated within it. Some important virtual machine terminology is introduced. 
-A \emph{virtual machine} or \emph{VM} is a computer program that ``executes software in the same manner as the machine for which the software was developed'' \cite[pg9]{JamesE.Smith2005}. This program is designed to run on some real machine. We call the real machine that a virtual machine is running on the \emph{host} and the virtual machine the \emph{guest. }The guest machine provides an execution environment for software that is designed to run either on the guest itself or on an actual machine that the virtual machine is emulating. This means that we can use a virtual machine to run programs that are incompatable with the host. The virtual machine allows this by providing a mapping of its state to the state of the host machine on which it is running \cite[pg4]{JamesE.Smith2005}.
+A \emph{virtual machine} or \emph{VM} is a computer program that ``executes software in the same manner as the machine for which the software was developed'' \cite[pg9]{JamesE.Smith2005}. This program is designed to run on some real machine. We call the real machine that a virtual machine is running on the \emph{host} and the virtual machine the \emph{guest.}The guest machine provides an execution environment for software that is designed to run either on the guest itself or on an actual machine that the virtual machine is emulating. This means that we can use a virtual machine to run programs that are incompatable with the host. The virtual machine allows this by providing a mapping of its state to the state of the host machine on which it is running \cite[pg4]{JamesE.Smith2005}.
 
 \subsection{The Types of Virtual Machines}
 
@@ -177,82 +190,93 @@ Predicting a branch means we must predict if that branch is taken or not and wha
 
 Modern processors make use of different levels of cache to allow for faster memory access. Ideally we would like to have an infinite amount of memory with no time cost for accessing it. The reality is that the larger memory is, the slower it becomes to access it {[}???{]}. In order to get closer to the ideal modern processors make use of cache. It takes around 100 cycles for Intel's Intel i7-4770 (Haswell) architecture to access memory. Cache allows us get get closer to the ideal case by keeping commonly accessed memory closer to the CPU in levels of increasingly smaller, faster and more expensive (to manufacture) memory. The Haswell has 32KB of L1 data cache and 32KB of L1 code cache. These are located on the CPU itself {[}x{]} and can be accessed in around 4 cycles{[}x{]}. It also has 256KB of L2 cache and 8 MB of L3 cache. Caching works on the principal of locality of access. If you access memory in more or less the same area a lot, that acess is much faster than if you hop around from place to place. We should try to take advantage of cache in our VM's design.
 
+
+
 \subsection{Traditional Implementation of High Level VMs}
 
 \subsubsection{Dispatch and Threading}
 
-Dispatch is the process of fetching, decoding and starting the next instruction to be run by a virtual machine {[}x{]}.
+Dispatch is the process of fetching, decoding and starting the next instruction to be run by a virtual machine.
 
-The simplest way to implement a virtual machine is to make use of a switch statement in a loop. This is called switch dispatch. Here is a simplified version to illustrate:
+The simplest way to implement a virtual machine is to make use of a switch statement in a loop. This is called switch dispatch. See figure~\ref{fig:switch} for a C implementation.
 
+\begin{figure}
 \begin{lstlisting}
 typedef enum { add /* ... */ } Inst; 
 
 void engine() 
 { 
-	static Inst program[] = { add /* ... */ }; 
-	Inst *ip = program; 
-	int *sp; 
+    static Inst program[] = { add /* ... */ }; 
+    Inst *ip = program; 
+    int *sp; 
 
-	for (;;) 
-		switch (*ip++) 
-		{ 
-		case add: 
-			sp[1]=sp[0]+sp[1]; 
-			sp++; 
-		break; 
-		/* ... */ 
-	}
+    for (;;) 
+        switch (*ip++) 
+        { 
+        case add: 
+            sp[1]=sp[0]+sp[1]; 
+            sp++; 
+        break; 
+        /* ... */ 
+    }
 } 
 \end{lstlisting}
+\caption{Switch Dispatch}
+\label{fig:switch}
+\end{figure}
 
 This approach is problematic because the switch statement means that there is only ever a single entry in the Branch Target Buffer used for dispatch . This means that the number of mispredictions will be large as the target of the branch will change for each new instruction we branch to. This problem may even be magnified by the fact that this specific VM implementation has far more instructions than usual as it requires several specialised versions of every instruction.
 
-A faster alternative to switch dispatch is direct threading\cite{Ertl}. The name threading comes from the idea of the execution threading its way from one instruction to the next {[}x{]}. In direct threading the program is stored as a list of addresses of instructions and the code for each instruction includes a dispatch portion which jumps to the address of the next instruction to be executed.
+\begin{comment}The name threading comes from the idea of the execution threading its way from one instruction to the next {[}??{]}
+\end{comment}
 
+A faster alternative to switch dispatch is direct threading\cite{Ertl}. In direct threading the program is stored as a list of addresses of instructions and the code for each instruction includes a dispatch portion which jumps to the address of the next instruction to be executed.
+
+\begin{figure}
 \begin{lstlisting}
 typedef void *Inst; 
 
 void engine() 
 { 
-	static Inst program[] = { &&add /* ... */ }; 
-	Inst *ip = program; 
-	int *sp; 
-	
-	goto *ip++; /* dispatch first VM inst. */ 
-
+    static Inst program[] = { &&add /* ... */ }; 
+    Inst *ip = program; 
+    int *sp; 
+    goto *ip++; /* dispatch first VM inst. */ 
 add: 
-	sp[1]=sp[0]+sp[1]; 
-	sp++; 
-	goto *ip++; /* dispatch next VM inst. */ 
-
+    sp[1]=sp[0]+sp[1]; 
+    sp++; 
+    goto *ip++; /* dispatch next VM inst. */ 
 }
 \end{lstlisting}
+\caption{Direct Threaded Dispatch}
+\label{fig:direct}
+\end{figure}
 
 Another method is indirect threading. In indirect threading we keep a lookup table of the addresses of code for each instruction and have each instruction jump to the next by reading the opcode of the next instruction from the program, looking up the address of the code for that instruction in the table and then jumping to that instruction.
 
+\begin{figure}
 \begin{lstlisting}
-typedef void *Inst; 
-
+typedef void *Inst;
 void engine() 
 { 
-	static Inst lookup[] = { &&add, &&sub /*...*/ }
-	static int program[] = { 0, /* ... */ }; 
-	int *ip = program; 
-	int *sp; 
-	
-	goto *ip++; /* dispatch first VM inst. */ 
-
+    static Inst lookup[] = { &&add, &&sub /*...*/ }
+    static int program[] = { 0, /* ... */ }; 
+    int *ip = program; 
+    int *sp; 	
+    goto *ip++; /* dispatch first VM inst. */ 
 add: 
-	sp[1]=sp[0]+sp[1]; 
-	sp++; 
-	goto lookup[*ip++]; /* dispatch next VM inst. */ 
+    sp[1]=sp[0]+sp[1]; 
+    sp++; 
+    goto lookup[*ip++]; /* dispatch next VM inst. */ 
 }
 \end{lstlisting}
+\caption{Switch Dispatch}
+\label{fig:switch}
+\end{figure}
 
 Direct and inderect threading make much better use of the branch target buffer. Instead of a single entry in the BTB, with direct threading we have an entry per instruction, so instructions that commonly follow each other have a better chance of being predicted.
 
-All code in this section is from or adapted from \cite{M.AntonErtl2003}.
+All code in this section is from or adapted from \cite{Ertl}.
 
 
 \subsubsection{Registers VS Stacks}
@@ -263,17 +287,39 @@ In a stack virtual machine, instructions act on members of the stack. Arguments 
 
 For a register machine, a similar piece of code would have values for b and c in registers and an add instruction is called with a, b and c as arguments. This instruction would compute b+c and store it in a regsiter.
 
-Widely used process virtual machines make use of a stack architecture. Both the Java Virtual Machine (JVM) and Microsoft's Common Language Runtime (CLR) make use of stack virtual machines{[}x{]}. 
+Widely used process virtual machines make use of a stack architecture. Both the Java Virtual Machine (JVM) and Microsoft's Common Language Runtime (CLR) make use of stack virtual machines \cite{CLI}\cite{JVM}. 
 
 \subsubsection{JIT Compilation}
 
-Both the JVM and CLR make use of JIT compilation {[}x{]}. JIT compilation allows for code that is executed often enough to be compiled into native machine code at runtime. JIT compilation does not preclude the bytecode of a many-instance application being shared but each instance of the application is JIT compiling that code. So it is likely that the same bytecode is being compiled in many different processes at the same time.
+Both the JVM and CLR make use of JIT compilation\cite{JJIT}. JIT compilation allows for code that is executed often enough to be compiled into native machine code at runtime. JIT compilation does not preclude the bytecode of a many-instance application being shared but each instance of the application is JIT compiling that code. So it is likely that the same bytecode is being compiled in many different processes at the same time.
 
 \subsection{VM Interpreter Reseach}
 
 James R. Bell introduced the concept of threaded code in 1973. The Fortran IV compiler was written to generate threaded code.\cite{Bell}  Yuhne Shi\cite{Shi2007} found that a well-implemented register VM is a more efficient option when speed of execution is more important than the size of the code to be executed.
 
 Ertl and Gregg found that in their benchmarks 3.2\%\textendash 13\% of all executed instructions were indirect branches and that switch dispatch on an architecture with a BRB resulted in 81\%-98\% branch prediction misses \cite{M.AntonErtl2003}. They also found that direct threading resulted in 50\%-63\% branch prediction misses.
+
+\subsection{Existing Systems}
+
+\subsubsection{Lua VM}
+
+The Lua VM is an interpreter for the dynamically typed language Lua's bytecode. Lua is used as a scripting language in game engines \cite{LuaUsed}. It has many implementation similarities to the VM described in this treatise and os is of particular interest but it differs in its strict adherance to the ANSI C standard /cite{RobertoIerusalimschy}. Strict adherance to the standard is something prioritised by the Lua team for portability reasons /cite{RobertoIerusalimschy}. 
+\begin{description}
+\item[Dynamically typed] Lua's types are associated with its values and not its variables. 
+\item[Register-based] The Lua VM is register-based instead of the stack approach taken by the JVM and .NET runtime.
+\item[Switch Dispatch] The Lua VM makes use of the a switch dispatch mechanism \cite{Lua.Source}. This is a result of its strict adherance to the ANSI C standard which does not allow for labels as values which are needed for alternative threading techniques.
+\item[No JIT] The lua VM does not make use of a Just in Time compiler (though an independent project called luajit has provided one).
+\end{description}
+
+
+\subsubsection{JRockit JVM and .NET runtime}
+Oracle's Java Virtual Machine implementation is a high performance Virtual Machine for running java bytecode. Microsoft's .NET runtime is a similar VM that runs the common intermeidate language that several Microsoft-developed languages compile to. They are implemented similarly to each other and quite differently from the VM described in this treatise:
+\begin{description}
+\item[Statically Typed] Both VMs make use of static types. Types are associated with variables instead of values.
+\item[Stack-based] Both are stack-based architectures instead of register-based 
+\item[Dispatch] ???
+\item[JIT] Both VMs make use of Just in Time compilation.
+\end{description}
 
 \subsection{Our Implementation}
 
@@ -324,7 +370,7 @@ The three virtual machines are designed to be as similar as possible except for 
 \subsubsection{Values}
 
 
-\begin{lstlisting}
+\begin{verbatim}
 typedef struct ValueStruct value;
 struct ValueStruct
 {
@@ -335,7 +381,7 @@ struct ValueStruct
 		void *p;    
 	};
 };
-\end{lstlisting}
+\end{verbatim}
 
 As this is a dynamic ISA virtual machine, types are associated with values instead of variables [lua VM]. The implementation for a value is simple enough to include here.
 
@@ -416,8 +462,8 @@ Arithmetic instructions provide some basic arithmetic operations for registers t
 The functioning of these operations is obvious except for the two division instructions where the first argument is g0. In this case g0 mod gj (or const64 as the case may be) is stored in g0 as the final result. The implementation used to bring this about is: 
 
 \begin{itemize} 
-\item find the modulus first and store it in a temporary variable \\
-\item perform the division, storing the result in register gi \\
+\item find the modulus first and store it in a temporary variable 
+\item perform the division, storing the result in register gi 
 \item store the temporary variable in gi
 \end{itemize}
 	
@@ -563,7 +609,7 @@ $ret$ & $asd$ \\
 \subsection*{Pragmatic Higher-Level Instructions}
 \addvbuffer[12pt 8pt]{\begin{tabular}{| l | l |}	
 	\hline
-$newo$ & $$ \\
+$newo$ & $dsdg$ \\
 	\hline
 newb & a \\
 	\hline
@@ -582,11 +628,10 @@ print & a \\
 
 \subsubsection{opcode}
 
-The
 
 \newpage{}
 
-\bibliographystyle{plain}
-\bibliography{/home/stevetest/a}
+\bibliographystyle{apacite}
+\bibliography{treatise-bibliography}
 
 \end{document}
