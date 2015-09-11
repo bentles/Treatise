@@ -5,44 +5,47 @@
 \contentsline {subsubsection}{\numberline {1.2.1}Line by Line}{10}
 \contentsline {subsubsection}{\numberline {1.2.2}Abstract Syntax Tree}{10}
 \contentsline {subsubsection}{\numberline {1.2.3}Bytecode}{10}
-\contentsline {subsection}{\numberline {1.3}How Virtual Machine's Work}{11}
-\contentsline {subsection}{\numberline {1.4}Project Objectives}{11}
-\contentsline {subsection}{\numberline {1.5}Project Scope}{11}
+\contentsline {subsection}{\numberline {1.3}How Virtual Machines Work}{11}
+\contentsline {subsubsection}{\numberline {1.3.1}Instruction Pointer}{11}
+\contentsline {subsubsection}{\numberline {1.3.2}Instruction Set}{11}
+\contentsline {subsubsection}{\numberline {1.3.3}Dispatch Mechanism}{11}
+\contentsline {subsection}{\numberline {1.4}Project Objectives}{12}
+\contentsline {subsection}{\numberline {1.5}Project Scope}{12}
 \contentsline {subsection}{\numberline {1.6}Risks}{12}
 \contentsline {subsection}{\numberline {1.7}Overview of Treatise}{12}
-\contentsline {section}{\numberline {2}Literature Review, Existing systems and Modern Processors}{13}
-\contentsline {subsection}{\numberline {2.1}Virtual Machines}{13}
-\contentsline {subsection}{\numberline {2.2}The Types of Virtual Machines}{13}
-\contentsline {subsection}{\numberline {2.3}The Types of Process Virtual Machines}{13}
-\contentsline {subsection}{\numberline {2.4}Dynamic vs Statically Typed Programming Languages}{14}
-\contentsline {subsection}{\numberline {2.5}Where Our VM is Situated}{14}
-\contentsline {subsection}{\numberline {2.6}A Virtual Machine for Many Instance Applications}{14}
-\contentsline {subsection}{\numberline {2.7}Type-Mapping and Argument Case Expansion}{14}
-\contentsline {subsection}{\numberline {2.8}Modern Processor Architecture}{15}
-\contentsline {subsubsection}{\numberline {2.8.1}Pipelining}{15}
-\contentsline {subsubsection}{\numberline {2.8.2}Branch Prediction}{16}
-\contentsline {subsubsection}{\numberline {2.8.3}Cache}{16}
-\contentsline {subsection}{\numberline {2.9}Traditional Implementation of High Level VMs}{17}
-\contentsline {subsubsection}{\numberline {2.9.1}Dispatch and Threading}{17}
-\contentsline {subsubsection}{\numberline {2.9.2}Registers VS Stacks}{19}
-\contentsline {subsubsection}{\numberline {2.9.3}JIT Compilation}{19}
-\contentsline {subsection}{\numberline {2.10}VM Interpreter Reseach}{19}
-\contentsline {subsection}{\numberline {2.11}Existing Systems}{19}
-\contentsline {subsubsection}{\numberline {2.11.1}Lua VM}{19}
-\contentsline {subsubsection}{\numberline {2.11.2}JRockit JVM and .NET runtime}{20}
-\contentsline {subsection}{\numberline {2.12}Our Implementation}{20}
-\contentsline {subsubsection}{\numberline {2.12.1}Virtual Machine Design Details}{20}
-\contentsline {subsubsection}{\numberline {2.12.2}Type-Mapping}{21}
-\contentsline {subsubsection}{\numberline {2.12.3}Indirect Threading}{21}
-\contentsline {section}{\numberline {3}Solution Design}{22}
-\contentsline {subsection}{\numberline {3.1}Common Elements}{22}
-\contentsline {subsubsection}{\numberline {3.1.1}Values}{22}
-\contentsline {subsubsection}{\numberline {3.1.2}Objects}{22}
-\contentsline {subsubsection}{\numberline {3.1.3}Buffers}{23}
-\contentsline {subsubsection}{\numberline {3.1.4}Registers}{23}
-\contentsline {subsubsection}{\numberline {3.1.5}Stack Frames}{23}
-\contentsline {subsubsection}{\numberline {3.1.6}Addressing}{23}
-\contentsline {subsubsection}{\numberline {3.1.7}Instructions}{23}
-\contentsline {subsection}{\numberline {3.2}Conventional VM}{26}
-\contentsline {subsubsection}{\numberline {3.2.1}opcode}{26}
-\contentsline {section}{References}{27}
+\contentsline {section}{\numberline {2}Literature Review, Existing systems and Modern Processors}{14}
+\contentsline {subsection}{\numberline {2.1}Virtual Machines}{14}
+\contentsline {subsection}{\numberline {2.2}The Types of Virtual Machines}{14}
+\contentsline {subsection}{\numberline {2.3}The Types of Process Virtual Machines}{14}
+\contentsline {subsection}{\numberline {2.4}Dynamic vs Statically Typed Programming Languages}{15}
+\contentsline {subsection}{\numberline {2.5}Where Our VM is Situated}{15}
+\contentsline {subsection}{\numberline {2.6}A Virtual Machine for Many Instance Applications}{15}
+\contentsline {subsection}{\numberline {2.7}Type-Mapping and Argument Case Expansion}{15}
+\contentsline {subsection}{\numberline {2.8}Modern Processor Architecture}{16}
+\contentsline {subsubsection}{\numberline {2.8.1}Pipelining}{16}
+\contentsline {subsubsection}{\numberline {2.8.2}Branch Prediction}{17}
+\contentsline {subsubsection}{\numberline {2.8.3}Cache}{17}
+\contentsline {subsection}{\numberline {2.9}Traditional Implementation of High Level VMs}{18}
+\contentsline {subsubsection}{\numberline {2.9.1}Dispatch and Threading}{18}
+\contentsline {subsubsection}{\numberline {2.9.2}Registers VS Stacks}{20}
+\contentsline {subsubsection}{\numberline {2.9.3}JIT Compilation}{20}
+\contentsline {subsection}{\numberline {2.10}VM Interpreter Reseach}{20}
+\contentsline {subsection}{\numberline {2.11}Existing Systems}{20}
+\contentsline {subsubsection}{\numberline {2.11.1}Lua VM}{20}
+\contentsline {subsubsection}{\numberline {2.11.2}JRockit JVM and .NET runtime}{21}
+\contentsline {subsection}{\numberline {2.12}Our Implementation}{21}
+\contentsline {subsubsection}{\numberline {2.12.1}Virtual Machine Design Details}{21}
+\contentsline {subsubsection}{\numberline {2.12.2}Type-Mapping}{22}
+\contentsline {subsubsection}{\numberline {2.12.3}Indirect Threading}{22}
+\contentsline {section}{\numberline {3}Solution Design}{23}
+\contentsline {subsection}{\numberline {3.1}Common Elements}{23}
+\contentsline {subsubsection}{\numberline {3.1.1}Values}{23}
+\contentsline {subsubsection}{\numberline {3.1.2}Objects}{23}
+\contentsline {subsubsection}{\numberline {3.1.3}Buffers}{24}
+\contentsline {subsubsection}{\numberline {3.1.4}Registers}{24}
+\contentsline {subsubsection}{\numberline {3.1.5}Stack Frames}{24}
+\contentsline {subsubsection}{\numberline {3.1.6}Addressing}{24}
+\contentsline {subsubsection}{\numberline {3.1.7}Instructions}{24}
+\contentsline {subsection}{\numberline {3.2}Conventional VM}{27}
+\contentsline {subsubsection}{\numberline {3.2.1}opcode}{27}
+\contentsline {section}{References}{28}

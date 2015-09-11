@@ -8,6 +8,11 @@
 \usepackage{apacite}
 \usepackage{subcaption}
 \usepackage{url}
+
+%reset counter per chapter
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
+
 \renewcommand{\lstlistingname}{Listing}
 \usepackage{courier}
 %make lstlisting use monospace fonts
@@ -84,7 +89,6 @@ Figure~\ref{fig:ast} shows an abstract syntax tree for an if statement. The if s
 
 \begin{figure}
 	\begin{subfigure}{.5\textwidth}
-	\centering
 		\begin{lstlisting}
 if (x > y)
     max = x;
@@ -118,12 +122,21 @@ The Lua bytecode (as of Lua 5.0) is made up of 32 bit unsiged integers \cite{Rob
 	\label{fig:luabyte}
 \end{figure}
 
-\subsection{How Virtual Machine's Work} 
-When reading in bytecode, the virtual machine needs some way to know what it is currently reading. This is slightly more complex than just keeping track of how far into the program the VM has read as the program can have instructions that allow the virtual machine to jump between different points in the program. This is how loops and conditional are implemented. The instruction pointer (or IP) is used for this purpose.
- 
-The core of the virtual machine is its dispatch mechanism. The machine reads the instruction that the instruction pointer points to and then must determine what subroutine needs to be called to execute the instruction. Selecting and moving execution to this subroutine is called ``dispatch''. How to implement this dispatch mechanism is a complex topic that will be discussed in more depth in chapter 3.
+\subsection{How Virtual Machines Work} 
+A Virtual Machine executes a binary file that is a list of instructions in the bytecode format for that Virtual Machine. So for Lua these instructions would be 32 bit integers in one of the formats seen in Figure~\ref{fig:luabyte}. The binary file may also contain data for known constant values in the program.
 
-The subroutines are the virtual machine's instruction set. A VM usually has instructions for performing arithmetic instructions (add and divide), bit manipulation (xor or and), controlling the flow of the program (jump and various conditional jumps) and for storing and accessing values. The design of an instruction set, much like a CPU's instruction set is a creative process. The set of instructions a virtual machine has is the decision of the designer.
+\subsubsection{Instruction Pointer}
+When executing in bytecode, the virtual machine needs some way to know what instruction is currently being executed. This is slightly more complex than just keeping track of how far into the program the VM has read as the program may have ``control flow'' instructions. These instructions allow the virtual machine to jump between different points in the program. 
+
+This is how loops and conditional execution are implemented. The instruction pointer (or IP) is used for this purpose. Its only purpose is to point to the current instruction.
+
+\subsubsection{Instruction Set}
+The VM has a set of subroutines called the instruction set. Each subroutine performs a specific function necessary for the execution of a program. A VM usually has instructions for performing arithmetic instructions (\verb|add| and \verb|divide|), bit manipulation (\verb|xor| or \verb|and|), controlling the flow of the program (\verb|jump| or \verb|jumpif0|) and for storing and accessing values. The design of a VM instruction set, much like that of a CPU, is a creative process. The particular set of instructions a virtual machine has is the decision of the designer and choosing which instructions to include and omit has trade-offs that need to be considered.
+
+\subsubsection{Dispatch Mechanism} 
+At the core of the virtual machine is its dispatch mechanism. The VM reads the instruction that the instruction pointer points to and then must determine what subroutine needs to be called to execute the instruction. Selecting and moving execution to this subroutine is called ``dispatch''. How to implement this dispatch mechanism is a complex topic that will be discussed in more depth in chapter 3.
+
+
 
 \subsection{Project Objectives}
 The objective of this project is to implement and benchmark a novel virtual machine design for a dynamically typed language. In order to benchmark the performance of the virtual machine an additional virtual machine must be developed using a more conventional VM design against which the benchmark running times can be measured. The project will determine what kind of performance benefits can be gained from this type of virtual machine.
