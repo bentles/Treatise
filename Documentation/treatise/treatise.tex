@@ -6,6 +6,7 @@
 \usepackage{listings}
 \usepackage{verbatimbox}
 \usepackage{apacite}
+\usepackage{subcaption}
 \usepackage{url}
 \renewcommand{\lstlistingname}{Listing}
 \usepackage{courier}
@@ -48,16 +49,14 @@ Applications}
 
 \newpage{}
 
-\section*{List of Figures}
-
+\listoffigures
 \newpage{}
 
 \section*{List of Tables}
 
 \newpage{}
 
-\section*{Table of Contents}
-
+\tableofcontents
 \newpage{}
 
 \section{Introduction}
@@ -79,15 +78,45 @@ In line by line interpretation the program is parsed one line at a time. Each li
 \subsubsection{Abstract Syntax Tree}
 Abstract syntax tree or AST interpreters parse the entire program and build an abstract syntax tree that represents the structure of the program. This tree can then be traversed in the correct order to execute the program. The abstract syntax tree has a node for each construct in the abstract syntax of the programming language. Arithmetic operations are nodes for example where each branch off them is an expression or constant. 
 
+Figure~\ref{fig:ast} shows an abstract syntax tree for an if statement. The if statement has three branches: one for the condition, one for the expression if the condition is true and another for the expression if the condition is false. By traversing to the first branch of the ``if'' node and then to the second or third given the condition, one can determine the value of the variable ``max''. An entire program can be parsed into an AST and interpreted in this fashion.
+
+
+
 \begin{figure}
-	\includegraphics{ast.jpeg}
-	\caption{Abstract Syntax Tree}
+	\begin{subfigure}{.5\textwidth}
+	\centering
+		\begin{lstlisting}
+if (x > y)
+    max = x;
+else
+    max = y;
+		\end{lstlisting}
+		 \caption{If statement code}
+		 \label{fig:sub1}
+	\end{subfigure}
+	\begin{subfigure}{.5\textwidth}
+		\centering	
+		\includegraphics[width=.8\linewidth]{ast.jpeg}
+		 \caption{Tree parsed from code}
+		 \label{fig:sub1}
+	\end{subfigure}
+	\caption{Abstract Syntax Tree \protect\cite{ast}}
 	\label{fig:ast}
 \end{figure}
 	
 
 \subsubsection{Bytecode}
-Bytecode interpreters interpret a pre-compiled bytecode that is much like machine code executed by the CPU. This can be stored compactly and executed by decoding the opcode and performing the instruction associated with it. This approach is found in the statically typed languages Java and C\# but dynamically typed languages like Lua share the same approach. Bytecode interpreters are also called virtual machines because of they perform the same tasks as a real CPU: fetching, decoding and executing instructions.
+Bytecode interpreters interpret a pre-compiled bytecode that is much like the machine code executed by the CPU. This can be stored compactly and executed by decoding the opcode and performing the instruction associated with it. This approach is found in the statically typed languages Java and C\# but dynamically typed languages like Lua share the same approach. Bytecode interpreters are also called virtual machines because of they perform the same tasks as a real CPU: fetching, decoding and executing instructions (citation needed?).
+
+The Lua bytecode (as of Lua 5.0) is made up of 32 bit unsiged integers \cite{RobertoIerusalimschy}. Figure~\ref{fig:luabyte} shows us the different ways the bits of the instructions in the bytecode are used. Bits 0 through 5 are always used to store the opcode. Bits 6 through 13 are always used to store the first argument. After that there are 3 options for how the rest of the instruction word is used.
+
+
+
+\begin{figure}
+	\includegraphics[width=\linewidth]{luabytecode.png}
+	\caption{Lua VM bytecode layouts \protect\cite{RobertoIerusalimschy}}
+	\label{fig:luabyte}
+\end{figure}
 
 \subsection{How Virtual Machine's Work} 
 When reading in bytecode, the virtual machine needs some way to know what it is currently reading. This is slightly more complex than just keeping track of how far into the program the VM has read as the program can have instructions that allow the virtual machine to jump between different points in the program. This is how loops and conditional are implemented. The instruction pointer (or IP) is used for this purpose.
@@ -172,7 +201,10 @@ In order to create an efficient VM, we need first understand how modern processo
 Pipelining is a process in which a processor's instruction processing cycle is shared by many consecutive instructions at once. The instruction processing procedure is split up into smaller stages that can execute simultaneously. An example of this is the classic RISC pipeline{[}x{]} which to divides instruction processing into the following steps: Instruction Fetch (IF), Decode (ID), Execute(EX), Memory Access (MEM) and Writeback (WB). Each instruction passes a stage and leaves that part of the processor free to perform that stage on the next instruction. Thus many instructions (as many as there are stages) can be processed at once, instead of each instruction having to be completely processed before the processor is free to move onto the next instruction. The process is analogous to an asssembly line, where many cars can be assembled at the same time, each in a different stage of assembly.
 
 \begin{figure}[tph]
-\protect\caption{\protect\includegraphics[scale=0.5]{pipeline}}
+	\centering
+	\includegraphics[scale=0.5]{pipeline}
+	\caption{Simplified CPU pipeline}
+	\label{fig:pipeline}
 \end{figure}
 
 In \emph{fig1} we see that the first instruction as currently performing memory access while the second EXecutes and the third is being Decoded. Up to 5 instructions can be processed simultaneously.
