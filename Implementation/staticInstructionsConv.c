@@ -571,7 +571,6 @@ g[arg0].i = val.i;
 pc++;
 }
 else if (IsPointer(g[arg0]) && IsPointer(g[arg1]) && IsInt(g[arg2])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[arg1].p))->data[g[arg2].i];
 if (val.tag == 0) {
 g[arg0].tag = 0;

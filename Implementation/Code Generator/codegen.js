@@ -418,7 +418,7 @@ var lookups = [
                 name: 'getop',
                 pcChange: 1,
                 legal: [p, p, i],
-                template: 'int16_t constant = program[pc + 1];\n' +
+                template: 
                     'value val = ((object *)(/*<1>*/.p))->data[/*<2>*/.i];\n' +
                     'if (val.tag == ' + i + ') {\n' +
                     '/*<tag+state:' + i + '>*/' +

@@ -7992,7 +7992,6 @@ g[0].i = val.i;
 pc++;
 }
 else if (IsPointer(g[0]) && IsPointer(g[0]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -8026,7 +8025,6 @@ g[0].i = val.i;
 pc++;
 }
 else if (IsPointer(g[0]) && IsPointer(g[0]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -8060,7 +8058,6 @@ g[0].i = val.i;
 pc++;
 }
 else if (IsPointer(g[0]) && IsPointer(g[0]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -8094,7 +8091,6 @@ g[0].i = val.i;
 pc++;
 }
 else if (IsPointer(g[0]) && IsPointer(g[0]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -8128,7 +8124,6 @@ g[0].i = val.i;
 pc++;
 }
 else if (IsPointer(g[0]) && IsPointer(g[0]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -8162,7 +8157,6 @@ g[0].i = val.i;
 pc++;
 }
 else if (IsPointer(g[0]) && IsPointer(g[1]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[0].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -8196,7 +8190,6 @@ g[0].i = val.i;
 pc++;
 }
 else if (IsPointer(g[0]) && IsPointer(g[1]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[2].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -8230,7 +8223,6 @@ g[0].i = val.i;
 pc++;
 }
 else if (IsPointer(g[0]) && IsPointer(g[1]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[3].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -8264,7 +8256,6 @@ g[0].i = val.i;
 pc++;
 }
 else if (IsPointer(g[0]) && IsPointer(g[1]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[4].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -8298,7 +8289,6 @@ g[0].i = val.i;
 pc++;
 }
 else if (IsPointer(g[0]) && IsPointer(g[1]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[5].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -8332,7 +8322,6 @@ g[0].i = val.i;
 pc++;
 }
 else if (IsPointer(g[0]) && IsPointer(g[2]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[0].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -8366,7 +8355,6 @@ g[0].i = val.i;
 pc++;
 }
 else if (IsPointer(g[0]) && IsPointer(g[2]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[1].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -8400,7 +8388,6 @@ g[0].i = val.i;
 pc++;
 }
 else if (IsPointer(g[0]) && IsPointer(g[2]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[3].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -8434,7 +8421,6 @@ g[0].i = val.i;
 pc++;
 }
 else if (IsPointer(g[0]) && IsPointer(g[2]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[4].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -8468,7 +8454,6 @@ g[0].i = val.i;
 pc++;
 }
 else if (IsPointer(g[0]) && IsPointer(g[2]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[5].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -8502,7 +8487,6 @@ g[0].i = val.i;
 pc++;
 }
 else if (IsPointer(g[0]) && IsPointer(g[3]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[0].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -8536,7 +8520,6 @@ g[0].i = val.i;
 pc++;
 }
 else if (IsPointer(g[0]) && IsPointer(g[3]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[1].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -8570,7 +8553,6 @@ g[0].i = val.i;
 pc++;
 }
 else if (IsPointer(g[0]) && IsPointer(g[3]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[2].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -8604,7 +8586,6 @@ g[0].i = val.i;
 pc++;
 }
 else if (IsPointer(g[0]) && IsPointer(g[3]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[4].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -8638,7 +8619,6 @@ g[0].i = val.i;
 pc++;
 }
 else if (IsPointer(g[0]) && IsPointer(g[3]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[5].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -8672,7 +8652,6 @@ g[0].i = val.i;
 pc++;
 }
 else if (IsPointer(g[0]) && IsPointer(g[4]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[0].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -8706,7 +8685,6 @@ g[0].i = val.i;
 pc++;
 }
 else if (IsPointer(g[0]) && IsPointer(g[4]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[1].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -8740,7 +8718,6 @@ g[0].i = val.i;
 pc++;
 }
 else if (IsPointer(g[0]) && IsPointer(g[4]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[2].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -8774,7 +8751,6 @@ g[0].i = val.i;
 pc++;
 }
 else if (IsPointer(g[0]) && IsPointer(g[4]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[3].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -8808,7 +8784,6 @@ g[0].i = val.i;
 pc++;
 }
 else if (IsPointer(g[0]) && IsPointer(g[4]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[5].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -8842,7 +8817,6 @@ g[0].i = val.i;
 pc++;
 }
 else if (IsPointer(g[0]) && IsPointer(g[5]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[0].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -8876,7 +8850,6 @@ g[0].i = val.i;
 pc++;
 }
 else if (IsPointer(g[0]) && IsPointer(g[5]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[1].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -8910,7 +8883,6 @@ g[0].i = val.i;
 pc++;
 }
 else if (IsPointer(g[0]) && IsPointer(g[5]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[2].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -8944,7 +8916,6 @@ g[0].i = val.i;
 pc++;
 }
 else if (IsPointer(g[0]) && IsPointer(g[5]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[3].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -8978,7 +8949,6 @@ g[0].i = val.i;
 pc++;
 }
 else if (IsPointer(g[0]) && IsPointer(g[5]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[4].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -9012,7 +8982,6 @@ g[1].i = val.i;
 pc++;
 }
 else if (IsPointer(g[1]) && IsPointer(g[0]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -9046,7 +9015,6 @@ g[1].i = val.i;
 pc++;
 }
 else if (IsPointer(g[1]) && IsPointer(g[0]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -9080,7 +9048,6 @@ g[1].i = val.i;
 pc++;
 }
 else if (IsPointer(g[1]) && IsPointer(g[0]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -9114,7 +9081,6 @@ g[1].i = val.i;
 pc++;
 }
 else if (IsPointer(g[1]) && IsPointer(g[0]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -9148,7 +9114,6 @@ g[1].i = val.i;
 pc++;
 }
 else if (IsPointer(g[1]) && IsPointer(g[0]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -9182,7 +9147,6 @@ g[1].i = val.i;
 pc++;
 }
 else if (IsPointer(g[1]) && IsPointer(g[1]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[0].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -9216,7 +9180,6 @@ g[1].i = val.i;
 pc++;
 }
 else if (IsPointer(g[1]) && IsPointer(g[1]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[2].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -9250,7 +9213,6 @@ g[1].i = val.i;
 pc++;
 }
 else if (IsPointer(g[1]) && IsPointer(g[1]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[3].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -9284,7 +9246,6 @@ g[1].i = val.i;
 pc++;
 }
 else if (IsPointer(g[1]) && IsPointer(g[1]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[4].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -9318,7 +9279,6 @@ g[1].i = val.i;
 pc++;
 }
 else if (IsPointer(g[1]) && IsPointer(g[1]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[5].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -9352,7 +9312,6 @@ g[1].i = val.i;
 pc++;
 }
 else if (IsPointer(g[1]) && IsPointer(g[2]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[0].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -9386,7 +9345,6 @@ g[1].i = val.i;
 pc++;
 }
 else if (IsPointer(g[1]) && IsPointer(g[2]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[1].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -9420,7 +9378,6 @@ g[1].i = val.i;
 pc++;
 }
 else if (IsPointer(g[1]) && IsPointer(g[2]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[3].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -9454,7 +9411,6 @@ g[1].i = val.i;
 pc++;
 }
 else if (IsPointer(g[1]) && IsPointer(g[2]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[4].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -9488,7 +9444,6 @@ g[1].i = val.i;
 pc++;
 }
 else if (IsPointer(g[1]) && IsPointer(g[2]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[5].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -9522,7 +9477,6 @@ g[1].i = val.i;
 pc++;
 }
 else if (IsPointer(g[1]) && IsPointer(g[3]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[0].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -9556,7 +9510,6 @@ g[1].i = val.i;
 pc++;
 }
 else if (IsPointer(g[1]) && IsPointer(g[3]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[1].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -9590,7 +9543,6 @@ g[1].i = val.i;
 pc++;
 }
 else if (IsPointer(g[1]) && IsPointer(g[3]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[2].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -9624,7 +9576,6 @@ g[1].i = val.i;
 pc++;
 }
 else if (IsPointer(g[1]) && IsPointer(g[3]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[4].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -9658,7 +9609,6 @@ g[1].i = val.i;
 pc++;
 }
 else if (IsPointer(g[1]) && IsPointer(g[3]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[5].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -9692,7 +9642,6 @@ g[1].i = val.i;
 pc++;
 }
 else if (IsPointer(g[1]) && IsPointer(g[4]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[0].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -9726,7 +9675,6 @@ g[1].i = val.i;
 pc++;
 }
 else if (IsPointer(g[1]) && IsPointer(g[4]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[1].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -9760,7 +9708,6 @@ g[1].i = val.i;
 pc++;
 }
 else if (IsPointer(g[1]) && IsPointer(g[4]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[2].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -9794,7 +9741,6 @@ g[1].i = val.i;
 pc++;
 }
 else if (IsPointer(g[1]) && IsPointer(g[4]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[3].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -9828,7 +9774,6 @@ g[1].i = val.i;
 pc++;
 }
 else if (IsPointer(g[1]) && IsPointer(g[4]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[5].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -9862,7 +9807,6 @@ g[1].i = val.i;
 pc++;
 }
 else if (IsPointer(g[1]) && IsPointer(g[5]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[0].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -9896,7 +9840,6 @@ g[1].i = val.i;
 pc++;
 }
 else if (IsPointer(g[1]) && IsPointer(g[5]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[1].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -9930,7 +9873,6 @@ g[1].i = val.i;
 pc++;
 }
 else if (IsPointer(g[1]) && IsPointer(g[5]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[2].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -9964,7 +9906,6 @@ g[1].i = val.i;
 pc++;
 }
 else if (IsPointer(g[1]) && IsPointer(g[5]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[3].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -9998,7 +9939,6 @@ g[1].i = val.i;
 pc++;
 }
 else if (IsPointer(g[1]) && IsPointer(g[5]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[4].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -10032,7 +9972,6 @@ g[2].i = val.i;
 pc++;
 }
 else if (IsPointer(g[2]) && IsPointer(g[0]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -10066,7 +10005,6 @@ g[2].i = val.i;
 pc++;
 }
 else if (IsPointer(g[2]) && IsPointer(g[0]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -10100,7 +10038,6 @@ g[2].i = val.i;
 pc++;
 }
 else if (IsPointer(g[2]) && IsPointer(g[0]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -10134,7 +10071,6 @@ g[2].i = val.i;
 pc++;
 }
 else if (IsPointer(g[2]) && IsPointer(g[0]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -10168,7 +10104,6 @@ g[2].i = val.i;
 pc++;
 }
 else if (IsPointer(g[2]) && IsPointer(g[0]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -10202,7 +10137,6 @@ g[2].i = val.i;
 pc++;
 }
 else if (IsPointer(g[2]) && IsPointer(g[1]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[0].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -10236,7 +10170,6 @@ g[2].i = val.i;
 pc++;
 }
 else if (IsPointer(g[2]) && IsPointer(g[1]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[2].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -10270,7 +10203,6 @@ g[2].i = val.i;
 pc++;
 }
 else if (IsPointer(g[2]) && IsPointer(g[1]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[3].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -10304,7 +10236,6 @@ g[2].i = val.i;
 pc++;
 }
 else if (IsPointer(g[2]) && IsPointer(g[1]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[4].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -10338,7 +10269,6 @@ g[2].i = val.i;
 pc++;
 }
 else if (IsPointer(g[2]) && IsPointer(g[1]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[5].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -10372,7 +10302,6 @@ g[2].i = val.i;
 pc++;
 }
 else if (IsPointer(g[2]) && IsPointer(g[2]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[0].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -10406,7 +10335,6 @@ g[2].i = val.i;
 pc++;
 }
 else if (IsPointer(g[2]) && IsPointer(g[2]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[1].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -10440,7 +10368,6 @@ g[2].i = val.i;
 pc++;
 }
 else if (IsPointer(g[2]) && IsPointer(g[2]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[3].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -10474,7 +10401,6 @@ g[2].i = val.i;
 pc++;
 }
 else if (IsPointer(g[2]) && IsPointer(g[2]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[4].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -10508,7 +10434,6 @@ g[2].i = val.i;
 pc++;
 }
 else if (IsPointer(g[2]) && IsPointer(g[2]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[5].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -10542,7 +10467,6 @@ g[2].i = val.i;
 pc++;
 }
 else if (IsPointer(g[2]) && IsPointer(g[3]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[0].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -10576,7 +10500,6 @@ g[2].i = val.i;
 pc++;
 }
 else if (IsPointer(g[2]) && IsPointer(g[3]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[1].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -10610,7 +10533,6 @@ g[2].i = val.i;
 pc++;
 }
 else if (IsPointer(g[2]) && IsPointer(g[3]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[2].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -10644,7 +10566,6 @@ g[2].i = val.i;
 pc++;
 }
 else if (IsPointer(g[2]) && IsPointer(g[3]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[4].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -10678,7 +10599,6 @@ g[2].i = val.i;
 pc++;
 }
 else if (IsPointer(g[2]) && IsPointer(g[3]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[5].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -10712,7 +10632,6 @@ g[2].i = val.i;
 pc++;
 }
 else if (IsPointer(g[2]) && IsPointer(g[4]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[0].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -10746,7 +10665,6 @@ g[2].i = val.i;
 pc++;
 }
 else if (IsPointer(g[2]) && IsPointer(g[4]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[1].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -10780,7 +10698,6 @@ g[2].i = val.i;
 pc++;
 }
 else if (IsPointer(g[2]) && IsPointer(g[4]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[2].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -10814,7 +10731,6 @@ g[2].i = val.i;
 pc++;
 }
 else if (IsPointer(g[2]) && IsPointer(g[4]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[3].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -10848,7 +10764,6 @@ g[2].i = val.i;
 pc++;
 }
 else if (IsPointer(g[2]) && IsPointer(g[4]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[5].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -10882,7 +10797,6 @@ g[2].i = val.i;
 pc++;
 }
 else if (IsPointer(g[2]) && IsPointer(g[5]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[0].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -10916,7 +10830,6 @@ g[2].i = val.i;
 pc++;
 }
 else if (IsPointer(g[2]) && IsPointer(g[5]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[1].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -10950,7 +10863,6 @@ g[2].i = val.i;
 pc++;
 }
 else if (IsPointer(g[2]) && IsPointer(g[5]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[2].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -10984,7 +10896,6 @@ g[2].i = val.i;
 pc++;
 }
 else if (IsPointer(g[2]) && IsPointer(g[5]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[3].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -11018,7 +10929,6 @@ g[2].i = val.i;
 pc++;
 }
 else if (IsPointer(g[2]) && IsPointer(g[5]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[4].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -11052,7 +10962,6 @@ g[3].i = val.i;
 pc++;
 }
 else if (IsPointer(g[3]) && IsPointer(g[0]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -11086,7 +10995,6 @@ g[3].i = val.i;
 pc++;
 }
 else if (IsPointer(g[3]) && IsPointer(g[0]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -11120,7 +11028,6 @@ g[3].i = val.i;
 pc++;
 }
 else if (IsPointer(g[3]) && IsPointer(g[0]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -11154,7 +11061,6 @@ g[3].i = val.i;
 pc++;
 }
 else if (IsPointer(g[3]) && IsPointer(g[0]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -11188,7 +11094,6 @@ g[3].i = val.i;
 pc++;
 }
 else if (IsPointer(g[3]) && IsPointer(g[0]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -11222,7 +11127,6 @@ g[3].i = val.i;
 pc++;
 }
 else if (IsPointer(g[3]) && IsPointer(g[1]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[0].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -11256,7 +11160,6 @@ g[3].i = val.i;
 pc++;
 }
 else if (IsPointer(g[3]) && IsPointer(g[1]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[2].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -11290,7 +11193,6 @@ g[3].i = val.i;
 pc++;
 }
 else if (IsPointer(g[3]) && IsPointer(g[1]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[3].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -11324,7 +11226,6 @@ g[3].i = val.i;
 pc++;
 }
 else if (IsPointer(g[3]) && IsPointer(g[1]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[4].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -11358,7 +11259,6 @@ g[3].i = val.i;
 pc++;
 }
 else if (IsPointer(g[3]) && IsPointer(g[1]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[5].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -11392,7 +11292,6 @@ g[3].i = val.i;
 pc++;
 }
 else if (IsPointer(g[3]) && IsPointer(g[2]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[0].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -11426,7 +11325,6 @@ g[3].i = val.i;
 pc++;
 }
 else if (IsPointer(g[3]) && IsPointer(g[2]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[1].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -11460,7 +11358,6 @@ g[3].i = val.i;
 pc++;
 }
 else if (IsPointer(g[3]) && IsPointer(g[2]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[3].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -11494,7 +11391,6 @@ g[3].i = val.i;
 pc++;
 }
 else if (IsPointer(g[3]) && IsPointer(g[2]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[4].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -11528,7 +11424,6 @@ g[3].i = val.i;
 pc++;
 }
 else if (IsPointer(g[3]) && IsPointer(g[2]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[5].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -11562,7 +11457,6 @@ g[3].i = val.i;
 pc++;
 }
 else if (IsPointer(g[3]) && IsPointer(g[3]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[0].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -11596,7 +11490,6 @@ g[3].i = val.i;
 pc++;
 }
 else if (IsPointer(g[3]) && IsPointer(g[3]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[1].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -11630,7 +11523,6 @@ g[3].i = val.i;
 pc++;
 }
 else if (IsPointer(g[3]) && IsPointer(g[3]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[2].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -11664,7 +11556,6 @@ g[3].i = val.i;
 pc++;
 }
 else if (IsPointer(g[3]) && IsPointer(g[3]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[4].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -11698,7 +11589,6 @@ g[3].i = val.i;
 pc++;
 }
 else if (IsPointer(g[3]) && IsPointer(g[3]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[5].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -11732,7 +11622,6 @@ g[3].i = val.i;
 pc++;
 }
 else if (IsPointer(g[3]) && IsPointer(g[4]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[0].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -11766,7 +11655,6 @@ g[3].i = val.i;
 pc++;
 }
 else if (IsPointer(g[3]) && IsPointer(g[4]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[1].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -11800,7 +11688,6 @@ g[3].i = val.i;
 pc++;
 }
 else if (IsPointer(g[3]) && IsPointer(g[4]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[2].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -11834,7 +11721,6 @@ g[3].i = val.i;
 pc++;
 }
 else if (IsPointer(g[3]) && IsPointer(g[4]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[3].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -11868,7 +11754,6 @@ g[3].i = val.i;
 pc++;
 }
 else if (IsPointer(g[3]) && IsPointer(g[4]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[5].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -11902,7 +11787,6 @@ g[3].i = val.i;
 pc++;
 }
 else if (IsPointer(g[3]) && IsPointer(g[5]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[0].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -11936,7 +11820,6 @@ g[3].i = val.i;
 pc++;
 }
 else if (IsPointer(g[3]) && IsPointer(g[5]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[1].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -11970,7 +11853,6 @@ g[3].i = val.i;
 pc++;
 }
 else if (IsPointer(g[3]) && IsPointer(g[5]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[2].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -12004,7 +11886,6 @@ g[3].i = val.i;
 pc++;
 }
 else if (IsPointer(g[3]) && IsPointer(g[5]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[3].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -12038,7 +11919,6 @@ g[3].i = val.i;
 pc++;
 }
 else if (IsPointer(g[3]) && IsPointer(g[5]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[4].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -12072,7 +11952,6 @@ g[4].i = val.i;
 pc++;
 }
 else if (IsPointer(g[4]) && IsPointer(g[0]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -12106,7 +11985,6 @@ g[4].i = val.i;
 pc++;
 }
 else if (IsPointer(g[4]) && IsPointer(g[0]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -12140,7 +12018,6 @@ g[4].i = val.i;
 pc++;
 }
 else if (IsPointer(g[4]) && IsPointer(g[0]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -12174,7 +12051,6 @@ g[4].i = val.i;
 pc++;
 }
 else if (IsPointer(g[4]) && IsPointer(g[0]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -12208,7 +12084,6 @@ g[4].i = val.i;
 pc++;
 }
 else if (IsPointer(g[4]) && IsPointer(g[0]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -12242,7 +12117,6 @@ g[4].i = val.i;
 pc++;
 }
 else if (IsPointer(g[4]) && IsPointer(g[1]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[0].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -12276,7 +12150,6 @@ g[4].i = val.i;
 pc++;
 }
 else if (IsPointer(g[4]) && IsPointer(g[1]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[2].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -12310,7 +12183,6 @@ g[4].i = val.i;
 pc++;
 }
 else if (IsPointer(g[4]) && IsPointer(g[1]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[3].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -12344,7 +12216,6 @@ g[4].i = val.i;
 pc++;
 }
 else if (IsPointer(g[4]) && IsPointer(g[1]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[4].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -12378,7 +12249,6 @@ g[4].i = val.i;
 pc++;
 }
 else if (IsPointer(g[4]) && IsPointer(g[1]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[5].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -12412,7 +12282,6 @@ g[4].i = val.i;
 pc++;
 }
 else if (IsPointer(g[4]) && IsPointer(g[2]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[0].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -12446,7 +12315,6 @@ g[4].i = val.i;
 pc++;
 }
 else if (IsPointer(g[4]) && IsPointer(g[2]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[1].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -12480,7 +12348,6 @@ g[4].i = val.i;
 pc++;
 }
 else if (IsPointer(g[4]) && IsPointer(g[2]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[3].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -12514,7 +12381,6 @@ g[4].i = val.i;
 pc++;
 }
 else if (IsPointer(g[4]) && IsPointer(g[2]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[4].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -12548,7 +12414,6 @@ g[4].i = val.i;
 pc++;
 }
 else if (IsPointer(g[4]) && IsPointer(g[2]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[5].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -12582,7 +12447,6 @@ g[4].i = val.i;
 pc++;
 }
 else if (IsPointer(g[4]) && IsPointer(g[3]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[0].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -12616,7 +12480,6 @@ g[4].i = val.i;
 pc++;
 }
 else if (IsPointer(g[4]) && IsPointer(g[3]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[1].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -12650,7 +12513,6 @@ g[4].i = val.i;
 pc++;
 }
 else if (IsPointer(g[4]) && IsPointer(g[3]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[2].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -12684,7 +12546,6 @@ g[4].i = val.i;
 pc++;
 }
 else if (IsPointer(g[4]) && IsPointer(g[3]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[4].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -12718,7 +12579,6 @@ g[4].i = val.i;
 pc++;
 }
 else if (IsPointer(g[4]) && IsPointer(g[3]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[5].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -12752,7 +12612,6 @@ g[4].i = val.i;
 pc++;
 }
 else if (IsPointer(g[4]) && IsPointer(g[4]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[0].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -12786,7 +12645,6 @@ g[4].i = val.i;
 pc++;
 }
 else if (IsPointer(g[4]) && IsPointer(g[4]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[1].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -12820,7 +12678,6 @@ g[4].i = val.i;
 pc++;
 }
 else if (IsPointer(g[4]) && IsPointer(g[4]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[2].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -12854,7 +12711,6 @@ g[4].i = val.i;
 pc++;
 }
 else if (IsPointer(g[4]) && IsPointer(g[4]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[3].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -12888,7 +12744,6 @@ g[4].i = val.i;
 pc++;
 }
 else if (IsPointer(g[4]) && IsPointer(g[4]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[5].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -12922,7 +12777,6 @@ g[4].i = val.i;
 pc++;
 }
 else if (IsPointer(g[4]) && IsPointer(g[5]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[0].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -12956,7 +12810,6 @@ g[4].i = val.i;
 pc++;
 }
 else if (IsPointer(g[4]) && IsPointer(g[5]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[1].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -12990,7 +12843,6 @@ g[4].i = val.i;
 pc++;
 }
 else if (IsPointer(g[4]) && IsPointer(g[5]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[2].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -13024,7 +12876,6 @@ g[4].i = val.i;
 pc++;
 }
 else if (IsPointer(g[4]) && IsPointer(g[5]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[3].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -13058,7 +12909,6 @@ g[4].i = val.i;
 pc++;
 }
 else if (IsPointer(g[4]) && IsPointer(g[5]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[4].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -13092,7 +12942,6 @@ g[5].i = val.i;
 pc++;
 }
 else if (IsPointer(g[5]) && IsPointer(g[0]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -13126,7 +12975,6 @@ g[5].i = val.i;
 pc++;
 }
 else if (IsPointer(g[5]) && IsPointer(g[0]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -13160,7 +13008,6 @@ g[5].i = val.i;
 pc++;
 }
 else if (IsPointer(g[5]) && IsPointer(g[0]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -13194,7 +13041,6 @@ g[5].i = val.i;
 pc++;
 }
 else if (IsPointer(g[5]) && IsPointer(g[0]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -13228,7 +13074,6 @@ g[5].i = val.i;
 pc++;
 }
 else if (IsPointer(g[5]) && IsPointer(g[0]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -13262,7 +13107,6 @@ g[5].i = val.i;
 pc++;
 }
 else if (IsPointer(g[5]) && IsPointer(g[1]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[0].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -13296,7 +13140,6 @@ g[5].i = val.i;
 pc++;
 }
 else if (IsPointer(g[5]) && IsPointer(g[1]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[2].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -13330,7 +13173,6 @@ g[5].i = val.i;
 pc++;
 }
 else if (IsPointer(g[5]) && IsPointer(g[1]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[3].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -13364,7 +13206,6 @@ g[5].i = val.i;
 pc++;
 }
 else if (IsPointer(g[5]) && IsPointer(g[1]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[4].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -13398,7 +13239,6 @@ g[5].i = val.i;
 pc++;
 }
 else if (IsPointer(g[5]) && IsPointer(g[1]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[5].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -13432,7 +13272,6 @@ g[5].i = val.i;
 pc++;
 }
 else if (IsPointer(g[5]) && IsPointer(g[2]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[0].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -13466,7 +13305,6 @@ g[5].i = val.i;
 pc++;
 }
 else if (IsPointer(g[5]) && IsPointer(g[2]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[1].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -13500,7 +13338,6 @@ g[5].i = val.i;
 pc++;
 }
 else if (IsPointer(g[5]) && IsPointer(g[2]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[3].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -13534,7 +13371,6 @@ g[5].i = val.i;
 pc++;
 }
 else if (IsPointer(g[5]) && IsPointer(g[2]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[4].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -13568,7 +13404,6 @@ g[5].i = val.i;
 pc++;
 }
 else if (IsPointer(g[5]) && IsPointer(g[2]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[5].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -13602,7 +13437,6 @@ g[5].i = val.i;
 pc++;
 }
 else if (IsPointer(g[5]) && IsPointer(g[3]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[0].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -13636,7 +13470,6 @@ g[5].i = val.i;
 pc++;
 }
 else if (IsPointer(g[5]) && IsPointer(g[3]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[1].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -13670,7 +13503,6 @@ g[5].i = val.i;
 pc++;
 }
 else if (IsPointer(g[5]) && IsPointer(g[3]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[2].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -13704,7 +13536,6 @@ g[5].i = val.i;
 pc++;
 }
 else if (IsPointer(g[5]) && IsPointer(g[3]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[4].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -13738,7 +13569,6 @@ g[5].i = val.i;
 pc++;
 }
 else if (IsPointer(g[5]) && IsPointer(g[3]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[5].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -13772,7 +13602,6 @@ g[5].i = val.i;
 pc++;
 }
 else if (IsPointer(g[5]) && IsPointer(g[4]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[0].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -13806,7 +13635,6 @@ g[5].i = val.i;
 pc++;
 }
 else if (IsPointer(g[5]) && IsPointer(g[4]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[1].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -13840,7 +13668,6 @@ g[5].i = val.i;
 pc++;
 }
 else if (IsPointer(g[5]) && IsPointer(g[4]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[2].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -13874,7 +13701,6 @@ g[5].i = val.i;
 pc++;
 }
 else if (IsPointer(g[5]) && IsPointer(g[4]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[3].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -13908,7 +13734,6 @@ g[5].i = val.i;
 pc++;
 }
 else if (IsPointer(g[5]) && IsPointer(g[4]) && IsInt(g[5])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[5].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -13942,7 +13767,6 @@ g[5].i = val.i;
 pc++;
 }
 else if (IsPointer(g[5]) && IsPointer(g[5]) && IsInt(g[0])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[0].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -13976,7 +13800,6 @@ g[5].i = val.i;
 pc++;
 }
 else if (IsPointer(g[5]) && IsPointer(g[5]) && IsInt(g[1])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[1].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -14010,7 +13833,6 @@ g[5].i = val.i;
 pc++;
 }
 else if (IsPointer(g[5]) && IsPointer(g[5]) && IsInt(g[2])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[2].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -14044,7 +13866,6 @@ g[5].i = val.i;
 pc++;
 }
 else if (IsPointer(g[5]) && IsPointer(g[5]) && IsInt(g[3])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[3].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -14078,7 +13899,6 @@ g[5].i = val.i;
 pc++;
 }
 else if (IsPointer(g[5]) && IsPointer(g[5]) && IsInt(g[4])) {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[4].i];
 if (val.tag == 0) {
 g[5].tag = 0;

@@ -5,7 +5,7 @@
 \contentsline {subsubsection}{\numberline {1.2.1}Line by Line}{10}
 \contentsline {subsubsection}{\numberline {1.2.2}Abstract Syntax Tree}{10}
 \contentsline {subsubsection}{\numberline {1.2.3}Bytecode}{10}
-\contentsline {subsection}{\numberline {1.3}How Virtual Machines Work}{11}
+\contentsline {subsection}{\numberline {1.3}Organisation of a Virtual Machine}{11}
 \contentsline {subsubsection}{\numberline {1.3.1}Instruction Pointer}{11}
 \contentsline {subsubsection}{\numberline {1.3.2}Instruction Set}{11}
 \contentsline {subsubsection}{\numberline {1.3.3}Dispatch Mechanism}{11}
@@ -40,7 +40,7 @@
 \contentsline {section}{\numberline {3}Solution Design}{23}
 \contentsline {subsection}{\numberline {3.1}Common Elements}{23}
 \contentsline {subsubsection}{\numberline {3.1.1}Values}{23}
-\contentsline {subsubsection}{\numberline {3.1.2}Objects}{23}
+\contentsline {subsubsection}{\numberline {3.1.2}Objects}{24}
 \contentsline {subsubsection}{\numberline {3.1.3}Buffers}{24}
 \contentsline {subsubsection}{\numberline {3.1.4}Registers}{24}
 \contentsline {subsubsection}{\numberline {3.1.5}Stack Frames}{24}

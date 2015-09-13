@@ -11496,7 +11496,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_0_0_1:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -11521,7 +11520,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_0_0_2:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -11546,7 +11544,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_0_0_3:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -11571,7 +11568,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_0_0_4:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -11596,7 +11592,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_0_0_5:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -11621,7 +11616,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_0_1_0:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[0].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -11646,7 +11640,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_0_1_2:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[2].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -11671,7 +11664,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_0_1_3:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[3].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -11696,7 +11688,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_0_1_4:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[4].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -11721,7 +11712,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_0_1_5:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[5].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -11746,7 +11736,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_0_2_0:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[0].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -11771,7 +11760,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_0_2_1:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[1].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -11796,7 +11784,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_0_2_3:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[3].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -11821,7 +11808,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_0_2_4:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[4].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -11846,7 +11832,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_0_2_5:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[5].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -11871,7 +11856,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_0_3_0:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[0].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -11896,7 +11880,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_0_3_1:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[1].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -11921,7 +11904,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_0_3_2:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[2].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -11946,7 +11928,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_0_3_4:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[4].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -11971,7 +11952,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_0_3_5:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[5].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -11996,7 +11976,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_0_4_0:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[0].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -12021,7 +12000,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_0_4_1:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[1].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -12046,7 +12024,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_0_4_2:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[2].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -12071,7 +12048,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_0_4_3:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[3].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -12096,7 +12072,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_0_4_5:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[5].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -12121,7 +12096,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_0_5_0:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[0].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -12146,7 +12120,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_0_5_1:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[1].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -12171,7 +12144,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_0_5_2:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[2].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -12196,7 +12168,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_0_5_3:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[3].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -12221,7 +12192,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_0_5_4:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[4].i];
 if (val.tag == 0) {
 g[0].tag = 0;
@@ -12246,7 +12216,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_1_0_1:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -12271,7 +12240,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_1_0_2:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -12296,7 +12264,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_1_0_3:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -12321,7 +12288,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_1_0_4:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -12346,7 +12312,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_1_0_5:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -12371,7 +12336,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_1_1_0:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[0].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -12396,7 +12360,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_1_1_2:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[2].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -12421,7 +12384,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_1_1_3:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[3].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -12446,7 +12408,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_1_1_4:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[4].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -12471,7 +12432,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_1_1_5:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[5].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -12496,7 +12456,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_1_2_0:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[0].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -12521,7 +12480,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_1_2_1:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[1].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -12546,7 +12504,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_1_2_3:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[3].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -12571,7 +12528,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_1_2_4:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[4].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -12596,7 +12552,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_1_2_5:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[5].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -12621,7 +12576,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_1_3_0:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[0].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -12646,7 +12600,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_1_3_1:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[1].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -12671,7 +12624,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_1_3_2:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[2].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -12696,7 +12648,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_1_3_4:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[4].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -12721,7 +12672,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_1_3_5:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[5].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -12746,7 +12696,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_1_4_0:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[0].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -12771,7 +12720,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_1_4_1:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[1].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -12796,7 +12744,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_1_4_2:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[2].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -12821,7 +12768,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_1_4_3:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[3].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -12846,7 +12792,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_1_4_5:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[5].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -12871,7 +12816,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_1_5_0:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[0].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -12896,7 +12840,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_1_5_1:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[1].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -12921,7 +12864,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_1_5_2:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[2].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -12946,7 +12888,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_1_5_3:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[3].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -12971,7 +12912,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_1_5_4:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[4].i];
 if (val.tag == 0) {
 g[1].tag = 0;
@@ -12996,7 +12936,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_2_0_1:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -13021,7 +12960,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_2_0_2:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -13046,7 +12984,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_2_0_3:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -13071,7 +13008,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_2_0_4:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -13096,7 +13032,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_2_0_5:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -13121,7 +13056,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_2_1_0:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[0].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -13146,7 +13080,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_2_1_2:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[2].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -13171,7 +13104,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_2_1_3:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[3].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -13196,7 +13128,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_2_1_4:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[4].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -13221,7 +13152,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_2_1_5:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[5].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -13246,7 +13176,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_2_2_0:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[0].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -13271,7 +13200,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_2_2_1:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[1].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -13296,7 +13224,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_2_2_3:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[3].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -13321,7 +13248,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_2_2_4:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[4].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -13346,7 +13272,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_2_2_5:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[5].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -13371,7 +13296,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_2_3_0:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[0].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -13396,7 +13320,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_2_3_1:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[1].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -13421,7 +13344,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_2_3_2:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[2].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -13446,7 +13368,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_2_3_4:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[4].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -13471,7 +13392,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_2_3_5:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[5].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -13496,7 +13416,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_2_4_0:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[0].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -13521,7 +13440,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_2_4_1:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[1].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -13546,7 +13464,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_2_4_2:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[2].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -13571,7 +13488,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_2_4_3:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[3].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -13596,7 +13512,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_2_4_5:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[5].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -13621,7 +13536,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_2_5_0:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[0].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -13646,7 +13560,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_2_5_1:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[1].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -13671,7 +13584,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_2_5_2:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[2].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -13696,7 +13608,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_2_5_3:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[3].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -13721,7 +13632,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_2_5_4:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[4].i];
 if (val.tag == 0) {
 g[2].tag = 0;
@@ -13746,7 +13656,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_3_0_1:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -13771,7 +13680,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_3_0_2:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -13796,7 +13704,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_3_0_3:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -13821,7 +13728,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_3_0_4:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -13846,7 +13752,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_3_0_5:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -13871,7 +13776,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_3_1_0:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[0].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -13896,7 +13800,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_3_1_2:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[2].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -13921,7 +13824,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_3_1_3:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[3].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -13946,7 +13848,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_3_1_4:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[4].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -13971,7 +13872,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_3_1_5:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[5].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -13996,7 +13896,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_3_2_0:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[0].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -14021,7 +13920,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_3_2_1:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[1].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -14046,7 +13944,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_3_2_3:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[3].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -14071,7 +13968,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_3_2_4:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[4].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -14096,7 +13992,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_3_2_5:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[5].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -14121,7 +14016,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_3_3_0:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[0].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -14146,7 +14040,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_3_3_1:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[1].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -14171,7 +14064,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_3_3_2:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[2].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -14196,7 +14088,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_3_3_4:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[4].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -14221,7 +14112,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_3_3_5:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[5].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -14246,7 +14136,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_3_4_0:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[0].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -14271,7 +14160,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_3_4_1:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[1].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -14296,7 +14184,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_3_4_2:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[2].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -14321,7 +14208,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_3_4_3:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[3].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -14346,7 +14232,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_3_4_5:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[5].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -14371,7 +14256,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_3_5_0:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[0].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -14396,7 +14280,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_3_5_1:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[1].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -14421,7 +14304,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_3_5_2:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[2].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -14446,7 +14328,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_3_5_3:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[3].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -14471,7 +14352,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_3_5_4:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[4].i];
 if (val.tag == 0) {
 g[3].tag = 0;
@@ -14496,7 +14376,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_4_0_1:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -14521,7 +14400,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_4_0_2:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -14546,7 +14424,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_4_0_3:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -14571,7 +14448,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_4_0_4:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -14596,7 +14472,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_4_0_5:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -14621,7 +14496,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_4_1_0:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[0].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -14646,7 +14520,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_4_1_2:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[2].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -14671,7 +14544,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_4_1_3:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[3].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -14696,7 +14568,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_4_1_4:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[4].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -14721,7 +14592,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_4_1_5:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[5].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -14746,7 +14616,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_4_2_0:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[0].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -14771,7 +14640,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_4_2_1:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[1].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -14796,7 +14664,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_4_2_3:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[3].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -14821,7 +14688,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_4_2_4:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[4].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -14846,7 +14712,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_4_2_5:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[5].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -14871,7 +14736,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_4_3_0:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[0].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -14896,7 +14760,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_4_3_1:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[1].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -14921,7 +14784,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_4_3_2:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[2].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -14946,7 +14808,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_4_3_4:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[4].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -14971,7 +14832,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_4_3_5:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[5].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -14996,7 +14856,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_4_4_0:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[0].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -15021,7 +14880,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_4_4_1:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[1].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -15046,7 +14904,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_4_4_2:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[2].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -15071,7 +14928,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_4_4_3:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[3].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -15096,7 +14952,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_4_4_5:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[5].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -15121,7 +14976,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_4_5_0:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[0].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -15146,7 +15000,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_4_5_1:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[1].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -15171,7 +15024,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_4_5_2:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[2].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -15196,7 +15048,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_4_5_3:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[3].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -15221,7 +15072,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_4_5_4:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[4].i];
 if (val.tag == 0) {
 g[4].tag = 0;
@@ -15246,7 +15096,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_5_0_1:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[1].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -15271,7 +15120,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_5_0_2:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[2].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -15296,7 +15144,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_5_0_3:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[3].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -15321,7 +15168,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_5_0_4:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[4].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -15346,7 +15192,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_5_0_5:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[0].p))->data[g[5].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -15371,7 +15216,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_5_1_0:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[0].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -15396,7 +15240,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_5_1_2:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[2].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -15421,7 +15264,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_5_1_3:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[3].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -15446,7 +15288,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_5_1_4:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[4].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -15471,7 +15312,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_5_1_5:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[1].p))->data[g[5].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -15496,7 +15336,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_5_2_0:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[0].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -15521,7 +15360,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_5_2_1:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[1].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -15546,7 +15384,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_5_2_3:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[3].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -15571,7 +15408,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_5_2_4:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[4].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -15596,7 +15432,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_5_2_5:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[2].p))->data[g[5].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -15621,7 +15456,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_5_3_0:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[0].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -15646,7 +15480,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_5_3_1:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[1].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -15671,7 +15504,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_5_3_2:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[2].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -15696,7 +15528,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_5_3_4:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[4].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -15721,7 +15552,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_5_3_5:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[3].p))->data[g[5].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -15746,7 +15576,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_5_4_0:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[0].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -15771,7 +15600,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_5_4_1:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[1].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -15796,7 +15624,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_5_4_2:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[2].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -15821,7 +15648,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_5_4_3:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[3].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -15846,7 +15672,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_5_4_5:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[4].p))->data[g[5].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -15871,7 +15696,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_5_5_0:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[0].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -15896,7 +15720,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_5_5_1:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[1].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -15921,7 +15744,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_5_5_2:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[2].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -15946,7 +15768,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_5_5_3:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[3].i];
 if (val.tag == 0) {
 g[5].tag = 0;
@@ -15971,7 +15792,6 @@ goto *dynOpcodes[ts + program[pc]];
 
 getop_5_5_4:
 {
-int16_t constant = program[pc + 1];
 value val = ((object *)(g[5].p))->data[g[4].i];
 if (val.tag == 0) {
 g[5].tag = 0;
