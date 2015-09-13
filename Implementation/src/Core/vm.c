@@ -20,7 +20,7 @@
 /* Registers
  * =========
  * [0..5] g0 through g5 - general purpose registers
- * pc - program counter
+ * ip - instruction pointer
  * fp - frame pointer
  * ts - type state
  */
@@ -29,7 +29,7 @@
 #define REG_SAVE 56
     
 value g[NR_REGISTERS]; //init to 0 valued ints
-int64_t pc = 0;
+int16_t *ip;
 value *fp; //= NULL; points to top of frame - an array of local values
 int64_t ts = 0; //matches what registers are init to
 
@@ -45,23 +45,24 @@ int main(int argc, char *argv[])
 	//elements
 	static void *dynOpcodes[] = {
 #ifdef TYPE
-#include "dynamicOpcodes.c"
+#include "../Generated/dynamicOpcodes.c"
 #endif /*TYPE*/
 #ifdef CONV
-#include "dynamicOpcodesConv.c"
+#include "../Generated/dynamicOpcodesConv.c"
 #endif /*CONV*/
 #ifdef HYBR
-#include "dynamicOpcodesHybr.c"
+#include "../Generated/dynamicOpcodesHybr.c"
 #endif /*HYBR*/
     };
 
     //Handle args and read in binary file
-if (argc < 2)
+    if (argc < 2)
     {
         fprintf(stderr, "Usage:\n  vm name.out\n");
         return 1;
     }
-FILE *filep = fopen(argv[1], "rb");
+    
+    FILE *filep = fopen(argv[1], "rb");
     if (filep == NULL)
     {
         fprintf(stderr, "Unable to open file");
@@ -77,21 +78,22 @@ FILE *filep = fopen(argv[1], "rb");
     fclose(filep);
 
     /*Initial call (main)*/
-    int64_t *sizep = (int64_t*)&program[0];
+    ip = &program[0];
+    int64_t *sizep = (int64_t*)ip;
     int64_t frame_size = sizeof(stackframe) + sizeof(value) * (*sizep);
     stackframe *base = (stackframe*)malloc(frame_size);
     if (base != NULL)
     {
-        base->fp = fp; base->pc = pc; base->ts = ts;
+        base->fp = fp; base->ip = ip; base->ts = ts;
         SaveRegisters(base->g);
         value *newfp = base->l;
         fp = newfp;
-        pc += 4;
+        ip += 4;
         
 #ifdef CONV
-        goto *dynOpcodes[GetOpcode(program[pc])];
+        goto *dynOpcodes[GetOpcode(*ip)];
 #else
-        goto *dynOpcodes[ts + program[pc]];
+        goto *dynOpcodes[ts + *ip];
 #endif
     }
 
@@ -101,17 +103,17 @@ FILE *filep = fopen(argv[1], "rb");
  *
  * add_0_0:
  *     g[0].i += g[0];
- *     pc++;
- *     goto *dynOpcodes[ts + program[pc]];
+ *     ip++;
+ *     goto *dynOpcodes[ts + *ip];
  */    
 #ifdef TYPE
-#include "staticInstructions.c"
+#include "../Generated/staticInstructions.c"
 #endif /*TYPE*/
 #ifdef CONV
-#include "staticInstructionsConv.c"
+#include "../Generated/staticInstructionsConv.c"
 #endif /*CONV*/
 #ifdef HYBR
-#include "staticInstructionsHybr.c"
+#include "../Generated/staticInstructionsHybr.c"
 #endif /*TYPE*/
     
     return 0;

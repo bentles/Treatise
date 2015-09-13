@@ -15,6 +15,7 @@ var g = -1;
 var typeVM = 0; // the experiment, a type-state VM
 var convVM = 1; // the control, a conventional VM
 var hybrVM = 2; // no states but needn't decode operations
+
 // functions that put constraints on legal calls
 function noTrivialFor(arr) //if arr = [0, 1] then a call like add_0_0 is illegal
 {
@@ -26,8 +27,8 @@ function noTrivialFor(arr) //if arr = [0, 1] then a call like add_0_0 is illegal
 //convenience functions
 function getConst(name, offset) {
     var offst = offset || 1; //this is fine since 0 is not valid anyway
-    return 'int16_t d' + name + ' = program[pc +' + offst + '];\n' +
-        'int64_t ' + name + ' = *((int64_t*)(&program[pc + d' + name + ']));\n';
+    return 'int16_t d' + name + ' = *(ip +' + offst + ');\n' +
+        'int64_t ' + name + ' = *((int64_t*)(ip + d' + name + '));\n';
 }
 
 var lookups = [
@@ -36,7 +37,7 @@ var lookups = [
         inputs: 2,
         instructions: [{
             name: 'add',
-            pcChange: 1,
+            ipChange: 1,
             legal: [i, i],
             template: '/*<0>*/.i += /*<1>*/.i;\n'
         }]
@@ -46,7 +47,7 @@ var lookups = [
         inputs: 1,
         instructions: [{
             name: 'addc',
-            pcChange: 2,
+            ipChange: 2,
             legal: [i],
             template: getConst('constant') + '/*<0>*/.i += constant;\n'
         }]
@@ -57,7 +58,7 @@ var lookups = [
         callCondition: noTrivialFor([0,1]),
         instructions: [{
             name: 'sub',
-            pcChange: 1,
+            ipChange: 1,
             legal: [i, i],
             template: '/*<0>*/.i -= /*<1>*/.i;\n'
         }]
@@ -67,7 +68,7 @@ var lookups = [
         inputs: 1,
         instructions: [{
             name: 'csub',
-            pcChange: 2,
+            ipChange: 2,
             legal: [i],
             template: getConst('constant') + '/*<0>*/.i = constant - /*<0>*/.i;\n'
         }]
@@ -77,7 +78,7 @@ var lookups = [
         inputs: 2,
         instructions: [{
             name: 'mul',
-            pcChange: 1,
+            ipChange: 1,
             legal: [i, i],
             template: '/*<0>*/.i *= /*<1>*/.i;\n'
         }]
@@ -87,7 +88,7 @@ var lookups = [
         inputs: 1,
         instructions: [{
             name: 'mulc',
-            pcChange: 2,
+            ipChange: 2,
             legal: [i],
             template: getConst('constant') + '/*<0>*/.i *= constant;\n'
         }]
@@ -98,7 +99,7 @@ var lookups = [
         callCondition: noTrivialFor([0,1]),
         instructions: [{
             name: 'div',
-            pcChange: 1,
+            ipChange: 1,
             legal: [i, i],
             template:
             'int64_t divtemp = /*<0>*/.i / /*<1>*/.i;\n' +
@@ -114,7 +115,7 @@ var lookups = [
         inputs: 1,
         instructions: [{
             name: 'divc',
-            pcChange: 2,
+            ipChange: 2,
             legal: [i],
             template: getConst('constant') +
                 'int64_t divtemp = /*<0>*/.i / constant;\n' +
@@ -131,7 +132,7 @@ var lookups = [
         callCondition: noTrivialFor([0,1]),
         instructions: [{
             name: 'and',
-            pcChange: 1,
+            ipChange: 1,
             legal: [i, i],
             template: '/*<0>*/.i &= /*<1>*/.i;\n'
         }]
@@ -141,7 +142,7 @@ var lookups = [
         inputs: 1,
         instructions: [{
             name: 'andc',
-            pcChange: 2,
+            ipChange: 2,
             legal: [i],
             template: getConst('constant') + '/*<0>*/.i &= constant;\n'
         }]
@@ -152,7 +153,7 @@ var lookups = [
         callCondition: noTrivialFor([0,1]),
         instructions: [{
             name: 'or',
-            pcChange: 1,
+            ipChange: 1,
             legal: [i, i],
             template: '/*<0>*/.i |= /*<1>*/.i;\n'
         }]
@@ -162,7 +163,7 @@ var lookups = [
         inputs: 1,
         instructions: [{
             name: 'orc',
-            pcChange: 2,
+            ipChange: 2,
             legal: [i],
             template: getConst('constant') + '/*<0>*/.i |= constant;\n'
         }]
@@ -173,7 +174,7 @@ var lookups = [
         callCondition: noTrivialFor([0,1]),
         instructions: [{
             name: 'xor',
-            pcChange: 1,
+            ipChange: 1,
             legal: [i, i],
             template: '/*<0>*/.i ^= /*<1>*/.i;\n'
         }]
@@ -184,7 +185,7 @@ var lookups = [
         callCondition: noTrivialFor([0,1]),
         instructions: [{
             name: 'shl',
-            pcChange: 1,
+            ipChange: 1,
             legal: [i, i],
             template: '/*<0>*/.i <<= /*<1>*/.i;\n'
         }]
@@ -194,9 +195,9 @@ var lookups = [
         inputs: 1,
         instructions: [{
             name: 'shlc',
-            pcChange: 2,
+            ipChange: 2,
             legal: [i],
-            template: 'int16_t constant = program[pc + 1];\n' + '/*<0>*/.i <<= constant;\n'
+            template: 'int16_t constant = *(ip + 1);\n' + '/*<0>*/.i <<= constant;\n'
         }]
     },
     {
@@ -204,7 +205,7 @@ var lookups = [
         inputs: 1,
         instructions: [{
             name: 'cshl',
-            pcChange: 2,
+            ipChange: 2,
             legal: [i],
             template: getConst('constant') + '/*<0>*/.i = constant << /*<0>*/.i;\n'
         }]
@@ -216,7 +217,7 @@ var lookups = [
         callCondition: noTrivialFor([0,1]),
         instructions: [{
             name: 'shr',
-            pcChange: 1,
+            ipChange: 1,
             legal: [i, i],
             template: '/*<0>*/.i = (int64_t)((uint64_t)/*<0>*/.i >> /*<0>*/.i);\n'
         }]
@@ -226,9 +227,9 @@ var lookups = [
         inputs: 1,
         instructions: [{
             name: 'shrc',
-            pcChange: 2,
+            ipChange: 2,
             legal: [i],
-            template: 'int16_t constant = program[pc + 1];\n' +
+            template: 'int16_t constant = *(ip + 1);\n' +
                 '/*<0>*/.i = (int64_t)((uint64_t)/*<0>*/.i >> constant);\n'
         }]
     },
@@ -237,9 +238,9 @@ var lookups = [
         inputs: 1,
         instructions: [{
             name: 'cshr',
-            pcChange: 2,
+            ipChange: 2,
             legal: [i],
-            template: 'int16_t constant = program[pc + 1];\n' +
+            template: 'int16_t constant = *(ip + 1);\n' +
                 '/*<0>*/.i = (uint64_t)constant >> /*<0>*/.i;\n'
         }]
     },
@@ -249,7 +250,7 @@ var lookups = [
         callCondition: noTrivialFor([0,1]),
         instructions: [{
             name: 'sar',
-            pcChange: 1,
+            ipChange: 1,
             legal: [i, i],
             template: '/*<0>*/.i >>= /*<1>*/.i;\n'
         }]
@@ -259,9 +260,9 @@ var lookups = [
         inputs: 1,
         instructions: [{
             name: 'sarc',
-            pcChange: 2,
+            ipChange: 2,
             legal: [i],
-            template: 'int16_t constant = program[pc + 1];\n' +
+            template: 'int16_t constant = *(ip + 1);\n' +
                 '/*<0>*/.i >>= constant;\n'
         }]
     },
@@ -270,9 +271,9 @@ var lookups = [
         inputs: 1,
         instructions: [{
             name: 'csar',
-            pcChange: 2,
+            ipChange: 2,
             legal: [i],
-            template: 'int16_t constant = program[pc + 1];\n' +
+            template: 'int16_t constant = *(ip + 1);\n' +
                 '/*<0>*/.i = constant >> /*<0>*/.i;\n'
         }]
     },
@@ -282,25 +283,25 @@ var lookups = [
         callCondition: noTrivialFor([0,1]),
         instructions: [{
             name: 'movii',
-            pcChange: 1,
+            ipChange: 1,
             legal: [i, i],
             template: '/*<0>*/.i = /*<1>*/.i;\n'
         }, {
             name: 'movpp',
-            pcChange: 1,
+            ipChange: 1,
             legal: [p, p],
             template: '/*<0>*/.tag = /*<1>*/.tag;\n' +
             '/*<0>*/.p = /*<1>*/.p;\n'
         }, {
             name: 'movip',
-            pcChange: 1,
+            ipChange: 1,
             legal: [i, p],
             template: '/*<0>*/.p = /*<1>*/.p;\n' +
                 '/*<0>*/.tag = /*<1>*/.tag;\n' +
                 '/*<state:' + p + '>*/'
         }, {
             name: 'movpi',
-            pcChange: 1,
+            ipChange: 1,
             legal: [p, i],
             template: '/*<0>*/.i = /*<1>*/.i;\n' +
                 '/*<tag+state:' + i + '>*/'
@@ -311,12 +312,12 @@ var lookups = [
         inputs: 1, 
         instructions: [{
             name: 'movic',
-            pcChange: 2,
+            ipChange: 2,
             legal: [i],
             template: getConst('constant') + '/*<0>*/.i = constant;\n'
         }, {
             name: 'movpc',
-            pcChange: 2,
+            ipChange: 2,
             legal: [p],
             template: getConst('constant') +
                 '/*<0>*/.i = constant;\n' +
@@ -327,12 +328,12 @@ var lookups = [
         inputs: 1,
         instructions: [{
             name: 'movpn',
-            pcChange: 1,
+            ipChange: 1,
             legal: [p],
             template: '/*<0>*/.p = NULL;\n'
         }, {
             name: 'movin',
-            pcChange: 1,
+            ipChange: 1,
             legal: [i],
             template: '/*<0>*/.p = NULL;\n' +
                 '/*<tag+state:' + p + '>*/'
@@ -343,9 +344,9 @@ var lookups = [
         inputs: 1,
         instructions: [{
             name: 'getl',
-            pcChange: 2,
+            ipChange: 2,
             legal: [i],
-            template: 'int16_t constant = program[pc + 1];\n' +
+            template: 'int16_t constant = *(ip + 1);\n' +
                 'value val = fp[constant];\n' +
                 'if (val.tag != ' + i + ') {\n' +
                 '/*<0>*/.tag = val.tag;\n' +
@@ -357,9 +358,9 @@ var lookups = [
                 '}\n'
         }, {
             name: 'getlp',
-            pcChange: 2,
+            ipChange: 2,
             legal: [p],
-            template: 'int16_t constant = program[pc + 1];\n' +
+            template: 'int16_t constant = *(ip + 1);\n' +
                 'value val = fp[constant];\n' +
                 'if (val.tag == ' + i + ') {\n' +
                 '/*<tag+state:' + i + '>*/' +
@@ -376,19 +377,19 @@ var lookups = [
         inputs: 1,
         instructions: [{
             name: 'setl',
-            pcChange: 2,
+            ipChange: 2,
             legal: [i],            
             
-            template: 'int16_t constant = program[pc + 1];\n' +
+            template: 'int16_t constant = *(ip + 1);\n' +
                 'value* vp = fp + constant;\n' +
                 '(*vp).tag = /*<0>*/.tag;\n' +
                 '(*vp).i = /*<0>*/.i;\n'
         },
         {
             name: 'setlp',
-            pcChange: 2,
+            ipChange: 2,
             legal: [p],
-            template: 'int16_t constant = program[pc + 1];\n' +
+            template: 'int16_t constant = *(ip + 1);\n' +
                 'value* vp = fp + constant;\n' +
                 '(*vp).tag = /*<0>*/.tag;\n' +
                 '(*vp).p = /*<0>*/.p;\n'
@@ -401,7 +402,7 @@ var lookups = [
         instructions: [
             {
                 name: 'geto',
-                pcChange: 1,
+                ipChange: 1,
                 legal: [i, p, i],
                 template: 
                     'value val = ((object *)(/*<1>*/.p))->data[/*<2>*/.i];\n' +
@@ -416,7 +417,7 @@ var lookups = [
             },
             {
                 name: 'getop',
-                pcChange: 1,
+                ipChange: 1,
                 legal: [p, p, i],
                 template: 
                     'value val = ((object *)(/*<1>*/.p))->data[/*<2>*/.i];\n' +
@@ -436,7 +437,7 @@ var lookups = [
         instructions: [
             {
                 name: 'seto',
-                pcChange: 1,
+                ipChange: 1,
                 legal: [p, i, i], 
                 template: 
                     'value *vp = &(((object *)(/*<0>*/.p))->data[/*<1>*/.i]);\n' +
@@ -445,7 +446,7 @@ var lookups = [
             },
             {
                 name: 'setop',
-                pcChange: 1,
+                ipChange: 1,
                 legal: [p, i, p],
                 template: 
                     'value *vp = &(((object *)(/*<0>*/.p))->data[/*<1>*/.i]);\n' +
@@ -460,14 +461,14 @@ var lookups = [
         instructions: [
             {
                 name: 'getb',
-                pcChange: 1,
+                ipChange: 1,
                 legal: [i, p, i],
                 template: 'uint8_t val = ((buffer *)(/*<1>*/.p))->data[/*<2>*/.i];\n' +
                     '/*<0>*/.i = val;\n'                
             },
             {
                 name: 'getbp',
-                pcChange: 1,
+                ipChange: 1,
                 legal: [p, p, i],
                 template: 'uint8_t val = ((buffer *)(/*<1>*/.p))->data[/*<2>*/.i];\n' +
                     '/*<tag+state:' + i + '>*/' +
@@ -482,7 +483,7 @@ var lookups = [
         instructions: [
             {
                 name: 'setb',
-                pcChange: 1,
+                ipChange: 1,
                 legal: [p, i, i],
                 template: 'buffer *base = (buffer *)(/*<0>*/.p);\n' +
                     'base->data[/*<1>*/.i] = /*<2>*/.i;\n'               
@@ -494,7 +495,7 @@ var lookups = [
         inputs: 0,
         instructions: [{
             name: 'jmp',
-            template: 'pc += program[pc+1];\n'
+            template: 'ip += *(ip+1);\n'
         }]
     }, {
         name: 'jmpf',
@@ -502,7 +503,7 @@ var lookups = [
         instructions: [{
             name: 'jmpf',
             template: getConst('constant') +
-                'pc += constant;\n'
+                'ip += constant;\n'
         }]
     }, {
         name: 'swtch',
@@ -510,15 +511,15 @@ var lookups = [
         instructions: [{
             name: 'switch',
             legal: [i],
-            template: 'int16_t tableSize = program[pc + 1];\n' +
+            template: 'int16_t tableSize = *(ip + 1);\n' +
                 'if(/*<0>*/.i < 0 || /*<0>*/.i >= tableSize) {\n' +
-                'int16_t defaultJump = program[pc + tableSize + 2];\n' +
+                'int16_t defaultJump = *(ip + tableSize + 2);\n' +
                 //tableSize gets us to one more than the elements in the table then + 1 to store tableSize's displacement
-                'pc += defaultJump;\n' +
+                'ip += defaultJump;\n' +
                 '}\n' +
                 'else {\n' +
-                'int16_t jump = program[pc + /*<0>*/.i + 2];\n' +
-                'pc += jump;\n ' + //index into the table
+                'int16_t jump = *(ip + /*<0>*/.i + 2);\n' +
+                'ip += jump;\n ' + //index into the table
                 '}\n'
         }]
     },
@@ -531,26 +532,26 @@ var lookups = [
             name: 'jcmp',
             legal: [i, i],
             template: 'if (/*<0>*/.i < /*<1>*/.i)\n' +
-                'pc += program[pc + 1];\n' +
+                'ip += *(ip + 1);\n' +
                 'else if(/*<0>*/.i == /*<1>*/.i)\n' +
-                'pc += program[pc + 2];\n' +
+                'ip += *(ip + 2);\n' +
                 'else\n' +
-                'pc += program[pc + 3];\n'
+                'ip += *(ip + 3);\n'
         }, {
             name: 'jeqp',
             legal: [p, p],
             template: 'if (/*<0>*/.p == /*<1>*/.p)\n' +
-                'pc += program[pc + 1];\n' +
+                'ip += *(ip + 1);\n' +
                 'else\n' +
-                'pc += program[pc + 2];\n'
+                'ip += *(ip + 2);\n'
         }, {
             name: 'jcmpft',
-            pcChange: 4,
+            ipChange: 4,
             legal: [p, i]
         }, {
             name: 'jcmpft',
             legal: [i, p],
-            pcChange: 4,
+            ipChange: 4,
             genCode: false
         }]
     },
@@ -562,14 +563,14 @@ var lookups = [
             legal: [i],
             template: getConst('constant') +
                 'if (/*<0>*/.i < constant)\n' +
-                'pc += program[pc + 2];\n' +
+                'ip += *(ip + 2);\n' +
                 'else if(/*<0>*/.i == constant)\n' +
-                'pc += program[pc + 3];\n' +
+                'ip += *(ip + 3);\n' +
                 'else\n' +
-                'pc += program[pc + 4];\n'
+                'ip += *(ip + 4);\n'
         }, {
             name: 'jcmpcft',
-            pcChange: 5,
+            ipChange: 5,
             legal: [p]
         }]
     },
@@ -580,13 +581,13 @@ var lookups = [
             name: 'jnullp',
             legal: [p],
             template: 'if (/*<0>*/.p != NULL)\n' +
-                'pc += program[pc + 1];\n' +
+                'ip += *(ip + 1);\n' +
                 'else\n' +
-                'pc += program[pc + 2];\n'
+                'ip += *(ip + 2);\n'
         }, {
             name: 'jcmpcft',
             legal: [i],
-            pcChange: 5,
+            ipChange: 5,
             genCode: false
         }]
     },
@@ -596,17 +597,17 @@ var lookups = [
         instructions: [{
             name: 'call',
             template: 
-            'int64_t newpc = pc + program[pc + 1];\n' +
-                'int64_t *sizep = (int64_t*)&program[newpc];\n' +
+            'int16_t *newip = ip + *(ip + 1);\n' +
+                'int64_t *sizep = (int64_t*)newip;\n' +
                 'int64_t size = sizeof(stackframe) + sizeof(value) * (*sizep);\n' +
                 'stackframe *base = (stackframe*)malloc(size);\n' +
                 'if (base) {\n' +
-                'base->fp = fp; base->pc = pc; base->ts = ts;\n' +
+                'base->fp = fp; base->ip = ip; base->ts = ts;\n' +
                 'SaveRegisters(base->g);\n' +
                 'value *newfp = base->l;\n' + 
-                'memcpy(newfp, fp + program[pc + 2], program[pc + 3]*sizeof(value));\n' +
+                'memcpy(newfp, fp + *(ip + 2), *(ip + 3)*sizeof(value));\n' +
                 'fp = newfp;\n' +
-                'pc = newpc + 4;\n' +
+                'ip = newip + 4;\n' +
                 '}\n' +
                 'else {\n' +
                 'fprintf(stderr, "malloc failed");\n' +
@@ -618,10 +619,10 @@ var lookups = [
         name: 'ret', 
         inputs: 0,
         instructions: [{
-            name: 'ret', pcChange: 4,
+            name: 'ret', ipChange: 4,
             template:
             'stackframe *cur = (stackframe*)((size_t)fp - sizeof(stackframe));\n' +
-            'fp = cur->fp; pc = cur->pc; ts = (cur->ts & 0xF000) | (ts & 0x10800);\n' +
+            'fp = cur->fp; ip = cur->ip; ts = (cur->ts & 0xF000) | (ts & 0x10800);\n' +
                 'RestoreRegisters(cur->g);\n' +                
                 'free(cur);//probably does a thing \n' +             
                 'if (fp == NULL)\n' +
@@ -638,7 +639,7 @@ var lookups = [
         inputs: 2,
         callCondition: noTrivialFor([0,1]),
         instructions: [{
-            name: 'newo', pcChange: 1, legal: [g,i],
+            name: 'newo', ipChange: 1, legal: [g,i],
             template:
                 'object *base = (object*)malloc(sizeof(object) + sizeof(value)* /*<1>*/.i);\n' +
                 'if (base) {\n' +
@@ -658,7 +659,7 @@ var lookups = [
         inputs: 2,
         callCondition: noTrivialFor([0,1]),
         instructions: [{
-            name: 'newb', pcChange: 1, legal: [g, i],
+            name: 'newb', ipChange: 1, legal: [g, i],
             template:  
             'buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*/*<1>*/.i);\n' +
                 'if (base) {\n' +
@@ -679,13 +680,13 @@ var lookups = [
         inputs: 1,
         instructions: [
             {
-                name: 'movsc', pcChange: 2, legal: [g],
+                name: 'movsc', ipChange: 2, legal: [g],
                 template:
                 getConst('constant') +
                     'buffer *base = (buffer*)malloc(sizeof(buffer) + sizeof(int8_t)*constant);\n' +
                     'if (base) {\n' +
                     '    base->sf = MakeSizeAndFlags(constant,0);\n' +
-                    '    strcpy((int8_t *)&(base->data) ,(int8_t *)&program[pc + dconstant + 4]);\n' +
+                    '    strcpy((int8_t *)&(base->data) ,(int8_t *)(ip + dconstant + 4));\n' +
                     '    /*<0>*/.tag = 4;\n' +
                     '    /*<state:' + p + '>*/' +
                     '    /*<0>*/.p = base;\n' +
@@ -702,7 +703,7 @@ var lookups = [
         name: 'err',
         inputs: 0,
         instructions: [{
-            name: 'err', pcChange: 1, 
+            name: 'err', ipChange: 1, 
             template: getConst('errdisp') +
             'printf("0:%d 1:%d 2:%d 3:%d 4:%d 5:%d\\n", g[0].i, g[1].i, g[2].i, g[3].i, \
  g[4].i, g[5].i); \n'
@@ -712,7 +713,7 @@ var lookups = [
         name: 'in',
         inputs: 1,
         instructions: [{
-            name: 'in', pcChange: 1,
+            name: 'in', ipChange: 1,
             legal: [p],
             template:
                 'buffer *bp = /*<0>*/.p;\n' +
@@ -737,7 +738,7 @@ var lookups = [
         name: 'out',
         inputs: 1,
         instructions: [{
-            name: 'out', pcChange: 1,
+            name: 'out', ipChange: 1,
             legal: [p],
             template: 'buffer *bp = /*<0>*/.p;\n' +
                 'fwrite(bp->data, sizeof(int8_t), GetSize(bp->sf), stdout);\n'
@@ -748,13 +749,13 @@ var lookups = [
         inputs: 1,
         instructions: [
             {
-                name: 'printp', pcChange: 1,
+                name: 'printp', ipChange: 1,
                 legal: [p],
                 template: 'buffer *bp = /*<0>*/.p;\n' +
                     'puts(bp->data);\n'
             },
             {
-                name: 'print', pcChange: 1,
+                name: 'print', ipChange: 1,
                 legal: [i],
                 template: 'printf("%d\\n", /*<0>*/.i);\n'
             }
@@ -970,8 +971,8 @@ InstructionGenerator.prototype = {
                         //write instruction for arguments
                         //this includes state changes
                         this.code += this.substituteIntoTemplate(inst.template, vm, call);
-                        //update pc
-                        this.code += this.changePC(inst.pcChange);
+                        //update ip
+                        this.code += this.changeIP(inst.ipChange);
 
                         this.code += this.getStatsCode();
                         this.index++;
@@ -997,7 +998,7 @@ InstructionGenerator.prototype = {
             //NB: call is undefined if VM is conv
             this.code += this.substituteIntoTemplate(this.lookup.instructions[0].template,
                                                      vm, call);
-            this.code += this.changePC(this.lookup.instructions[0].pcChange);
+            this.code += this.changeIP(this.lookup.instructions[0].ipChange);
         }
         else
         {
@@ -1006,7 +1007,7 @@ InstructionGenerator.prototype = {
                 this.code += ifpart + this.getTypeCheck(inst, vm, call) + ' {\n' ;
                 //NB: call is undefined if VM is conv
                 this.code += this.substituteIntoTemplate(inst.template, vm, call);
-                this.code += this.changePC(inst.pcChange);
+                this.code += this.changeIP(inst.ipChange);
                 this.code += '}\n';                
             }, this);
 
@@ -1047,9 +1048,9 @@ InstructionGenerator.prototype = {
 
     goto: function(vm) {
         if (vm === typeVM || vm === hybrVM)
-            return 'goto *dynOpcodes[ts + program[pc]];\n';
+            return 'goto *dynOpcodes[ts + *ip];\n';
         else if (vm === convVM)
-            return 'goto *dynOpcodes[GetOpcode(program[pc])];\n';
+            return 'goto *dynOpcodes[GetOpcode(*ip)];\n';
         else throw "Illegal VM type";
     },
 
@@ -1085,7 +1086,7 @@ InstructionGenerator.prototype = {
     getArgsFromInst: function(inst) {
         var args = '';
         for (var i = 0; i < this.lookup.inputs; i++) {
-            args += 'int16_t arg' + i +' = GetArg' + i + '(program[pc]);\n';
+            args += 'int16_t arg' + i +' = GetArg' + i + '(*ip);\n';
         }
         return args;
     },
@@ -1162,11 +1163,11 @@ InstructionGenerator.prototype = {
         return debugStart + tsUpdate + debugEnd;
     },
 
-    changePC: function(pcChange) {
-        if (!pcChange)
+    changeIP: function(ipChange) {
+        if (!ipChange)
             return '';
         else
-            return pcChange === 1 ? 'pc++;\n' : 'pc += ' + pcChange + ';\n';
+            return ipChange === 1 ? 'ip++;\n' : 'ip += ' + ipChange + ';\n';
     },
 
     //TODO: Implement this in a more generic, modular way so that it could potentially be updated
@@ -1289,18 +1290,18 @@ for (var n = 0; n < 3; n++)
     CodeGenerator.generate(n);
 
     //Get and Save Code
-    fs.writeFileSync('../staticInstructions' + suffixes[n] +'.c', '');
-    fs.appendFileSync('../staticInstructions' + suffixes[n] +'.c', CodeGenerator.getCode());
+    fs.writeFileSync('../Generated/staticInstructions' + suffixes[n] +'.c', '');
+    fs.appendFileSync('../Generated/staticInstructions' + suffixes[n] +'.c', CodeGenerator.getCode());
     console.log('Code written to file: static instructions - ' + names[n]);
 
     //Save Stats    
-    fs.writeFileSync('../opcodes' + suffixes[n] +'.c', '');
-    fs.appendFileSync('../opcodes' + suffixes[n] +'.c', CodeGenerator.getNames());
+    fs.writeFileSync('../Generated/opcodes' + suffixes[n] +'.c', '');
+    fs.appendFileSync('../Generated/opcodes' + suffixes[n] +'.c', CodeGenerator.getNames());
     console.log('Code written to file: opcode names - ' + names[n]);
     
     //Get and save Lookup Table
-    fs.writeFileSync('../dynamicOpcodes' + suffixes[n] + '.c', '');
-    fs.appendFileSync('../dynamicOpcodes' + suffixes[n] + '.c', CodeGenerator.getLookupTable());
+    fs.writeFileSync('../Generated/dynamicOpcodes' + suffixes[n] + '.c', '');
+    fs.appendFileSync('../Generated/dynamicOpcodes' + suffixes[n] + '.c', CodeGenerator.getLookupTable());
     console.log('Code written to file: lookup table - ' + names[n]);
 }
 
@@ -1308,7 +1309,7 @@ console.log('\n');
 CodeGenerator.generate(typeVM);
 console.log('generating table for use with assembler:\n==========================================');
 //opcode table
-fs.writeFileSync('../staticOpcodes.rb', '');
+fs.writeFileSync('../Generated/staticOpcodes.rb', '');
 console.log('File overwritten');
-fs.appendFileSync('../staticOpcodes.rb', CodeGenerator.getOpcodes());
+fs.appendFileSync('../Generated/staticOpcodes.rb', CodeGenerator.getOpcodes());
 console.log('Code written to file');

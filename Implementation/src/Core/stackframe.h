@@ -12,7 +12,7 @@ typedef struct StackFrameStruct stackframe;
 struct StackFrameStruct
 {
     value *fp;
-    int64_t pc;
+    int16_t *ip;
     int64_t ts;
     value g[4]; //g1 .. g4
     value l[];  //local vars starting with the arguments
