@@ -1295,8 +1295,8 @@ for (var n = 0; n < 3; n++)
     console.log('Code written to file: static instructions - ' + names[n]);
 
     //Save Stats    
-    fs.writeFileSync('../Generated/opcodes' + suffixes[n] +'.c', '');
-    fs.appendFileSync('../Generated/opcodes' + suffixes[n] +'.c', CodeGenerator.getNames());
+    fs.writeFileSync('../Generated/stats' + suffixes[n] +'.c', '');
+    fs.appendFileSync('../Generated/stats' + suffixes[n] +'.c', CodeGenerator.getNames());
     console.log('Code written to file: opcode names - ' + names[n]);
     
     //Get and save Lookup Table

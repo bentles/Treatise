@@ -4,13 +4,13 @@
 Counter opcodeCounters[] =
 {
 #ifdef TYPE
-#include "opcodes.c"
+#include "../Generated/stats.c"
 #endif /*TYPE*/
 #ifdef CONV
-#include "opcodesConv.c"
+#include "../Generated/statsConv.c"
 #endif /*CONV*/
 #ifdef HYBR
-#include "opcodesHybr.c"
+#include "../Generated/statsHybr.c"
 #endif /*HYBR*/
 };
 

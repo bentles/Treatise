@@ -44,8 +44,8 @@
 \contentsline {subsubsection}{\numberline {3.1.3}Buffers}{24}
 \contentsline {subsubsection}{\numberline {3.1.4}Registers}{24}
 \contentsline {subsubsection}{\numberline {3.1.5}Stack Frames}{24}
-\contentsline {subsubsection}{\numberline {3.1.6}Addressing}{24}
-\contentsline {subsubsection}{\numberline {3.1.7}Instructions}{24}
-\contentsline {subsection}{\numberline {3.2}Conventional VM}{27}
-\contentsline {subsubsection}{\numberline {3.2.1}opcode}{27}
-\contentsline {section}{References}{28}
+\contentsline {subsubsection}{\numberline {3.1.6}Addressing}{25}
+\contentsline {subsubsection}{\numberline {3.1.7}Instructions}{25}
+\contentsline {subsection}{\numberline {3.2}Conventional VM}{28}
+\contentsline {subsubsection}{\numberline {3.2.1}opcode}{28}
+\contentsline {section}{References}{29}

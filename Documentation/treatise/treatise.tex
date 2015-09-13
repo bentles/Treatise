@@ -114,7 +114,7 @@ Bytecode interpreters interpret a pre-compiled bytecode that is much like the ma
 
 This can be stored compactly and executed by decoding the opcode and performing the instruction associated with it. This approach is found in the statically typed languages Java and C\# but dynamically typed languages like Lua share the same approach. Bytecode interpreters are also called virtual machines because of they perform the same tasks as a real CPU: fetching, decoding and executing instructions (citation needed?).
 
-The Lua bytecode (as of Lua 5.0) is made up of 32 bit unsiged integers \cite{RobertoIerusalimschy}. Figure~\ref{fig:luabyte} shows the different ways the bits of the instructions in the bytecode are used. Bits 0 through 5 are always used to store the opcode. Bits 6 through 13 are always used to store the first argument. After that there are three options for how the rest of the instruction word is used.
+The Lua bytecode (as of Lua 5.0) is made up of 32-bit unsiged integers \cite{RobertoIerusalimschy}. Figure~\ref{fig:luabyte} shows the different ways the bits of the instructions in the bytecode are used. Bits 0 through 5 are always used to store the opcode. Bits 6 through 13 are always used to store the first argument. After that there are three options for how the rest of the instruction word is used.
 
 \begin{figure}
 	\includegraphics[width=\linewidth]{luabytecode.png}
@@ -123,7 +123,7 @@ The Lua bytecode (as of Lua 5.0) is made up of 32 bit unsiged integers \cite{Rob
 \end{figure}
 
 \subsection{Organisation of a Virtual Machine} 
-A Virtual Machine executes a binary file that is a list of instructions in the bytecode format for that Virtual Machine. So for Lua these instructions would be 32 bit integers in one of the formats seen in Figure~\ref{fig:luabyte}. The binary file may also contain data for known constant values in the program.
+A Virtual Machine executes a binary file that is a list of instructions in the bytecode format for that Virtual Machine. So for Lua these instructions would be 32-bit integers in one of the formats seen in Figure~\ref{fig:luabyte}. The binary file may also contain data for known constant values in the program.
 
 \subsubsection{Instruction Pointer}
 When executing bytecode, the virtual machine needs some way to know what instruction is currently being executed. This is slightly more complex than just keeping track of how far into the program the VM has read as the program may have ``control flow'' instructions. These instructions allow the virtual machine to jump between different points in the program. This is how loops and conditional execution are implemented. 
@@ -379,7 +379,7 @@ in the registers
 
 \subsubsection{Type-Mapping}
 
-The virtual machine does not make use of the usual opcode and arguments arrangment used in register machine interpreters. Usually, the interpreter reads in some instruction stored as an opcode and the arguments for that opcode at the same time. In \emph{fig 2} we see a 16 bit instruction composed of a 4 bit opcode in the high bits, followed by two 6 bit operands or aguments. The interpreter performs the necessary shifts and bitmasking to get the values out of the fields.
+The virtual machine does not make use of the usual opcode and arguments arrangment used in register machine interpreters. Usually, the interpreter reads in some instruction stored as an opcode and the arguments for that opcode at the same time. In \emph{fig 2} we see a 16-bit instruction composed of a 4-bit opcode in the high bits, followed by two 6-bit operands or aguments. The interpreter performs the necessary shifts and bitmasking to get the values out of the fields.
 
 \begin{figure}[tph]
 % \protect\caption{\protect\includegraphics[scale=0.6]{/home/stevetest/opcode}}
@@ -387,7 +387,7 @@ The virtual machine does not make use of the usual opcode and arguments arrangme
 
 In our VM instructions for programs are stored as opcodes only with no arguments. That is because we have a version of each instruction for every combination of registers as inputs. Because we have 6 registers and a maximum of two arguments per instruction that means that we can have a maximum of 6\textasciicircum{}2 versions of each instruction. This saves us the process of extracting arguments at the expense having to have more versions of the instruction{[}why are we doing it this way actually?{]}. The opcode implicitly stores the argument information.
 
-The opcode is not the only information the VM uses to select code, however. The \emph{ts} register keeps a record of the type of every register. It is a 6 bit number where each bit tells us the current type of a register. Thus for every opcode, there are 2\textasciicircum{}6 different states the VM could be in. With this information we know the arguments and types and can jump to specialised code that acts on arguments of those types. A good way to think about it is to imagine it as a 2D lookup table (even though the implementation is 1D). On the y-axis we have the opcodes for all the versions of the instructions and on the x-axis we have the current state from 0 to 63. At the intersection of these we store the address of the code we jump to for that instruction.
+The opcode is not the only information the VM uses to select code, however. The \emph{ts} register keeps a record of the type of every register. It is a 6-bit number where each bit tells us the current type of a register. Thus for every opcode, there are 2\textasciicircum{}6 different states the VM could be in. With this information we know the arguments and types and can jump to specialised code that acts on arguments of those types. A good way to think about it is to imagine it as a 2D lookup table (even though the implementation is 1D). On the y-axis we have the opcodes for all the versions of the instructions and on the x-axis we have the current state from 0 to 63. At the intersection of these we store the address of the code we jump to for that instruction.
 
 Now since we only have integers and pointers it may, at first glace, seem pointless to have specialised instructions since most of the time using pointers in an instruction meant for integers is illegal. However this method elliminates the type checking involved in instructions for a dynamic-ISA VM. Normally for each instruction we would have to check the validity of the arguments first before we can perform the instruction, but with this method we already know the types and so we can just jump directly to code for those types or an error if the arguments are illegal.
 
@@ -429,16 +429,23 @@ As this is a dynamic ISA virtual machine, types are associated with values inste
 
 Figure~\ref{fig:struct} shows the implementation of a value for the VM. Values are structs with two fields:
 \begin{description}
-	\item[tag] a 64 bit integer to identify the type of the value
-	\item[union] a 64 bit shared memory space for integers or pointers
+	\item[tag] a 64-bit integer to identify the type of the value
+	\item[union] a 64-bit memory space for integers or pointers
 \end{description}
 
-The tag field
+The tag field is used to identify the type of the value. There are four possible values it could take on:
+\begin{enumerate}
+	\setcounter{enumi}{-1}
+	\item a 64-bit unsigned integer
+	\item a value pointer or null
+	\item an object pointer
+	\setcounter{enumi}{3}
+	\item a buffer pointer
+\end{enumerate}
 
 \subsubsection{Objects}
 
-Objects are a simple built-in data structure for storing ordered fields of values. Objects are implemented as a struct with an array of values and an integer field for storing the length of the array. This integer field is also
-used to store 
+Objects are a simple built-in data structure for storing ordered fields of values. Objects are implemented as a struct with an array of values and an integer field for storing the length of the array. Two bits of this integer field are used to store flags for a possible garbage collector implementation though this remains out of scope for this project.
 
 \subsubsection{Buffers}
 
@@ -446,17 +453,17 @@ Buffers are a data structure that exposes the native byte to the VM so that stri
 
 \subsubsection{Registers}
 
-All virtual machines make use of 6 general purpose registers. These registers are implemented as an array of 6 \verb|values|. 
+All virtual machines make use of 6 general purpose registers. These registers are implemented as an array of 6 \verb|values|. These shall be referred to as $g_0$ through $g_5$. Here 'g' refers to 'general purpose'.
 
-A further two registers are found in all VMs. that is the program counter, which will be referred to as PC and the frame pointer which will be referred to as FP. These are a 64 bit integer and a value pointer respectively.
+A further two registers are found in all VMs. that is the instruction pointer, which will be referred to as \verb|IP| and the frame pointer which will be referred to as \verb|FP|. These are a 16-bit-integer pointer and a value pointer respectively.
 
 \subsubsection{Stack Frames}
 
 All VMs make use of identical Stack Frames for subroutine calls. Each stack frame stores: 
 
 \begin{itemize} 
-	\item The previous FP, PC and an additional register, TS, that goes unused except in the Type-State VM. 
-	\item The general purpose registers except the first and last
+	\item The previous \verb|FP|, \verb|IP| and an additional register, \verb|TS|, that goes unused except in the opcode-operand-type dispatch VM. 
+	\item The general purpose registers except for $g_0$ and $g_5$
 	\item The local variables used in that stack frame 
 \end{itemize}
 
@@ -464,13 +471,20 @@ Registers are saved upon calling a subroutine and restored when the subroutine r
 
 \subsubsection{Addressing}
 
+Instructions take operands of three types:
+\begin{description}
+	\item[register number] These operands are numbers from 0 to 5 that address the six registers. For the conventional VM these are an explicit part of the instruction word as shown in Figure[x]. For the other two VMs these operands are implicitly part of the instruction word.
+	\item[next instruction word] This type of operand considers the next instruction word as an unsigned 16-bit constant. The value of these constants will be referred to in the following form: $name_{16}$
+	\item[IP-relative addressing] This type of operand considers the next instruction word as the IP-relative address of a 64-bit unsigned integer constant. The value of the 64-bit constant will be referred to in the following form: $name_{64}$
+\end{description}
+
 \subsubsection{Instructions}
 
 All virtual machines support an identical set of instructions. How these are implemented is quite different for each VM but the functionality of each instruction does not change between virtual machines. 
 
 Instruction words are 16 bits long.	Each instruction may have a maximum of two operands. If the instruction has multiple operands and a result, the result will be stored in the first of the two operands.
 
-Instruction operands refer to one of the 6 general purpose registers. In some cases the next instruction word is a 16 bit constant value that is used by the instruction and in others the next instruction word is used as a 16 bit PC-relative address for a 64 bit constant value. These will be denoted as const16 and const64 respectively and their implementation will be expanded upon later.
+Instruction operands refer to one of the 6 general purpose registers. In some cases the next instruction word is a 16-bit constant value that is used by the instruction and in others the next instruction word is used as a 16-bit PC-relative address for a 64-bit constant value. These will be denoted as const16 and const64 respectively and their implementation will be expanded upon later.
 
 In some cases, specific argument combinations for an instruction have been removed as they produce trivial results. For instance the subtract operation cannot be used with the same register for both arguments. Since the result of this operation is always zero and there already is an instruction to set a register to zero, there is no need to include this case. This has little bearing on the conventional VM (which can do these operations) but plays a role in the other two VMs. 
 
@@ -479,6 +493,10 @@ The set of instructions is as follows:
 \subsection*{Arithmetic Instructions}
 
 Arithmetic instructions provide some basic arithmetic operations for registers that contain integers. If a register that does not contain an integer is selected, an error is signalled and the VM halts. All arithmetic instructions increment the program counter. Those that make use of a constant that is looked up in the next instruction word increment the program counter again so that the PC points to the next instruction and not the data contained in the next word. The PC is incremented after the operation performed by the instruction.
+
+\begin{description}
+	\item[add] The \verb|add| instruction takes two registers containing
+\end{description}
 
 \addvbuffer[12pt 8pt]{\begin{tabular}{| l | l |}
 		\hline
