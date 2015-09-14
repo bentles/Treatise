@@ -10,6 +10,7 @@
 \usepackage{url}
 \usepackage{bytefield}
 \usepackage{color}
+\usepackage{enumitem}
 
 %reset counter per chapter
 \usepackage{chngcntr}
@@ -531,126 +532,135 @@ The set of instructions is as follows:
 Arithmetic instructions provide some basic arithmetic operations for registers that contain integers. If a register that does not contain an integer is selected, an error is signalled and the VM halts. All arithmetic instructions increment the program counter. Those that make use of a constant that is looked up in the next instruction word increment the program counter again so that the PC points to the next instruction and not the data contained in the next word. The PC is incremented after the operation performed by the instruction.
 
 \begin{description}
-	\item[add] The \verb|add| instruction takes two registers containing
+\item[add] add two integer-valued registers
+
+$add(i, j) := r _{i} \longleftarrow  r _{i} + r _{j} $ \\
+
+\item[addc] add an integer-valued register and a 64-bit integer constant 
+
+$addc(i, const _{64}) := r _{i} \longleftarrow  r _{i} + const _{64} $ \\
+
+\item[sub] find the difference of two integer-valued registers
+
+$sub(i, j\neq i) := r _{i} \longleftarrow  r _{i} - r _{j} $ \\
+
+\item[csub] subtract an integer-valued register from a 64-bit integer constant
+
+$csub(const _{64}, i) := r _{i} \longleftarrow const _{64} - r _{i} $ \\
+
+\item[mul] multiply two integer-valued registers 
+
+$mul(i, j) := r _{i} \longleftarrow  r _{i} \cdot r _{j} $ \\
+
+\item[mulc] multiply an integer-valued register by a 64-bit integer constant 
+
+$mulc(i, const _{64}) := r _{i} \longleftarrow  r _{i} \cdot const _{64} $
+
+\item[div] find the quotient and modulus of two integer-valued registers 
+
+$div(i, j\neq i) :=$ \\
+$ r _{i} \longleftarrow  r _{i} \div r _{j}$ \\		
+$ g _{0} \longleftarrow  r _{i} \textbf{ mod } r _{j} $\\
+
+\item[divc] find the quotient and modulus of an integer-valued register and a 64-bit integer constant 
+
+$div(i, const _{64}) :=$ \\
+$ r _{i} \longleftarrow  r _{i} \div const_{64}$ \\		
+$ g _{0} \longleftarrow  r _{i} \textbf{ mod } const_{64} $
+
 \end{description}
-
-\addvbuffer[12pt 8pt]{\begin{tabular}{| l | l |}
-		\hline
-		Instruction & Action\\
-		\hline
-		$add(g _{i}, g _{j}) $ & $ g _{i} \longleftarrow  g _{i} + g _{j} $\\
-		\hline
-		$addc(g _{i}, const _{64}) $ & $ g _{i} \longleftarrow  g _{i} + const _{64} $\\
-		\hline
-		$sub(g _{i}, g _{j\neq i}) $ & $ g _{i} \longleftarrow  g _{i} - g _{j} $\\
-		\hline
-		$csub(const _{64}, g _{i}) $ & $ g _{i} \longleftarrow const _{64} - g _{i} $\\
-		\hline
-		$mul(g _{i}, g _{j}) $ & $ g _{i} \longleftarrow  g _{i} \times g _{j} $\\
-		\hline
-		$mulc(g _{i}, const _{64}) $ & $ g _{i} \longleftarrow  g _{i} \times const _{64} $\\
-		\hline
-	
-		$div(g _{i}, g _{j\neq i}) $ & 
-		\begin{tabular}{@{}l@{}}
-			$ g _{i} \longleftarrow  g _{i} \div g _{j}$ \\		
-			$g _{0} \longleftarrow  g _{i} \textbf{ mod } g _{j} $\end{tabular}\\
-				 
-		\hline
-		$div(g _{i}, const _{64}) $ & 
-		\begin{tabular}{@{}l@{}}
-			$ g _{i} \longleftarrow  g _{i} \div const_{64}$ \\		
-			$g _{0} \longleftarrow  g _{i} \textbf{ mod } const_{64} $
-		\end{tabular}\\
-		\hline
-	\end{tabular}}
-	
-The functioning of these operations is obvious except for the two division instructions where the first argument is g0. In this case g0 mod gj (or const64 as the case may be) is stored in g0 as the final result. The implementation used to bring this about is: 
-
-\begin{itemize} 
-\item find the modulus first and store it in a temporary variable 
-\item perform the division, storing the result in register gi 
-\item store the temporary variable in gi
-\end{itemize}
+The functioning of these operations is obvious except for the two division instructions when the first argument corresponds to $r_0$. In this case $r_0 \div r_j$ (or $const_{64}$ as the case may be) is stored in $r_0$ as the final result. 
 	
 \subsection*{Bit Manipulation Instructions}
 
-		
-\addvbuffer[12pt 8pt]{\begin{tabular}{| l | l |}
-	\hline
-	Instruction & Action\\
-	\hline
-	$and(g _{i}, g _{j\neq i}) $ & $g _{0} \longleftarrow  g _{i}  \textbf{ \& } g _{j} $ \\
-	\hline
-	$andc(g _{i}, const _{64}) $ & $ g _{0} \longleftarrow  g _{i}  \textbf{ \& } const _{64} $ \\
-	\hline
-	$or(g _{i}, g _{j \neq i}) $ & $g _{0} \longleftarrow  g _{i} \textbf{ | } g _{j} $  \\
-	\hline
-	$orc(g _{i}, const _{64}) $ & $ g _{0} \longleftarrow  g _{i} \textbf{ | } const _{64} $ \\
-	\hline
-	$xor(g _{i}, g _{j \neq i}) $ & $g _{0} \longleftarrow  g _{i} \textbf{ \^{} } g _{j} $ \\
-	\hline
-	$shl(g _{i}, g _{j}) $ & $g _{0} \longleftarrow  g _{i} << g _{j} $ \\
-	\hline
-	$shlc(g _{i}, const _{16}) $ & $ g _{0} \longleftarrow  g _{i} << const _{16} $ \\
-	\hline
-	$cshl(const _{64}, g _{i})$ & $ g _{0} \longleftarrow  const _{64} << g _{i}  $ \\
-	\hline
-	$shr(g _{i}, g _{j}) $ & $g _{0} \longleftarrow  g _{i} >> g _{j} $ \\
-	\hline
-	$shrc(g _{i}, const _{16}) $ & $ g _{0} \longleftarrow  g _{i} >> const _{16} $ \\
-	\hline
-	$cshr(const _{64}, g _{i})$ & $ g _{0} \longleftarrow  const _{64} >> g _{i}  $  \\
-	\hline
-	$sar(g _{i}, g _{j}) $ & $ g _{0} \longleftarrow  g _{i} >>> const _{16} $  \\
-	\hline
-	$sarc(g _{i}, const _{16}) $ & $ g _{0} \longleftarrow  g _{i} >>> const _{16} $ \\
-	\hline
-	$csar(const _{64}, g _{i})$ & $ g _{0} \longleftarrow  const _{64} >>> g _{i}  $ \\
-	\hline
-\end{tabular}}	
-
 These instructions are for performing bitwise logical operations on integer operands and constants. The PC is incremented in the same manner as for the arithmetic instructions. The shr and shl instructions are the logical shifts whereas sar is the arithmetic right shift. The arithmetic left shift is the same operation as shl.
+
+\begin{description}
+	\item[and] bitwise and two integer-valued registers
+	
+	$and(i, j\neq i) := r _{i} \longleftarrow  r _{i}  \textbf{ and } r _{j} $ \\
+	\item[andc] bitwise and an integer-valued register and 64-bit integer constant
+	
+	$andc(i, const _{64}) :=  r _{i} \longleftarrow  r _{i} \textbf{ and } const _{64} $ \\
+	\item[or] bitwise or two integer-valued registers
+	
+	$or(i, j \neq i) := r _{i} \longleftarrow  r _{i} \textbf{ or } r _{j} $  \\
+	\item[orc] bitwise or an integer-valued register and 64-bit integer constant
+	
+	$orc(i, const _{64}) :=  r _{i} \longleftarrow  r _{i} \textbf{ or } const _{64} $ \\
+	\item[xor] bitwise xor two integer-valued registers
+	
+	$xor(i, j \neq i) := r _{i} \longleftarrow  r _{i} \textbf{ \^{} } r _{j} $ \\
+	\item[shl] shift an integer-valued register left by another integer-valued register
+	
+	$shl(i, j) := r _{i} \longleftarrow  r _{i} << r _{j} $ \\
+	\item[shlc] shift an integer-valued register left by a 16-bit  integer constant
+	
+	$shlc(i, const _{16}) :=  r _{i} \longleftarrow  r _{i} << const _{16} $ \\
+	\item[cshl] shift a 64-bit integer constant left by an integer-valued register
+	
+	$cshl(const _{64}, i):=  r _{i} \longleftarrow  const _{64} << r _{i}  $ \\
+	\item[shr] logical right shift an integer-valued register by another integer-valued register
+	
+	$shr(i, j) := r _{i} \longleftarrow  r _{i} >> r _{j} $ \\
+	\item[shrc] logical right shift an integer-valued register by a 16-bit integer constant
+	
+	 $shrc(i, const _{16}) :=  r _{i} \longleftarrow  r _{i} >> const _{16} $ \\
+	\item[cshr] logical right shift a 64-bit integer constant by an integer-valued register
+	
+	$cshr(const _{64}, i):=  r _{i} \longleftarrow  const _{64} >> r _{i}  $  \\
+	\item[sar] arithmetic right shift an integer-valued register by another integer-valued register 
+	
+	$sar(i, j) :=  r _{i} \longleftarrow  r _{i} >>> r _{j} $  \\
+	\item[sarc] arithmetic right shift an integer-valued register by a 16-bit integer constant
+	
+	$sarc(i, const _{16}) :=  r _{i} \longleftarrow  r _{i} >>> const _{16} $ \\
+	\item[csar] arithmetic right shift a 64-bit integer constant by an integer-valued register
+	
+	$csar(const _{64}, i):=  r _{i} \longleftarrow  const _{64} >>> r _{i}  $ \\
+\end{description}
+	
+
+
 
 \subsection*{Data Movement Instructions}
 These instructions allow for values to be moved between registers.
 
-\addvbuffer[12pt 8pt]{\begin{tabular}{| l | l |}	
-	\hline
-	Instruction & Action\\
-	\hline
-	$mov(g_{i}, g_{j \neq i}) $ & $g_{i} \longleftarrow g_{j} $ \\
-	\hline
-	$movc(g_{i}, const_{64})$ & $g_{i} \longleftarrow const_{64} $ \\
-	\hline
-	$null(g_{i})$ & $g_{i} \longleftarrow null $ \\
-	\hline
-\end{tabular}}	
-
+\begin{description}
+	\item[mov] move a register over another register
+	
+	$mov(i, j \neq i) := g_{i} \longleftarrow g_{j} $ \\
+	\item[movc] move a 64-bit integer constant over a register
+	
+	$movc(i, const_{64}):= g_{i} \longleftarrow const_{64} $ \\
+	\item[null] set a register to null
+	
+	$null(i):= g_{i} \longleftarrow null $ \\
+\end{description}
 
 \subsection*{Memory Access}
-
-\addvbuffer[12pt 8pt]{\begin{tabular}{| l | l |}
-		\hline
-		Instruction & Action\\
-		\hline
-		$getl(g_{i}, const_{16})$ & $g_{i} \longleftarrow mem[fp + const_{16}]$ \\
-		\hline
-		$setl(const_{16}, g_{i})$ & $mem[fp + const_{16}] \longleftarrow g_{i}$ \\
-		\hline
-		$geto(g_{i}, g_{j}, g_{k\neq j})$ & $g_{i} \longleftarrow g_{j}[header + g_{k}*scale]$ \\
-		\hline
-		$seto(g_{i}: g_{j \neq i}, g_{k})$ & $g_{i}[header + g_{j}*scale] \longleftarrow g_{k}$ \\
-		\hline
-		$getb(g_{i}, g_{j}, g_{k\neq j})$ & $g_{i} \longleftarrow g_{j}[header + g_{k}*scale]$ \\
-		\hline
-		$setb(g_{i}: g_{j \neq i}, g_{k})$ & $g_{i}[header + g_{j}*scale] \longleftarrow g_{k}$ \\
-		\hline
-	\end{tabular}}	
-
 These instructions allow for getting and setting of locals (getl, setl), objects (geto, seto) and buffers (getb, setb).
 
-
+\begin{description}
+	\item[getl] get a local value indexed by a 16-bit integer constant and store it in a register
+	
+	$getl(i, const_{16}):= g_{i} \longleftarrow mem[fp + const_{16}]$ \\
+	\item[setl] set a local variable indexed by a 16-bit integer constant to a register's value
+	
+	$setl(const_{16}, i):= mem[fp + const_{16}] \longleftarrow g_{i}$ \\
+	\item[geto] get a value from an object, indexed by an integer-valued register and store it in a register
+	
+	$geto(i, j, k\neq j):= g_{i} \longleftarrow p_{j}[header + r_{k}*sizeof(value)]$ \\
+	\item[seto] set a value, indexed by an integer-valued register, in an object to that of a register
+	
+	$seto(i, j \neq i, k):= p_{i}[header + r_{j}*scale] \longleftarrow g_{k}$ \\
+	\item[getb] get a value from a buffer, indexed by an integer-valued register and store it in a register
+	
+	$getb(i, j, k\neq j):= g_{i} \longleftarrow p_{j}[header + r_{k}*sizeof(int8\_t)]$ \\
+	\item[setb] set a value, indexed by an integer-valued register, in a buffer to that of a register
+	
+	$setb(i, j \neq i, k):= p_{i}[header + r_{j}*scale] \longleftarrow r_{k}$ \\
+\end{description}
 
 \subsection*{Control Flow Instructions}
 
@@ -698,25 +708,22 @@ These instructions allow for jumps in execution in the program. All jumps are re
 \end{tabular}}	
 \subsection*{Function Call and Return}
 
-\addvbuffer[12pt 8pt]{\begin{tabular}{| l | l |}
-	\hline	
-	$call(disp_{16},
-	first_{16}, count_{16})$ & $
-	newpc \longleftarrow pc + disp_{16};
-	sizep \longleftarrow program[newpc];
-	size \longleftarrow sizeof(stackframe) + sizeof(value) * sizep;
-	stackframe *base = (stackframe*)malloc(size);
-	if (base) \{
-	base->fp = fp; base->pc = pc; base->ts = ts;
-	SaveRegisters(base->g);
-	value *newfp = base->l;
-	memcpy(newfp, fp + program[pc + 2], program[pc + 3]*sizeof(value));
-	fp = newfp;
-	pc = newpc + 4;$ \\
-	\hline
-$ret$ & $asd$ \\
-	\hline	
-\end{tabular}}
+\begin{description}
+	\item[call] Call 
+		
+	$call(disp_{16}, first_{16}, count_{16}) :=$ \\
+	$newip \longleftarrow ip + disp_{16};\\
+	size \longleftarrow sizeof(stackframe) + sizeof(value) * (*newip);\\
+	stackframe *base = (stackframe*)malloc(size);\\		
+	base = stackframe(fp, newip, ts, g[]);$\\
+	\item[ret] Return
+	
+	$ret asd$ \\
+\end{description}
+	
+
+
+
 
 \subsection*{Pragmatic Higher-Level Instructions}
 \addvbuffer[12pt 8pt]{\begin{tabular}{| l | l |}	

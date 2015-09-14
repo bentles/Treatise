@@ -42,9 +42,9 @@
 \contentsline {subsubsection}{\numberline {3.1.5}Stack Frames}{23}
 \contentsline {subsubsection}{\numberline {3.1.6}Addressing}{23}
 \contentsline {subsubsection}{\numberline {3.1.7}Instructions}{25}
-\contentsline {subsection}{\numberline {3.2}Virtual Machine Design Details}{28}
-\contentsline {subsection}{\numberline {3.3}Conventional VM}{28}
-\contentsline {subsection}{\numberline {3.4}Opcode-operand-type dispatch VM}{28}
-\contentsline {subsection}{\numberline {3.5}Indirect Threading}{29}
-\contentsline {subsubsection}{\numberline {3.5.1}opcode}{29}
-\contentsline {section}{References}{30}
+\contentsline {subsection}{\numberline {3.2}Virtual Machine Design Details}{29}
+\contentsline {subsection}{\numberline {3.3}Conventional VM}{30}
+\contentsline {subsection}{\numberline {3.4}Opcode-operand-type dispatch VM}{30}
+\contentsline {subsection}{\numberline {3.5}Indirect Threading}{31}
+\contentsline {subsubsection}{\numberline {3.5.1}opcode}{31}
+\contentsline {section}{References}{32}
