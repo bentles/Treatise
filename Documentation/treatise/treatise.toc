@@ -33,19 +33,18 @@
 \contentsline {subsection}{\numberline {2.11}Existing Systems}{20}
 \contentsline {subsubsection}{\numberline {2.11.1}Lua VM}{20}
 \contentsline {subsubsection}{\numberline {2.11.2}JRockit JVM and .NET runtime}{21}
-\contentsline {subsection}{\numberline {2.12}Our Implementation}{21}
-\contentsline {subsubsection}{\numberline {2.12.1}Virtual Machine Design Details}{21}
-\contentsline {subsubsection}{\numberline {2.12.2}Type-Mapping}{22}
-\contentsline {subsubsection}{\numberline {2.12.3}Indirect Threading}{22}
-\contentsline {section}{\numberline {3}Solution Design}{23}
-\contentsline {subsection}{\numberline {3.1}Common Elements}{23}
-\contentsline {subsubsection}{\numberline {3.1.1}Values}{23}
-\contentsline {subsubsection}{\numberline {3.1.2}Objects}{24}
-\contentsline {subsubsection}{\numberline {3.1.3}Buffers}{24}
-\contentsline {subsubsection}{\numberline {3.1.4}Registers}{24}
-\contentsline {subsubsection}{\numberline {3.1.5}Stack Frames}{24}
-\contentsline {subsubsection}{\numberline {3.1.6}Addressing}{25}
+\contentsline {section}{\numberline {3}Solution Design}{21}
+\contentsline {subsection}{\numberline {3.1}Common Elements}{21}
+\contentsline {subsubsection}{\numberline {3.1.1}Values}{22}
+\contentsline {subsubsection}{\numberline {3.1.2}Objects}{22}
+\contentsline {subsubsection}{\numberline {3.1.3}Buffers}{22}
+\contentsline {subsubsection}{\numberline {3.1.4}Registers}{23}
+\contentsline {subsubsection}{\numberline {3.1.5}Stack Frames}{23}
+\contentsline {subsubsection}{\numberline {3.1.6}Addressing}{23}
 \contentsline {subsubsection}{\numberline {3.1.7}Instructions}{25}
-\contentsline {subsection}{\numberline {3.2}Conventional VM}{28}
-\contentsline {subsubsection}{\numberline {3.2.1}opcode}{28}
-\contentsline {section}{References}{29}
+\contentsline {subsection}{\numberline {3.2}Virtual Machine Design Details}{28}
+\contentsline {subsection}{\numberline {3.3}Conventional VM}{28}
+\contentsline {subsection}{\numberline {3.4}Opcode-operand-type dispatch VM}{28}
+\contentsline {subsection}{\numberline {3.5}Indirect Threading}{29}
+\contentsline {subsubsection}{\numberline {3.5.1}opcode}{29}
+\contentsline {section}{References}{30}

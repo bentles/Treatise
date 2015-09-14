@@ -8,6 +8,8 @@
 \usepackage{apacite}
 \usepackage{subcaption}
 \usepackage{url}
+\usepackage{bytefield}
+\usepackage{color}
 
 %reset counter per chapter
 \usepackage{chngcntr}
@@ -96,13 +98,11 @@ else
     max = y;
 		\end{lstlisting}
 		 \caption{If statement code}
-		 \label{fig:sub1}
 	\end{subfigure}
 	\begin{subfigure}{.5\textwidth}
 		\centering	
 		\includegraphics[width=.8\linewidth]{ast.jpeg}
 		 \caption{Tree parsed from code}
-		 \label{fig:sub1}
 	\end{subfigure}
 	\caption{Abstract Syntax Tree \protect\cite{ast}}
 	\label{fig:ast}
@@ -186,7 +186,7 @@ With dynamic translators the instruction set of the host and guest generally do 
 
 \subsection{Dynamic vs Statically Typed Programming Languages}
 
-A dynamically typed language is one in which the type information is associated with values \cite[pg4]{RobertoIerusalimschy}(REF lua VM intro). An example of a dynamically typed language is javascript where the var keyword is used for variables and the type is inferred from the value stored into a variable. A statically typed language is one in which the type information is associated with the variable. An example of this is java where variables are declared using keywords that define their type (\emph{int}, \emph{string} etc).
+A dynamically typed language is one in which the type information is associated with values \cite[pg4]{RobertoIerusalimschy}. An example of a dynamically typed language is javascript where the var keyword is used for variables and the type is inferred from the value stored into a variable. A statically typed language is one in which the type information is associated with the variable. An example of this is java where variables are declared using keywords that define their type (\emph{int}, \emph{string} etc).
 
 \subsection{Where Our VM is Situated}
 
@@ -310,8 +310,8 @@ add:
     goto lookup[*ip++]; /* dispatch next VM inst. */ 
 }
 \end{lstlisting}
-\caption{Switch Dispatch}
-\label{fig:switch}
+\caption{Indirect Threaded Dispatch}
+\label{fig:indirect}
 \end{figure}
 
 Direct and inderect threading make much better use of the branch target buffer. Instead of a single entry in the BTB, with direct threading we have an entry per instruction, so instructions that commonly follow each other have a better chance of being predicted.
@@ -361,40 +361,6 @@ Oracle's Java Virtual Machine implementation is a high performance Virtual Machi
 \item[JIT] Both VMs make use of Just in Time compilation.
 \end{description}
 
-\subsection{Our Implementation}
-
-\subsubsection{Virtual Machine Design Details}
-
-The virtual machine described in this treatise is a register machine. It has 6 general purpose registers and 3 special purpose registers. The VM is for a dynamically typed language. Each register stores 'values' and all instructions act on those values. The type of a value is stored together with the data for that value. These are implemented in C as tagged unions. The VM has only two types: integer and pointer. 
-
-The 3 special purpose registers are:
-\begin{enumerate}
-\item The program counter (pc), which keeps track of where we are in the
-program
-\item The frame pointer (fp), which points to the bottom of the latest stack
-frame
-\item The type state (ts), which keeps track of the current state of types
-in the registers
-\end{enumerate}
-
-\subsubsection{Type-Mapping}
-
-The virtual machine does not make use of the usual opcode and arguments arrangment used in register machine interpreters. Usually, the interpreter reads in some instruction stored as an opcode and the arguments for that opcode at the same time. In \emph{fig 2} we see a 16-bit instruction composed of a 4-bit opcode in the high bits, followed by two 6-bit operands or aguments. The interpreter performs the necessary shifts and bitmasking to get the values out of the fields.
-
-\begin{figure}[tph]
-% \protect\caption{\protect\includegraphics[scale=0.6]{/home/stevetest/opcode}}
-\end{figure}
-
-In our VM instructions for programs are stored as opcodes only with no arguments. That is because we have a version of each instruction for every combination of registers as inputs. Because we have 6 registers and a maximum of two arguments per instruction that means that we can have a maximum of 6\textasciicircum{}2 versions of each instruction. This saves us the process of extracting arguments at the expense having to have more versions of the instruction{[}why are we doing it this way actually?{]}. The opcode implicitly stores the argument information.
-
-The opcode is not the only information the VM uses to select code, however. The \emph{ts} register keeps a record of the type of every register. It is a 6-bit number where each bit tells us the current type of a register. Thus for every opcode, there are 2\textasciicircum{}6 different states the VM could be in. With this information we know the arguments and types and can jump to specialised code that acts on arguments of those types. A good way to think about it is to imagine it as a 2D lookup table (even though the implementation is 1D). On the y-axis we have the opcodes for all the versions of the instructions and on the x-axis we have the current state from 0 to 63. At the intersection of these we store the address of the code we jump to for that instruction.
-
-Now since we only have integers and pointers it may, at first glace, seem pointless to have specialised instructions since most of the time using pointers in an instruction meant for integers is illegal. However this method elliminates the type checking involved in instructions for a dynamic-ISA VM. Normally for each instruction we would have to check the validity of the arguments first before we can perform the instruction, but with this method we already know the types and so we can just jump directly to code for those types or an error if the arguments are illegal.
-
-\subsubsection{Indirect Threading}
-
-This VM will make use of indirect threading. Though indirect threading is slower than direct threading {[}x{]} because it must first complete the lookup step before it can branch to the next instruction, the program code used by the VM is intended to be shared by many instances of the VM. This cannot be achieved with direct threading as the addresses of each instruction in each instance may be different{[}x{]}. Also because our dispatch is based on the runtime state of the virtual machine (the st register) even if addresses were the same between instnces we can't represent code in terms of those addresses as we don't know the state information until runtime so we can't choose which address should be used to replace the opcode. With Indirect threading's lookup table we can share the code in its opcode form and perform the correct jumps for each instance of the VM by consulting the state register and looking up the addresses in the lookup table.
-
 \section{Solution Design}
 
 Three virtual machines are presented as solutions. These VMs are spaced along a scale for how much they expand out the behaviour of each instruction to match the state of the virtual machine. At the lowest end of the scale is the control virtual machine which shall be referred to as the Conventional VM. One step up from that is a VM that expands out all cases of arguments for each instruction. This will be referred to as the Hybrid VM. A further step takes us to the Type-State virtual machine which, like the hybrid VM, expands out all cases of arguments for each instruction, but then further expands out for every case of the combinations of types those arguments could take on.
@@ -425,6 +391,13 @@ struct ValueStruct
 \label{fig:struct}
 \caption{Value Struct}
 \end{figure}
+
+%\begin{bytefield}[bitwidth=0.3em]{64}
+%	\bitheader{0,63} \\
+%	\wordbox{1}{tag} \\
+%	\wordbox{1}{union}	\\
+%\end{bytefield}
+
 As this is a dynamic ISA virtual machine, types are associated with values instead of variables\cite{RobertoIerusalimschy}. The implementation for a value is simple enough to include here.
 
 Figure~\ref{fig:struct} shows the implementation of a value for the VM. Values are structs with two fields:
@@ -445,17 +418,53 @@ The tag field is used to identify the type of the value. There are four possible
 
 \subsubsection{Objects}
 
-Objects are a simple built-in data structure for storing ordered fields of values. Objects are implemented as a struct with an array of values and an integer field for storing the length of the array. Two bits of this integer field are used to store flags for a possible garbage collector implementation though this remains out of scope for this project.
+Objects are a simple built-in data structure for storing ordered fields of values. Objects are implemented as a struct with an array of values and an integer field for storing the length of the array. Two bits of this integer field are used to store flags for a possible garbage collector implementation though this remains out of scope for this project. Figure~\ref{fig:objmem} shows the memory layout of an object.
+
+\begin{figure}
+\centering
+	\begin{bytefield}[bitwidth=0.3em]{64}
+		\bitheader{0,63} \\
+		\begin{rightwordgroup}{Size and flags}
+			\bitbox{62}{int64\_t size} & \bitbox{1}{} & \bitbox{1}{} 
+		\end{rightwordgroup} \\
+		
+		\begin{rightwordgroup}{Data}
+			\wordbox{2}{value}	\\
+			\wordbox[]{1}{$\vdots$} \\[1ex]
+			\wordbox{2}{value}	
+		\end{rightwordgroup} \\	
+	\end{bytefield}
+\caption{Object memory layout}	
+\label{fig:objmem}
+\end{figure}
 
 \subsubsection{Buffers}
 
-Buffers are a data structure that exposes the native byte to the VM so that string handling may be performed without having to create a value for each character. The implementation is, once again a struct with an array of bytes and a size field that holds the length of the array.
+Buffers are a data structure that exposes the native byte to the VM so that string and handling may be performed without having to create a \verb|value| for each character. The implementation is, much like the object, a struct with an array of bytes and a size field that holds the length of the array and garbage collector flags. Figure~\ref{fig:buffer} shows the memory layout of a buffer.
+
+\begin{figure}
+\centering
+	\begin{bytefield}[bitwidth=0.3em]{64}
+		\bitheader{0,63} \\
+		\begin{rightwordgroup}{Size and flags}
+			\bitbox{62}{int64\_t size} & \bitbox{1}{} & \bitbox{1}{} 
+		\end{rightwordgroup} \\
+		
+		\begin{rightwordgroup}{Data}
+			\bitbox{8}{byte} & \bitbox{8}{byte} & \bitbox{48}{...} &	 \\
+			\wordbox[]{1}{$\vdots$} \\[1ex]
+			\bitbox{32}{...} & \bitbox{8}{byte} & \bitbox{8}{byte} & \bitbox{16}{-- empty --} &  
+		\end{rightwordgroup} \\	
+	\end{bytefield}
+\label{fig:buffer}
+\caption{Buffer memory layout}	
+\end{figure}
 
 \subsubsection{Registers}
 
-All virtual machines make use of 6 general purpose registers. These registers are implemented as an array of 6 \verb|values|. These shall be referred to as $g_0$ through $g_5$. Here 'g' refers to 'general purpose'.
+All virtual machines make use of 6 general purpose registers. These registers are implemented as an array of 6 \verb|values|. These shall be referred to as $g_0$ through $g_5$. Here `g' refers to `general purpose'.
 
-A further two registers are found in all VMs. that is the instruction pointer, which will be referred to as \verb|IP| and the frame pointer which will be referred to as \verb|FP|. These are a 16-bit-integer pointer and a value pointer respectively.
+A further two registers are found in all VMs. The instruction pointer, which will be referred to as the \verb|IP| and the frame pointer which will be referred to as the \verb|FP|. These are a 16-bit-integer pointer and a value pointer respectively.
 
 \subsubsection{Stack Frames}
 
@@ -467,13 +476,40 @@ All VMs make use of identical Stack Frames for subroutine calls. Each stack fram
 	\item The local variables used in that stack frame 
 \end{itemize}
 
-Registers are saved upon calling a subroutine and restored when the subroutine returns. The first and last general purpose registers are used for return values.
+Registers are saved upon calling a subroutine and restored when the subroutine returns. The first and last general purpose registers are used for return values. The memory layout for a stack frame can be seen in Figure~\ref{fig:stframe}.
+
+\begin{figure}
+\centering
+	\begin{bytefield}[bitwidth=0.3em]{64}
+		\bitheader{0,63} \\
+		\begin{rightwordgroup}{Special Registers}
+			\wordbox{1}{value *fp}  \\
+			\wordbox{1}{int16\_t *ip} \\
+			\wordbox{1}{int64\_t ts}
+		\end{rightwordgroup} \\
+		
+		\begin{rightwordgroup}{General purpose registers}
+			 \wordbox{2}{value $g_1$}\\
+			 \wordbox{2}{value $g_2$}\\
+			 \wordbox{2}{value $g_3$}\\
+			 \wordbox{2}{value $g_4$}
+		\end{rightwordgroup} \\	
+		
+		\begin{rightwordgroup}{Local variables}
+			\wordbox{2}{value $l_1$}	\\
+			\wordbox[]{1}{$\vdots$} \\[1ex]
+			\wordbox{2}{value $l_n$}	
+		\end{rightwordgroup} \\	
+	\end{bytefield}
+	\caption{Stack frame memory layout}	
+	\label{fig:stframe}
+\end{figure}
 
 \subsubsection{Addressing}
 
 Instructions take operands of three types:
 \begin{description}
-	\item[register number] These operands are numbers from 0 to 5 that address the six registers. For the conventional VM these are an explicit part of the instruction word as shown in Figure[x]. For the other two VMs these operands are implicitly part of the instruction word.
+	\item[register number] These operands are numbers from 0 to 5 that address the six registers. For the conventional VM these are an explicit part of the instruction word as shown in Figure~\ref{fig:convinstruction}. For the other two VMs these operands are implicitly part of the instruction word.
 	\item[next instruction word] This type of operand considers the next instruction word as an unsigned 16-bit constant. The value of these constants will be referred to in the following form: $name_{16}$
 	\item[IP-relative addressing] This type of operand considers the next instruction word as the IP-relative address of a 64-bit unsigned integer constant. The value of the 64-bit constant will be referred to in the following form: $name_{64}$
 \end{description}
@@ -482,7 +518,7 @@ Instructions take operands of three types:
 
 All virtual machines support an identical set of instructions. How these are implemented is quite different for each VM but the functionality of each instruction does not change between virtual machines. 
 
-Instruction words are 16 bits long.	Each instruction may have a maximum of two operands. If the instruction has multiple operands and a result, the result will be stored in the first of the two operands.
+Instruction words are 16 bits long.	Each instruction may have a maximum of three operands. If the instruction has multiple operands and a result, the result will be stored in the register addressed by the first operand.
 
 Instruction operands refer to one of the 6 general purpose registers. In some cases the next instruction word is a 16-bit constant value that is used by the instruction and in others the next instruction word is used as a 16-bit PC-relative address for a 64-bit constant value. These will be denoted as const16 and const64 respectively and their implementation will be expanded upon later.
 
@@ -699,8 +735,38 @@ print & a \\
 	\hline
 \end{tabular}}
 
+\subsection{Virtual Machine Design Details}
+
+The virtual machine described in this treatise is a register machine. It has 6 general purpose registers and 3 special purpose registers. The VM is for a dynamically typed language. Each register stores 'values' and all instructions act on those values. The type of a value is stored together with the data for that value. These are implemented in C as tagged unions. The VM has only two types: integer and pointer. 
 
 \subsection{Conventional VM}
+
+\begin{figure}
+	\centering
+	\begin{bytefield}[bitwidth=1.5em]{16}
+		\bitheader{0,6,7,9,10,12,13,15} \\
+			\bitbox{7}{opcode} & \bitbox{3}{arg3} & \bitbox{3}{arg2} & \bitbox{3}{arg1}\\
+			
+	\end{bytefield}
+	\caption{Conventional VM instruction layout}	
+	\label{fig:convinstruction}
+\end{figure}
+
+
+
+\subsection{Opcode-operand-type dispatch VM}
+
+The virtual machine does not make use of the usual opcode and arguments arrangment used in register machine interpreters. Usually, the interpreter reads in some instruction stored as an opcode and the arguments for that opcode at the same time. In \emph{fig 2} we see a 16-bit instruction composed of a 4-bit opcode in the high bits, followed by two 6-bit operands or aguments. The interpreter performs the necessary shifts and bitmasking to get the values out of the fields.
+
+The opcode-operand-type dispatch VM's instructions for programs are stored as opcodes only with no arguments. That is because we have a version of each instruction for every combination of registers as inputs. Because we have 6 registers and a maximum of two arguments per instruction that means that we can have a maximum of $6^3 = 216$ versions of each instruction. This saves us the process of extracting arguments at the expense having to have more versions of the instruction. The opcode implicitly stores the argument information.
+
+The opcode is not the only information the VM uses to select code, however. The \emph{ts} register keeps a record of the type of every register. It is a 6-bit number where each bit tells us the current type of a register. Thus for every opcode, there are 2\textasciicircum{}6 different states the VM could be in. With this information we know the arguments and types and can jump to specialised code that acts on arguments of those types. A good way to think about it is to imagine it as a 2D lookup table (even though the implementation is 1D). On the y-axis we have the opcodes for all the versions of the instructions and on the x-axis we have the current state from 0 to 63. At the intersection of these we store the address of the code we jump to for that instruction.
+
+Now since we only have integers and pointers it may, at first glace, seem pointless to have specialised instructions since most of the time using pointers in an instruction meant for integers is illegal. However this method elliminates the type checking involved in instructions for a dynamic-ISA VM. Normally for each instruction we would have to check the validity of the arguments first before we can perform the instruction, but with this method we already know the types and so we can just jump directly to code for those types or an error if the arguments are illegal.
+
+\subsection{Indirect Threading}
+
+This VM will make use of indirect threading. Though indirect threading is slower than direct threading {[}x{]} because it must first complete the lookup step before it can branch to the next instruction, the program code used by the VM is intended to be shared by many instances of the VM. This cannot be achieved with direct threading as the addresses of each instruction in each instance may be different{[}x{]}. Also because our dispatch is based on the runtime state of the virtual machine (the st register) even if addresses were the same between instnces we can't represent code in terms of those addresses as we don't know the state information until runtime so we can't choose which address should be used to replace the opcode. With Indirect threading's lookup table we can share the code in its opcode form and perform the correct jumps for each instance of the VM by consulting the state register and looking up the addresses in the lookup table.
 
 \subsubsection{opcode}
 
