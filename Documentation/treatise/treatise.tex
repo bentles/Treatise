@@ -376,7 +376,7 @@ are read, their meaning interpreted and then executed. This
 interpretation step must happen each time a piece of code is executed
 so code that is executed enough times will be dynamically translated
 and cached so later execution is faster. Dynamically translating in
-this manner is known as ju\emph{st-in-time compilation} (JIT
+this manner is known as \emph{just-in-time compilation} (JIT
 compilation).
 
 \subsection{Dynamic vs Statically Typed Programming Languages}
@@ -677,7 +677,7 @@ the size of the code to be executed.
 Ertl and Gregg found that in their benchmarks 3.2\%\textendash 13\% of
 all executed instructions were indirect branches and that switch
 dispatch on an architecture with a BRB resulted in 81\%-98\% branch
-prediction misses \cite{M.AntonErtl2003}. They also found that direct
+prediction misses \cite{EfficientInterpreters}. They also found that direct
 threading resulted in 50\%-63\% branch prediction misses.
 
 \subsection{Existing Systems}
@@ -759,6 +759,24 @@ stores 'values' and all instructions act on those values. The type of
 a value is stored together with the data for that value. These are
 implemented in C as tagged unions. The VM has only two types: integer
 and pointer.
+
+\subsection{Indirect Threading}
+
+This VM will make use of indirect threading. Though indirect threading
+is slower than direct threading {[}x{]} because it must first complete
+the lookup step before it can branch to the next instruction, the
+program code used by the VM is intended to be shared by many instances
+of the VM. This cannot be achieved with direct threading as the
+addresses of each instruction in each instance may be
+different{[}x{]}. Also because our dispatch is based on the runtime
+state of the virtual machine (the st register) even if addresses were
+the same between instnces we can't represent code in terms of those
+addresses as we don't know the state information until runtime so we
+can't choose which address should be used to replace the opcode. With
+Indirect threading's lookup table we can share the code in its opcode
+form and perform the correct jumps for each instance of the VM by
+consulting the state register and looking up the addresses in the
+lookup table.
 
 \subsection{Values}
 
@@ -1249,16 +1267,18 @@ jumps are relative to the current \verb|IP| value.
   \label{fig:convinstruction}
 \end{figure}
 
+\subsection{Opcode-operand dispatch VM}
+
 \subsection{Opcode-operand-type dispatch VM}
 
-The virtual machine does not make use of the usual opcode and
-arguments arrangment used in register machine interpreters. Usually,
-the interpreter reads in some instruction stored as an opcode and the
-arguments for that opcode at the same time. In \emph{fig 2} we see a
-16-bit instruction composed of a 4-bit opcode in the high bits,
-followed by two 6-bit operands or aguments. The interpreter performs
-the necessary shifts and bitmasking to get the values out of the
-fields.
+The opcode-operand-type virtual machine does not make use of the usual
+opcode and arguments arrangment used in register machine
+interpreters. Usually, the interpreter reads in some instruction
+stored as an opcode and the arguments for that opcode at the same
+time. In \emph{fig 2} we see a 16-bit instruction composed of a 4-bit
+opcode in the high bits, followed by two 6-bit operands or
+aguments. The interpreter performs the necessary shifts and bitmasking
+to get the values out of the fields.
 
 The opcode-operand-type dispatch VM's instructions for programs are
 stored as opcodes only with no arguments. That is because we have a
@@ -1292,26 +1312,15 @@ perform the instruction, but with this method we already know the
 types and so we can just jump directly to code for those types or an
 error if the arguments are illegal.
 
-\subsection{Indirect Threading}
 
-This VM will make use of indirect threading. Though indirect threading
-is slower than direct threading {[}x{]} because it must first complete
-the lookup step before it can branch to the next instruction, the
-program code used by the VM is intended to be shared by many instances
-of the VM. This cannot be achieved with direct threading as the
-addresses of each instruction in each instance may be
-different{[}x{]}. Also because our dispatch is based on the runtime
-state of the virtual machine (the st register) even if addresses were
-the same between instnces we can't represent code in terms of those
-addresses as we don't know the state information until runtime so we
-can't choose which address should be used to replace the opcode. With
-Indirect threading's lookup table we can share the code in its opcode
-form and perform the correct jumps for each instance of the VM by
-consulting the state register and looking up the addresses in the
-lookup table.
 
 \subsubsection{opcode}
-test test test test test test
+
+\section{Experimental Design}
+
+\section{Results}
+
+\section{Conclusion}
 
 \newpage{}
 

@@ -16,3 +16,4 @@ dynamic typed languages "glue languages"
 **** evaluating
 *** scope
 *** risks
+* chp2

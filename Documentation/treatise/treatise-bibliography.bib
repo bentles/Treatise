@@ -57,8 +57,8 @@
 
 @ELECTRONIC{Lua.Source,
   author = {Roberto Ierusalimschy, Luiz Henrique de Figueiredo, Waldemar Celes1},
-  month = {06},
   year = {2015},
+  month = {06},
   title = {lvm.c},
   url = {http://www.lua.org/source/5.3/lvm.c.html},
   owner = {bentles},
@@ -95,8 +95,52 @@
 }
 
 @ELECTRONIC{LuaUsed,
-  url = {url{https://sites.google.com/site/marbux/home/where-lua-is-used}},
+  url = {http://www.lua.org/uses.html},
   owner = {bentles},
   timestamp = {2015.09.10}
 }
 
+@ARTICLE{Bell,
+ author = {Bell, James R.},
+ title = {Threaded Code},
+ journal = {Commun. ACM},
+ issue_date = {June 1973},
+ volume = 16,
+ number = 6,
+ month = jun,
+ year = 1973,
+ issn = {0001-0782},
+ pages = {370--372},
+ numpages = 3,
+ url = {http://doi.acm.org/10.1145/362248.362270},
+ doi = {10.1145/362248.362270},
+ acmid = 362270,
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {compiled code, interpreter, machine code, space tradeoff, subroutine calls, threaded code, time tradeoff},
+}
+
+@article{EfficientInterpreters,
+  abstract = {Interpreters designed for high general-purpose performance typically perform a large
+number of indirect branches (3.2%-13% of all executed instructions in our benchmarks).
+These branches consume more than half of the run-time in a number of congurations
+we simulated. We evaluate how accurate various existing and proposed branch prediction
+schemes are on a number of interpreters, how the mispredictions aect the performance of
+the interpreters and how two dierent interpreter implementation techniques perform with
+various branch predictors. We also suggest various ways in which hardware designers, C
+compiler writers, and interpreter writers can improve the performance of interpreters.},
+  added-at = {2010-12-06T17:29:58.000+0100},
+  author = {Ert, M. Anton and Gregg, David},
+  biburl = {http://www.bibsonomy.org/bibtex/22175cb0c48145ff005dcc81532a3a59f/gron},
+  interhash = {6112290319d8c62a8646bb4a23f3c34f},
+  intrahash = {2175cb0c48145ff005dcc81532a3a59f},
+  journal = {Journal of Instruction-Level Parallelism},
+  keywords = {Interpreter direct indirect optimization threadedInterpretation threading},
+  month = {November},
+  pages = {1--25},
+  timestamp = {2010-12-06T17:29:58.000+0100},
+  title = {The Structure and Performance of Efficient Interpreters},
+  url = {http://www.jilp.org/vol5/v5paper12.pdf},
+  volume = 5,
+  year = 2003
+}

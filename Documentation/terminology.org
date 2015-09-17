@@ -16,3 +16,4 @@ comprised of
   - register combination
 - type state (types of all registers)
 ** list of intstructions = program, but instruction is also the code in the VM
+** talk generally about 1 VM or as a set of 3 VMs?
