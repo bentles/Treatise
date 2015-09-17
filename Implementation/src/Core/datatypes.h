@@ -1,3 +1,14 @@
+/* datatypes.h
+ *
+ * This file contains the definitions for all datatypes in the VM. These are:
+ * 1. Values
+ * 2. Objects
+ * 3. Buffers
+ * Macros for getting and setting values for object and buffer headers are
+ * also included
+ */
+
+
 #ifndef DATATYPES_H
 #define DATATYPES_H
 

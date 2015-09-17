@@ -25,26 +25,31 @@
 \contentsline {subsubsection}{\numberline {2.8.1}Pipelining}{16}
 \contentsline {subsubsection}{\numberline {2.8.2}Branch Prediction}{17}
 \contentsline {subsubsection}{\numberline {2.8.3}Cache}{17}
-\contentsline {subsection}{\numberline {2.9}Traditional Implementation of High Level VMs}{18}
-\contentsline {subsubsection}{\numberline {2.9.1}Dispatch and Threading}{18}
-\contentsline {subsubsection}{\numberline {2.9.2}Registers VS Stacks}{20}
-\contentsline {subsubsection}{\numberline {2.9.3}JIT Compilation}{20}
-\contentsline {subsection}{\numberline {2.10}VM Interpreter Reseach}{20}
+\contentsline {subsection}{\numberline {2.9}Traditional Implementation of High Level VMs}{17}
+\contentsline {subsubsection}{\numberline {2.9.1}Dispatch and Threading}{17}
+\contentsline {subsubsection}{\numberline {2.9.2}Registers VS Stacks}{19}
+\contentsline {subsubsection}{\numberline {2.9.3}JIT Compilation}{19}
+\contentsline {subsection}{\numberline {2.10}VM Interpreter Reseach}{19}
 \contentsline {subsection}{\numberline {2.11}Existing Systems}{20}
 \contentsline {subsubsection}{\numberline {2.11.1}Lua VM}{20}
-\contentsline {subsubsection}{\numberline {2.11.2}JRockit JVM and .NET runtime}{21}
+\contentsline {subsubsection}{\numberline {2.11.2}JRockit JVM and .NET runtime}{20}
 \contentsline {section}{\numberline {3}Solution Design}{21}
-\contentsline {subsection}{\numberline {3.1}Common Elements}{21}
-\contentsline {subsubsection}{\numberline {3.1.1}Values}{22}
-\contentsline {subsubsection}{\numberline {3.1.2}Objects}{22}
-\contentsline {subsubsection}{\numberline {3.1.3}Buffers}{22}
-\contentsline {subsubsection}{\numberline {3.1.4}Registers}{23}
-\contentsline {subsubsection}{\numberline {3.1.5}Stack Frames}{23}
-\contentsline {subsubsection}{\numberline {3.1.6}Addressing}{23}
-\contentsline {subsubsection}{\numberline {3.1.7}Instructions}{25}
-\contentsline {subsection}{\numberline {3.2}Virtual Machine Design Details}{29}
-\contentsline {subsection}{\numberline {3.3}Conventional VM}{30}
-\contentsline {subsection}{\numberline {3.4}Opcode-operand-type dispatch VM}{30}
-\contentsline {subsection}{\numberline {3.5}Indirect Threading}{31}
-\contentsline {subsubsection}{\numberline {3.5.1}opcode}{31}
-\contentsline {section}{References}{32}
+\contentsline {subsection}{\numberline {3.1}Virtual Machine Design Details}{21}
+\contentsline {subsection}{\numberline {3.2}Values}{21}
+\contentsline {subsection}{\numberline {3.3}Objects}{22}
+\contentsline {subsection}{\numberline {3.4}Buffers}{22}
+\contentsline {subsection}{\numberline {3.5}Registers}{22}
+\contentsline {subsection}{\numberline {3.6}Stack Frames and Function Definitions}{23}
+\contentsline {subsection}{\numberline {3.7}Addressing}{23}
+\contentsline {subsection}{\numberline {3.8}Instructions}{23}
+\contentsline {subsubsection}{\numberline {3.8.1}Arithmetic Instructions}{25}
+\contentsline {subsubsection}{\numberline {3.8.2}Bit Manipulation Instructions}{26}
+\contentsline {subsubsection}{\numberline {3.8.3}Data Movement Instructions}{27}
+\contentsline {subsubsection}{\numberline {3.8.4}Memory Access}{27}
+\contentsline {subsubsection}{\numberline {3.8.5}Control Flow Instructions}{28}
+\contentsline {subsubsection}{\numberline {3.8.6}Function Call and Return}{29}
+\contentsline {subsubsection}{\numberline {3.8.7}Pragmatic Higher-Level Instructions}{30}
+\contentsline {subsection}{\numberline {3.9}Conventional VM}{30}
+\contentsline {subsection}{\numberline {3.10}Opcode-operand-type dispatch VM}{30}
+\contentsline {subsection}{\numberline {3.11}Indirect Threading}{31}
+\contentsline {subsubsection}{\numberline {3.11.1}opcode}{31}

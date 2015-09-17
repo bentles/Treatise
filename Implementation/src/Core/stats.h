@@ -1,3 +1,10 @@
+/* stats.h
+ *
+ * Defined the stats struct that
+ *
+ */
+
+
 #ifndef STATS_H
 #define STATS_H
 

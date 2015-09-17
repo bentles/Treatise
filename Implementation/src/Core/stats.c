@@ -1,3 +1,11 @@
+/* stats.c
+ *
+ * A list of counters for each instruction to determine how many times
+ * each instruction is used and how often the type state is changed.
+ *
+ * Will only be included if the STATS preprocessor symbol is defined
+ */
+
 #include <stdio.h>
 #include "stats.h"
 

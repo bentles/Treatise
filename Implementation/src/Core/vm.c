@@ -1,3 +1,20 @@
+/* vm.c
+ *
+ * This is the core VM implementation sans instructions and lookup
+ * table which can be found in ../Generated\ Code
+ *
+ * This includes:
+ * 1. Reading the program file
+ * 2. Setting up the first stack frame and jumping to it
+ *
+ * This is the common code. Lookup tables and instructions are
+ * included on a per VM basis using gcc's -D flag with one of the
+ * following symbols:
+ *
+ * 1. TYPE | CONV | HYBR <- which VM to generate
+ * 2. STATS <- whether the VM should record stats
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
@@ -12,13 +29,13 @@
 #endif /* STATS */
 
 /* Opcode Layout for Standard VM
- * =============================
+ * 
  *  15        15  14           9  8          6  5          3  2          0
  * [empty: 1 bit][opcode: 6 bits][arg2: 3 bits][arg1: 3 bits][arg0: 3 bits]
  */
 
 /* Registers
- * =========
+ * 
  * [0..5] g0 through g5 - general purpose registers
  * ip - instruction pointer
  * fp - frame pointer
