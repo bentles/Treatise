@@ -37,5 +37,11 @@ void printStats(void)
     }
 
     puts("\nType state switching statistics:\n============================\n");
-    printf("Nr of switches: %d\n", stateSwitches);
+    printf("Total Nr of switches: %d\n", stateSwitches);
+
+    puts("\nStates used:\n");
+    for (int i = 0; i < STATES; i++) {
+        printf("%d, %d\n", i, stateCounters[i]);
+    }
+
 }

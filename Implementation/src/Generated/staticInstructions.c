@@ -1247,6 +1247,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -1269,6 +1270,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -1291,6 +1293,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -1313,6 +1316,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -1335,6 +1339,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -1357,6 +1362,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -1379,6 +1385,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -1401,6 +1408,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -1423,6 +1431,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -1445,6 +1454,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -1467,6 +1477,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -1489,6 +1500,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -1511,6 +1523,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -1533,6 +1546,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -1555,6 +1569,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -1577,6 +1592,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -1599,6 +1615,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -1621,6 +1638,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -1643,6 +1661,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -1665,6 +1684,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -1687,6 +1707,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -1709,6 +1730,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -1731,6 +1753,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -1753,6 +1776,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -1775,6 +1799,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -1797,6 +1822,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -1819,6 +1845,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -1841,6 +1868,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -1863,6 +1891,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -1885,6 +1914,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -1909,6 +1939,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip += 2;
@@ -1933,6 +1964,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip += 2;
@@ -1957,6 +1989,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip += 2;
@@ -1981,6 +2014,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip += 2;
@@ -2005,6 +2039,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip += 2;
@@ -2029,6 +2064,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip += 2;
@@ -5024,6 +5060,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5043,6 +5080,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5062,6 +5100,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5081,6 +5120,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5100,6 +5140,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5119,6 +5160,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5138,6 +5180,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5157,6 +5200,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5176,6 +5220,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5195,6 +5240,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5214,6 +5260,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5233,6 +5280,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5252,6 +5300,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5271,6 +5320,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5290,6 +5340,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5309,6 +5360,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5328,6 +5380,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5347,6 +5400,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5366,6 +5420,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5385,6 +5440,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5404,6 +5460,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5423,6 +5480,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5442,6 +5500,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5461,6 +5520,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5480,6 +5540,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5499,6 +5560,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5518,6 +5580,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5537,6 +5600,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5556,6 +5620,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5575,6 +5640,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5594,6 +5660,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5613,6 +5680,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5632,6 +5700,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5651,6 +5720,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5670,6 +5740,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5689,6 +5760,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5708,6 +5780,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5727,6 +5800,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5746,6 +5820,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5765,6 +5840,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5784,6 +5860,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5803,6 +5880,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5822,6 +5900,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5841,6 +5920,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5860,6 +5940,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5879,6 +5960,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5898,6 +5980,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5917,6 +6000,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5936,6 +6020,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5955,6 +6040,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5974,6 +6060,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -5993,6 +6080,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -6012,6 +6100,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -6031,6 +6120,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -6050,6 +6140,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -6069,6 +6160,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -6088,6 +6180,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -6107,6 +6200,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -6126,6 +6220,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -6145,6 +6240,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -6238,6 +6334,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip += 2;
@@ -6259,6 +6356,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip += 2;
@@ -6280,6 +6378,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip += 2;
@@ -6301,6 +6400,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip += 2;
@@ -6322,6 +6422,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip += 2;
@@ -6343,6 +6444,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip += 2;
@@ -6422,6 +6524,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -6441,6 +6544,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -6460,6 +6564,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -6479,6 +6584,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -6498,6 +6604,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -6517,6 +6624,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 ip++;
@@ -6538,6 +6646,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = val.p;
@@ -6564,6 +6673,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = val.p;
@@ -6590,6 +6700,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = val.p;
@@ -6616,6 +6727,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = val.p;
@@ -6642,6 +6754,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = val.p;
@@ -6668,6 +6781,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = val.p;
@@ -6694,6 +6808,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val.i;
@@ -6720,6 +6835,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val.i;
@@ -6746,6 +6862,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val.i;
@@ -6772,6 +6889,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val.i;
@@ -6798,6 +6916,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val.i;
@@ -6824,6 +6943,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val.i;
@@ -7005,6 +7125,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = val.p;
@@ -7030,6 +7151,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = val.p;
@@ -7055,6 +7177,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = val.p;
@@ -7080,6 +7203,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = val.p;
@@ -7105,6 +7229,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = val.p;
@@ -7130,6 +7255,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = val.p;
@@ -7155,6 +7281,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = val.p;
@@ -7180,6 +7307,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = val.p;
@@ -7205,6 +7333,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = val.p;
@@ -7230,6 +7359,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = val.p;
@@ -7255,6 +7385,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = val.p;
@@ -7280,6 +7411,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = val.p;
@@ -7305,6 +7437,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = val.p;
@@ -7330,6 +7463,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = val.p;
@@ -7355,6 +7489,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = val.p;
@@ -7380,6 +7515,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = val.p;
@@ -7405,6 +7541,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = val.p;
@@ -7430,6 +7567,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = val.p;
@@ -7455,6 +7593,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = val.p;
@@ -7480,6 +7619,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = val.p;
@@ -7505,6 +7645,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = val.p;
@@ -7530,6 +7671,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = val.p;
@@ -7555,6 +7697,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = val.p;
@@ -7580,6 +7723,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = val.p;
@@ -7605,6 +7749,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = val.p;
@@ -7630,6 +7775,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = val.p;
@@ -7655,6 +7801,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = val.p;
@@ -7680,6 +7827,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = val.p;
@@ -7705,6 +7853,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = val.p;
@@ -7730,6 +7879,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = val.p;
@@ -7755,6 +7905,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = val.p;
@@ -7780,6 +7931,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = val.p;
@@ -7805,6 +7957,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = val.p;
@@ -7830,6 +7983,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = val.p;
@@ -7855,6 +8009,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = val.p;
@@ -7880,6 +8035,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = val.p;
@@ -7905,6 +8061,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = val.p;
@@ -7930,6 +8087,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = val.p;
@@ -7955,6 +8113,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = val.p;
@@ -7980,6 +8139,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = val.p;
@@ -8005,6 +8165,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = val.p;
@@ -8030,6 +8191,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = val.p;
@@ -8055,6 +8217,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = val.p;
@@ -8080,6 +8243,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = val.p;
@@ -8105,6 +8269,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = val.p;
@@ -8130,6 +8295,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = val.p;
@@ -8155,6 +8321,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = val.p;
@@ -8180,6 +8347,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = val.p;
@@ -8205,6 +8373,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = val.p;
@@ -8230,6 +8399,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = val.p;
@@ -8255,6 +8425,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = val.p;
@@ -8280,6 +8451,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = val.p;
@@ -8305,6 +8477,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = val.p;
@@ -8330,6 +8503,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = val.p;
@@ -8355,6 +8529,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = val.p;
@@ -8380,6 +8555,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = val.p;
@@ -8405,6 +8581,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = val.p;
@@ -8430,6 +8607,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = val.p;
@@ -8455,6 +8633,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = val.p;
@@ -8480,6 +8659,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = val.p;
@@ -8505,6 +8685,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = val.p;
@@ -8530,6 +8711,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = val.p;
@@ -8555,6 +8737,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = val.p;
@@ -8580,6 +8763,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = val.p;
@@ -8605,6 +8789,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = val.p;
@@ -8630,6 +8815,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = val.p;
@@ -8655,6 +8841,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = val.p;
@@ -8680,6 +8867,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = val.p;
@@ -8705,6 +8893,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = val.p;
@@ -8730,6 +8919,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = val.p;
@@ -8755,6 +8945,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = val.p;
@@ -8780,6 +8971,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = val.p;
@@ -8805,6 +8997,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = val.p;
@@ -8830,6 +9023,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = val.p;
@@ -8855,6 +9049,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = val.p;
@@ -8880,6 +9075,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = val.p;
@@ -8905,6 +9101,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = val.p;
@@ -8930,6 +9127,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = val.p;
@@ -8955,6 +9153,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = val.p;
@@ -8980,6 +9179,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = val.p;
@@ -9005,6 +9205,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = val.p;
@@ -9030,6 +9231,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = val.p;
@@ -9055,6 +9257,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = val.p;
@@ -9080,6 +9283,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = val.p;
@@ -9105,6 +9309,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = val.p;
@@ -9130,6 +9335,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = val.p;
@@ -9155,6 +9361,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = val.p;
@@ -9180,6 +9387,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = val.p;
@@ -9205,6 +9413,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = val.p;
@@ -9230,6 +9439,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = val.p;
@@ -9255,6 +9465,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = val.p;
@@ -9280,6 +9491,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = val.p;
@@ -9305,6 +9517,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = val.p;
@@ -9330,6 +9543,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = val.p;
@@ -9355,6 +9569,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = val.p;
@@ -9380,6 +9595,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = val.p;
@@ -9405,6 +9621,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = val.p;
@@ -9430,6 +9647,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = val.p;
@@ -9455,6 +9673,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = val.p;
@@ -9480,6 +9699,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = val.p;
@@ -9505,6 +9725,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = val.p;
@@ -9530,6 +9751,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = val.p;
@@ -9555,6 +9777,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = val.p;
@@ -9580,6 +9803,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = val.p;
@@ -9605,6 +9829,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = val.p;
@@ -9630,6 +9855,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = val.p;
@@ -9655,6 +9881,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = val.p;
@@ -9680,6 +9907,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = val.p;
@@ -9705,6 +9933,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = val.p;
@@ -9730,6 +9959,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = val.p;
@@ -9755,6 +9985,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = val.p;
@@ -9780,6 +10011,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = val.p;
@@ -9805,6 +10037,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = val.p;
@@ -9830,6 +10063,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = val.p;
@@ -9855,6 +10089,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = val.p;
@@ -9880,6 +10115,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = val.p;
@@ -9905,6 +10141,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = val.p;
@@ -9930,6 +10167,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = val.p;
@@ -9955,6 +10193,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = val.p;
@@ -9980,6 +10219,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = val.p;
@@ -10005,6 +10245,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = val.p;
@@ -10030,6 +10271,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = val.p;
@@ -10055,6 +10297,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = val.p;
@@ -10080,6 +10323,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = val.p;
@@ -10105,6 +10349,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = val.p;
@@ -10130,6 +10375,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = val.p;
@@ -10155,6 +10401,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = val.p;
@@ -10180,6 +10427,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = val.p;
@@ -10205,6 +10453,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = val.p;
@@ -10230,6 +10479,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = val.p;
@@ -10255,6 +10505,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = val.p;
@@ -10280,6 +10531,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = val.p;
@@ -10305,6 +10557,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = val.p;
@@ -10330,6 +10583,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = val.p;
@@ -10355,6 +10609,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = val.p;
@@ -10380,6 +10635,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = val.p;
@@ -10405,6 +10661,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = val.p;
@@ -10430,6 +10687,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = val.p;
@@ -10455,6 +10713,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = val.p;
@@ -10480,6 +10739,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = val.p;
@@ -10505,6 +10765,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = val.p;
@@ -10530,6 +10791,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = val.p;
@@ -10555,6 +10817,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = val.p;
@@ -10580,6 +10843,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = val.p;
@@ -10605,6 +10869,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = val.p;
@@ -10630,6 +10895,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = val.p;
@@ -10655,6 +10921,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = val.p;
@@ -10680,6 +10947,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = val.p;
@@ -10705,6 +10973,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = val.p;
@@ -10730,6 +10999,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = val.p;
@@ -10755,6 +11025,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = val.p;
@@ -10780,6 +11051,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = val.p;
@@ -10805,6 +11077,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = val.p;
@@ -10830,6 +11103,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = val.p;
@@ -10855,6 +11129,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = val.p;
@@ -10880,6 +11155,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = val.p;
@@ -10905,6 +11181,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = val.p;
@@ -10930,6 +11207,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = val.p;
@@ -10955,6 +11233,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = val.p;
@@ -10980,6 +11259,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = val.p;
@@ -11005,6 +11285,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = val.p;
@@ -11030,6 +11311,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = val.p;
@@ -11055,6 +11337,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = val.p;
@@ -11080,6 +11363,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = val.p;
@@ -11105,6 +11389,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = val.p;
@@ -11130,6 +11415,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = val.p;
@@ -11155,6 +11441,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = val.p;
@@ -11180,6 +11467,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = val.p;
@@ -11205,6 +11493,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = val.p;
@@ -11230,6 +11519,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = val.p;
@@ -11255,6 +11545,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = val.p;
@@ -11280,6 +11571,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = val.p;
@@ -11305,6 +11597,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = val.p;
@@ -11330,6 +11623,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = val.p;
@@ -11355,6 +11649,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = val.p;
@@ -11380,6 +11675,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = val.p;
@@ -11405,6 +11701,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = val.p;
@@ -11430,6 +11727,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = val.p;
@@ -11455,6 +11753,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = val.p;
@@ -11480,6 +11779,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = val.p;
@@ -11505,6 +11805,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val.i;
@@ -11529,6 +11830,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val.i;
@@ -11553,6 +11855,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val.i;
@@ -11577,6 +11880,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val.i;
@@ -11601,6 +11905,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val.i;
@@ -11625,6 +11930,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val.i;
@@ -11649,6 +11955,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val.i;
@@ -11673,6 +11980,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val.i;
@@ -11697,6 +12005,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val.i;
@@ -11721,6 +12030,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val.i;
@@ -11745,6 +12055,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val.i;
@@ -11769,6 +12080,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val.i;
@@ -11793,6 +12105,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val.i;
@@ -11817,6 +12130,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val.i;
@@ -11841,6 +12155,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val.i;
@@ -11865,6 +12180,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val.i;
@@ -11889,6 +12205,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val.i;
@@ -11913,6 +12230,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val.i;
@@ -11937,6 +12255,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val.i;
@@ -11961,6 +12280,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val.i;
@@ -11985,6 +12305,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val.i;
@@ -12009,6 +12330,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val.i;
@@ -12033,6 +12355,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val.i;
@@ -12057,6 +12380,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val.i;
@@ -12081,6 +12405,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val.i;
@@ -12105,6 +12430,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val.i;
@@ -12129,6 +12455,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val.i;
@@ -12153,6 +12480,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val.i;
@@ -12177,6 +12505,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val.i;
@@ -12201,6 +12530,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val.i;
@@ -12225,6 +12555,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val.i;
@@ -12249,6 +12580,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val.i;
@@ -12273,6 +12605,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val.i;
@@ -12297,6 +12630,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val.i;
@@ -12321,6 +12655,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val.i;
@@ -12345,6 +12680,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val.i;
@@ -12369,6 +12705,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val.i;
@@ -12393,6 +12730,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val.i;
@@ -12417,6 +12755,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val.i;
@@ -12441,6 +12780,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val.i;
@@ -12465,6 +12805,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val.i;
@@ -12489,6 +12830,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val.i;
@@ -12513,6 +12855,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val.i;
@@ -12537,6 +12880,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val.i;
@@ -12561,6 +12905,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val.i;
@@ -12585,6 +12930,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val.i;
@@ -12609,6 +12955,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val.i;
@@ -12633,6 +12980,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val.i;
@@ -12657,6 +13005,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val.i;
@@ -12681,6 +13030,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val.i;
@@ -12705,6 +13055,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val.i;
@@ -12729,6 +13080,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val.i;
@@ -12753,6 +13105,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val.i;
@@ -12777,6 +13130,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val.i;
@@ -12801,6 +13155,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val.i;
@@ -12825,6 +13180,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val.i;
@@ -12849,6 +13205,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val.i;
@@ -12873,6 +13230,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val.i;
@@ -12897,6 +13255,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val.i;
@@ -12921,6 +13280,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val.i;
@@ -12945,6 +13305,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val.i;
@@ -12969,6 +13330,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val.i;
@@ -12993,6 +13355,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val.i;
@@ -13017,6 +13380,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val.i;
@@ -13041,6 +13405,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val.i;
@@ -13065,6 +13430,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val.i;
@@ -13089,6 +13455,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val.i;
@@ -13113,6 +13480,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val.i;
@@ -13137,6 +13505,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val.i;
@@ -13161,6 +13530,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val.i;
@@ -13185,6 +13555,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val.i;
@@ -13209,6 +13580,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val.i;
@@ -13233,6 +13605,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val.i;
@@ -13257,6 +13630,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val.i;
@@ -13281,6 +13655,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val.i;
@@ -13305,6 +13680,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val.i;
@@ -13329,6 +13705,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val.i;
@@ -13353,6 +13730,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val.i;
@@ -13377,6 +13755,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val.i;
@@ -13401,6 +13780,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val.i;
@@ -13425,6 +13805,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val.i;
@@ -13449,6 +13830,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val.i;
@@ -13473,6 +13855,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val.i;
@@ -13497,6 +13880,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val.i;
@@ -13521,6 +13905,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val.i;
@@ -13545,6 +13930,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val.i;
@@ -13569,6 +13955,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val.i;
@@ -13593,6 +13980,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val.i;
@@ -13617,6 +14005,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val.i;
@@ -13641,6 +14030,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val.i;
@@ -13665,6 +14055,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val.i;
@@ -13689,6 +14080,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val.i;
@@ -13713,6 +14105,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val.i;
@@ -13737,6 +14130,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val.i;
@@ -13761,6 +14155,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val.i;
@@ -13785,6 +14180,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val.i;
@@ -13809,6 +14205,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val.i;
@@ -13833,6 +14230,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val.i;
@@ -13857,6 +14255,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val.i;
@@ -13881,6 +14280,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val.i;
@@ -13905,6 +14305,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val.i;
@@ -13929,6 +14330,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val.i;
@@ -13953,6 +14355,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val.i;
@@ -13977,6 +14380,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val.i;
@@ -14001,6 +14405,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val.i;
@@ -14025,6 +14430,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val.i;
@@ -14049,6 +14455,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val.i;
@@ -14073,6 +14480,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val.i;
@@ -14097,6 +14505,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val.i;
@@ -14121,6 +14530,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val.i;
@@ -14145,6 +14555,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val.i;
@@ -14169,6 +14580,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val.i;
@@ -14193,6 +14605,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val.i;
@@ -14217,6 +14630,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val.i;
@@ -14241,6 +14655,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val.i;
@@ -14265,6 +14680,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val.i;
@@ -14289,6 +14705,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val.i;
@@ -14313,6 +14730,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val.i;
@@ -14337,6 +14755,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val.i;
@@ -14361,6 +14780,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val.i;
@@ -14385,6 +14805,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val.i;
@@ -14409,6 +14830,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val.i;
@@ -14433,6 +14855,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val.i;
@@ -14457,6 +14880,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val.i;
@@ -14481,6 +14905,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val.i;
@@ -14505,6 +14930,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val.i;
@@ -14529,6 +14955,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val.i;
@@ -14553,6 +14980,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val.i;
@@ -14577,6 +15005,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val.i;
@@ -14601,6 +15030,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val.i;
@@ -14625,6 +15055,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val.i;
@@ -14649,6 +15080,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val.i;
@@ -14673,6 +15105,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val.i;
@@ -14697,6 +15130,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val.i;
@@ -14721,6 +15155,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val.i;
@@ -14745,6 +15180,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val.i;
@@ -14769,6 +15205,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val.i;
@@ -14793,6 +15230,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val.i;
@@ -14817,6 +15255,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val.i;
@@ -14841,6 +15280,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val.i;
@@ -14865,6 +15305,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val.i;
@@ -14889,6 +15330,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val.i;
@@ -14913,6 +15355,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val.i;
@@ -14937,6 +15380,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val.i;
@@ -14961,6 +15405,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val.i;
@@ -14985,6 +15430,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val.i;
@@ -15009,6 +15455,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val.i;
@@ -15033,6 +15480,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val.i;
@@ -15057,6 +15505,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val.i;
@@ -15081,6 +15530,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val.i;
@@ -15105,6 +15555,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val.i;
@@ -15129,6 +15580,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val.i;
@@ -15153,6 +15605,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val.i;
@@ -15177,6 +15630,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val.i;
@@ -15201,6 +15655,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val.i;
@@ -15225,6 +15680,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val.i;
@@ -15249,6 +15705,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val.i;
@@ -15273,6 +15730,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val.i;
@@ -15297,6 +15755,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val.i;
@@ -15321,6 +15780,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val.i;
@@ -15345,6 +15805,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val.i;
@@ -15369,6 +15830,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val.i;
@@ -15393,6 +15855,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val.i;
@@ -15417,6 +15880,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val.i;
@@ -15441,6 +15905,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val.i;
@@ -15465,6 +15930,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val.i;
@@ -15489,6 +15955,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val.i;
@@ -15513,6 +15980,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val.i;
@@ -15537,6 +16005,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val.i;
@@ -15561,6 +16030,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val.i;
@@ -15585,6 +16055,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val.i;
@@ -15609,6 +16080,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val.i;
@@ -15633,6 +16105,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val.i;
@@ -15657,6 +16130,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val.i;
@@ -15681,6 +16155,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val.i;
@@ -15705,6 +16180,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val.i;
@@ -15729,6 +16205,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val.i;
@@ -15753,6 +16230,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val.i;
@@ -15777,6 +16255,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val.i;
@@ -15801,6 +16280,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val.i;
@@ -22124,6 +22604,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val;
@@ -22144,6 +22625,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val;
@@ -22164,6 +22646,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val;
@@ -22184,6 +22667,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val;
@@ -22204,6 +22688,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val;
@@ -22224,6 +22709,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val;
@@ -22244,6 +22730,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val;
@@ -22264,6 +22751,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val;
@@ -22284,6 +22772,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val;
@@ -22304,6 +22793,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val;
@@ -22324,6 +22814,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val;
@@ -22344,6 +22835,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val;
@@ -22364,6 +22856,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val;
@@ -22384,6 +22877,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val;
@@ -22404,6 +22898,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val;
@@ -22424,6 +22919,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val;
@@ -22444,6 +22940,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val;
@@ -22464,6 +22961,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val;
@@ -22484,6 +22982,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val;
@@ -22504,6 +23003,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val;
@@ -22524,6 +23024,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val;
@@ -22544,6 +23045,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val;
@@ -22564,6 +23066,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val;
@@ -22584,6 +23087,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val;
@@ -22604,6 +23108,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val;
@@ -22624,6 +23129,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val;
@@ -22644,6 +23150,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val;
@@ -22664,6 +23171,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val;
@@ -22684,6 +23192,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val;
@@ -22704,6 +23213,7 @@ int64_t prevts = ts;
 ts &= 0xf800; /*011111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].i = val;
@@ -22724,6 +23234,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val;
@@ -22744,6 +23255,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val;
@@ -22764,6 +23276,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val;
@@ -22784,6 +23297,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val;
@@ -22804,6 +23318,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val;
@@ -22824,6 +23339,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val;
@@ -22844,6 +23360,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val;
@@ -22864,6 +23381,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val;
@@ -22884,6 +23402,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val;
@@ -22904,6 +23423,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val;
@@ -22924,6 +23444,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val;
@@ -22944,6 +23465,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val;
@@ -22964,6 +23486,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val;
@@ -22984,6 +23507,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val;
@@ -23004,6 +23528,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val;
@@ -23024,6 +23549,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val;
@@ -23044,6 +23570,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val;
@@ -23064,6 +23591,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val;
@@ -23084,6 +23612,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val;
@@ -23104,6 +23633,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val;
@@ -23124,6 +23654,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val;
@@ -23144,6 +23675,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val;
@@ -23164,6 +23696,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val;
@@ -23184,6 +23717,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val;
@@ -23204,6 +23738,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val;
@@ -23224,6 +23759,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val;
@@ -23244,6 +23780,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val;
@@ -23264,6 +23801,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val;
@@ -23284,6 +23822,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val;
@@ -23304,6 +23843,7 @@ int64_t prevts = ts;
 ts &= 0x17800; /*101111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].i = val;
@@ -23324,6 +23864,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val;
@@ -23344,6 +23885,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val;
@@ -23364,6 +23906,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val;
@@ -23384,6 +23927,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val;
@@ -23404,6 +23948,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val;
@@ -23424,6 +23969,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val;
@@ -23444,6 +23990,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val;
@@ -23464,6 +24011,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val;
@@ -23484,6 +24032,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val;
@@ -23504,6 +24053,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val;
@@ -23524,6 +24074,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val;
@@ -23544,6 +24095,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val;
@@ -23564,6 +24116,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val;
@@ -23584,6 +24137,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val;
@@ -23604,6 +24158,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val;
@@ -23624,6 +24179,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val;
@@ -23644,6 +24200,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val;
@@ -23664,6 +24221,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val;
@@ -23684,6 +24242,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val;
@@ -23704,6 +24263,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val;
@@ -23724,6 +24284,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val;
@@ -23744,6 +24305,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val;
@@ -23764,6 +24326,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val;
@@ -23784,6 +24347,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val;
@@ -23804,6 +24368,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val;
@@ -23824,6 +24389,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val;
@@ -23844,6 +24410,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val;
@@ -23864,6 +24431,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val;
@@ -23884,6 +24452,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val;
@@ -23904,6 +24473,7 @@ int64_t prevts = ts;
 ts &= 0x1b800; /*110111*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].i = val;
@@ -23924,6 +24494,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val;
@@ -23944,6 +24515,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val;
@@ -23964,6 +24536,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val;
@@ -23984,6 +24557,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val;
@@ -24004,6 +24578,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val;
@@ -24024,6 +24599,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val;
@@ -24044,6 +24620,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val;
@@ -24064,6 +24641,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val;
@@ -24084,6 +24662,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val;
@@ -24104,6 +24683,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val;
@@ -24124,6 +24704,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val;
@@ -24144,6 +24725,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val;
@@ -24164,6 +24746,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val;
@@ -24184,6 +24767,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val;
@@ -24204,6 +24788,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val;
@@ -24224,6 +24809,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val;
@@ -24244,6 +24830,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val;
@@ -24264,6 +24851,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val;
@@ -24284,6 +24872,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val;
@@ -24304,6 +24893,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val;
@@ -24324,6 +24914,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val;
@@ -24344,6 +24935,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val;
@@ -24364,6 +24956,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val;
@@ -24384,6 +24977,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val;
@@ -24404,6 +24998,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val;
@@ -24424,6 +25019,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val;
@@ -24444,6 +25040,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val;
@@ -24464,6 +25061,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val;
@@ -24484,6 +25082,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val;
@@ -24504,6 +25103,7 @@ int64_t prevts = ts;
 ts &= 0x1d800; /*111011*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].i = val;
@@ -24524,6 +25124,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val;
@@ -24544,6 +25145,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val;
@@ -24564,6 +25166,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val;
@@ -24584,6 +25187,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val;
@@ -24604,6 +25208,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val;
@@ -24624,6 +25229,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val;
@@ -24644,6 +25250,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val;
@@ -24664,6 +25271,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val;
@@ -24684,6 +25292,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val;
@@ -24704,6 +25313,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val;
@@ -24724,6 +25334,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val;
@@ -24744,6 +25355,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val;
@@ -24764,6 +25376,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val;
@@ -24784,6 +25397,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val;
@@ -24804,6 +25418,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val;
@@ -24824,6 +25439,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val;
@@ -24844,6 +25460,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val;
@@ -24864,6 +25481,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val;
@@ -24884,6 +25502,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val;
@@ -24904,6 +25523,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val;
@@ -24924,6 +25544,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val;
@@ -24944,6 +25565,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val;
@@ -24964,6 +25586,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val;
@@ -24984,6 +25607,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val;
@@ -25004,6 +25628,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val;
@@ -25024,6 +25649,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val;
@@ -25044,6 +25670,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val;
@@ -25064,6 +25691,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val;
@@ -25084,6 +25712,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val;
@@ -25104,6 +25733,7 @@ int64_t prevts = ts;
 ts &= 0x1e800; /*111101*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].i = val;
@@ -25124,6 +25754,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val;
@@ -25144,6 +25775,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val;
@@ -25164,6 +25796,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val;
@@ -25184,6 +25817,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val;
@@ -25204,6 +25838,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val;
@@ -25224,6 +25859,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val;
@@ -25244,6 +25880,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val;
@@ -25264,6 +25901,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val;
@@ -25284,6 +25922,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val;
@@ -25304,6 +25943,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val;
@@ -25324,6 +25964,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val;
@@ -25344,6 +25985,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val;
@@ -25364,6 +26006,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val;
@@ -25384,6 +26027,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val;
@@ -25404,6 +26048,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val;
@@ -25424,6 +26069,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val;
@@ -25444,6 +26090,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val;
@@ -25464,6 +26111,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val;
@@ -25484,6 +26132,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val;
@@ -25504,6 +26153,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val;
@@ -25524,6 +26174,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val;
@@ -25544,6 +26195,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val;
@@ -25564,6 +26216,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val;
@@ -25584,6 +26237,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val;
@@ -25604,6 +26258,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val;
@@ -25624,6 +26279,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val;
@@ -25644,6 +26300,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val;
@@ -25664,6 +26321,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val;
@@ -25684,6 +26342,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val;
@@ -25704,6 +26363,7 @@ int64_t prevts = ts;
 ts &= 0x1f000; /*111110*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].i = val;
@@ -29144,6 +29804,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = base;
@@ -29171,6 +29832,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = base;
@@ -29198,6 +29860,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = base;
@@ -29225,6 +29888,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = base;
@@ -29252,6 +29916,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[0].p = base;
@@ -29279,6 +29944,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = base;
@@ -29306,6 +29972,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = base;
@@ -29333,6 +30000,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = base;
@@ -29360,6 +30028,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = base;
@@ -29387,6 +30056,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[1].p = base;
@@ -29414,6 +30084,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = base;
@@ -29441,6 +30112,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = base;
@@ -29468,6 +30140,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = base;
@@ -29495,6 +30168,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = base;
@@ -29522,6 +30196,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[2].p = base;
@@ -29549,6 +30224,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = base;
@@ -29576,6 +30252,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = base;
@@ -29603,6 +30280,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = base;
@@ -29630,6 +30308,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = base;
@@ -29657,6 +30336,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[3].p = base;
@@ -29684,6 +30364,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = base;
@@ -29711,6 +30392,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = base;
@@ -29738,6 +30420,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = base;
@@ -29765,6 +30448,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = base;
@@ -29792,6 +30476,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[4].p = base;
@@ -29819,6 +30504,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = base;
@@ -29846,6 +30532,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = base;
@@ -29873,6 +30560,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = base;
@@ -29900,6 +30588,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = base;
@@ -29927,6 +30616,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
 g[5].p = base;
@@ -29954,6 +30644,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[0].p = base;
@@ -29981,6 +30672,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[0].p = base;
@@ -30008,6 +30700,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[0].p = base;
@@ -30035,6 +30728,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[0].p = base;
@@ -30062,6 +30756,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[0].p = base;
@@ -30089,6 +30784,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[1].p = base;
@@ -30116,6 +30812,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[1].p = base;
@@ -30143,6 +30840,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[1].p = base;
@@ -30170,6 +30868,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[1].p = base;
@@ -30197,6 +30896,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[1].p = base;
@@ -30224,6 +30924,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[2].p = base;
@@ -30251,6 +30952,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[2].p = base;
@@ -30278,6 +30980,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[2].p = base;
@@ -30305,6 +31008,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[2].p = base;
@@ -30332,6 +31036,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[2].p = base;
@@ -30359,6 +31064,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[3].p = base;
@@ -30386,6 +31092,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[3].p = base;
@@ -30413,6 +31120,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[3].p = base;
@@ -30440,6 +31148,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[3].p = base;
@@ -30467,6 +31176,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[3].p = base;
@@ -30494,6 +31204,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[4].p = base;
@@ -30521,6 +31232,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[4].p = base;
@@ -30548,6 +31260,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[4].p = base;
@@ -30575,6 +31288,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[4].p = base;
@@ -30602,6 +31316,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[4].p = base;
@@ -30629,6 +31344,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[5].p = base;
@@ -30656,6 +31372,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[5].p = base;
@@ -30683,6 +31400,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[5].p = base;
@@ -30710,6 +31428,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[5].p = base;
@@ -30737,6 +31456,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[5].p = base;
@@ -30767,6 +31487,7 @@ int64_t prevts = ts;
 ts |= 0x10000; /*100000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[0].p = base;
@@ -30797,6 +31518,7 @@ int64_t prevts = ts;
 ts |= 0x8000; /*010000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[1].p = base;
@@ -30827,6 +31549,7 @@ int64_t prevts = ts;
 ts |= 0x4000; /*001000*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[2].p = base;
@@ -30857,6 +31580,7 @@ int64_t prevts = ts;
 ts |= 0x2000; /*000100*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[3].p = base;
@@ -30887,6 +31611,7 @@ int64_t prevts = ts;
 ts |= 0x1000; /*000010*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[4].p = base;
@@ -30917,6 +31642,7 @@ int64_t prevts = ts;
 ts |= 0x800; /*000001*/
 #ifdef STATS
 if (prevts != ts)
+    stateCounters[ts >> 11]++;
     stateSwitches++;
 #endif
     g[5].p = base;

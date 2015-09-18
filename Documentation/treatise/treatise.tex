@@ -1,4 +1,5 @@
 \documentclass[english,a4paper]{article}
+\usepackage[margin=2cm]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[latin9]{inputenc}
 \usepackage{graphicx}
@@ -330,7 +331,7 @@ strengths and weaknesses are.
 \newpage{}
 
 \section{Literature Review, Existing systems and Modern Processors}
-This novel virtual machine will be called the
+This novel virtual machine is called the
 \emph{opcode-operand-type dispatch VM} or just the
 \emph{opcode-operand-type VM}. Its placement in the heirarchy of
 virtual machines is discussed in order to situate it in the spectrum
@@ -373,7 +374,7 @@ A system virtual machine ``provides a complete system environment''
 ''\cite[pg9]{JamesE.Smith2005}. This means that it can support an
 entire operating system on the guest machine and the many processes
 that the guest operating system executes. A system virtual machine
-will terminate when the system is shut down.
+will terminate when the guest system is shut down.
 
 \subsection{The Types of Process Virtual Machines}
 
@@ -419,21 +420,6 @@ a variable. A statically typed language is one in which the type
 information is associated with the variable. An example of this is
 java where variables are declared using keywords that define their
 type (\emph{int}, \emph{string} etc).
-
-\subsection{Type-Mapping and Argument Case Expansion}
-
-A type-mapped VM is one which keeps track of the state of the types of
-its registers. This is beneficial because every instruction in a
-conventional VM design must first verify the types of its inputs
-before it can act on them. These type checks can be eliminated with
-type-mapping and intructions can be customised based on the types of
-the inputs they receive. This is closely coupled with the idea of
-argument case expansion. For Type-Mapping to be effective the VM must
-dispatch on its current type state. This is what eliminates the type
-checking step. But if the VM does not also dispatch on the arguments
-for the next instruction it cannot know which version of the
-instruction is appropriate. Argument case expansion means having a
-version of each instruction for every combination of arguments.
 
 \subsection{Modern Processor Architecture}
 
@@ -543,13 +529,24 @@ figure~\ref{fig:switch} for a C implementation.
 
 \begin{figure}
   \begin{lstlisting}
-    typedef enum { add /* ... */ } Inst;
+typedef enum { add /* ... */ } Inst; 
 
-    void engine() { static Inst program[] = { add /* ... */ }; Inst
-      *ip = program; int *sp;
+void engine() 
+{ 
+    static Inst program[] = { add /* ... */ }; 
+    Inst *ip = program; 
+    int *sp; 
 
-      for (;;) switch (*ip++) { case add: sp[1]=sp[0]+sp[1]; sp++;
-        break; /* ... */ } }
+    for (;;) 
+        switch (*ip++) 
+        { 
+        case add: 
+            sp[1]=sp[0]+sp[1]; 
+            sp++; 
+        break; 
+        /* ... */ 
+    }
+} 
   \end{lstlisting}
   \caption{Switch Dispatch}
   \label{fig:switch}
@@ -575,12 +572,19 @@ instruction to be executed.
 
 \begin{figure}
   \begin{lstlisting}
-    typedef void *Inst;
+typedef void *Inst; 
 
-    void engine() { static Inst program[] = { &&add /* ... */ }; Inst
-      *ip = program; int *sp; goto *ip++; /* dispatch first VM
-      inst. */ add: sp[1]=sp[0]+sp[1]; sp++; goto *ip++; /* dispatch
-      next VM inst. */ }
+void engine() 
+{ 
+    static Inst program[] = { &&add /* ... */ }; 
+    Inst *ip = program; 
+    int *sp; 
+    goto *ip++; /* dispatch first VM inst. */ 
+add: 
+    sp[1]=sp[0]+sp[1]; 
+    sp++; 
+    goto *ip++; /* dispatch next VM inst. */ 
+}
   \end{lstlisting}
   \caption{Direct Threaded Dispatch}
   \label{fig:direct}
@@ -594,11 +598,19 @@ that instruction in the table and then jumping to that instruction.
 
 \begin{figure}
   \begin{lstlisting}
-    typedef void *Inst; void engine() { static Inst lookup[] = {
-        &&add, &&sub /*...*/ } static int program[] = { 0, /* ... */
-      }; int *ip = program; int *sp; goto *ip++; /* dispatch first VM
-      inst. */ add: sp[1]=sp[0]+sp[1]; sp++; goto lookup[*ip++]; /*
-      dispatch next VM inst. */ }
+typedef void *Inst;
+void engine() 
+{ 
+    static Inst lookup[] = { &&add, &&sub /*...*/ }
+    static int program[] = { 0, /* ... */ }; 
+    int *ip = program; 
+    int *sp; 	
+    goto *ip++; /* dispatch first VM inst. */ 
+add: 
+    sp[1]=sp[0]+sp[1]; 
+    sp++; 
+    goto lookup[*ip++]; /* dispatch next VM inst. */ 
+}
   \end{lstlisting}
   \caption{Indirect Threaded Dispatch}
   \label{fig:indirect}
@@ -681,7 +693,6 @@ something prioritised by the Lua team for portability reasons
   (though an independent project called luajit has provided one).
 \end{description}
 
-
 \subsubsection{JRockit JVM and .NET runtime}
 Oracle's Java Virtual Machine implementation, called JRockit, is a
 high performance Virtual Machine for running java
@@ -697,7 +708,34 @@ quite differently from the VM described in this treatise:
 \item[JIT] Both VMs make use of Just in Time compilation.
 \end{description}
 
+\subsubsection{Dalvik VM}
+The Dalvik VM executes applications written for Google's Android
+operating system for phones and tablets. The common is is that JVM
+bytecode is translated to Dalvik bytecode to run on the Dalvik
+VM. Dalvik has been replaced by ART in Android 5.0. Unlike the JVM,
+the Dalvik VM is a register machine.
+\begin{description}
+\item[[Statically Typed]] Dalvik VM bytecode is statically typed
+\item[Register-based] The Dalvik VM makes use of a register-based design
+\item[JIT] Dalvik VM code is JITted
+\end{description}
+
 \section{Solution Design}
+
+\subsection{Type-Mapping and Argument Case Expansion}
+
+A type-mapped VM is one which keeps track of the state of the types of
+its registers. This is beneficial because every instruction in a
+conventional VM design must first verify the types of its inputs
+before it can act on them. These type checks can be eliminated with
+type-mapping and intructions can be customised based on the types of
+the inputs they receive. This is closely coupled with the idea of
+argument case expansion. For Type-Mapping to be effective the VM must
+dispatch on its current type state. This is what eliminates the type
+checking step. But if the VM does not also dispatch on the arguments
+for the next instruction it cannot know which version of the
+instruction is appropriate. Argument case expansion means having a
+version of each instruction for every combination of arguments.
 
 \subsection{A Virtual Machine for Many Instance Applications}
 Modern process virtual machines make use of JIT compilers. Both JVM

@@ -1150,16 +1150,18 @@ InstructionGenerator.prototype = {
         hexMask += parseInt(bitMask + '0'.repeat(this.opcodesize), 2).toString(16);
         //Set the Tag and edit the state
 
-        var debugStart = "#ifdef STATS\n" +
-                "int64_t prevts = ts;\n" +
-                "#endif\n";
+        var debugStart = '#ifdef STATS\n' +
+                'int64_t prevts = ts;\n' +
+                '#endif\n';
         
         var tsUpdate = (andoperator? 'ts &= 0x' : 'ts |= 0x') + hexMask + '; /*' + bitMask + '*/\n';
 
-        var debugEnd = "#ifdef STATS\n" +
-                "if (prevts != ts)\n" +
-                "    stateSwitches++;\n" +
-                "#endif\n";
+        //if the state actually changed, increment counters
+        var debugEnd = '#ifdef STATS\n' +
+                'if (prevts != ts)\n' +
+                '    stateCounters[ts >> 11]++;\n' +
+                '    stateSwitches++;\n' +
+                '#endif\n';
         
         return debugStart + tsUpdate + debugEnd;
     },

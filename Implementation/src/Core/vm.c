@@ -55,6 +55,7 @@ int main(int argc, char *argv[])
     //init stateSwitches variable
 #ifdef STATS
     stateSwitches = 0;
+    stateCounters[0] = 1;
 #endif /* STATS */
     
 	//state with static opcode as lower bits is an index into this table

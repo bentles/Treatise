@@ -1,24 +1,26 @@
 /* stats.h
  *
- * Defined the stats struct that
- *
+ * Defined the counter struct that is used to count how many times
+ * each instruction is used
  */
-
 
 #ifndef STATS_H
 #define STATS_H
 
-int stateSwitches;
-/*
-Ease of use counter for how many times a method is used
-*/
+#include <inttypes.h>
+
+#define STATES 64
+
 typedef struct counter {
     char* name;
-    int count;
-    int state;
+    int64_t count;
+    int64_t state;
 } Counter;
 
-extern Counter opcodeCounters[]; 
+extern Counter opcodeCounters[];
+
+int64_t stateSwitches;
+int64_t stateCounters[STATES];
 
 void printStats(void);
 
