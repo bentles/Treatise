@@ -102,7 +102,7 @@ int main(int argc, char *argv[])
     if (base != NULL)
     {
         base->fp = fp; base->ip = ip; base->ts = ts;
-        SaveRegisters(base->g);
+        SaveRegisters(base->g, g);
         value *newfp = base->l;
         fp = newfp;
         ip += 4;

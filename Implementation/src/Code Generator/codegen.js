@@ -603,7 +603,7 @@ var lookups = [
                 'stackframe *base = (stackframe*)malloc(size);\n' +
                 'if (base) {\n' +
                 'base->fp = fp; base->ip = ip; base->ts = ts;\n' +
-                'SaveRegisters(base->g);\n' +
+                'SaveRegisters(base->g, g);\n' +
                 'value *newfp = base->l;\n' + 
                 'memcpy(newfp, fp + *(ip + 2), *(ip + 3)*sizeof(value));\n' +
                 'fp = newfp;\n' +
@@ -622,9 +622,10 @@ var lookups = [
             name: 'ret', ipChange: 4,
             template:
             'stackframe *cur = (stackframe*)((size_t)fp - sizeof(stackframe));\n' +
-            'fp = cur->fp; ip = cur->ip; ts = (cur->ts & 0xF000) | (ts & 0x10800);\n' +
-                'RestoreRegisters(cur->g);\n' +                
-                'free(cur);//probably does a thing \n' +             
+                'fp = cur->fp; ip = cur->ip;' +
+                'RestoreTS(cur->ts, ts);\n' +
+                'RestoreRegisters(cur->g, g);\n' +                
+                'free(cur);\n' +             
                 'if (fp == NULL)\n' +
                 '{\n' +
                 '    #ifdef STATS\n' +

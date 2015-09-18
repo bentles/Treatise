@@ -24,7 +24,7 @@
 
 \begin{document}
 
-\title{A JIT-Less Type-Mapped Dynamic-ISA Virtual Machine for
+\title{A JIT-Less Type-Mapped Dynamic-ISA Virtual Machine for 
   Many-Instance Applications}
 
 \maketitle
@@ -380,7 +380,6 @@ this manner is known as \emph{just-in-time compilation} (JIT
 compilation).
 
 \subsection{Dynamic vs Statically Typed Programming Languages}
-
 A dynamically typed language is one in which the type information is
 associated with values \cite[pg4]{RobertoIerusalimschy}. An example of
 a dynamically typed language is javascript where the var keyword is
@@ -391,7 +390,6 @@ java where variables are declared using keywords that define their
 type (\emph{int}, \emph{string} etc).
 
 \subsection{Where Our VM is Situated}
-
 The virtual machine described in this treatise is a process virtual
 machine. This process machine will have a new instruction set
 architecture and hence will differ from any host machine's ISA. The
@@ -399,7 +397,6 @@ virtual machine does not make use of JIT compilation. It is entirely
 interpreted. It is also dynamically typed.
 
 \subsection{A Virtual Machine for Many Instance Applications}
-
 Modern process virtual machines make use of JIT compilers. Both JVM
 and .Net make use of a JIT compiler \cite{MSDN,Oracle}. For
 applications that run many concurrent instances, like a web server
@@ -450,7 +447,7 @@ Pipelining is a process in which a processor's instruction processing
 cycle is shared by many consecutive instructions at once. The
 instruction processing procedure is split up into smaller stages that
 can execute simultaneously. An example of this is the classic RISC
-pipeline{[}x{]} which to divides instruction processing into the
+pipeline{[}x{]} which divides instruction processing into the
 following steps: Instruction Fetch (IF), Decode (ID), Execute(EX),
 Memory Access (MEM) and Writeback (WB). Each instruction passes a
 stage and leaves that part of the processor free to perform that stage
@@ -468,7 +465,7 @@ stage of assembly.
   \label{fig:pipeline}
 \end{figure}
 
-In \emph{fig1} we see that the first instruction as currently
+In figure~\ref{fig:pipeline} we see that the first instruction as currently
 performing memory access while the second EXecutes and the third is
 being Decoded. Up to 5 instructions can be processed simultaneously.
 
@@ -1231,9 +1228,14 @@ jumps are relative to the current \verb|IP| value.
   with 4 instruction words skipped to point to the first instruction
   after the 64-bit integer.
   
-\item[ret] Return
-  
-  $ret asd$ \\
+\item[ret] Return  
+  $ret() := $  \\
+  $ stackframe *cur \longleftarrow (stackframe*)((size\_t)fp - sizeof(stackframe)) \\
+  fp \longleftarrow cur.fp \\
+  ip \longleftarrow cur.ip \\
+  RestoreTS(cur.ts, ts);\\
+  RestoreRegisters(cur.g) \\                
+  free(cur); \\$
 \end{description}
 
 

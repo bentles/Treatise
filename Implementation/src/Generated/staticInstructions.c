@@ -29096,7 +29096,7 @@ int64_t size = sizeof(stackframe) + sizeof(value) * (*sizep);
 stackframe *base = (stackframe*)malloc(size);
 if (base) {
 base->fp = fp; base->ip = ip; base->ts = ts;
-SaveRegisters(base->g);
+SaveRegisters(base->g, g);
 value *newfp = base->l;
 memcpy(newfp, fp + *(ip + 2), *(ip + 3)*sizeof(value));
 fp = newfp;
@@ -29115,9 +29115,9 @@ goto *dynOpcodes[ts + *ip];
 ret:
 {
 stackframe *cur = (stackframe*)((size_t)fp - sizeof(stackframe));
-fp = cur->fp; ip = cur->ip; ts = (cur->ts & 0xF000) | (ts & 0x10800);
-RestoreRegisters(cur->g);
-free(cur);//probably does a thing 
+fp = cur->fp; ip = cur->ip;RestoreTS(cur->ts, ts);
+RestoreRegisters(cur->g, g);
+free(cur);
 if (fp == NULL)
 {
     #ifdef STATS
