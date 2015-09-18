@@ -29136,7 +29136,7 @@ newo_0_1:
 {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[1].i);
 if (base) {
-base->sf = MakeSizeAndFlags(size,0);
+base->sf = MakeSizeAndFlags(g[1].i,0);
 g[0].tag = 2;
 #ifdef STATS
 int64_t prevts = ts;
@@ -29163,7 +29163,7 @@ newo_0_2:
 {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[2].i);
 if (base) {
-base->sf = MakeSizeAndFlags(size,0);
+base->sf = MakeSizeAndFlags(g[2].i,0);
 g[0].tag = 2;
 #ifdef STATS
 int64_t prevts = ts;
@@ -29190,7 +29190,7 @@ newo_0_3:
 {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[3].i);
 if (base) {
-base->sf = MakeSizeAndFlags(size,0);
+base->sf = MakeSizeAndFlags(g[3].i,0);
 g[0].tag = 2;
 #ifdef STATS
 int64_t prevts = ts;
@@ -29217,7 +29217,7 @@ newo_0_4:
 {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[4].i);
 if (base) {
-base->sf = MakeSizeAndFlags(size,0);
+base->sf = MakeSizeAndFlags(g[4].i,0);
 g[0].tag = 2;
 #ifdef STATS
 int64_t prevts = ts;
@@ -29244,7 +29244,7 @@ newo_0_5:
 {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[5].i);
 if (base) {
-base->sf = MakeSizeAndFlags(size,0);
+base->sf = MakeSizeAndFlags(g[5].i,0);
 g[0].tag = 2;
 #ifdef STATS
 int64_t prevts = ts;
@@ -29271,7 +29271,7 @@ newo_1_0:
 {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[0].i);
 if (base) {
-base->sf = MakeSizeAndFlags(size,0);
+base->sf = MakeSizeAndFlags(g[0].i,0);
 g[1].tag = 2;
 #ifdef STATS
 int64_t prevts = ts;
@@ -29298,7 +29298,7 @@ newo_1_2:
 {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[2].i);
 if (base) {
-base->sf = MakeSizeAndFlags(size,0);
+base->sf = MakeSizeAndFlags(g[2].i,0);
 g[1].tag = 2;
 #ifdef STATS
 int64_t prevts = ts;
@@ -29325,7 +29325,7 @@ newo_1_3:
 {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[3].i);
 if (base) {
-base->sf = MakeSizeAndFlags(size,0);
+base->sf = MakeSizeAndFlags(g[3].i,0);
 g[1].tag = 2;
 #ifdef STATS
 int64_t prevts = ts;
@@ -29352,7 +29352,7 @@ newo_1_4:
 {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[4].i);
 if (base) {
-base->sf = MakeSizeAndFlags(size,0);
+base->sf = MakeSizeAndFlags(g[4].i,0);
 g[1].tag = 2;
 #ifdef STATS
 int64_t prevts = ts;
@@ -29379,7 +29379,7 @@ newo_1_5:
 {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[5].i);
 if (base) {
-base->sf = MakeSizeAndFlags(size,0);
+base->sf = MakeSizeAndFlags(g[5].i,0);
 g[1].tag = 2;
 #ifdef STATS
 int64_t prevts = ts;
@@ -29406,7 +29406,7 @@ newo_2_0:
 {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[0].i);
 if (base) {
-base->sf = MakeSizeAndFlags(size,0);
+base->sf = MakeSizeAndFlags(g[0].i,0);
 g[2].tag = 2;
 #ifdef STATS
 int64_t prevts = ts;
@@ -29433,7 +29433,7 @@ newo_2_1:
 {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[1].i);
 if (base) {
-base->sf = MakeSizeAndFlags(size,0);
+base->sf = MakeSizeAndFlags(g[1].i,0);
 g[2].tag = 2;
 #ifdef STATS
 int64_t prevts = ts;
@@ -29460,7 +29460,7 @@ newo_2_3:
 {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[3].i);
 if (base) {
-base->sf = MakeSizeAndFlags(size,0);
+base->sf = MakeSizeAndFlags(g[3].i,0);
 g[2].tag = 2;
 #ifdef STATS
 int64_t prevts = ts;
@@ -29487,7 +29487,7 @@ newo_2_4:
 {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[4].i);
 if (base) {
-base->sf = MakeSizeAndFlags(size,0);
+base->sf = MakeSizeAndFlags(g[4].i,0);
 g[2].tag = 2;
 #ifdef STATS
 int64_t prevts = ts;
@@ -29514,7 +29514,7 @@ newo_2_5:
 {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[5].i);
 if (base) {
-base->sf = MakeSizeAndFlags(size,0);
+base->sf = MakeSizeAndFlags(g[5].i,0);
 g[2].tag = 2;
 #ifdef STATS
 int64_t prevts = ts;
@@ -29541,7 +29541,7 @@ newo_3_0:
 {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[0].i);
 if (base) {
-base->sf = MakeSizeAndFlags(size,0);
+base->sf = MakeSizeAndFlags(g[0].i,0);
 g[3].tag = 2;
 #ifdef STATS
 int64_t prevts = ts;
@@ -29568,7 +29568,7 @@ newo_3_1:
 {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[1].i);
 if (base) {
-base->sf = MakeSizeAndFlags(size,0);
+base->sf = MakeSizeAndFlags(g[1].i,0);
 g[3].tag = 2;
 #ifdef STATS
 int64_t prevts = ts;
@@ -29595,7 +29595,7 @@ newo_3_2:
 {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[2].i);
 if (base) {
-base->sf = MakeSizeAndFlags(size,0);
+base->sf = MakeSizeAndFlags(g[2].i,0);
 g[3].tag = 2;
 #ifdef STATS
 int64_t prevts = ts;
@@ -29622,7 +29622,7 @@ newo_3_4:
 {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[4].i);
 if (base) {
-base->sf = MakeSizeAndFlags(size,0);
+base->sf = MakeSizeAndFlags(g[4].i,0);
 g[3].tag = 2;
 #ifdef STATS
 int64_t prevts = ts;
@@ -29649,7 +29649,7 @@ newo_3_5:
 {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[5].i);
 if (base) {
-base->sf = MakeSizeAndFlags(size,0);
+base->sf = MakeSizeAndFlags(g[5].i,0);
 g[3].tag = 2;
 #ifdef STATS
 int64_t prevts = ts;
@@ -29676,7 +29676,7 @@ newo_4_0:
 {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[0].i);
 if (base) {
-base->sf = MakeSizeAndFlags(size,0);
+base->sf = MakeSizeAndFlags(g[0].i,0);
 g[4].tag = 2;
 #ifdef STATS
 int64_t prevts = ts;
@@ -29703,7 +29703,7 @@ newo_4_1:
 {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[1].i);
 if (base) {
-base->sf = MakeSizeAndFlags(size,0);
+base->sf = MakeSizeAndFlags(g[1].i,0);
 g[4].tag = 2;
 #ifdef STATS
 int64_t prevts = ts;
@@ -29730,7 +29730,7 @@ newo_4_2:
 {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[2].i);
 if (base) {
-base->sf = MakeSizeAndFlags(size,0);
+base->sf = MakeSizeAndFlags(g[2].i,0);
 g[4].tag = 2;
 #ifdef STATS
 int64_t prevts = ts;
@@ -29757,7 +29757,7 @@ newo_4_3:
 {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[3].i);
 if (base) {
-base->sf = MakeSizeAndFlags(size,0);
+base->sf = MakeSizeAndFlags(g[3].i,0);
 g[4].tag = 2;
 #ifdef STATS
 int64_t prevts = ts;
@@ -29784,7 +29784,7 @@ newo_4_5:
 {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[5].i);
 if (base) {
-base->sf = MakeSizeAndFlags(size,0);
+base->sf = MakeSizeAndFlags(g[5].i,0);
 g[4].tag = 2;
 #ifdef STATS
 int64_t prevts = ts;
@@ -29811,7 +29811,7 @@ newo_5_0:
 {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[0].i);
 if (base) {
-base->sf = MakeSizeAndFlags(size,0);
+base->sf = MakeSizeAndFlags(g[0].i,0);
 g[5].tag = 2;
 #ifdef STATS
 int64_t prevts = ts;
@@ -29838,7 +29838,7 @@ newo_5_1:
 {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[1].i);
 if (base) {
-base->sf = MakeSizeAndFlags(size,0);
+base->sf = MakeSizeAndFlags(g[1].i,0);
 g[5].tag = 2;
 #ifdef STATS
 int64_t prevts = ts;
@@ -29865,7 +29865,7 @@ newo_5_2:
 {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[2].i);
 if (base) {
-base->sf = MakeSizeAndFlags(size,0);
+base->sf = MakeSizeAndFlags(g[2].i,0);
 g[5].tag = 2;
 #ifdef STATS
 int64_t prevts = ts;
@@ -29892,7 +29892,7 @@ newo_5_3:
 {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[3].i);
 if (base) {
-base->sf = MakeSizeAndFlags(size,0);
+base->sf = MakeSizeAndFlags(g[3].i,0);
 g[5].tag = 2;
 #ifdef STATS
 int64_t prevts = ts;
@@ -29919,7 +29919,7 @@ newo_5_4:
 {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[4].i);
 if (base) {
-base->sf = MakeSizeAndFlags(size,0);
+base->sf = MakeSizeAndFlags(g[4].i,0);
 g[5].tag = 2;
 #ifdef STATS
 int64_t prevts = ts;

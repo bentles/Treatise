@@ -644,7 +644,7 @@ var lookups = [
             template:
                 'object *base = (object*)malloc(sizeof(object) + sizeof(value)* /*<1>*/.i);\n' +
                 'if (base) {\n' +
-                'base->sf = MakeSizeAndFlags(size,0);\n' +
+                'base->sf = MakeSizeAndFlags(/*<1>*/.i,0);\n' +
                 '/*<0>*/.tag = 2;\n' +
                 '/*<state:' + p + '>*/' +
                 '/*<0>*/.p = base;\n'+

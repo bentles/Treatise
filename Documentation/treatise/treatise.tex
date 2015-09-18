@@ -11,6 +11,7 @@
 \usepackage{bytefield}
 \usepackage{color}
 \usepackage{enumitem}
+\usepackage{tikz}
 
 % reset counter per chapter
 \usepackage{chngcntr}
@@ -163,7 +164,26 @@ else
   \end{subfigure}
   \begin{subfigure}{.5\textwidth}
     \centering
-    \includegraphics[width=.8\linewidth]{ast.jpeg}
+
+    \begin{tikzpicture}[
+      tlabel/.style={pos=0.4,right=-1pt,font=\footnotesize\color{red!70!black}},
+      ]
+      \node{if}
+      child {node {>}
+        child {node{x}}
+        child {node{y}}
+      }
+      child {node {=} 
+        child {node {max}}
+        child {node {x}}
+      }      
+      child {node {=}
+        child {node{max}}
+        child {node{y}}
+      };
+   
+    \end{tikzpicture}
+
     \caption{Tree parsed from code}
   \end{subfigure}
   \caption{Abstract Syntax Tree \protect\cite{ast}}
@@ -310,13 +330,20 @@ strengths and weaknesses are.
 \newpage{}
 
 \section{Literature Review, Existing systems and Modern Processors}
+This novel virtual machine will be called the
+\emph{opcode-operand-type dispatch VM} or just the
+\emph{opcode-operand-type VM}. Its placement in the heirarchy of
+virtual machines is discussed in order to situate it in the spectrum
+of different virtual machines that exist and disambiguate how it could
+be used.
+
+A review of existing systems, modern processor architectures and
+current literature on virtual machine design is also necessary to
+understand the design decisions made for the \emph{opcode-operand-type
+  VM}.
 
 \subsection{Virtual Machines}
-To best describe the virtual machine presented in this treatise, a
-quick summary of virtual machines follows. The heirarchy of virtual
-machines is presented and our virtual machine is situated within
-it. Some important virtual machine terminology is introduced.  A
-\emph{virtual machine} or \emph{VM} is a computer program that
+A \emph{virtual machine} or \emph{VM} is a computer program that
 ``executes software in the same manner as the machine for which the
 software was developed'' \cite[pg9]{JamesE.Smith2005}. This program is
 designed to run on some real machine. We call the real machine that a
@@ -330,7 +357,7 @@ providing a mapping of its state to the state of the host machine on
 which it is running \cite[pg4]{JamesE.Smith2005}.
 
 \subsection{The Types of Virtual Machines}
-Virtual machines come in two varieties: \emph{process }virtual
+Virtual machines come in two varieties: \emph{process } virtual
 machines and \emph{system} virtual machines.
 
 A process virtual machine is ``capable of supporting an individual
@@ -350,19 +377,17 @@ will terminate when the system is shut down.
 
 \subsection{The Types of Process Virtual Machines}
 
-Since this treatise outlines a process virtual machine we shall look
-at the different types of process virtual machines and ignore the
-finer details of system virtual machines. Process virtual machines can
-be divided into two categories: \emph{multiprogrammed} \emph{systems}
-and \emph{dynamic} \emph{translators}. These are divided along whether
-or not the guest machine uses the same instruction set architecture as
-the host machine.
+Process virtual machines can be divided into two categories:
+\emph{multiprogrammed systems} and \emph{dynamic}
+\emph{translators}. The difference between these is whether or not the guest
+machine uses the same instruction set architecture as the host
+machine.
 
 With multiprogramming the guest and host use the same instruction
 set. Multiprogramming is supported by most operating systems and
-allows a user to run many processes at once by making each process
+allows a user to run many processes at once by ``making each process
 think it has access to an entire machine instead of only part of a
-machine ''\cite[pg13]{JamesE.Smith2005}. The OS creates an environment
+machine''\cite[pg13]{JamesE.Smith2005}. The OS creates an environment
 per process that it terminates when that process ends execution.
 
 With dynamic translators the instruction set of the host and guest
@@ -379,6 +404,12 @@ and cached so later execution is faster. Dynamically translating in
 this manner is known as \emph{just-in-time compilation} (JIT
 compilation).
 
+\subsection{Where the opcode-operand-type VM is Situated}
+The opcode-operand-type VM is a process virtual machine. It has a new
+instruction set architecture and hence is different from any host
+machine's ISA. The virtual machine does not make use of JIT
+compilation. It is entirely interpreted. It is also dynamically typed.
+
 \subsection{Dynamic vs Statically Typed Programming Languages}
 A dynamically typed language is one in which the type information is
 associated with values \cite[pg4]{RobertoIerusalimschy}. An example of
@@ -388,29 +419,6 @@ a variable. A statically typed language is one in which the type
 information is associated with the variable. An example of this is
 java where variables are declared using keywords that define their
 type (\emph{int}, \emph{string} etc).
-
-\subsection{Where Our VM is Situated}
-The virtual machine described in this treatise is a process virtual
-machine. This process machine will have a new instruction set
-architecture and hence will differ from any host machine's ISA. The
-virtual machine does not make use of JIT compilation. It is entirely
-interpreted. It is also dynamically typed.
-
-\subsection{A Virtual Machine for Many Instance Applications}
-Modern process virtual machines make use of JIT compilers. Both JVM
-and .Net make use of a JIT compiler \cite{MSDN,Oracle}. For
-applications that run many concurrent instances, like a web server
-which which starts up a new process for every client, a virtual
-machine that makes use of a JIT compiler defeats the benefits of
-read-only memory sharing. Since memory sharing is not possible when
-using a JIT compiler, if we wish to take advantage of it a JIT-less
-virtual machine is needed. However the JIT compiler compiler is an
-important feature of a VM that allows for code given to it at runtime
-to be compiled into machine code that can run directly on the
-host. This compiled code is cached and allows for future execution to
-be faster. Sacrificing the JIT compiler to allow memory sharing
-presents us with a need to find alternative ways to let our programs
-execute quickly.
 
 \subsection{Type-Mapping and Argument Case Expansion}
 
@@ -465,9 +473,10 @@ stage of assembly.
   \label{fig:pipeline}
 \end{figure}
 
-In figure~\ref{fig:pipeline} we see that the first instruction as currently
-performing memory access while the second EXecutes and the third is
-being Decoded. Up to 5 instructions can be processed simultaneously.
+In figure~\ref{fig:pipeline} we see that the first instruction as
+currently performing memory access while the second EXecutes and the
+third is being Decoded. Up to 5 instructions can be processed
+simultaneously.
 
 When pipelining an interesting situation occurs in the case of flow
 control instructions. These are instructions that cause execution to
@@ -521,9 +530,7 @@ access. If you access memory in more or less the same area a lot, that
 acess is much faster than if you hop around from place to place. We
 should try to take advantage of cache in our VM's design.
 
-
-
-\subsection{Traditional Implementation of High Level VMs}
+\subsection{Conventional Implementation of High Level VMs}
 
 \subsubsection{Dispatch and Threading}
 
@@ -536,24 +543,13 @@ figure~\ref{fig:switch} for a C implementation.
 
 \begin{figure}
   \begin{lstlisting}
-typedef enum { add /* ... */ } Inst; 
+    typedef enum { add /* ... */ } Inst;
 
-void engine() 
-{ 
-    static Inst program[] = { add /* ... */ }; 
-    Inst *ip = program; 
-    int *sp; 
+    void engine() { static Inst program[] = { add /* ... */ }; Inst
+      *ip = program; int *sp;
 
-    for (;;) 
-        switch (*ip++) 
-        { 
-        case add: 
-            sp[1]=sp[0]+sp[1]; 
-            sp++; 
-        break; 
-        /* ... */ 
-    }
-} 
+      for (;;) switch (*ip++) { case add: sp[1]=sp[0]+sp[1]; sp++;
+        break; /* ... */ } }
   \end{lstlisting}
   \caption{Switch Dispatch}
   \label{fig:switch}
@@ -579,19 +575,12 @@ instruction to be executed.
 
 \begin{figure}
   \begin{lstlisting}
-typedef void *Inst; 
+    typedef void *Inst;
 
-void engine() 
-{ 
-    static Inst program[] = { &&add /* ... */ }; 
-    Inst *ip = program; 
-    int *sp; 
-    goto *ip++; /* dispatch first VM inst. */ 
-add: 
-    sp[1]=sp[0]+sp[1]; 
-    sp++; 
-    goto *ip++; /* dispatch next VM inst. */ 
-}
+    void engine() { static Inst program[] = { &&add /* ... */ }; Inst
+      *ip = program; int *sp; goto *ip++; /* dispatch first VM
+      inst. */ add: sp[1]=sp[0]+sp[1]; sp++; goto *ip++; /* dispatch
+      next VM inst. */ }
   \end{lstlisting}
   \caption{Direct Threaded Dispatch}
   \label{fig:direct}
@@ -605,19 +594,11 @@ that instruction in the table and then jumping to that instruction.
 
 \begin{figure}
   \begin{lstlisting}
-typedef void *Inst;
-void engine() 
-{ 
-    static Inst lookup[] = { &&add, &&sub /*...*/ }
-    static int program[] = { 0, /* ... */ }; 
-    int *ip = program; 
-    int *sp; 	
-    goto *ip++; /* dispatch first VM inst. */ 
-add: 
-    sp[1]=sp[0]+sp[1]; 
-    sp++; 
-    goto lookup[*ip++]; /* dispatch next VM inst. */ 
-}
+    typedef void *Inst; void engine() { static Inst lookup[] = {
+        &&add, &&sub /*...*/ } static int program[] = { 0, /* ... */
+      }; int *ip = program; int *sp; goto *ip++; /* dispatch first VM
+      inst. */ add: sp[1]=sp[0]+sp[1]; sp++; goto lookup[*ip++]; /*
+      dispatch next VM inst. */ }
   \end{lstlisting}
   \caption{Indirect Threaded Dispatch}
   \label{fig:indirect}
@@ -632,8 +613,6 @@ All code in this section is from or adapted from \cite{Ertl}.
 
 
 \subsubsection{Registers VS Stacks}
-
-
 In a stack virtual machine, instructions act on members of the
 stack. Arguments and return values for instructions are often implicit
 and thus instructions can be smaller. For instance a stack
@@ -674,8 +653,8 @@ the size of the code to be executed.
 Ertl and Gregg found that in their benchmarks 3.2\%\textendash 13\% of
 all executed instructions were indirect branches and that switch
 dispatch on an architecture with a BRB resulted in 81\%-98\% branch
-prediction misses \cite{EfficientInterpreters}. They also found that direct
-threading resulted in 50\%-63\% branch prediction misses.
+prediction misses \cite{EfficientInterpreters}. They also found that
+direct threading resulted in 50\%-63\% branch prediction misses.
 
 \subsection{Existing Systems}
 
@@ -704,22 +683,37 @@ something prioritised by the Lua team for portability reasons
 
 
 \subsubsection{JRockit JVM and .NET runtime}
-Oracle's Java Virtual Machine implementation is a high performance
-Virtual Machine for running java bytecode. Microsoft's .NET runtime is
-a similar VM that runs the common intermeidate language that several
-Microsoft-developed languages compile to. They are implemented
-similarly to each other and quite differently from the VM described in
-this treatise:
+Oracle's Java Virtual Machine implementation, called JRockit, is a
+high performance Virtual Machine for running java
+bytecode. Microsoft's .NET runtime is a similar VM that runs the
+common intermeidate language that several Microsoft-developed
+languages compile to. They are implemented similarly to each other and
+quite differently from the VM described in this treatise:
 \begin{description}
 \item[Statically Typed] Both VMs make use of static types. Types are
   associated with variables instead of values.
 \item[Stack-based] Both are stack-based architectures instead of
   register-based
-\item[Dispatch] ???
 \item[JIT] Both VMs make use of Just in Time compilation.
 \end{description}
 
 \section{Solution Design}
+
+\subsection{A Virtual Machine for Many Instance Applications}
+Modern process virtual machines make use of JIT compilers. Both JVM
+and .Net make use of a JIT compiler \cite{MSDN,Oracle}. For
+applications that run many concurrent instances, like a web server
+which which starts up a new process for every client, a virtual
+machine that makes use of a JIT compiler defeats the benefits of
+read-only memory sharing. Since memory sharing is not possible when
+using a JIT compiler, if we wish to take advantage of it a JIT-less
+virtual machine is needed. However the JIT compiler compiler is an
+important feature of a VM that allows for code given to it at runtime
+to be compiled into machine code that can run directly on the
+host. This compiled code is cached and allows for future execution to
+be faster. Sacrificing the JIT compiler to allow memory sharing
+presents us with a need to find alternative ways to let our programs
+execute quickly.
 
 Three virtual machines are presented as solutions. These VMs are
 spaced along a scale for how much they expand out the behaviour of
@@ -1107,6 +1101,9 @@ These instructions allow for values to be moved between registers.
 \item[movc] move a 64-bit integer constant over a register
   
   $movc(i, const_{64}):= g_{i} \longleftarrow const_{64} $ \\
+
+\item[movsc] 
+
 \item[null] set a register to null
   
   $null(i):= g_{i} \longleftarrow null $ \\
@@ -1188,7 +1185,7 @@ jumps are relative to the current \verb|IP| value.
 \subsubsection{Function Call and Return}
 \begin{description}
 \item[call] sets up a new stack frame, saves the old state of the VM
-  before the call, copyies arguments and moves execution to the
+  before the call, copies arguments and moves execution to the
   function's instructions
 
   $call(disp_{16}, first_{16}, count_{16}) :=$ \\
@@ -1228,33 +1225,54 @@ jumps are relative to the current \verb|IP| value.
   with 4 instruction words skipped to point to the first instruction
   after the 64-bit integer.
   
-\item[ret] Return  
+\item[ret] restores the previous stack frame and frees the current
+  stack frame
   $ret() := $  \\
   $ stackframe *cur \longleftarrow (stackframe*)((size\_t)fp - sizeof(stackframe)) \\
   fp \longleftarrow cur.fp \\
   ip \longleftarrow cur.ip \\
   RestoreTS(cur.ts, ts);\\
-  RestoreRegisters(cur.g) \\                
+  RestoreRegisters(cur.g) \\
   free(cur); \\$
+
+  First the address of the current stack frame is aquired and stored
+  in $cur$.
+  Next the saved values for FP, IP, TS and g1 through g4 are restored.
+  Finally the current stack frame is freed.
 \end{description}
 
 
 \subsubsection{Pragmatic Higher-Level Instructions}
-\addvbuffer[12pt 8pt]{
-  \begin{tabular}{| l | l |} \hline
-    $newo$ & $dsdg$ \\
-    \hline
-    newb & a \\
-    \hline
-    err & a \\
-    \hline
-    in & a \\
-    \hline
-    out & a \\
-    \hline
-    print & a \\
-    \hline
-  \end{tabular}}
+
+\begin{description}
+\item[newo] allocates a new object of size given by an integer-valued
+  register and assigns it to some register
+
+  $ newo(i, j \neq i) := $ \\
+  $  object *base \longleftarrow (object*)malloc(sizeof(object) + sizeof(value)* r_j) \\
+  base.size \longleftarrow r_i\\
+  g_i \longleftarrow base \\ $
+
+\item[newb]{} allocates a new object of size given by an integer-valued
+  register and assigns it to some register
+
+  $ newb(i, j \neq i) := $ \\
+  $  object *base \longleftarrow (buffer*)malloc(sizeof(object) + sizeof(int8\_t)* r_j) \\
+  base.size \longleftarrow r_i\\
+  g_i \longleftarrow base \\ $
+
+\item[err] prints an error string at a 16-bit integer value displacement from IP then halts VM
+
+%movsc goes here???
+
+\item[in] attempts to fill a buffer from standard input
+
+\item[out] writes out a stream of data from a buffer to stdout
+
+\item[print] writes a line of data to stdout 
+
+\end{description}
+    
 
 \subsection{Conventional VM}
 

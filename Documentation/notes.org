@@ -17,3 +17,21 @@ dynamic typed languages "glue languages"
 *** scope
 *** risks
 * chp2
+** specifics of interpreters for dynamically typed languages
+* chp3/4
+** talk more about design decisions, trade-offs, motivations etc
+** actual spec is an appendix
+** design of instruction set & implementation in separate chapters or
+*** design is high level (dispatch design)
+*** implementation ch shows how that was done in C
+** dalvik and parrot VM
+*** reimplementation of perl 6
+* chp 5
+* misc
+- tikz for graphics (redo AST)
+- pgfplots
+* simple JIT and fancy JIT + instrumentation to detect hot paths
+** probability of pc being here
+* look at trace based JIT
+* how much time spent per state
+* which states are visited and how many times

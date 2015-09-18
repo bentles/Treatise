@@ -840,7 +840,7 @@ int16_t arg1 = GetArg1(*ip);
 if (IsInt(g[arg1])) {
 object *base = (object*)malloc(sizeof(object) + sizeof(value)* g[arg1].i);
 if (base) {
-base->sf = MakeSizeAndFlags(size,0);
+base->sf = MakeSizeAndFlags(g[arg1].i,0);
 g[arg0].tag = 2;
 g[arg0].p = base;
 }
