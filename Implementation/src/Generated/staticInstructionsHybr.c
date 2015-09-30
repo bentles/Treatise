@@ -26865,7 +26865,7 @@ free(cur);
 if (fp == NULL)
 {
     #ifdef STATS
-    printStats();
+    writeStats(argv[1]);
     #endif /* STATS */
     return 0;
 }

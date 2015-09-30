@@ -8,6 +8,7 @@
 #define STATS_H
 
 #include <inttypes.h>
+#include <string.h>
 
 #define STATES 64
 
@@ -22,6 +23,6 @@ extern Counter opcodeCounters[];
 int64_t stateSwitches;
 int64_t stateCounters[STATES];
 
-void printStats(void);
+void writeStats(char* filename);
 
 #endif /* STATS_H */

@@ -1,5 +1,5 @@
 \documentclass[english,a4paper]{article}
-\usepackage[margin=2cm]{geometry}
+%\usepackage[margin=2cm]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[latin9]{inputenc}
 \usepackage{graphicx}
@@ -13,6 +13,11 @@
 \usepackage{color}
 \usepackage{enumitem}
 \usepackage{tikz}
+\usepackage[toc,page]{appendix}
+\usepackage{forest}
+\usepackage{titling}
+
+\usepackage[affil-it]{authblk}
 
 % reset counter per chapter
 \usepackage{chngcntr}
@@ -24,26 +29,33 @@
 \lstset{basicstyle=\footnotesize\ttfamily,breaklines=true}
 \lstset{framextopmargin=50pt}
 
+\pretitle{%
+  \begin{center}
+  \LARGE
+  \rule[0.5ex]{1\columnwidth}{2pt}
+   \includegraphics[scale=0.5]{nmmu.jpg}
+   \rule[0.5ex]{1\columnwidth}{2pt}
+}
+\posttitle{
+
+\end{center}
+}
+
+
 \begin{document}
 
-\title{A JIT-Less Type-Mapped Dynamic-ISA Virtual Machine for 
+\title{A JIT-Less Type-Mapped Dynamic-ISA Virtual Machine for
   Many-Instance Applications}
 
+\author{ Douglas Bentley \and Supervisor: Kevin Naude }
+
 \maketitle
-% \rule[0.5ex]{1\columnwidth}{2pt}
 
-\begin{figure}[tph]
-
-  \includegraphics[scale=0.5]{nmmu.jpg}
-\end{figure}
-
-\author{ Author: Douglas Bentley} \author{ Supervisor: Kevin Naudé}
-
-% \rule[0.5ex]{1\columnwidth}{2pt}
-
-\title{Submitted in partial fulfilment of the degree Baccalaureus
-  Scientiae (Honores) in Computer Science at the Nelson Mandela
-  Metropolitan University}
+\begin{center}
+Submitted in partial fulfilment of the degree Baccalaureus Scientiae
+(Honores) in Computer Science at the Nelson Mandela Metropolitan
+University
+\end{center}
 
 \newpage{}
 
@@ -70,6 +82,7 @@
 \newpage{}
 
 \section{Introduction}
+
 In the last 20 years, software applications programming has seen a
 shift away from compiled languages, that run natively on hardware,
 towards interpreted languages that require the use of another program,
@@ -156,34 +169,20 @@ and interpreted in this fashion.
 \begin{figure}
   \begin{subfigure}{.5\textwidth}
     \begin{lstlisting}
-if (x > y)
-    max = x;
-else
-    max = y;
+      if (x > y)
+          max = x;
+      else
+          max = y;
     \end{lstlisting}
     \caption{If statement code}
   \end{subfigure}
   \begin{subfigure}{.5\textwidth}
     \centering
 
-    \begin{tikzpicture}[
-      tlabel/.style={pos=0.4,right=-1pt,font=\footnotesize\color{red!70!black}},
-      ]
-      \node{if}
-      child {node {>}
-        child {node{x}}
-        child {node{y}}
-      }
-      child {node {=} 
-        child {node {max}}
-        child {node {x}}
-      }      
-      child {node {=}
-        child {node{max}}
-        child {node{y}}
-      };
-   
-    \end{tikzpicture}
+    \begin{forest}
+      for tree={ draw, s sep=6mm } [if [> [x][y]] [{=} [max] [x]]
+      [{=}[max] [y]]]
+    \end{forest}
 
     \caption{Tree parsed from code}
   \end{subfigure}
@@ -331,25 +330,24 @@ strengths and weaknesses are.
 \newpage{}
 
 \section{Literature Review, Existing systems and Modern Processors}
-This novel virtual machine is called the
-\emph{opcode-operand-type dispatch VM} or just the
-\emph{opcode-operand-type VM}. Its placement in the heirarchy of
-virtual machines is discussed in order to situate it in the spectrum
-of different virtual machines that exist and disambiguate how it could
-be used.
+This novel virtual machine is called the \textbf{opcode-operand-type
+  dispatch VM} or just the \textbf{opcode-operand-type VM}. Its
+placement in the heirarchy of virtual machines is discussed in order
+to situate it in the spectrum of different virtual machines that exist
+and disambiguate how it can be used.
 
 A review of existing systems, modern processor architectures and
 current literature on virtual machine design is also necessary to
-understand the design decisions made for the \emph{opcode-operand-type
+understand the design decisions made for the \textbf{opcode-operand-type
   VM}.
 
 \subsection{Virtual Machines}
-A \emph{virtual machine} or \emph{VM} is a computer program that
+A \textbf{virtual machine} or \textbf{VM} is a computer program that
 ``executes software in the same manner as the machine for which the
 software was developed'' \cite[pg9]{JamesE.Smith2005}. This program is
 designed to run on some real machine. We call the real machine that a
-virtual machine is running on the \emph{host} and the virtual machine
-the \emph{guest.}The guest machine provides an execution environment
+virtual machine is running on the \textbf{host} and the virtual machine
+the \textbf{guest}. The guest machine provides an execution environment
 for software that is designed to run either on the guest itself or on
 an actual machine that the virtual machine is emulating. This means
 that we can use a virtual machine to run programs that are
@@ -358,8 +356,8 @@ providing a mapping of its state to the state of the host machine on
 which it is running \cite[pg4]{JamesE.Smith2005}.
 
 \subsection{The Types of Virtual Machines}
-Virtual machines come in two varieties: \emph{process } virtual
-machines and \emph{system} virtual machines.
+Virtual machines come in two varieties: \textbf{process } virtual
+machines and \textbf{system} virtual machines.
 
 A process virtual machine is ``capable of supporting an individual
 process''\cite[pg9]{JamesE.Smith2005}. This means that the host runs
@@ -379,9 +377,9 @@ will terminate when the guest system is shut down.
 \subsection{The Types of Process Virtual Machines}
 
 Process virtual machines can be divided into two categories:
-\emph{multiprogrammed systems} and \emph{dynamic}
-\emph{translators}. The difference between these is whether or not the guest
-machine uses the same instruction set architecture as the host
+\textbf{multiprogrammed systems} and \textbf{dynamic}
+\textbf{translators}. The difference between these is whether or not the
+guest machine uses the same instruction set architecture as the host
 machine.
 
 With multiprogramming the guest and host use the same instruction
@@ -402,7 +400,7 @@ are read, their meaning interpreted and then executed. This
 interpretation step must happen each time a piece of code is executed
 so code that is executed enough times will be dynamically translated
 and cached so later execution is faster. Dynamically translating in
-this manner is known as \emph{just-in-time compilation} (JIT
+this manner is known as \textbf{just-in-time compilation} (JIT
 compilation).
 
 \subsection{Where the opcode-operand-type VM is Situated}
@@ -414,24 +412,93 @@ compilation. It is entirely interpreted. It is also dynamically typed.
 \subsection{Dynamic vs Statically Typed Programming Languages}
 A dynamically typed language is one in which the type information is
 associated with values \cite[pg4]{RobertoIerusalimschy}. An example of
-a dynamically typed language is javascript where the var keyword is
-used for variables and the type is inferred from the value stored into
-a variable. A statically typed language is one in which the type
-information is associated with the variable. An example of this is
-java where variables are declared using keywords that define their
-type (\emph{int}, \emph{string} etc).
+a dynamically typed language is JavaScript. In JavaScript the var
+keyword is used for variables. This is because the type is associated
+with the value stored in the variable so variables themselves need not
+be told which type is associated with them. Any variable can hold a
+value of any type. A statically typed language is one in which the
+type information is associated with the variable. An example of this
+is Java. In Java variables are declared using keywords that define
+their type (\textbf{int}, \textbf{String} etc). Each variable can only
+hold a value of that type. Each approach has its strengths and
+weaknesses.
+
+\subsubsection{Type Correctness}
+With static typing a program's type correctness can be checked at
+compile time. Because the types of all variables are known when the
+code is written, operations on those variables can be declared valid
+or invalid when code is compiled. If an operation that acts on one
+type of variable is given another the program will not compile. This
+knowledge is advantageous for the programmer and for the machine (or
+VM as the case may be).
+
+The programmer benefits from knowing whether or not his program is
+correct at compile time. The implications of this are larger than just
+being able to find errors while compiling some piece of code instead
+of while running it. A type error in a dynamically typed language has
+to actually be executed before it can be detected. If a type error
+occurs in a rarely taken path of execution in a dynamically typed
+program, it may not be detected at all. This means that a programmer
+writing in a dynamically typed language must ensure that the values in
+the variables they use are of types that make sense for the operations
+they wish to perform. A programmer writing in a statically typed
+language will have their types checked for them.
+
+Figure \pageref{fig:dvs} shows how Java, a statically typed language
+and Lua, a dynamically typed language, handle code which tries to
+perform addition of two types that cannot be added in either
+language. The Lua code compiles but encounters an error at
+runtime. The Java code does not compile.
+
+The machine or VM benefits from not having to check the types of
+instruction arguments. This is a major overhead in dynamically typed
+languages. In a dynamically typed language,
+the types of the arguments must be checked for each instruction the VM
+or machine must perform as all arguments are values. This means that
+an addition instruction that works on integers, for instance, must
+check that the values it is trying to add are in fact integers before
+it can add them.
+
+\begin{figure}
+  \begin{subfigure}{.48\textwidth}
+    \begin{lstlisting}
+      class main {
+        public static void main(String[] args) {
+          int foo = 12;
+          String bar = ``bar'';
+          int foobar = foo + bar;
+        }
+      }
+    \end{lstlisting}
+    \caption{Java: does not compile}
+  \end{subfigure}
+  \begin{subfigure}{.48\textwidth}
+    \begin{lstlisting}
+      foo = 12
+      bar = ``bar''
+      foobar = foo + bar
+    \end{lstlisting}
+    \caption{Lua: compiles but encounters error}
+  \end{subfigure}
+  \caption{Dynamically vs Statically Typed Languages}
+  \label{fig:dvs}
+\end{figure}
+
+% now that i've made dynamic types sound like a dumb idea should I
+% talk about what's good? is this even NB? because people use em for
+% stuff so something's gotta be good
 
 \subsection{Modern Processor Architecture}
 
 In order to create an efficient VM, we need first understand how
 modern processors work and what some of the bottlenecks for our VM's
-execution might be. For example, \emph{threading techniques} (not to
+execution might be. For example, \textbf{threading techniques} (not to
 be confused with threads in application programming) are commonly used
 in VM design. These take advantage of a feature of modern processors
-called the \emph{Branch Target Buffer} or BTB. The BTB exists to aid a
-process called \emph{branch prediction}. Branch prediction itself can
+called the \textbf{Branch Target Buffer} or BTB. The BTB exists to aid a
+process called \textbf{branch prediction}. Branch prediction itself can
 only be explained once we know about how modern processors make use of
-\emph{pipelining} to increase their throughput. As you can see, an
+\textbf{pipelining} to increase their throughput. As you can see, an
 understanding of modern computer architectures is needed before we can
 begin a discussion of VM design.
 
@@ -441,16 +508,16 @@ Pipelining is a process in which a processor's instruction processing
 cycle is shared by many consecutive instructions at once. The
 instruction processing procedure is split up into smaller stages that
 can execute simultaneously. An example of this is the classic RISC
-pipeline{[}x{]} which divides instruction processing into the
-following steps: Instruction Fetch (IF), Decode (ID), Execute(EX),
-Memory Access (MEM) and Writeback (WB). Each instruction passes a
-stage and leaves that part of the processor free to perform that stage
-on the next instruction. Thus many instructions (as many as there are
-stages) can be processed at once, instead of each instruction having
-to be completely processed before the processor is free to move onto
-the next instruction. The process is analogous to an asssembly line,
-where many cars can be assembled at the same time, each in a different
-stage of assembly.
+pipeline which divides instruction processing into the following
+steps: Instruction Fetch (IF), Decode (ID), Execute(EX), Memory Access
+(MEM) and Writeback (WB). Each instruction passes a stage and leaves
+that part of the processor free to perform that stage on the next
+instruction. Thus many instructions (as many as there are stages) can
+be processed at once, instead of each instruction having to be
+completely processed before the processor is free to move onto the
+next instruction. The process is analogous to an asssembly line, where
+many cars can be assembled at the same time, each in a different stage
+of assembly.
 
 \begin{figure}[tph]
   \centering
@@ -467,7 +534,7 @@ simultaneously.
 When pipelining an interesting situation occurs in the case of flow
 control instructions. These are instructions that cause execution to
 move to some other point in the program. The point at which we know
-which instruction comes next (called \emph{branch resolution}) is
+which instruction comes next (called \textbf{branch resolution}) is
 usually later in the pipeline. Thus the processor cannot queue up the
 next instruction as it does not know which instruction will execute
 next. Branch prediction is used in modern processors to try to keep
@@ -481,7 +548,7 @@ until we know where to branch, with branch prediction we guess which
 branch will be taken and place the instructions from the predicted
 branch into the pipeline. When we know where the branch operation
 should have taken execution we either throw out our newly pipelined
-instructions (this is called \emph{pipeline flushing}) if the
+instructions (this is called \textbf{pipeline flushing}) if the
 prediction was incorrect or continue execution if it was correct. The
 more stages the pipeline has before branch resolution, the more of a
 performance benefit correct predictions become for programs with many
@@ -528,7 +595,6 @@ switch statement in a loop. This is called switch dispatch. See
 figure~\ref{fig:switch} for a C implementation.
 
 \begin{figure}
-  \begin{lstlisting}
 typedef enum { add /* ... */ } Inst; 
 
 void engine() 
@@ -656,6 +722,10 @@ processes at the same time.
 
 \subsection{VM Interpreter Reseach}
 
+Research into VM interpreters has been an important computer science topic since 
+
+\subsubsection{Threaded Code}
+
 James R. Bell introduced the concept of threaded code in 1973. The
 Fortran IV compiler was written to generate threaded code.\cite{Bell}
 Yuhne Shi\cite{Shi2007} found that a well-implemented register VM is a
@@ -664,9 +734,33 @@ the size of the code to be executed.
 
 Ertl and Gregg found that in their benchmarks 3.2\%\textendash 13\% of
 all executed instructions were indirect branches and that switch
-dispatch on an architecture with a BRB resulted in 81\%-98\% branch
+dispatch on an architecture with a BTB resulted in 81\%-98\% branch
 prediction misses \cite{EfficientInterpreters}. They also found that
 direct threading resulted in 50\%-63\% branch prediction misses.
+
+\subsubsection{Abstraction Level}
+
+A 2009 study\cite{Brunthaler20093} by Stefan Brunthaler classed
+virtual machines as high or low abstraction level virtual machines,
+where low abstraction virtual machines are ``only a thin layer above a
+real machine'' and high abstraction level virtual machines where the
+``operation implementation requires significantly more native
+instructions than for low abstraction level''.
+
+The study aimed to question the established thought that instruction
+dispatch was the main overhead for a virtual machine. He found that
+this assumption does not hold for high abstraction level VMs, but is
+valid for VMs with a low abstraction level.
+
+\subsubsection{Specialised Instructions}
+
+Michael Schr{\"o}der implemented a modified version of the Lua Virtual
+machine that made use of the approach of specialising instructions
+based on the types of their arguments when they are first
+dispatched. In order to allow this to be safe, instructions that may
+change the type of the arguments for that instruction have type checks
+that will despecialise the instruction if need be. This approach
+achieved a 20\% speed increase on Intel machines\cite{Schroder2012}}.
 
 \subsection{Existing Systems}
 
@@ -716,7 +810,8 @@ VM. Dalvik has been replaced by ART in Android 5.0. Unlike the JVM,
 the Dalvik VM is a register machine.
 \begin{description}
 \item[[Statically Typed]] Dalvik VM bytecode is statically typed
-\item[Register-based] The Dalvik VM makes use of a register-based design
+\item[Register-based] The Dalvik VM makes use of a register-based
+  design
 \item[JIT] Dalvik VM code is JITted
 \end{description}
 
@@ -811,16 +906,8 @@ lookup table.
 
 \begin{figure}
   \begin{lstlisting}
-typedef struct ValueStruct value;
-struct ValueStruct
-{
-	int64_t tag;
-	union
-	{
-		int64_t i;
-		void *p;    
-	};
-};
+    typedef struct ValueStruct value; struct ValueStruct { int64_t
+      tag; union { int64_t i; void *p; }; };
   \end{lstlisting}
   \label{fig:struct}
   \caption{Value Struct}
@@ -877,13 +964,12 @@ object.
 
 \subsection{Buffers}
 
-Buffers are a data structure that exposes the native byte to the
-VM so that string and handling may be performed without having to
-create a \verb|value| for each character. The implementation is,
-much like the object, a struct with an array of bytes and a size
-field that holds the length of the array and garbage collector
-flags. Figure~\ref{fig:buffer} shows the memory layout of a
-buffer.
+Buffers are a data structure that exposes the native byte to the VM so
+that string and handling may be performed without having to create a
+\verb|value| for each character. The implementation is, much like the
+object, a struct with an array of bytes and a size field that holds
+the length of the array and garbage collector
+flags. Figure~\ref{fig:buffer} shows the memory layout of a buffer.
 
 \begin{figure}
   \centering
@@ -906,15 +992,15 @@ buffer.
 
 \subsection{Registers}
 
-All virtual machines make use of 6 general purpose
-registers. These registers are implemented as an array of 6
-\verb|values|. These shall be referred to as $g_0$ through
-$g_5$. Here `g' refers to `general purpose'.
+All virtual machines make use of 6 general purpose registers. These
+registers are implemented as an array of 6 \verb|values|. These shall
+be referred to as $g_0$ through $g_5$. Here `g' refers to `general
+purpose'.
 
-A further two registers are found in all VMs. The instruction
-pointer, which will be referred to as the \verb|IP| and the frame
-pointer which will be referred to as the \verb|FP|. These are a
-16-bit-integer pointer and a value pointer respectively.
+A further two registers are found in all VMs. The instruction pointer,
+which will be referred to as the \verb|IP| and the frame pointer which
+will be referred to as the \verb|FP|. These are a 16-bit-integer
+pointer and a value pointer respectively.
 
 \subsection{Stack Frames and Function Definitions}
 
@@ -980,9 +1066,9 @@ Instructions take operands of three types:
   unsigned 16-bit constant. The value of these constants will be
   referred to in the following form: $name_{16}$
 \item[IP-relative addressing] This type of operand considers an
-  instruction word as the \verb|IP|-relative address of a 64-bit unsigned
-  integer constant. The value of the 64-bit constant will be referred
-  to in the following form: $name_{64}$
+  instruction word as the \verb|IP|-relative address of a 64-bit
+  unsigned integer constant. The value of the 64-bit constant will be
+  referred to in the following form: $name_{64}$
 \end{description}
 
 \subsection{Instructions}
@@ -1140,7 +1226,7 @@ These instructions allow for values to be moved between registers.
   
   $movc(i, const_{64}):= g_{i} \longleftarrow const_{64} $ \\
 
-\item[movsc] 
+\item[movsc]
 
 \item[null] set a register to null
   
@@ -1291,41 +1377,57 @@ jumps are relative to the current \verb|IP| value.
   base.size \longleftarrow r_i\\
   g_i \longleftarrow base \\ $
 
-\item[newb]{} allocates a new object of size given by an integer-valued
-  register and assigns it to some register
+\item[newb]{} allocates a new object of size given by an
+  integer-valued register and assigns it to some register
 
   $ newb(i, j \neq i) := $ \\
   $  object *base \longleftarrow (buffer*)malloc(sizeof(object) + sizeof(int8\_t)* r_j) \\
   base.size \longleftarrow r_i\\
   g_i \longleftarrow base \\ $
 
-\item[err] prints an error string at a 16-bit integer value displacement from IP then halts VM
+\item[err] prints an error string at a 16-bit integer value
+  displacement from IP then halts VM
 
-%movsc goes here???
+  % movsc goes here???
 
 \item[in] attempts to fill a buffer from standard input
 
 \item[out] writes out a stream of data from a buffer to stdout
 
-\item[print] writes a line of data to stdout 
+\item[print] writes a line of data to stdout
 
 \end{description}
-    
 
 \subsection{Conventional VM}
+
+The conventional VM makes use of a conventional decode step for each
+instruction executed by the VM. The opcode and register-number
+addressed operands are decoded from each instruction word using a
+process of shift and mask operations. The layout of the conventional
+VM's instruction words can be see in figure~\ref{fig:convinstruction}.
+
+The two most commonly accessed parts of the instruction word, the
+opcode and first argument are on each end of the instruction
+word. This means that the opcode, on the left, need only be shifted
+right to acquire its value. The first argument, on the right, need
+only have the other bits masked. All other arguments require both a
+mask and a shift operation.
 
 \begin{figure}
   \centering
   \begin{bytefield}[bitwidth=1.5em]{16}
     \bitheader{0,6,7,9,10,12,13,15} \\
     \bitbox{7}{opcode} & \bitbox{3}{arg3} & \bitbox{3}{arg2} & \bitbox{3}{arg1}\\
-    
   \end{bytefield}
   \caption{Conventional VM instruction layout}
   \label{fig:convinstruction}
 \end{figure}
 
+
 \subsection{Opcode-operand dispatch VM}
+
+The opcode-operand dispatch VM has a seperate version of every
+instruction for every combination of arguments given to it.
 
 \subsection{Opcode-operand-type dispatch VM}
 
@@ -1333,7 +1435,7 @@ The opcode-operand-type virtual machine does not make use of the usual
 opcode and arguments arrangment used in register machine
 interpreters. Usually, the interpreter reads in some instruction
 stored as an opcode and the arguments for that opcode at the same
-time. In \emph{fig 2} we see a 16-bit instruction composed of a 4-bit
+time. In \textbf{fig 2} we see a 16-bit instruction composed of a 4-bit
 opcode in the high bits, followed by two 6-bit operands or
 aguments. The interpreter performs the necessary shifts and bitmasking
 to get the values out of the fields.
@@ -1381,8 +1483,13 @@ error if the arguments are illegal.
 \section{Conclusion}
 
 \newpage{}
+\begin{appendices}
+\chapter{Some Appendix}
+The contents...
+\end{appendices}
+
+\end{document}
 
 \bibliographystyle{apacite} 
 \bibliography{treatise-bibliography}
 
-\end{document}

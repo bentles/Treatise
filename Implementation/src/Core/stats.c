@@ -22,26 +22,34 @@ Counter opcodeCounters[] =
 #endif /*HYBR*/
 };
 
-void printStats(void)
+void writeStats(char* filename)
 {
-    int i = 0;
+    int i = 0; 
+    FILE *stats_file;
+    stats_file = fopen(strcat(filename, ".stats"), "w");
+    if (stats_file == NULL)
+    {
+        fprintf(stderr, "Unable to create stats file");
+        return;
+    }
     
     Counter cur = opcodeCounters[i];
 
-    puts("\nInstructions usage statistics:\n============================\n");
+    fprintf(stats_file, "\nInstructions usage statistics:\n============================\n");
     
     while(cur.name != "")
     {            
-        printf("%s, %d\n", cur.name, cur.count);
+        fprintf(stats_file,"%s, %lld\n", cur.name, cur.count);
         cur = opcodeCounters[++i];
     }
 
-    puts("\nType state switching statistics:\n============================\n");
-    printf("Total Nr of switches: %d\n", stateSwitches);
+    fprintf(stats_file, "\nType state switching statistics:\n============================\n");
+    fprintf(stats_file, "Total Nr of switches: %lld\n", stateSwitches);
 
-    puts("\nStates used:\n");
+    fprintf(stats_file, "\nStates used:\n");
     for (int i = 0; i < STATES; i++) {
-        printf("%d, %d\n", i, stateCounters[i]);
+        fprintf(stats_file, "%lld, %lld\n", i, stateCounters[i]);
     }
 
+    fclose(stats_file);
 }

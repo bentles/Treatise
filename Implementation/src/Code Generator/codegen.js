@@ -629,7 +629,7 @@ var lookups = [
                 'if (fp == NULL)\n' +
                 '{\n' +
                 '    #ifdef STATS\n' +
-                '    printStats();\n' +
+                '    writeStats(argv[1]);\n' +
                 '    #endif /* STATS */\n' +
                 '    return 0;\n' +
                 '}\n' 
@@ -1158,9 +1158,10 @@ InstructionGenerator.prototype = {
 
         //if the state actually changed, increment counters
         var debugEnd = '#ifdef STATS\n' +
-                'if (prevts != ts)\n' +
+                'if (prevts != ts) {\n' +
                 '    stateCounters[ts >> 11]++;\n' +
                 '    stateSwitches++;\n' +
+                '}\n' +
                 '#endif\n';
         
         return debugStart + tsUpdate + debugEnd;
