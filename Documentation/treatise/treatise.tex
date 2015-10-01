@@ -308,23 +308,27 @@ be examined and some theory about modern processors will be
 covered. This theory informs some of the design decisions of the
 virtual machine.
 
-In chapter 3, the implementation details and decisions made in the
-design of the VM will be covered. This chapter will cover how the VM
-works, what instructions it supports and how it implements these
-instructions. This chapter will also discuss the trade-offs of the
-virtual machine's design against the conventional approach.
+In chapter 3, the design of the VM will be covered. This chapter will
+cover how the VM works, what instructions it supports and discusses
+why certain design decisions were made given the information in
+chapter 2.
 
-In chapter 4, the experimental design and benchmarks will be
+In chapter 4, the implementation details of the VM are covered, with
+code samples provided as examples for various important elements of
+the VM's design like dispatch, function calls and how instructions are
+implemented.
+
+In chapter 5, the experimental design and benchmarks will be
 discussed. Which benchmarks were chosen and what they can tell us
 about the virtual machine will be discussed in this chapter. It will
 also detail the exact details of how the experiment was conducted so
 that it may be repeatable with similar hardware.
 
-In chapter 5, the results of the experiment will be discussed and
+In chapter 6, the results of the experiment will be discussed and
 analysed and the performance benefits of the virtual machine will be
 examined.
 
-Lastly in chapter 6, conclusions will be drawn about in what instances
+Lastly in chapter 7, conclusions will be drawn about in what instances
 the implementation for the virtual machine is useful and what its
 strengths and weaknesses are.
 \newpage{}
@@ -531,15 +535,17 @@ currently performing memory access while the second EXecutes and the
 third is being Decoded. Up to 5 instructions can be processed
 simultaneously.
 
-When pipelining an interesting situation occurs in the case of flow
-control instructions. These are instructions that cause execution to
-move to some other point in the program. The point at which we know
-which instruction comes next (called \textbf{branch resolution}) is
-usually later in the pipeline. Thus the processor cannot queue up the
-next instruction as it does not know which instruction will execute
-next. Branch prediction is used in modern processors to try to keep
-the pipeline as full as possible and not waste time waiting for this
-information to be known.
+When pipelining an interesting situation occurs in the case of some
+control flow instructions. Control flow instructions are those that
+cause execution to move to some other point in the program. For
+control flow instructions where the jump is conditional (based on some
+criteria being true) the point at which we know which instruction
+comes next (called \textbf{branch resolution}) is usually later in the
+pipeline. Thus the processor cannot queue up the next instruction as
+it does not know which instruction will execute next. Branch
+prediction is used in modern processors to try to keep the pipeline as
+full as possible and not waste time waiting for this information to be
+known.
 
 \subsubsection{Branch Prediction}
 
@@ -549,20 +555,21 @@ branch will be taken and place the instructions from the predicted
 branch into the pipeline. When we know where the branch operation
 should have taken execution we either throw out our newly pipelined
 instructions (this is called \textbf{pipeline flushing}) if the
-prediction was incorrect or continue execution if it was correct. The
-more stages the pipeline has before branch resolution, the more of a
-performance benefit correct predictions become for programs with many
-control flow instructions. A Virtual Machine is such a program. This
-is because a VM must branch to the correct code for each instruction
-it executes. Writing code that allows for increased branch prediction
-accuracy is thus very important for VM efficiency.
+prediction was incorrect or continue execution if it was correct.
+
+The more stages the pipeline has before branch resolution, the more of
+a performance benefit correct predictions become for programs with
+many conditional control flow instructions. A Virtual Machine is such
+a program. This is because a VM must branch to the correct code for
+each instruction it executes. Writing code that allows for increased
+branch prediction accuracy is thus important for VM efficiency.
 
 Predicting a branch means we must predict if that branch is taken or
 not and what the target of that branch is if it is taken. Modern
 processors have a Branch Target Buffer where the target adresses of
 previously taken branches are cached. So upon arrival at a branch that
-has been previously taken, we guess if it will be taken and if it is
-we begin speculatively executing from the address stored in the BTB.
+has been previously taken, we guess if it will be taken and begin
+speculatively executing from the address stored in the BTB.
 
 \subsubsection{Cache}
 
@@ -571,7 +578,7 @@ faster memory access. Ideally we would like to have an infinite amount
 of memory with no time cost for accessing it. The reality is that the
 larger memory is, the slower it becomes to access it {[}???{]}. In
 order to get closer to the ideal modern processors make use of
-cache. It takes around 100 cycles for Intel's Intel i7-4770 (Haswell)
+cache. It takes around 100 cycles for Intel's i7-4770 (Haswell)
 architecture to access memory. Cache allows us get get closer to the
 ideal case by keeping commonly accessed memory closer to the CPU in
 levels of increasingly smaller, faster and more expensive (to
@@ -595,6 +602,7 @@ switch statement in a loop. This is called switch dispatch. See
 figure~\ref{fig:switch} for a C implementation.
 
 \begin{figure}
+  \begin{lstlisting}
 typedef enum { add /* ... */ } Inst; 
 
 void engine() 
@@ -722,7 +730,7 @@ processes at the same time.
 
 \subsection{VM Interpreter Reseach}
 
-Research into VM interpreters has been an important computer science topic since 
+
 
 \subsubsection{Threaded Code}
 
@@ -760,7 +768,7 @@ based on the types of their arguments when they are first
 dispatched. In order to allow this to be safe, instructions that may
 change the type of the arguments for that instruction have type checks
 that will despecialise the instruction if need be. This approach
-achieved a 20\% speed increase on Intel machines\cite{Schroder2012}}.
+achieved a 20\% speed increase on Intel machines\cite{Schroder2012}.
 
 \subsection{Existing Systems}
 
@@ -787,8 +795,8 @@ something prioritised by the Lua team for portability reasons
   (though an independent project called luajit has provided one).
 \end{description}
 
-\subsubsection{JRockit JVM and .NET runtime}
-Oracle's Java Virtual Machine implementation, called JRockit, is a
+\subsubsection{HotSpot JVM and .NET runtime}
+Oracle's Java Virtual Machine implementation, called HotSpot is a
 high performance Virtual Machine for running java
 bytecode. Microsoft's .NET runtime is a similar VM that runs the
 common intermeidate language that several Microsoft-developed
@@ -1472,13 +1480,28 @@ perform the instruction, but with this method we already know the
 types and so we can just jump directly to code for those types or an
 error if the arguments are illegal.
 
-
-
 \subsubsection{opcode}
 
 \section{Experimental Design}
 
+\subsection{Benchmarks}
+
+A suite of 7 commonly used benchmarks was prepared in 
+
+\subsubsection{Ackermann}
+\subsubsection{Fannkuch}
+\subsubsection{Fasta}
+\subsubsection{Mandelbrot}
+\subsubsection{Mersenne}
+\subsubsection{Prime Sieve}
+\subsubsection{Reverse Complement}
+
+\subsection{Instruction and Type Usage}
+
+
 \section{Results}
+
+\subsection{Performance}
 
 \section{Conclusion}
 
@@ -1492,4 +1515,3 @@ The contents...
 
 \bibliographystyle{apacite} 
 \bibliography{treatise-bibliography}
-
