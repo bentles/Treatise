@@ -334,8 +334,7 @@ strengths and weaknesses are.
 \newpage{}
 
 \section{Literature Review, Existing systems and Modern Processors}
-This novel virtual machine is called the \textbf{opcode-operand-type
-  dispatch VM} or just the \textbf{opcode-operand-type VM}. Its
+This novel virtual machine is called the \textbf{Operand-Type Dispatch VM} or just the \textbf{opcode-operand-type VM}. Its
 placement in the heirarchy of virtual machines is discussed in order
 to situate it in the spectrum of different virtual machines that exist
 and disambiguate how it can be used.
@@ -407,7 +406,7 @@ and cached so later execution is faster. Dynamically translating in
 this manner is known as \textbf{just-in-time compilation} (JIT
 compilation).
 
-\subsection{Where the opcode-operand-type VM is Situated}
+\subsection{Where the Operand-Type Dispatch VM is Situated}
 The opcode-operand-type VM is a process virtual machine. It has a new
 instruction set architecture and hence is different from any host
 machine's ISA. The virtual machine does not make use of JIT
@@ -456,11 +455,7 @@ runtime. The Java code does not compile.
 
 The machine or VM benefits from not having to check the types of
 instruction arguments. This is a major overhead in dynamically typed
-languages. In a dynamically typed language,
-the types of the arguments must be checked for each instruction the VM
-or machine must perform as all arguments are values. This means that
-an addition instruction that works on integers, for instance, must
-check that the values it is trying to add are in fact integers before
+languages. In a dynamically typed language, the types of the arguments must be checked for each instruction the VM or machine must perform as all arguments are values. This means that an addition instruction that works on integers, for instance, must ccheck that the values it is trying to add are in fact integers before
 it can add them.
 
 \begin{figure}
@@ -718,15 +713,17 @@ architecture. Both the Java Virtual Machine (JVM) and Microsoft's
 Common Language Runtime (CLR) make use of stack virtual machines
 \cite{CLI}\cite{JVM}.
 
-\subsubsection{JIT Compilation}
+\subsubsection{Just in Time Compilation}
 
-Both the JVM and CLR make use of JIT compilation\cite{JJIT}. JIT
+Both the Hotspot Java Virtual Machine and .Net Common Language 
+Runtime make use of Just in Time compilation\cite{JJIT}. JIT 
 compilation allows for code that is executed often enough to be
-compiled into native machine code at runtime. JIT compilation does not
-preclude the bytecode of a many-instance application being shared but
-each instance of the application is JIT compiling that code. So it is
-likely that the same bytecode is being compiled in many different
-processes at the same time.
+compiled into native machine code at runtime. This means that the 
+areas of code most frequently executed in the program run much faster 
+than they would otherwise and the overhead of compiling and 
+optimising every single piece of code, even that which is not used 
+often, is removed. Removing this overhead is important because slow 
+compilation at runtime can have a visible effect for users.
 
 \subsection{VM Interpreter Reseach}
 
@@ -820,73 +817,60 @@ the Dalvik VM is a register machine.
 \item[[Statically Typed]] Dalvik VM bytecode is statically typed
 \item[Register-based] The Dalvik VM makes use of a register-based
   design
-\item[JIT] Dalvik VM code is JITted
+\item[JIT] Dalvik VM code is jitted
 \end{description}
 
 \section{Solution Design}
 
-\subsection{Type-Mapping and Argument Case Expansion}
-
-A type-mapped VM is one which keeps track of the state of the types of
-its registers. This is beneficial because every instruction in a
-conventional VM design must first verify the types of its inputs
-before it can act on them. These type checks can be eliminated with
-type-mapping and intructions can be customised based on the types of
-the inputs they receive. This is closely coupled with the idea of
-argument case expansion. For Type-Mapping to be effective the VM must
-dispatch on its current type state. This is what eliminates the type
-checking step. But if the VM does not also dispatch on the arguments
-for the next instruction it cannot know which version of the
-instruction is appropriate. Argument case expansion means having a
-version of each instruction for every combination of arguments.
-
 \subsection{A Virtual Machine for Many Instance Applications}
 Modern process virtual machines make use of JIT compilers. Both JVM
-and .Net make use of a JIT compiler \cite{MSDN,Oracle}. For
-applications that run many concurrent instances, like a web server
+and .Net make use of a JIT compiler \cite{MSDN,Oracle}. 
+
+For applications that run many concurrent instances, like a web server
 which which starts up a new process for every client, a virtual
 machine that makes use of a JIT compiler defeats the benefits of
-read-only memory sharing. Since memory sharing is not possible when
-using a JIT compiler, if we wish to take advantage of it a JIT-less
-virtual machine is needed. However the JIT compiler compiler is an
-important feature of a VM that allows for code given to it at runtime
-to be compiled into machine code that can run directly on the
-host. This compiled code is cached and allows for future execution to
-be faster. Sacrificing the JIT compiler to allow memory sharing
-presents us with a need to find alternative ways to let our programs
-execute quickly.
+read-only memory sharing. This is because jitted code is created at 
+runtime and thus is saved in the process's private memory. So jitted 
+code is not shared between instances of the VM running the same 
+code. 
 
-Three virtual machines are presented as solutions. These VMs are
-spaced along a scale for how much they expand out the behaviour of
-each instruction to match the state of the virtual machine. At the
-lowest end of the scale is the control virtual machine which shall be
-referred to as the Conventional VM. One step up from that is a VM that
-expands out all cases of arguments for each instruction. This will be
-referred to as the Hybrid VM. A further step takes us to the
-Type-State virtual machine which, like the hybrid VM, expands out all
-cases of arguments for each instruction, but then further expands out
-for every case of the combinations of types those arguments could take
-on.
+The raw bytecode can be shared between applications, however. If we 
+wish to take advantage of this a JIT-less virtual machine is needed. 
+As was covered in chapter 2, JIT compilation can greatly reduce 
+the time taken to execute programs. This presents us with a need to 
+find alternative ways to let our programs execute quickly.
 
-On the lowest end of this scale the VM is simpler to implement and
-uses fewer instructions, but each instruction is less specific and so
-the complexity lies within the instructions. This is the conventional
-design for this type of VM.
+\subsection{Proposed Solution}
+The proposed solution is the Operand-Type Dispatch VM. In order to 
+determine the effectiveness of the solution, a further two virtual 
+machines are needed. A conventionally implemented VM is needed as a 
+control to determine the performance benefits of the Operand-Type 
+Dispatch VM and a further VM is needed to determine the benefits of 
+the type specialisation of the Operand-Type Dispatch VM. This VM is 
+called the Operand Dispatch VM. 
 
-On the highest end of the scale the VM is more difficult to implement
-and uses more instructions, but each instruction is very specifically
-geared to exact state of the VM so each instruction is very simple.
+These three virtual machines lie along a scale for how specific their 
+instructions are. The most specific is the Operand-Type Dispatch VM. 
+The Operand Dispatch VM is less specific and the Conventional 
+Dispatch VM has the least specific instructions.
 
-The three virtual machines are designed to be as similar as possible
-except for the aspects that the experiment examines. Those elements
-common to all VMs shall be expanded upon first and those specific to
-each shall be examined seperately.
+The details of the designs of these three virtual machines will be 
+discussed in section XXXX after design decisions common to all VMs 
+have been introduced. The three virtual machines are designed to be 
+as similar as possible except for the aspects that the experiment 
+examines. Those elements common to all VMs shall be expanded upon 
+first and those specific to each shall be examined separately. 
+
+Any referral to the \verb|VM| or the \verb|virtual machine| used from this point without explicitly mentioning which VM is being referred to will apply to \emph{all} three virtual machines.
 
 \subsection{Virtual Machine Design Details}
 
-The virtual machine described in this treatise is a register
-machine. It has 6 general purpose registers and 3 special purpose
-registers. The VM is for a dynamically typed language. Each register
+The VM is a register virtual machine. The choice of being register based was necessary for the experiment to be performed, but Yuhne Shi\cite{Shi2007} showed that register machines can give a performance increase over stack-based VMs.
+
+The VM has 6 general purpose registers and 3 special purpose
+registers. Keeping the number of registers low is important for the Opcode-Type Dispatch and Opcode Dispatch VMs. 
+
+The VM is for a dynamically typed language. Each register
 stores 'values' and all instructions act on those values. The type of
 a value is stored together with the data for that value. These are
 implemented in C as tagged unions. The VM has only two types: integer
@@ -1099,312 +1083,86 @@ arguments. Since the result of this operation is always zero and there
 already is an instruction to set a register to zero, there is no need
 to include this case.
 
+The full set of instructions may be found in appendix B.
+
 \subsubsection{Arithmetic Instructions}
 
-Arithmetic instructions provide some basic arithmetic operations for
-registers that contain integers. If a register that does not contain
+Arithmetic instructions provide basic arithmetic operations for registers that contain integers. If a register that does not contain
 an integer is selected, an error is signalled and the VM halts. All
-arithmetic instructions increment the program counter. Those that make
-use of a constant that is looked up in the next instruction word
-increment the program counter again so that the \verb|IP| points to
-the next instruction and not the data contained in the next word. The
-\verb|IP| is incremented after the operation performed by the
-instruction.
+arithmetic instructions increment the address of the instruction pointer. Those that make use of a constant that is looked up in the next instruction word increment the instruction pointer's address again so that the \verb|IP| points to the next instruction and not the data contained in the next word.
 
 \begin{description}
-\item[add] add two integer-valued registers
-
-  $add(i, j) := r _{i} \longleftarrow  r _{i} + r_{j} $ \\
-
-\item[addc] add an integer-valued register and a 64-bit integer
-  constant
-
-  $addc(i, const _{64}) := r _{i} \longleftarrow  r _{i} + const _{64} $ \\
-
-\item[sub] find the difference of two integer-valued registers
-
-  $sub(i, j\neq i) := r _{i} \longleftarrow  r _{i} - r _{j} $ \\
-
-\item[csub] subtract an integer-valued register from a 64-bit integer
-  constant
-
-  $csub(const _{64}, i) := r _{i} \longleftarrow const _{64} - r _{i} $ \\
-
-\item[mul] multiply two integer-valued registers
-
-  $mul(i, j) := r _{i} \longleftarrow  r _{i} \cdot r _{j} $ \\
-
-\item[mulc] multiply an integer-valued register by a 64-bit integer
-  constant
-
-  $mulc(i, const _{64}) := r _{i} \longleftarrow r _{i} \cdot const _{64} $
-
-\item[div] find the quotient and modulus of two integer-valued
-  registers
-
-  $div(i, j\neq i) :=$ \\
-  $ r _{i} \longleftarrow  r _{i} \div r _{j}$ \\
-  $ g _{0} \longleftarrow  r _{i} \textbf{ mod } r _{j} $\\
-
-\item[divc] find the quotient and modulus of an integer-valued
-  register and a 64-bit integer constant
-
-  $div(i, const _{64}) :=$ \\
-  $ r _{i} \longleftarrow  r _{i} \div const_{64}$ \\
-  $ g _{0} \longleftarrow r _{i} \textbf{ mod } const_{64} $
-
+	\item[sub] find the difference of two integer-valued registers
+	
+	$sub(i, j\neq i) := r _{i} \longleftarrow  r _{i} - r _{j} $ \\	
+	
+	\item[addc] add an integer-valued register and a 64-bit integer
+	constant
+	
+	$addc(i, const _{64}) := r _{i} \longleftarrow  r _{i} + const 
+	_{64} $ \\
 \end{description}
-The functioning of these operations is obvious except for the two
-division instructions when the first argument corresponds to $r_0$. In
-this case $r_0 \div r_j$ (or $const_{64}$ as the case may be) is
-stored in $r_0$ as the final result.
+
+The \verb|sub| instruction exhibits the case of a trivial instruction call that is illegal in the bytecode. Subtracting a register's value from itself will always produce zero. This is an unnecessary instruction since the VM already has an instruction to place zero into a register.
+
+Both instructions also show off how the result of the operation is stored in the first register-number addressed register.
 
 \subsubsection{Bit Manipulation Instructions}
 
 These instructions are for performing bitwise logical operations on
 integer operands and constants. The \verb|IP| is incremented in the
-same manner as for the arithmetic instructions. The shr and shl
-instructions are the logical shifts whereas sar is the arithmetic
-right shift. The arithmetic left shift is the same operation as shl.
+same manner as for the arithmetic instructions.
 
 \begin{description}
-\item[and] bitwise and two integer-valued registers
-  
-  $and(i, j\neq i) := r _{i} \longleftarrow  r _{i}  \textbf{ and } r _{j} $ \\
-\item[andc] bitwise and an integer-valued register and 64-bit integer
-  constant
-  
-  $andc(i, const _{64}) :=  r _{i} \longleftarrow  r _{i} \textbf{ and } const _{64} $ \\
-\item[or] bitwise or two integer-valued registers
-  
-  $or(i, j \neq i) := r _{i} \longleftarrow  r _{i} \textbf{ or } r _{j} $  \\
-\item[orc] bitwise or an integer-valued register and 64-bit integer
-  constant
-  
-  $orc(i, const _{64}) :=  r _{i} \longleftarrow  r _{i} \textbf{ or } const _{64} $ \\
-\item[xor] bitwise xor two integer-valued registers
-  
-  $xor(i, j \neq i) := r _{i} \longleftarrow  r _{i} \textbf{ \^{} } r _{j} $ \\
-\item[shl] shift an integer-valued register left by another
-  integer-valued register
-  
-  $shl(i, j) := r _{i} \longleftarrow  r _{i} << r _{j} $ \\
-\item[shlc] shift an integer-valued register left by a 16-bit integer
-  constant
-  
-  $shlc(i, const _{16}) :=  r _{i} \longleftarrow  r _{i} << const _{16} $ \\
-\item[cshl] shift a 64-bit integer constant left by an integer-valued
-  register
-  
-  $cshl(const _{64}, i):=  r _{i} \longleftarrow  const _{64} << r _{i}  $ \\
-\item[shr] logical right shift an integer-valued register by another
-  integer-valued register
-  
-  $shr(i, j) := r _{i} \longleftarrow  r _{i} >> r _{j} $ \\
-\item[shrc] logical right shift an integer-valued register by a 16-bit
-  integer constant
-  
-  $shrc(i, const _{16}) :=  r _{i} \longleftarrow  r _{i} >> const _{16} $ \\
-\item[cshr] logical right shift a 64-bit integer constant by an
-  integer-valued register
-  
-  $cshr(const _{64}, i):=  r _{i} \longleftarrow  const _{64} >> r{i}  $  \\
-\item[sar] arithmetic right shift an integer-valued register by
-  another integer-valued register
-  
-  $sar(i, j) :=  r _{i} \longleftarrow  r _{i} >>> r _{j} $  \\
-\item[sarc] arithmetic right shift an integer-valued register by a
-  16-bit integer constant
-  
-  $sarc(i, const _{16}) :=  r _{i} \longleftarrow  r _{i} >>> const _{16} $ \\
-\item[csar] arithmetic right shift a 64-bit integer constant by an
-  integer-valued register
-  
-  $csar(const _{64}, i):=  r _{i} \longleftarrow  const _{64} >>> r _{i}  $ \\
+	\item[xor] bitwise xor two integer-valued registers
+	
+	$xor(i, j \neq i) := r _{i} \longleftarrow  r _{i} \textbf{ \^{} 
+	} r _{j} $ \\
+	
+	\item[shrc] logical right shift an integer-valued register by a 
+	16-bit
+	integer constant
+	
+	$shrc(i, const _{16}) :=  r _{i} \longleftarrow  r _{i} >> const 
+	_{16} $ \\	
 \end{description}
+
+Here we see another trivial case. The \verb|xor| instruction does not allow performing bitwise xor on two numbers that are the same as this value is always zero.
+
+The \verb|shrc| instruction makes use of a 16-bit instruction word after the instruction for the constant argument as a 64-bit argument is unnecessary. 
 
 \subsubsection{Data Movement Instructions}
 These instructions allow for values to be moved between registers.
 
 \begin{description}
-\item[mov] move a register over another register
-  
-  $mov(i, j \neq i) := g_{i} \longleftarrow g_{j} $ \\
-\item[movc] move a 64-bit integer constant over a register
-  
-  $movc(i, const_{64}):= g_{i} \longleftarrow const_{64} $ \\
-
-\item[movsc]
-
-\item[null] set a register to null
-  
-  $null(i):= g_{i} \longleftarrow null $ \\
+	\item[mov] move a register over another register
+	
+	$mov(i, j \neq i) := g_{i} \longleftarrow g_{j} $ \\
+	\item[movc] move a 64-bit integer constant over a register
+	
+	$movc(i, const_{64}):= g_{i} \longleftarrow const_{64} $ \\
 \end{description}
+
+Note the use of the \verb|g| for the \verb|mov| and \verb|movc| instructions. This is because moving a register over another register is a type-independent operation. 
 
 \subsubsection{Memory Access}
 These instructions allow for getting and setting of locals (getl,
 setl), objects (geto, seto) and buffers (getb, setb).
 
-\begin{description}
-\item[getl] get a local value indexed by a 16-bit integer constant and
-  store it in a register
-  
-  $getl(i, const_{16}):= g_{i} \longleftarrow mem[fp + const_{16}]$ \\
-\item[setl] set a local variable indexed by a 16-bit integer constant
-  to a register's value
-  
-  $setl(const_{16}, i):= mem[fp + const_{16}] \longleftarrow g_{i}$ \\
-\item[geto] get a value from an object, indexed by an integer-valued
-  register and store it in a register
-  
-  $geto(i, j, k\neq j):= g_{i} \longleftarrow p_{j}[header + r_{k}*sizeof(value)]$ \\
-\item[seto] set a value, indexed by an integer-valued register, in an
-  object to that of a register
-  
-  $seto(i, j \neq i, k):= p_{i}[header + r_{j}*scale] \longleftarrow g_{k}$ \\
-\item[getb] get a value from a buffer, indexed by an integer-valued
-  register and store it in a register
-  
-  $getb(i, j, k\neq j):= g_{i} \longleftarrow p_{j}[header + r_{k}*sizeof(int8\_t)]$ \\
-\item[setb] set a value, indexed by an integer-valued register, in a
-  buffer to that of a register
-  
-  $setb(i, j \neq i, k):= p_{i}[header + r_{j}*scale] \longleftarrow r_{k}$ \\
-\end{description}
+%TODO: mememememem
 
 \subsubsection{Control Flow Instructions}
 
 These instructions allow for jumps in execution in the program. All
 jumps are relative to the current \verb|IP| value.
 
-\begin{description}
-\item[jmp] adds a 16-bit integer constant offset to \verb|IP|
-    
-  $jmp(const_{16}) := ip \longleftarrow ip + const_{16}$ \\
-\item[jmpf] adds a 64-bit integer constant offset to \verb|IP|
 
-  $jmpf(const_{64}) := ip \longleftarrow ip + const_{64}$ \\
-\item[switch]
-
-  $switch := todo: me$ \\
-\item[jcmp] adds one of three 16-bit integer constant offsets to
-  \verb|IP| depending on which case holds for two different
-  integer-valued registers
-
-  $jcmp(i, j\neq i,less_{16},equal_{16},greater_{16}) :=$ \\
-  $ ip \longleftarrow  \\
-  case :r_{i} < r_{j}: ip + less_{16}   \\
-  case :r_{i} = r_{j}: ip + equal_{16} \\
-  case :r_{i} > r_{j}: ip + greater_{16}$ \\
-\item[jcmpc] adds one of three 16-bit integer constant offsets to
-  \verb|IP| depending on which case holds for an integer-valued
-  register and 64-bit integer constant
- 
-  $jcmpc (i, const_{64},less_{16},equal_{16},greater_{16}) :=$ \\
-  $ ip \longleftarrow  \\
-  case: r_{i} < const_{64}: ip + less_{16}   \\
-  case: r_{i} = const_{64}: ip + equal_{16} \\
-  case: r_{i} > const_{64}: ip + greater_{16}$
-\item[jnullp] adds one of two 16-bit integer constant offsets to
-  \verb|IP| depending on if a pointer-valued register is null or not
-
-  $jnullp(i,not-null-disp16,null-disp16) :=$ \\
-  $ip \longleftarrow \\
-  case: p_{i} \neq null: ip + not-null-disp_{16} \\
-  case: p_{i} = null: ip + null-disp_{16}$ \\
-\end{description}
 
 \subsubsection{Function Call and Return}
-\begin{description}
-\item[call] sets up a new stack frame, saves the old state of the VM
-  before the call, copies arguments and moves execution to the
-  function's instructions
 
-  $call(disp_{16}, first_{16}, count_{16}) :=$ \\
-  $newip \longleftarrow ip + disp_{16};\\
-  locals\_size \longleftarrow *(int64\_t *)newip\\
-  size \longleftarrow sizeof(stackframe) + sizeof(value) * locals\_size;\\
-  stackframe *base \longleftarrow (stackframe*)malloc(size);\\
-  base \longleftarrow stackframe\_new(fp, ip, ts, g, first_{16}, count_{16}); \\
-  fp \longleftarrow base->l \\
-  ip \longleftarrow newip + 4 \\
-  $\\
-  First the variable $newip$ is created which is the location of the
-  function definition of the function being called. At that position
-  is a 64-bit integer which contains the count of the number of local
-  variables used by the function. This count is stored in the
-  variable: $locals\_size$. A new stack frame of the correct size is
-  allocated. The value returned by malloc for this allocation is
-  called $base$ because it is a pointer that points to the base of the
-  new stack frame.
-
-  The code for initialising the stack frame has been omitted in the
-  interest of brevity but shall be described here. For reference,
-  figure~\ref{fig:stframe} gives a visual representation of the fields
-  of the stack frame. The current frame's \verb|FP|, \verb|IP|,
-  \verb|TS| and registers $g_1$ through $g_4$ are stored in the new
-  stack frame using simple assignment.
-
-  Next, the function's arguments are copied over to the start of the
-  new stack frame's local variables using memcpy. The first argument
-  is the local variable in the current stack frame indexed by
-  $first_{16}$ and the number of arguments is $count_{16}$. The rest
-  of the local variables are those needed by the function to perform
-  its tasks.
-
-  The \verb|FP| can now be updated to point to the local variables of
-  the current stack frame and the \verb|IP| is set to the newip value
-  with 4 instruction words skipped to point to the first instruction
-  after the 64-bit integer.
-  
-\item[ret] restores the previous stack frame and frees the current
-  stack frame
-  $ret() := $  \\
-  $ stackframe *cur \longleftarrow (stackframe*)((size\_t)fp - sizeof(stackframe)) \\
-  fp \longleftarrow cur.fp \\
-  ip \longleftarrow cur.ip \\
-  RestoreTS(cur.ts, ts);\\
-  RestoreRegisters(cur.g) \\
-  free(cur); \\$
-
-  First the address of the current stack frame is aquired and stored
-  in $cur$.
-  Next the saved values for FP, IP, TS and g1 through g4 are restored.
-  Finally the current stack frame is freed.
-\end{description}
-
+%TODO: meeee!
 
 \subsubsection{Pragmatic Higher-Level Instructions}
-
-\begin{description}
-\item[newo] allocates a new object of size given by an integer-valued
-  register and assigns it to some register
-
-  $ newo(i, j \neq i) := $ \\
-  $  object *base \longleftarrow (object*)malloc(sizeof(object) + sizeof(value)* r_j) \\
-  base.size \longleftarrow r_i\\
-  g_i \longleftarrow base \\ $
-
-\item[newb]{} allocates a new object of size given by an
-  integer-valued register and assigns it to some register
-
-  $ newb(i, j \neq i) := $ \\
-  $  object *base \longleftarrow (buffer*)malloc(sizeof(object) + sizeof(int8\_t)* r_j) \\
-  base.size \longleftarrow r_i\\
-  g_i \longleftarrow base \\ $
-
-\item[err] prints an error string at a 16-bit integer value
-  displacement from IP then halts VM
-
-  % movsc goes here???
-
-\item[in] attempts to fill a buffer from standard input
-
-\item[out] writes out a stream of data from a buffer to stdout
-
-\item[print] writes a line of data to stdout
-
-\end{description}
 
 \subsection{Conventional VM}
 
@@ -1431,13 +1189,32 @@ mask and a shift operation.
   \label{fig:convinstruction}
 \end{figure}
 
+\subsection{Type-Mapping and Argument Case Expansion}
 
-\subsection{Opcode-operand dispatch VM}
+A type-mapped VM is one which keeps track of the state of the types of
+its registers. This is beneficial because every instruction in a
+conventional VM design must first verify the types of its inputs
+before it can act on them. These type checks can be eliminated with
+type-mapping and instructions can be customised based on the types of
+the inputs they receive. 
+
+This is closely coupled with the idea of argument case expansion. For 
+Type-Mapping to be effective the VM must dispatch on its current type 
+state. This is what eliminates the type checking step. But if the VM 
+does not also dispatch on the arguments for the next instruction it 
+cannot know which version of the instruction is appropriate. Knowing 
+which types are in which registers without knowing which registers 
+are arguments for an instruction means that there is not enough 
+information to specialise the instruction. With argument case 
+expansion a version of each instruction for every combination of 
+arguments is necessary.
+
+\subsection{Operand Dispatch VM}
 
 The opcode-operand dispatch VM has a seperate version of every
 instruction for every combination of arguments given to it.
 
-\subsection{Opcode-operand-type dispatch VM}
+\subsection{Operand-Type Dispatch VM}
 
 The opcode-operand-type virtual machine does not make use of the usual
 opcode and arguments arrangment used in register machine
@@ -1480,7 +1257,11 @@ perform the instruction, but with this method we already know the
 types and so we can just jump directly to code for those types or an
 error if the arguments are illegal.
 
-\subsubsection{opcode}
+\subsubsection{Conventional Dispatch VM}
+
+\section{Solution Implementation}
+
+\subsection{}
 
 \section{Experimental Design}
 
@@ -1506,10 +1287,332 @@ A suite of 7 commonly used benchmarks was prepared in
 \section{Conclusion}
 
 \newpage{}
-\begin{appendices}
-\chapter{Some Appendix}
-The contents...
-\end{appendices}
+\appendix
+\section{Problem Description} 
+
+Text of Appendix A is Here
+
+\section{Instruction List} 
+
+\subsection{Arithmetic Instructions}
+\begin{description}
+	\item[add] add two integer-valued registers
+	
+	$add(i, j) := r _{i} \longleftarrow  r _{i} + r_{j} $ \\
+	
+	\item[addc] add an integer-valued register and a 64-bit integer
+	constant
+	
+	$addc(i, const _{64}) := r _{i} \longleftarrow  r _{i} + const 
+	_{64} $ \\
+	
+	\item[sub] find the difference of two integer-valued registers
+	
+	$sub(i, j\neq i) := r _{i} \longleftarrow  r _{i} - r _{j} $ \\
+	
+	\item[csub] subtract an integer-valued register from a 64-bit 
+	integer
+	constant
+	
+	$csub(const _{64}, i) := r _{i} \longleftarrow const _{64} - r 
+	_{i} $ \\
+	
+	\item[mul] multiply two integer-valued registers
+	
+	$mul(i, j) := r _{i} \longleftarrow  r _{i} \cdot r _{j} $ \\
+	
+	\item[mulc] multiply an integer-valued register by a 64-bit 
+	integer
+	constant
+	
+	$mulc(i, const _{64}) := r _{i} \longleftarrow r _{i} \cdot const 
+	_{64} $
+	
+	\item[div] find the quotient and modulus of two integer-valued
+	registers
+	
+	$div(i, j\neq i) :=$ \\
+	$ r _{i} \longleftarrow  r _{i} \div r _{j}$ \\
+	$ g _{0} \longleftarrow  r _{i} \textbf{ mod } r _{j} $\\
+	
+	\item[divc] find the quotient and modulus of an integer-valued
+	register and a 64-bit integer constant
+	
+	$div(i, const _{64}) :=$ \\
+	$ r _{i} \longleftarrow  r _{i} \div const_{64}$ \\
+	$ g _{0} \longleftarrow r _{i} \textbf{ mod } const_{64} $
+	
+\end{description}
+
+\subsection{Bit Manipulation Instructions}
+\begin{description}
+	\item[and] bitwise and two integer-valued registers
+	
+	$and(i, j\neq i) := r _{i} \longleftarrow  r _{i}  \textbf{ and } 
+	r _{j} $ \\
+	\item[andc] bitwise and an integer-valued register and 64-bit 
+	integer
+	constant
+	
+	$andc(i, const _{64}) :=  r _{i} \longleftarrow  r _{i} \textbf{ 
+	and } const _{64} $ \\
+	\item[or] bitwise or two integer-valued registers
+	
+	$or(i, j \neq i) := r _{i} \longleftarrow  r _{i} \textbf{ or } r 
+	_{j} $  \\
+	\item[orc] bitwise or an integer-valued register and 64-bit 
+	integer
+	constant
+	
+	$orc(i, const _{64}) :=  r _{i} \longleftarrow  r _{i} \textbf{ 
+	or } const _{64} $ \\
+	\item[xor] bitwise xor two integer-valued registers
+	
+	$xor(i, j \neq i) := r _{i} \longleftarrow  r _{i} \textbf{ \^{} 
+	} r _{j} $ \\
+	\item[shl] shift an integer-valued register left by another
+	integer-valued register
+	
+	$shl(i, j) := r _{i} \longleftarrow  r _{i} << r _{j} $ \\
+	\item[shlc] shift an integer-valued register left by a 16-bit 
+	integer
+	constant
+	
+	$shlc(i, const _{16}) :=  r _{i} \longleftarrow  r _{i} << const 
+	_{16} $ \\
+	\item[cshl] shift a 64-bit integer constant left by an 	integer-valued register
+	
+	$cshl(const _{64}, i):=  r _{i} \longleftarrow  const _{64} << r 
+	_{i}  $ \\
+	\item[shr] logical right shift an integer-valued register by 
+	another integer-valued register
+	
+	$shr(i, j) := r _{i} \longleftarrow  r _{i} >> r _{j} $ \\
+	\item[shrc] logical right shift an integer-valued register by a 
+	16-bit integer constant
+	
+	$shrc(i, const _{16}) :=  r _{i} \longleftarrow  r _{i} >> const 
+	_{16} $ \\
+	\item[cshr] logical right shift a 64-bit integer constant by an
+	integer-valued register
+	
+	$cshr(const _{64}, i):=  r _{i} \longleftarrow  const _{64} >> 
+	r{i}  $  \\
+	\item[sar] arithmetic right shift an integer-valued register by
+	another integer-valued register
+	
+	$sar(i, j) :=  r _{i} \longleftarrow  r _{i} >>> r _{j} $  \\
+	\item[sarc] arithmetic right shift an integer-valued register by a
+	16-bit integer constant
+	
+	$sarc(i, const _{16}) :=  r _{i} \longleftarrow  r _{i} >>> const 
+	_{16} $ \\
+	\item[csar] arithmetic right shift a 64-bit integer constant by an
+	integer-valued register
+	
+	$csar(const _{64}, i):=  r _{i} \longleftarrow  const _{64} >>> r 
+	_{i}  $ \\
+\end{description}
+
+\subsection{Data Movement Instructions}
+\begin{description}
+	\item[mov] move a register over another register
+	
+	$mov(i, j \neq i) := g_{i} \longleftarrow g_{j} $ \\
+	\item[movc] move a 64-bit integer constant over a register
+	
+	$movc(i, const_{64}):= g_{i} \longleftarrow const_{64} $ \\
+	
+	\item[movsc]
+	
+	\item[null] set a register to null
+	
+	$null(i):= g_{i} \longleftarrow null $ \\
+\end{description}
+
+\subsection{Memory Access}
+\begin{description}
+	\item[getl] get a local value indexed by a 16-bit integer 
+	constant and
+	store it in a register
+	
+	$getl(i, const_{16}):= g_{i} \longleftarrow mem[fp + const_{16}]$ 
+	\\
+	\item[setl] set a local variable indexed by a 16-bit integer 
+	constant
+	to a register's value
+	
+	$setl(const_{16}, i):= mem[fp + const_{16}] \longleftarrow g_{i}$ 
+	\\
+	\item[geto] get a value from an object, indexed by an 
+	integer-valued
+	register and store it in a register
+	
+	$geto(i, j, k\neq j):= g_{i} \longleftarrow p_{j}[header + 
+	r_{k}*sizeof(value)]$ \\
+	\item[seto] set a value, indexed by an integer-valued register, 
+	in an
+	object to that of a register
+	
+	$seto(i, j \neq i, k):= p_{i}[header + r_{j}*scale] 
+	\longleftarrow g_{k}$ \\
+	\item[getb] get a value from a buffer, indexed by an 
+	integer-valued
+	register and store it in a register
+	
+	$getb(i, j, k\neq j):= g_{i} \longleftarrow p_{j}[header + 
+	r_{k}*sizeof(int8\_t)]$ \\
+	\item[setb] set a value, indexed by an integer-valued register, 
+	in a
+	buffer to that of a register
+	
+	$setb(i, j \neq i, k):= p_{i}[header + r_{j}*scale] 
+	\longleftarrow r_{k}$ \\
+\end{description}
+
+\subsection{Control Flow Instructions}
+\begin{description}
+	\item[jmp] adds a 16-bit integer constant offset to \verb|IP|
+	
+	$jmp(const_{16}) := ip \longleftarrow ip + const_{16}$ \\
+	\item[jmpf] adds a 64-bit integer constant offset to \verb|IP|
+	
+	$jmpf(const_{64}) := ip \longleftarrow ip + const_{64}$ \\
+	\item[switch]
+	
+	$switch := todo: me$ \\
+	\item[jcmp] adds one of three 16-bit integer constant offsets to
+	\verb|IP| depending on which case holds for two different
+	integer-valued registers
+	
+	$jcmp(i, j\neq i,less_{16},equal_{16},greater_{16}) :=$ \\
+	$ ip \longleftarrow  \\
+	case :r_{i} < r_{j}: ip + less_{16}   \\
+	case :r_{i} = r_{j}: ip + equal_{16} \\
+	case :r_{i} > r_{j}: ip + greater_{16}$ \\
+	\item[jcmpc] adds one of three 16-bit integer constant offsets to
+	\verb|IP| depending on which case holds for an integer-valued
+	register and 64-bit integer constant
+	
+	$jcmpc (i, const_{64},less_{16},equal_{16},greater_{16}) :=$ \\
+	$ ip \longleftarrow  \\
+	case: r_{i} < const_{64}: ip + less_{16}   \\
+	case: r_{i} = const_{64}: ip + equal_{16} \\
+	case: r_{i} > const_{64}: ip + greater_{16}$
+	\item[jnullp] adds one of two 16-bit integer constant offsets to
+	\verb|IP| depending on if a pointer-valued register is null or not
+	
+	$jnullp(i,not-null-disp16,null-disp16) :=$ \\
+	$ip \longleftarrow \\
+	case: p_{i} \neq null: ip + not-null-disp_{16} \\
+	case: p_{i} = null: ip + null-disp_{16}$ \\
+\end{description}
+
+\subsection{Function Call and Return}
+\begin{description}
+	\item[call] sets up a new stack frame, saves the old state of the 
+	VM
+	before the call, copies arguments and moves execution to the
+	function's instructions
+	
+	$call(disp_{16}, first_{16}, count_{16}) :=$ \\
+	$newip \longleftarrow ip + disp_{16};\\
+	locals\_size \longleftarrow *(int64\_t *)newip\\
+	size \longleftarrow sizeof(stackframe) + sizeof(value) * 
+	locals\_size;\\
+	stackframe *base \longleftarrow (stackframe*)malloc(size);\\
+	base \longleftarrow stackframe\_new(fp, ip, ts, g, first_{16}, 
+	count_{16}); \\
+	fp \longleftarrow base->l \\
+	ip \longleftarrow newip + 4 \\
+	$\\
+	First the variable $newip$ is created which is the location of the
+	function definition of the function being called. At that position
+	is a 64-bit integer which contains the count of the number of 
+	local
+	variables used by the function. This count is stored in the
+	variable: $locals\_size$. A new stack frame of the correct size is
+	allocated. The value returned by malloc for this allocation is
+	called $base$ because it is a pointer that points to the base of 
+	the
+	new stack frame.
+	
+	The code for initialising the stack frame has been omitted in the
+	interest of brevity but shall be described here. For reference,
+	figure~\ref{fig:stframe} gives a visual representation of the 
+	fields
+	of the stack frame. The current frame's \verb|FP|, \verb|IP|,
+	\verb|TS| and registers $g_1$ through $g_4$ are stored in the new
+	stack frame using simple assignment.
+	
+	Next, the function's arguments are copied over to the start of the
+	new stack frame's local variables using memcpy. The first argument
+	is the local variable in the current stack frame indexed by
+	$first_{16}$ and the number of arguments is $count_{16}$. The rest
+	of the local variables are those needed by the function to perform
+	its tasks.
+	
+	The \verb|FP| can now be updated to point to the local variables 
+	of
+	the current stack frame and the \verb|IP| is set to the newip 
+	value
+	with 4 instruction words skipped to point to the first instruction
+	after the 64-bit integer.
+	
+	\item[ret] restores the previous stack frame and frees the current
+	stack frame
+	$ret() := $  \\
+	$ stackframe *cur \longleftarrow (stackframe*)((size\_t)fp - 
+	sizeof(stackframe)) \\
+	fp \longleftarrow cur.fp \\
+	ip \longleftarrow cur.ip \\
+	RestoreTS(cur.ts, ts);\\
+	RestoreRegisters(cur.g) \\
+	free(cur); \\$
+	
+	First the address of the current stack frame is aquired and stored
+	in $cur$.
+	Next the saved values for FP, IP, TS and g1 through g4 are 
+	restored.
+	Finally the current stack frame is freed.
+\end{description}
+
+\subsection{Pragmatic Higher-Level Instructions}
+
+\begin{description}
+	\item[newo] allocates a new object of size given by an 
+	integer-valued
+	register and assigns it to some register
+	
+	$ newo(i, j \neq i) := $ \\
+	$  object *base \longleftarrow (object*)malloc(sizeof(object) + 
+	sizeof(value)* r_j) \\
+	base.size \longleftarrow r_i\\
+	g_i \longleftarrow base \\ $
+	
+	\item[newb]{} allocates a new object of size given by an
+	integer-valued register and assigns it to some register
+	
+	$ newb(i, j \neq i) := $ \\
+	$  object *base \longleftarrow (buffer*)malloc(sizeof(object) + 
+	sizeof(int8\_t)* r_j) \\
+	base.size \longleftarrow r_i\\
+	g_i \longleftarrow base \\ $
+	
+	\item[err] prints an error string at a 16-bit integer value
+	displacement from IP then halts VM
+	
+	% movsc goes here???
+	
+	\item[in] attempts to fill a buffer from standard input
+	
+	\item[out] writes out a stream of data from a buffer to stdout
+	
+	\item[print] writes a line of data to stdout
+	
+\end{description}
+
+
 
 \end{document}
 
