@@ -100,7 +100,7 @@ to be too great but for general applications programming interpreted
 languages are preferred. For business systems this usually means Java
 and C\# and for web development this means JavaScript and PHP.
 
-Given the popularity of these languages, research into interpreter
+Given the popularity of these languages, research into interpretershatter
 performance is important.
 
 \subsection{Dynamically Typed Languages}
@@ -288,6 +288,8 @@ to perform garbage collection. The VM will also not have to be robust
 in how it interacts with the operating system it is running on nor in
 how it handles errors.
 
+%floating point and advanced threading techniques
+
 \subsection{Risks}
 The risks of the project are mainly about its structure and how it can
 be criticised. The VM will be running predefined benchmarks. If it
@@ -333,39 +335,38 @@ the implementation for the virtual machine is useful and what its
 strengths and weaknesses are.
 \newpage{}
 
-\section{Literature Review, Existing systems and Modern Processors}
-This novel virtual machine is called the \textbf{Operand-Type Dispatch VM} or just the \textbf{opcode-operand-type VM}. Its
-placement in the heirarchy of virtual machines is discussed in order
-to situate it in the spectrum of different virtual machines that exist
-and disambiguate how it can be used.
+\section{Background and Literature Review}
+This novel virtual machine is called the \textbf{Operand-Type Dispatch
+  VM} or just the \textbf{Operand-Type VM}. Its placement in the
+heirarchy of virtual machines is examined in this section.
 
 A review of existing systems, modern processor architectures and
-current literature on virtual machine design is also necessary to
-understand the design decisions made for the \textbf{opcode-operand-type
-  VM}.
+current literature on virtual machine design is necessary as these
+elements inform the design decisions made for the \textbf{Operand-Type
+  Dispatch VM}.
 
 \subsection{Virtual Machines}
 A \textbf{virtual machine} or \textbf{VM} is a computer program that
 ``executes software in the same manner as the machine for which the
 software was developed'' \cite[pg9]{JamesE.Smith2005}. This program is
 designed to run on some real machine. We call the real machine that a
-virtual machine is running on the \textbf{host} and the virtual machine
-the \textbf{guest}. The guest machine provides an execution environment
-for software that is designed to run either on the guest itself or on
-an actual machine that the virtual machine is emulating. This means
-that we can use a virtual machine to run programs that are
-incompatable with the host. The virtual machine allows this by
-providing a mapping of its state to the state of the host machine on
-which it is running \cite[pg4]{JamesE.Smith2005}.
+virtual machine is running on the \textbf{host} and the virtual
+machine the \textbf{guest}. The guest machine provides an execution
+environment for software that is designed to run either on the guest
+itself or on an actual machine that the virtual machine is
+emulating. This means that we can use a virtual machine to run
+programs that are incompatable with the host. The virtual machine
+allows this by providing a mapping of its state to the state of the
+host machine on which it is running \cite[pg4]{JamesE.Smith2005}.
 
 \subsection{The Types of Virtual Machines}
-Virtual machines come in two varieties: \textbf{process } virtual
+Virtual machines come in two varieties: \textbf{process} virtual
 machines and \textbf{system} virtual machines.
 
 A process virtual machine is ``capable of supporting an individual
 process''\cite[pg9]{JamesE.Smith2005}. This means that the host runs
-the guest for as long as a process on the guest machine needs it. Once
-the process has completed its execution the guest machine
+the guest for as long as a single process on the guest machine needs
+it. Once the process has completed its execution the guest machine
 terminates\cite[pg9]{JamesE.Smith2005}. An example of a process
 virtual machine is the Java Virtual Machine or JVM. All java programs
 run on the JVM. An instance of the JVM is started when you execute a
@@ -407,10 +408,12 @@ this manner is known as \textbf{just-in-time compilation} (JIT
 compilation).
 
 \subsection{Where the Operand-Type Dispatch VM is Situated}
-The opcode-operand-type VM is a process virtual machine. It has a new
+The Operand-Type VM is a process virtual machine. It has a new
 instruction set architecture and hence is different from any host
-machine's ISA. The virtual machine does not make use of JIT
-compilation. It is entirely interpreted. It is also dynamically typed.
+machine's ISA. The Operand-Type VM is exclusively an interpreter and
+does not make use of a JIT compiler. It is designed to run processes
+written in a dynamically typed languages. For these reasons it is a
+``JIT-less'', ``Dynamic-ISA'' virtual machine. 
 
 \subsection{Dynamic vs Statically Typed Programming Languages}
 A dynamically typed language is one in which the type information is
@@ -426,7 +429,7 @@ their type (\textbf{int}, \textbf{String} etc). Each variable can only
 hold a value of that type. Each approach has its strengths and
 weaknesses.
 
-\subsubsection{Type Correctness}
+\subsubsection{Type Safety }
 With static typing a program's type correctness can be checked at
 compile time. Because the types of all variables are known when the
 code is written, operations on those variables can be declared valid
@@ -455,8 +458,11 @@ runtime. The Java code does not compile.
 
 The machine or VM benefits from not having to check the types of
 instruction arguments. This is a major overhead in dynamically typed
-languages. In a dynamically typed language, the types of the arguments must be checked for each instruction the VM or machine must perform as all arguments are values. This means that an addition instruction that works on integers, for instance, must ccheck that the values it is trying to add are in fact integers before
-it can add them.
+languages. In a dynamically typed language, the types of the arguments
+must be checked for each instruction the VM or machine must perform as
+all arguments are values. This means that an addition instruction that
+works on integers, for instance, must check that the values it is
+trying to add are in fact integers before it can add them.
 
 \begin{figure}
   \begin{subfigure}{.48\textwidth}
@@ -483,9 +489,12 @@ it can add them.
   \label{fig:dvs}
 \end{figure}
 
-% now that i've made dynamic types sound like a dumb idea should I
-% talk about what's good? is this even NB? because people use em for
-% stuff so something's gotta be good
+\subsection{Advantages of Dynamically Typed Languages} 
+Dynamically typed languages have their own advantages. Programs
+written in dynamically typed languages tend to be shorter than
+equivalent programs written in statically typed languages and
+dynamically typed languages are considered to be easier to prototype
+ideas in.
 
 \subsection{Modern Processor Architecture}
 
@@ -573,17 +582,17 @@ faster memory access. Ideally we would like to have an infinite amount
 of memory with no time cost for accessing it. The reality is that the
 larger memory is, the slower it becomes to access it {[}???{]}. In
 order to get closer to the ideal modern processors make use of
-cache. It takes around 100 cycles for Intel's i7-4770 (Haswell)
+cache. It takes around 100 cycles for Intel's i7-4720HQ (Haswell)
 architecture to access memory. Cache allows us get get closer to the
 ideal case by keeping commonly accessed memory closer to the CPU in
 levels of increasingly smaller, faster and more expensive (to
 manufacture) memory. The Haswell has 32KB of L1 data cache and 32KB of
-L1 code cache. These are located on the CPU itself {[}x{]} and can be
-accessed in around 4 cycles{[}x{]}. It also has 256KB of L2 cache and
-8 MB of L3 cache. Caching works on the principal of locality of
-access. If you access memory in more or less the same area a lot, that
-acess is much faster than if you hop around from place to place. We
-should try to take advantage of cache in our VM's design.
+L1 code cache. These are located on the CPU itself and can be accessed
+in around 4 cycles{[}x{]}. It also has 256KB of L2 cache and 8 MB of
+L3 cache. Caching works on the principal of locality of access. If you
+access memory in more or less the same area a lot, that acess is much
+faster than if you hop around from place to place. We should try to
+take advantage of cache in our VM's design.
 
 \subsection{Conventional Implementation of High Level VMs}
 
@@ -701,7 +710,6 @@ implementation of a = b + c would first push b and c onto the stack,
 then call the add instruction which has no arguments. Add pops b and c
 off the stack and pushes b+c back onto the stack. This value is then
 popped off the stack and stored.
-
 
 For a register machine, a similar piece of code would have values for
 b and c in registers and an add instruction is called with a, b and c
@@ -840,14 +848,38 @@ As was covered in chapter 2, JIT compilation can greatly reduce
 the time taken to execute programs. This presents us with a need to 
 find alternative ways to let our programs execute quickly.
 
+The two ideas central to the design of the Operand-Type Dispatch VM
+are type-mapping and argument case expansion.
+
+\subsection{Type-Mapping and Argument Case Expansion}
+
+A type-mapped VM is one which keeps track of the state of the types of
+its registers. This is beneficial because every instruction in a
+conventional VM design must first verify the types of its inputs
+before it can act on them. These type checks can be eliminated with
+type-mapping and instructions can be customised based on the types of
+the inputs they receive. 
+
+This is closely coupled with the idea of argument case expansion. For 
+Type-Mapping to be effective the VM must dispatch on its current type 
+state. This is what eliminates the type checking step. But if the VM 
+does not also dispatch on the arguments for the next instruction it 
+cannot know which version of the instruction is appropriate. Knowing 
+which types are in which registers without knowing which registers 
+are arguments for an instruction means that there is not enough 
+information to specialise the instruction. With argument case 
+expansion a version of each instruction for every combination of 
+arguments is necessary.
+
 \subsection{Proposed Solution}
-The proposed solution is the Operand-Type Dispatch VM. In order to 
-determine the effectiveness of the solution, a further two virtual 
-machines are needed. A conventionally implemented VM is needed as a 
-control to determine the performance benefits of the Operand-Type 
-Dispatch VM and a further VM is needed to determine the benefits of 
-the type specialisation of the Operand-Type Dispatch VM. This VM is 
-called the Operand Dispatch VM. 
+The proposed solution is the Operand-Type Dispatch VM. The
+Operand-Type Dispatch VM makes use of type-mapping and argument case
+expansion. In order to determine the effectiveness of the solution, a
+further two virtual machines are needed. A conventionally implemented
+VM is needed as a control to determine the performance benefits of the
+Operand-Type Dispatch VM and a further VM is needed to determine the
+benefits of the type-mapping of the Operand-Type Dispatch VM over just
+using argument case expansion. 
 
 These three virtual machines lie along a scale for how specific their 
 instructions are. The most specific is the Operand-Type Dispatch VM. 
@@ -861,14 +893,31 @@ as similar as possible except for the aspects that the experiment
 examines. Those elements common to all VMs shall be expanded upon 
 first and those specific to each shall be examined separately. 
 
-Any referral to the \verb|VM| or the \verb|virtual machine| used from this point without explicitly mentioning which VM is being referred to will apply to \emph{all} three virtual machines.
+Any referral to the \verb|VM| or the \verb|virtual machine| used from
+this point without explicitly mentioning which VM is being referred to
+will apply to \emph{all} three virtual machines.
 
 \subsection{Virtual Machine Design Details}
 
-The VM is a register virtual machine. The choice of being register based was necessary for the experiment to be performed, but Yuhne Shi\cite{Shi2007} showed that register machines can give a performance increase over stack-based VMs.
+The VM is a register virtual machine. The choice of being register
+based was necessary for the argument case expansion to be performed
+and Yuhne Shi\cite{Shi2007} showed that register machines can give a
+performance increase over equivalent stack-based VMs.
 
 The VM has 6 general purpose registers and 3 special purpose
-registers. Keeping the number of registers low is important for the Opcode-Type Dispatch and Opcode Dispatch VMs. 
+registers. Keeping the number of registers low is important for the
+Operand-Type Dispatch and Operand Dispatch VMs. With just 6 registers,
+an instruction that takes 3 arguments potentially has $6^3 = 216$
+argument cases.
+
+The VM has two primitive types: integers and pointers. Keeping the
+number of types and regsiters low is extremely important for the
+Operand-Type Dispatch VM because it affects the total number of states
+the VM can take on. The Operand-Type Dispatch VM can be thought of as
+creating a specialised version of the VM for every type state. With
+two primitive types and 6 registers this means there are a total of
+$2^6 = 64$ total states the VM can take on. Increasing the number of
+primitive types by one makes that $3^6 = 729$ possible states.
 
 The VM is for a dynamically typed language. Each register
 stores 'values' and all instructions act on those values. The type of
@@ -876,23 +925,23 @@ a value is stored together with the data for that value. These are
 implemented in C as tagged unions. The VM has only two types: integer
 and pointer.
 
-\subsection{Indirect Threading}
+\subsection{Token Threading}
 
-This VM will make use of indirect threading. Though indirect threading
-is slower than direct threading {[}x{]} because it must first complete
+This VM makes use of token threading. Though token threading is slower
+than direct threading \cite{Shi2007} because it must first complete
 the lookup step before it can branch to the next instruction, the
-program code used by the VM is intended to be shared by many instances
-of the VM. This cannot be achieved with direct threading as the
-addresses of each instruction in each instance may be
-different{[}x{]}. Also because our dispatch is based on the runtime
-state of the virtual machine (the st register) even if addresses were
-the same between instnces we can't represent code in terms of those
-addresses as we don't know the state information until runtime so we
-can't choose which address should be used to replace the opcode. With
-Indirect threading's lookup table we can share the code in its opcode
-form and perform the correct jumps for each instance of the VM by
-consulting the state register and looking up the addresses in the
-lookup table.
+program code used by the Operand-Type VM is intended to be shared by
+many instances of the VM. This cannot be achieved with direct
+threading as the addresses of each instruction in each instance may be
+different{[}x{]}. Also because the Operand-Type VM's dispatch is based
+on the runtime state of the virtual machine (the current type state)
+even if addresses were the same between instnces we can't represent
+code in terms of those addresses as we don't know the state
+information until runtime so we can't choose which address should be
+used to replace the opcode. With Indirect threading's lookup table we
+can share the code in its opcode form and perform the correct jumps
+for each instance of the VM by consulting the state register and
+looking up the addresses in the lookup table.
 
 \subsection{Values}
 
@@ -925,6 +974,21 @@ four possible values it could take on:
 \item an object pointer \setcounter{enumi}{3}
 \item a buffer pointer
 \end{enumerate}
+
+\subsection{Registers}
+
+All virtual machines make use of 6 general purpose registers. These
+registers are implemented as an array of 6 \verb|values|. These shall
+be referred to as $g_0$ through $g_5$. Here `g' refers to `general
+purpose'.
+
+A further two registers are found in the VM. The instruction pointer,
+which will be referred to as the \verb|IP| and the frame pointer which
+will be referred to as the \verb|FP|. These are a 16-bit-integer
+pointer and a value pointer respectively.
+
+In order for 
+
 
 \subsection{Objects}
 
@@ -981,18 +1045,6 @@ flags. Figure~\ref{fig:buffer} shows the memory layout of a buffer.
   \label{fig:buffer}
   \caption{Buffer memory layout}
 \end{figure}
-
-\subsection{Registers}
-
-All virtual machines make use of 6 general purpose registers. These
-registers are implemented as an array of 6 \verb|values|. These shall
-be referred to as $g_0$ through $g_5$. Here `g' refers to `general
-purpose'.
-
-A further two registers are found in all VMs. The instruction pointer,
-which will be referred to as the \verb|IP| and the frame pointer which
-will be referred to as the \verb|FP|. These are a 16-bit-integer
-pointer and a value pointer respectively.
 
 \subsection{Stack Frames and Function Definitions}
 
@@ -1189,25 +1241,7 @@ mask and a shift operation.
   \label{fig:convinstruction}
 \end{figure}
 
-\subsection{Type-Mapping and Argument Case Expansion}
 
-A type-mapped VM is one which keeps track of the state of the types of
-its registers. This is beneficial because every instruction in a
-conventional VM design must first verify the types of its inputs
-before it can act on them. These type checks can be eliminated with
-type-mapping and instructions can be customised based on the types of
-the inputs they receive. 
-
-This is closely coupled with the idea of argument case expansion. For 
-Type-Mapping to be effective the VM must dispatch on its current type 
-state. This is what eliminates the type checking step. But if the VM 
-does not also dispatch on the arguments for the next instruction it 
-cannot know which version of the instruction is appropriate. Knowing 
-which types are in which registers without knowing which registers 
-are arguments for an instruction means that there is not enough 
-information to specialise the instruction. With argument case 
-expansion a version of each instruction for every combination of 
-arguments is necessary.
 
 \subsection{Operand Dispatch VM}
 
