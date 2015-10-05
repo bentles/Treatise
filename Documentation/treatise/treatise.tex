@@ -494,11 +494,22 @@ Dynamically typed languages have their own advantages. Programs
 written in dynamically typed languages tend to be shorter than
 equivalent programs written in statically typed languages and
 dynamically typed languages are considered to be easier to prototype
-ideas in. Also, a subset of logically correct programs will not be accepted by a statically typed language's type checker. Dynamic typed languages allow the freedom to write these kinds of programs.
+ideas in. Also, a subset of logically correct programs will not be
+accepted by a statically typed language's type checker. Dynamic typed
+languages allow the freedom to write these kinds of programs.
 
-Dynamically typed languages are also powerful for handling arbitrary data. This is exemplified by the JSON format, based on JavaScript. An arbitrary database query for an application in a statically typed language often has to be mapped to an object for some static class and the types of the values placed into that object have to be checked anyway. for these types of problems a dynamically typed language can build arbitrary objects on the fly.
+Dynamically typed languages are also powerful for handling arbitrary
+data. This is exemplified by the JSON format, based on JavaScript. An
+arbitrary database query for an application in a statically typed
+language often has to be mapped to an object for some static class and
+the types of the values placed into that object have to be checked
+anyway. for these types of problems a dynamically typed language can
+build arbitrary objects on the fly.
 
-Of course statically and dynamically typed languages can be realised in many different ways. Both dynamic and statically typed languages are widely used and so VM research for both statically and dynamically typed languages is important.
+Of course statically and dynamically typed languages can be realised
+in many different ways. Both dynamic and statically typed languages
+are widely used and so VM research for both statically and dynamically
+typed languages is important.
 
 \subsection{Modern Processor Architecture}
 
@@ -584,21 +595,42 @@ speculatively executing from the address stored in the BTB.
 Modern processors make use of different levels of cache to allow for
 faster memory access. Ideally we would like to have an infinite amount
 of memory with no time cost for accessing it. The reality is that the
-larger memory is, the slower it becomes to access it {[}???{]}. In
-order to get closer to the ideal modern processors make use of
-cache. It takes around 100 cycles for Intel's i7-4720HQ (Haswell)
-architecture to access memory. Cache allows us get get closer to the
-ideal case by keeping commonly accessed memory closer to the CPU in
-levels of increasingly smaller, faster and more expensive (to
-manufacture) memory. The Haswell has 32KB of L1 data cache and 32KB of
-L1 code cache. These are located on the CPU itself and can be accessed
-in around 4 cycles{[}x{]}. It also has 256KB of L2 cache and 8 MB of
-L3 cache. Caching works on the principal of locality of access. If you
-access memory in more or less the same area a lot, that access is much
-faster than if you hop around from place to place. We should try to
-take advantage of cache in our VM's design.
+larger memory is, the slower it becomes to access it. In order to get
+closer to the ideal modern processors make use of cache. It takes
+around 100 cycles for Intel's i7-4720HQ (Haswell) architecture to
+access memory. Cache allows us get get closer to the ideal case by
+keeping commonly accessed memory closer to the CPU in levels of
+increasingly smaller, faster and more expensive (to manufacture)
+memory. 
+
+The Haswell architecture has 32KB of L1 data cache and 32KB of L1
+instruction cache. These are located on the CPU itself. L1 data cache
+can be accessed in around 4 cycles \cite{7-cpu}. It also has 256KB of
+L2 cache and 8 MB of L3 cache. L2 cache can be accessed in 12 cycles
+and L3 in about 36 cycles \cite{7-cpu}. Caching works on the principal
+of locality of reference. There are two types of locality of
+reference: spacial locality and temoporal locality.
+
+Temporal locality takes advantage of the likelihood that similar data
+will be needed in the near future. If some data has been accessed
+recently it is cached because it is quite likely it will be needed
+again soon.
+
+Spacial locality takes advantage of the likelihood that similar data
+will be needed in the near vicinity of an accessed value. Data near an
+accessed value is cached because it is likely that it will be
+needed. This would be good for something like sequential array lookups
+because more of the array will be cached for faster access later. 
+
+With knowledge of how cache functions we can implement a VM that makes
+effective use of the processor's cache.
 
 \subsection{Conventional Implementation of High Level VMs}
+
+Several common patterns are found in the design of Virtual
+Machines. Different techniques for threading the flow of execution
+through the VM have been well-examined and the trade-offs between
+register and stack-based VMs have been discussed and studied.
 
 \subsubsection{Dispatch and Threading}
 
@@ -738,8 +770,6 @@ often, is removed. Removing this overhead is important because slow
 compilation at runtime can have a visible effect for users.
 
 \subsection{VM Interpreter Reseach}
-
-
 
 \subsubsection{Threaded Code}
 
@@ -931,13 +961,13 @@ and pointer.
 
 \subsection{Token Threading}
 
-This VM makes use of token threading. Though token threading is slower
+The VM makes use of token threading. Though token threading is slower
 than direct threading \cite{Shi2007} because it must first complete
 the lookup step before it can branch to the next instruction, the
 program code used by the Operand-Type VM is intended to be shared by
 many instances of the VM. This cannot be achieved with direct
 threading as the addresses of each instruction in each instance may be
-different{[}x{]}. Also because the Operand-Type VM's dispatch is based
+different. Also because the Operand-Type VM's dispatch is based
 on the runtime state of the virtual machine (the current type state)
 even if addresses were the same between instnces we can't represent
 code in terms of those addresses as we don't know the state
