@@ -494,7 +494,11 @@ Dynamically typed languages have their own advantages. Programs
 written in dynamically typed languages tend to be shorter than
 equivalent programs written in statically typed languages and
 dynamically typed languages are considered to be easier to prototype
-ideas in.
+ideas in. Also, a subset of logically correct programs will not be accepted by a statically typed language's type checker. Dynamic typed languages allow the freedom to write these kinds of programs.
+
+Dynamically typed languages are also powerful for handling arbitrary data. This is exemplified by the JSON format, based on JavaScript. An arbitrary database query for an application in a statically typed language often has to be mapped to an object for some static class and the types of the values placed into that object have to be checked anyway. for these types of problems a dynamically typed language can build arbitrary objects on the fly.
+
+Of course statically and dynamically typed languages can be realised in many different ways. Both dynamic and statically typed languages are widely used and so VM research for both statically and dynamically typed languages is important.
 
 \subsection{Modern Processor Architecture}
 
@@ -590,7 +594,7 @@ manufacture) memory. The Haswell has 32KB of L1 data cache and 32KB of
 L1 code cache. These are located on the CPU itself and can be accessed
 in around 4 cycles{[}x{]}. It also has 256KB of L2 cache and 8 MB of
 L3 cache. Caching works on the principal of locality of access. If you
-access memory in more or less the same area a lot, that acess is much
+access memory in more or less the same area a lot, that access is much
 faster than if you hop around from place to place. We should try to
 take advantage of cache in our VM's design.
 
