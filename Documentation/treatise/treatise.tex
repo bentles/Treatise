@@ -1393,11 +1393,16 @@ A (m - 1, A (m, n - 1))   & \mathrm{if}\ m > 0 \mathrm{\  and\  } n > 0
 \right.
 \end{align*}
 
+
 The Ackermann benchmark tests the VMs function call and return mechanisms. The benchmark calls the Ackermann function with arguments m = 4 and n = 1. This yields the result 65533 after 2 762 984 010 recursive calls.
 
 \subsection{Fannkuch}
 
-The fannkuch benchmark 
+The fannkuch benchmark was first introduced by Bruno Haible in 1994 in the comp.lang.lisp newsgroup \cite{fannkuch}. It works on producing and reordering permutations of numbers
+
+The benchmark generates all 11! permutations of the numbers one through 11. For each permutation the benchmark looks at the first number in the permutation and reverses that many of its elements. This continues until the first number in the permutation is one. Each of the reversals performed is counted and the maximum number of reversals needed is recorded as the output for the benchmark.
+
+The benchmark makes heavy use of buffers to store permutations and performs many get and set operations on them. A checksum is calculated to ensure correctness of implementation.
 
 \subsection{Fasta}
 \subsection{Mandelbrot}
