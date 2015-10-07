@@ -1405,7 +1405,13 @@ The benchmark generates all 11! permutations of the numbers one through 11. For 
 The benchmark makes heavy use of buffers to store permutations and performs many get and set operations on them. A checksum is calculated to ensure correctness of implementation.
 
 \subsection{Fasta}
+The fasta benchmark generates DNA nucleotide sequences by copying and using weighted random selection from 2 alphabets. The full definition can be found on the Benchmarks Game website: \cite{fasta}.
+
+The fasta benchmark does its work on buffers and by generating random numbers with a simple algorithm. 
+
 \subsection{Mandelbrot}
+
+The Mandelbrot benchmark generates a mandelbrot fractal
 
 \subsection{Mersenne Twister}
 The mersenne twister is pseudorandom number generator developed by Makoto Matsumoto and Takuji Nishimura in 1997 \cite{Matsumoto}. It outputs uniformly distributed random 32 bit unsigned integers.
@@ -1423,9 +1429,9 @@ The mersenne twister is the default pseudorandom number generator for the follow
 
 This algorithm was chosen because random number generation is a common task in programs with chance-based elements or those which need to have random events or randomly generated environments like video games. 
 
-
-
 \subsection{Prime Sieve}
+
+
 \subsection{Reverse Complement}
 
 \section{Instruction and Type Usage}
