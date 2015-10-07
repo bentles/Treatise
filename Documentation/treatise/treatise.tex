@@ -1073,20 +1073,67 @@ Note the use of the \verb|g| for the \verb|mov| and \verb|movc| instructions. Th
 These instructions allow for getting and setting of locals (getl,
 setl), objects (geto, seto) and buffers (getb, setb).
 
-%TODO: mememememem
+\begin{description}
+	\item[getl] get a local value indexed by a 16-bit integer 
+	constant and store it in a register
+	
+	$getl(i, const_{16}):= g_{i} \longleftarrow mem[fp + const_{16}]$ 
+	\\
+	\item[seto] set a value, indexed by an integer-valued register, 
+	in an
+	object to that of a register
+	
+	$seto(i, j \neq i, k):= p_{i}[header + r_{j}*scale] 
+	\longleftarrow g_{k}$ \\
+	
+	
+\end{description}
+
 
 \subsection{Control Flow Instructions}
 
 These instructions allow for jumps in execution in the program. All
 jumps are relative to the current \verb|IP| value.
 
+\begin{description}
+	\item[jmp] adds a 16-bit integer constant offset to \verb|IP|
+	
+	$jmp(const_{16}) := ip \longleftarrow ip + const_{16}$ \\
+	\item[jmpf] adds a 64-bit integer constant offset to \verb|IP|
+	
+	$jmpf(const_{64}) := ip \longleftarrow ip + const_{64}$ \\	
+	
+	\item[jcmp] adds one of three 16-bit integer constant offsets to
+	\verb|IP| depending on which case holds for two different
+	integer-valued registers
+	
+	$jcmp(i, j\neq i,less_{16},equal_{16},greater_{16}) :=$ \\
+	$ ip \longleftarrow  \\
+	case :r_{i} < r_{j}: ip + less_{16}   \\
+	case :r_{i} = r_{j}: ip + equal_{16} \\
+	case :r_{i} > r_{j}: ip + greater_{16}$ \\
+\end{description}
 
 
 \subsection{Function Call and Return}
 
-%TODO: meeee!
 
 \subsection{Pragmatic Higher-Level Instructions}
+
+\begin{description}
+		\item[newb]{} allocates a new object of size given by an
+		integer-valued register and assigns it to some register
+		
+		$ newb(i, j \neq i) := $ \\
+		$  object *base \longleftarrow (buffer*)malloc(sizeof(object) + 
+		sizeof(int8\_t)* r_j) \\
+		base.size \longleftarrow r_i\\
+		g_i \longleftarrow base \\ $
+		
+		\item[out] writes out a stream of data from a buffer to stdout
+		
+		\item[print] writes a line of data to stdout
+\end{description}
 
 \section{Conventional VM}
 
@@ -1328,13 +1375,30 @@ terminated by a \verb|ret| instruction.
 
 \section{Benchmarks}
 
-A suite of 7 commonly used benchmarks was prepared in 
+A hand-written suite of 7 commonly used benchmarks was written in collaboration with Matthew Sainsbury. These benchmarks are designed to test the performance of the virtual machine while performing tasks deemed representative of common programming activities.  
 
 \subsection{Ackermann}
 \subsection{Fannkuch}
 \subsection{Fasta}
 \subsection{Mandelbrot}
+
 \subsection{Mersenne}
+The mersenne twister is pseudorandom number generator developed by Makoto Matsumoto and Takuji Nishimura in 1997 \cite{Matsumoto}. It outputs uniformly distributed random 32 bit unsigned integers.
+
+The benchmark generates 100 million random numbers using the MT19937 mersenne twister algorithm. To generate each number requires less than two function calls on average for the implementation used. It makes heavy use of bitwise operations and instructions for getting and setting values from objects.
+
+This algorithm was chosen because random number generation is a common task in programs with chance-based elements or those which need to have random events or randomly generated environments like video games. 
+
+The mersenne twister is the default pseudorandom number generator for the following programming languages (amongst others):
+\begin{itemize}
+	\item R \cite{R}
+	\item Steel Bank Common Lisp \cite{SBCL}
+	\item Julia \cite{Julia}
+	\item Python \cite{Python}
+	\item Ruby \cite{Ruby}
+\end{itemize}
+
+
 \subsection{Prime Sieve}
 \subsection{Reverse Complement}
 
@@ -1494,8 +1558,7 @@ Text of Appendix A is Here
 \section{Memory Access}
 \begin{description}
 	\item[getl] get a local value indexed by a 16-bit integer 
-	constant and
-	store it in a register
+	constant and store it in a register
 	
 	$getl(i, const_{16}):= g_{i} \longleftarrow mem[fp + const_{16}]$ 
 	\\
