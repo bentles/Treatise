@@ -1,4 +1,4 @@
-\documentclass[english,a4paper]{article}
+\documentclass[english,a4paper]{report}
 %\usepackage[margin=2cm]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[latin9]{inputenc}
@@ -21,7 +21,7 @@
 
 % reset counter per chapter
 \usepackage{chngcntr}
-\counterwithin{figure}{section}
+\counterwithin{figure}{chapter}
 
 \renewcommand{\lstlistingname}{Listing}
 \usepackage{courier}
@@ -59,29 +59,29 @@ University
 
 \newpage{}
 
-\section*{Acknowledgements}
+\chapter*{Acknowledgements}
 
 \newpage{}
 
-\section*{Abstract}
+\chapter*{Abstract}
 
 \newpage{}
 
-\section*{Declaration of Own Work}
+\chapter*{Declaration of Own Work}
 
 \newpage{}
 
 \listoffigures
 \newpage{}
 
-\section*{List of Tables}
+\chapter*{List of Tables}
 
 \newpage{}
 
 \tableofcontents
 \newpage{}
 
-\section{Introduction}
+\chapter{Introduction}
 
 In the last 20 years, software applications programming has seen a
 shift away from compiled languages, that run natively on hardware,
@@ -103,7 +103,7 @@ and C\# and for web development this means JavaScript and PHP.
 Given the popularity of these languages, research into interpretershatter
 performance is important.
 
-\subsection{Dynamically Typed Languages}
+\section{Dynamically Typed Languages}
 Dynamically typed languages are the foundation on which the modern
 website is built. Currently there are two major web-development
 languages: JavaScript and PHP. All major browsers have JavaScript
@@ -131,15 +131,15 @@ or command to create complex behaviour. Dynamic languages are ideal
 for tasks like this because they have simple, terse syntax and
 powerful abstractions.
 
-\subsection{Interpreting Dynamically Typed Languages}
+\section{Interpreting Dynamically Typed Languages}
 Dynamically typed languages are commonly paired with an
 interpreter. That is, these languages are not compiled to machine code
 that can be run on some architecture. Instead, it is the job of a
 seperate program to determine the meaning of the program and perform
-the instructions on actual hardware. There are three main approeaches
+the instructions on actual hardware. There are three main approaches
 to interpreting dynamically typed languages:
 
-\subsubsection{Line by Line}
+\subsection{Line by Line}
 In line by line interpretation the program is parsed one line at a
 time. Each line is executed before moving on to the next line in the
 program. This is ideal for command-line interface operating systems
@@ -147,7 +147,7 @@ where the primary mode of interaction is entering single-line
 commands. Some examples of langauges with this type of interpreter
 are: Bash, CMD.EXE, Python and Ruby.
 
-\subsubsection{Abstract Syntax Tree}
+\subsection{Abstract Syntax Tree}
 Abstract syntax tree or AST interpreters parse the entire program and
 build an abstract syntax tree that represents the structure of the
 program. This tree can then be traversed in the correct order to
@@ -191,7 +191,7 @@ and interpreted in this fashion.
 \end{figure}
 
 
-\subsubsection{Bytecode}
+\subsection{Bytecode}
 Bytecode interpreters interpret a pre-compiled bytecode that is much
 like the machine code executed by the CPU. An additional tool called a
 compiler is needed to generate the bytecode from the program's text.
@@ -226,14 +226,14 @@ used.
   \label{fig:luabyte}
 \end{figure}
 
-\subsection{Organisation of a Virtual Machine} 
+\section{Organisation of a Virtual Machine} 
 A Virtual Machine executes a binary file that is a list of
 instructions in the bytecode format for that Virtual Machine. So for
 Lua these instructions would be 32-bit integers in one of the formats
 seen in Figure~\ref{fig:luabyte}. The binary file may also contain
 data for known constant values in the program.
 
-\subsubsection{Instruction Pointer}
+\subsection{Instruction Pointer}
 When executing bytecode, the virtual machine needs some way to know
 what instruction is currently being executed. This is slightly more
 complex than just keeping track of how far into the program the VM has
@@ -245,7 +245,7 @@ implemented.
 The instruction pointer (or IP) is used for this purpose. Its only
 purpose is to point to the current instruction.
 
-\subsubsection{Instruction Set}
+\subsection{Instruction Set}
 Each VM has a set of subroutines called the instruction set. Each
 subroutine performs a specific function necessary for the execution of
 a program. A VM usually has instructions for performing arithmetic
@@ -258,7 +258,7 @@ process. The particular set of instructions a virtual machine has is
 the decision of the designer and choosing which instructions to
 include and omit has trade-offs that need to be considered.
 
-\subsubsection{Dispatch Mechanism} 
+\subsection{Dispatch Mechanism} 
 At the core of the virtual machine is its dispatch mechanism. The VM
 reads the instruction that the instruction pointer points to and then
 must determine what subroutine needs to be called to execute the
@@ -268,29 +268,41 @@ complex topic that will be discussed in more depth in chapter 3. The
 dispatch mechanism also influences how the opcodes in the instruction
 word are seperated from the operand.
 
-\subsection{Project Objectives}
-The objective of this project is to implement and benchmark a novel
-virtual machine design for a dynamically typed language. In order to
-benchmark the performance of the virtual machine an additional virtual
-machine must be developed using a more conventional VM design against
-which the benchmark running times can be measured. The project aims to
-determine what kind of performance benefits can be gained from this
-type of virtual machine.
+\section{Problem Description}
+Modern process virtual machines make use of JIT compilers. Both JVM
+and .Net make use of a JIT compiler \cite{MSDN,Oracle}. 
 
-\subsection{Project Scope}
+For applications that run many concurrent instances, like a web server
+which starts up a new process for every client, a virtual
+machine that makes use of a JIT compiler defeats the benefits of
+read-only memory sharing. This is because jitted code is created at 
+runtime and thus is saved in the process's private memory. So jitted 
+code is not shared between instances of the VM running the same 
+code. 
 
-The project's scope is to develop an implementation of a VM of this
-nature and run predetermined benchmarks on it against an alternate
-version of it that does not make use of type-mapping. This experiment
-should show what benefits the approach has. There will be no compiler
-or assembler implementation required and the VM will not be required
-to perform garbage collection. The VM will also not have to be robust
-in how it interacts with the operating system it is running on nor in
-how it handles errors.
+Bytecode that has not been jitted can be shared between applications, however. If we wish to take advantage of read-only memory sharing a JIT-less virtual machine is needed. As was covered in chapter 2, JIT compilation can greatly reduce the time taken to execute programs. Thus alternative ways to increase the performance of programs executed on the VM need to be found to counter the performance loss of losing the JIT compiler.
+
+\section{Project Objectives}
+The objective of this project is to implement and benchmark an experimental JIT-less virtual machine design for a dynamically typed language. In order to benchmark the performance of the virtual machine an additional two virtual machines must be developed. One of these is a conventionally implemented virtual machine. The other is an additional experimental VM needed to test the effectiveness of a particular element of the proposed solution. This will be discussed further in chapter XXX. 
+
+A set of benchmarks must be hand-written to run on the new virtual machines. The running times of the benchmarks on each of the three virtual machines must be compared and analysed. The project aims to determine what kind of performance benefits (if any) can be attained by the two experimental implementations over the conventionally designed virtual machine.
+
+\section{Project Scope}
+
+The VMs are experimental prototypes, hence several tools and features conventionally paired with a VM are considered out of scope for this project. There will be no \textbf{compiler} or \textbf{assembler} implementation required and the VM will not be required to perform \textbf{garbage collection}.
+
+\begin{itemize}
+	\item A compiler implementation is unnecessary as the VM designs are experimental prototyped and are not meant for further use, thus benchmarks can be hand-written as they are the only programs needed to run on the virtual machine. Similarly, robust error handling and debugging tools are considered out of scope. 
+	
+	\item An assembler will be used to make writing benchmarks more bearable but is not considered in scope as it is simply a tool used to facilitate easier writing of benchmarks and not an important part of the implementation of the virtual machine.
+	
+	\item Garbage collection is considered out of scope because the implementation of a garbage collector adds to the complexity of the project and may influence the results of running the benchmarks. A GC is also unnecessary to run the benchmarks.
+\end{itemize}
+
 
 %floating point and advanced threading techniques
 
-\subsection{Risks}
+\section{Risks}
 The risks of the project are mainly about its structure and how it can
 be criticised. The VM will be running predefined benchmarks. If it
 performs those well at the expense of its general usefulness the
@@ -302,7 +314,9 @@ good. Whether the VM performs better or not is important knowledge and
 being as careful as possible about discovering that accurately is
 extremely important.
 
-\subsection{Overview of Treatise}
+A risk mitigated by the design of the study is that the hand-written benchmarks may not be optimised as well as those produced by a compiler. Since all three VMs will run identical benchmarks this risk is mitigated because any lack of optimisation in a benchmark experienced by one VM will be experienced by all other VMs. Comparing the experimental VMs with an existing conventional VM design would be ineffectual as it may perform better purely because the code produced by the compiler is better optimised.
+
+\section{Overview of Treatise}
 In chapter 2, the virtual machine as a concept will be introduced and
 the different types of virtual machines will be covered. Existing
 solutions to the problem of a VM for dynamically typed language will
@@ -335,7 +349,7 @@ the implementation for the virtual machine is useful and what its
 strengths and weaknesses are.
 \newpage{}
 
-\section{Background and Literature Review}
+\chapter{Background and Literature Review}
 This novel virtual machine is called the \textbf{Operand-Type Dispatch
   VM} or just the \textbf{Operand-Type VM}. Its placement in the
 heirarchy of virtual machines is examined in this section.
@@ -345,7 +359,7 @@ current literature on virtual machine design is necessary as these
 elements inform the design decisions made for the \textbf{Operand-Type
   Dispatch VM}.
 
-\subsection{Virtual Machines}
+\section{Virtual Machines}
 A \textbf{virtual machine} or \textbf{VM} is a computer program that
 ``executes software in the same manner as the machine for which the
 software was developed'' \cite[pg9]{JamesE.Smith2005}. This program is
@@ -359,7 +373,7 @@ programs that are incompatable with the host. The virtual machine
 allows this by providing a mapping of its state to the state of the
 host machine on which it is running \cite[pg4]{JamesE.Smith2005}.
 
-\subsection{The Types of Virtual Machines}
+\section{The Types of Virtual Machines}
 Virtual machines come in two varieties: \textbf{process} virtual
 machines and \textbf{system} virtual machines.
 
@@ -378,7 +392,7 @@ entire operating system on the guest machine and the many processes
 that the guest operating system executes. A system virtual machine
 will terminate when the guest system is shut down.
 
-\subsection{The Types of Process Virtual Machines}
+\section{The Types of Process Virtual Machines}
 
 Process virtual machines can be divided into two categories:
 \textbf{multiprogrammed systems} and \textbf{dynamic}
@@ -407,7 +421,7 @@ and cached so later execution is faster. Dynamically translating in
 this manner is known as \textbf{just-in-time compilation} (JIT
 compilation).
 
-\subsection{Where the Operand-Type Dispatch VM is Situated}
+\section{Where the Operand-Type Dispatch VM is Situated}
 The Operand-Type VM is a process virtual machine. It has a new
 instruction set architecture and hence is different from any host
 machine's ISA. The Operand-Type VM is exclusively an interpreter and
@@ -415,7 +429,7 @@ does not make use of a JIT compiler. It is designed to run processes
 written in a dynamically typed languages. For these reasons it is a
 ``JIT-less'', ``Dynamic-ISA'' virtual machine. 
 
-\subsection{Dynamic vs Statically Typed Programming Languages}
+\section{Dynamic vs Statically Typed Programming Languages}
 A dynamically typed language is one in which the type information is
 associated with values \cite[pg4]{RobertoIerusalimschy}. An example of
 a dynamically typed language is JavaScript. In JavaScript the var
@@ -429,7 +443,7 @@ their type (\textbf{int}, \textbf{String} etc). Each variable can only
 hold a value of that type. Each approach has its strengths and
 weaknesses.
 
-\subsubsection{Type Safety }
+\subsection{Type Safety }
 With static typing a program's type correctness can be checked at
 compile time. Because the types of all variables are known when the
 code is written, operations on those variables can be declared valid
@@ -489,7 +503,7 @@ trying to add are in fact integers before it can add them.
   \label{fig:dvs}
 \end{figure}
 
-\subsection{Advantages of Dynamically Typed Languages} 
+\section{Advantages of Dynamically Typed Languages} 
 Dynamically typed languages have their own advantages. Programs
 written in dynamically typed languages tend to be shorter than
 equivalent programs written in statically typed languages and
@@ -511,7 +525,7 @@ in many different ways. Both dynamic and statically typed languages
 are widely used and so VM research for both statically and dynamically
 typed languages is important.
 
-\subsection{Modern Processor Architecture}
+\section{Modern Processor Architecture}
 
 In order to create an efficient VM, we need first understand how
 modern processors work and what some of the bottlenecks for our VM's
@@ -525,7 +539,7 @@ only be explained once we know about how modern processors make use of
 understanding of modern computer architectures is needed before we can
 begin a discussion of VM design.
 
-\subsubsection{Pipelining}
+\subsection{Pipelining}
 
 Pipelining is a process in which a processor's instruction processing
 cycle is shared by many consecutive instructions at once. The
@@ -566,7 +580,7 @@ prediction is used in modern processors to try to keep the pipeline as
 full as possible and not waste time waiting for this information to be
 known.
 
-\subsubsection{Branch Prediction}
+\subsection{Branch Prediction}
 
 Instead of filling up the pipeline with no operation instructions
 until we know where to branch, with branch prediction we guess which
@@ -590,7 +604,7 @@ previously taken branches are cached. So upon arrival at a branch that
 has been previously taken, we guess if it will be taken and begin
 speculatively executing from the address stored in the BTB.
 
-\subsubsection{Cache}
+\subsection{Cache}
 
 Modern processors make use of different levels of cache to allow for
 faster memory access. Ideally we would like to have an infinite amount
@@ -625,14 +639,14 @@ because more of the array will be cached for faster access later.
 With knowledge of how cache functions we can implement a VM that makes
 effective use of the processor's cache.
 
-\subsection{Conventional Implementation of High Level VMs}
+\section{Conventional Implementation of High Level VMs}
 
 Several common patterns are found in the design of Virtual
 Machines. Different techniques for threading the flow of execution
 through the VM have been well-examined and the trade-offs between
 register and stack-based VMs have been discussed and studied.
 
-\subsubsection{Dispatch and Threading}
+\subsection{Dispatch and Threading}
 
 Dispatch is the process of fetching, decoding and starting the next
 instruction to be run by a virtual machine.
@@ -738,7 +752,7 @@ commonly follow each other have a better chance of being predicted.
 All code in this section is from or adapted from \cite{Ertl}.
 
 
-\subsubsection{Registers VS Stacks}
+\subsection{Registers VS Stacks}
 In a stack virtual machine, instructions act on members of the
 stack. Arguments and return values for instructions are often implicit
 and thus instructions can be smaller. For instance a stack
@@ -757,7 +771,7 @@ architecture. Both the Java Virtual Machine (JVM) and Microsoft's
 Common Language Runtime (CLR) make use of stack virtual machines
 \cite{CLI}\cite{JVM}.
 
-\subsubsection{Just in Time Compilation}
+\subsection{Just in Time Compilation}
 
 Both the Hotspot Java Virtual Machine and .Net Common Language 
 Runtime make use of Just in Time compilation\cite{JJIT}. JIT 
@@ -769,9 +783,9 @@ optimising every single piece of code, even that which is not used
 often, is removed. Removing this overhead is important because slow 
 compilation at runtime can have a visible effect for users.
 
-\subsection{VM Interpreter Reseach}
+\section{VM Interpreter Reseach}
 
-\subsubsection{Threaded Code}
+\subsection{Threaded Code}
 
 James R. Bell introduced the concept of threaded code in 1973. The
 Fortran IV compiler was written to generate threaded code.\cite{Bell}
@@ -785,7 +799,7 @@ dispatch on an architecture with a BTB resulted in 81\%-98\% branch
 prediction misses \cite{EfficientInterpreters}. They also found that
 direct threading resulted in 50\%-63\% branch prediction misses.
 
-\subsubsection{Abstraction Level}
+\subsection{Abstraction Level}
 
 A 2009 study\cite{Brunthaler20093} by Stefan Brunthaler classed
 virtual machines as high or low abstraction level virtual machines,
@@ -799,7 +813,7 @@ dispatch was the main overhead for a virtual machine. He found that
 this assumption does not hold for high abstraction level VMs, but is
 valid for VMs with a low abstraction level.
 
-\subsubsection{Specialised Instructions}
+\subsection{Specialised Instructions}
 
 Michael Schr{\"o}der implemented a modified version of the Lua Virtual
 machine that made use of the approach of specialising instructions
@@ -809,9 +823,9 @@ change the type of the arguments for that instruction have type checks
 that will despecialise the instruction if need be. This approach
 achieved a 20\% speed increase on Intel machines\cite{Schroder2012}.
 
-\subsection{Existing Systems}
+\section{Existing Systems}
 
-\subsubsection{Lua VM}
+\subsection{Lua VM}
 
 The Lua VM is an interpreter for the dynamically typed language Lua's
 bytecode. Lua is used as a scripting language in game engines
@@ -834,7 +848,7 @@ something prioritised by the Lua team for portability reasons
   (though an independent project called luajit has provided one).
 \end{description}
 
-\subsubsection{HotSpot JVM and .NET runtime}
+\subsection{HotSpot JVM and .NET runtime}
 Oracle's Java Virtual Machine implementation, called HotSpot is a
 high performance Virtual Machine for running java
 bytecode. Microsoft's .NET runtime is a similar VM that runs the
@@ -849,7 +863,7 @@ quite differently from the VM described in this treatise:
 \item[JIT] Both VMs make use of Just in Time compilation.
 \end{description}
 
-\subsubsection{Dalvik VM}
+\subsection{Dalvik VM}
 The Dalvik VM executes applications written for Google's Android
 operating system for phones and tablets. The common is is that JVM
 bytecode is translated to Dalvik bytecode to run on the Dalvik
@@ -862,30 +876,11 @@ the Dalvik VM is a register machine.
 \item[JIT] Dalvik VM code is jitted
 \end{description}
 
-\section{Solution Design}
+\chapter{Solution Design}
 
-\subsection{A Virtual Machine for Many Instance Applications}
-Modern process virtual machines make use of JIT compilers. Both JVM
-and .Net make use of a JIT compiler \cite{MSDN,Oracle}. 
 
-For applications that run many concurrent instances, like a web server
-which which starts up a new process for every client, a virtual
-machine that makes use of a JIT compiler defeats the benefits of
-read-only memory sharing. This is because jitted code is created at 
-runtime and thus is saved in the process's private memory. So jitted 
-code is not shared between instances of the VM running the same 
-code. 
 
-The raw bytecode can be shared between applications, however. If we 
-wish to take advantage of this a JIT-less virtual machine is needed. 
-As was covered in chapter 2, JIT compilation can greatly reduce 
-the time taken to execute programs. This presents us with a need to 
-find alternative ways to let our programs execute quickly.
-
-The two ideas central to the design of the Operand-Type Dispatch VM
-are type-mapping and argument case expansion.
-
-\subsection{Type-Mapping and Argument Case Expansion}
+\section{Type-Mapping and Argument Case Expansion}
 
 A type-mapped VM is one which keeps track of the state of the types of
 its registers. This is beneficial because every instruction in a
@@ -905,7 +900,7 @@ information to specialise the instruction. With argument case
 expansion a version of each instruction for every combination of 
 arguments is necessary.
 
-\subsection{Proposed Solution}
+\section{Proposed Solution}
 The proposed solution is the Operand-Type Dispatch VM. The
 Operand-Type Dispatch VM makes use of type-mapping and argument case
 expansion. In order to determine the effectiveness of the solution, a
@@ -931,7 +926,7 @@ Any referral to the \verb|VM| or the \verb|virtual machine| used from
 this point without explicitly mentioning which VM is being referred to
 will apply to \emph{all} three virtual machines.
 
-\subsection{Virtual Machine Design Details}
+\section{Virtual Machine Design Details}
 
 The VM is a register virtual machine. The choice of being register
 based was necessary for the argument case expansion to be performed
@@ -945,7 +940,7 @@ an instruction that takes 3 arguments potentially has $6^3 = 216$
 argument cases.
 
 The VM has two primitive types: integers and pointers. Keeping the
-number of types and regsiters low is extremely important for the
+number of types and registers low is extremely important for the
 Operand-Type Dispatch VM because it affects the total number of states
 the VM can take on. The Operand-Type Dispatch VM can be thought of as
 creating a specialised version of the VM for every type state. With
@@ -959,57 +954,7 @@ a value is stored together with the data for that value. These are
 implemented in C as tagged unions. The VM has only two types: integer
 and pointer.
 
-\subsection{Token Threading}
-
-The VM makes use of token threading. Though token threading is slower
-than direct threading \cite{Shi2007} because it must first complete
-the lookup step before it can branch to the next instruction, the
-program code used by the Operand-Type VM is intended to be shared by
-many instances of the VM. This cannot be achieved with direct
-threading as the addresses of each instruction in each instance may be
-different. Also because the Operand-Type VM's dispatch is based
-on the runtime state of the virtual machine (the current type state)
-even if addresses were the same between instnces we can't represent
-code in terms of those addresses as we don't know the state
-information until runtime so we can't choose which address should be
-used to replace the opcode. With Indirect threading's lookup table we
-can share the code in its opcode form and perform the correct jumps
-for each instance of the VM by consulting the state register and
-looking up the addresses in the lookup table.
-
-\subsection{Values}
-
-\begin{figure}
-  \begin{lstlisting}
-    typedef struct ValueStruct value; struct ValueStruct { int64_t
-      tag; union { int64_t i; void *p; }; };
-  \end{lstlisting}
-  \label{fig:struct}
-  \caption{Value Struct}
-\end{figure}
-
-As this is a dynamic ISA virtual machine, types are associated with
-values instead of variables\cite{RobertoIerusalimschy}. The
-implementation for a value is simple enough to include here.
-
-Figure~\ref{fig:struct} shows the implementation of a value for the
-VM. Values are structs with two fields:
-\begin{description}
-\item[tag] a 64-bit integer to identify the type of the value
-\item[union] a 64-bit memory space for integers or pointers
-\end{description}
-
-The tag field is used to identify the type of the value. There are
-four possible values it could take on:
-\begin{enumerate}
-  \setcounter{enumi}{-1}
-\item a 64-bit unsigned integer
-\item a value pointer or null
-\item an object pointer \setcounter{enumi}{3}
-\item a buffer pointer
-\end{enumerate}
-
-\subsection{Registers}
+\section{Registers}
 
 All virtual machines make use of 6 general purpose registers. These
 registers are implemented as an array of 6 \verb|values|. These shall
@@ -1023,114 +968,7 @@ pointer and a value pointer respectively.
 
 In order for 
 
-
-\subsection{Objects}
-
-Objects are a simple built-in data structure for storing ordered
-fields of values. Objects are implemented as a struct with an array of
-values and an integer field for storing the length of the array. Two
-bits of this integer field are used to store flags for a possible
-garbage collector implementation though this remains out of scope for
-this project. Figure~\ref{fig:objmem} shows the memory layout of an
-object.
-
-\begin{figure}
-  \centering
-  \begin{bytefield}[bitwidth=0.3em]{64}
-    \bitheader{0,63} \\
-    \begin{rightwordgroup}{Size and flags}
-      \bitbox{62}{int64\_t size} & \bitbox{1}{} & \bitbox{1}{}
-    \end{rightwordgroup} \\
-    
-    \begin{rightwordgroup}{Data}
-      \wordbox{2}{value}	\\
-      \wordbox[]{1}{$\vdots$} \\[1ex]
-      \wordbox{2}{value}
-    \end{rightwordgroup} \\
-  \end{bytefield}
-  \caption{Object memory layout}
-  \label{fig:objmem}
-\end{figure}
-
-\subsection{Buffers}
-
-Buffers are a data structure that exposes the native byte to the VM so
-that string and handling may be performed without having to create a
-\verb|value| for each character. The implementation is, much like the
-object, a struct with an array of bytes and a size field that holds
-the length of the array and garbage collector
-flags. Figure~\ref{fig:buffer} shows the memory layout of a buffer.
-
-\begin{figure}
-  \centering
-  \begin{bytefield}[bitwidth=0.3em]{64}
-    \bitheader{0,63} \\
-    \begin{rightwordgroup}{Size and flags}
-      \bitbox{62}{int64\_t size} & \bitbox{1}{} & \bitbox{1}{}
-    \end{rightwordgroup} \\
-    
-    \begin{rightwordgroup}{Data}
-      \bitbox{8}{byte} & \bitbox{8}{byte} & \bitbox{48}{...} &	 \\
-      \wordbox[]{1}{$\vdots$} \\[1ex]
-      \bitbox{32}{...} & \bitbox{8}{byte} & \bitbox{8}{byte} &
-      \bitbox{16}{-- empty --} &
-    \end{rightwordgroup} \\
-  \end{bytefield}
-  \label{fig:buffer}
-  \caption{Buffer memory layout}
-\end{figure}
-
-\subsection{Stack Frames and Function Definitions}
-
-All VMs make use of identical Stack Frames for subroutine calls. Each
-stack frame stores:
-
-\begin{itemize}
-\item The previous \verb|FP|, \verb|IP| and an additional register,
-  \verb|TS|, that goes unused except in the opcode-operand-type
-  dispatch VM.
-\item The general purpose registers except for $g_0$ and $g_5$
-\item The local variables used in that stack frame
-\end{itemize}
-
-Registers are saved upon calling a subroutine and restored when the
-subroutine returns. The first and last general purpose registers are
-used for return values. The memory layout for a stack frame can be
-seen in Figure~\ref{fig:stframe}.
-
-Function definitions in bytecode are extremely simple. The first 64
-bits of the function store the number of arguments the function
-accepts. This is followed by the instructions for the function and
-terminated by a \verb|ret| instruction.
-
-\begin{figure}
-  \centering
-  \begin{bytefield}[bitwidth=0.3em]{64}
-    \bitheader{0,63} \\
-    \begin{rightwordgroup}{Special Registers}
-      \wordbox{1}{value *fp}  \\
-      \wordbox{1}{int16\_t *ip} \\
-      \wordbox{1}{int64\_t ts}
-    \end{rightwordgroup} \\
-    
-    \begin{rightwordgroup}{General purpose registers}
-      \wordbox{2}{value $g_1$}\\
-      \wordbox{2}{value $g_2$}\\
-      \wordbox{2}{value $g_3$}\\
-      \wordbox{2}{value $g_4$}
-    \end{rightwordgroup} \\
-    
-    \begin{rightwordgroup}{Local variables}
-      \wordbox{2}{value $l_1$}	\\
-      \wordbox[]{1}{$\vdots$} \\[1ex]
-      \wordbox{2}{value $l_n$}
-    \end{rightwordgroup} \\
-  \end{bytefield}
-  \caption{Stack frame memory layout}
-  \label{fig:stframe}
-\end{figure}
-
-\subsection{Addressing}
+\section{Addressing}
 
 Instructions take operands of three types:
 \begin{description}
@@ -1149,7 +987,7 @@ Instructions take operands of three types:
   referred to in the following form: $name_{64}$
 \end{description}
 
-\subsection{Instructions}
+\section{Instructions}
 
 All virtual machines support an identical set of instructions. How
 these are implemented is quite different for each VM but the
@@ -1171,7 +1009,7 @@ to include this case.
 
 The full set of instructions may be found in appendix B.
 
-\subsubsection{Arithmetic Instructions}
+\subsection{Arithmetic Instructions}
 
 Arithmetic instructions provide basic arithmetic operations for registers that contain integers. If a register that does not contain
 an integer is selected, an error is signalled and the VM halts. All
@@ -1193,7 +1031,7 @@ The \verb|sub| instruction exhibits the case of a trivial instruction call that 
 
 Both instructions also show off how the result of the operation is stored in the first register-number addressed register.
 
-\subsubsection{Bit Manipulation Instructions}
+\subsection{Bit Manipulation Instructions}
 
 These instructions are for performing bitwise logical operations on
 integer operands and constants. The \verb|IP| is incremented in the
@@ -1217,7 +1055,7 @@ Here we see another trivial case. The \verb|xor| instruction does not allow perf
 
 The \verb|shrc| instruction makes use of a 16-bit instruction word after the instruction for the constant argument as a 64-bit argument is unnecessary. 
 
-\subsubsection{Data Movement Instructions}
+\subsection{Data Movement Instructions}
 These instructions allow for values to be moved between registers.
 
 \begin{description}
@@ -1231,26 +1069,26 @@ These instructions allow for values to be moved between registers.
 
 Note the use of the \verb|g| for the \verb|mov| and \verb|movc| instructions. This is because moving a register over another register is a type-independent operation. 
 
-\subsubsection{Memory Access}
+\subsection{Memory Access}
 These instructions allow for getting and setting of locals (getl,
 setl), objects (geto, seto) and buffers (getb, setb).
 
 %TODO: mememememem
 
-\subsubsection{Control Flow Instructions}
+\subsection{Control Flow Instructions}
 
 These instructions allow for jumps in execution in the program. All
 jumps are relative to the current \verb|IP| value.
 
 
 
-\subsubsection{Function Call and Return}
+\subsection{Function Call and Return}
 
 %TODO: meeee!
 
-\subsubsection{Pragmatic Higher-Level Instructions}
+\subsection{Pragmatic Higher-Level Instructions}
 
-\subsection{Conventional VM}
+\section{Conventional VM}
 
 The conventional VM makes use of a conventional decode step for each
 instruction executed by the VM. The opcode and register-number
@@ -1277,12 +1115,12 @@ mask and a shift operation.
 
 
 
-\subsection{Operand Dispatch VM}
+\section{Operand Dispatch VM}
 
 The opcode-operand dispatch VM has a seperate version of every
 instruction for every combination of arguments given to it.
 
-\subsection{Operand-Type Dispatch VM}
+\section{Operand-Type Dispatch VM}
 
 The opcode-operand-type virtual machine does not make use of the usual
 opcode and arguments arrangment used in register machine
@@ -1325,44 +1163,199 @@ perform the instruction, but with this method we already know the
 types and so we can just jump directly to code for those types or an
 error if the arguments are illegal.
 
-\subsubsection{Conventional Dispatch VM}
+\subsection{Conventional Dispatch VM}
 
-\section{Solution Implementation}
+\chapter{Solution Implementation}
 
-\subsection{}
+\section{Token Threading}
 
-\section{Experimental Design}
+The VM makes use of token threading. Though token threading is slower
+than direct threading \cite{Shi2007} because it must first complete
+the lookup step before it can branch to the next instruction, the
+program code used by the Operand-Type VM is intended to be shared by
+many instances of the VM. This cannot be achieved with direct
+threading as the addresses of each instruction in each instance may be
+different. Also because the Operand-Type VM's dispatch is based
+on the runtime state of the virtual machine (the current type state)
+even if addresses were the same between instnces we can't represent
+code in terms of those addresses as we don't know the state
+information until runtime so we can't choose which address should be
+used to replace the opcode. With Indirect threading's lookup table we
+can share the code in its opcode form and perform the correct jumps
+for each instance of the VM by consulting the state register and
+looking up the addresses in the lookup table.
 
-\subsection{Benchmarks}
+\section{Values}
+
+\begin{figure}
+	\begin{lstlisting}
+	typedef struct ValueStruct value; struct ValueStruct { int64_t
+	tag; union { int64_t i; void *p; }; };
+	\end{lstlisting}
+	\label{fig:struct}
+	\caption{Value Struct}
+\end{figure}
+
+As this is a dynamic ISA virtual machine, types are associated with
+values instead of variables\cite{RobertoIerusalimschy}. The
+implementation for a value is simple enough to include here.
+
+Figure~\ref{fig:struct} shows the implementation of a value for the
+VM. Values are structs with two fields:
+\begin{description}
+	\item[tag] a 64-bit integer to identify the type of the value
+	\item[union] a 64-bit memory space for integers or pointers
+\end{description}
+
+The tag field is used to identify the type of the value. There are
+four possible values it could take on:
+\begin{enumerate}
+	\setcounter{enumi}{-1}
+	\item a 64-bit unsigned integer
+	\item a value pointer or null
+	\item an object pointer \setcounter{enumi}{3}
+	\item a buffer pointer
+\end{enumerate}
+
+\section{Objects}
+
+Objects are a simple built-in data structure for storing ordered
+fields of values. Objects are implemented as a struct with an array of
+values and an integer field for storing the length of the array. Two
+bits of this integer field are used to store flags for a possible
+garbage collector implementation though this remains out of scope for
+this project. Figure~\ref{fig:objmem} shows the memory layout of an
+object.
+
+\begin{figure}
+	\centering
+	\begin{bytefield}[bitwidth=0.3em]{64}
+		\bitheader{0,63} \\
+		\begin{rightwordgroup}{Size and flags}
+			\bitbox{62}{int64\_t size} & \bitbox{1}{} & \bitbox{1}{}
+		\end{rightwordgroup} \\
+		
+		\begin{rightwordgroup}{Data}
+			\wordbox{2}{value}	\\
+			\wordbox[]{1}{$\vdots$} \\[1ex]
+			\wordbox{2}{value}
+		\end{rightwordgroup} \\
+	\end{bytefield}
+	\caption{Object memory layout}
+	\label{fig:objmem}
+\end{figure}
+
+\section{Buffers}
+
+Buffers are a data structure that exposes the native byte to the VM so
+that string and handling may be performed without having to create a
+\verb|value| for each character. The implementation is, much like the
+object, a struct with an array of bytes and a size field that holds
+the length of the array and garbage collector
+flags. Figure~\ref{fig:buffer} shows the memory layout of a buffer.
+
+\begin{figure}
+	\centering
+	\begin{bytefield}[bitwidth=0.3em]{64}
+		\bitheader{0,63} \\
+		\begin{rightwordgroup}{Size and flags}
+			\bitbox{62}{int64\_t size} & \bitbox{1}{} & \bitbox{1}{}
+		\end{rightwordgroup} \\
+		
+		\begin{rightwordgroup}{Data}
+			\bitbox{8}{byte} & \bitbox{8}{byte} & \bitbox{48}{...} &	 \\
+			\wordbox[]{1}{$\vdots$} \\[1ex]
+			\bitbox{32}{...} & \bitbox{8}{byte} & \bitbox{8}{byte} &
+			\bitbox{16}{-- empty --} &
+		\end{rightwordgroup} \\
+	\end{bytefield}
+	\label{fig:buffer}
+	\caption{Buffer memory layout}
+\end{figure}
+
+\section{Stack Frames and Function Definitions}
+
+All VMs make use of identical Stack Frames for subroutine calls. Each
+stack frame stores:
+
+\begin{itemize}
+	\item The previous \verb|FP|, \verb|IP| and an additional register,
+	\verb|TS|, that goes unused except in the opcode-operand-type
+	dispatch VM.
+	\item The general purpose registers except for $g_0$ and $g_5$
+	\item The local variables used in that stack frame
+\end{itemize}
+
+Registers are saved upon calling a subroutine and restored when the
+subroutine returns. The first and last general purpose registers are
+used for return values. The memory layout for a stack frame can be
+seen in Figure~\ref{fig:stframe}.
+
+Function definitions in bytecode are extremely simple. The first 64
+bits of the function store the number of arguments the function
+accepts. This is followed by the instructions for the function and
+terminated by a \verb|ret| instruction.
+
+\begin{figure}
+	\centering
+	\begin{bytefield}[bitwidth=0.3em]{64}
+		\bitheader{0,63} \\
+		\begin{rightwordgroup}{Special Registers}
+			\wordbox{1}{value *fp}  \\
+			\wordbox{1}{int16\_t *ip} \\
+			\wordbox{1}{int64\_t ts}
+		\end{rightwordgroup} \\
+		
+		\begin{rightwordgroup}{General purpose registers}
+			\wordbox{2}{value $g_1$}\\
+			\wordbox{2}{value $g_2$}\\
+			\wordbox{2}{value $g_3$}\\
+			\wordbox{2}{value $g_4$}
+		\end{rightwordgroup} \\
+		
+		\begin{rightwordgroup}{Local variables}
+			\wordbox{2}{value $l_1$}	\\
+			\wordbox[]{1}{$\vdots$} \\[1ex]
+			\wordbox{2}{value $l_n$}
+		\end{rightwordgroup} \\
+	\end{bytefield}
+	\caption{Stack frame memory layout}
+	\label{fig:stframe}
+\end{figure}
+
+
+\chapter{Experimental Design}
+
+\section{Benchmarks}
 
 A suite of 7 commonly used benchmarks was prepared in 
 
-\subsubsection{Ackermann}
-\subsubsection{Fannkuch}
-\subsubsection{Fasta}
-\subsubsection{Mandelbrot}
-\subsubsection{Mersenne}
-\subsubsection{Prime Sieve}
-\subsubsection{Reverse Complement}
+\subsection{Ackermann}
+\subsection{Fannkuch}
+\subsection{Fasta}
+\subsection{Mandelbrot}
+\subsection{Mersenne}
+\subsection{Prime Sieve}
+\subsection{Reverse Complement}
 
-\subsection{Instruction and Type Usage}
+\section{Instruction and Type Usage}
 
 
-\section{Results}
+\chapter{Results}
 
-\subsection{Performance}
+\section{Performance}
 
-\section{Conclusion}
+\chapter{Conclusion}
 
 \newpage{}
 \appendix
-\section{Problem Description} 
+\chapter{Problem Description} 
 
 Text of Appendix A is Here
 
-\section{Instruction List} 
+\chapter{Instruction List} 
 
-\subsection{Arithmetic Instructions}
+\section{Arithmetic Instructions}
 \begin{description}
 	\item[add] add two integer-valued registers
 	
@@ -1412,7 +1405,7 @@ Text of Appendix A is Here
 	
 \end{description}
 
-\subsection{Bit Manipulation Instructions}
+\section{Bit Manipulation Instructions}
 \begin{description}
 	\item[and] bitwise and two integer-valued registers
 	
@@ -1482,7 +1475,7 @@ Text of Appendix A is Here
 	_{i}  $ \\
 \end{description}
 
-\subsection{Data Movement Instructions}
+\section{Data Movement Instructions}
 \begin{description}
 	\item[mov] move a register over another register
 	
@@ -1498,7 +1491,7 @@ Text of Appendix A is Here
 	$null(i):= g_{i} \longleftarrow null $ \\
 \end{description}
 
-\subsection{Memory Access}
+\section{Memory Access}
 \begin{description}
 	\item[getl] get a local value indexed by a 16-bit integer 
 	constant and
@@ -1538,7 +1531,7 @@ Text of Appendix A is Here
 	\longleftarrow r_{k}$ \\
 \end{description}
 
-\subsection{Control Flow Instructions}
+\section{Control Flow Instructions}
 \begin{description}
 	\item[jmp] adds a 16-bit integer constant offset to \verb|IP|
 	
@@ -1576,7 +1569,7 @@ Text of Appendix A is Here
 	case: p_{i} = null: ip + null-disp_{16}$ \\
 \end{description}
 
-\subsection{Function Call and Return}
+\section{Function Call and Return}
 \begin{description}
 	\item[call] sets up a new stack frame, saves the old state of the 
 	VM
@@ -1645,7 +1638,7 @@ Text of Appendix A is Here
 	Finally the current stack frame is freed.
 \end{description}
 
-\subsection{Pragmatic Higher-Level Instructions}
+\section{Pragmatic Higher-Level Instructions}
 
 \begin{description}
 	\item[newo] allocates a new object of size given by an 
