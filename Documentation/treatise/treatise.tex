@@ -1376,11 +1376,18 @@ terminated by a \verb|ret| instruction.
 
 \section{Benchmarks}
 
-A hand-written suite of 7 commonly used benchmarks was written in collaboration with Matthew Sainsbury. These benchmarks are designed to test the performance of the virtual machine while performing tasks that examine particular properties of the VM or those deemed representative of common programming activities.  
+A hand-written suite of 7 commonly used benchmarks was written in
+collaboration with Matthew Sainsbury. These benchmarks are designed to
+test the performance of the virtual machine while performing tasks
+that examine particular properties of the VM or those deemed
+representative of common programming activities.
 
 \subsection{Ackermann}
 
-The Ackermann benchmark makes use of the Ackermann function published by Wilhelm Ackermann in 1928. [CITATION NEEDED]. It is a massively recursive algorithm with very little computation from one recursive call to the next.
+The Ackermann benchmark makes use of the Ackermann function published
+by Wilhelm Ackermann in 1928. [CITATION NEEDED]. It is a massively
+recursive algorithm with very little computation from one recursive
+call to the next.
 
 \begin{align*}
 \label{eq:ackermann}
@@ -1394,31 +1401,53 @@ A (m - 1, A (m, n - 1))   & \mathrm{if}\ m > 0 \mathrm{\  and\  } n > 0
 \end{align*}
 
 
-The Ackermann benchmark tests the VMs function call and return mechanisms. The benchmark calls the Ackermann function with arguments m = 4 and n = 1. This yields the result 65533 after 2 762 984 010 recursive calls.
+The Ackermann benchmark tests the VMs function call and return
+mechanisms. The benchmark calls the Ackermann function with arguments
+m = 4 and n = 1. This yields the result 65533 after 2 762 984 010
+recursive calls.
 
 \subsection{Fannkuch}
 
-The fannkuch benchmark was first introduced by Bruno Haible in 1994 in the comp.lang.lisp newsgroup \cite{fannkuch}. It works on producing and reordering permutations of numbers
+The fannkuch benchmark was first introduced by Bruno Haible in 1994 in
+the comp.lang.lisp newsgroup \cite{fannkuch}. It works on producing
+and reordering permutations of numbers
 
-The benchmark generates all 11! permutations of the numbers one through 11. For each permutation the benchmark looks at the first number in the permutation and reverses that many of its elements. This continues until the first number in the permutation is one. Each of the reversals performed is counted and the maximum number of reversals needed is recorded as the output for the benchmark.
+The benchmark generates all 11! permutations of the numbers one
+through 11. For each permutation the benchmark looks at the first
+number in the permutation and reverses that many of its elements. This
+continues until the first number in the permutation is one. Each of
+the reversals performed is counted and the maximum number of reversals
+needed is recorded as the output for the benchmark.
 
-The benchmark makes heavy use of buffers to store permutations and performs many get and set operations on them. A checksum is calculated to ensure correctness of implementation.
+The benchmark makes heavy use of buffers to store permutations and
+performs many get and set operations on them. A checksum is calculated
+to ensure correctness of implementation.
 
 \subsection{Fasta}
-The fasta benchmark generates DNA nucleotide sequences by copying and using weighted random selection from 2 alphabets. The full definition can be found on the Benchmarks Game website: \cite{fasta}.
+The fasta benchmark generates DNA nucleotide sequences by copying and
+using weighted random selection from 2 alphabets. The full definition
+can be found on the Benchmarks Game website: \cite{fasta}.
 
-The fasta benchmark does its work on buffers and by generating random numbers with a simple algorithm. 
+The fasta benchmark does its work on buffers and by generating random
+numbers with a simple algorithm.
 
 \subsection{Mandelbrot}
 
 The Mandelbrot benchmark generates a mandelbrot fractal
 
 \subsection{Mersenne Twister}
-The mersenne twister is pseudorandom number generator developed by Makoto Matsumoto and Takuji Nishimura in 1997 \cite{Matsumoto}. It outputs uniformly distributed random 32 bit unsigned integers.
+The mersenne twister is pseudorandom number generator developed by
+Makoto Matsumoto and Takuji Nishimura in 1997 \cite{Matsumoto}. It
+outputs uniformly distributed random 32 bit unsigned integers.
 
-The benchmark generates 100 million random numbers using the MT19937 mersenne twister algorithm. To generate each number requires less than two function calls on average for the implementation used. It makes heavy use of bitwise operations and instructions for getting and setting values from objects.
+The benchmark generates 100 million random numbers using the MT19937
+mersenne twister algorithm. To generate each number requires less than
+two function calls on average for the implementation used. It makes
+heavy use of bitwise operations and instructions for getting and
+setting values from objects.
 
-The mersenne twister is the default pseudorandom number generator for the following programming languages (amongst others):
+The mersenne twister is the default pseudorandom number generator for
+the following programming languages (amongst others):
 \begin{itemize}
 	\item R \cite{R}
 	\item Steel Bank Common Lisp \cite{SBCL}
@@ -1427,7 +1456,10 @@ The mersenne twister is the default pseudorandom number generator for the follow
 	\item Ruby \cite{Ruby}
 \end{itemize}
 
-This algorithm was chosen because random number generation is a common task in programs with chance-based elements or those which need to have random events or randomly generated environments like video games. 
+This algorithm was chosen because random number generation is a common
+task in programs with chance-based elements or those which need to
+have random events or randomly generated environments like video
+games.
 
 \subsection{Prime Sieve}
 
