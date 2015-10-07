@@ -16,6 +16,7 @@
 \usepackage[toc,page]{appendix}
 \usepackage{forest}
 \usepackage{titling}
+\usepackage{amsmath}
 
 \usepackage[affil-it]{authblk}
 
@@ -1375,19 +1376,36 @@ terminated by a \verb|ret| instruction.
 
 \section{Benchmarks}
 
-A hand-written suite of 7 commonly used benchmarks was written in collaboration with Matthew Sainsbury. These benchmarks are designed to test the performance of the virtual machine while performing tasks deemed representative of common programming activities.  
+A hand-written suite of 7 commonly used benchmarks was written in collaboration with Matthew Sainsbury. These benchmarks are designed to test the performance of the virtual machine while performing tasks that examine particular properties of the VM or those deemed representative of common programming activities.  
 
 \subsection{Ackermann}
+
+The Ackermann benchmark makes use of the Ackermann function published by Wilhelm Ackermann in 1928. [CITATION NEEDED]. It is a massively recursive algorithm with very little computation from one recursive call to the next.
+
+\begin{align*}
+\label{eq:ackermann}
+A (m, n) = \left\{
+\begin{array}{ll}
+n + 1          &  \mathrm{if}\ m = 0 \\
+A (m - 1, 1)   &  \mathrm{if }\ m > 0 \mathrm{\ and\ } n = 0 \\
+A (m - 1, A (m, n - 1))   & \mathrm{if}\ m > 0 \mathrm{\  and\  } n > 0 
+\end{array}
+\right.
+\end{align*}
+
+The Ackermann benchmark tests the VMs function call and return mechanisms. The benchmark calls the Ackermann function with arguments m = 4 and n = 1. This yields the result 65533 after 2 762 984 010 recursive calls.
+
 \subsection{Fannkuch}
+
+The fannkuch benchmark 
+
 \subsection{Fasta}
 \subsection{Mandelbrot}
 
-\subsection{Mersenne}
+\subsection{Mersenne Twister}
 The mersenne twister is pseudorandom number generator developed by Makoto Matsumoto and Takuji Nishimura in 1997 \cite{Matsumoto}. It outputs uniformly distributed random 32 bit unsigned integers.
 
 The benchmark generates 100 million random numbers using the MT19937 mersenne twister algorithm. To generate each number requires less than two function calls on average for the implementation used. It makes heavy use of bitwise operations and instructions for getting and setting values from objects.
-
-This algorithm was chosen because random number generation is a common task in programs with chance-based elements or those which need to have random events or randomly generated environments like video games. 
 
 The mersenne twister is the default pseudorandom number generator for the following programming languages (amongst others):
 \begin{itemize}
@@ -1397,6 +1415,9 @@ The mersenne twister is the default pseudorandom number generator for the follow
 	\item Python \cite{Python}
 	\item Ruby \cite{Ruby}
 \end{itemize}
+
+This algorithm was chosen because random number generation is a common task in programs with chance-based elements or those which need to have random events or randomly generated environments like video games. 
+
 
 
 \subsection{Prime Sieve}
@@ -1736,9 +1757,9 @@ Text of Appendix A is Here
 	
 \end{description}
 
-
+\bibliographystyle{apacite} 
+\bibliography{treatise-bibliography}
 
 \end{document}
 
-\bibliographystyle{apacite} 
-\bibliography{treatise-bibliography}
+
