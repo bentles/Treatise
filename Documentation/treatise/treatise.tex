@@ -801,7 +801,7 @@ prediction misses \cite{EfficientInterpreters}. They also found that
 direct threading resulted in 50\%-63\% branch prediction misses.
 
 \subsection{Abstraction Level}
-
+\label{sec:abstraction-level}
 A 2009 study\cite{Brunthaler20093} by Stefan Brunthaler classed
 virtual machines as high or low abstraction level virtual machines,
 where low abstraction virtual machines are ``only a thin layer above a
@@ -1513,6 +1513,54 @@ replaces individual characters with their complement. It then prints
 the result. This is a benchmark for manipulation of buffers.
 
 \section{Instruction and Type Usage}
+
+\subsection{Instruction Usage}
+
+The number of times each instruction the particular version of the VM
+supports was used will be recorded for each benchmark in the
+suite. This information will not change from one run to the next as
+the benchmarks are all deterministic. This means that a single run of
+each benchmark on each VM will provide all instruction usage counts. 
+
+The instruction count information will provide several insights about
+the performance results for different benchmarks:
+\begin{description}
+\item[Function calls] The number of times the ``call'' instruction was
+  used gives the exact count of the number of function calls in each
+  benchmark.
+
+\item[Argument Case Expansion] Those benchmarks that call instructions
+  with several different register combinations for the Conventional VM
+  will have multiple different instruction calls on the Operand-Type
+  and Operand Dispatch VMs.
+
+\item[Type State Specialised Instructions] For the most part the
+  instruction counts for the Operand-Type dispatch VM and the Operand
+  Dispatch VM should be the same. But where the Operand-Type Dispatch
+  VM has type-specialised instructions, these will replace those found
+  in the Operand Dispatch VM.
+
+\item[High vs Low Abstraction] The total number of uses of
+  instructions with a low level of abstraction (as was described in
+  section \ref{sec:abstraction-level}) can be compared with those of a
+  high level of abstraction. This may help to elucidate where
+  performance increases or decreases may be coming from.
+\end{description}
+
+\subsection{Type Usage}
+
+Several metrics about the type state of the Operand-Type Dispatch VM
+will be recorded for each benchmark in the suite. This data is also
+deterministic and can be recorded at the same time as the instruction
+usage data. 
+
+A list of the metrics recorded follows:
+\begin{description}
+\item[Total Number of Type Switches] 
+\item[Type States Used] 
+\end{description}
+
+\section{Performance Benchmarks}
 
 
 \chapter{Results}
