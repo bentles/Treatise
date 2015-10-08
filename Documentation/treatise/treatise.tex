@@ -1512,7 +1512,7 @@ The benchmark takes the output produced by the fasta benchmark and
 replaces individual characters with their complement. It then prints
 the result. This is a benchmark for manipulation of buffers.
 
-\section{Instruction and Type Usage}
+\section{Instruction and Type Usage Statistics}
 
 \subsection{Instruction Usage}
 
@@ -1556,12 +1556,24 @@ usage data.
 
 A list of the metrics recorded follows:
 \begin{description}
-\item[Total Number of Type Switches] 
-\item[Type States Used] 
+\item[Total Number of Type Switches] This is the total number of times
+  the type state changes over the course of the benchmark.
+\item[Instructions Per Type State] This is a count per state of how
+  many instructions were executed in that state. If the count for any
+  state is zero, then that state was not used, which means the count
+  of how many different states were used can be determined from this
+  metric.
 \end{description}
 
-\section{Performance Benchmarks}
+These metrics can help give some insight on the number of states
+needed for the average program and on how often states are switched in
+each benchmark.
 
+%TODO: write more here... better metrics?
+
+\section{Benchmark Performance}
+
+Each benchmark in the suite will be run 10 times and timed
 
 \chapter{Results}
 
