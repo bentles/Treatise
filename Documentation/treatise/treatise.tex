@@ -1384,10 +1384,13 @@ representative of common programming activities.
 
 \subsection{Ackermann}
 
-The Ackermann benchmark makes use of the Ackermann function published
-by Wilhelm Ackermann in 1928. [CITATION NEEDED]. It is a massively
-recursive algorithm with very little computation from one recursive
-call to the next.
+The benchmark makes use of this two-variable version of the Ackermann
+function. It is a massively recursive benchmark with very little
+computation from one recursive call to the next.
+
+The Ackermann function used was defined by Rózsa Péter and Raphael
+Robinson \cite{robinson1948} in the Bulletin of the American
+Mathematical Society and is as follows:
 
 \begin{align*}
 \label{eq:ackermann}
@@ -1399,7 +1402,6 @@ A (m - 1, A (m, n - 1))   & \mathrm{if}\ m > 0 \mathrm{\  and\  } n > 0
 \end{array}
 \right.
 \end{align*}
-
 
 The Ackermann benchmark tests the VMs function call and return
 mechanisms. The benchmark calls the Ackermann function with arguments
@@ -1424,17 +1426,28 @@ performs many get and set operations on them. A checksum is calculated
 to ensure correctness of implementation.
 
 \subsection{Fasta}
-The fasta benchmark generates DNA nucleotide sequences by copying and
-using weighted random selection from 2 alphabets. The full definition
-can be found on the Benchmarks Game website: \cite{fasta}.
+The fasta benchmark generates DNA nucleotide sequences by copying from
+a given sequence and using weighted random selection from 2
+alphabets. The full definition can be found on the Benchmarks Game
+website \cite{fasta}.
 
-The fasta benchmark does its work on buffers and by generating random
-numbers with a simple algorithm.
+The fasta benchmark modifies buffers by traversing them from start to
+finish. Part of the computational complexity of the benchmark comes
+from generating pseudorandom numbers with a linear congruential
+generator.
 
 \subsection{Mandelbrot}
 
 The Mandelbrot benchmark generates the mandelbrot fractal as seen in
-figure \ref{fig:mandel}.
+figure \ref{fig:mandel}. The image produced by the benchmark is
+$16 000\times16 000$ pixels and is in the portable bitmap format (PBM).
+
+The mandelbrot benchmark makes use of only a single function call for
+the main function. This function is of sufficient complexity to need
+variables to be spilled from registers to local variables at various
+points in its execution. The majority of the operations performed by
+the benchmark (besides those needed for spilling registers) are simple
+arithmatic and bit manipulation instructions.
 
 \begin{figure}
   \centering
@@ -1442,6 +1455,7 @@ figure \ref{fig:mandel}.
   \caption{Mandelbrot Fractal}
   \label{fig:mandel}
 \end{figure}
+
 
 \subsection{Mersenne Twister}
 The mersenne twister is pseudorandom number generator developed by
@@ -1471,8 +1485,32 @@ games.
 
 \subsection{Prime Sieve}
 
+The prime sieve benchmark makes use of the sieve of Eratosthenes, an
+ancient algorithm attributed to the greek mathematician Eratosthenes
+of Cyrene \cite{sieve}.
 
+The benchmark acts on a linked list of objects with integer values
+from two to 999 999. The sieve of eratosthenes algorithm is used to
+traverse the list and remove composite numbers from it iteratively,
+resulting in a linked list that contains all the prime numbers that
+are less than a million.
+
+The benchmark's computational complexity comes from:
+\begin{itemize}
+\item allocating objects and building a linked list
+\item assigning values to these objects
+\item traversing the list multiple times to remove elements that do
+  not meet a simple criterion.
+\end{itemize}
 \subsection{Reverse Complement}
+
+The reverse complement benchmarks takes as input the output of the
+fasta benchmark. It computes, for some DNA strand, the complementary
+strand of DNA that will bind with it. 
+
+The benchmark takes the output produced by the fasta benchmark and
+replaces individual characters with their complement. It then prints
+the result. This is a benchmark for manipulation of buffers.
 
 \section{Instruction and Type Usage}
 
