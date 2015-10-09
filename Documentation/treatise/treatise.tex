@@ -17,7 +17,7 @@
 \usepackage{forest}
 \usepackage{titling}
 \usepackage{amsmath}
-
+\usepackage{pgfplots}
 \usepackage[affil-it]{authblk}
 
 % reset counter per chapter
@@ -281,23 +281,55 @@ runtime and thus is saved in the process's private memory. So jitted
 code is not shared between instances of the VM running the same 
 code. 
 
-Bytecode that has not been jitted can be shared between applications, however. If we wish to take advantage of read-only memory sharing a JIT-less virtual machine is needed. As was covered in chapter 2, JIT compilation can greatly reduce the time taken to execute programs. Thus alternative ways to increase the performance of programs executed on the VM need to be found to counter the performance loss of losing the JIT compiler.
+Bytecode that has not been jitted can be shared between applications,
+however. If we wish to take advantage of read-only memory sharing a
+JIT-less virtual machine is needed. As was covered in chapter 2, JIT
+compilation can greatly reduce the time taken to execute
+programs. Thus alternative ways to increase the performance of
+programs executed on the VM need to be found to counter the
+performance loss of losing the JIT compiler.
 
 \section{Project Objectives}
-The objective of this project is to implement and benchmark an experimental JIT-less virtual machine design for a dynamically typed language. In order to benchmark the performance of the virtual machine an additional two virtual machines must be developed. One of these is a conventionally implemented virtual machine. The other is an additional experimental VM needed to test the effectiveness of a particular element of the proposed solution. This will be discussed further in chapter XXX. 
+The objective of this project is to implement and benchmark an
+experimental JIT-less virtual machine design for a dynamically typed
+language. In order to benchmark the performance of the virtual machine
+an additional two virtual machines must be developed. One of these is
+a conventionally implemented virtual machine. The other is an
+additional experimental VM needed to test the effectiveness of a
+particular element of the proposed solution. This will be discussed
+further in chapter XXX.
 
-A set of benchmarks must be hand-written to run on the new virtual machines. The running times of the benchmarks on each of the three virtual machines must be compared and analysed. The project aims to determine what kind of performance benefits (if any) can be attained by the two experimental implementations over the conventionally designed virtual machine.
+A set of benchmarks must be hand-written to run on the new virtual
+machines. The running times of the benchmarks on each of the three
+virtual machines must be compared and analysed. The project aims to
+determine what kind of performance benefits (if any) can be attained
+by the two experimental implementations over the conventionally
+designed virtual machine.
 
 \section{Project Scope}
 
-The VMs are experimental prototypes, hence several tools and features conventionally paired with a VM are considered out of scope for this project. There will be no \textbf{compiler} or \textbf{assembler} implementation required and the VM will not be required to perform \textbf{garbage collection}.
+The VMs are experimental prototypes, hence several tools and features
+conventionally paired with a VM are considered out of scope for this
+project. There will be no \textbf{compiler} or \textbf{assembler}
+implementation required and the VM will not be required to perform
+\textbf{garbage collection}.
 
 \begin{itemize}
-	\item A compiler implementation is unnecessary as the VM designs are experimental prototyped and are not meant for further use, thus benchmarks can be hand-written as they are the only programs needed to run on the virtual machine. Similarly, robust error handling and debugging tools are considered out of scope. 
+\item A compiler implementation is unnecessary as the VM designs are
+  experimental prototyped and are not meant for further use, thus
+  benchmarks can be hand-written as they are the only programs needed
+  to run on the virtual machine. Similarly, robust error handling and
+  debugging tools are considered out of scope.
 	
-	\item An assembler will be used to make writing benchmarks more bearable but is not considered in scope as it is simply a tool used to facilitate easier writing of benchmarks and not an important part of the implementation of the virtual machine.
+\item An assembler will be used to make writing benchmarks more
+  bearable but is not considered in scope as it is simply a tool used
+  to facilitate easier writing of benchmarks and not an important part
+  of the implementation of the virtual machine.
 	
-	\item Garbage collection is considered out of scope because the implementation of a garbage collector adds to the complexity of the project and may influence the results of running the benchmarks. A GC is also unnecessary to run the benchmarks.
+\item Garbage collection is considered out of scope because the
+  implementation of a garbage collector adds to the complexity of the
+  project and may influence the results of running the benchmarks. A
+  GC is also unnecessary to run the benchmarks.
 \end{itemize}
 
 
@@ -315,7 +347,14 @@ good. Whether the VM performs better or not is important knowledge and
 being as careful as possible about discovering that accurately is
 extremely important.
 
-A risk mitigated by the design of the study is that the hand-written benchmarks may not be optimised as well as those produced by a compiler. Since all three VMs will run identical benchmarks this risk is mitigated because any lack of optimisation in a benchmark experienced by one VM will be experienced by all other VMs. Comparing the experimental VMs with an existing conventional VM design would be ineffectual as it may perform better purely because the code produced by the compiler is better optimised.
+A risk mitigated by the design of the study is that the hand-written
+benchmarks may not be optimised as well as those produced by a
+compiler. Since all three VMs will run identical benchmarks this risk
+is mitigated because any lack of optimisation in a benchmark
+experienced by one VM will be experienced by all other VMs. Comparing
+the experimental VMs with an existing conventional VM design would be
+ineffectual as it may perform better purely because the code produced
+by the compiler is better optimised.
 
 \section{Overview of Treatise}
 In chapter 2, the virtual machine as a concept will be introduced and
@@ -1012,9 +1051,14 @@ The full set of instructions may be found in appendix B.
 
 \subsection{Arithmetic Instructions}
 
-Arithmetic instructions provide basic arithmetic operations for registers that contain integers. If a register that does not contain
+Arithmetic instructions provide basic arithmetic operations for
+registers that contain integers. If a register that does not contain
 an integer is selected, an error is signalled and the VM halts. All
-arithmetic instructions increment the address of the instruction pointer. Those that make use of a constant that is looked up in the next instruction word increment the instruction pointer's address again so that the \verb|IP| points to the next instruction and not the data contained in the next word.
+arithmetic instructions increment the address of the instruction
+pointer. Those that make use of a constant that is looked up in the
+next instruction word increment the instruction pointer's address
+again so that the \verb|IP| points to the next instruction and not the
+data contained in the next word.
 
 \begin{description}
 	\item[sub] find the difference of two integer-valued registers
@@ -1028,9 +1072,14 @@ arithmetic instructions increment the address of the instruction pointer. Those 
 	_{64} $ \\
 \end{description}
 
-The \verb|sub| instruction exhibits the case of a trivial instruction call that is illegal in the bytecode. Subtracting a register's value from itself will always produce zero. This is an unnecessary instruction since the VM already has an instruction to place zero into a register.
+The \verb|sub| instruction exhibits the case of a trivial instruction
+call that is illegal in the bytecode. Subtracting a register's value
+from itself will always produce zero. This is an unnecessary
+instruction since the VM already has an instruction to place zero into
+a register.
 
-Both instructions also show off how the result of the operation is stored in the first register-number addressed register.
+Both instructions also show off how the result of the operation is
+stored in the first register-number addressed register.
 
 \subsection{Bit Manipulation Instructions}
 
@@ -1052,9 +1101,13 @@ same manner as for the arithmetic instructions.
 	_{16} $ \\	
 \end{description}
 
-Here we see another trivial case. The \verb|xor| instruction does not allow performing bitwise xor on two numbers that are the same as this value is always zero.
+Here we see another trivial case. The \verb|xor| instruction does not
+allow performing bitwise xor on two numbers that are the same as this
+value is always zero.
 
-The \verb|shrc| instruction makes use of a 16-bit instruction word after the instruction for the constant argument as a 64-bit argument is unnecessary. 
+The \verb|shrc| instruction makes use of a 16-bit instruction word
+after the instruction for the constant argument as a 64-bit argument
+is unnecessary.
 
 \subsection{Data Movement Instructions}
 These instructions allow for values to be moved between registers.
@@ -1068,7 +1121,9 @@ These instructions allow for values to be moved between registers.
 	$movc(i, const_{64}):= g_{i} \longleftarrow const_{64} $ \\
 \end{description}
 
-Note the use of the \verb|g| for the \verb|mov| and \verb|movc| instructions. This is because moving a register over another register is a type-independent operation. 
+Note the use of the \verb|g| for the \verb|mov| and \verb|movc|
+instructions. This is because moving a register over another register
+is a type-independent operation.
 
 \subsection{Memory Access}
 These instructions allow for getting and setting of locals (getl,
@@ -1571,11 +1626,17 @@ each benchmark.
 
 %TODO: write more here... better metrics?
 
-\section{Benchmark Performance}
+\section{Performance Benchmarks}
 
-Each benchmark in the suite will be run 10 times and timed
+Each benchmark in the suite will be run 10 times on each VM. These
+runs will be performed on a Lenovo Y5070 with an Intel i7-4720HQ CPU
+with 8GB ram running Fedora 22. The benchmarks are to be timed with
+the GNU time utility. Benchmarks will be taken on a newly booted
+install of Fedora 22 with no other applications running.
 
 \chapter{Results}
+
+
 
 \section{Performance}
 
@@ -1675,7 +1736,8 @@ Text of Appendix A is Here
 	
 	$shlc(i, const _{16}) :=  r _{i} \longleftarrow  r _{i} << const 
 	_{16} $ \\
-	\item[cshl] shift a 64-bit integer constant left by an 	integer-valued register
+  \item[cshl] shift a 64-bit integer constant left by an
+    integer-valued register
 	
 	$cshl(const _{64}, i):=  r _{i} \longleftarrow  const _{64} << r 
 	_{i}  $ \\
