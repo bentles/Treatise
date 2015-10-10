@@ -274,20 +274,19 @@ Modern process virtual machines make use of JIT compilers. Both JVM
 and .Net make use of a JIT compiler \cite{MSDN,Oracle}. 
 
 For applications that run many concurrent instances, like a web server
-which starts up a new process for every client, a virtual
-machine that makes use of a JIT compiler defeats the benefits of
-read-only memory sharing. This is because jitted code is created at 
-runtime and thus is saved in the process's private memory. So jitted 
-code is not shared between instances of the VM running the same 
-code. 
+which starts up a new process for every client, a virtual machine that
+makes use of a JIT compiler defeats the benefits of read-only memory
+sharing. This is because jitted code is created at runtime and thus is
+saved in the process's private memory. Jitted code is not shared
+between instances of the VM running the same code.
 
-Bytecode that has not been jitted can be shared between applications,
-however. If we wish to take advantage of read-only memory sharing a
-JIT-less virtual machine is needed. As was covered in chapter 2, JIT
-compilation can greatly reduce the time taken to execute
-programs. Thus alternative ways to increase the performance of
-programs executed on the VM need to be found to counter the
-performance loss of losing the JIT compiler.
+Bytecode that has not been jitted can be shared between these
+instances. In order to take advantage of read-only memory sharing a
+JIT-less virtual machine is needed. However, as will be discussed in
+chapter 2, JIT compilation can greatly reduce the time taken to
+execute programs. Thus alternative ways to increase the performance of
+the VM need to be found for the performance of a JIT-less VM to be
+competitive.
 
 \section{Project Objectives}
 The objective of this project is to implement and benchmark an
@@ -1427,6 +1426,121 @@ terminated by a \verb|ret| instruction.
 \end{figure}
 
 
+\section{Labels As Addresses and Dispatch}
+\label{sec:labels-as-addresses}
+
+
+\section{Logical vs Internal Instructions}
+\label{sec:codegen}
+All three virtual machines provide a set of 46 instructions. These
+shall be referred to as ``logical instructions'' as they enumerate the
+entire set of functions the VMs can perform. All VMs provide the same
+functionality.
+
+For each VM, however, there are different implementations of these
+logical instructions. For the conventional VM, there is a single
+``internal instruction'' for each of the 46 logical instructions the
+VM provides. It has a one-to-one correspondence between logical an
+internal instructions.
+
+For the Operand-Type and Operand Disptach VMs there are, in some
+cases, multiple internal instructions for each logical
+instruction. For these instructions there is a many-to-one
+correspondence between the internal instructions and the logical
+instructions they implement.
+
+This is best explained with an example. The \verb|add| instruction
+provides a clear example of the distinctions between the different
+internal instructions each VM uses to implement a logical instruction.
+
+\subsection{Conventional VM Implementation}
+
+For the Conventional VM, the \verb|add| instruction has only a single
+internal instruction that makes up its implementation:
+\begin{lstlisting}
+add:
+{
+    int16_t arg0 = GetArg0(*ip);
+    int16_t arg1 = GetArg1(*ip);
+    if (IsInt(g[arg0]) \&\& IsInt(g[arg1])) {
+        g[arg0].i += g[arg1].i;
+        ip++;
+    }
+    else {
+        fprintf(stderr, "type error, illegal types used for instruction: add");
+        return 1;
+    }
+
+    goto *dynOpcodes[GetOpcode(*ip)];
+}
+\end{lstlisting}
+Line 3 gets the index into the set of registers of the zeroth argument
+for the instruction. If the instruction was \verb|add g2 g3|, the
+value 2 would now be stored in arg0. Similarly the value 3 would now
+be stored in arg1.
+
+The types of the regsiters indexed by arg0 and arg1 are then
+checked. If both registers hold integers, the instruction can
+continue, but if either argument is not an integer the VM reaches an
+error state and halts.
+
+Finally, the opcode of the next instruction is extracted. This opcode
+can be used to branch to the next instruction the VM must perform in
+the manner described in section \pageref{sec:labels-as-addresses}.
+
+\subsection{Operand Dispatch VM Implementation}
+
+For the Operand Dispatch VM, the \verb|add| instruction is implemented
+using 36 internal instructions of the following form:
+
+\begin{lstlisting}
+add_1_2:
+{
+    if (IsInt(g[1]) \&\& IsInt(g[2])) {
+        g[1].i += g[2].i;
+        ip++;
+    }
+    else {
+        fprintf(stderr, "type error, illegal types used for instruction: add");
+        return 1;
+    }
+
+    goto *dynOpcodes[*ip];
+}
+\end{lstlisting}
+
+The 36 internal instructions are \verb|add_0_0| through
+\verb|add_5_5|. This particular example implements the add instruction
+for registers one and two. Note in lines three and four how the values
+one and two have been substituted directly to refer to the registers
+that this internal instruction acts on. This means that the argument
+access step present in the Conventional VM is no longer necessary and
+is removed. Note how lines three and four in the Conventional VM are
+not replicated in the Operand Dispatch VM.
+
+\subsection{Operand-Type Dispatch VM Implementation}
+
+For the Operand-Type Dispatch VM, the \verb|add| instruction is
+implemented using 37 internal instructions. The last instruction
+simply signals a type error and terminates the VM, and the other 36
+instructions are of the following form:
+
+\begin{lstlisting}
+add_3_5:
+{
+    g[3].i += g[5].i;
+    ip++;
+
+    goto *dynOpcodes[ts + *ip];
+}
+\end{lstlisting}
+
+\verb|add_0_0| through \verb|add_5_5| implement addition given the fact
+that the types of the registers are integers. This particular example
+is for adding register three to register five, given that both
+registers hold integers. There is no longer any need to check the
+types of the registers being added and so that code is removed.
+
 \chapter{Experimental Design}
 
 \section{Benchmarks}
@@ -1636,7 +1750,23 @@ install of Fedora 22 with no other applications running.
 
 \subsection{CPU statistics}
 
-Each benchmark will also 
+Each benchmark will be run a further ten times on each VM whilst CPU
+metrics are taken by the linux perf tool. The metrics that will be
+recorded are as follows:
+
+\begin{itemize}
+\item Cache references
+\item Cache misses
+\item Branches
+\item Branch misses
+\end{itemize}
+
+The number of branch misses as a percentage of branches give an
+indication of the effectiveness of the token-threaded approach. The
+number of cache misses can provide information about the effectiveness
+of the argument case expansion and type-mapping approaches. Ideally
+the instructions used by the benchmark will be cached but if the rate
+of cache misses is high then this is most likely not the case.
 
 \chapter{Results}
 

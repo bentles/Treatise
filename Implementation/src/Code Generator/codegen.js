@@ -1,3 +1,4 @@
+
 /* Extend String to have a repeat function */
 String.prototype.repeat = function( num )
 {
@@ -1048,8 +1049,10 @@ InstructionGenerator.prototype = {
     },
 
     goto: function(vm) {
-        if (vm === typeVM || vm === hybrVM)
+        if (vm === typeVM)
             return 'goto *dynOpcodes[ts + *ip];\n';
+        else if (vm === hybrVM)
+            return 'goto *dynOpcodes[*ip];\n';
         else if (vm === convVM)
             return 'goto *dynOpcodes[GetOpcode(*ip)];\n';
         else throw "Illegal VM type";
