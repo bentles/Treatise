@@ -1462,7 +1462,7 @@ add:
 {
     int16_t arg0 = GetArg0(*ip);
     int16_t arg1 = GetArg1(*ip);
-    if (IsInt(g[arg0]) \&\& IsInt(g[arg1])) {
+    if (IsInt(g[arg0]) && IsInt(g[arg1])) {
         g[arg0].i += g[arg1].i;
         ip++;
     }
@@ -1496,7 +1496,7 @@ using 36 internal instructions of the following form:
 \begin{lstlisting}
 add_1_2:
 {
-    if (IsInt(g[1]) \&\& IsInt(g[2])) {
+    if (IsInt(g[1]) && IsInt(g[2])) {
         g[1].i += g[2].i;
         ip++;
     }
