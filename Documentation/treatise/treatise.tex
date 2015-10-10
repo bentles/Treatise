@@ -20,6 +20,7 @@
 \usepackage{pgfplots}
 \usepackage[affil-it]{authblk}
 \usepackage{parskip}
+\usepackage{csquotes}
 
 % reset counter per chapter
 \usepackage{chngcntr}
@@ -1208,8 +1209,8 @@ mask and a shift operation.
 
 \begin{figure}
   \centering
-  \begin{bytefield}[bitwidth=1.5em]{16}
-    \bitheader{0,6,7,9,10,12,13,15} \\
+	\begin{bytefield}[bitwidth=1.5em,endianness=big]{16}
+	\bitheader{15,9,8,6,5,3,2,0} \\
     \bitbox{7}{opcode} & \bitbox{3}{arg3} & \bitbox{3}{arg2} & \bitbox{3}{arg1}\\
   \end{bytefield}
   \caption{Conventional VM instruction layout}
@@ -1426,11 +1427,6 @@ terminated by a \verb|ret| instruction.
 	\label{fig:stframe}
 \end{figure}
 
-
-\section{Labels As Addresses and Dispatch}
-\label{sec:labels-as-addresses}
-
-
 \section{Logical vs Internal Instructions}
 \label{sec:codegen}
 All three virtual machines provide a set of 46 instructions. These
@@ -1444,11 +1440,9 @@ logical instructions. For the conventional VM, there is a single
 VM provides. It has a one-to-one correspondence between logical an
 internal instructions.
 
-For the Operand-Type and Operand Disptach VMs there are, in some
+For the Operand-Type and Operand Dispatch VMs there are, in some
 cases, multiple internal instructions for each logical
-instruction. For these instructions there is a many-to-one
-correspondence between the internal instructions and the logical
-instructions they implement.
+instruction. For these cases, there is a many-to-one correspondence between the internal instructions and the logical instructions they implement.
 
 This is best explained with an example. The \verb|add| instruction
 provides a clear example of the distinctions between the different
@@ -1456,8 +1450,7 @@ internal instructions each VM uses to implement a logical instruction.
 
 \subsection{Conventional VM Implementation}
 
-For the Conventional VM, the \verb|add| instruction has only a single
-internal instruction that makes up its implementation:
+For the Conventional VM, the logical \verb|add| instruction has only a single internal instruction (also called \verb|add|) that makes up its implementation:
 \begin{lstlisting}
 add:
 {
@@ -1491,8 +1484,7 @@ the manner described in section \pageref{sec:labels-as-addresses}.
 
 \subsection{Operand Dispatch VM Implementation}
 
-For the Operand Dispatch VM, the \verb|add| instruction is implemented
-using 36 internal instructions of the following form:
+For the Operand Dispatch VM, the logical \verb|add| instruction is implemented using 36 internal instructions of the following form:
 
 \begin{lstlisting}
 add_1_2:
@@ -1521,8 +1513,7 @@ not replicated in the Operand Dispatch VM.
 
 \subsection{Operand-Type Dispatch VM Implementation}
 
-For the Operand-Type Dispatch VM, the \verb|add| instruction is
-implemented using 37 internal instructions. The last instruction
+For the Operand-Type Dispatch VM, the logical \verb|add| instruction is implemented using 37 internal instructions. The last instruction
 simply signals a type error and terminates the VM, and the other 36
 instructions are of the following form:
 
@@ -1536,11 +1527,111 @@ add_3_5:
 }
 \end{lstlisting}
 
-\verb|add_0_0| through \verb|add_5_5| implement addition given the fact
-that the types of the registers are integers. This particular example
-is for adding register three to register five, given that both
+\verb|add_0_0| through \verb|add_5_5| implement addition given the fact that the types of the registers are integers. This particular example is for adding register three to register five, given that both
 registers hold integers. There is no longer any need to check the
 types of the registers being added and so that code is removed.
+
+\section{Labels As Values and Dispatch}
+\label{sec:labels-as-addresses}
+
+In order to implement token-threaded dispatch a table of addresses of instruction implementations is needed. This table cannot be implemented in ANSI C[citation needed]. A GNU C extension allows for this table to be created, however. 
+
+The extension is called ``Labels as Values'' and allows for the address of a label to be stored in a variable as a void pointer. This address can then be jumped to. The ``Using the GNU Compiler Collection manual''\cite[page 371]{GCC} states that:
+
+\begin{displayquote}
+	You can get the address of a label defined in the current function (or a containing function) with the unary operator `\&\&'. The value has type void *. This value is a constant and can be used wherever a constant of that type is valid.
+	
+	One way of using these constants is in initializing a static array that serves as a jump table:
+	\begin{lstlisting}
+static void *array[] = { &&foo, &&bar, &&hack };
+	\end{lstlisting}
+	
+	Then you can select a label with indexing, like this:
+	\begin{lstlisting}
+goto *array[i];	
+	\end{lstlisting}
+\end{displayquote}
+
+The jump table described in the manual is the mechanism used for token-threaded dispatch. In the VMs, this jump table is referred to as the Dynamic Opcode Table. The entries in the Dynamic Opcode Table are the addresses of the instructions the VM implements. For each VM, the table is created slightly differently:
+
+\subsection{Conventional VM}
+
+\begin{figure}
+	\centering
+	\begin{bytefield}[bitwidth=1.5em,endianness=big]{16}
+		\bitheader{15,9,8,6,5,3,2,0} \\
+		\bitbox{7}{opcode} & \bitbox{3}{arg3} & \bitbox{3}{arg2} & \bitbox{3}{arg1}\\
+	\end{bytefield}
+	\caption{Conventional VM instruction layout}
+	\label{fig:convinstruction2}
+\end{figure}
+
+For the conventional VM, there are 46 entries in the table. One per logical instruction:
+\begin{lstlisting}
+static void *dynOpcodes[] = 
+{
+    &&add,
+    &&addc,
+    ...,
+    &&in,
+    &&out,
+    &&print,
+};
+\end{lstlisting}
+
+The code used to jump to an instruction looks like this:
+\begin{lstlisting}
+goto *dynOpcodes[GetOpcode(*ip)];
+\end{lstlisting}
+The GetOpcode step is necessary because of the instruction word layout of a conventional VM. This is shown in figure ~\ref{fig:convinstruction2} which has been repeated here for convenience. The opcode of the instruction lies only in the high seven bits of the instruction word pointed to by \verb|IP|. ``GetOpcode'' is a macro that calculated the value of the opcode given the instruction word.
+
+\subsection{Operand Dispatch VM}
+
+For the Operand-Dispatch VM there are 1295 entries in the table. This is because many logical instructions have a large number of internal instructions used to implement them. 
+\begin{lstlisting}
+static void *dynOpcodes[] = 
+{
+    &&add_0_0,
+    &&add_0_1,
+    &&add_0_2,
+    ...,
+    &&print_3,
+    &&print_4,
+    &&print_5,	
+};	
+\end{lstlisting}
+
+The code used to jump to an instruction looks like this:
+\begin{lstlisting}
+goto *dynOpcodes[*ip];
+\end{lstlisting}
+
+In the Operand Dispatch VM, the entire instruction word pointed to by \verb|IP| refers directly to the internal instruction that takes the arguments required for that instruction. If the instruction being jumped to is \verb|add g0 g0|, then the next instruction word will have the value 0, as that is the position of \verb|&&add_0_0| in the Dynamic Opcode Table. If the instruction being jumped to is \verb|print g5|, then the instruction word will have the value 1294, as that is \verb|&&print_5|'s position in the table.
+
+\subsection{Operand-Type Dispatch VM}
+
+For the Operand-Type Dispatch VM there are 131 072 entries in the table. This is because there are 64 states and the \verb|TS| value is left-shifted by 11 bit positions. This means there are $2^{11} \times 64 = 131 072$ entries.
+\begin{lstlisting}
+static void *dynOpcodes[] = 
+{
+    &&add_0_0,
+    &&add_0_1,
+    &&add_0_2,
+    ...,
+    &&undefined,
+    &&undefined,
+    &&undefined,	
+};	
+\end{lstlisting}
+
+Because \verb|TS| is shifted left by 11 bit positions, there is enough space for $2^{11} = 2048$ instructions for each state. However, the Operand-Type Dispatch VM only makes use of 1295 instructions per state. This means that 36.8\% of the indexes in the table are not used and should never be called unless there is a VM or assembler error.
+
+The code used to jump to an instruction looks like this:
+\begin{lstlisting}
+goto *dynOpcodes[ts + *ip];
+\end{lstlisting}
+
+The instruction word pointed to by \verb|IP| is the same value as for the Operand Dispatch VM, but the pre-shifted \verb|TS| value is added to it to select a different 2048 entry long segment of the Dynamic Opcode Table that is specially defined to contain the correct implementations of instructions based on the current type state. If the types of the registers the instruction adds on are not valid, the table will contain \verb|&&error| at that point, which signals a type error and halts.
 
 \chapter{Experimental Design}
 
