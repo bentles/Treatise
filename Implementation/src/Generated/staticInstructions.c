@@ -230,12 +230,12 @@ goto *dynOpcodes[ts + *ip];
 
 add_3_5:
 {
-g[3].i += g[5].i;
-ip++;
+    g[3].i += g[5].i;
+    ip++;
 #ifdef STATS
-opcodeCounters[23].count++;
+    opcodeCounters[23].count++;
 #endif /* STATS */
-goto *dynOpcodes[ts + *ip];
+    goto *dynOpcodes[ts + *ip];
 }
 
 add_4_0:
