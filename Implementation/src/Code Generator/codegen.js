@@ -32,7 +32,8 @@ function getConst(name, offset) {
         'int64_t ' + name + ' = *((int64_t*)(ip + d' + name + '));\n';
 }
 
-var lookups = [
+var lookups = 
+[
     {
         name: 'add',
         inputs: 2,

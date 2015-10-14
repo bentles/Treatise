@@ -1662,9 +1662,13 @@ The format of an internal instruction is as follows:
 
 The format string itself is C code written in plain text but several special character forms are used as place-holders. These are as follows:
 
-\begin{description}
-	\item[/*<i>*/] This is the register number template. The value ``i'' will be an integer in the template that refers to an
-\end{description}
+The symbol \verb|/*<i>*/| is the register number template. The value ``i'' will be an integer in the template that refers to a register and must have a value from 0 to 5. In the conventional VM, \verb|/*<i>*/| is replaced with a macro that returns the "i"th argument from the instruction word. In the experimental VMs,\verb|/*<i>*/| is replaced with the number of the register for the "i"th argument for that particular internal instruction.
+For instance, if the internal instruction is \verb|add_1_2|, then \verb|/*<0>*/| is replaced with 1 and \verb|/*<1>*/| is replaced with 2.
+
+The symbol \verb|/*<tag:i>*/| is replaced with code that changes the tag of the register referred to by the first operand of the instruction to the value "i". For example, \verb|/*<tag:0>*/| is replaced with \verb|/*<0>*/.tag = 0;|.
+
+The symbol \verb|/*<state:0>*/| is exlusive to the Operand-Type Disptach VM and is only replaced when generating code for it, otherwise it is replaced with an empty string.   
+
 
 
 \subsection{Operand-Type Dispatch VM}
