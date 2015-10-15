@@ -1595,7 +1595,6 @@ goto *dynOpcodes[GetOpcode(*ip)];
 The GetOpcode step is necessary because of the instruction word layout of a conventional VM. This is shown in figure ~\ref{fig:convinstruction2} which has been repeated here for convenience. The opcode of the instruction lies only in the high seven bits of the instruction word pointed to by \verb|IP|. ``GetOpcode'' is a macro that calculated the value of the opcode given the instruction word.
 
 \subsection{Operand Dispatch VM}
-
 For the Operand-Dispatch VM there are 1295 entries in the table. This is because many logical instructions have a large number of internal instructions used to implement them. 
 \begin{lstlisting}
 static void *dynOpcodes[] = 
@@ -1617,9 +1616,34 @@ goto *dynOpcodes[*ip];
 
 In the Operand Dispatch VM, the entire instruction word pointed to by \verb|IP| refers directly to the internal instruction that takes the arguments required for that instruction. If the instruction being jumped to is \verb|add g0 g0|, then the next instruction word will have the value 0, as that is the position of \verb|&&add_0_0| in the Dynamic Opcode Table. If the instruction being jumped to is \verb|print g5|, then the instruction word will have the value 1294, as that is \verb|&&print_5|'s position in the table.
 
+\subsection{Operand-Type Dispatch VM}
+
+For the Operand-Type Dispatch VM there are 131 072 entries in the table. This is because there are 64 states and the \verb|TS| value is left-shifted by 11 bit positions. This means there are $2^{11} \times 64 = 131 072$ entries.
+\begin{lstlisting}
+static void *dynOpcodes[] = 
+{
+&&add_0_0,
+&&add_0_1,
+&&add_0_2,
+...,
+&&undefined,
+&&undefined,
+&&undefined,	
+};	
+\end{lstlisting}
+
+Because \verb|TS| is shifted left by 11 bit positions, there is enough space for $2^{11} = 2048$ instructions for each state. However, the Operand-Type Dispatch VM only makes use of 1295 instructions per state. This means that 36.8\% of the indexes in the table are not used and should never be called unless there is a VM or assembler error.
+
+The code used to jump to an instruction looks like this:
+\begin{lstlisting}
+goto *dynOpcodes[ts + *ip];
+\end{lstlisting}
+
+The instruction word pointed to by \verb|IP| is the same value as for the Operand Dispatch VM, but the pre-shifted \verb|TS| value is added to it to select a different 2048 entry long segment of the Dynamic Opcode Table that is specially defined to contain the correct implementations of instructions based on the current type state. If the types of the registers the instruction adds on are not valid, the table will contain \verb|&&error| at that point, which signals a type error and halts.
+
 \section{Code Generation}
 
-Since writing 1295 instructions by hand is not feasible, code for all three VMs was generated from templates. The code generator was written from scratch in JavaScript. The code generator accepts an array of specially formatted JavaScript objects.
+Since writing 1295 instructions by hand is not feasible, code for all three VMs was generated from templates. A JavaScript code generator was purpose-built for this task. The code generator accepts an array of specially formatted JavaScript objects.
 
 \subsection{Logical Instruction Objects}
 
@@ -1658,7 +1682,7 @@ The format of an internal instruction is as follows:
 	\item[template] A template string that defines the common code with place-holders for the parts that vary between different internal instructions that work together to implement a logical instruction.
 \end{description}
 
-\subsection{Format Strings}
+\subsection{Template Strings}
 
 The format string itself is C code written in plain text but several special character forms are used as place-holders. These are as follows:
 
@@ -1667,34 +1691,30 @@ For instance, if the internal instruction is \verb|add_1_2|, then \verb|/*<0>*/|
 
 The symbol \verb|/*<tag:i>*/| is replaced with code that changes the tag of the register referred to by the first operand of the instruction to the value "i". For example, \verb|/*<tag:0>*/| is replaced with \verb|/*<0>*/.tag = 0;|.
 
-The symbol \verb|/*<state:0>*/| is exlusive to the Operand-Type Disptach VM and is only replaced when generating code for it, otherwise it is replaced with an empty string.   
+The symbol \verb|/*<state:i>*/| is exlusive to the Operand-Type Disptach VM and is only replaced when generating code for it, otherwise it is replaced with an empty string. Here, ``i'' refers to the the type of the state that is being changed. 
+
+As an example, \verb|/*<state:1>*/| for the instruction, \verb|movip_0_1| would be replaced with: \verb+ts |= 0x10000; /*100000*/+. The comment refers to the composition of bits that will interact with the \verb|TS| register. Because the instruction changes register zero (as it is the fist argument), the bitwise OR operation has the bit at index zero set to one, with the others left at 0 so that they have no effect on the rest of the \verb|TS| value. The actual value \verb|0x10000| is the pattern of bits in the comment shifted left by 11 places.
+
+Figure ~\ref{fig:template-string} shows the template string for the \verb|getl| instruction.
+
+\begin{figure}
+	\begin{lstlisting}
+		'int16_t constant = *(ip + 1);\n' +
+		'value val = fp[constant];\n' +
+		'if (val.tag != ' + i + ') {\n' +
+		'    /*<0>*/.tag = val.tag;\n' +
+		'    /*<state:' + p + '>*/' +
+		'    /*<0>*/.p = val.p;\n' +
+		'}\n' +
+		'else {\n' +
+		'    /*<0>*/.i = val.i;\n' +
+		'}\n'
+	\end{lstlisting}
+	\caption{An Example Template String}
+	\label{fig:template-string}
+\end{figure}
 
 
-
-\subsection{Operand-Type Dispatch VM}
-
-For the Operand-Type Dispatch VM there are 131 072 entries in the table. This is because there are 64 states and the \verb|TS| value is left-shifted by 11 bit positions. This means there are $2^{11} \times 64 = 131 072$ entries.
-\begin{lstlisting}
-static void *dynOpcodes[] = 
-{
-    &&add_0_0,
-    &&add_0_1,
-    &&add_0_2,
-    ...,
-    &&undefined,
-    &&undefined,
-    &&undefined,	
-};	
-\end{lstlisting}
-
-Because \verb|TS| is shifted left by 11 bit positions, there is enough space for $2^{11} = 2048$ instructions for each state. However, the Operand-Type Dispatch VM only makes use of 1295 instructions per state. This means that 36.8\% of the indexes in the table are not used and should never be called unless there is a VM or assembler error.
-
-The code used to jump to an instruction looks like this:
-\begin{lstlisting}
-goto *dynOpcodes[ts + *ip];
-\end{lstlisting}
-
-The instruction word pointed to by \verb|IP| is the same value as for the Operand Dispatch VM, but the pre-shifted \verb|TS| value is added to it to select a different 2048 entry long segment of the Dynamic Opcode Table that is specially defined to contain the correct implementations of instructions based on the current type state. If the types of the registers the instruction adds on are not valid, the table will contain \verb|&&error| at that point, which signals a type error and halts.
 
 \chapter{Experimental Design}
 
@@ -1927,7 +1947,23 @@ of cache misses is high then this is most likely not the case.
 
 
 
-\section{Performance}
+\section{Benchmark Performance}
+
+\subsection{Ackermann}
+\includegraphics{ackermann.png}
+\subsection{Fannkuch}
+\includegraphics{fannkuch.png}
+\subsection{Fasta}
+\includegraphics{fasta.png}
+\subsection{Mandelbrot}
+\includegraphics{mandelbrot.png}
+\subsection{Mersenne Twister}
+\includegraphics{mersenne.png}
+\subsection{Prime Sieve}
+\includegraphics{primesieve.png}
+\subsection{Reverse Complement}
+\includegraphics{reversecomplement.png}
+
 
 \chapter{Conclusion}
 
