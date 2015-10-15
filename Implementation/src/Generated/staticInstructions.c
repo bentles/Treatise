@@ -6744,30 +6744,30 @@ goto *dynOpcodes[ts + *ip];
 
 getl_0:
 {
-int16_t constant = *(ip + 1);
-value val = fp[constant];
-if (val.tag != 0) {
-g[0].tag = val.tag;
+    int16_t constant = *(ip + 1);
+    value val = fp[constant];
+    if (val.tag != 0) {
+        g[0].tag = val.tag;
 #ifdef STATS
-int64_t prevts = ts;
+        int64_t prevts = ts;
 #endif
-ts |= 0x10000; /*100000*/
+        ts |= 0x10000; /*100000*/
 #ifdef STATS
-if (prevts != ts) {
-    stateCounters[ts >> 11]++;
-    stateSwitches++;
-}
+        if (prevts != ts) {
+            stateCounters[ts >> 11]++;
+            stateSwitches++;
+        }
 #endif
-g[0].p = val.p;
-}
-else {
-g[0].i = val.i;
-}
-ip += 2;
+        g[0].p = val.p;
+    }
+    else {
+        g[0].i = val.i;
+    }
+    ip += 2;
 #ifdef STATS
-opcodeCounters[528].count++;
+    opcodeCounters[528].count++;
 #endif /* STATS */
-goto *dynOpcodes[ts + *ip];
+    goto *dynOpcodes[ts + *ip];
 }
 
 getl_1:
@@ -6912,30 +6912,30 @@ goto *dynOpcodes[ts + *ip];
 
 getlp_0:
 {
-int16_t constant = *(ip + 1);
-value val = fp[constant];
-if (val.tag == 0) {
-g[0].tag = 0;
+    int16_t constant = *(ip + 1);
+    value val = fp[constant];
+    if (val.tag == 0) {
+        g[0].tag = 0;
 #ifdef STATS
-int64_t prevts = ts;
+        int64_t prevts = ts;
 #endif
-ts &= 0xf800; /*011111*/
+        ts &= 0xf800; /*011111*/
 #ifdef STATS
-if (prevts != ts) {
-    stateCounters[ts >> 11]++;
-    stateSwitches++;
-}
+        if (prevts != ts) {
+            stateCounters[ts >> 11]++;
+            stateSwitches++;
+        }
 #endif
-g[0].i = val.i;
-}
-else {g[0].tag = val.tag;
-g[0].p = val.p;
-}
-ip += 2;
+        g[0].i = val.i;
+    }
+    else {g[0].tag = val.tag;
+        g[0].p = val.p;
+    }
+    ip += 2;
 #ifdef STATS
-opcodeCounters[534].count++;
+    opcodeCounters[534].count++;
 #endif /* STATS */
-goto *dynOpcodes[ts + *ip];
+    goto *dynOpcodes[ts + *ip];
 }
 
 getlp_1:

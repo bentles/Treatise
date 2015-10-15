@@ -492,39 +492,39 @@ goto *dynOpcodes[GetOpcode(*ip)];
 
 getl:
 {
-int16_t arg0 = GetArg0(*ip);
-if (IsInt(g[arg0])) {
-int16_t constant = *(ip + 1);
-value val = fp[constant];
-if (val.tag != 0) {
-g[arg0].tag = val.tag;
-g[arg0].p = val.p;
-}
-else {
-g[arg0].i = val.i;
-}
-ip += 2;
-}
-else if (IsPointer(g[arg0])) {
-int16_t constant = *(ip + 1);
-value val = fp[constant];
-if (val.tag == 0) {
-g[arg0].tag = 0;
-g[arg0].i = val.i;
-}
-else {g[arg0].tag = val.tag;
-g[arg0].p = val.p;
-}
-ip += 2;
-}
-else {
-fprintf(stderr, "type error, illegal types used for instruction: getl");
-return 1;
-}
+    int16_t arg0 = GetArg0(*ip);
+    if (IsInt(g[arg0])) {
+        int16_t constant = *(ip + 1);
+        value val = fp[constant];
+        if (val.tag != 0) {
+            g[arg0].tag = val.tag;
+            g[arg0].p = val.p;
+        }
+        else {
+            g[arg0].i = val.i;
+        }
+        ip += 2;
+    }
+    else if (IsPointer(g[arg0])) {
+        int16_t constant = *(ip + 1);
+        value val = fp[constant];
+        if (val.tag == 0) {
+            g[arg0].tag = 0;
+            g[arg0].i = val.i;
+        }
+        else {g[arg0].tag = val.tag;
+            g[arg0].p = val.p;
+        }
+        ip += 2;
+    }
+    else {
+        fprintf(stderr, "type error, illegal types used for instruction: getl");
+        return 1;
+    }
 #ifdef STATS
-opcodeCounters[25].count++;
+    opcodeCounters[25].count++;
 #endif /* STATS */
-goto *dynOpcodes[GetOpcode(*ip)];
+    goto *dynOpcodes[GetOpcode(*ip)];
 }
 
 setl:

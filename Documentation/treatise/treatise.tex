@@ -61,7 +61,7 @@ University
 \end{center}
 
 \newpage{}
-
+\pagenumbering{roman}
 \chapter*{Acknowledgements}
 
 \newpage{}
@@ -83,7 +83,7 @@ University
 
 \tableofcontents
 \newpage{}
-
+\pagenumbering{arabic}
 \chapter{Introduction}
 
 In the last 20 years, software applications programming has seen a
@@ -1441,17 +1441,21 @@ terminated by a \verb|ret| instruction.
 All three virtual machines provide a set of 46 instructions. These
 shall be referred to as ``logical instructions'' as they enumerate the
 entire set of functions the VMs can perform. All VMs provide the same
-functionality.
+functionality. These 46 instructions make up the set of possible
+instructions that can exist in an unassembled program for any of the
+three virtual machines. 
 
 For each VM, however, there are different implementations of these
 logical instructions. For the conventional VM, there is a single
 ``internal instruction'' for each of the 46 logical instructions the
 VM provides. It has a one-to-one correspondence between logical an
-internal instructions.
+internal instructions. 
 
 For the Operand-Type and Operand Dispatch VMs there are, in some
 cases, multiple internal instructions for each logical
-instruction. For these cases, there is a many-to-one correspondence between the internal instructions and the logical instructions they implement.
+instruction. For these cases, there is a many-to-one correspondence
+between the internal instructions and the logical instructions they
+implement.
 
 This is best explained with an example. The \verb|add| instruction
 provides a clear example of the distinctions between the different
@@ -1459,7 +1463,9 @@ internal instructions each VM uses to implement a logical instruction.
 
 \subsection{Conventional VM Implementation}
 
-For the Conventional VM, the logical \verb|add| instruction has only a single internal instruction (also called \verb|add|) that makes up its implementation:
+For the Conventional VM, the logical \verb|add| instruction has only a
+single internal instruction (also called \verb|add|) that makes up its
+implementation:
 \begin{lstlisting}
 add:
 {
@@ -1522,7 +1528,8 @@ not replicated in the Operand Dispatch VM.
 
 \subsection{Operand-Type Dispatch VM Implementation}
 
-For the Operand-Type Dispatch VM, the logical \verb|add| instruction is implemented using 37 internal instructions. The last instruction
+For the Operand-Type Dispatch VM, the logical \verb|add| instruction
+is implemented using 37 internal instructions. The 37th instruction
 simply signals a type error and terminates the VM, and the other 36
 instructions are of the following form:
 
@@ -1536,21 +1543,33 @@ add_3_5:
 }
 \end{lstlisting}
 
-\verb|add_0_0| through \verb|add_5_5| implement addition given the fact that the types of the registers are integers. This particular example is for adding register three to register five, given that both
+\verb|add_0_0| through \verb|add_5_5| implement addition given the fact
+that the types of the registers are integers. This particular example
+is for adding register three to register five, given that both
 registers hold integers. There is no longer any need to check the
 types of the registers being added and so that code is removed.
 
 \section{Labels As Values and Dispatch}
 \label{sec:labels-as-addresses}
 
-In order to implement token-threaded dispatch a table of addresses of instruction implementations is needed. This table cannot be implemented in ANSI C[citation needed]. A GNU C extension allows for this table to be created, however. 
+In order to implement token-threaded dispatch a table of addresses of
+instruction implementations is needed. This table cannot be
+implemented in ANSI C[citation needed]. A GNU C extension allows for
+this table to be created, however.
 
-The extension is called ``Labels as Values'' and allows for the address of a label to be stored in a variable as a void pointer. This address can then be jumped to. The ``Using the GNU Compiler Collection manual''\cite[page 371]{GCC} states that:
+The extension is called ``Labels as Values'' and allows for the
+address of a label to be stored in a variable as a void pointer. This
+address can then be jumped to. The ``Using the GNU Compiler Collection
+manual''\cite[page 371]{GCC} states that:
 
 \begin{displayquote}
-	You can get the address of a label defined in the current function (or a containing function) with the unary operator `\&\&'. The value has type void *. This value is a constant and can be used wherever a constant of that type is valid.
+  You can get the address of a label defined in the current function
+  (or a containing function) with the unary operator `\&\&'. The value
+  has type void *. This value is a constant and can be used wherever a
+  constant of that type is valid.
 	
-	One way of using these constants is in initializing a static array that serves as a jump table:
+  One way of using these constants is in initializing a static array
+  that serves as a jump table:
 	\begin{lstlisting}
 static void *array[] = { &&foo, &&bar, &&hack };
 	\end{lstlisting}
@@ -1561,7 +1580,11 @@ goto *array[i];
 	\end{lstlisting}
 \end{displayquote}
 
-The jump table described in the manual is the mechanism used for token-threaded dispatch. In the VMs, this jump table is referred to as the Dynamic Opcode Table. The entries in the Dynamic Opcode Table are the addresses of the instructions the VM implements. For each VM, the table is created slightly differently:
+The jump table described in the manual is the mechanism used for
+token-threaded dispatch. In the VMs, this jump table is referred to as
+the Dynamic Opcode Table. The entries in the Dynamic Opcode Table are
+the addresses of the instructions the VM implements. For each VM, the
+table is created slightly differently:
 
 \subsection{Conventional VM}
 
@@ -1575,7 +1598,8 @@ The jump table described in the manual is the mechanism used for token-threaded 
 	\label{fig:convinstruction2}
 \end{figure}
 
-For the conventional VM, there are 46 entries in the table. One per logical instruction:
+For the conventional VM, there are 46 entries in the table. One per
+logical instruction:
 \begin{lstlisting}
 static void *dynOpcodes[] = 
 {
@@ -1592,10 +1616,18 @@ The code used to jump to an instruction looks like this:
 \begin{lstlisting}
 goto *dynOpcodes[GetOpcode(*ip)];
 \end{lstlisting}
-The GetOpcode step is necessary because of the instruction word layout of a conventional VM. This is shown in figure ~\ref{fig:convinstruction2} which has been repeated here for convenience. The opcode of the instruction lies only in the high seven bits of the instruction word pointed to by \verb|IP|. ``GetOpcode'' is a macro that calculated the value of the opcode given the instruction word.
+The GetOpcode step is necessary because of the instruction word layout
+of a conventional VM. This is shown in figure
+~\ref{fig:convinstruction2} which has been repeated here for
+convenience. The opcode of the instruction lies only in the high seven
+bits of the instruction word pointed to by \verb|IP|. ``GetOpcode'' is
+a macro that calculated the value of the opcode given the instruction
+word.
 
 \subsection{Operand Dispatch VM}
-For the Operand-Dispatch VM there are 1295 entries in the table. This is because many logical instructions have a large number of internal instructions used to implement them. 
+For the Operand-Dispatch VM there are 1295 entries in the table. This
+is because many logical instructions have a large number of internal
+instructions used to implement them.
 \begin{lstlisting}
 static void *dynOpcodes[] = 
 {
@@ -1614,11 +1646,21 @@ The code used to jump to an instruction looks like this:
 goto *dynOpcodes[*ip];
 \end{lstlisting}
 
-In the Operand Dispatch VM, the entire instruction word pointed to by \verb|IP| refers directly to the internal instruction that takes the arguments required for that instruction. If the instruction being jumped to is \verb|add g0 g0|, then the next instruction word will have the value 0, as that is the position of \verb|&&add_0_0| in the Dynamic Opcode Table. If the instruction being jumped to is \verb|print g5|, then the instruction word will have the value 1294, as that is \verb|&&print_5|'s position in the table.
+In the Operand Dispatch VM, the entire instruction word pointed to by
+\verb|IP| refers directly to the internal instruction that takes the
+arguments required for that instruction. If the instruction being
+jumped to is \verb|add g0 g0|, then the next instruction word will
+have the value 0, as that is the position of \verb|&&add_0_0| in the
+Dynamic Opcode Table. If the instruction being jumped to is
+\verb|print g5|, then the instruction word will have the value 1294,
+as that is \verb|&&print_5|'s position in the table.
 
 \subsection{Operand-Type Dispatch VM}
 
-For the Operand-Type Dispatch VM there are 131 072 entries in the table. This is because there are 64 states and the \verb|TS| value is left-shifted by 11 bit positions. This means there are $2^{11} \times 64 = 131 072$ entries.
+For the Operand-Type Dispatch VM there are 131 072 entries in the
+table. This is because there are 64 states and the \verb|TS| value is
+left-shifted by 11 bit positions. This means there are
+$2^{11} \times 64 = 131 072$ entries.
 \begin{lstlisting}
 static void *dynOpcodes[] = 
 {
@@ -1632,18 +1674,32 @@ static void *dynOpcodes[] =
 };	
 \end{lstlisting}
 
-Because \verb|TS| is shifted left by 11 bit positions, there is enough space for $2^{11} = 2048$ instructions for each state. However, the Operand-Type Dispatch VM only makes use of 1295 instructions per state. This means that 36.8\% of the indexes in the table are not used and should never be called unless there is a VM or assembler error.
+Because \verb|TS| is shifted left by 11 bit positions, there is enough
+space for $2^{11} = 2048$ instructions for each state. However, the
+Operand-Type Dispatch VM only makes use of 1295 instructions per
+state. This means that 36.8\% of the indexes in the table are not used
+and should never be called unless there is a VM or assembler error.
 
 The code used to jump to an instruction looks like this:
 \begin{lstlisting}
 goto *dynOpcodes[ts + *ip];
 \end{lstlisting}
 
-The instruction word pointed to by \verb|IP| is the same value as for the Operand Dispatch VM, but the pre-shifted \verb|TS| value is added to it to select a different 2048 entry long segment of the Dynamic Opcode Table that is specially defined to contain the correct implementations of instructions based on the current type state. If the types of the registers the instruction adds on are not valid, the table will contain \verb|&&error| at that point, which signals a type error and halts.
+The instruction word pointed to by \verb|IP| is the same value as for
+the Operand Dispatch VM, but the pre-shifted \verb|TS| value is added
+to it to select a different 2048 entry long segment of the Dynamic
+Opcode Table that is specially defined to contain the correct
+implementations of instructions based on the current type state. If
+the types of the registers the instruction adds on are not valid, the
+table will contain \verb|&&error| at that point, which signals a type
+error and halts.
 
 \section{Code Generation}
 
-Since writing 1295 instructions by hand is not feasible, code for all three VMs was generated from templates. A JavaScript code generator was purpose-built for this task. The code generator accepts an array of specially formatted JavaScript objects.
+Since writing 1295 instructions by hand is not feasible, code for all
+three VMs was generated from templates. A JavaScript code generator
+was purpose-built for this task. The code generator accepts an array
+of specially formatted JavaScript objects.
 
 \subsection{Logical Instruction Objects}
 
@@ -1655,11 +1711,18 @@ Since writing 1295 instructions by hand is not feasible, code for all three VMs 
     instructions: [ <internal instruction>, ... ]
 }	
 \end{lstlisting}
-These objects will be referred to as logical instruction objects. Here is a short description of their format  
+These objects will be referred to as logical instruction objects. Here
+is a short description of their format
 \begin{description}
-	\item[name] The name of the logical instruction, also the name used by the instruction generated by the conventional VM
-	\item[inputs] the number of register operands for the instruction, so that the Operand and Operand-Type Dispatch VMs know how many cases there are
-	\item[callCondition] An optional field that stores a function that is used to filter out trivial calling cases. The function ``noTrivialFor'' returns a function is used to check if a particular call is a trivial case.
+\item[name] The name of the logical instruction, also the name used by
+  the instruction generated by the conventional VM
+\item[inputs] the number of register operands for the instruction, so
+  that the Operand and Operand-Type Dispatch VMs know how many cases
+  there are
+\item[callCondition] An optional field that stores a function that is
+  used to filter out trivial calling cases. The function
+  ``noTrivialFor'' returns a function is used to check if a particular
+  call is a trivial case.
 	\item[instructions] A list of internal instructions	
 \end{description}
 
@@ -1676,26 +1739,58 @@ The format of an internal instruction is as follows:
 \end{lstlisting}
 
 \begin{description}
-	\item[name]	The name of the internal instruction which is used by the Operand and Operand-Type Dispatch VMs.
-	\item[ipChange] The amount the instruction pointer needs to be incremented by to point to the next instruction.
-	\item[legal] A list of legal types for the registers for an instruction. It must have as many members as there are inputs. If an argument must be an integer the variable ``r'' is used. If an argument must be a pointer the variable ``p'' is used. If the argument can be of any type the variable ``g'' is used. 
-	\item[template] A template string that defines the common code with place-holders for the parts that vary between different internal instructions that work together to implement a logical instruction.
+\item[name] The name of the internal instruction which is used by the
+  Operand and Operand-Type Dispatch VMs.
+\item[ipChange] The amount the instruction pointer needs to be
+  incremented by to point to the next instruction.
+\item[legal] A list of legal types for the registers for an
+  instruction. It must have as many members as there are inputs. If an
+  argument must be an integer the variable ``r'' is used. If an
+  argument must be a pointer the variable ``p'' is used. If the
+  argument can be of any type the variable ``g'' is used.
+\item[template] A template string that defines the common code with
+  place-holders for the parts that vary between different internal
+  instructions that work together to implement a logical instruction.
 \end{description}
 
 \subsection{Template Strings}
 
-The format string itself is C code written in plain text but several special character forms are used as place-holders. These are as follows:
+The format string itself is C code written in plain text but several
+special character forms are used as place-holders. These are as
+follows:
 
-The symbol \verb|/*<i>*/| is the register number template. The value ``i'' will be an integer in the template that refers to a register and must have a value from 0 to 5. In the conventional VM, \verb|/*<i>*/| is replaced with a macro that returns the "i"th argument from the instruction word. In the experimental VMs,\verb|/*<i>*/| is replaced with the number of the register for the "i"th argument for that particular internal instruction.
-For instance, if the internal instruction is \verb|add_1_2|, then \verb|/*<0>*/| is replaced with 1 and \verb|/*<1>*/| is replaced with 2.
+The symbol \verb|/*<i>*/| is the register number template. The value
+``i'' will be an integer in the template that refers to a register and
+must have a value from 0 to 5. In the conventional VM, \verb|/*<i>*/|
+is replaced with a macro that returns the "i"th argument from the
+instruction word. In the experimental VMs,\verb|/*<i>*/| is replaced
+with the number of the register for the "i"th argument for that
+particular internal instruction.  For instance, if the internal
+instruction is \verb|add_1_2|, then \verb|/*<0>*/| is replaced with 1
+and \verb|/*<1>*/| is replaced with 2.
 
-The symbol \verb|/*<tag:i>*/| is replaced with code that changes the tag of the register referred to by the first operand of the instruction to the value "i". For example, \verb|/*<tag:0>*/| is replaced with \verb|/*<0>*/.tag = 0;|.
+The symbol \verb|/*<tag:i>*/| is replaced with code that changes the
+tag of the register referred to by the first operand of the
+instruction to the value "i". For example, \verb|/*<tag:0>*/| is
+replaced with \verb|/*<0>*/.tag = 0;|.
 
-The symbol \verb|/*<state:i>*/| is exlusive to the Operand-Type Disptach VM and is only replaced when generating code for it, otherwise it is replaced with an empty string. Here, ``i'' refers to the the type of the state that is being changed. 
+The symbol \verb|/*<state:i>*/| is exlusive to the Operand-Type
+Disptach VM and is only replaced when generating code for it,
+otherwise it is replaced with an empty string. Here, ``i'' refers to
+the the type of the state that is being changed.
 
-As an example, \verb|/*<state:1>*/| for the instruction, \verb|movip_0_1| would be replaced with: \verb+ts |= 0x10000; /*100000*/+. The comment refers to the composition of bits that will interact with the \verb|TS| register. Because the instruction changes register zero (as it is the fist argument), the bitwise OR operation has the bit at index zero set to one, with the others left at 0 so that they have no effect on the rest of the \verb|TS| value. The actual value \verb|0x10000| is the pattern of bits in the comment shifted left by 11 places.
+As an example, \verb|/*<state:1>*/| for the instruction,
+\verb|movip_0_1| would be replaced with:
+\verb+ts |= 0x10000; /*100000*/+. The comment refers to the
+composition of bits that will interact with the \verb|TS|
+register. Because the instruction changes register zero (as it is the
+fist argument), the bitwise OR operation has the bit at index zero set
+to one, with the others left at 0 so that they have no effect on the
+rest of the \verb|TS| value. The actual value \verb|0x10000| is the
+pattern of bits in the comment shifted left by 11 places.
 
-Figure ~\ref{fig:template-string} shows the template string for the \verb|getl| instruction.
+Figure ~\ref{fig:template-string} shows one of the template strings
+for the \verb|getl| instruction.
 
 \begin{figure}
 	\begin{lstlisting}
@@ -1714,6 +1809,160 @@ Figure ~\ref{fig:template-string} shows the template string for the \verb|getl| 
 	\label{fig:template-string}
 \end{figure}
 
+
+\subsection{Generation Algorithm}
+
+A description of the intricate details of the code generation process
+is unecessary, as the focus of this treatise is the virtual machines
+themselves rather than the code that generates them. However, a high
+level overview of the process undertaken by the code generator is
+necessary in order to understand how the code differs between each of
+the three virtual machines.
+
+The operation of any logical instruction in the VM is completely
+described by its logical instruction object and the set of internal
+instruction objects that logical instruction object has. The
+\verb|getl| logical instruction object will be used to illustrate the
+points made about code generation.
+
+\begin{lstlisting}
+      {
+        name: 'getl',
+        inputs: 1,
+        instructions: [{
+            name: 'getl',
+            ipChange: 2,
+            legal: [i],
+            template: 'int16_t constant = *(ip + 1);\n' +
+                'value val = fp[constant];\n' +
+                'if (val.tag != ' + i + ') {\n' +
+                '    /*<0>*/.tag = val.tag;\n' +
+                '    /*<state:' + p + '>*/' +
+                '    /*<0>*/.p = val.p;\n' +
+                '}\n' +
+                'else {\n' +
+                '    /*<0>*/.i = val.i;\n' +
+                '}\n'
+        }, {
+            name: 'getlp',
+            ipChange: 2,
+            legal: [p],
+            template: 'int16_t constant = *(ip + 1);\n' +
+                'value val = fp[constant];\n' +
+                'if (val.tag == ' + i + ') {\n' +
+                '    /*<tag+state:' + i + '>*/' +
+                '    /*<0>*/.i = val.i;\n' +
+                '}\n' +
+                'else {' +
+                '    /*<0>*/.tag = val.tag;\n' +
+                '    /*<0>*/.p = val.p;\n' +
+                '}\n'
+        }]
+    }
+\end{lstlisting}
+
+The \verb|getl| logical instruction object has two internal
+instruction objects named \verb|getl| and \verb|getlp|. Note that the
+instruction has a single register operand (``inputs: 1''). This input
+could take on one of two types. This is why two internal instructions
+are used to implement the logical instruction.
+
+For the Conventional VM and the Operand Disptach VM, which don't know
+the types of their arguments, the internal instruction objects are
+composed into another dispatch operation based on the type of the
+arguments inside the generated instruction. This can be seen in this
+generated code for the Conventional VM:
+
+\begin{lstlisting}
+getl:
+{
+    int16_t arg0 = GetArg0(*ip);
+    if (IsInt(g[arg0])) {
+        int16_t constant = *(ip + 1);
+        value val = fp[constant];
+        if (val.tag != 0) {
+            g[arg0].tag = val.tag;
+            g[arg0].p = val.p;
+        }
+        else {
+            g[arg0].i = val.i;
+        }
+        ip += 2;
+    }
+    else if (IsPointer(g[arg0])) {
+        int16_t constant = *(ip + 1);
+        value val = fp[constant];
+        if (val.tag == 0) {
+            g[arg0].tag = 0;
+            g[arg0].i = val.i;
+        }
+        else {g[arg0].tag = val.tag;
+            g[arg0].p = val.p;
+        }
+        ip += 2;
+    }
+    else {
+        fprintf(stderr, "type error, illegal types used for instruction: getl");
+        return 1;
+    }
+    goto *dynOpcodes[GetOpcode(*ip)];
+}
+\end{lstlisting}
+
+The two internal instructions become the code inside the if and else
+if blocks shown above (lines 5 to 14 and 17 to 26), and the
+type-appropriate block is run.
+
+The Operand-Type Dispatch VM, instead has two separate instructions:
+\begin{lstlisting}
+getl_0:
+{
+    int16_t constant = *(ip + 1);
+    value val = fp[constant];
+    if (val.tag != 0) {
+        g[0].tag = val.tag;
+        ts |= 0x10000; /*100000*/
+        g[0].p = val.p;
+    }
+    else {
+        g[0].i = val.i;
+    }
+    ip += 2;
+
+    goto *dynOpcodes[ts + *ip];
+}
+
+getlp_0:
+{
+    int16_t constant = *(ip + 1);
+    value val = fp[constant];
+    if (val.tag == 0) {
+        g[0].tag = 0;
+        ts &= 0xf800; /*011111*/
+        g[0].i = val.i;
+    }
+    else {g[0].tag = val.tag;
+        g[0].p = val.p;
+    }
+    ip += 2;
+
+    goto *dynOpcodes[ts + *ip];
+}
+\end{lstlisting}
+
+Depending on the current type state, one of these instructions is run
+in order to implement the logical instruction.
+
+This code generation approach gives the benefit of allowing all three
+virtual machines to be generated from the same set of templates. The
+benefits of this are:
+\begin{itemize}
+\item That the VMs are as similar to each other as possible for the
+  experiment
+\item That development of three virtual machines could be completed in
+  parallel
+\item Any possible errors in instructions affect all VMs
+\end{itemize}
 
 
 \chapter{Experimental Design}
