@@ -26,11 +26,11 @@
 \usepackage{chngcntr}
 \counterwithin{figure}{chapter}
 
-\renewcommand{\lstlistingname}{Listing}
+%\renewcommand{\lstlistingname}{Listing}
 \usepackage{courier}
 % make lstlisting use monospace fonts
-\lstset{basicstyle=\footnotesize\ttfamily,breaklines=true}
-\lstset{framextopmargin=50pt}
+\lstset{basicstyle=\footnotesize\ttfamily,numberstyle=\footnotesize\ttfamily,breaklines=true,numbers=left,frame=single}
+%\lstset{framextopmargin=50pt}
 
 \pretitle{%
   \begin{center}
@@ -1466,7 +1466,7 @@ internal instructions each VM uses to implement a logical instruction.
 For the Conventional VM, the logical \verb|add| instruction has only a
 single internal instruction (also called \verb|add|) that makes up its
 implementation:
-\begin{lstlisting}
+\begin{lstlisting}[language=C]
 add:
 {
     int16_t arg0 = GetArg0(*ip);
@@ -1493,15 +1493,16 @@ checked. If both registers hold integers, the instruction can
 continue, but if either argument is not an integer the VM reaches an
 error state and halts.
 
-Finally, the opcode of the next instruction is extracted. This opcode
-can be used to branch to the next instruction the VM must perform in
-the manner described in section \pageref{sec:labels-as-addresses}.
+Finally, on line 14, the opcode of the next instruction is extracted
+using the GetOpcode macro. This opcode can be used to branch to the
+next instruction the VM must perform in the manner described in
+section \pageref{sec:labels-as-addresses}.
 
 \subsection{Operand Dispatch VM Implementation}
 
 For the Operand Dispatch VM, the logical \verb|add| instruction is implemented using 36 internal instructions of the following form:
 
-\begin{lstlisting}
+\begin{lstlisting}[language=C]
 add_1_2:
 {
     if (IsInt(g[1]) && IsInt(g[2])) {
@@ -1533,7 +1534,7 @@ is implemented using 37 internal instructions. The 37th instruction
 simply signals a type error and terminates the VM, and the other 36
 instructions are of the following form:
 
-\begin{lstlisting}
+\begin{lstlisting}[language=C]
 add_3_5:
 {
     g[3].i += g[5].i;
@@ -1825,7 +1826,7 @@ instruction objects that logical instruction object has. The
 \verb|getl| logical instruction object will be used to illustrate the
 points made about code generation.
 
-\begin{lstlisting}
+\begin{lstlisting}mail
       {
         name: 'getl',
         inputs: 1,
@@ -1914,7 +1915,7 @@ if blocks shown above (lines 5 to 14 and 17 to 26), and the
 type-appropriate block is run.
 
 The Operand-Type Dispatch VM, instead has two separate instructions:
-\begin{lstlisting}
+\begin{lstlisting}[language=C,numbers=left,frame=single]
 getl_0:
 {
     int16_t constant = *(ip + 1);
@@ -2541,6 +2542,15 @@ Text of Appendix A is Here
 	\item[print] writes a line of data to stdout
 	
 \end{description}
+\chapter{Macros}
+
+Several macros are used to make the source code more readable and code
+generation less verbose. The reader may wish to know the precise
+definitions of these macros. The full list of macros is presented here
+for conveniece.
+
+
+
 
 \bibliographystyle{apacite} 
 \bibliography{treatise-bibliography}
