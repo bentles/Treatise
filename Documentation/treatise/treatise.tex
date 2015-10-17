@@ -42,6 +42,9 @@
 \posttitle{
 
 \end{center}
+Submitted in partial fulfilment of the degree Baccalaureus Scientiae
+(Honores) in Computer Science at the Nelson Mandela Metropolitan
+University
 }
 
 
@@ -50,16 +53,9 @@
 \title{A JIT-Less Type-Mapped Dynamic-ISA Virtual Machine for
   Many-Instance Applications}
 
-\author{ Douglas Bentley \and Supervisor: Kevin Naude }
+\author{ Douglas Bentley \and Supervisor: Kevin Naud\'{e} }
 
 \maketitle
-
-\begin{center}
-Submitted in partial fulfilment of the degree Baccalaureus Scientiae
-(Honores) in Computer Science at the Nelson Mandela Metropolitan
-University
-\end{center}
-
 \newpage{}
 \pagenumbering{roman}
 \chapter*{Acknowledgements}
@@ -89,35 +85,49 @@ University
 In the last 20 years, software applications programming has seen a
 shift away from compiled languages, that run natively on hardware,
 towards interpreted languages that require the use of another program,
-called an interpreter, to execute them. This has several
-advantages. One is portability. If you have an interpreter that runs
-on different hardware and operating systems you can run your
-interpreted programs in these different environments with no change to
-your code. Another advantage is that memory can be managed. This helps
-prevent bugs and security issues and takes the burden of managing
-memory off the programmer. The disadvantage of interpreted languages
-is that they must necessarily be slower than equivalent native
-code. For systems programming and big-budget video games, natively
-compiled languages are preferred as the performance hit is considered
-to be too great but for general applications programming interpreted
-languages are preferred. For business systems this usually means Java
-and C\# and for web development this means JavaScript and PHP.
+called an interpreter, to execute them. One of the advantages of
+interpreters is portability. An interpreted program can be run on any
+hardware and operating system combination that the interpreter is
+compatible with. This means that a programmer working on an
+interpreted program need only write a single version of their
+program. This also means that any new platforms the interpreter
+supports will be able to execute the existing set of programs that run
+on that interpreter.
 
-Given the popularity of these languages, research into interpreter
-performance is important.
+The disadvantage of interpreted languages is that they must
+necessarily be slower than equivalent native code. This is because the
+interpreter incurs various overhead costs to execute a program that a
+natively compiled program would not. These overheads differ for each
+type of interpreter and will be discussed in section
+\pageref{sec:interptypes}. 
+
+For systems programming and big-budget video games, natively compiled
+languages are preferred as the performance cost of interpretation is
+considered to be too great for such applications. However, in general
+applications where the performance demands are less stringent, the
+flexibility of an interpreted language may be preferred.
+
+Interpreted languages like Lua, Ruby, Python and PHP are widely
+used. Given the popularity of interpreted languages, research into
+interpreter performance is important. The design of an interpreter is
+affected by whether it is for a dynamically or statically typed
+language. The performance of an interpreter for a dynamically typed
+language is the focus of this study, and hence a discussion of
+dynamically typed languages and different interpreter approaches
+follows.
 
 \section{Dynamically Typed Languages}
 Dynamically typed languages are the foundation on which the modern
-website is built. Currently there are two major web-development
-languages: JavaScript and PHP. All major browsers have JavaScript
-engines (virtual machines) which can interpret and execute JavaScript
-code. Developers use JavaScript to create interactive websites. PHP on
-the other hand is the most commonly used language for server-side
-scripting. This is what allows web pages to have dynamic
-content. Pages can be generated as needed and personalised for each
-user using PHP. Several other dynamically typed languages are commonly
-used for server-side scripting. These include Ruby (Ruby on Rails),
-Python (Django) and JavaScript (Node.js).
+website is built. All major browsers have JavaScript engines (virtual
+machines) which can interpret and execute JavaScript code. Javascript
+is a dynamically typed language. Developers use JavaScript to create
+interactive websites. Another dynamically typed language, PHP, is the
+most commonly used language for server-side scripting. This is what
+allows web pages to have dynamic content. Pages can be generated as
+needed and personalised for each user using PHP. Several other
+languages are commonly used for server-side scripting. Nearly all of
+them are dynamically typed. These include Ruby (Ruby on Rails), Python
+(Django) and JavaScript (Node.js).
 
 Dynamically typed languages also play the role of ``glue'' languages
 that stick together different software components. A prime example is
@@ -128,19 +138,22 @@ runs on the Lua virtual machine. Since Lua is a higher-level language
 it can be used to more easily and succinctly express the less
 performance-critical elements of the game. Another example is the Bash
 command language which acts as ``glue'' for the GNU core utilities
-which are written in C. Each program in the coreutils performs a
-simple operation but these can easily be composed using a Bash script
-or command to create complex behaviour. Dynamic languages are ideal
-for tasks like this because they have simple, terse syntax and
-powerful abstractions.
+(coreutils) which are written in C. Each program in the coreutils
+performs a simple operation. These can easily be composed using a Bash
+script to create complex behaviour. Dynamic languages are ideal for
+tasks like this because they have simple, terse syntax and powerful
+abstractions. The next section will introduce techniques for
+interpreting dynamically typed languages.
 
 \section{Interpreting Dynamically Typed Languages}
+\label{sec:interptypes}
 Dynamically typed languages are commonly paired with an
 interpreter. That is, these languages are not compiled to machine code
-that can be run on some architecture. Instead, it is the job of a
-seperate program to determine the meaning of the program and perform
-the instructions on actual hardware. There are three main approaches
-to interpreting dynamically typed languages:
+that can only be run on some specific architecture. Instead, it is the
+job of a seperate program to determine the meaning of the program and
+perform the instructions on actual hardware. There are three main
+approaches to interpreting dynamically typed languages. Each approach
+is now examined.
 
 \subsection{Line by Line}
 In line by line interpretation the program is parsed one line at a
@@ -150,28 +163,51 @@ where the primary mode of interaction is entering single-line
 commands. Some examples of langauges with this type of interpreter
 are: Bash, CMD.EXE, Python and Ruby.
 
+This approach has a fast start up time because as soon as a line of
+code is parsed it can be executed. Programs with loops require lines
+to be reinterpreted, an overhead other approaches do not incur. This
+means that very short programs can be executed quickly, but large,
+computationally intensive programs are slower than if another
+technique was used.
+
 \subsection{Abstract Syntax Tree}
 Abstract syntax tree or AST interpreters parse the entire program and
 build an abstract syntax tree that represents the structure of the
 program. This tree can then be traversed in the correct order to
 execute the program. The abstract syntax tree has a node for each
-construct in the abstract syntax of the programming
-language. Arithmetic operations are nodes for example where each
-branch off them is an expression or constant.
+construct in the abstract syntax of the programming language.
 
-Figure~\ref{fig:ast} shows an abstract syntax tree for an if
-statement. The if statement has three branches: one for the condition,
-one for the set of statements to perform if the condition is true and
-another for the set of statements to perform if the condition is
-false. By traversing to the first branch of the ``if'' node and then
-to the second or third given the condition, the value of the variable
-``max'' can be calculated. An entire program can be parsed into an AST
-and interpreted in this fashion.
+Figure~\ref{fig:ast} shows an abstract syntax tree for an if statement
+in the Java programming language's syntax. This tree can be traversed
+to execute the code. The traversal starts at the root of the tree at
+the \verb|if| node. This node has three branches coming off of it. The
+interpretation algorithm will know that because the the node is an \verb|if|
+node, the leftmost branch must be traversed first. This branch is
+called the ``predicate''.
 
+The leftmost node is a \verb|>| node. The algorithm will know to
+evaluate the left and right nodes that branch off the \verb|>| node
+and determine whether or not the left expression is larger. After
+gaining this information the interpretation algorithm returns to the
+\verb|if| node. If it turns out that the ``predicate'' was true, the
+middle branch off the \verb|if| node, called the ``consequent'' is
+traversed. If the predicate was false, the last, ``alternative''
+branch is taken. In this case either ``x'' or ``y'' will be assigned to some
+variable, ``max''.
+
+By following the traversal and evalutation rules associated with each
+type of node in the AST in the fashion described above, the program
+can be executed. This approach has the disadvantage of having to parse
+the entire program into an AST before interpretation can take
+place. The entire tree structure is kept in memory and so the memory
+overhead is larger than line-by-line interpretation, but it does not
+have to parse lines of code that have already been parsed, which makes
+it better than line-by-line interpreted programs for computaitonally
+intensive tasks.
 
 \begin{figure}
   \begin{subfigure}{.5\textwidth}
-    \begin{lstlisting}
+    \begin{lstlisting}[frame=none,numbers=none]
       if (x > y)
           max = x;
       else
@@ -183,13 +219,13 @@ and interpreted in this fashion.
     \centering
 
     \begin{forest}
-      for tree={ draw, s sep=6mm } [if [> [x][y]] [{=} [max] [x]]
-      [{=}[max] [y]]]
+      for tree={ draw, s sep=6mm } [if [> [x][y]] [$\longleftarrow$ [max] [x]]
+      [$\longleftarrow$[max] [y]]]
     \end{forest}
 
     \caption{Tree parsed from code}
   \end{subfigure}
-  \caption{Abstract Syntax Tree \protect\cite{ast}}
+  \caption[Abstract Syntax Tree]{Abstract Syntax Tree \protect\cite{ast}}
   \label{fig:ast}
 \end{figure}
 
@@ -197,37 +233,56 @@ and interpreted in this fashion.
 \subsection{Bytecode}
 Bytecode interpreters interpret a pre-compiled bytecode that is much
 like the machine code executed by the CPU. An additional tool called a
-compiler is needed to generate the bytecode from the program's text.
+compiler is needed to generate the bytecode from the program's
+text. Instead of having to parse the program every time it is
+executed, like the AST interpreter, the program is parsed once and
+compiled into an intermediate representation that is easier to
+interpret. 
 
-\begin{figure}
-  \centering
-  
-  \caption{Bytecode}
-  \label{fig:byte}
-\end{figure}
+This bytecode is stored compactly as a list of simple operations the
+VM can perform. This approach is found in the statically typed
+languages Java and C\# and dynamically typed languages like Lua share
+the same approach. Bytecode interpreters are also called virtual
+machines because of they perform the same tasks as a real CPU:
+fetching, decoding and executing instructions.
 
-This can be stored compactly and executed by decoding the opcode and
-performing the instruction associated with it. This approach is found
-in the statically typed languages Java and C\# but dynamically typed
-languages like Lua share the same approach. Bytecode interpreters are
-also called virtual machines because of they perform the same tasks as
-a real CPU: fetching, decoding and executing instructions (citation
-needed?).
+The Lua VM is a good example of a bytecode
+interpreter. Figure~\ref{fig:luabyte} shows the format of the Lua
+virtual machine's bytecode (as of Lua 5.0
+\cite{RobertoIerusalimschy}). The bytecode is made up of 32-bit
+unsiged integers. These are referred to as ``instruction words''
+because each holds an instruction that the VM must perform. 
 
-The Lua bytecode (as of Lua 5.0) is made up of 32-bit unsiged integers
-\cite{RobertoIerusalimschy}. Figure~\ref{fig:luabyte} shows the
-different ways the bits of the instructions in the bytecode are
-used. Bits 0 through 5 are always used to store the opcode. Bits 6
-through 13 are always used to store the first argument. After that
-there are three options for how the rest of the instruction word is
-used.
+Bits 0 through 5 of each instruction word are used to store the
+opcode. The opcode is, as the name suggests, a code that represents
+which operation the VM must perform.
+
+Bits 6 through 13 are always used to index the first argument. The
+remaining 18 bits encode additional operands which appear in any of
+three possible formats.
 
 \begin{figure}
   \includegraphics[width=\linewidth]{luabytecode.png}
-  \caption{Lua VM bytecode layouts
+  \caption[Lua VM bytecode layouts]{Lua VM bytecode layouts
     \protect\cite{RobertoIerusalimschy}}
   \label{fig:luabyte}
 \end{figure}
+
+With bytecode, the overhead of parsing the program is part of the
+compilation step, which is separate from execution. This separation is
+useful because the program can be parsed (and optimised) a single time
+so no future execution of the program will have to incur the overhead
+of parsing the source code.
+
+Since the bytecode is simple, decoding which operation the VM must
+perform and on which arguments is much faster than the kind of parsing
+needed for a line of text. This means the VM can have fast startup and
+fast execution. The bytecode is also more compact than the abstract
+syntax tree representation.
+
+Bytecode interpreters or virtual machines present a good solution for
+an interpreter for general use by applications. More detail about the
+the organisation of virtual machines follows.
 
 \section{Organisation of a Virtual Machine} 
 A Virtual Machine executes a binary file that is a list of
@@ -1174,6 +1229,7 @@ jumps are relative to the current \verb|IP| value.
 
 \subsection{Function Call and Return}
 
+The function call mechanism was designed to be simple. 
 
 \subsection{Pragmatic Higher-Level Instructions}
 
@@ -1965,6 +2021,41 @@ benefits of this are:
 \item Any possible errors in instructions affect all VMs
 \end{itemize}
 
+An unanticipated caveat of this approach is that sometimes the
+resultant code for the Conventional VM and the Operand Dispatch VMs is
+not in its most efficient form. An example of this is the \verb|null|
+instruction.
+
+\begin{lstlisting}
+null:
+{
+    int16_t arg0 = GetArg0(*ip);
+    if (IsPointer(g[arg0])) {
+        g[arg0].p = NULL;
+        ip++;
+    }
+    else if (IsInt(g[arg0])) {
+        g[arg0].p = NULL;
+        g[arg0].tag = 1;
+        ip++;
+    }
+    else {
+        fprintf(stderr, "type error, illegal types used for instruction: null");
+        return 1;
+    }
+    goto *dynOpcodes[GetOpcode(*ip)];
+}
+\end{lstlisting}
+
+This code must perform at least one lookup and one comparison (both
+while executing the IsPointer macro -- see appendix C, section ~\ref{sec:convmacros}) in
+order to save a single assignment of setting the tag value for arg0 to
+one in the case that arg0 is already a pointer. This save makes sense
+in the Operand-Type Dispatch VM because these checks are not
+necessary, but is not a saving at all in the Conventional and Operand
+VMs. This caveat may result in slightly inflated results of the
+Operand-Type Dispatch VM over the Conventional and Operand Dispatch
+VMs.
 
 \chapter{Experimental Design}
 
@@ -1978,13 +2069,11 @@ representative of common programming activities.
 
 \subsection{Ackermann}
 
-The benchmark makes use of this two-variable version of the Ackermann
-function. It is a massively recursive benchmark with very little
-computation from one recursive call to the next.
-
-The Ackermann function used was defined by Rózsa Péter and Raphael
-Robinson \cite{robinson1948} in the Bulletin of the American
-Mathematical Society and is as follows:
+The Ackermann benchmark is a massively recursive benchmark with very
+little computation from one recursive call to the next. The benchmark
+implements the Ackermann function that was defined by Rózsa Péter and
+Raphael Robinson \cite{robinson1948} in the Bulletin of the American
+Mathematical Society. The function is as follows:
 
 \begin{align*}
 \label{eq:ackermann}
@@ -2549,6 +2638,44 @@ generation less verbose. The reader may wish to know the precise
 definitions of these macros. The full list of macros is presented here
 for conveniece.
 
+\section{Stack Frame Macros}
+\label{sec:stackframemacros}
+These macros are used to save and restore registers between stack
+frames and to restore the \verb|TS| register.
+
+\begin{lstlisting}
+#define SaveRegisters(saveg, oldg) {saveg[0] = oldg[1]; saveg[1] = oldg[2]; saveg[2] = oldg[3]; saveg[3] = oldg[4];}
+#define RestoreRegisters(saveg, oldg) {oldg[1] = saveg[0]; oldg[2] = saveg[1]; oldg[3] = saveg[2]; oldg[4] = saveg[3];}
+#define RestoreTS(curTS, TS) (TS = (curTS & 0xF000) | (TS & 0x10800))
+\end{lstlisting}
+
+\section{Conventional VM Macros}
+\label{sec:convmacros}
+
+These macros are used to get arguments and opcodes from instruction
+words in the Conventional VM. They are also used to check the types of
+registers which the Operand Dispatch VM also makes use of.
+
+\begin{lstlisting}
+#define GetArg0(inst) ((inst) & 0x7) 
+#define GetArg1(inst) (((inst) & 0x38) >> 0x3)
+#define GetArg2(inst) (((inst) & 0x1FF) >> 0x6) 
+
+#define IsInt(x) ((x).tag == 0)
+#define IsPointer(x) ((x).tag >= 1)
+#define GetOpcode(inst) ((inst) >> 0x9)
+\end{lstlisting}
+
+\section{Data Type Macros}
+\label{sec:datamacros}
+These macros are used to maintain and access the size and flags field
+of objects and buffers.
+
+\begin{lstlisting}
+#define MakeSizeAndFlags(size,flags)(((size)<<2)|(flags))
+#define GetFlags(v)((v) & 3)
+#define GetSize(v)((v) >> 2)
+\end{lstlisting}
 
 
 
