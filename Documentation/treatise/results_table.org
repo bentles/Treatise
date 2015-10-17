@@ -1,0 +1,31 @@
+#+NAME:RESULTS
+| Benchmark          | Conventional |  Operand | Operand-Type |
+|--------------------+--------------+----------+--------------|
+| Ackermann          |     125.7464 | 115.5056 |     110.7639 |
+| Fannkuch           |      47.1528 |  39.0194 |      35.6915 |
+| Fasta              |      54.9107 |   46.622 |      44.6889 |
+| Mandelbrot         |     614.9593 | 464.9384 |     430.1183 |
+| Mersenne Twister   |      30.4329 |  24.3093 |      23.6524 |
+| Prime Sieve        |     193.9987 | 160.2169 |     152.4721 |
+| Reverse Complement |       2.6406 |   2.0731 |      2.01531 |
+
+#+NAME:TIMES
+| Benchmark          | Operand | Operand-Type Conv | Operand-Type Operand |
+|--------------------+---------+-------------------+----------------------|
+| Ackermann          |   8.14% |            11.91% |                4.11% |
+| Fannkuch           |  17.25% |            24.31% |                8.53% |
+| Fasta              |  15.09% |            18.62% |                4.15% |
+| Mandelbrot         |  24.40% |            30.06% |                7.49% |
+| Mersenne Twister   |  20.12% |            22.28% |                2.70% |
+| Prime Sieve        |  17.41% |            21.41% |                4.83% |
+| Reverse Complement |  21.49% |            23.68% |                2.79% |
+
+| Benchmark          | Function Calls | Number of State Changes | Nr of Unique States |
+|--------------------+----------------+-------------------------+---------------------|
+| Ackermann          |     2862984010 |                       0 |                   1 |
+| Fannkuch           |      119750400 |               199584000 |                   6 |
+| Fasta              |      400000005 |              2346864047 |                   9 |
+| Mandelbrot         |              0 |                64000003 |                   4 |
+| Mersenne           |      100160258 |               800001472 |                   4 |
+| Prime Sieve        |          78497 |              6170044424 |                  11 |
+| Reverse Complement |              0 |                       7 |                   7 |
