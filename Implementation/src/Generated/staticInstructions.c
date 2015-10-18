@@ -32674,7 +32674,7 @@ goto *dynOpcodes[ts + *ip];
 
 print_0:
 {
-printf("%d\n", g[0].i);
+printf("%lld\n", g[0].i);
 ip++;
 #ifdef STATS
 opcodeCounters[2015].count++;
@@ -32684,7 +32684,7 @@ goto *dynOpcodes[ts + *ip];
 
 print_1:
 {
-printf("%d\n", g[1].i);
+printf("%lld\n", g[1].i);
 ip++;
 #ifdef STATS
 opcodeCounters[2016].count++;
@@ -32694,7 +32694,7 @@ goto *dynOpcodes[ts + *ip];
 
 print_2:
 {
-printf("%d\n", g[2].i);
+printf("%lld\n", g[2].i);
 ip++;
 #ifdef STATS
 opcodeCounters[2017].count++;
@@ -32704,7 +32704,7 @@ goto *dynOpcodes[ts + *ip];
 
 print_3:
 {
-printf("%d\n", g[3].i);
+printf("%lld\n", g[3].i);
 ip++;
 #ifdef STATS
 opcodeCounters[2018].count++;
@@ -32714,7 +32714,7 @@ goto *dynOpcodes[ts + *ip];
 
 print_4:
 {
-printf("%d\n", g[4].i);
+printf("%lld\n", g[4].i);
 ip++;
 #ifdef STATS
 opcodeCounters[2019].count++;
@@ -32724,7 +32724,7 @@ goto *dynOpcodes[ts + *ip];
 
 print_5:
 {
-printf("%d\n", g[5].i);
+printf("%lld\n", g[5].i);
 ip++;
 #ifdef STATS
 opcodeCounters[2020].count++;
