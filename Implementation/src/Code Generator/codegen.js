@@ -760,7 +760,7 @@ var lookups =
             {
                 name: 'print', ipChange: 1,
                 legal: [i],
-                template: 'printf("%d\\n", /*<0>*/.i);\n'
+                template: 'printf("%lld\\n", /*<0>*/.i);\n'
             }
         ]
     }

@@ -28810,7 +28810,7 @@ puts(bp->data);
 ip++;
 }
 else if (IsInt(g[0])) {
-printf("%d\n", g[0].i);
+printf("%lld\n", g[0].i);
 ip++;
 }
 else {
@@ -28831,7 +28831,7 @@ puts(bp->data);
 ip++;
 }
 else if (IsInt(g[1])) {
-printf("%d\n", g[1].i);
+printf("%lld\n", g[1].i);
 ip++;
 }
 else {
@@ -28852,7 +28852,7 @@ puts(bp->data);
 ip++;
 }
 else if (IsInt(g[2])) {
-printf("%d\n", g[2].i);
+printf("%lld\n", g[2].i);
 ip++;
 }
 else {
@@ -28873,7 +28873,7 @@ puts(bp->data);
 ip++;
 }
 else if (IsInt(g[3])) {
-printf("%d\n", g[3].i);
+printf("%lld\n", g[3].i);
 ip++;
 }
 else {
@@ -28894,7 +28894,7 @@ puts(bp->data);
 ip++;
 }
 else if (IsInt(g[4])) {
-printf("%d\n", g[4].i);
+printf("%lld\n", g[4].i);
 ip++;
 }
 else {
@@ -28915,7 +28915,7 @@ puts(bp->data);
 ip++;
 }
 else if (IsInt(g[5])) {
-printf("%d\n", g[5].i);
+printf("%lld\n", g[5].i);
 ip++;
 }
 else {
