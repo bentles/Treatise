@@ -584,6 +584,7 @@ hold a value of that type. Each approach has its strengths and
 weaknesses.
 
 \subsection{Type Safety}
+\label{sec:type_safe}
 With static typing a program's type correctness can be checked at
 compile time. Because the types of all variables are known when the
 code is written, operations on those variables can be declared valid
@@ -682,7 +683,7 @@ cycle is shared by many consecutive instructions at once. The
 instruction processing procedure is split up into smaller stages that
 can execute simultaneously. An example of this is the classic RISC
 pipeline which divides instruction processing into the following
-steps: Instruction Fetch (IF), Decode (ID), Execute(EX), Memory Access
+steps: Instruction Fetch (IF), Decode(ID), Execute(EX), Memory Access
 (MEM) and Writeback (WB). Each instruction passes a stage and leaves
 that part of the processor free to perform that stage on the next
 instruction. Thus many instructions (as many as there are stages) can
@@ -781,6 +782,36 @@ Several common patterns are found in the design of Virtual
 Machines. Different techniques for threading the flow of execution
 through the VM have been well-examined and the trade-offs between
 register and stack-based VMs have been discussed and studied.
+
+\subsection{Decoding Instructions}
+\label{sec:decode}
+Conventional virtual machine design requires that instructions are
+decoded before they can be executed. The tasks of decoding the
+instruction are to extract the opcode and operands from the current
+instruction word. This decode step must happen before each
+instruction can be executed. 
+
+As an example, the Lua bytecode is revisited in figure
+\pageref{fig:luabyte-repeat}. This image is the format for
+instructions for the Lua VM. Instructions in the Lua bytecode are
+32-bit integers. Different sections of this 32-bit integer are used to
+encode the opcode and operands.
+
+\begin{figure}[!htb]
+	\begin{center}
+	    \includegraphics[scale=0.5]{luabytecode.png}
+	\end{center}
+ 
+  \caption[Lua VM bytecode layouts]{Lua VM bytecode layouts
+    \protect\cite{RobertoIerusalimschy}}
+  \label{fig:luabyte-repeat}
+\end{figure}
+
+The opcode, stored in the lowest six bits is extracted from the
+instruction word first \cite{Lua.Source} and its value is used to jump
+to the correct subroutine for that opcode. Then, each instruction that
+takes arguments extracts opcodes from the 32-bit instruction word
+using one of the three formats shown in the figure.
 
 \subsection{Dispatch and Threading}
 \label{sec:dispatch}
@@ -1012,38 +1043,58 @@ the Dalvik VM is a register machine.
 \end{description}
 
 \chapter{Solution Design}
+This study introduces two experimental virtual machines. \textbf{The
+  Operand Dispatch VM} and the \textbf{Operand-Type Dispatch VM}. The
+two central ideas behind these experimental virtual machines are
+type-mapping and operand case expansion. The Operand Dispatch VM makes
+use of operand case expansion exclusively. The Operand-Type Dispatch
+VM, however makes use of both operand case expansion and type
+mapping. 
+
+It may be tempting to propose a third virtual machine that makes use
+of type-mapping exclusively and does not use operand case expansion,
+but type-mapping cannot be decoupled from operand case
+expansion. Operand case expansion is necessary to implement
+type-mapped VM. These two techniques, operand case expansion and type
+mapping will now be discussed.
 
 
-
-\section{Type-Mapping and Argument Case Expansion}
+\section{Type-Mapping and Operand Case Expansion}
 
 A type-mapped VM is one which keeps track of the state of the types of
-its registers. This is beneficial because every instruction in a
-conventional VM design must first verify the types of its inputs
-before it can act on them. These type checks can be eliminated with
-type-mapping and instructions can be customised based on the types of
-the inputs they receive. 
+its registers. This is called the type-state of the virtual
+machine. This is beneficial because, as was discussion in section
+\pageref{sec:type_safe}, every instruction in a dynamically typed VM
+must first verify the types of its inputs before it can act on
+them. These type checks can be eliminated with type-mapping. Another
+benefit of type-mapping is that instructions can be specialised based
+on the current type-state of the virtual machine.  
 
-This is closely coupled with the idea of argument case expansion. For 
-Type-Mapping to be effective the VM must dispatch on its current type 
-state. This is what eliminates the type checking step. But if the VM 
-does not also dispatch on the arguments for the next instruction it 
-cannot know which version of the instruction is appropriate. Knowing 
-which types are in which registers without knowing which registers 
-are arguments for an instruction means that there is not enough 
-information to specialise the instruction. With argument case 
-expansion a version of each instruction for every combination of 
-arguments is necessary.
+Operand case expansion unrolls the instruction set of a virtual
+machine into a set of operand-specific versions of every
+instruction. This is beneficial because it removes the decode step
+present in a conventional virtual machine design (see section
+\pageref{sec:decode}). This is because the entire instruction word can
+be used to select the specific version of the instruction needed. The
+implementation details will be examined in chapter 4. %TODO section?
+
+Type-mapping is closely coupled with the idea of argument case
+expansion. For type-mapping to be effective the VM must dispatch on
+its current type-state. But if the VM does not also dispatch on the
+operands for the next instruction it cannot know which version of the
+instruction is appropriate. Knowing which types are in which registers
+without knowing which registers are arguments for an instruction means
+that there is not enough information to specialise the instruction.
 
 \section{Proposed Solution}
-The proposed solution is the Operand-Type Dispatch VM. The
-Operand-Type Dispatch VM makes use of type-mapping and argument case
-expansion. In order to determine the effectiveness of the solution, a
-further two virtual machines are needed. A conventionally implemented
-VM is needed as a control to determine the performance benefits of the
-Operand-Type Dispatch VM and a further VM is needed to determine the
-benefits of the type-mapping of the Operand-Type Dispatch VM over just
-using argument case expansion. 
+The proposed solution is the Operand-Type Dispatch VM which makes use
+of type-mapping and argument case expansion. In order to determine the
+effectiveness of the solution, a further two virtual machines are
+needed. A conventionally implemented VM is needed as a control to
+determine the performance benefits of the Operand-Type Dispatch VM and
+a further VM is needed to determine the benefits of the type-mapping
+of the Operand-Type Dispatch VM over just using argument case
+expansion.
 
 These three virtual machines lie along a scale for how specific their 
 instructions are. The most specific is the Operand-Type Dispatch VM. 
