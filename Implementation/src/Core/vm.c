@@ -11,7 +11,7 @@
  * included on a per VM basis using gcc's -D flag with one of the
  * following symbols:
  *
- * 1. TYPE | CONV | HYBR <- which VM to generate
+ * 1. TYPE | CONV | HYBR <- which VM to generate (Operand-Type, Conventional, Operand)
  * 2. STATS <- whether the VM should record stats
  */
 
