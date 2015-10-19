@@ -44,17 +44,17 @@
 		\includegraphics[width=0.75\textwidth]{nmmu.png}
 		{\color{NMMUBlue} \HRule \\[0.8cm]}
 		% Project Title
-		{\color{NMMUBlue}{\huge \bfseries A JIT-Less Type-Mapped Dynamic-ISA Virtual Machine for Many-Instance Applications   \\ [0.8cm]}}
-		\vspace*{2\baselineskip}
-		{\LARGE Author: \emph{Douglas Bentley}}\linebreak
-		\singlespacing
-		{\LARGE Supervisor: \emph{Kevin Naud\'{e}}}
+		{\color{NMMUBlue}{\huge \bfseries A JIT-Less Type-Mapped
+            Dynamic-ISA Virtual Machine for Many-Instance Applications
+            \\ [0.8cm]}} \vspace*{2\baselineskip} {\LARGE Author:
+          \emph{Douglas Bentley}}\linebreak \singlespacing {\LARGE
+          Supervisor: \emph{Kevin Naud\'{e}}}
 		% End of project title
-		{\color{NMMUBlue} \HRule \\[0.4cm]}
-		\vspace*{2\baselineskip}
-		{\LARGE Submitted in partial fulfilment of the degree Baccalaureus Scientiae (Honores) in Computer Science at the Nelson Mandela Metropolitan University}
-		\vfill
-		\large{October 2015}
+		{\color{NMMUBlue} \HRule \\[0.4cm]} \vspace*{2\baselineskip}
+        {\LARGE Submitted in partial fulfilment of the degree
+          Baccalaureus Scientiae (Honores) in Computer Science at the
+          Nelson Mandela Metropolitan University} \vfill
+        \large{October 2015}
 	\end{center}
 \end{titlepage}
 
@@ -258,7 +258,9 @@ because each holds an instruction that the VM must perform.
 
 Bits 0 through 5 of each instruction word are used to store the
 opcode. The opcode is, as the name suggests, a code that represents
-which operation the VM must perform. Bits 6 through 13 are always used to index the first argument. The remaining 18 bits encode additional operands which appear in any of three possible formats.
+which operation the VM must perform. Bits 6 through 13 are always used
+to index the first argument. The remaining 18 bits encode additional
+operands which appear in any of three possible formats.
 
 \begin{figure}
 	\begin{center}
@@ -287,26 +289,62 @@ an interpreter for general use by applications. More detail about the
 the organisation of virtual machines follows.
 
 \section{Organisation of a Virtual Machine} 
-A virtual machine executes a file that is a list of instructions in the bytecode format for that virtual machine. For the 
-Lua VM these instructions would be 32-bit integers in one of the formats seen in Figure~\ref{fig:luabyte}. This file, called a binary file or simply a program, is read by the virtual machine and its instructions are followed. How exactly this occurs will be explained in further chapters. The binary file must conform to the bytecode format for the virtual machine, and may only make use of instructions found in the instruction set of the virtual machine.  
+A virtual machine executes a file that is a list of instructions in
+the bytecode format for that virtual machine. For the Lua VM these
+instructions would be 32-bit integers in one of the formats seen in
+Figure~\ref{fig:luabyte}. This file, called a binary file or simply a
+program, is read by the virtual machine and its instructions are
+followed. How exactly this occurs will be explained in further
+chapters. The binary file must conform to the bytecode format for the
+virtual machine, and may only make use of instructions found in the
+instruction set of the virtual machine.
 
 \subsection{Instruction Set}
-Each VM has a set of subroutines called the instruction set. A subroutine is a ``set of instructions designed to perform a frequently used operation within a program'' \cite{ComputerWords}. An important distinction here is critical to avoid confusion. The instruction set of the virtual machine is a set of subroutines. These subroutines are made up of instructions that the real (or host) machine executes.
+Each VM has a set of subroutines called the instruction set. A
+subroutine is a ``set of instructions designed to perform a frequently
+used operation within a program'' \cite{ComputerWords}. An important
+distinction here is critical to avoid confusion. The instruction set
+of the virtual machine is a set of subroutines. These subroutines are
+made up of instructions that the real (or host) machine executes.
 
-Each of these subroutines in the VMs instruction set performs a specific operation necessary for the execution of a program. A VM usually has instructions for performing arithmetic operations (\verb|add|, \verb|divide|, \verb|subtract| ...), bit
-manipulation operations (\verb|xor|, \verb|and|, \verb|or| ...),
-control flow operations (\verb|jump|, \verb|jump_if_zero|, ...) and for storing and accessing values (\verb|load|, \verb|store|, ...). The
-design of a VM instruction set, much like that of a CPU, is a creative
-process. The particular set of instructions a virtual machine has is
-the decision of the designer and choosing which instructions to
-include and omit has trade-offs that need to be considered. 
+Each of these subroutines in the VMs instruction set performs a
+specific operation necessary for the execution of a program. A VM
+usually has instructions for performing arithmetic operations
+(\verb|add|, \verb|divide|, \verb|subtract| ...), bit manipulation
+operations (\verb|xor|, \verb|and|, \verb|or| ...), control flow
+operations (\verb|jump|, \verb|jump_if_zero|, ...) and for storing and
+accessing values (\verb|load|, \verb|store|, ...). The design of a VM
+instruction set, much like that of a CPU, is a creative process. The
+particular set of instructions a virtual machine has is the decision
+of the designer and choosing which instructions to include and omit
+has trade-offs that need to be considered.
 
-There are several classes of machine architecture and these are often most easily distinguished by the form of their instruction set. \textbf{Stack} machines often have instructions without operands, \textbf{Accumulators} usually have instructions with a single operand, and \textbf{Register} machines will usually have one to three operands per instruction. These are also distinguished by the number of registers each has. 
+There are several classes of machine architecture and these are often
+most easily distinguished by the form of their instruction
+set. \textbf{Stack} machines often have instructions without operands,
+\textbf{Accumulators} usually have instructions with a single operand,
+and \textbf{Register} machines will usually have one to three operands
+per instruction. These are also distinguished by the number of
+registers each has.
 
-In order for the VM to use its instruction set, it has to be able to read the instruction from the binary file and then execute the correct subroutine for that instruction. This process is called ``dispatch'' and each VM has some implementation of a dispatch mechanism.
+In order for the VM to use its instruction set, it has to be able to
+read the instruction from the binary file and then execute the correct
+subroutine for that instruction. This process is called ``dispatch''
+and each VM has some implementation of a dispatch mechanism.
 
 \subsection{Dispatch Mechanism} 
-At the core of the virtual machine is its dispatch mechanism. The purpose of the dispatch mechanism is to move execution from the current instruction to the next instruction in the program by selecting the correct subroutine in the instruction set and executing it. The VM reads the instruction that the instruction pointer points to and then must determine what subroutine needs to be called to execute the instruction. Selecting and moving execution to this subroutine is called ``dispatch''. The implementation techniques for instruction dispatch are important in this study. However, they are technically complex and are therefore revisited in section ~\ref{sec:dispatch}. The dispatch mechanism also influences how the opcodes in the instruction word are separated from the operand.
+At the core of the virtual machine is its dispatch mechanism. The
+purpose of the dispatch mechanism is to move execution from the
+current instruction to the next instruction in the program by
+selecting the correct subroutine in the instruction set and executing
+it. The VM reads the instruction that the instruction pointer points
+to and then must determine what subroutine needs to be called to
+execute the instruction. Selecting and moving execution to this
+subroutine is called ``dispatch''. The implementation techniques for
+instruction dispatch are important in this study. However, they are
+technically complex and are therefore revisited in section
+~\ref{sec:dispatch}. The dispatch mechanism also influences how the
+opcodes in the instruction word are separated from the operand.
 
 \section{Problem Description}
 Modern process virtual machines make use of JIT compilers. Both JVM
@@ -374,7 +412,15 @@ implementation required and the VM will not be required to perform
 %floating point and advanced threading techniques
 
 \section{Risks}
-A risk for any research project is to allow personal bias to cloud the conclusions drawn from the results. This study aims to follow the scientific method and disclose as much information as is necessary for the study to be repeatable. The fact the virtual machine is a prototype that runs a known set of benchmarks means that there is a risk of creating a virtual machine that is specialised for its own benchmarks. The VM must have a design that provides good performance generally and hence the set of benchmarks is diverse on order to mitigate this risk.
+A risk for any research project is to allow personal bias to cloud the
+conclusions drawn from the results. This study aims to follow the
+scientific method and disclose as much information as is necessary for
+the study to be repeatable. The fact the virtual machine is a
+prototype that runs a known set of benchmarks means that there is a
+risk of creating a virtual machine that is specialised for its own
+benchmarks. The VM must have a design that provides good performance
+generally and hence the set of benchmarks is diverse on order to
+mitigate this risk.
 
 A risk mitigated by the design of the study is that the hand-written
 benchmarks may not be optimised as well as those produced by a
@@ -419,11 +465,28 @@ strengths and weaknesses are.
 \newpage{}
 
 \chapter{Background, Literature Review and Existing System}
-The term ``virtual machine'' is used to refer to a number of different programs. Some virtual machines are designed to emulate real computers and can have operating systems installed on them. Other virtual machines exist only to run a single program to completion. In order to disambiguate the term, a discussion of the hierarchy of virtual machine follows, and the VM that is the focus of this study is situated within it. This discussion follows in section ~\ref{sec:vms}. This is followed by a short discussion that outlines the distinction between dynamically and statically typed languages.
+The term ``virtual machine'' is used to refer to a number of different
+programs. Some virtual machines are designed to emulate real computers
+and can have operating systems installed on them. Other virtual
+machines exist only to run a single program to completion. In order to
+disambiguate the term, a discussion of the hierarchy of virtual
+machine follows, and the VM that is the focus of this study is
+situated within it. This discussion follows in section
+~\ref{sec:vms}. This is followed by a short discussion that outlines
+the distinction between dynamically and statically typed languages.
 
-In chapter 3, the design of the virtual machine is discussed. The design decisions behind the virtual machine take into account how the modern computer processor architecture works. Hence a discussion of the modern processor architecture is necessary background information that informs the decisions and trade-off that are discussed in chapter 3. This discussion will follow in section ~\ref{sec:processor_architecture}.
+In chapter 3, the design of the virtual machine is discussed. The
+design decisions behind the virtual machine take into account how the
+modern computer processor architecture works. Hence a discussion of
+the modern processor architecture is necessary background information
+that informs the decisions and trade-off that are discussed in chapter
+3. This discussion will follow in section
+~\ref{sec:processor_architecture}.
 
-Finally, in section ~\ref{sec:research} the current literature on virtual machines is consulted for information about which VM designs have proved effective in the past and what techniques are available for various elements of the virtual machine's design.
+Finally, in section ~\ref{sec:research} the current literature on
+virtual machines is consulted for information about which VM designs
+have proved effective in the past and what techniques are available
+for various elements of the virtual machine's design.
 
 \section{Virtual Machines}
 \label{sec:vms}
@@ -442,7 +505,9 @@ host machine on which it is running \cite[pg4]{JamesE.Smith2005}.
 
 \subsection{The Types of Virtual Machines}
 Virtual machines come in two varieties: \textbf{process} virtual
-machines and \textbf{system} virtual machines. A process virtual machine is ``capable of supporting an individual process''\cite[pg9]{JamesE.Smith2005}. This means that the host runs
+machines and \textbf{system} virtual machines. A process virtual
+machine is ``capable of supporting an individual
+process''\cite[pg9]{JamesE.Smith2005}. This means that the host runs
 the guest for as long as a single process on the guest machine needs
 it. Once the process has completed its execution the guest machine
 terminates\cite[pg9]{JamesE.Smith2005}. An example of a process
@@ -456,13 +521,18 @@ entire operating system on the guest machine and the many processes
 that the guest operating system executes. A system virtual machine
 will terminate when the guest system is shut down. 
 
-This study focuses on process virtual machines and hence the finer details of system virtual machines will not be discussed. In the class of process virtual machines, however, there are further distinctions to be made.
+This study focuses on process virtual machines and hence the finer
+details of system virtual machines will not be discussed. In the class
+of process virtual machines, however, there are further distinctions
+to be made.
 
 \subsection{The Types of Process Virtual Machines}
 
 Process virtual machines can be divided into two categories:
 \textbf{multiprogrammed systems} and \textbf{dynamic}
-\textbf{translators}. The difference between these is whether or not the guest machine uses the same instruction set architecture as the host machine.
+\textbf{translators}. The difference between these is whether or not
+the guest machine uses the same instruction set architecture as the
+host machine.
 
 With multiprogramming the guest and host use the same instruction
 set. Multiprogramming is supported by most operating systems and
@@ -486,11 +556,18 @@ this manner is known as \textbf{just-in-time compilation} (JIT
 compilation).
 
 \subsection{Where the VM is Situated}
-The VM is a process virtual machine. It has a new
-instruction set architecture and hence is different from any host
-machine's ISA. The VM is exclusively an interpreter and
-does not make use of a JIT compiler. For this reasons it is a
-``JIT-less'' virtual machine. But what is it that makes the virtual machine a ``Dynamic-ISA'' VM? A dynamic ISA virtual machine is one used to interpret bytecode from a dynamically typed language. One way of classifying programming languages is by their type systems. There are two common type-system approaches used by programming languages. These are dynamic typing, used by dynamically typed programming languages and static typing which is used by statically typed programming languages. These two types of languages are now compared.
+The VM is a process virtual machine. It has a new instruction set
+architecture and hence is different from any host machine's ISA. The
+VM is exclusively an interpreter and does not make use of a JIT
+compiler. For this reasons it is a ``JIT-less'' virtual machine. But
+what is it that makes the virtual machine a ``Dynamic-ISA'' VM? A
+dynamic ISA virtual machine is one used to interpret bytecode from a
+dynamically typed language. One way of classifying programming
+languages is by their type systems. There are two common type-system
+approaches used by programming languages. These are dynamic typing,
+used by dynamically typed programming languages and static typing
+which is used by statically typed programming languages. These two
+types of languages are now compared.
 
 \section{Dynamic vs Statically Typed Programming Languages}
 A dynamically typed language is one in which the type information is
@@ -591,7 +668,12 @@ modern processors work and what some of the bottlenecks for our VM's
 execution might be. For example, \textbf{threading techniques} (not to
 be confused with threads in application programming) are commonly used
 in VM design. These take advantage of a feature of modern processors
-called the \textbf{Branch Target Buffer} or BTB. The BTB exists to aid a process called \textbf{branch prediction}. Branch prediction itself can only be explained once we know about how modern processors make use of \textbf{pipelining} to increase their throughput. As you can see, an understanding of modern computer architectures is needed before we can begin a discussion of VM design.
+called the \textbf{Branch Target Buffer} or BTB. The BTB exists to aid
+a process called \textbf{branch prediction}. Branch prediction itself
+can only be explained once we know about how modern processors make
+use of \textbf{pipelining} to increase their throughput. As you can
+see, an understanding of modern computer architectures is needed
+before we can begin a discussion of VM design.
 
 \subsection{Pipelining}
 
