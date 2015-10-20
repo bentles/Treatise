@@ -102,7 +102,7 @@ necessarily be slower than equivalent native code. This is because the
 interpreter incurs various overhead costs to execute a program that a
 natively compiled program would not. These overheads differ for each
 type of interpreter and will be discussed in section
-\pageref{sec:interptypes}. 
+\ref{sec:interptypes}. 
 
 For systems programming and big-budget video games, natively compiled
 languages are preferred as the performance cost of interpretation is
@@ -572,16 +572,7 @@ types of languages are now compared.
 \section{Dynamic vs Statically Typed Programming Languages}
 A dynamically typed language is one in which the type information is
 associated with values \cite[pg4]{RobertoIerusalimschy}. An example of
-a dynamically typed language is JavaScript. In JavaScript the var
-keyword is used for variables. This is because the type is associated
-with the value stored in the variable so variables themselves need not
-be told which type is associated with them. Any variable can hold a
-value of any type. A statically typed language is one in which the
-type information is associated with the variable. An example of this
-is Java. In Java variables are declared using keywords that define
-their type (\textbf{int}, \textbf{String} etc). Each variable can only
-hold a value of that type. Each approach has its strengths and
-weaknesses.
+a dynamically typed language is JavaScript. In JavaScript the \verb|var| keyword is used for variables. This is because the type is associated with the value stored in the variable so variables themselves need not be told which type is associated with them. Any variable can hold a value of any type. A statically typed language is one in which the type information is associated with the variable. An example of this is Java. In Java variables are declared using keywords that define their type (\textbf{int}, \textbf{String} etc). Each variable can only hold a value of that type. Each approach has its strengths and weaknesses.
 
 \subsection{Type Safety}
 \label{sec:type_safe}
@@ -603,21 +594,19 @@ program, it may not be detected at all. This means that a programmer
 writing in a dynamically typed language must ensure that the values in
 the variables they use are of types that make sense for the operations
 they wish to perform. A programmer writing in a statically typed
-language will have their types checked for them.
-
-Figure \pageref{fig:dvs} shows how Java, a statically typed language
-and Lua, a dynamically typed language, handle code which tries to
-perform addition of two types that cannot be added in either
-language. The Lua code compiles but encounters an error at
-runtime. The Java code does not compile.
+language will have his types checked for him.
 
 The machine or VM benefits from not having to check the types of
 instruction arguments. This is a major overhead in dynamically typed
 languages. In a dynamically typed language, the types of the arguments
 must be checked for each instruction the VM or machine must perform as
-all arguments are values. This means that an addition instruction that
-works on integers, for instance, must check that the values it is
-trying to add are in fact integers before it can add them.
+the arguments of the instruction could be of any type the VM supports. This means that an addition instruction that works on integers, for instance, must check that the values it is trying to add are in fact integers before it can add them.
+
+Figure \ref{fig:dvs} shows how Java, a statically typed language
+and Lua, a dynamically typed language, handle code which tries to
+perform addition of two types that cannot be added in either
+language. The Lua code compiles but encounters an error at
+runtime. The Java code does not compile.
 
 \begin{figure}
 	\begin{subfigure}{.48\textwidth}
@@ -792,7 +781,7 @@ instruction word. This decode step must happen before each
 instruction can be executed. 
 
 As an example, the Lua bytecode is revisited in figure
-\pageref{fig:luabyte-repeat}. This image is the format for
+\ref{fig:luabyte-repeat}. This image is the format for
 instructions for the Lua VM. Instructions in the Lua bytecode are
 32-bit integers. Different sections of this 32-bit integer are used to
 encode the opcode and operands.
@@ -911,7 +900,7 @@ add:
   \label{fig:indirect}
 \end{figure}
 
-Direct and inderect threading make much better use of the branch
+Direct and indirect threading make much better use of the branch
 target buffer. Instead of a single entry in the BTB, with direct
 threading we have an entry per instruction, so instructions that
 commonly follow each other have a better chance of being predicted.
@@ -931,7 +920,7 @@ popped off the stack and stored.
 For a register machine, a similar piece of code would have values for
 b and c in registers and an add instruction is called with a, b and c
 as arguments. This instruction would compute b+c and store it in a
-regsiter.
+register.
 
 Widely used process virtual machines make use of a stack
 architecture. Both the Java Virtual Machine (JVM) and Microsoft's
@@ -1064,7 +1053,7 @@ mapping will now be discussed.
 A type-mapped VM is one which keeps track of the state of the types of
 its registers. This is called the type-state of the virtual
 machine. This is beneficial because, as was discussion in section
-\pageref{sec:type_safe}, every instruction in a dynamically typed VM
+\ref{sec:type_safe}, every instruction in a dynamically typed VM
 must first verify the types of its inputs before it can act on
 them. These type checks can be eliminated with type-mapping. Another
 benefit of type-mapping is that instructions can be specialised based
@@ -1072,11 +1061,32 @@ on the current type-state of the virtual machine.
 
 Operand case expansion unrolls the instruction set of a virtual
 machine into a set of operand-specific versions of every
-instruction. This is beneficial because it removes the decode step
+instruction. An example can be seen in figure \ref{fig:op-case-expansion}. In this instance an \verb|add| instruction for a virtual machine with n registers is expanded into $n^2$ different instructions for each operand case. Operand case expansion is beneficial because it removes the decode step
 present in a conventional virtual machine design (see section
-\pageref{sec:decode}). This is because the entire instruction word can
+\ref{sec:decode}). This is because the entire instruction word can
 be used to select the specific version of the instruction needed. The
-implementation details will be examined in chapter 4. %TODO section?
+implementation details of operand case expansion will be examined in chapter 4. %TODO section?
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	\tikzstyle{every node}=[draw,shape=rectangle,anchor=west];
+	\node (v0) at (0,-2) {$add$};
+	\node (v1) at (3,0) {$add\_0\_0$};
+	\node (v2) at (3,-1) {$add\_0\_1$};
+	\node[draw=white] (v3) at (3.75,-2) {$\vdots$};
+	\node (v4) at (3,-3) {$add\_n\_(n-1)$};
+	\node (v5) at (3,-4) {$add\_n\_n$};
+	\draw (v0) -- (v1)
+	(v0) -- (v2)
+%	(v0) -- (v3)
+	(v0) -- (v4)
+	(v0) -- (v5);
+	\end{tikzpicture}
+	\caption{Operand Case Expansion}
+	\label{fig:op-case-expansion}
+	
+\end{figure}
 
 Type-mapping is closely coupled with the idea of argument case
 expansion. For type-mapping to be effective the VM must dispatch on
@@ -1090,88 +1100,59 @@ that there is not enough information to specialise the instruction.
 The proposed solution is the Operand-Type Dispatch VM which makes use
 of type-mapping and argument case expansion. In order to determine the
 effectiveness of the solution, a further two virtual machines are
-needed. A conventionally implemented VM is needed as a control to
-determine the performance benefits of the Operand-Type Dispatch VM and
-a further VM is needed to determine the benefits of the type-mapping
-of the Operand-Type Dispatch VM over just using argument case
-expansion.
+needed. A conventionally implemented virtual machine is needed as a control to determine the performance benefits of the Operand-Type Dispatch VM and a further VM is needed to determine the benefits of the type-mapping of the Operand-Type Dispatch VM over just using argument case expansion.
 
 These three virtual machines lie along a scale for how specific their 
 instructions are. The most specific is the Operand-Type Dispatch VM. 
 The Operand Dispatch VM is less specific and the Conventional 
 Dispatch VM has the least specific instructions.
 
-The details of the designs of these three virtual machines will be 
-discussed in section XXXX after design decisions common to all VMs 
-have been introduced. The three virtual machines are designed to be 
-as similar as possible except for the aspects that the experiment 
-examines. Those elements common to all VMs shall be expanded upon 
-first and those specific to each shall be examined separately. 
+The details of the designs of these three virtual machines is
+discussed from section \ref{sec:conv-vm} after design decisions common to all VMs have been introduced. The three virtual machines are designed to be as similar as possible except for the aspects that the experiment examines. Those elements common to all VMs are expanded upon first and those specific to each shall be examined separately. 
 
-Any referral to the \verb|VM| or the \verb|virtual machine| used from
-this point without explicitly mentioning which VM is being referred to
-will apply to \emph{all} three virtual machines.
+Any referral to the \textbf{VM} or the \textbf{virtual machine} used from this point without explicitly mentioning which VM is being referred to will apply to \emph{all} three virtual machines.
 
 \section{Virtual Machine Design Details}
 
-The VM is a register virtual machine. The choice of being register
-based was necessary for the argument case expansion to be performed
-and Yuhne Shi\cite{Shi2007} showed that register machines can give a
-performance increase over equivalent stack-based VMs.
+The VM is a register virtual machine. The choice of being register-based is necessary for the operand case expansion to be performed. Of course, since type-mapping required operand case expansion, that also necessitates that the virtual machine use registers. Yuhne Shi\cite{Shi2007} showed that register machines can give a performance increase over equivalent stack-based VMs. This makes them an ideal choice for a performance-focused virtual machine design.
 
-The VM has 6 general purpose registers and 3 special purpose
-registers. Keeping the number of registers low is important for the
-Operand-Type Dispatch and Operand Dispatch VMs. With just 6 registers,
-an instruction that takes 3 arguments potentially has $6^3 = 216$
-argument cases.
+\subsection{Registers and Implicit Assignment}
+The VM has six general purpose registers and three special purpose
+registers. A low number of registers adds complexity to a potential compiler for this virtual machine because the compiler must perform register allocation more frequently, but keeping the number of registers low is important for the Operand-Type Dispatch and Operand Dispatch VMs. With just six registers, an instruction that takes three arguments potentially has $6^3 = 216$ operand cases. 
+
+Because every argument in an instruction increases the number of operand cases sixfold, where possible, instructions in the VM include an implicit assignment. That is, instead of having an instruction, \verb|add g1, g2, g3|, which adds \verb|g2| to \verb|g3| and stores the result in \verb|g1|, the VM implements the \verb|add| instruction as follows: \verb|add g1, g2|. This instruction adds \verb|g1| to \verb|r2| and stores the result in \verb|g1|. In this way the number of operand cases can be kept reasonably low. The Operand-Type Dispatch VM faces a similar issue that affects the decision for which types the VM should use.
+
+\subsection{Types}
 
 The VM has two primitive types: integers and pointers. Keeping the
-number of types and registers low is extremely important for the
-Operand-Type Dispatch VM because it affects the total number of states
+number of types low is extremely important for the Operand-Type Dispatch VM because it affects the total number of states
 the VM can take on. The Operand-Type Dispatch VM can be thought of as
 creating a specialised version of the VM for every type state. With
 two primitive types and 6 registers this means there are a total of
 $2^6 = 64$ total states the VM can take on. Increasing the number of
-primitive types by one makes that $3^6 = 729$ possible states.
+primitive types by one makes that $3^6 = 729$ possible states. 
 
-The VM is for a dynamically typed language. Each register
-stores 'values' and all instructions act on those values. The type of
-a value is stored together with the data for that value. These are
-implemented in C as tagged unions. The VM has only two types: integer
-and pointer.
+The decision to have only two types was made because of the increased complexity that would be associated with an additional type. Floating point numbers were considered as a third type for the virtual machine, but this would add considerable complexity to the implementation of the virtual machine. This is because arithmetic instructions in the virtual machine would now have to act on two different types and on the different combinations of those two types.
 
-\section{Registers}
+\subsection{Values} 
 
-All virtual machines make use of 6 general purpose registers. These
-registers are implemented as an array of 6 \verb|values|. These shall
-be referred to as $g_0$ through $g_5$. Here `g' refers to `general
-purpose'.
+A register virtual machine for a dynamically typed language must be able to hold any type of value in any of its registers. This is the reason the type checking operations explained in section \ref{sec:type_safe} must take place. The VM registers are used to store \textbf{values}. Values are a convenient data structure that can hold either a pointer or an integer, as these are the types supported by the VM. Most instructions in the VM refer to general purpose registers which hold values, but two other modes of addressing exist in the VM.
 
-A further two registers are found in the VM. The instruction pointer,
-which will be referred to as the \verb|IP| and the frame pointer which
-will be referred to as the \verb|FP|. These are a 16-bit-integer
-pointer and a value pointer respectively.
-
-In order for 
-
-\section{Addressing}
-
-Instructions take operands of three types:
+\subsection{Addressing}
+Instructions take operands of three types: 
 \begin{description}
 \item[register number] These operands are numbers from 0 to 5 that
-  address the six registers. For the conventional VM these are an
-  explicit part of the instruction word as shown in
-  Figure~\ref{fig:convinstruction}. For the other two VMs these
-  operands are implicitly part of the instruction word.
+  address the six registers. For the conventional VM these operands are an explicit part of the instruction word. For the Operand-Type and Operand Dispatch VMs these operands are implicitly part of the instruction word. Implementation details of register number addressing will be discussed in chapter 4. %TODO section??
 \item[instruction word] This type of operand considers an instruction
   word relative to IP (usually just the next instruction word) as an
   unsigned 16-bit constant. The value of these constants will be
   referred to in the following form: $name_{16}$
 \item[IP-relative addressing] This type of operand considers an
   instruction word as the \verb|IP|-relative address of a 64-bit
-  unsigned integer constant. The value of the 64-bit constant will be
-  referred to in the following form: $name_{64}$
+  unsigned integer constant. The 64-bit integers accessed by IP-relative addressing are aligned to 8-byte addresses. The value of the 64-bit constant will be   referred to in the following form: $name_{64}$
 \end{description}
+
+Instruction word addressing is used when large integer values are not needed. This is the case, for instance, when performing a left shift by a known constant. Shifting a 64-bit integer left by anything more than 63 bits will always result in a zero value and so a larger integer value is not needed. IP-relative addressing is used when a larger value may be needed. An examination of the instruction set of the VM follows:
 
 \section{Instructions}
 
@@ -1192,6 +1173,8 @@ subtract operation cannot be used with the same register for both
 arguments. Since the result of this operation is always zero and there
 already is an instruction to set a register to zero, there is no need
 to include this case.
+
+The VM instruction set design was made with cache
 
 The full set of instructions may be found in appendix B.
 
@@ -1339,6 +1322,7 @@ The function call mechanism was designed to be simple.
 \end{description}
 
 \section{Conventional VM}
+\label{sec:conv-vm}
 
 The conventional VM makes use of a conventional decode step for each
 instruction executed by the VM. The opcode and register-number
@@ -1416,6 +1400,19 @@ error if the arguments are illegal.
 \subsection{Conventional Dispatch VM}
 
 \chapter{Solution Implementation}
+
+\section{Registers}
+
+All virtual machines make use of 6 general purpose registers. These
+registers are implemented as an array of 6 \verb|values|. These shall
+be referred to as $g_0$ through $g_5$. Here `g' refers to `general
+purpose'.
+
+A further two registers are found in the VM. The instruction pointer,
+which will be referred to as the \verb|IP| and the frame pointer which
+will be referred to as the \verb|FP|. These are a 16-bit-integer
+pointer and a value pointer respectively.
+
 
 \section{Token Threading}
 
@@ -1642,7 +1639,7 @@ error state and halts.
 Finally, on line 14, the opcode of the next instruction is extracted
 using the GetOpcode macro. This opcode can be used to branch to the
 next instruction the VM must perform in the manner described in
-section \pageref{sec:labels-as-addresses}.
+section \ref{sec:labels-as-addresses}.
 
 \subsection{Operand Dispatch VM Implementation}
 
@@ -2453,6 +2450,7 @@ of cache misses is high then this is most likely not the case.
 Text of Appendix A is Here
 
 \chapter{Instruction List} 
+\label{appendix-b}
 
 \section{Arithmetic Instructions}
 \begin{description}
