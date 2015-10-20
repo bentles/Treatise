@@ -1355,24 +1355,12 @@ mask and a shift operation.
   \label{fig:convinstruction}
 \end{figure}
 
-
-
 \section{Operand Dispatch VM}
 
 The opcode-operand dispatch VM has a seperate version of every
 instruction for every combination of arguments given to it.
 
 \section{Operand-Type Dispatch VM}
-
-The opcode-operand-type virtual machine does not make use of the usual
-opcode and arguments arrangment used in register machine
-interpreters. Usually, the interpreter reads in some instruction
-stored as an opcode and the arguments for that opcode at the same
-time. In \textbf{fig 2} we see a 16-bit instruction composed of a 4-bit
-opcode in the high bits, followed by two 6-bit operands or
-aguments. The interpreter performs the necessary shifts and bitmasking
-to get the values out of the fields.
-
 The opcode-operand-type dispatch VM's instructions for programs are
 stored as opcodes only with no arguments. That is because we have a
 version of each instruction for every combination of registers as
@@ -1442,7 +1430,7 @@ looking up the addresses in the lookup table.
 
 \section{Values}
 
-\begin{figure}
+\begin{figure}[!htb]
 
 	\begin{lstlisting}
 typedef struct ValueStruct value; 
@@ -1456,15 +1444,15 @@ struct ValueStruct
     }; 
 };
 	\end{lstlisting}
-	\label{fig:struct}
 	\caption{Value Struct}
+		\label{fig:struct}
 \end{figure}
 
 As this is a dynamic ISA virtual machine, types are associated with
 values instead of variables\cite{RobertoIerusalimschy}. The
 implementation for a value is simple enough to include here.
 
-Figure~\ref{fig:struct} shows the implementation of a value for the
+Figure \ref{fig:struct} shows the implementation of a value for the
 VM. Values are structs with two fields:
 \begin{description}
 	\item[tag] a 64-bit integer to identify the type of the value
