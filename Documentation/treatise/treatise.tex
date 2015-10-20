@@ -731,7 +731,7 @@ has been previously taken, we guess if it will be taken and begin
 speculatively executing from the address stored in the BTB.
 
 \subsection{Cache}
-
+\label{sec:cache}
 Modern processors make use of different levels of cache to allow for
 faster memory access. Ideally we would like to have an infinite amount
 of memory with no time cost for accessing it. The reality is that the
@@ -1167,6 +1167,8 @@ instruction has multiple register-number addressed operands and a
 result, the result will be stored in the register addressed by the
 first operand.
 
+\subsection{Instruction Set Design Factors}
+
 In some cases, specific argument combinations for an instruction have
 been removed as they produce trivial results. For instance the
 subtract operation cannot be used with the same register for both
@@ -1174,9 +1176,15 @@ arguments. Since the result of this operation is always zero and there
 already is an instruction to set a register to zero, there is no need
 to include this case.
 
-The VM instruction set design was made with cache
+The VM instruction set design was made with memory hierarchy of modern computers in mind. The instruction set was designed to be as robust and general as possible with the aim that as many of the instruction subroutines needed by the VM could be cached. The VM has an instruction set of 46 instructions. Because of the operand case expansion the Operand Dispatch VM has 1295 instructions. The Operand-Type Dispatch VM has 2021 instructions and a special instruction to signal an error. The difference ($2022 - 1295 = 728$) is the set of type specialised versions of instructions. 
 
-The full set of instructions may be found in appendix B.
+A rough estimate of the size of a low abstraction level \cite{Brunthaler20093} instruction for the Operand VM is 120 bytes. This means the VM instructions would require around 151KB of cache to house the entire instruction set. The Haswell processor, as mentioned in section \ref{sec:cache}, has 32KB of L1 instruction cache. But only a small fraction of the instruction set will be in use at any time. This must be the case, because 720 of the 1295 instructions in the Operand-Dispatch VM are used to implement four instructions present in the Conventional VM: \verb|geto|, \verb|seto|, \verb|getb| and \verb|setb|. The Operand-Type VM's low abstraction level instructions are approximately 60 bytes. This works out to only 118KB for the entire instruction set.
+
+The size of the instruction set in cache is not the only issue to consider for the Operand and Operand-Type Dispatch VMs however. Associated with each of these virtual machines is a lookup table used for their dispatch mechanism. The dispatch mechanism of each VM is discussed in section \ref{sec:labels-as-addresses}. This lookup table is referred to as the \textbf{dynamic opcode table}.
+
+This lookup table is a set of 8-byte pointers. In the Operand Dispatch VM, the dynamic opcode table is $(1296*8)/1024 = 10$KB, a fraction of the L1 data cache for a Haswell processor. For the Operand-Type dispatch however, the lookup table is $(131072*8)/1024 = 1$MB which is around 30 times larger than L1 data cache. This is less of a problem than it seems. Firstly, 36.7\% of this table is never used. A further 42.4\% of the table entries are only used if there is a type error, in which case the program's execution will not complete anyway. Furthermore only a small fraction of the remaining 20\% (which could fit in L2 cache on a Haswell machine) of the table is actually used by a single program. 
+
+A sample of the instructions provided by the VM follows. The full set of instructions may be found in appendix B.
 
 \subsection{Arithmetic Instructions}
 
