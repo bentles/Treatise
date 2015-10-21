@@ -1,4 +1,4 @@
-\documentclass[english,a4paper]{report}
+\documentclass[english,a4paper,12pt]{report}
 \usepackage[margin=2cm]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[latin9]{inputenc}
@@ -63,9 +63,27 @@
 \pagenumbering{roman}
 \chapter*{Acknowledgements}
 
+I would like to extend my thanks to my supervisor Kevin
+Naud\'{e}. Your extensive knowledge of the field of research aided
+both the development and research aspects of this project
+greatly. Without your guidance, I fear this project would be a shadow
+of what it is now.
+
+A special thank you to Matthew Sainsbury -- for writing more than your
+fair share of the benchmarks used in this project, for writing the
+assembler that I modified to work with my own VM and for sharing
+information with me whenever you found something you thought was
+relevant to both of our projects.
+
+Thanks to the honours class of 2015. I've thoroughly enjoyed our time
+together and hope we may all cross paths again in future.
+
 \newpage{}
 
 \chapter*{Abstract}
+
+JIT-compilers are widely used to speed up interpreter execution speed
+
 
 \newpage{}
 
@@ -374,7 +392,7 @@ an additional two virtual machines must be developed. One of these is
 a conventionally implemented virtual machine. The other is an
 additional experimental VM needed to test the effectiveness of a
 particular element of the proposed solution. This will be discussed
-further in chapter XXX.
+further in chapter 3.
 
 A set of benchmarks must be hand-written to run on the new virtual
 machines. The running times of the benchmarks on each of the three
@@ -1077,7 +1095,7 @@ mapping will now be discussed.
 
 
 \section{Type-Mapping and Operand Case Expansion}
-
+\label{sec:type-mapping-op-case-exp}
 A type-mapped VM is one which keeps track of the state of the types of
 its registers. This is called the type-state of the virtual
 machine. This is beneficial because, as was discussion in section
@@ -1260,7 +1278,7 @@ result, the result will be stored in the register addressed by the
 first operand.
 
 \subsection{Instruction Set Design Factors}
-
+\label{sec:inst-set-design-factors}
 In some cases, specific argument combinations for an instruction have
 been removed as they produce trivial results. For instance the
 subtract operation cannot be used with the same register for both
@@ -1456,10 +1474,12 @@ The function call mechanism was designed to be simple.
 		\item[print] writes a line of data to stdout
 \end{description}
 
-\section{Conventional VM}
+The aspects of the three virtual machines that set them apart from each other are now discussed.
+
+\section{Conventional VM Design}
 \label{sec:conv-vm}
 
-The conventional VM makes use of a conventional decode step for each
+The Conventional VM makes use of a conventional decode step for each
 instruction executed by the VM. The opcode and register-number
 addressed operands are decoded from each instruction word using a
 process of shift and mask operations. The layout of the conventional
@@ -1482,46 +1502,92 @@ mask and a shift operation.
   \label{fig:convinstruction}
 \end{figure}
 
+All virtual machines make use of token-threaded dispatch as discussed
+in \ref{sec:dispatch}, however the details of this dispatch are
+slightly different for the three virtual machines and so will be
+discussed separately. The Conventional VM dispatches exlusively on the
+opcode section of the next instruction word. That is, the next
+instruction word's opcode is decoded and is used to gain the address
+of the subroutine needed for the next instruction. The implementation
+details of the Conventional VMs dispatch mechanism are discussed in
+section \ref{sec:conv-vm-dispatch}.
 
 
-\section{Operand Dispatch VM}
+\section{Operand Dispatch VM Design}
+The Operand Dispatch VM does not make use of the conventional decode
+step present in the Conventional VM. This is a product of operand case
+expansion. Figure \ref{fig:op-dispatch-instruction} shows the layout
+of an instruction word for the operand dispatch VM. 
 
+\begin{figure}[!htb]
+  \centering
+	\begin{bytefield}[bitwidth=1.5em,endianness=big]{16}
+	\bitheader{15,0} \\
+    \bitbox{16}{opcode with operands} \\
+  \end{bytefield}
+  \caption{Operand Dispatch VM instruction layout}
+  \label{fig:op-dispatch-instruction}
+\end{figure}
 
+The Operand Disptach VM's entire instruction word is used for
+dispatch. The combination of the opcode and the specific operand case
+for that opcode is an index into the dynamic opcode lookup table for
+token-threaded dispatch. This means that the Operand Dispatch VM need
+decode neither the opcode nor operands for any instruction. This is
+because each instruction acts on known operands and the opcode itself
+is never needed, only the combination the ``opcode with operands''
+value, which can be directly accessed with no decode step. The
+implementation details of the Operand Dispatch VM's dispatch are
+discussed in section \ref{sec:operand-dispatch-dispatch}.
 
-\section{Operand-Type Dispatch VM}
-The opcode-operand-type dispatch VM's instructions for programs are
-stored as opcodes only with no arguments. That is because we have a
-version of each instruction for every combination of registers as
-inputs. Because we have 6 registers and a maximum of two arguments per
-instruction that means that we can have a maximum of $6^3 = 216$
-versions of each instruction. This saves us the process of extracting
-arguments at the expense having to have more versions of the
-instruction. The opcode implicitly stores the argument information.
+\section{Operand-Type Dispatch VM Design}
+The Operand-Type Dispatch VM does not make use of the conventional
+decode step present in the Conventional VM, since it too makes use of
+operand case expansion. The instruction word layout is exactly the
+same as the Operand Dispatch VM (figure
+\ref{fig:op-dispatch-instruction}), but, once again, the dispatch
+mechanism for the Operand-Type Dispatch VM is slightly
+different. Before the differences can be examined, the purpose of the
+\verb|TS| register must be explained.
 
-The opcode is not the only information the VM uses to select code,
-however. The \verb|TS| register keeps a record of the type of every
-register. It is a 6-bit number where each bit tells us the current
-type of a register. Thus for every opcode, there are
-2\textasciicircum{}6 different states the VM could be in. With this
-information we know the arguments and types and can jump to
-specialised code that acts on arguments of those types. A good way to
-think about it is to imagine it as a 2D lookup table (even though the
-implementation is 1D). On the y-axis we have the opcodes for all the
-versions of the instructions and on the x-axis we have the current
-state from 0 to 63. At the intersection of these we store the address
-of the code we jump to for that instruction.
+The \verb|TS| register is unique to the Operand-Type Dispatch VM. It
+is used to keep track of the current type state of the Operand-Type
+VM. The type-state, as was discussed in section
+\ref{sec:inst-set-design-factors}, is the current state of the types
+in all of the general purpose registers in the virtual machine.
 
-Now since we only have integers and pointers it may, at first glace,
-seem pointless to have specialised instructions since most of the time
-using pointers in an instruction meant for integers is
-illegal. However this method elliminates the type checking involved in
-instructions for a dynamic-ISA VM. Normally for each instruction we
-would have to check the validity of the arguments first before we can
-perform the instruction, but with this method we already know the
-types and so we can just jump directly to code for those types or an
-error if the arguments are illegal.
+The \verb|TS| register serves as a selector for the dynamic opcode
+lookup table in the Operand-Type Dispatch VM, but it works on a much
+larger scale than the ``opcode with operands'' value in the
+instruction word. The \verb|TS| register, selects the portion of the
+table that is appropriate for the current type-state of the
+VM. Whenever the type-state of the virtual machine changes, for
+example, if a register that was previously an integer is now a
+pointer, the \verb|TS| register is updated to reflect that change.
 
-\subsection{Conventional Dispatch VM}
+Dispatch in the Operand-Type Dispatch VM is performed by selecting the
+correct portion for the current type-state of the VM of the lookup
+table using the \verb|TS| register, and then selecting an entry from
+that portion of that table using the ``opcode with operands'' value
+from the instruction word. This means the lookup table for the
+Operand-Type dispatch VM is far larger than that of the Operand
+Dispatch VM. This issue was discussed in section
+\ref{sec:inst-set-design-factors}. The implementation of this dispatch
+process is discussed in section \ref{sec:operand-type-dispatch-dispatch}.
+
+The Operand-Type Dispatch design elliminates the need to type check
+arguments for instructions in a dynamic-ISA VM. This is because the
+dispatch mechanism makes use of the current type-state of the virtual
+machine and the operands for the instruction being selected. This is
+enough information for the types of arguments for all instructions to
+be known and hence instructions need not check their types.
+
+This design decision makes the following trade-offs: The Operand-Type
+Dispatch VM no longer has to check the types of its arguments, a
+necessary step for all instructions with register-number addresses
+arguments. It does, however, require a larger dynamic opcode lookup
+table, and the code necessary to to update the \verb|TS| register when
+the type state of the VM changes. 
 
 \chapter{Solution Implementation}
 
@@ -1853,9 +1919,10 @@ The jump table described in the manual is the mechanism used for
 token-threaded dispatch. In the VMs, this jump table is referred to as
 the Dynamic Opcode Table. The entries in the Dynamic Opcode Table are
 the addresses of the instructions the VM implements. For each VM, the
-table is created slightly differently:
+table is created slightly differently.
 
 \subsection{Conventional VM}
+\label{sec:conv-vm-dispatch}
 
 \begin{figure}
 	\centering
@@ -1893,7 +1960,9 @@ bits of the instruction word pointed to by \verb|IP|. ``GetOpcode'' is
 a macro that calculated the value of the opcode given the instruction
 word.
 
+
 \subsection{Operand Dispatch VM}
+\label{sec:operand-dispatch-dispatch}
 For the Operand-Dispatch VM there are 1295 entries in the table. This
 is because many logical instructions have a large number of internal
 instructions used to implement them.
@@ -1925,7 +1994,7 @@ Dynamic Opcode Table. If the instruction being jumped to is
 as that is \verb|&&print_5|'s position in the table.
 
 \subsection{Operand-Type Dispatch VM}
-
+\label{sec:operand-type-dispatch-dispatch}
 For the Operand-Type Dispatch VM there are 131 072 entries in the
 table. This is because there are 64 states and the \verb|TS| value is
 left-shifted by 11 bit positions. This means there are
