@@ -31,35 +31,35 @@
 | Reverse Complement |              0 |                       7 |                   7 |
 
 
-| Ackermann                  | Conventional   | Operand        |   Operand-Type |
+| Ackermann                  |   Conventional |        Operand |   Operand-Type |
 |----------------------------+----------------+----------------+----------------|
-| Average execution time     | 125.7464       | 115.5056       |       110.7639 |
-| Increase over Conventional |                | 8.14%          |         11.91% |
+| Average execution time     |       125.7464 |       115.5056 |       110.7639 |
+| Increase over Conventional |                |          8.14% |         11.91% |
 | Increase over Operand      |                |                |          4.11% |
 | Perf cache-miss            | 14.76% (1.06%) | 14.51% (0.66%) | 14.87% (0.94%) |
-| Perf branch-miss           | 0% (0%)        | 0% (0%)        |        0% (0%) |
-| Cachegrind L1i miss        |                |                |                |
-| Cachegrind indirect miss   |                |                |                |
+| Perf branch-miss           |        0% (0%) |        0% (0%) |        0% (0%) |
+| Cachegrind I1 miss         |             0% |             0% |             0% |
+| Cachegrind indirect miss   |          58.3% |           8.3% |           8.3% |
 
-| Fannkuch                   | Conventional  | Operand       |   Operand-Type |
+| Fannkuch                   |  Conventional |       Operand |   Operand-Type |
 |----------------------------+---------------+---------------+----------------|
-| Average execution time     | 47.1528       | 39.0194       |        35.6915 |
-| Increase over Conventional |               | 17.25%        |         24.31% |
+| Average execution time     |       47.1528 |       39.0194 |        35.6915 |
+| Increase over Conventional |               |        17.25% |         24.31% |
 | Increase over Operand      |               |               |          8.53% |
 | Perf cache-miss            | 5.12% (2.17%) | 5.46% (1.29%) | 10.40% (7.71%) |
 | Perf branch-miss           | 0.61% (0.01%) | 0.74% (0.03%) |  0.97% (0.02%) |
-| Cachegrind L1i miss        |               |               |                |
-| Cachegrind indirect miss   |               |               |                |
+| Cachegrind I1 miss         |            0% |            0% |             0% |
+| Cachegrind indirect miss   |         73.2% |         22.7% |          23.3% |
 
-| Fasta                      | Conventional  | Operand       |  Operand-Type |
+| Fasta                      |  Conventional | Operand       |  Operand-Type |
 |----------------------------+---------------+---------------+---------------|
-| Average execution time     | 54.9107       | 46.622        |       44.6889 |
+| Average execution time     |       54.9107 | 46.622        |       44.6889 |
 | Increase over Conventional |               | 15.09%        |        18.62% |
 | Increase over Operand      |               |               |         4.15% |
 | Perf cache-miss            | 3.44% (2.00%) | 4.05% (1.79%) | 5.29% (3.30%) |
 | Perf branch-miss           | 0.25% (0.06%) | 0.26% (0.00%) | 0.39% (0.04%) |
-| Cachegrind L1i miss        |               |               |               |
-| Cachegrind indirect miss   |               |               |               |
+| Cachegrind I1 miss         |            0% | 0%            |            0% |
+| Cachegrind indirect miss   |         74.3% | 22.5%         |         24.1% |
 
 | Mandelbrot                 | Conventional  | Operand       |  Operand-Type |
 |----------------------------+---------------+---------------+---------------|
@@ -68,36 +68,35 @@
 | Increase over Operand      |               |               |         7.49% |
 | Perf cache-miss            | 6.99% (2.41%) | 6.53% (2.90%) | 8.20% (2.07%) |
 | Perf branch-miss           | 0.04% (0.00%) | 0.05% (0.00%) | 0.11% (0.00%) |
-| Cachegrind L1i miss        |               |               |               |
-| Cachegrind indirect miss   |               |               |               |
+| Cachegrind I1 miss         | 0%            | 0%            |            0% |
+| Cachegrind indirect miss   | 85.7%         | 29.6%         |         36.6% |
 
-| Mersenne Twister           | Conventional  | Operand       |  Operand-Type |
+| Mersenne Twister           |  Conventional |       Operand |  Operand-Type |
 |----------------------------+---------------+---------------+---------------|
-| Average execution time     | 30.4329       | 24.3093       |       23.6524 |
-| Increase over Conventional |               | 20.12%        |        22.28% |
+| Average execution time     |       30.4329 |       24.3093 |       23.6524 |
+| Increase over Conventional |               |        20.12% |        22.28% |
 | Increase over Operand      |               |               |         2.70% |
 | Perf cache-miss            | 4.41% (2.78%) | 4.63% (1.93%) | 4.01% (1.18%) |
 | Perf branch-miss           | 0.44% (0.15%) | 0.44% (0.08%) | 0.63% (0.06%) |
-| Cachegrind L1i miss        |               |               |               |
-| Cachegrind indirect miss   |               |               |               |
+| Cachegrind I1 miss         |            0% |            0% |            0% |
+| Cachegrind indirect miss   |         64.9% |           24% |         24.6% |
 
-
-| Prime Sieve                | Conventional   | Operand        |   Operand-Type |
+| Prime Sieve                |   Conventional |        Operand |   Operand-Type |
 |----------------------------+----------------+----------------+----------------|
-| Average execution time     | 193.9987       | 160.2169       |       152.4721 |
-| Increase over Conventional |                | 17.41%         |         21.41% |
+| Average execution time     |       193.9987 |       160.2169 |       152.4721 |
+| Increase over Conventional |                |         17.41% |         21.41% |
 | Increase over Operand      |                |                |          4.83% |
 | Perf cache-miss            | 15.87% (0.34%) | 16.48% (0.32%) | 23.11% (2.17%) |
-| Perf branch-miss           | 0.00% (0.00%)  | 0.00% (0.00%)  |  0.00% (0.00%) |
-| Cachegrind L1i miss        |                |                |                |
-| Cachegrind indirect miss   |                |                |                |
+| Perf branch-miss           |  0.00% (0.00%) |  0.00% (0.00%) |  0.00% (0.00%) |
+| Cachegrind I1 miss         |             0% |             0% |             0% |
+| Cachegrind indirect miss   |          81.8% |          27.2% |          27.2% |
   
-| Reverse Complement         | Conventional | Operand | Operand-Type |
-|----------------------------+--------------+---------+--------------|
-| Average execution time     |       2.6406 |  2.0731 |      2.01531 |
-| Increase over Conventional |              |  21.49% |       23.68% |
-| Increase over Operand      |              |         |        2.79% |
-| Perf cache-miss            |              |         |              |
-| Perf branch-miss           |              |         |              |
-| Cachegrind L1i miss        |              |         |              |
-| Cachegrind indirect miss   |              |         |              |
+| Reverse Complement         |   Conventional |        Operand |   Operand-Type |
+|----------------------------+----------------+----------------+----------------|
+| Average execution time     |         2.6406 |         2.0731 |        2.01531 |
+| Increase over Conventional |                |         21.49% |         23.68% |
+| Increase over Operand      |                |                |          2.79% |
+| Perf cache-miss            | 39.63% (4.72%) | 42.99% (4.46%) | 39.83% (5.20%) |
+| Perf branch-miss           |  0.10% (0.01%) |  0.11% (0.00%) |  1.70% (1.09%) |
+| Cachegrind I1 miss         |             0% |             0% |             0% |
+| Cachegrind indirect miss   |          44.6% |           1.6% |           1.6% |
