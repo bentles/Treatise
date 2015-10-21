@@ -34,6 +34,7 @@
 \lstset{basicstyle=\footnotesize\ttfamily,numberstyle=\footnotesize\ttfamily,breaklines=true,numbers=left,frame=single}
 %\lstset{framextopmargin=50pt}
 
+%conveniences for titl page
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 \definecolor{NMMUBlue}{RGB}{45,95,145}
 
@@ -572,7 +573,16 @@ types of languages are now compared.
 \section{Dynamic vs Statically Typed Programming Languages}
 A dynamically typed language is one in which the type information is
 associated with values \cite[pg4]{RobertoIerusalimschy}. An example of
-a dynamically typed language is JavaScript. In JavaScript the \verb|var| keyword is used for variables. This is because the type is associated with the value stored in the variable so variables themselves need not be told which type is associated with them. Any variable can hold a value of any type. A statically typed language is one in which the type information is associated with the variable. An example of this is Java. In Java variables are declared using keywords that define their type (\textbf{int}, \textbf{String} etc). Each variable can only hold a value of that type. Each approach has its strengths and weaknesses.
+a dynamically typed language is JavaScript. In JavaScript the
+\verb|var| keyword is used for variables. This is because the type is
+associated with the value stored in the variable so variables
+themselves need not be told which type is associated with them. Any
+variable can hold a value of any type. A statically typed language is
+one in which the type information is associated with the variable. An
+example of this is Java. In Java variables are declared using keywords
+that define their type (\textbf{int}, \textbf{String} etc). Each
+variable can only hold a value of that type. Each approach has its
+strengths and weaknesses.
 
 \subsection{Type Safety}
 \label{sec:type_safe}
@@ -600,7 +610,10 @@ The machine or VM benefits from not having to check the types of
 instruction arguments. This is a major overhead in dynamically typed
 languages. In a dynamically typed language, the types of the arguments
 must be checked for each instruction the VM or machine must perform as
-the arguments of the instruction could be of any type the VM supports. This means that an addition instruction that works on integers, for instance, must check that the values it is trying to add are in fact integers before it can add them.
+the arguments of the instruction could be of any type the VM
+supports. This means that an addition instruction that works on
+integers, for instance, must check that the values it is trying to add
+are in fact integers before it can add them.
 
 Figure \ref{fig:dvs} shows how Java, a statically typed language
 and Lua, a dynamically typed language, handle code which tries to
@@ -643,12 +656,27 @@ accepted by a statically typed language's type checker. Dynamic typed
 languages allow the freedom to write these kinds of programs.
 
 Dynamically typed languages are also powerful for handling arbitrary
-data. This is exemplified by the JSON format, based on a subset of the dynamically typed language, JavaScript. JSON is used as a language independent, data-interchange language \cite{JSON}. In JavaScript, objects that can contain arbitrarily arranged data can be created during runtime, while in most statically typed languages, classes that commit the programmer to specific formats for data must be defined. The C\# programming language includes a ``dynamic'' type \cite{dynamic} that allows programmers to work around this limitation of statically typed languages. 
+data. This is exemplified by the JSON format, based on a subset of the
+dynamically typed language, JavaScript. JSON is used as a language
+independent, data-interchange language \cite{JSON}. In JavaScript,
+objects that can contain arbitrarily arranged data can be created
+during runtime, while in most statically typed languages, classes that
+commit the programmer to specific formats for data must be
+defined. The C\# programming language includes a ``dynamic'' type
+\cite{dynamic} that allows programmers to work around this limitation
+of statically typed languages.
 
 Of course statically and dynamically typed languages can be realised
-in many different ways, but currently both dynamic and statically typed languages are widely used and so  research for both statically and dynamically typed languages is important.
+in many different ways, but currently both dynamic and statically
+typed languages are widely used and so research for both statically
+and dynamically typed languages is important.
 
-Since virtual machines are a platform on top of which other programs must run, the performance of the VM itself affects the performance of every program that runs on it. An understanding of the hardware that the virtual machine runs on is necessary to optimise the performance of the virtual machine. A summary of the aspects of the processor architecture important for virtual machine performance follows.
+Since virtual machines are a platform on top of which other programs
+must run, the performance of the VM itself affects the performance of
+every program that runs on it. An understanding of the hardware that
+the virtual machine runs on is necessary to optimise the performance
+of the virtual machine. A summary of the aspects of the processor
+architecture important for virtual machine performance follows.
 
 \section{Modern Processor Architecture}
 \label{sec:processor_architecture}
@@ -1061,11 +1089,16 @@ on the current type-state of the virtual machine.
 
 Operand case expansion unrolls the instruction set of a virtual
 machine into a set of operand-specific versions of every
-instruction. An example can be seen in figure \ref{fig:op-case-expansion}. In this instance an \verb|add| instruction for a virtual machine with n registers is expanded into $n^2$ different instructions for each operand case. Operand case expansion is beneficial because it removes the decode step
-present in a conventional virtual machine design (see section
-\ref{sec:decode}). This is because the entire instruction word can
-be used to select the specific version of the instruction needed. The
-implementation details of operand case expansion will be examined in chapter 4. %TODO section?
+instruction. An example can be seen in figure
+\ref{fig:op-case-expansion}. In this instance an \verb|add|
+instruction for a virtual machine with n registers is expanded into
+$n^2$ different instructions for each operand case. Operand case
+expansion is beneficial because it removes the decode step present in
+a conventional virtual machine design (see section
+\ref{sec:decode}). This is because the entire instruction word can be
+used to select the specific version of the instruction needed. The
+implementation details of operand case expansion will be examined in
+chapter 4. %TODO section?
 
 \begin{figure}
 	\centering
@@ -1100,7 +1133,11 @@ that there is not enough information to specialise the instruction.
 The proposed solution is the Operand-Type Dispatch VM which makes use
 of type-mapping and argument case expansion. In order to determine the
 effectiveness of the solution, a further two virtual machines are
-needed. A conventionally implemented virtual machine is needed as a control to determine the performance benefits of the Operand-Type Dispatch VM and a further VM is needed to determine the benefits of the type-mapping of the Operand-Type Dispatch VM over just using argument case expansion.
+needed. A conventionally implemented virtual machine is needed as a
+control to determine the performance benefits of the Operand-Type
+Dispatch VM and a further VM is needed to determine the benefits of
+the type-mapping of the Operand-Type Dispatch VM over just using
+argument case expansion.
 
 These three virtual machines lie along a scale for how specific their 
 instructions are. The most specific is the Operand-Type Dispatch VM. 
@@ -1108,51 +1145,106 @@ The Operand Dispatch VM is less specific and the Conventional
 Dispatch VM has the least specific instructions.
 
 The details of the designs of these three virtual machines is
-discussed from section \ref{sec:conv-vm} after design decisions common to all VMs have been introduced. The three virtual machines are designed to be as similar as possible except for the aspects that the experiment examines. Those elements common to all VMs are expanded upon first and those specific to each shall be examined separately. 
+discussed from section \ref{sec:conv-vm} after design decisions common
+to all VMs have been introduced. The three virtual machines are
+designed to be as similar as possible except for the aspects that the
+experiment examines. Those elements common to all VMs are expanded
+upon first and those specific to each shall be examined separately.
 
-Any referral to the \textbf{VM} or the \textbf{virtual machine} used from this point without explicitly mentioning which VM is being referred to will apply to \emph{all} three virtual machines.
+Any referral to the \textbf{VM} or the \textbf{virtual machine} used
+from this point without explicitly mentioning which VM is being
+referred to will apply to \emph{all} three virtual machines.
 
 \section{Virtual Machine Design Details}
 
-The VM is a register virtual machine. The choice of being register-based is necessary for the operand case expansion to be performed. Of course, since type-mapping required operand case expansion, that also necessitates that the virtual machine use registers. Yuhne Shi\cite{Shi2007} showed that register machines can give a performance increase over equivalent stack-based VMs. This makes them an ideal choice for a performance-focused virtual machine design.
+The VM is a register virtual machine. The choice of being
+register-based is necessary for the operand case expansion to be
+performed. Of course, since type-mapping required operand case
+expansion, that also necessitates that the virtual machine use
+registers. Yuhne Shi\cite{Shi2007} showed that register machines can
+give a performance increase over equivalent stack-based VMs. This
+makes them an ideal choice for a performance-focused virtual machine
+design.
 
 \subsection{Registers and Implicit Assignment}
 The VM has six general purpose registers and three special purpose
-registers. A low number of registers adds complexity to a potential compiler for this virtual machine because the compiler must perform register allocation more frequently, but keeping the number of registers low is important for the Operand-Type Dispatch and Operand Dispatch VMs. With just six registers, an instruction that takes three arguments potentially has $6^3 = 216$ operand cases. 
+registers. A low number of registers adds complexity to a potential
+compiler for this virtual machine because the compiler must perform
+register allocation more frequently, but keeping the number of
+registers low is important for the Operand-Type Dispatch and Operand
+Dispatch VMs. With just six registers, an instruction that takes three
+arguments potentially has $6^3 = 216$ operand cases.
 
-Because every argument in an instruction increases the number of operand cases sixfold, where possible, instructions in the VM include an implicit assignment. That is, instead of having an instruction, \verb|add g1, g2, g3|, which adds \verb|g2| to \verb|g3| and stores the result in \verb|g1|, the VM implements the \verb|add| instruction as follows: \verb|add g1, g2|. This instruction adds \verb|g1| to \verb|r2| and stores the result in \verb|g1|. In this way the number of operand cases can be kept reasonably low. The Operand-Type Dispatch VM faces a similar issue that affects the decision for which types the VM should use.
+Because every argument in an instruction increases the number of
+operand cases sixfold, where possible, instructions in the VM include
+an implicit assignment. That is, instead of having an instruction,
+\verb|add g1, g2, g3|, which adds \verb|g2| to \verb|g3| and stores
+the result in \verb|g1|, the VM implements the \verb|add| instruction
+as follows: \verb|add g1, g2|. This instruction adds \verb|g1| to
+\verb|r2| and stores the result in \verb|g1|. In this way the number
+of operand cases can be kept reasonably low. The Operand-Type Dispatch
+VM faces a similar issue that affects the decision for which types the
+VM should use.
 
 \subsection{Types}
 
 The VM has two primitive types: integers and pointers. Keeping the
-number of types low is extremely important for the Operand-Type Dispatch VM because it affects the total number of states
-the VM can take on. The Operand-Type Dispatch VM can be thought of as
-creating a specialised version of the VM for every type state. With
-two primitive types and 6 registers this means there are a total of
-$2^6 = 64$ total states the VM can take on. Increasing the number of
-primitive types by one makes that $3^6 = 729$ possible states. 
+number of types low is extremely important for the Operand-Type
+Dispatch VM because it affects the total number of states the VM can
+take on. The Operand-Type Dispatch VM can be thought of as creating a
+specialised version of the VM for every type state. With two primitive
+types and 6 registers this means there are a total of $2^6 = 64$ total
+states the VM can take on. Increasing the number of primitive types by
+one makes that $3^6 = 729$ possible states.
 
-The decision to have only two types was made because of the increased complexity that would be associated with an additional type. Floating point numbers were considered as a third type for the virtual machine, but this would add considerable complexity to the implementation of the virtual machine. This is because arithmetic instructions in the virtual machine would now have to act on two different types and on the different combinations of those two types.
+The decision to have only two types was made because of the increased
+complexity that would be associated with an additional type. Floating
+point numbers were considered as a third type for the virtual machine,
+but this would add considerable complexity to the implementation of
+the virtual machine. This is because arithmetic instructions in the
+virtual machine would now have to act on two different types and on
+the different combinations of those two types.
 
 \subsection{Values} 
 
-A register virtual machine for a dynamically typed language must be able to hold any type of value in any of its registers. This is the reason the type checking operations explained in section \ref{sec:type_safe} must take place. The VM registers are used to store \textbf{values}. Values are a convenient data structure that can hold either a pointer or an integer, as these are the types supported by the VM. Most instructions in the VM refer to general purpose registers which hold values, but two other modes of addressing exist in the VM.
+A register virtual machine for a dynamically typed language must be
+able to hold any type of value in any of its registers. This is the
+reason the type checking operations explained in section
+\ref{sec:type_safe} must take place. The VM registers are used to
+store \textbf{values}. Values are a convenient data structure that can
+hold either a pointer or an integer, as these are the types supported
+by the VM. Most instructions in the VM refer to general purpose
+registers which hold values, but two other modes of addressing exist
+in the VM.
 
 \subsection{Addressing}
 Instructions take operands of three types: 
 \begin{description}
 \item[register number] These operands are numbers from 0 to 5 that
-  address the six registers. For the conventional VM these operands are an explicit part of the instruction word. For the Operand-Type and Operand Dispatch VMs these operands are implicitly part of the instruction word. Implementation details of register number addressing will be discussed in chapter 4. %TODO section??
+  address the six registers. For the conventional VM these operands
+  are an explicit part of the instruction word. For the Operand-Type
+  and Operand Dispatch VMs these operands are implicitly part of the
+  instruction word. Implementation details of register number
+  addressing will be discussed in chapter 4. %TODO section??
 \item[instruction word] This type of operand considers an instruction
   word relative to IP (usually just the next instruction word) as an
   unsigned 16-bit constant. The value of these constants will be
   referred to in the following form: $name_{16}$
 \item[IP-relative addressing] This type of operand considers an
   instruction word as the \verb|IP|-relative address of a 64-bit
-  unsigned integer constant. The 64-bit integers accessed by IP-relative addressing are aligned to 8-byte addresses. The value of the 64-bit constant will be   referred to in the following form: $name_{64}$
+  unsigned integer constant. The 64-bit integers accessed by
+  IP-relative addressing are aligned to 8-byte addresses. The value of
+  the 64-bit constant will be referred to in the following form:
+  $name_{64}$
 \end{description}
 
-Instruction word addressing is used when large integer values are not needed. This is the case, for instance, when performing a left shift by a known constant. Shifting a 64-bit integer left by anything more than 63 bits will always result in a zero value and so a larger integer value is not needed. IP-relative addressing is used when a larger value may be needed. An examination of the instruction set of the VM follows:
+Instruction word addressing is used when large integer values are not
+needed. This is the case, for instance, when performing a left shift
+by a known constant. Shifting a 64-bit integer left by anything more
+than 63 bits will always result in a zero value and so a larger
+integer value is not needed. IP-relative addressing is used when a
+larger value may be needed. An examination of the instruction set of
+the VM follows:
 
 \section{Instructions}
 
@@ -1176,15 +1268,50 @@ arguments. Since the result of this operation is always zero and there
 already is an instruction to set a register to zero, there is no need
 to include this case.
 
-The VM instruction set design was made with memory hierarchy of modern computers in mind. The instruction set was designed to be as robust and general as possible with the aim that as many of the instruction subroutines needed by the VM could be cached. The VM has an instruction set of 46 instructions. Because of the operand case expansion the Operand Dispatch VM has 1295 instructions. The Operand-Type Dispatch VM has 2021 instructions and a special instruction to signal an error. The difference ($2022 - 1295 = 728$) is the set of type specialised versions of instructions. 
+The VM instruction set design was made with memory hierarchy of modern
+computers in mind. The instruction set was designed to be as robust
+and general as possible with the aim that as many of the instruction
+subroutines needed by the VM could be cached. The VM has an
+instruction set of 46 instructions. Because of the operand case
+expansion the Operand Dispatch VM has 1295 instructions. The
+Operand-Type Dispatch VM has 2021 instructions and a special
+instruction to signal an error. The difference ($2022 - 1295 = 728$)
+is the set of type specialised versions of instructions.
 
-A rough estimate of the size of a low abstraction level \cite{Brunthaler20093} instruction for the Operand VM is 120 bytes. This means the VM instructions would require around 151KB of cache to house the entire instruction set. The Haswell processor, as mentioned in section \ref{sec:cache}, has 32KB of L1 instruction cache. But only a small fraction of the instruction set will be in use at any time. This must be the case, because 720 of the 1295 instructions in the Operand-Dispatch VM are used to implement four instructions present in the Conventional VM: \verb|geto|, \verb|seto|, \verb|getb| and \verb|setb|. The Operand-Type VM's low abstraction level instructions are approximately 60 bytes. This works out to only 118KB for the entire instruction set.
+A rough estimate of the size of a low abstraction level
+\cite{Brunthaler20093} instruction for the Operand VM is 120
+bytes. This means the VM instructions would require around 151KB of
+cache to house the entire instruction set. The Haswell processor, as
+mentioned in section \ref{sec:cache}, has 32KB of L1 instruction
+cache. But only a small fraction of the instruction set will be in use
+at any time. This must be the case, because 720 of the 1295
+instructions in the Operand-Dispatch VM are used to implement four
+instructions present in the Conventional VM: \verb|geto|, \verb|seto|,
+\verb|getb| and \verb|setb|. The Operand-Type VM's low abstraction
+level instructions are approximately 60 bytes. This works out to only
+118KB for the entire instruction set.
 
-The size of the instruction set in cache is not the only issue to consider for the Operand and Operand-Type Dispatch VMs however. Associated with each of these virtual machines is a lookup table used for their dispatch mechanism. The dispatch mechanism of each VM is discussed in section \ref{sec:labels-as-addresses}. This lookup table is referred to as the \textbf{dynamic opcode table}.
+The size of the instruction set in cache is not the only issue to
+consider for the Operand and Operand-Type Dispatch VMs
+however. Associated with each of these virtual machines is a lookup
+table used for their dispatch mechanism. The dispatch mechanism of
+each VM is discussed in section \ref{sec:labels-as-addresses}. This
+lookup table is referred to as the \textbf{dynamic opcode table}.
 
-This lookup table is a set of 8-byte pointers. In the Operand Dispatch VM, the dynamic opcode table is $(1296*8)/1024 = 10$KB, a fraction of the L1 data cache for a Haswell processor. For the Operand-Type dispatch however, the lookup table is $(131072*8)/1024 = 1$MB which is around 30 times larger than L1 data cache. This is less of a problem than it seems. Firstly, 36.7\% of this table is never used. A further 42.4\% of the table entries are only used if there is a type error, in which case the program's execution will not complete anyway. Furthermore only a small fraction of the remaining 20\% (which could fit in L2 cache on a Haswell machine) of the table is actually used by a single program. 
+This lookup table is a set of 8-byte pointers. In the Operand Dispatch
+VM, the dynamic opcode table is $(1296*8)/1024 = 10$KB, a fraction of
+the L1 data cache for a Haswell processor. For the Operand-Type
+dispatch however, the lookup table is $(131072*8)/1024 = 1$MB which is
+around 30 times larger than L1 data cache. This is less of a problem
+than it seems. Firstly, 36.7\% of this table is never used. A further
+42.4\% of the table entries are only used if there is a type error, in
+which case the program's execution will not complete
+anyway. Furthermore only a small fraction of the remaining 20\% (which
+could fit in L2 cache on a Haswell machine) of the table is actually
+used by a single program.
 
-A sample of the instructions provided by the VM follows. The full set of instructions may be found in appendix B.
+A sample of the instructions provided by the VM follows. The full set
+of instructions may be found in appendix B.
 
 \subsection{Arithmetic Instructions}
 
@@ -1345,7 +1472,7 @@ right to acquire its value. The first argument, on the right, need
 only have the other bits masked. All other arguments require both a
 mask and a shift operation.
 
-\begin{figure}
+\begin{figure}[!htb]
   \centering
 	\begin{bytefield}[bitwidth=1.5em,endianness=big]{16}
 	\bitheader{15,9,8,6,5,3,2,0} \\
@@ -1355,10 +1482,11 @@ mask and a shift operation.
   \label{fig:convinstruction}
 \end{figure}
 
+
+
 \section{Operand Dispatch VM}
 
-The opcode-operand dispatch VM has a seperate version of every
-instruction for every combination of arguments given to it.
+
 
 \section{Operand-Type Dispatch VM}
 The opcode-operand-type dispatch VM's instructions for programs are
@@ -1639,7 +1767,8 @@ section \ref{sec:labels-as-addresses}.
 
 \subsection{Operand Dispatch VM Implementation}
 
-For the Operand Dispatch VM, the logical \verb|add| instruction is implemented using 36 internal instructions of the following form:
+For the Operand Dispatch VM, the logical \verb|add| instruction is
+implemented using 36 internal instructions of the following form:
 
 \begin{lstlisting}[language=C]
 add_1_2:
