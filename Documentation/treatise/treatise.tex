@@ -16,13 +16,14 @@
 \usepackage{tikz}
 \usepackage[toc,page]{appendix}
 \usepackage{forest}
-%\usepackage{titling}
 \usepackage{amsmath}
 \usepackage{pgfplots}
 \usepackage[affil-it]{authblk}
 \usepackage{parskip}
 \usepackage{csquotes}
 \usepackage{color}
+\usepackage{tabto}
+\NumTabs{5}
 
 % reset counter per chapter
 \usepackage{chngcntr}
@@ -34,9 +35,13 @@
 \lstset{basicstyle=\footnotesize\ttfamily,numberstyle=\footnotesize\ttfamily,breaklines=true,numbers=left,frame=single}
 %\lstset{framextopmargin=50pt}
 
-%conveniences for titl page
+%conveniences for title page
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
 \definecolor{NMMUBlue}{RGB}{45,95,145}
+
+%conveniences for decl of own work
+\newcommand{\singleline}{\vspace*{1\baselineskip}}
+
 
 \begin{document}
 
@@ -82,25 +87,48 @@ together and hope we may all cross paths again in future.
 
 \chapter*{Abstract}
 
-JIT-compilers are widely used to speed up interpreter execution speed
+Interpreters for dynamically typed languages incur a performance
+overhead cost associated with checking the types of instruction
+arguments. JIT-compilers are used to speed up interpreter execution
+speed, but are not ideal for many instance, short-lived processes like
+those of a web server. For this reason, this treatise examines an
+approach to increase the performace of a JIT-less interpreter for a
+dynamically typed langage. The proposed solution is the Operand-Type
+Dispatch VM, which makes use two techniques, operand case expansion
+and type-mapping, to help alleviate the overhead of checking the types
+of instruction arguments. A further VM, the Operand Dispatch VM that
+exclusively makes use of operand case expansion, was developed to
+examine the performance benefits of type-mapping. The study found that
+operand case expansion provided most of the benefit of the
+Operand-Type Dispatch VM and hence that the Operand Dispatch VM was in
+fact a better solution to the problem.
 
+%TODO add numbers I guess
 
 \newpage{}
 
 \chapter*{Declaration of Own Work}
+I declare that the entirety of the work contained in this treatise is
+my own, original work, that I am the sole author thereof (save to the
+extent explicitly otherwise stated), that reproduction and publication
+thereof by Nelson Mandela Metropolitan University will not infringe
+any third party rights that I have not previously in its entirety or
+in part submitted it for obtaining any qualification.
 
+\singleline
+Signature: 	\tab...........................\newline
+Date: 		\tab............................
 \newpage{}
 
 \listoffigures
 \newpage{}
 
-\chapter*{List of Tables}
 \listoftables
-
 \newpage{}
 
 \tableofcontents
 \newpage{}
+
 \pagenumbering{arabic}
 \chapter{Introduction}
 
@@ -731,7 +759,7 @@ of assembly.
 \begin{figure}[tph]
   \centering
   \includegraphics[scale=0.5]{pipeline}
-  \caption{Simplified CPU pipeline}
+  \caption[Simplified CPU pipeline]{Simplified CPU pipeline \cite{pipeline}}
   \label{fig:pipeline}
 \end{figure}
 
@@ -1889,8 +1917,8 @@ types of the registers being added and so that code is removed.
 
 In order to implement token-threaded dispatch a table of addresses of
 instruction implementations is needed. This table cannot be
-implemented in ANSI C[citation needed]. A GNU C extension allows for
-this table to be created, however.
+implemented in ANSI C. A GNU C extension allows for this table to be
+created, however.
 
 The extension is called ``Labels as Values'' and allows for the
 address of a label to be stored in a variable as a void pointer. This
@@ -2340,6 +2368,13 @@ VMs.
 
 \chapter{Experimental Design}
 
+The performance of the Operand-Type Dispatch, Operand Dispatch and
+Conventional VMs was assessed using three approaches. Firstly, the
+execution time of the benchmarks was measured. Secondly, the
+benchmarks were run on instrumented versions of the three virtual
+machines and finally, the benchmarks were run using the tools Linux
+Perf and Valgrind's Cachegrind \cite{cachegrind} tool.
+
 \section{Benchmarks}
 
 A hand-written suite of seven commonly used benchmarks was written in
@@ -2478,6 +2513,14 @@ the result. This is a benchmark for manipulation of buffers.
 
 \section{Instruction and Type Usage Statistics}
 
+An advantage of interpreters is that the implementation instruction
+usage statistics is simple. Every time an instruction subroutine is
+called, a counter associated with that subroutine is
+incremented. Counters for which state the VM was in when an
+instruction was executed, and a count for the total number of state
+switches were also implemented. An optional compiler flag was used to
+compile the instrumented versions of all VMs.
+
 \subsection{Instruction Usage}
 
 The number of times each instruction the particular version of the VM
@@ -2565,6 +2608,38 @@ of cache misses is high then this is most likely not the case.
 
 \chapter{Results}
 
+The following results were obtained using the experimental design
+described in the previous chapter. First, a discussion of all results
+for each benchmark is discussed, and then an overview of the results
+across all benchmarks follows.
+
+\section{Benchmark Results}
+
+The following results are analysed for each benchmark in
+isolation. Each graph shows the average running time in seconds of
+each benchmark, with the standard deviation of the running times
+presented as error bars. A paired, two tailed t-test was used to
+compare the running times between virtual machines for each benchmark.
+
+\subsection{Ackermann}
+ 
+
+\includegraphics{ackermann.png}
+
+
+\subsection{Fannkuch}
+\includegraphics{fannkuch.png}
+\subsection{Fasta}
+\includegraphics{fasta.png}
+\subsection{Mandelbrot}
+\includegraphics{mandelbrot.png}
+\subsection{Mersenne Twister}
+\includegraphics{mersenne.png}
+\subsection{Prime Sieve}
+\includegraphics{primesieve.png}
+\subsection{Reverse Complement}
+\includegraphics{reversecomplement.png}
+
 \begin{table}[!htb]
   \begin{center}
     \begin{tabular}{lrrr}
@@ -2617,22 +2692,6 @@ of cache misses is high then this is most likely not the case.
   \label{tab:stats}
 \end{table}
 
-\section{Benchmark Performance}
-
-\subsection{Ackermann}
-\includegraphics{ackermann.png}
-\subsection{Fannkuch}
-\includegraphics{fannkuch.png}
-\subsection{Fasta}
-\includegraphics{fasta.png}
-\subsection{Mandelbrot}
-\includegraphics{mandelbrot.png}
-\subsection{Mersenne Twister}
-\includegraphics{mersenne.png}
-\subsection{Prime Sieve}
-\includegraphics{primesieve.png}
-\subsection{Reverse Complement}
-\includegraphics{reversecomplement.png}
 
 
 \chapter{Conclusion}
@@ -3008,8 +3067,6 @@ of objects and buffers.
 #define GetFlags(v)((v) & 3)
 #define GetSize(v)((v) >> 2)
 \end{lstlisting}
-
-
 
 \bibliographystyle{apacite} 
 \bibliography{treatise-bibliography}
