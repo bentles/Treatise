@@ -68,7 +68,7 @@
 \pagenumbering{roman}
 \chapter*{Acknowledgements}
 
-I would like to extend my thanks to my supervisor Kevin
+I would like to extend my thanks to my supervisor, Kevin
 Naud\'{e}. Your extensive knowledge of the field of research aided
 both the development and research aspects of this project
 greatly. Without your guidance, I fear this project would be a shadow
@@ -76,9 +76,9 @@ of what it is now.
 
 A special thank you to Matthew Sainsbury -- for writing more than your
 fair share of the benchmarks used in this project, for writing the
-assembler that I modified to work with my own VM and for sharing
-information with me whenever you found something you thought was
-relevant to both of our projects.
+assembler that I modified to work with my own virtual machine (VM) and
+for sharing information with me whenever you found something you
+thought was relevant to both of our projects.
 
 Thanks to the honours class of 2015. I've thoroughly enjoyed our time
 together and hope we may all cross paths again in future.
@@ -89,19 +89,21 @@ together and hope we may all cross paths again in future.
 
 Interpreters for dynamically typed languages incur a performance
 overhead cost associated with checking the types of instruction
-arguments. JIT-compilers are used to speed up interpreter execution
-speed, but are not ideal for many instance, short-lived processes like
-those of a web server. For this reason, this treatise examines an
-approach to increase the performace of a JIT-less interpreter for a
-dynamically typed langage. The proposed solution is the Operand-Type
-Dispatch VM, which makes use two techniques, operand case expansion
-and type-mapping, to help alleviate the overhead of checking the types
-of instruction arguments. A further VM, the Operand Dispatch VM that
-exclusively makes use of operand case expansion, was developed to
-examine the performance benefits of type-mapping. The study found that
-operand case expansion provided most of the benefit of the
-Operand-Type Dispatch VM and hence that the Operand Dispatch VM was in
-fact a better solution to the problem.
+arguments. Just-in-time (JIT) compilers are used to improve interpreter
+execution speed, but are not ideal for many-instance, short-lived
+processes like those of a web server. For that reason, this treatise
+examines an approach to increase the performace of a JIT-less
+interpreter for a dynamically typed langage.
+
+The proposed solution is the Operand-Type Dispatch Virtual Machine,
+which makes use of two techniques, operand case expansion and
+type-mapping to help alleviate the overhead of checking the types of
+instruction arguments. A further virtual machine (VM), the Operand
+Dispatch VM that exclusively makes use of operand case expansion, was
+developed to examine the performance benefits of type-mapping. The
+study found that operand case expansion provided most of the benefit
+of the Operand-Type Dispatch VM and hence that the Operand Dispatch VM
+was in fact a better solution to the problem.
 
 %TODO add numbers I guess
 
@@ -112,11 +114,11 @@ I declare that the entirety of the work contained in this treatise is
 my own, original work, that I am the sole author thereof (save to the
 extent explicitly otherwise stated), that reproduction and publication
 thereof by Nelson Mandela Metropolitan University will not infringe
-any third party rights that I have not previously in its entirety or
-in part submitted it for obtaining any qualification.
+any third party rights that I have not previously, in its entirety or
+in part, submitted in order to obtain any qualification.
 
 \singleline
-Signature: 	\tab...........................\newline
+Signature: 	\tab............................\newline\newline
 Date: 		\tab............................
 \newpage{}
 
@@ -169,7 +171,7 @@ follows.
 \section{Dynamically Typed Languages}
 Dynamically typed languages are the foundation on which the modern
 website is built. All major browsers have JavaScript engines (virtual
-machines) which can interpret and execute JavaScript code. Javascript
+machines) which can interpret and execute JavaScript code. JavaScript
 is a dynamically typed language. Developers use JavaScript to create
 interactive websites. Another dynamically typed language, PHP, is the
 most commonly used language for server-side scripting. This is what
@@ -213,7 +215,7 @@ where the primary mode of interaction is entering single-line
 commands. Some examples of langauges with this type of interpreter
 are: Bash, CMD.EXE, Python and Ruby.
 
-This approach has a fast start up time because as soon as a line of
+This approach has a fast start-up time because as soon as a line of
 code is parsed it can be executed. Programs with loops require lines
 to be reinterpreted, an overhead other approaches do not incur. This
 means that very short programs can be executed quickly, but large,
@@ -227,11 +229,11 @@ program. This tree can then be traversed in the correct order to
 execute the program. The abstract syntax tree has a node for each
 construct in the abstract syntax of the programming language.
 
-Figure~\ref{fig:ast} shows an abstract syntax tree for an if statement
+Figure~\ref{fig:ast} shows an abstract syntax tree for an \verb|if| statement
 in the Java programming language's syntax. This tree can be traversed
 to execute the code. The traversal starts at the root of the tree at
 the \verb|if| node. This node has three branches coming off of it. The
-interpretation algorithm will know that because the the node is an \verb|if|
+interpretation algorithm will know that because the node is an \verb|if|
 node, the leftmost branch must be traversed first. This branch is
 called the ``predicate''.
 
@@ -252,7 +254,7 @@ the entire program into an AST before interpretation can take
 place. The entire tree structure is kept in memory and so the memory
 overhead is larger than line-by-line interpretation, but it does not
 have to parse lines of code that have already been parsed, which makes
-it better than line-by-line interpreted programs for computaitonally
+it better than line-by-line interpreted programs for computationally
 intensive tasks.
 
 \begin{figure}
@@ -293,19 +295,19 @@ This bytecode is stored compactly as a list of simple operations the
 VM can perform. This approach is found in the statically typed
 languages Java and C\# and dynamically typed languages like Lua share
 the same approach. Bytecode interpreters are also called virtual
-machines because of they perform the same tasks as a real CPU:
-fetching, decoding and executing instructions.
+machines because they perform the same tasks as a real CPU: fetching,
+decoding and executing instructions.
 
 The Lua VM is a good example of a bytecode
 interpreter. Figure~\ref{fig:luabyte} shows the format of the Lua
 virtual machine's bytecode (as of Lua 5.0
 \cite{RobertoIerusalimschy}). The bytecode is made up of 32-bit
-unsiged integers. These are referred to as ``instruction words''
+unsigned integers. These are referred to as ``instruction words''
 because each holds an instruction that the VM must perform. 
 
-Bits 0 through 5 of each instruction word are used to store the
+Bits zero through five of each instruction word are used to store the
 opcode. The opcode is, as the name suggests, a code that represents
-which operation the VM must perform. Bits 6 through 13 are always used
+which operation the VM must perform. Bits six through 13 are always used
 to index the first argument. The remaining 18 bits encode additional
 operands which appear in any of three possible formats.
 
@@ -354,7 +356,7 @@ distinction here is critical to avoid confusion. The instruction set
 of the virtual machine is a set of subroutines. These subroutines are
 made up of instructions that the real (or host) machine executes.
 
-Each of these subroutines in the VMs instruction set performs a
+Each of these subroutines in the VM's instruction set performs a
 specific operation necessary for the execution of a program. A VM
 usually has instructions for performing arithmetic operations
 (\verb|add|, \verb|divide|, \verb|subtract| ...), bit manipulation
@@ -462,17 +464,17 @@ implementation required and the VM will not be required to perform
 A risk for any research project is to allow personal bias to cloud the
 conclusions drawn from the results. This study aims to follow the
 scientific method and disclose as much information as is necessary for
-the study to be repeatable. The fact the virtual machine is a
+the study to be repeatable. The fact that the virtual machine is a
 prototype that runs a known set of benchmarks means that there is a
 risk of creating a virtual machine that is specialised for its own
 benchmarks. The VM must have a design that provides good performance
-generally and hence the set of benchmarks is diverse on order to
+generally and hence the set of benchmarks is diverse in order to
 mitigate this risk.
 
-A risk mitigated by the design of the study is that the hand-written
+A possible risk in the design of the study is that the hand-written
 benchmarks may not be optimised as well as those produced by a
-compiler. Since all three VMs will run identical benchmarks this risk
-is mitigated because any lack of optimisation in a benchmark
+compiler. However, since all three VMs will run identical benchmarks
+this risk is mitigated because any lack of optimisation in a benchmark
 experienced by one VM will be experienced by all other VMs. Comparing
 the experimental VMs with an existing conventional VM design would be
 ineffectual as it may perform better purely because the code produced
@@ -506,9 +508,9 @@ In chapter 6, the results of the experiment will be discussed and
 analysed and the performance benefits of the virtual machine will be
 examined.
 
-Lastly in chapter 7, conclusions will be drawn about in what instances
-the implementation for the virtual machine is useful and what its
-strengths and weaknesses are.
+Lastly in chapter 7, conclusions will be drawn regarding in what
+instances the experimental implementation of the virtual machine is
+useful and what its strengths and weaknesses are.
 \newpage{}
 
 \chapter{Background, Literature Review and Existing System}
@@ -517,7 +519,7 @@ programs. Some virtual machines are designed to emulate real computers
 and can have operating systems installed on them. Other virtual
 machines exist only to run a single program to completion. In order to
 disambiguate the term, a discussion of the hierarchy of virtual
-machine follows, and the VM that is the focus of this study is
+machines follows, and the VM that is the focus of this study is
 situated within it. This discussion follows in section
 ~\ref{sec:vms}. This is followed by a short discussion that outlines
 the distinction between dynamically and statically typed languages.
@@ -526,7 +528,7 @@ In chapter 3, the design of the virtual machine is discussed. The
 design decisions behind the virtual machine take into account how the
 modern computer processor architecture works. Hence a discussion of
 the modern processor architecture is necessary background information
-that informs the decisions and trade-off that are discussed in chapter
+that informs the decisions and trade-offs that are discussed in chapter
 3. This discussion will follow in section
 ~\ref{sec:processor_architecture}.
 
@@ -557,16 +559,16 @@ machine is ``capable of supporting an individual
 process''\cite[pg9]{JamesE.Smith2005}. This means that the host runs
 the guest for as long as a single process on the guest machine needs
 it. Once the process has completed its execution the guest machine
-terminates\cite[pg9]{JamesE.Smith2005}. An example of a process
+terminates \cite[pg9]{JamesE.Smith2005}. An example of a process
 virtual machine is the Java Virtual Machine or JVM. All Java programs
 run on the JVM. An instance of the JVM is started when you execute a
 Java program and terminated when its execution is complete.
 
 A system virtual machine ``provides a complete system environment''
-''\cite[pg9]{JamesE.Smith2005}. This means that it can support an
-entire operating system on the guest machine and the many processes
-that the guest operating system executes. A system virtual machine
-will terminate when the guest system is shut down. 
+\cite[pg9]{JamesE.Smith2005}. This means that it can support an entire
+operating system on the guest machine and the many processes that the
+guest operating system executes. A system virtual machine will
+terminate when the guest system is shut down.
 
 This study focuses on process virtual machines and hence the finer
 details of system virtual machines will not be discussed. In the class
@@ -585,7 +587,7 @@ With multiprogramming the guest and host use the same instruction
 set. Multiprogramming is supported by most operating systems and
 allows a user to run many processes at once by ``making each process
 think it has access to an entire machine instead of only part of a
-machine''\cite[pg13]{JamesE.Smith2005}. The OS creates an environment
+machine'' \cite[pg13]{JamesE.Smith2005}. The OS creates an environment
 per process that it terminates when that process ends execution.
 
 With dynamic translators the instruction set of the host and guest
@@ -606,7 +608,7 @@ compilation).
 The VM is a process virtual machine. It has a new instruction set
 architecture and hence is different from any host machine's ISA. The
 VM is exclusively an interpreter and does not make use of a JIT
-compiler. For this reasons it is a ``JIT-less'' virtual machine. But
+compiler. For this reason it is a ``JIT-less'' virtual machine. But
 what is it that makes the virtual machine a ``Dynamic-ISA'' VM? A
 dynamic ISA virtual machine is one used to interpret bytecode from a
 dynamically typed language. One way of classifying programming
@@ -636,7 +638,7 @@ With static typing a program's type correctness can be checked at
 compile time. Because the types of all variables are known when the
 code is written, operations on those variables can be declared valid
 or invalid when code is compiled. If an operation that acts on one
-type of variable is given another the program will not compile. This
+type of variable is given another, the program will not compile. This
 knowledge is advantageous for the programmer and for the machine (or
 VM as the case may be).
 
@@ -746,7 +748,7 @@ cycle is shared by many consecutive instructions at once. The
 instruction processing procedure is split up into smaller stages that
 can execute simultaneously. An example of this is the classic RISC
 pipeline which divides instruction processing into the following
-steps: Instruction Fetch (IF), Decode(ID), Execute(EX), Memory Access
+steps: Instruction Fetch (IF), Decode (ID), Execute (EX), Memory Access
 (MEM) and Writeback (WB). Each instruction passes a stage and leaves
 that part of the processor free to perform that stage on the next
 instruction. Thus many instructions (as many as there are stages) can
@@ -834,10 +836,9 @@ Spacial locality takes advantage of the likelihood that similar data
 will be needed in the near vicinity of an accessed value. Data near an
 accessed value is cached because it is likely that it will be
 needed. This would be good for something like sequential array lookups
-because more of the array will be cached for faster access later. 
-
-With knowledge of how cache functions we can implement a VM that makes
-effective use of the processor's cache.
+because more of the array will be cached for faster access later. With
+knowledge of how cache functions a VM that makes effective use of the
+processor's cache can be implemented.
 
 \section{Conventional Implementation of High Level VMs}
 
@@ -855,10 +856,10 @@ instruction word. This decode step must happen before each
 instruction can be executed. 
 
 As an example, the Lua bytecode is revisited in figure
-\ref{fig:luabyte-repeat}. This image is the format for
-instructions for the Lua VM. Instructions in the Lua bytecode are
-32-bit integers. Different sections of this 32-bit integer are used to
-encode the opcode and operands.
+\ref{fig:luabyte-repeat}. This image is the format for instructions
+for the Lua VM. Instructions in the Lua bytecode are 32-bit
+integers. Different sections of this 32-bit integer are used to encode
+the opcode and operands.
 
 \begin{figure}[!htb]
 	\begin{center}
@@ -906,17 +907,18 @@ void engine()
     }
 } 
   \end{lstlisting}
-  \caption{Switch Dispatch}
+  \caption[Switch Dispatch]{Switch Dispatch\cite{Ertl}}
   \label{fig:switch}
 \end{figure}
 
 This approach is problematic because the switch statement means that
 there is only ever a single entry in the Branch Target Buffer used for
-dispatch . This means that the number of mispredictions will be large
-as the target of the branch will change for each new instruction we
-branch to. This problem may even be magnified by the fact that this
-specific VM implementation has far more instructions than usual as it
-requires several specialised versions of every instruction.
+indirect branches. This means that the number of mispredictions will
+be large as the target of the branch will change for each new
+instruction that the virtual machines branches to. This problem may
+even be magnified by the fact that this specific VM implementation has
+far more instructions than usual as it requires several specialised
+versions of every instruction.
 
 \begin{comment}The name threading comes from the idea of the execution
   threading its way from one instruction to the next {[}??{]}
@@ -944,13 +946,13 @@ add:
     goto *ip++; /* dispatch next VM inst. */ 
 }
   \end{lstlisting}
-  \caption{Direct Threaded Dispatch}
+  \caption[Direct Threaded Dispatch]{Direct Threaded Dispatch\cite{Ertl}}
   \label{fig:direct}
 \end{figure}
 
-Another method is indirect threading. In indirect threading we keep a
-lookup table of the addresses of code for each instruction and have
-each instruction jump to the next by reading the opcode of the next
+Another method is token threading. In token threading a lookup table
+of the addresses of code for each instruction is kept and each
+instruction dispatches to the next by reading the opcode of the next
 instruction from the program, looking up the address of the code for
 that instruction in the table and then jumping to that instruction.
 
@@ -970,7 +972,7 @@ add:
     goto lookup[*ip++]; /* dispatch next VM inst. */ 
 }
   \end{lstlisting}
-  \caption{Indirect Threaded Dispatch}
+  \caption[Token Threaded Dispatch]{Token Threaded Dispatch\cite{Ertl}}
   \label{fig:indirect}
 \end{figure}
 
@@ -979,10 +981,8 @@ target buffer. Instead of a single entry in the BTB, with direct
 threading we have an entry per instruction, so instructions that
 commonly follow each other have a better chance of being predicted.
 
-All code in this section is from or adapted from \cite{Ertl}.
 
-
-\subsection{Registers VS Stacks}
+\subsection{Registers vs Stacks}
 In a stack virtual machine, instructions act on members of the
 stack. Arguments and return values for instructions are often implicit
 and thus instructions can be smaller. For instance a stack
@@ -1003,15 +1003,15 @@ Common Language Runtime (CLR) make use of stack virtual machines
 
 \subsection{Just in Time Compilation}
 
-Both the Hotspot Java Virtual Machine and .Net Common Language 
-Runtime make use of Just in Time compilation. JIT 
+Both the Hotspot Java Virtual Machine and .Net Common Language Runtime
+make use of Just in Time compilation \cite{JVMJIT} \cite{CLRJIT}. JIT
 compilation allows for code that is executed often enough to be
-compiled into native machine code at runtime. This means that the 
-areas of code most frequently executed in the program run much faster 
-than they would otherwise and the overhead of compiling and 
-optimising every single piece of code, even that which is not used 
-often, is removed. Removing this overhead is important because slow 
-compilation at runtime can have a visible effect for users.
+compiled into native machine code at runtime. This means that the
+areas of code most frequently executed in the program run much faster
+than they would otherwise and the overhead of compiling and optimising
+every single piece of code, even that which is not used often, is
+removed. Removing this overhead is important because slow compilation
+at runtime can have a visible effect for users.
 
 \section{Literature and Existing Systems}
 \label{sec:research}
@@ -1111,13 +1111,13 @@ This study introduces two experimental virtual machines. \textbf{The
 two central ideas behind these experimental virtual machines are
 type-mapping and operand case expansion. The Operand Dispatch VM makes
 use of operand case expansion exclusively. The Operand-Type Dispatch
-VM, however makes use of both operand case expansion and type
+VM however, makes use of both operand case expansion and type
 mapping. 
 
 It may be tempting to propose a third virtual machine that makes use
 of type-mapping exclusively and does not use operand case expansion,
 but type-mapping cannot be decoupled from operand case
-expansion. Operand case expansion is necessary to implement
+expansion. Operand case expansion is necessary to implement a
 type-mapped VM. These two techniques, operand case expansion and type
 mapping will now be discussed.
 
@@ -1143,8 +1143,7 @@ expansion is beneficial because it removes the decode step present in
 a conventional virtual machine design (see section
 \ref{sec:decode}). This is because the entire instruction word can be
 used to select the specific version of the instruction needed. The
-implementation details of operand case expansion will be examined in
-chapter 4. %TODO section?
+implementation details of operand case expansion is examined in chapter 4. 
 
 \begin{figure}
 	\centering
@@ -1168,8 +1167,8 @@ chapter 4. %TODO section?
 \end{figure}
 
 Type-mapping is closely coupled with the idea of argument case
-expansion. For type-mapping to be effective the VM must dispatch on
-its current type-state. But if the VM does not also dispatch on the
+expansion. For type-mapping to work, the VM must dispatch on its
+current type-state. But if the VM does not also dispatch on the
 operands for the next instruction it cannot know which version of the
 instruction is appropriate. Knowing which types are in which registers
 without knowing which registers are arguments for an instruction means
@@ -1205,7 +1204,7 @@ referred to will apply to \emph{all} three virtual machines.
 
 The VM is a register virtual machine. The choice of being
 register-based is necessary for the operand case expansion to be
-performed. Of course, since type-mapping required operand case
+performed. Of course, since type-mapping requires operand case
 expansion, that also necessitates that the virtual machine use
 registers. Yuhne Shi\cite{Shi2007} showed that register machines can
 give a performance increase over equivalent stack-based VMs. This
@@ -1218,19 +1217,22 @@ registers. A low number of registers adds complexity to a potential
 compiler for this virtual machine because the compiler must perform
 register allocation more frequently, but keeping the number of
 registers low is important for the Operand-Type Dispatch and Operand
-Dispatch VMs. With just six registers, an instruction that takes three
-arguments potentially has $6^3 = 216$ operand cases.
+Dispatch VMs. This is because a large number of registers would
+greatly increase the number of operand cases needed to implement
+instructions that take register arguments. With just six registers, an
+instruction that takes three arguments potentially has $6^3 = 216$
+operand cases. With 10 registers, that would be $10^3 = 1000$.
 
 Because every argument in an instruction increases the number of
-operand cases sixfold, where possible, instructions in the VM include
-an implicit assignment. That is, instead of having an instruction,
-\verb|add g1, g2, g3|, which adds \verb|g2| to \verb|g3| and stores
-the result in \verb|g1|, the VM implements the \verb|add| instruction
-as follows: \verb|add g1, g2|. This instruction adds \verb|g1| to
-\verb|r2| and stores the result in \verb|g1|. In this way the number
-of operand cases can be kept reasonably low. The Operand-Type Dispatch
-VM faces a similar issue that affects the decision for which types the
-VM should use.
+operand cases exponentially, where possible, instructions in the VM
+include an implicit assignment. That is, instead of having an
+instruction, \verb|add g1, g2, g3|, which adds \verb|g2| to \verb|g3|
+and stores the result in \verb|g1|, the VM implements the \verb|add|
+instruction as follows: \verb|add g1, g2|. This instruction adds
+\verb|g1| to \verb|r2| and stores the result in \verb|g1|. In this way
+the number of operand cases can be kept reasonably low. The
+Operand-Type Dispatch VM faces a similar issue that affects the
+decision for which types the VM should use.
 
 \subsection{Types}
 
@@ -1239,9 +1241,9 @@ number of types low is extremely important for the Operand-Type
 Dispatch VM because it affects the total number of states the VM can
 take on. The Operand-Type Dispatch VM can be thought of as creating a
 specialised version of the VM for every type state. With two primitive
-types and 6 registers this means there are a total of $2^6 = 64$ total
-states the VM can take on. Increasing the number of primitive types by
-one makes that $3^6 = 729$ possible states.
+types and six registers this means there are a total of $2^6 = 64$
+total states the VM can take on. Increasing the number of primitive
+types by one makes that $3^6 = 729$ possible states.
 
 The decision to have only two types was made because of the increased
 complexity that would be associated with an additional type. Floating
@@ -1259,9 +1261,10 @@ reason the type checking operations explained in section
 \ref{sec:type_safe} must take place. The VM registers are used to
 store \textbf{values}. Values are a convenient data structure that can
 hold either a pointer or an integer, as these are the types supported
-by the VM. Most instructions in the VM refer to general purpose
-registers which hold values, but two other modes of addressing exist
-in the VM.
+by the VM. The implementation details of values are covered in section
+\ref{values-implementation}. Most instructions in the VM take
+arguments which are general purpose registers which hold values, but
+two other modes of addressing exist in the VM.
 
 \subsection{Addressing}
 Instructions take operands of three types: 
@@ -1294,48 +1297,58 @@ the VM follows:
 
 \section{Instructions}
 
-All virtual machines support an identical set of instructions. How
-these are implemented is quite different for each VM but the
-functionality of each instruction does not change between virtual
-machines.
+All three virtual machines provide a set of 46 instructions. These
+shall be referred to as ``logical instructions'' as they enumerate the
+entire set of functions the VMs can perform. All VMs provide the same
+functionality. These 46 instructions make up the set of possible
+instructions that can exist in an unassembled program for any of the
+three virtual machines. 
 
-Instruction words are 16 bits long. Each instruction may have a
-maximum of three register-number addressed operands. If the
-instruction has multiple register-number addressed operands and a
-result, the result will be stored in the register addressed by the
-first operand.
+For each VM, however, there are different implementations of these
+logical instructions. For the conventional VM, there is a single
+``internal instruction'' for each of the 46 logical instructions the
+VM provides. It has a one-to-one correspondence between logical an
+internal instructions. 
+
+For the Operand-Type and Operand Dispatch VMs there are, in some
+cases, multiple internal instructions for each logical
+instruction. For these cases, there is a many-to-one correspondence
+between the internal instructions and the logical instructions they
+implement.
 
 \subsection{Instruction Set Design Factors}
 \label{sec:inst-set-design-factors}
-In some cases, specific argument combinations for an instruction have
-been removed as they produce trivial results. For instance the
-subtract operation cannot be used with the same register for both
-arguments. Since the result of this operation is always zero and there
-already is an instruction to set a register to zero, there is no need
-to include this case.
+In some cases, specific argument combinations for a logical
+instruction have been removed as they produce trivial results. For
+instance the subtract operation cannot be used with the same register
+for both arguments. Since the result of this operation is always zero
+and there already is an instruction to set a register to zero, there
+is no need to include this case.
 
 The VM instruction set design was made with memory hierarchy of modern
-computers in mind. The instruction set was designed to be as robust
-and general as possible with the aim that as many of the instruction
-subroutines needed by the VM could be cached. The VM has an
-instruction set of 46 instructions. Because of the operand case
-expansion the Operand Dispatch VM has 1295 instructions. The
-Operand-Type Dispatch VM has 2021 instructions and a special
-instruction to signal an error. The difference ($2022 - 1295 = 728$)
-is the set of type specialised versions of instructions.
+computers in mind. The instruction set is designed to be as robust and
+general as possible. The aim is for the instruction subroutines needed
+by the VM to be in L1 instruction cache. The VM has an instruction set
+of 46 instructions. Because of the operand case expansion the Operand
+Dispatch VM has 1295 internal instructions. The Operand-Type Dispatch
+VM has 2021 internal instructions and a special instruction to signal
+an error. The difference ($2022 - 1295 = 728$) is the set of type
+specialised internal instructions.
 
 A rough estimate of the size of a low abstraction level
-\cite{Brunthaler20093} instruction for the Operand VM is 120
-bytes. This means the VM instructions would require around 151KB of
-cache to house the entire instruction set. The Haswell processor, as
+\cite{Brunthaler20093} internal instruction for the Operand VM is 120
+bytes. This means the Operand VM would requires around 151KB of cache
+to house the entire instruction set. The Haswell processor, as
 mentioned in section \ref{sec:cache}, has 32KB of L1 instruction
-cache. But only a small fraction of the instruction set will be in use
-at any time. This must be the case, because 720 of the 1295
-instructions in the Operand-Dispatch VM are used to implement four
-instructions present in the Conventional VM: \verb|geto|, \verb|seto|,
-\verb|getb| and \verb|setb|. The Operand-Type VM's low abstraction
-level instructions are approximately 60 bytes. This works out to only
-118KB for the entire instruction set.
+cache. Only a small fraction of the instruction set will be in use at
+any time. This must be the case, because 720 of the 1295 instructions
+in the Operand-Dispatch VM are used to implement four logical
+instructions: \verb|geto|, \verb|seto|, \verb|getb| and
+\verb|setb|. 
+
+The Operand-Type VM's low abstraction level internal instructions are
+approximately 60 bytes. This works out to only 118KB of instruction
+cache needed for the entire instruction set.
 
 The size of the instruction set in cache is not the only issue to
 consider for the Operand and Operand-Type Dispatch VMs
@@ -1344,17 +1357,17 @@ table used for their dispatch mechanism. The dispatch mechanism of
 each VM is discussed in section \ref{sec:labels-as-addresses}. This
 lookup table is referred to as the \textbf{dynamic opcode table}.
 
-This lookup table is a set of 8-byte pointers. In the Operand Dispatch
-VM, the dynamic opcode table is $(1296*8)/1024 = 10$KB, a fraction of
-the L1 data cache for a Haswell processor. For the Operand-Type
-dispatch however, the lookup table is $(131072*8)/1024 = 1$MB which is
-around 30 times larger than L1 data cache. This is less of a problem
-than it seems. Firstly, 36.7\% of this table is never used. A further
-42.4\% of the table entries are only used if there is a type error, in
-which case the program's execution will not complete
-anyway. Furthermore only a small fraction of the remaining 20\% (which
-could fit in L2 cache on a Haswell machine) of the table is actually
-used by a single program.
+The dynamic opcode table is a set of 8-byte pointers. In the Operand
+Dispatch VM, the dynamic opcode table is $(1296*8)/1024 = 10$KB, a
+fraction of the L1 data cache for a Haswell processor. For the
+Operand-Type dispatch however, the lookup table is
+$(131072*8)/1024 = 1$MB which is around 30 times larger than L1 data
+cache. This is less of a problem than it seems. Firstly, 36.7\% of
+this table is never used. A further 42.4\% of the table entries are
+only used if there is a type error, in which case the program's
+execution will not complete anyway. Furthermore only a small fraction
+of the remaining 20\% (which could fit in L2 cache on a Haswell
+machine) of the table is actually used by a single program.
 
 A sample of the instructions provided by the VM follows. The full set
 of instructions may be found in appendix B.
@@ -1483,7 +1496,18 @@ jumps are relative to the current \verb|IP| value.
 
 \subsection{Function Call and Return}
 
-The function call mechanism was designed to be simple. 
+The function call mechanism was designed to be simple. Instruction
+arguments must be stored contiguously in local variables in the
+caller, and are copied as a unit into the local varaibles in the
+caller. This mechanism may cause issues when multiple calls are needed
+that require the same variables in different orders, but since the VM
+is only to be used for a small set of benchmarks, these issues can be
+avoided. This mechanism was chosen because it is an extremely simple
+way to pass arguments. The function call mechanism saves registers
+$g_1$ through $g_4$ before the function call. More detail on the
+implementation of the function call and return mechanisms will be
+given in section XXX.
+
 
 \subsection{Pragmatic Higher-Level Instructions}
 
@@ -1502,7 +1526,8 @@ The function call mechanism was designed to be simple.
 		\item[print] writes a line of data to stdout
 \end{description}
 
-The aspects of the three virtual machines that set them apart from each other are now discussed.
+The aspects of the three virtual machines that set them apart from
+each other are now discussed.
 
 \section{Conventional VM Design}
 \label{sec:conv-vm}
@@ -1619,12 +1644,16 @@ the type state of the VM changes.
 
 \chapter{Solution Implementation}
 
+The VMs are 64-bit applications written in GNU C and compiled using
+the GNU C Compiler version 5.1.1. All virtual machines were compiled
+using the ``-O3'' compiler flag.
+
 \section{Registers}
 
-All virtual machines make use of 6 general purpose registers. These
-registers are implemented as an array of 6 \verb|values|. These shall
-be referred to as $g_0$ through $g_5$. Here `g' refers to `general
-purpose'.
+All virtual machines make use of six general purpose registers. These
+registers are implemented as an array of six \verb|values|. These
+are referred to as $g_0$ through $g_5$. Here `g' refers to
+`general purpose'.
 
 A further two registers are found in the VM. The instruction pointer,
 which will be referred to as the \verb|IP| and the frame pointer which
@@ -1651,6 +1680,7 @@ for each instance of the VM by consulting the state register and
 looking up the addresses in the lookup table.
 
 \section{Values}
+\label{values-implementation}
 
 \begin{figure}[!htb]
 
@@ -1797,31 +1827,6 @@ terminated by a \verb|ret| instruction.
 	\label{fig:stframe}
 \end{figure}
 
-\section{Logical vs Internal Instructions}
-\label{sec:codegen}
-All three virtual machines provide a set of 46 instructions. These
-shall be referred to as ``logical instructions'' as they enumerate the
-entire set of functions the VMs can perform. All VMs provide the same
-functionality. These 46 instructions make up the set of possible
-instructions that can exist in an unassembled program for any of the
-three virtual machines. 
-
-For each VM, however, there are different implementations of these
-logical instructions. For the conventional VM, there is a single
-``internal instruction'' for each of the 46 logical instructions the
-VM provides. It has a one-to-one correspondence between logical an
-internal instructions. 
-
-For the Operand-Type and Operand Dispatch VMs there are, in some
-cases, multiple internal instructions for each logical
-instruction. For these cases, there is a many-to-one correspondence
-between the internal instructions and the logical instructions they
-implement.
-
-This is best explained with an example. The \verb|add| instruction
-provides a clear example of the distinctions between the different
-internal instructions each VM uses to implement a logical instruction.
-
 \subsection{Conventional VM Implementation}
 
 For the Conventional VM, the logical \verb|add| instruction has only a
@@ -1860,6 +1865,7 @@ next instruction the VM must perform in the manner described in
 section \ref{sec:labels-as-addresses}.
 
 \subsection{Operand Dispatch VM Implementation}
+\label{sec:operand-dispatch-implementation}
 
 For the Operand Dispatch VM, the logical \verb|add| instruction is
 implemented using 36 internal instructions of the following form:
@@ -1890,6 +1896,7 @@ is removed. Note how lines three and four in the Conventional VM are
 not replicated in the Operand Dispatch VM.
 
 \subsection{Operand-Type Dispatch VM Implementation}
+\label{sec:operand-type-dispatch-implementation}
 
 For the Operand-Type Dispatch VM, the logical \verb|add| instruction
 is implemented using 37 internal instructions. The 37th instruction
@@ -2796,6 +2803,9 @@ implement and makes fewer of the trade-offs necessary for the
 Operand-Type VM, while still providing most of the performance
 benefits gained by the Operand-Type VM.
 
+\bibliographystyle{apacite} 
+\bibliography{treatise-bibliography}
+
 \newpage{}
 \appendix
 \chapter{Project Proposal} 
@@ -3328,7 +3338,7 @@ the speed increase applies to.
 
 \section{Execution Times}
 
-\begin{figure}
+\begin{figure}[!htb]
   \includegraphics{ackermann.png}
   \includegraphics{fannkuch.png} 
   \includegraphics{fasta.png}
@@ -3340,8 +3350,7 @@ the speed increase applies to.
 \end{figure}
 
 
-\bibliographystyle{apacite} 
-\bibliography{treatise-bibliography}
+
 
 \end{document}
 
