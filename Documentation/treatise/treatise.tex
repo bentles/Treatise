@@ -2620,7 +2620,7 @@ These are results common to all benchmarks in the suite.
 
 \subsection{Execution Time}
 Both experimental VMs were faster across all benchmarks than the
-conventional VM. For all benchmarks, the Operand-Type VM performed
+Conventional VM. For all benchmarks, the Operand-Type VM performed
 best, the Operand VM was slightly slower and the Conventional VM was
 the slowest. Speed increases for the Operand Dispatch VM over the
 Conventional VM ranged from 8.53\%(Ackermann) to
@@ -2642,12 +2642,16 @@ VMs as a result of operand case expansion, the set of instructions
 needed by all benchmarks could always fit in level one instruction
 cache.
 
+The Linux Perf cache miss data shows that, generally cache miss rates
+(and these include data cache misses) were stable between the three
+VMs, with the exception of the Prime Sieve benchmark.
+
 \subsection{Branch Miss Rate}
 The cachegrind results also revealed, interestingly that the
 conventional VM has a far higher indirect branch miss rate than the
 two experimental VMs. This was true accross all benchmarks. This means
 that the token-threaded dispatch is less effective on the Conventional
-VM than it is on the experimental VMs.
+VM than it is on the experimental VMs. %why?
 
 \subsection{Instruction Counts and Type State Usage}
 Table \ref{tab:stats} shows that the number of states used by the
@@ -2657,8 +2661,9 @@ than a quarter of the total number of states the VM can take on.
 
 \begin{table}[!htb]
   \centering
+  %\small
   \begin{center}
-    \begin{tabular}{lrrr}
+    \begin{tabular}{lrrrr}
       Benchmark & Total Instructions & Function Calls & State Changes & Unique States\\
       \hline
       Ackermann & 25766921624 & 2862984010 & 0 & 1\\
@@ -2674,8 +2679,7 @@ than a quarter of the total number of states the VM can take on.
   \label{tab:stats}
 \end{table}
 
-
-\section{Benchmark Results}
+\section{Benchmark-Specific Results}
 
 The following results are analysed for each benchmark in
 isolation. Each graph shows the average running time in seconds of
@@ -2690,28 +2694,75 @@ The ackermann benchmark was found to only have a small performance
 increase for the Operand Dispatch and Operand-Type Dispatch VMs, with
 8.14\% and 11.91\% speed increases in execution time respectively.
 
-\includegraphics{ackermann.png}
-
+Table \ref{tab:stats} shows that the Ackermann benchmark had the
+largest number of function calls. It also had the highest percentage
+of function calls with 11.11\% of all instructions in the benchmark
+being function calls. It would be expected that these calls would make
+up more than 11.11\% of the execution time of the benchmark as each
+call is a high abstraction level instruction that performs memory
+allocations and copies data. This may have had a dampening effect on
+the performance benefits of the experimental VMs as the function call
+instruction is the same for all VMs. All other benchmarks had less
+than 4\% of their instructions as function calls.
 
 \subsection{Fannkuch}
-\includegraphics{fannkuch.png}
-\subsection{Fasta}
-\includegraphics{fasta.png}
+The Fannkuch benchmark provided a quite large performance increases
+over the Conventional VM relative to the other benchmarks. The most
+striking result is the performance increase of the Operand-Type
+Dispatch VM over the Operand Dispatch VM, which is the highest of all
+benchmarks at 8\%.
+
+The percentage of function call instructions for this benchmark was
+less that 0.9\%, and this may help explain why performance increases
+in general were large, but it does not explain why the Operand-Type VM
+specifically gained a larger increase than in other benchmarks.
+
 \subsection{Mandelbrot}
-\includegraphics{mandelbrot.png}
+The Mandelbrot benchmark has the best performance increases for the
+two experimantal VMs over the Conventional VM with a 24.4\% increase
+for the Operand Dispatch and a 30.06\% increase for the Operand-Type
+Dispatch VM. The execution times of the mandelbrot benchmark across
+VMs is shown in figure \ref{fig:mandel-time}.
+
+The mandelbrot benchmark has no function calls and also has
+0.00\% (rounded) high abstraction level instructions. Since almost all
+insructions are low abstraction level instructions, this benchmark
+gains significantly from being able to remove the type checking and
+decode steps present in the Conventional VM as they make up a larger
+percent of the execution time of low abstraction level instructions.
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics{mandelbrot.png}
+  \caption{Mandelbrot Execution Time}
+  \label{fig:mandel-time}
+\end{figure}
+
 \subsection{Mersenne Twister}
-\includegraphics{mersenne.png}
+The mersenne twister had a large performance increase relative to
+other benchmarks, but experienced the smallest increase for the
+Operand-Type Dispatch VM over the Operand VM with a 2.7\% increase.
+
 \subsection{Prime Sieve}
-\includegraphics{primesieve.png}
+The Prime Sieve benchmark had quite average performance increases
+compared to other benchmarks. It also produced an interesting trend of
+higher cache-misses for the experimental VMs in the Perf benchmark
+results. Prime Sieve made extensive use of a linked list data
+structure which does not have the spatial locality of reference
+mentioned in section \ref{sec:cache}. Further investigation is
+required to determine why this benchmark makes less effective use of
+data cache for the experimental VMs.
+
 \subsection{Reverse Complement}
-\includegraphics{reversecomplement.png}
-
-
-
-
-
+The Reverse Complement benchmark produced high performance inceases
+over the Conventional VM with 21.49\% and 23.68\% for the Operand and
+Operand-Type VMs respectively. The cache miss rate found by the Perf
+utility was high for this benchmark. This is because it is the only
+benchmark that reads extensively from standard input. 
 
 \chapter{Conclusion}
+
+
 
 \newpage{}
 \appendix
@@ -3211,6 +3262,19 @@ the speed increase applies to.
   \end{center}
   \caption{Reverse Complement}
 \end{table}
+
+\section{Execution Times}
+
+\begin{figure}
+  \includegraphics{ackermann.png}
+  \includegraphics{fannkuch.png} 
+  \includegraphics{fasta.png}
+  \includegraphics{mersenne.png}
+  \includegraphics{primesieve.png}
+  \includegraphics{reversecomplement.png}
+  \caption{Execution Time of Remaining Benchmarks}
+  \label{execution-time}
+\end{figure}
 
 
 \bibliographystyle{apacite} 
