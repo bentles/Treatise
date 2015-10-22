@@ -235,8 +235,8 @@ interpretation algorithm will know that because the the node is an \verb|if|
 node, the leftmost branch must be traversed first. This branch is
 called the ``predicate''.
 
-The leftmost node is a \verb|>| node. The algorithm will know to
-evaluate the left and right nodes that branch off the \verb|>| node
+The leftmost node is a ``\verb|>|'' node. The algorithm will know to
+evaluate the left and right nodes that branch off the ``\verb|>|'' node
 and determine whether or not the left expression is larger. After
 gaining this information the interpretation algorithm returns to the
 \verb|if| node. If it turns out that the ``predicate'' was true, the
@@ -1004,7 +1004,7 @@ Common Language Runtime (CLR) make use of stack virtual machines
 \subsection{Just in Time Compilation}
 
 Both the Hotspot Java Virtual Machine and .Net Common Language 
-Runtime make use of Just in Time compilation\cite{JJIT}. JIT 
+Runtime make use of Just in Time compilation. JIT 
 compilation allows for code that is executed often enough to be
 compiled into native machine code at runtime. This means that the 
 areas of code most frequently executed in the program run much faster 
@@ -1743,8 +1743,8 @@ flags. Figure~\ref{fig:buffer} shows the memory layout of a buffer.
 			\bitbox{16}{-- empty --} &
 		\end{rightwordgroup} \\
 	\end{bytefield}
-	\label{fig:buffer}
 	\caption{Buffer memory layout}
+	\label{fig:buffer}
 \end{figure}
 
 \section{Stack Frames and Function Definitions}
@@ -2177,7 +2177,7 @@ for the \verb|getl| instruction.
 
 
 \subsection{Generation Algorithm}
-
+\label{sec:generation-algorithm}
 A description of the intricate details of the code generation process
 is unecessary, as the focus of this treatise is the virtual machines
 themselves rather than the code that generates them. However, a high
@@ -2762,13 +2762,45 @@ benchmark that reads extensively from standard input.
 
 \chapter{Conclusion}
 
+The project objective, to implement and benchmark an experimental
+JIT-less, dynamic-ISA VM was met. Two experimental VMs, the Operand
+Dispatch and and Operand-Type Dispatch VMs were implemented along with
+a Conventional VM which served as a control. A set of benchmarks was
+handwritten and benchmarked extensively to determine the overall
+performance of the experimental VMs.
 
+The Operand and Operand-Type dispatch VMs do indeed present solutions
+to the problem of a VM that is appropriate for many-instance
+applications that does not make use of a just in time compiler. Both
+experimental VMs were faster than the Conventional VM against which
+they were benchmarked. The Operand Dispatch VM provided an 8.53\% to
+24.4\% increase over a conventional VM implementation and the
+Operand-Type dispatch provided an 11.91\% to 30.06\% performance
+increase.
+
+For general applications, a JIT compiler implementation would still be
+preferred, as the performance benefits offered by the two experimental
+VMs do not approach those of a JIT compiler. But for short-lived, many
+instance applications, like those of a web server, and in any new
+dynamic interpreter implementation where a JIT compiler is not
+desired, the techniques used in the Operand and Operand-Type VMs are
+worth consideration.
+
+The Operand-Type Dispatch VM did not provide the performance increase
+hoped for, with a 2.7\% to 8.53\% increase in performance over the
+Operand dispatch VM. A slightly better code generation implementation
+(see section \ref{sec:generation-algorithm}) may result in even better
+performance for the Operand Dispatch VM. Thus the Operand Dispatch VM
+is considered the superior technique because it is less complex to
+implement and makes fewer of the trade-offs necessary for the
+Operand-Type VM, while still providing most of the performance
+benefits gained by the Operand-Type VM.
 
 \newpage{}
 \appendix
 \chapter{Problem Description} 
 
-Text of Appendix A is Here
+TO BE ADDED
 
 \chapter{Instruction List} 
 \label{appendix-b}
