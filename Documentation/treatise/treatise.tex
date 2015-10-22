@@ -2798,9 +2798,40 @@ benefits gained by the Operand-Type VM.
 
 \newpage{}
 \appendix
-\chapter{Problem Description} 
+\chapter{Project Proposal} 
 
-TO BE ADDED
+Present state of the art high-level virtual machines (VMs) utilise
+trace-based just-in-time compilers (JITs) to approach native
+performance. However, JITs create code in private process memory,
+defeating benefits of read-only memory sharing, which is important in
+applications that run many concurrent instances. 
+
+This project forms part of a larger research project to investigate
+novel innovations to JIT-less VMs which strongly favour run-time
+efficiency in many-instance applications. The larger project explores
+multiple possible solution strategies. The specific strategy to be
+investigated in this sub-project is the creation of a finite state
+space for constrained set of dynamic types (int, float, and
+other). The VM is always at some location within the state space, and
+dynamic changes in the active type-mapping result in VM movement in
+the state space. A modified type-state aware VM could dispatch
+instructions relative to that state, thereby branching to code
+fragments that are specialised to currently active dynamic types. Such
+a mechanism could substantially reduce the cost of dynamic typing when
+many value-instances are in fact primitives. 
+
+The scope of this project is limited in two ways. Firstly, the
+instruction set architecture will be purposely constrained to about
+the size of the Lua register VM, which provides 35 basic
+operations. Secondly, the implementation concerns type-mapping only,
+and does not concern physical register mapping, which is an orthogonal
+issue. More specific details are available in the associated Thuthuka
+project proposal.
+
+Note that this project should not be confused with the similar project
+relating to register-mapping. These projects are sufficiently
+different that they cannot share code. However, they may share a
+common set of benchmarks
 
 \chapter{Instruction List} 
 \label{appendix-b}
