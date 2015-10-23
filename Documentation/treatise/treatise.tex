@@ -460,8 +460,12 @@ implementation required and the VM will not be required to perform
   GC is also unnecessary to run the benchmarks.
 \end{itemize}
 
+The VMs do not support floating point numbers. The decision to leave
+out floating points was made to reduce the complexity of the VM as all
+cases of interactions between integers and floats would have to be
+specified and implemented.
 
-%floating point and advanced threading techniques
+%advanced threading techniques??
 
 \section{Risks}
 A risk for any research project is to allow personal bias to cloud the
@@ -1217,19 +1221,21 @@ instruction. Thus type-mapping requires operand case expansion in
 order to function.
 
 \section{Proposed Solution}
-The proposed solution is the Operand-Type Dispatch VM which makes use
-of type-mapping and argument case expansion. In order to determine the
-effectiveness of the solution, a further two virtual machines are
-needed. A conventionally implemented virtual machine is needed as a
-control to determine the performance benefits of the Operand-Type
-Dispatch VM and a further VM is needed to determine the benefits of
-the type-mapping of the Operand-Type Dispatch VM over just using
-argument case expansion.
+The proposed solution to the problem of improving the performance of a
+JIT-less virtual machine for dynamically typed langauged is the
+Operand-Type Dispatch VM (OTVM) which makes use of type-mapping and
+argument case expansion. In order to determine the effectiveness of
+the solution, a further two virtual machines are needed. A
+conventional virtual machine is needed as a control to determine
+whether there is a performance benefit of the OTVM and a further VM is
+needed to determine the benefits of the type-mapping of the OTVM over
+just using argument case expansion. This additional VM is called the
+Operand Dispatch VM (OVM).
 
-These three virtual machines lie along a scale for how specific their 
-instructions are. The most specific is the Operand-Type Dispatch VM. 
-The Operand Dispatch VM is less specific and the Conventional 
-Dispatch VM has the least specific instructions.
+These three virtual machines are progressive in terms of how specific
+their instructions are. The most specific is the Operand-Type Dispatch
+VM.  The Operand Dispatch VM is less specific and the Conventional VM
+(CVM) has the least specific instructions.
 
 The details of the designs of these three virtual machines is
 discussed from section \ref{sec:conv-vm} after design decisions common
@@ -1238,47 +1244,46 @@ designed to be as similar as possible except for the aspects that the
 experiment examines. Those elements common to all VMs are expanded
 upon first and those specific to each shall be examined separately.
 
-Any referral to the \textbf{VM} or the \textbf{virtual machine} used
-from this point without explicitly mentioning which VM is being
-referred to will apply to \emph{all} three virtual machines.
+\section{Common Virtual Machine Design Details}
 
-\section{Virtual Machine Design Details}
-
-The VM is a register virtual machine. The choice of being
+All three VMs are register virtual machines. The choice of being
 register-based is necessary for the operand case expansion to be
 performed. Of course, since type-mapping requires operand case
-expansion, that also necessitates that the virtual machine use
+expansion, that also necessitates that the virtual machines use
 registers. Yuhne Shi\cite{Shi2007} showed that register machines can
 give a performance increase over equivalent stack-based VMs. This
 makes them an ideal choice for a performance-focused virtual machine
 design.
 
 \subsection{Registers and Implicit Assignment}
-The VM has six general purpose registers and three special purpose
+\label{reg-impl-assgn}
+The VMs have six general purpose registers and three special purpose
 registers. A low number of registers adds complexity to a potential
-compiler for this virtual machine because the compiler must perform
-register allocation more frequently, but keeping the number of
-registers low is important for the Operand-Type Dispatch and Operand
-Dispatch VMs. This is because a large number of registers would
-greatly increase the number of operand cases needed to implement
-instructions that take register arguments. With just six registers, an
-instruction that takes three arguments potentially has $6^3 = 216$
-operand cases. With 10 registers, that would be $10^3 = 1000$.
+compiler for this virtual machine because the compiler will have
+greater difficulty in performing register allocation, but keeping the
+number of registers low is important for the Operand-Type Dispatch and
+Operand Dispatch VMs. This is because a large number of registers
+would greatly increase the number of operand cases needed to implement
+instructions that take register arguments. With $n$ registers, an
+instruction that takes three arguments potentially has $n^3$ operand
+cases. Consequently, it is necessary to keep the number of registers
+low.
 
-Because every argument in an instruction increases the number of
-operand cases exponentially, where possible, instructions in the VM
-include an implicit assignment. That is, instead of having an
-instruction, \verb|add g1, g2, g3|, which adds \verb|g2| to \verb|g3|
-and stores the result in \verb|g1|, the VM implements the \verb|add|
-instruction as follows: \verb|add g1, g2|. This instruction adds
-\verb|g1| to \verb|r2| and stores the result in \verb|g1|. In this way
-the number of operand cases can be kept reasonably low. The
-Operand-Type Dispatch VM faces a similar issue that affects the
-decision for which types the VM should use.
+A further complexity is that every additional argument in an
+instruction increases the number of operand cases exponentially and
+thus, where possible, instructions in the VM include an implicit
+assignment. That is, instead of having an instruction,
+\verb|add g1, g2, g3|, which adds \verb|g2| to \verb|g3| and stores
+the result in \verb|g1|, the VM implements the \verb|add| instruction
+as follows: \verb|add g1, g2|. This instruction adds \verb|g1| to
+\verb|g2| and stores the result in \verb|g1|. In this way the number
+of operand cases can be kept reasonably low. The Operand-Type Dispatch
+VM faces a similar issue that affects the decision for which types the
+VM should use.
 
 \subsection{Types}
 
-The VM has two primitive types: integers and pointers. Keeping the
+The VMs have two primitive types: integers and pointers. Keeping the
 number of types low is extremely important for the Operand-Type
 Dispatch VM because it affects the total number of states the VM can
 take on. The Operand-Type Dispatch VM can be thought of as creating a
@@ -1295,18 +1300,11 @@ the virtual machine. This is because arithmetic instructions in the
 virtual machine would now have to act on two different types and on
 the different combinations of those two types.
 
-\subsection{Values} 
-
 A register virtual machine for a dynamically typed language must be
-able to hold any type of value in any of its registers. This is the
-reason the type checking operations explained in section
-\ref{sec:type_safe} must take place. The VM registers are used to
-store \textbf{values}. Values are a convenient data structure that can
-hold either a pointer or an integer, as these are the types supported
-by the VM. The implementation details of values are covered in section
-\ref{values-implementation}. Most instructions in the VM take
-arguments which are general purpose registers which hold values, but
-two other modes of addressing exist in the VM.
+able to hold any type of value in any of its registers, because, as
+previously mentioned, type information is associated with values and
+not variables. This is the reason the type checking operations
+explained in section \ref{sec:type_safe} must take place. 
 
 \subsection{Addressing}
 Instructions take operands of three types: 
@@ -1317,11 +1315,11 @@ Instructions take operands of three types:
   and Operand Dispatch VMs these operands are implicitly part of the
   instruction word. Implementation details of register number
   addressing will be discussed in chapter 4. %TODO section??
-\item[instruction word] This type of operand considers an instruction
+\item[literal word value] This type of operand considers an instruction
   word relative to IP (usually just the next instruction word) as an
   unsigned 16-bit constant. The value of these constants will be
   referred to in the following form: $name_{16}$
-\item[IP-relative addressing] This type of operand considers an
+\item[literal large value] This type of operand considers an
   instruction word as the \verb|IP|-relative address of a 64-bit
   unsigned integer constant. The 64-bit integers accessed by
   IP-relative addressing are aligned to 8-byte addresses. The value of
@@ -1329,17 +1327,11 @@ Instructions take operands of three types:
   $name_{64}$
 \end{description}
 
-Instruction word addressing is used when large integer values are not
-needed. This is the case, for instance, when performing a left shift
-by a known constant. Shifting a 64-bit integer left by anything more
-than 63 bits will always result in a zero value and so a larger
-integer value is not needed. IP-relative addressing is used when a
-larger value may be needed. An examination of the instruction set of
-the VM follows:
+An examination of the instruction set of the three VMs follows:
 
 \section{Instructions}
 
-All three virtual machines provide a set of 46 instructions. These
+All proposed virtual machines provide a set of 46 instructions. These
 shall be referred to as ``logical instructions'' as they enumerate the
 entire set of functions the VMs can perform. All VMs provide the same
 functionality. These 46 instructions make up the set of possible
@@ -1361,7 +1353,7 @@ implement.
 \subsection{Instruction Set Design Factors}
 \label{sec:inst-set-design-factors}
 In some cases, specific argument combinations for a logical
-instruction have been removed as they produce trivial results. For
+instructions have been removed as they produce trivial results. For
 instance the subtract operation cannot be used with the same register
 for both arguments. Since the result of this operation is always zero
 and there already is an instruction to set a register to zero, there
@@ -1370,30 +1362,32 @@ is no need to include this case.
 The VM instruction set design was made with memory hierarchy of modern
 computers in mind. The instruction set is designed to be as robust and
 general as possible. The aim is for the instruction subroutines needed
-by the VM to be in L1 instruction cache. The VM has an instruction set
-of 46 instructions. Because of the operand case expansion the Operand
-Dispatch VM has 1295 internal instructions. The Operand-Type Dispatch
-VM has 2021 internal instructions and a special instruction to signal
-an error. The difference ($2022 - 1295 = 728$) is the set of type
-specialised internal instructions.
+by the VM to be in L1 instruction cache. As previously mentioned, the
+VMa support an instruction set of logical 46 instructions. Because of
+the operand case expansion the Operand Dispatch VM has 1295 internal
+instructions. The Operand-Type Dispatch VM has 2021 internal
+instructions and a special instruction to signal an error. The
+difference in number of instructions is caused by the implementation
+of type-mapping and is discussed in chapter 4.
+
+%TODO: ACTUALLY EXPLAIN THIS AND DONT FORGET!!
 
 A rough estimate of the size of a low abstraction level
-\cite{Brunthaler20093} internal instruction for the Operand VM is 120
-bytes. This means the Operand VM would requires around 151KB of cache
-to house the entire instruction set. The Haswell processor, as
-mentioned in section \ref{sec:cache}, has 32KB of L1 instruction
-cache. Only a small fraction of the instruction set will be in use at
-any time. This must be the case, because 720 of the 1295 instructions
-in the Operand-Dispatch VM are used to implement four logical
-instructions: \verb|geto|, \verb|seto|, \verb|getb| and
-\verb|setb|. 
+\cite{Brunthaler20093} internal instruction for the OVM is 120
+bytes. This means the OVM would require around 151KB of cache to house
+the entire instruction set. The Haswell processor, as mentioned in
+section \ref{sec:cache}, has 32KB of L1 instruction cache. Only a
+small fraction of the instruction set will be in use at any time. This
+must be the case, because 720 of the 1295 instructions in the OVM are
+used to implement the four logical instructions that take three
+arguments: \verb|geto|, \verb|seto|, \verb|getb| and \verb|setb|.
 
-The Operand-Type VM's low abstraction level internal instructions are
+The OTVM's low abstraction level internal instructions are
 approximately 60 bytes. This works out to only 118KB of instruction
 cache needed for the entire instruction set.
 
 The size of the instruction set in cache is not the only issue to
-consider for the Operand and Operand-Type Dispatch VMs
+consider for the Operand and Operand-Type Dispatch VMs,
 however. Associated with each of these virtual machines is a lookup
 table used for their dispatch mechanism. The dispatch mechanism of
 each VM is discussed in section \ref{sec:labels-as-addresses}. This
@@ -1441,10 +1435,8 @@ The \verb|sub| instruction exhibits the case of a trivial instruction
 call that is illegal in the bytecode. Subtracting a register's value
 from itself will always produce zero. This is an unnecessary
 instruction since the VM already has an instruction to place zero into
-a register.
-
-Both instructions also show off how the result of the operation is
-stored in the first register-number addressed register.
+a register. Both instructions also show off the implicit assignment design
+decision mentioned in section \ref{reg-impl-assgn}.
 
 \subsection{Bit Manipulation Instructions}
 
@@ -1488,7 +1480,7 @@ These instructions allow for values to be moved between registers.
 
 Note the use of the \verb|g| for the \verb|mov| and \verb|movc|
 instructions. This is because moving a register over another register
-is a type-independent operation.
+is a supported regardless of the current type-mapping.
 
 \subsection{Memory Access}
 These instructions allow for getting and setting of locals (getl,
@@ -1517,10 +1509,10 @@ These instructions allow for jumps in execution in the program. All
 jumps are relative to the current \verb|IP| value.
 
 \begin{description}
-	\item[jmp] adds a 16-bit integer constant offset to \verb|IP|
+	\item[jmp] performs a jump to a nearby address
 	
 	$jmp(const_{16}) := ip \longleftarrow ip + const_{16}$ \\
-	\item[jmpf] adds a 64-bit integer constant offset to \verb|IP|
+	\item[jmpf] performs a jump to a distant address
 	
 	$jmpf(const_{64}) := ip \longleftarrow ip + const_{64}$ \\	
 	
@@ -1549,6 +1541,8 @@ way to pass arguments. The function call mechanism saves registers
 $g_1$ through $g_4$ before the function call. More detail on the
 implementation of the function call and return mechanisms will be
 given in section XXX.
+
+%TODO: GIVE MORE DETAIL THEN
 
 
 \subsection{Pragmatic Higher-Level Instructions}
@@ -1604,15 +1598,15 @@ discussed separately. The Conventional VM dispatches exlusively on the
 opcode section of the next instruction word. That is, the next
 instruction word's opcode is decoded and is used to gain the address
 of the subroutine needed for the next instruction. The implementation
-details of the Conventional VMs dispatch mechanism are discussed in
+details of the Conventional VM's dispatch mechanism are discussed in
 section \ref{sec:conv-vm-dispatch}.
 
 
 \section{Operand Dispatch VM Design}
 The Operand Dispatch VM does not make use of the conventional decode
-step present in the Conventional VM. This is a product of operand case
-expansion. Figure \ref{fig:op-dispatch-instruction} shows the layout
-of an instruction word for the operand dispatch VM. 
+step present in the Conventional VM. Figure
+\ref{fig:op-dispatch-instruction} shows the layout of an instruction
+word for the operand dispatch VM.
 
 \begin{figure}[!htb]
   \centering
@@ -1629,18 +1623,18 @@ dispatch. The combination of the opcode and the specific operand case
 for that opcode is an index into the dynamic opcode lookup table for
 token-threaded dispatch. This means that the Operand Dispatch VM need
 decode neither the opcode nor operands for any instruction. This is
-because each instruction acts on known operands and the opcode itself
-is never needed, only the combination the ``opcode with operands''
-value, which can be directly accessed with no decode step. The
-implementation details of the Operand Dispatch VM's dispatch are
-discussed in section \ref{sec:operand-dispatch-dispatch}.
+because each internal instruction of the OVM acts on known operands
+and the opcode itself is never needed, only the ``opcode with
+operands'' value, which can be directly accessed with no decode
+step. The implementation details of the OVM's dispatch are discussed
+in section \ref{sec:operand-dispatch-dispatch}.
 
 \section{Operand-Type Dispatch VM Design}
 The Operand-Type Dispatch VM does not make use of the conventional
 decode step present in the Conventional VM, since it too makes use of
 operand case expansion. The instruction word layout is exactly the
 same as the Operand Dispatch VM (figure
-\ref{fig:op-dispatch-instruction}), but, once again, the dispatch
+\ref{fig:op-dispatch-instruction}) but, once again, the dispatch
 mechanism for the Operand-Type Dispatch VM is slightly
 different. Before the differences can be examined, the purpose of the
 \verb|TS| register must be explained.
@@ -1666,7 +1660,7 @@ table using the \verb|TS| register, and then selecting an entry from
 that portion of that table using the ``opcode with operands'' value
 from the instruction word. This means the lookup table for the
 Operand-Type dispatch VM is far larger than that of the Operand
-Dispatch VM. This issue was discussed in section
+Dispatch VM, an issue was discussed in section
 \ref{sec:inst-set-design-factors}. The implementation of this dispatch
 process is discussed in section \ref{sec:operand-type-dispatch-dispatch}.
 
