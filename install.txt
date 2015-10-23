@@ -1,0 +1,22 @@
+* Installation Instructions
+- These instructions assume a fresh install of Fedora 22 (Workstation)
+- Copy the Implementation folder into the home directory
+- Open the terminal:
+- > cd Implementation
+- > mkdir bin
+- > cd src/Core
+- > sudo dnf install nodejs gcc make automake ruby
+- > make
+- > cd ../../bin
+- You should now have binary files for all three VMs in the bin folder
+- Next we need to assemble a benchmark
+- > cd ../Benchmarks/
+- > ruby assembler.rb primesieve.asm; mv a.out primesieve.out
+- This compiles a benchmark for the operand-type(vm) and operand dispatch(vmh) VMs
+- > ruby assembler.rb -c primesieve.asm; mv a.out primesieve.outc
+- This compiles a benchmark for the conventional VM
+- To run a benchmark:
+- > ../bin/vm primesieve.out
+- Or
+- > ../bin/vmc primesieve.outc
+- For assistance email dee.bent.lee@gmail.com
