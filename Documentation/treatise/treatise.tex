@@ -1147,8 +1147,9 @@ The proposed VM was situated in the hierarchy of virtual
 machines. Background information about relevant topics in modern
 processor architecture was covered and VM implementations details from
 current literature were explored. Finally, existing systems were
-reviewed. With this background in place, a discussion of the design
-decisions made for the proposed solution can follow.
+reviewed. With this background in place, a discussion of the
+trade-offs of the design decisions made for the proposed solution can
+follow.
 
 \chapter{Solution Design}
 This study introduces two experimental virtual machines. \textbf{The
@@ -1170,13 +1171,15 @@ mapping will now be discussed.
 \section{Type-Mapping and Operand Case Expansion}
 \label{sec:type-mapping-op-case-exp}
 A type-mapped VM is one which keeps track of the state of the types of
-its registers. This is called the type-state of the virtual
-machine. This is beneficial because, as was discussed in section
-\ref{sec:type_safe}, every instruction in a dynamically typed VM
-must first verify the types of its inputs before it can act on
-them. Many of these type checks can be eliminated with type-mapping. Another
-benefit of type-mapping is that instructions can be specialised based
-on the current type-state of the virtual machine.  
+its registers. This is called the type-state of the virtual machine.
+The Operand-Type Dispatch VM uses a special pursose register,
+\verb|TS| (Type State) to implement this type mapping. Keeping track
+of the types in registers is beneficial because, as was discussed in
+section \ref{sec:type_safe}, instructions in a dynamically typed VM
+must first verify the types of thier inputs before they can act on
+them. Many of these type checks can be eliminated with
+type-mapping. Another benefit of type-mapping is that instructions can
+be specialised based on the current type-state of the virtual machine.
 
 Operand case expansion unrolls the instruction set of a virtual
 machine into a set of operand-specific versions of every
@@ -1198,12 +1201,13 @@ implementation details of operand case expansion are examined in chapter 4.
 	\node (v1) at (3,0) {$add\_0\_0$};
 	\node (v2) at (3,-1) {$add\_0\_1$};
 	\node[draw=white] (v3) at (3.75,-2) {$\vdots$};
-	\node (v4) at (3,-3) {$add\_n\_(n-1)$};
-	\node (v5) at (3,-4) {$add\_n\_n$};
-	\draw (v0) -- (v1)
-	(v0) -- (v2)
-	(v0) -- (v4)
-	(v0) -- (v5);
+	\node (v4) at (3,-3) {$add\_(n-1)\_(n-2)$};
+	\node (v5) at (3,-4) {$add\_(n-1)\_(n-1)$};
+	\draw 
+    (v0.east) -- (v1.west)
+	(v0.east) -- (v2.west)
+	(v0.east) -- (v4.west)
+	(v0.east) -- (v5.west);
 	\end{tikzpicture}
 	\caption{Operand Case Expansion}
 	\label{fig:op-case-expansion}
@@ -1630,6 +1634,8 @@ step. The implementation details of the OVM's dispatch are discussed
 in section \ref{sec:operand-dispatch-dispatch}.
 
 \section{Operand-Type Dispatch VM Design}
+\label{op-type-design}
+
 The Operand-Type Dispatch VM does not make use of the conventional
 decode step present in the Conventional VM, since it too makes use of
 operand case expansion. The instruction word layout is exactly the
@@ -1637,7 +1643,8 @@ same as the Operand Dispatch VM (figure
 \ref{fig:op-dispatch-instruction}) but, once again, the dispatch
 mechanism for the Operand-Type Dispatch VM is slightly
 different. Before the differences can be examined, the purpose of the
-\verb|TS| register must be explained.
+\verb|TS| register mentioned in section
+\ref{sec:type-mapping-op-case-exp} must be explained.
 
 The \verb|TS| register is unique to the Operand-Type Dispatch VM. It
 is used to keep track of the current type state of the Operand-Type
@@ -1660,16 +1667,18 @@ table using the \verb|TS| register, and then selecting an entry from
 that portion of that table using the ``opcode with operands'' value
 from the instruction word. This means the lookup table for the
 Operand-Type dispatch VM is far larger than that of the Operand
-Dispatch VM, an issue was discussed in section
+Dispatch VM, an issue that was discussed in section
 \ref{sec:inst-set-design-factors}. The implementation of this dispatch
-process is discussed in section \ref{sec:operand-type-dispatch-dispatch}.
+process is discussed in section
+\ref{sec:operand-type-dispatch-dispatch}.
 
 The Operand-Type Dispatch design elliminates the need to type check
-arguments for instructions in a dynamic-ISA VM. This is because the
-dispatch mechanism makes use of the current type-state of the virtual
-machine and the operands for the instruction being selected. This is
-enough information for the types of arguments for all instructions to
-be known and hence instructions need not check their types.
+arguments for instructions in a dynamic-ISA VM. This is because
+the dispatch mechanism makes use of the current type-state of the
+virtual machine and the operands for the instruction being
+selected. This is enough information for the types of arguments for
+all instructions to be known and hence instructions need not check
+their types.
 
 This design decision makes the following trade-offs: The Operand-Type
 Dispatch VM no longer has to check the types of its arguments, a
@@ -1678,44 +1687,32 @@ arguments. It does, however, require a larger dynamic opcode lookup
 table, and the code necessary to to update the \verb|TS| register when
 the type state of the VM changes. 
 
+\section{Conclusion}
+The Operand and Operand-Type Dispatch VMs were introduced. The design
+decisions for the elements common to all VMs were discussed. Finally,
+the Conventional VM, Operand Dispatch VM and Operand-Type Dispatch
+VM's design decision were examined individually. The designs of the
+three VMs were arrived at but their implementation details have not
+yet been covered. The implementation details of the three VMs follow.
+
 \chapter{Solution Implementation}
 
 The VMs are 64-bit applications written in GNU C and compiled using
 the GNU C Compiler version 5.1.1. All virtual machines were compiled
-using the ``-O3'' compiler flag.
+using the ``-O3'' compiler flag. The VMs make use of the GNU C Library
+(glibc) and are compatible with GNU/Linux systems.
 
-\section{Registers}
+The discussion of the implementation of the VMs begins with the
+details of data types used in the VM. Two commonly used high level
+types: objects and buffers are built into the VM.
 
-All virtual machines make use of six general purpose registers. These
-registers are implemented as an array of six \verb|values|. These
-are referred to as $g_0$ through $g_5$. Here `g' refers to
-`general purpose'.
+\section{Data Types}
+The VMs make use of three data types: values, objects and
+buffers. Values are the smallest unit of data available in the
+VMs. Object and buffers provide convnient access to ordered fields of
+values and bytes via the instruction set of the VM.
 
-A further two registers are found in the VM. The instruction pointer,
-which will be referred to as the \verb|IP| and the frame pointer which
-will be referred to as the \verb|FP|. These are a 16-bit-integer
-pointer and a value pointer respectively.
-
-
-\section{Token Threading}
-
-The VM makes use of token threading. Though token threading is slower
-than direct threading \cite{Shi2007} because it must first complete
-the lookup step before it can branch to the next instruction, the
-program code used by the Operand-Type VM is intended to be shared by
-many instances of the VM. This cannot be achieved with direct
-threading as the addresses of each instruction in each instance may be
-different. Also because the Operand-Type VM's dispatch is based
-on the runtime state of the virtual machine (the current type state)
-even if addresses were the same between instances we can't represent
-code in terms of those addresses as we don't know the state
-information until runtime so we can't choose which address should be
-used to replace the opcode. With Indirect threading's lookup table we
-can share the code in its opcode form and perform the correct jumps
-for each instance of the VM by consulting the state register and
-looking up the addresses in the lookup table.
-
-\section{Values}
+\subsection{Values}
 \label{values-implementation}
 
 \begin{figure}[!htb]
@@ -1757,7 +1754,7 @@ four possible values it could take on:
 	\item a buffer pointer
 \end{enumerate}
 
-\section{Objects}
+\subsection{Objects}
 
 Objects are a simple built-in data structure for storing ordered
 fields of values. Objects are implemented as a struct with an array of
@@ -1767,9 +1764,9 @@ garbage collector implementation though this remains out of scope for
 this project. Figure~\ref{fig:objmem} shows the memory layout of an
 object.
 
-\begin{figure}
+\begin{figure}[!htb]
 	\centering
-	\begin{bytefield}[bitwidth=0.3em]{64}
+	\begin{bytefield}[bitwidth=0.3em,endianness=big]{64}
 		\bitheader{0,63} \\
 		\begin{rightwordgroup}{Size and flags}
 			\bitbox{62}{int64\_t size} & \bitbox{1}{} & \bitbox{1}{}
@@ -1785,7 +1782,7 @@ object.
 	\label{fig:objmem}
 \end{figure}
 
-\section{Buffers}
+\subsection{Buffers}
 
 Buffers are a data structure that exposes the native byte to the VM so
 that string and handling may be performed without having to create a
@@ -1794,9 +1791,9 @@ object, a struct with an array of bytes and a size field that holds
 the length of the array and garbage collector
 flags. Figure~\ref{fig:buffer} shows the memory layout of a buffer.
 
-\begin{figure}
+\begin{figure}[!htb]
 	\centering
-	\begin{bytefield}[bitwidth=0.3em]{64}
+	\begin{bytefield}[bitwidth=0.3em,endianness=big]{64}
 		\bitheader{0,63} \\
 		\begin{rightwordgroup}{Size and flags}
 			\bitbox{62}{int64\_t size} & \bitbox{1}{} & \bitbox{1}{}
@@ -1813,150 +1810,73 @@ flags. Figure~\ref{fig:buffer} shows the memory layout of a buffer.
 	\label{fig:buffer}
 \end{figure}
 
-\section{Stack Frames and Function Definitions}
+\section{Registers}
 
-All VMs make use of identical Stack Frames for subroutine calls. Each
-stack frame stores:
+All virtual machines make use of six general purpose registers. These
+registers are implemented as an array of six \verb|values|. These
+are referred to as $g_0$ through $g_5$. Here `g' refers to
+`general purpose'.
 
-\begin{itemize}
-	\item The previous \verb|FP|, \verb|IP| and an additional register,
-	\verb|TS|, that goes unused except in the opcode-operand-type
-	dispatch VM.
-	\item The general purpose registers except for $g_0$ and $g_5$
-	\item The local variables used in that stack frame
-\end{itemize}
+A further two registers are found in all VMs. The instruction pointer,
+which will be referred to as the \verb|IP| and the frame pointer which
+will be referred to as the \verb|FP|. These are a 16-bit integer
+pointer and a value pointer respectively. The \verb|IP| points to the
+current instruction being executed. The \verb|FP| points to the
+currect stack frame.
 
-Registers are saved upon calling a subroutine and restored when the
-subroutine returns. The first and last general purpose registers are
-used for return values. The memory layout for a stack frame can be
-seen in Figure~\ref{fig:stframe}.
+The \verb|TS| register is unique to the Operand-Type Dispatch VM. As
+previously discussed, the \verb|TS| register stores the current type
+state of the OTVM. The mechanism for this is quite simple. Since the
+OTVM has only two types, the type state register is a bitmap that
+corresponds to the type of each general purpose register. Six bits are
+needed for this. A bit is given a zero value if the register it
+corresponds to is an integer and a one value if it is a pointer. These
+six bits are pre-shifted left 11 times. Figure \ref{fig:ts} shows the
+layout of the \verb|TS| register. The rest of the bits in the
+\verb|TS| register are all zero and are not used.
 
-Function definitions in bytecode are extremely simple. The first 64
-bits of the function store the number of arguments the function
-accepts. This is followed by the instructions for the function and
-terminated by a \verb|ret| instruction.
-
-\begin{figure}
-	\centering
-	\begin{bytefield}[bitwidth=0.3em]{64}
-		\bitheader{0,63} \\
-		\begin{rightwordgroup}{Special Registers}
-			\wordbox{1}{value *fp}  \\
-			\wordbox{1}{int16\_t *ip} \\
-			\wordbox{1}{int64\_t ts}
-		\end{rightwordgroup} \\
-		
-		\begin{rightwordgroup}{General purpose registers}
-			\wordbox{2}{value $g_1$}\\
-			\wordbox{2}{value $g_2$}\\
-			\wordbox{2}{value $g_3$}\\
-			\wordbox{2}{value $g_4$}
-		\end{rightwordgroup} \\
-		
-		\begin{rightwordgroup}{Local variables}
-			\wordbox{2}{value $l_1$}	\\
-			\wordbox[]{1}{$\vdots$} \\[1ex]
-			\wordbox{2}{value $l_n$}
-		\end{rightwordgroup} \\
+\begin{figure}[!htb]
+  \centering
+  	\begin{bytefield}[bitwidth=1.5em,endianness=big]{17}
+		\bitheader{0,11,16} \\
+        \bitbox{1}{$g_0$} 
+        & \bitbox{1}{$g_1$}
+        & \bitbox{1}{$g_2$} 
+        & \bitbox{1}{$g_3$} 
+        & \bitbox{1}{$g_4$} 
+        & \bitbox{1}{$g_5$} 
+        & \bitbox{11}{-- empty --} \\		
 	\end{bytefield}
-	\caption{Stack frame memory layout}
-	\label{fig:stframe}
+  \caption{TS Register Last 17 Bits}
+  \label{fig:ts}
 \end{figure}
 
-\subsection{Conventional VM Implementation}
+The \verb|TS| register is used as an index into the dynamic opcode
+table. Section \ref{op-type-design} explained that the \verb|TS|
+register is used to select a section of the dynamic opcode lookup
+table that is appropriate for the current type state of the OTVM. This
+is because the bits associated with registers provide an index to
+2048-entry sections of the dynamic opcode table. The six bits of the
+bitmap are left shifted 11 bits because the OTVM has between 1024 and
+2048 internal instructions. 
 
-For the Conventional VM, the logical \verb|add| instruction has only a
-single internal instruction (also called \verb|add|) that makes up its
-implementation:
-\begin{lstlisting}[language=C]
-add:
-{
-    int16_t arg0 = GetArg0(*ip);
-    int16_t arg1 = GetArg1(*ip);
-    if (IsInt(g[arg0]) && IsInt(g[arg1])) {
-        g[arg0].i += g[arg1].i;
-        ip++;
-    }
-    else {
-        fprintf(stderr, "type error, illegal types used for instruction: add");
-        return 1;
-    }
-
-    goto *dynOpcodes[GetOpcode(*ip)];
-}
-\end{lstlisting}
-Line 3 gets the index into the set of registers of the zeroth argument
-for the instruction. If the instruction was \verb|add g2 g3|, the
-value 2 would now be stored in arg0. Similarly the value 3 would now
-be stored in arg1.
-
-The types of the regsiters indexed by arg0 and arg1 are then
-checked. If both registers hold integers, the instruction can
-continue, but if either argument is not an integer the VM reaches an
-error state and halts.
-
-Finally, on line 14, the opcode of the next instruction is extracted
-using the GetOpcode macro. This opcode can be used to branch to the
-next instruction the VM must perform in the manner described in
-section \ref{sec:labels-as-addresses}.
-
-\subsection{Operand Dispatch VM Implementation}
-\label{sec:operand-dispatch-implementation}
-
-For the Operand Dispatch VM, the logical \verb|add| instruction is
-implemented using 36 internal instructions of the following form:
-
-\begin{lstlisting}[language=C]
-add_1_2:
-{
-    if (IsInt(g[1]) && IsInt(g[2])) {
-        g[1].i += g[2].i;
-        ip++;
-    }
-    else {
-        fprintf(stderr, "type error, illegal types used for instruction: add");
-        return 1;
-    }
-
-    goto *dynOpcodes[*ip];
-}
-\end{lstlisting}
-
-The 36 internal instructions are \verb|add_0_0| through
-\verb|add_5_5|. This particular example implements the add instruction
-for registers one and two. Note in lines three and four how the values
-one and two have been substituted directly to refer to the registers
-that this internal instruction acts on. This means that the argument
-access step present in the Conventional VM is no longer necessary and
-is removed. Note how lines three and four in the Conventional VM are
-not replicated in the Operand Dispatch VM.
-
-\subsection{Operand-Type Dispatch VM Implementation}
-\label{sec:operand-type-dispatch-implementation}
-
-For the Operand-Type Dispatch VM, the logical \verb|add| instruction
-is implemented using 37 internal instructions. The 37th instruction
-simply signals a type error and terminates the VM, and the other 36
-instructions are of the following form:
-
-\begin{lstlisting}[language=C]
-add_3_5:
-{
-    g[3].i += g[5].i;
-    ip++;
-
-    goto *dynOpcodes[ts + *ip];
-}
-\end{lstlisting}
-
-\verb|add_0_0| through \verb|add_5_5| implement addition given the fact
-that the types of the registers are integers. This particular example
-is for adding register three to register five, given that both
-registers hold integers. There is no longer any need to check the
-types of the registers being added and so that code is removed.
-
-\section{Labels As Values and Dispatch}
-\label{sec:labels-as-addresses}
+\section{Token Threading}
+\label{token-threading}
+The VMs make use of token threading. Token threading is slower than
+direct threading \cite{Shi2007} because it must first complete the
+lookup step before it can branch to the next instruction. However this
+indirection is necessary as the program code used by the Operand-Type
+VM is intended to be shared by many instances of the VM. This cannot
+be achieved with direct threading as the addresses of each instruction
+in each instance may be differen, but the OTVM's dispatch is
+based on the runtime state of the virtual machine (the current type
+state) even if addresses were the same between instances we can't
+represent code in terms of those addresses as we don't know the state
+information until runtime so we can't choose which address should be
+used to replace the opcode. With indirect threading's lookup table
+code can be shared in its opcode form and perform the correct jumps
+for each instance of the VM by consulting the state register and
+looking up the addresses in the lookup table.
 
 In order to implement token-threaded dispatch a table of addresses of
 instruction implementations is needed. This table cannot be
@@ -1987,15 +1907,249 @@ goto *array[i];
 \end{displayquote}
 
 The jump table described in the manual is the mechanism used for
-token-threaded dispatch. In the VMs, this jump table is referred to as
-the Dynamic Opcode Table. The entries in the Dynamic Opcode Table are
-the addresses of the instructions the VM implements. For each VM, the
-table is created slightly differently.
+token-threaded dispatch. In the VMs, this jump table is what is
+referred to as the dynamic opcode table. The entries in the dynamic
+opcode table are the addresses of the instructions a VM
+implements. For each VM, the table is created slightly differently.
+
+\section{Stack Frames and Function Definitions}
+
+All VMs make use of identical Stack Frames for subroutine calls. Each
+stack frame stores:
+
+\begin{itemize}
+	\item The previous \verb|FP|, \verb|IP| and an additional register,
+	\verb|TS|, that goes unused except in the opcode-operand-type
+	dispatch VM.
+	\item The general purpose registers except for $g_0$ and $g_5$
+	\item The local variables used in that stack frame
+\end{itemize}
+
+Registers are saved upon calling a subroutine and restored when the
+subroutine returns. The first and last general purpose registers are
+used for return values. The memory layout for a stack frame can be
+seen in Figure~\ref{fig:stframe}. The \verb|FP| register of the
+current stack frame points to the first local variable in that stack
+frame as can be seen in the figure.
+
+\begin{figure}[!htb]
+	\centering
+	\begin{bytefield}[bitwidth=0.3em,endianness=big]{64}
+		\bitheader{0,63} \\
+		\begin{rightwordgroup}{Special Registers}
+			\wordbox{1}{value *fp}  \\
+			\wordbox{1}{int16\_t *ip} \\
+			\wordbox{1}{int64\_t ts}
+		\end{rightwordgroup} \\
+		
+		\begin{rightwordgroup}{General purpose registers}
+			\wordbox{2}{value $g_1$}\\
+			\wordbox{2}{value $g_2$}\\
+			\wordbox{2}{value $g_3$}\\
+			\wordbox{2}{value $g_4$}
+		\end{rightwordgroup} \\
+		
+		\begin{rightwordgroup}{Local variables}
+          \begin{leftwordgroup}{FP $\rightarrow$}
+			\wordbox{2}{value $l_1$}	
+          \end{leftwordgroup} \\
+			\wordbox[]{1}{$\vdots$} \\[1ex]
+			\wordbox{2}{value $l_n$}
+		\end{rightwordgroup} \\
+	\end{bytefield}
+	\caption{Stack frame memory layout}
+	\label{fig:stframe}
+\end{figure}
+
+Function definitions in bytecode are extremely simple. The first 64
+bits of the function store the number of arguments the function
+accepts. This is followed by the instructions for the function and
+terminated by a \verb|ret| instruction.
+
+\section{Instruction Implementation}
+
+The 46 logical instructions are the same across all three VMs. But
+their implementations differ significantly. This section examines the
+implementation of internal instructions across the three VMs. The
+logical \verb|add| instruction is used as to show the difference in
+internal instruction implementations between the three VMs.
+
+\subsection{Conventional VM Implementation}
+
+For the Conventional VM, the logical \verb|add| instruction has only a
+single internal instruction (also called \verb|add|) that makes up its
+implementation. The implementation is as follows:
+
+\begin{lstlisting}[language=C]
+add:
+{
+    int16_t arg0 = GetArg0(*ip);
+    int16_t arg1 = GetArg1(*ip);
+    if (IsInt(g[arg0]) && IsInt(g[arg1])) {
+        g[arg0].i += g[arg1].i;
+        ip++;
+    }
+    else {
+        fprintf(stderr, "type error, illegal types used for instruction: add");
+        return 1;
+    }
+
+    goto *dynOpcodes[GetOpcode(*ip)];
+}
+\end{lstlisting}
+
+Note that the instruction is not a function, but is instead a labelled
+block. This is true of all internal instructions in all VMs. Labelled
+blocks are used because they avoid the overhead necessary for a
+function call. The addresses of these labels are stored in the dynamic
+opcode table.
+
+The logical \verb|add| instruction has two arguments. This means that
+two operands must be extracted from the instruction word. The macros
+\verb|GetArg0| and \verb|GetArg1| are used to acquire the numbers of
+the registers in which the arguments can be found. The implementations
+of these macros can be found in appendix C.
+
+The types of the registers indexed by arg0 and arg1 are then checked
+using the \verb|IsInt| macro. If both registers hold integers, the
+instruction can continue, but if either argument is not an integer the
+VM reaches an error state and halts.
+
+Line 14 of the above listing is the dispatch code present in all
+internal instructions of the CVM. The opcode of the next instruction
+is extracted using the \verb|GetOpcode| macro. This opcode can be used to
+branch to the next instruction. 
+
+\subsection{Operand Dispatch VM Implementation}
+\label{sec:operand-dispatch-implementation}
+
+For the Operand Dispatch VM, the logical \verb|add| instruction is
+implemented using 36 internal instructions. This is the operand case
+expansion explained in section \ref{sec:type-mapping-op-case-exp}. The
+36 instructions are of the following form:
+
+\begin{lstlisting}[language=C]
+add_1_2:
+{
+    if (IsInt(g[1]) && IsInt(g[2])) {
+        g[1].i += g[2].i;
+        ip++;
+    }
+    else {
+        fprintf(stderr, "type error, illegal types used for instruction: add");
+        return 1;
+    }
+
+    goto *dynOpcodes[*ip];
+}
+\end{lstlisting}
+
+The 36 internal instructions are, as shown in figure
+\ref{fig:op-case-expansion-implementation}, \verb|add_0_0| through
+\verb|add_5_5|. The particular example in the listing above is the
+internal \verb|add_1_2| instruction which adds integer values in
+registers one and two and stores the result in register one. 
+
+\begin{figure}[!htb]
+	\centering
+	\begin{tikzpicture}
+	\tikzstyle{every node}=[draw,shape=rectangle,anchor=west];
+	\node (v0) at (0,-2) {$add$};
+	\node (v1) at (3,0) {$add\_0\_0$};
+	\node (v2) at (3,-1) {$add\_0\_1$};
+	\node[draw=white] (v3) at (3.75,-2) {$\vdots$};
+	\node (v4) at (3,-3) {$add\_5\_4$};
+	\node (v5) at (3,-4) {$add\_5\_5$};
+	\draw 
+    (v0.east) -- (v1.west)
+	(v0.east) -- (v2.west)
+	(v0.east) -- (v4.west)
+	(v0.east) -- (v5.west);
+	\end{tikzpicture}
+	\caption{Operand Case Expansion for OVM}
+	\label{fig:op-case-expansion-implementation}	
+\end{figure}
+
+Note in lines three and four how the constant values one and two have
+been substituted directly to refer to the registers that this internal
+instruction acts on.  Note also in line 12, that the opcode of the
+next instruction is the entire instruction word pointed to by
+\verb|IP|.
+
+The decode steps (\verb|GetArg| and \verb|GetOpcode|) present in the
+Conventional VM are no longer necessary and are removed. Note how
+lines three and four in the Conventional VM are not replicated in the
+Operand Dispatch VM. Removing these steps is the benefit afforded by
+operand case expansion.
+
+\subsection{Operand-Type Dispatch VM Implementation}
+\label{sec:operand-type-dispatch-implementation}
+
+For the Operand-Type Dispatch VM, the logical \verb|add| instruction
+is implemented using 37 internal instructions. The 37th instruction
+simply signals a type error and terminates the VM, and the other 36
+instructions are of the following form:
+
+\begin{lstlisting}[language=C]
+add_3_5:
+{
+    g[3].i += g[5].i;
+    ip++;
+
+    goto *dynOpcodes[ts + *ip];
+}
+\end{lstlisting}
+
+\verb|add_0_0| through \verb|add_5_5| implement addition given the fact
+that the types of the registers are integers. This particular example
+is for adding register three to register five, given that both
+registers hold integers. There is no longer any need to check the
+types of the registers being added and so that code is removed.
+
+\begin{figure}[!htb]
+	\centering
+	\begin{tikzpicture}
+	\tikzstyle{every node}=[draw,shape=rectangle,anchor=west,minimum width=50pt,minimum height=18pt];
+	\node (v0) at (0,-2) {$add$};
+
+	\node (v1) at (3,0)  {$add\_0\_0$ || $error$};
+	\node (v2) at (3,-1) {$add\_0\_1$ || $error$};
+	\node[draw=white] (v3) at (4,-2) {$\vdots$};
+	\node (v4) at (3,-3) {$add\_5\_4$ || $error$};
+	\node (v5) at (3,-4) {$add\_5\_5$ || $error$};
+
+	\draw 
+    (v0.east) -- (v1.west)
+	(v0.east) -- (v2.west)
+	(v0.east) -- (v4.west)
+	(v0.east) -- (v5.west);
+	\end{tikzpicture}
+	\caption{Operand Case Expansion for OTVM}
+	\label{fig:op-case-expansion-implementation-2}	
+\end{figure}
+
+
+
+
+\section{Labels As Values and Dispatch}
+\label{sec:labels-as-addresses}
+a
+
+s
+
+d
+
+f
+
+j
+
+k
+
 
 \subsection{Conventional VM}
 \label{sec:conv-vm-dispatch}
 
-\begin{figure}
+\begin{figure}[!htb]
 	\centering
 	\begin{bytefield}[bitwidth=1.5em,endianness=big]{16}
 		\bitheader{15,9,8,6,5,3,2,0} \\
@@ -2430,7 +2584,7 @@ representative of common programming activities.
 
 The Ackermann benchmark is a massively recursive benchmark with very
 little computation from one recursive call to the next. The benchmark
-implements the Ackermann function that was defined by Rózsa Péter and
+implements the Ackermann function that was defined by R\'{0}zsa P\'{e}ter and
 Raphael Robinson \cite{robinson1948} in the Bulletin of the American
 Mathematical Society. The function is as follows:
 
@@ -3384,10 +3538,6 @@ the speed increase applies to.
   \caption{Execution Time of Remaining Benchmarks}
   \label{execution-time}
 \end{figure}
-
-
-
-
 \end{document}
 
 
