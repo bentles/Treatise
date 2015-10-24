@@ -2128,6 +2128,51 @@ types of the registers being added and so that code is removed.
 	\label{fig:op-case-expansion-implementation-2}	
 \end{figure}
 
+\begin{figure}[!htb]
+  \begin{subfigure}[t]{0.5\linewidth} 
+    \centering
+	\begin{tikzpicture}[scale=1]
+      \tikzstyle{every node}=[draw,shape=rectangle,anchor=west,minimum width=60pt,minimum height=18pt];
+      \node (v0) at (0,-2) {$add$};
+
+      \node (v1) at (3,0)  {$error$};
+      \node (v2) at (3,-1) {$error$};
+      \node[draw=white] (v3) at (3,-2) {$\vdots$};
+      \node (v4) at (3,-3) {$add\_5\_4$};
+      \node (v5) at (3,-4) {$add\_5\_5$};
+
+      \draw 
+      (v0.east) -- (v1.west)
+      (v0.east) -- (v2.west)
+      (v0.east) -- (v4.west)
+      (v0.east) -- (v5.west);
+	\end{tikzpicture}
+	\caption{TS = 100000}
+	\label{fig:op-case-expansion-implementation-2}	
+  \end{subfigure}
+  \begin{subfigure}[t]{0.5\linewidth}
+    \centering
+	\begin{tikzpicture}[scale=1]
+      \tikzstyle{every node}=[draw,shape=rectangle,anchor=west,minimum width=60pt,minimum height=18pt];
+      \node (v0) at (0,-2) {$add$};
+
+      \node (v1) at (3,0)  {$add\_0\_0$};
+      \node (v2) at (3,-1) {$add\_0\_1$};
+      \node[draw=white] (v3) at (3,-2) {$\vdots$};
+      \node (v4) at (3,-3) {$error$};
+      \node (v5) at (3,-4) {$error$};
+
+      \draw 
+      (v0.east) -- (v1.west)
+      (v0.east) -- (v2.west)
+      (v0.east) -- (v4.west)
+      (v0.east) -- (v5.west);
+	\end{tikzpicture}
+    \caption{TS = 000001}
+  \end{subfigure}
+  \caption{Operand Case Expansion With Type Mapping}
+  \label{fig:op-case-expansion-implementation-2}	
+\end{figure}
 
 
 
