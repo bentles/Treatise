@@ -2848,14 +2848,277 @@ detailed information in the form of:
 \chapter{Results}
 
 The following results were obtained by the experiments described in
-the previous chapter. A discussion of the results common to all
-virtual machines follows, and then interesting cases for individual
-benchmarks are examined. A result table for each benchmark can be
-found in appendix D.
+the previous chapter. The results for each benchmark are
+discussed. Finally, the common trends found across all benchmarks are
+examined.
+
+\section{Benchmark-Specific Results}
+
+The following results are analysed for each benchmark in
+isolation. Each graph shows the average running time in seconds of
+each benchmark, with the standard deviation of the running times
+presented as error bars. A paired, two tailed t-test was used to
+compare the running times between virtual machines. The test compared
+the mean execution times of each benchmark accross the three VMs. For
+all benchmarks the mean execution times were found to be significantly
+different (t < 0.05). The calculated t-values are shown in square
+brackets in each summary table.  Values in round brackets are the
+standard deviations of the rates as percentage points.
+
+\subsection{Ackermann}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics{ackermann.png}
+  \caption{Ackermann Execution Time}
+  \label{fig:ackermann-time}
+\end{figure}
+
+The ackermann benchmark was found to only have a small performance
+increase for the Operand Dispatch and Operand-Type Dispatch VMs, with
+8.14\% and 11.91\% speed increases in execution time respectively.
+
+Table \ref{tab:stats} shows that the Ackermann benchmark had the
+largest number of function calls. It also had the highest percentage
+of function calls with 11.11\% of all instructions in the benchmark
+being function calls. It is expected that these calls occupy a larger
+share of the actual running time. The reason is that VM instructions
+do not have uniform execution costs. In particular, high abstraction
+level operations, such as call, will have a much larger execution cost
+than low abstraction level instruction. This may have had a dampening
+effect on the performance benefits of the experimental VMs as the
+function call instruction is the same for all VMs. All other
+benchmarks had less than 4\% of their instructions as function calls.
+
+\begin{table}[!htb]
+  \begin{center}
+    \begin{tabular}{lrrr}
+      Ackermann & Conventional & Operand & Operand-Type\\
+      \hline
+      Average execution time & 125.7464 & 115.5056 & 110.7639\\
+      Increase over Conventional &  & 8.14\% [3.85E-23] & 11.91\% [7.23E-17]\\
+      Increase over Operand &  &  & 4.11\% [2.08E-5]\\
+      Perf cache-miss & 14.76\% (1.06\%) & 14.51\% (0.66\%) & 14.87\% (0.94\%)\\
+      Perf branch-miss & 0\% (0\%) & 0\% (0\%) & 0\% (0\%)\\
+      Cachegrind I1 miss & 0\% & 0\% & 0\%\\
+      Cachegrind indirect miss & 58.3\% & 8.3\% & 8.3\%\\
+    \end{tabular}
+  \end{center}
+  \caption{Ackermann Results Summary}
+\end{table}
+
+
+\subsection{Fannkuch}
+The Fannkuch benchmark provided a quite large performance increases
+over the Conventional VM relative to the other benchmarks. The most
+striking result is the performance increase of the Operand-Type
+Dispatch VM over the Operand Dispatch VM, which is the highest of all
+benchmarks at 8.5\%.
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics{fannkuch.png}
+  \caption{Fannkuch Execution Time}
+  \label{fig:fannkuch-time}
+\end{figure}
+
+The percentage of function call instructions for this benchmark was
+less that 0.9\%, and this may help explain why performance increases
+in general were large, but it does not explain why the Operand-Type VM
+specifically gained a larger increase than in other benchmarks.
+
+\begin{table}[!htb]
+  \begin{center}
+    \begin{tabular}{lrrr}
+      Fannkuch & Conventional & Operand & Operand-Type\\
+      \hline
+      Average execution time & 47.1528 & 39.0194 & 35.6915\\
+      Increase over Conventional &  & 17.25\% [1.54E-39] & 24.31\% [1.02E-38]\\
+      Increase over Operand &  &  & 8.53\% [6.11E-21]\\
+      Perf cache-miss & 5.12\% (2.17\%) & 5.46\% (1.29\%) & 10.40\% (7.71\%)\\
+      Perf branch-miss & 0.61\% (0.01\%) & 0.74\% (0.03\%) & 0.97\% (0.02\%)\\
+      Cachegrind I1 miss & 0\% & 0\% & 0\%\\
+      Cachegrind indirect miss & 73.2\% & 22.7\% & 23.3\%\\
+    \end{tabular}
+  \end{center}
+  \caption{Fannkuch Results Summary}
+\end{table}
+
+\subsection{Fasta}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics{fasta.png}
+  \caption{Fasta Execution Time}
+  \label{fig:fasta-time}
+\end{figure}
+
+The fasta benchmark had recieved average execution time speedups for
+the Operand-Type and the Operand Dispatch VMs. The performance boost
+afforded by the OTVM over the OVM was also average among the
+benchmarks.
+
+\begin{table}[!htb]
+  \begin{center}
+    \begin{tabular}{lrrr}
+      Fasta & Conventional & Operand & Operand-Type\\
+      \hline
+      Average execution time & 54.9107 & 46.622 & 44.6889\\
+      Increase over Conventional &  & 15.09\% [2.08E-8] & 18.62\% [4.55E-00]\\
+      Increase over Operand &  &  & 4.15\% [0.0015]\\
+      Perf cache-miss & 3.44\% (2.00\%) & 4.05\% (1.79\%) & 5.29\% (3.30\%)\\
+      Perf branch-miss & 0.25\% (0.06\%) & 0.26\% (0.00\%) & 0.39\% (0.04\%)\\
+      Cachegrind I1 miss & 0\% & 0\% & 0\%\\
+      Cachegrind indirect miss & 74.3\% & 22.5\% & 24.1\%\\
+    \end{tabular}
+  \end{center}
+  \caption{Fasta Results Summary}
+\end{table}
+
+\subsection{Mandelbrot}
+The Mandelbrot benchmark has the best performance increases for the
+two experimantal VMs over the Conventional VM with a 24.4\% increase
+for the Operand Dispatch and a 30.06\% increase for the Operand-Type
+Dispatch VM. The execution times of the mandelbrot benchmark across
+VMs is shown in figure \ref{fig:mandel-time}.
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics{mandelbrot.png}
+  \caption{Mandelbrot Execution Time}
+  \label{fig:mandel-time}
+\end{figure}
+
+
+The mandelbrot benchmark has no function calls and also has
+0.00\% (rounded) high abstraction level instructions. Since almost all
+insructions are low abstraction level instructions, this benchmark
+gains significantly from being able to remove the type checking and
+decode steps present in the Conventional VM as they make up a larger
+percent of the execution time of low abstraction level instructions.
+
+\begin{table}[!htb]
+  \begin{center}
+    \begin{tabular}{lrrr}
+      Mandelbrot & Conventional & Operand & Operand-Type\\
+      \hline
+      Average execution time & 614.9593 & 464.9384 & 430.1183\\
+      Increase over Conventional &  & 24.40\% [3.58E-12] & 30.06\% [8.91E-13]\\
+      Increase over Operand &  &  & 7.49\% [6.77E-11]\\
+      Perf cache-miss & 6.99\% (2.41\%) & 6.53\% (2.90\%) & 8.20\% (2.07\%)\\
+      Perf branch-miss & 0.04\% (0.00\%) & 0.05\% (0.00\%) & 0.11\% (0.00\%)\\
+      Cachegrind I1 miss & 0\% & 0\% & 0\%\\
+      Cachegrind indirect miss & 85.7\% & 29.6\% & 36.6\%\\
+    \end{tabular}
+  \end{center}
+  \caption{Mandelbrot Results Summary}
+\end{table}
+
+\subsection{Mersenne Twister}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics{mersenne.png}
+  \caption{Mersenne Twister Execution Time}
+  \label{fig:mersenne-time}
+\end{figure}
+
+
+The mersenne twister had a large performance increase relative to
+other benchmarks, but experienced the smallest increase for the
+Operand-Type Dispatch VM over the Operand VM with a 2.7\% increase.
+
+\begin{table}[!htb]
+  \begin{center}
+    \begin{tabular}{lrrr}
+      Mersenne Twister & Conventional & Operand & Operand-Type\\
+      \hline
+      Average execution time & 30.4329 & 24.3093 & 23.6524\\
+      Increase over Conventional &  & 20.12\% [2.31E-8] & 22.28\% [1.30E-7]\\
+      Increase over Operand &  &  & 2.70\% [0.0148]\\
+      Perf cache-miss & 4.41\% (2.78\%) & 4.63\% (1.93\%) & 4.01\% (1.18\%)\\
+      Perf branch-miss & 0.44\% (0.15\%) & 0.44\% (0.08\%) & 0.63\% (0.06\%)\\
+      Cachegrind I1 miss & 0\% & 0\% & 0\%\\
+      Cachegrind indirect miss & 64.9\% & 24\% & 24.6\%\\
+    \end{tabular}
+  \end{center}
+  \caption{Mersenne Twister}
+\end{table}
+
+\subsection{Prime Sieve}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics{primesieve.png}
+  \caption{Prime Sieve Execution Time}
+  \label{fig:primesieve-time}
+\end{figure}
+
+The Prime Sieve benchmark had average performance increases compared
+to other benchmarks. It also produced an interesting trend of higher
+cache-misses for the experimental VMs in the Perf benchmark
+results. Prime Sieve made extensive use of a linked list data
+structure which does not have the spatial locality of reference
+mentioned in section \ref{sec:cache}. Further investigation is
+required to determine why this benchmark makes less effective use of
+data cache for the experimental VMs.
+
+
+\begin{table}[!htb]
+  \begin{center}
+    \begin{tabular}{lrrr}
+      Prime Sieve & Conventional & Operand & Operand-Type\\
+      \hline
+      Average execution time & 193.9987 & 160.2169 & 152.4721\\
+      Increase over Conventional &  & 17.41\% [1.79E-10] & 21.41\% [4.76E-12]\\
+      Increase over Operand &  &  & 4.83\% [0.0005]\\
+      Perf cache-miss & 15.87\% (0.34\%) & 16.48\% (0.32\%) & 23.11\% (2.17\%)\\
+      Perf branch-miss & 0.00\% (0.00\%) & 0.00\% (0.00\%) & 0.00\% (0.00\%)\\
+      Cachegrind I1 miss & 0\% & 0\% & 0\%\\
+      Cachegrind indirect miss & 81.8\% & 27.2\% & 27.2\%\\
+    \end{tabular}
+  \end{center}
+  \caption{Prime Sieve}
+\end{table}
+
+\subsection{Reverse Complement}
+
+\begin{figure}[!htb]
+  \centering
+  \includegraphics{reversecomplement.png}
+  \caption{Reverse Complement Execution Time}
+  \label{fig:reverse-time}
+\end{figure}
+
+The Reverse Complement benchmark produced high performance inceases
+over the Conventional VM with 21.49\% and 23.68\% for the Operand and
+Operand-Type VMs respectively. The cache miss rate found by the Perf
+utility was high for this benchmark. This is because it is the only
+benchmark that reads extensively from standard input. 
+
+\begin{table}[!htb]
+  \begin{center}
+    \begin{tabular}{lrrr}
+      Reverse Complement & Conventional & Operand & Operand-Type\\
+      \hline
+      Average execution time & 2.6406 & 2.0731 & 2.01531\\
+      Increase over Conventional &  & 21.49\% [3.25E-50] & 23.68\% [1.71E-52]\\
+      Increase over Operand &  &  & 2.79\% [1.61E-10]\\
+      Perf cache-miss & 39.63\% (4.72\%) & 42.99\% (4.46\%) & 39.83\% (5.20\%)\\
+      Perf branch-miss & 0.10\% (0.01\%) & 0.11\% (0.00\%) & 1.70\% (1.09\%)\\
+      Cachegrind I1 miss & 0\% & 0\% & 0\%\\
+      Cachegrind indirect miss & 44.6\% & 1.6\% & 1.6\%\\
+    \end{tabular}
+  \end{center}
+  \caption{Reverse Complement}
+\end{table}
 
 \section{Common Results}
 
-These are results common to all benchmarks in the suite.
+The general patterns found accross all benchmarks are discussed in
+this section. The performance benefits of the experimental VMs are
+examined and their cache utilisation and branch miss rates are
+discussed.
 
 \subsection{Execution Time}
 Both experimental VMs were faster across all benchmarks than the
@@ -2865,38 +3128,59 @@ the slowest. Speed increases for the Operand Dispatch VM over the
 Conventional VM ranged from 8.53\%(Ackermann) to
 24.4\%(Mandelbrot). The Operand-Type Dispatch VM's performance
 increases over the Conventional VM ranged from 11.91\%(Ackermann) to
-30.06\%(Mandelbrot). 
+30.06\%(Mandelbrot).
 
 The performance increases of the Operand-Type Dispatch VM over the
 Operand Dispatch VM ranged from 2.7\%(Mersenne Twister) to
-8.53\%(Fannkuch).
+8.53\%(Fannkuch). The OTVM's performance benefits over the OVM did not
+correlate directly with the number of unique states nore the rate of
+state changes. Analysis of this performance increase may have been
+made more complex by the caveat mentioned in section
+\ref{sec:generation-algorithm}.
 
 \subsection{Cache Utilisation}
 According to the results from the cachegrind benchmark runs, all VMs
 were effective at keeping their instruction subroutines in level one
-intruction cache, as all VMs had extremely low ``I1 miss rates'' and
-hence all are rounded to 0 in the results tables. This means that in
-spite of the large number of instructions needed by the experimental
-VMs as a result of operand case expansion, the set of instructions
-needed by all benchmarks could always fit in level one instruction
-cache.
+intruction cache, as all VMs had ``I1 miss rates'' less than
+0.01\%. This means that in spite of the large number of instructions
+needed by the experimental VMs as a result of operand case expansion,
+the set of instructions needed by all benchmarks could always fit in
+level one instruction cache.
 
 The Linux Perf cache miss data shows that, generally cache miss rates
 (and these include data cache misses) were stable between the three
-VMs, with the exception of the Prime Sieve benchmark.
+VMs, with the exception of the Prime Sieve benchmark. The Prime sieve
+benchmark's cache-miss rate was 15.87\% for the Conventional VM,
+16.48\% for the OVM and 23.11\% for the OTVM. The prime sieve
+benchmark makes use of a linked list which does not take advantage of
+locality of reference as well as an array. Further investigation is
+needed to determine why the OVM and OTVM perform worse in this
+instance, but it is worth noting that the Prime Sieve benchmark has
+the highest number of unique states of all benchmarks.
 
 \subsection{Branch Miss Rate}
-The cachegrind results also revealed, interestingly that the
-conventional VM has a far higher indirect branch miss rate than the
-two experimental VMs. This was true accross all benchmarks. This means
-that the token-threaded dispatch is less effective on the Conventional
-VM than it is on the experimental VMs. %why?
+The cachegrind results revealed that the conventional VM has a far
+higher indirect branch miss rate than the two experimental VMs across
+all benchmarks. This was true accross all benchmarks. This means that
+the token-threaded dispatch is less effective on the Conventional VM
+than it is on the experimental VMs. This is becuase more entries are
+placed in the branch target buffer for these two VMs than the
+conventional VM. Where the conventional VM might have several uses of
+an \verb|add| instruction, the OVM and OTVM may have several different
+instructions used (say \verb|add_0_1|, \verb|add_1_2| and
+\verb|add_3_4| are used). Each of these different instuctions will
+have an entry in the branch target buffer and so the 
 
 \subsection{Instruction Counts and Type State Usage}
-Table \ref{tab:stats} shows that the number of states used by the
-benchmarks was not particularly high. The benchmark that used the most
-different type states was the Prime Sieve benchmark, which used less
-than a quarter of the total number of states the VM can take on.
+Table \ref{tab:stats} shows that the number of distinct states used by
+the benchmarks was not particularly high. The benchmark that used the
+most different type states was the Prime Sieve benchmark, which used
+less than a fifth of the total number of states the VM can take
+on. This is important because having too many state changes may mean
+that too much of the dynamic opcode table to be kept in level 1 data
+cache is used at once and entries will have to be swapped out of
+cache. Thus, a low number of state changes is better for cache
+utilisation.
 
 \begin{table}[!htb]
   \centering
@@ -2918,86 +3202,6 @@ than a quarter of the total number of states the VM can take on.
   \label{tab:stats}
 \end{table}
 
-\section{Benchmark-Specific Results}
-
-The following results are analysed for each benchmark in
-isolation. Each graph shows the average running time in seconds of
-each benchmark, with the standard deviation of the running times
-presented as error bars. A paired, two tailed t-test was used to
-compare the running times between virtual machines for each benchmark
-and all speed increases (both those over the Conventional VM and those
-over the Operand VM) were found to be statistically significant.
-
-\subsection{Ackermann}
-The ackermann benchmark was found to only have a small performance
-increase for the Operand Dispatch and Operand-Type Dispatch VMs, with
-8.14\% and 11.91\% speed increases in execution time respectively.
-
-Table \ref{tab:stats} shows that the Ackermann benchmark had the
-largest number of function calls. It also had the highest percentage
-of function calls with 11.11\% of all instructions in the benchmark
-being function calls. It would be expected that these calls would make
-up more than 11.11\% of the execution time of the benchmark as each
-call is a high abstraction level instruction that performs memory
-allocations and copies data. This may have had a dampening effect on
-the performance benefits of the experimental VMs as the function call
-instruction is the same for all VMs. All other benchmarks had less
-than 4\% of their instructions as function calls.
-
-\subsection{Fannkuch}
-The Fannkuch benchmark provided a quite large performance increases
-over the Conventional VM relative to the other benchmarks. The most
-striking result is the performance increase of the Operand-Type
-Dispatch VM over the Operand Dispatch VM, which is the highest of all
-benchmarks at 8\%.
-
-The percentage of function call instructions for this benchmark was
-less that 0.9\%, and this may help explain why performance increases
-in general were large, but it does not explain why the Operand-Type VM
-specifically gained a larger increase than in other benchmarks.
-
-\subsection{Mandelbrot}
-The Mandelbrot benchmark has the best performance increases for the
-two experimantal VMs over the Conventional VM with a 24.4\% increase
-for the Operand Dispatch and a 30.06\% increase for the Operand-Type
-Dispatch VM. The execution times of the mandelbrot benchmark across
-VMs is shown in figure \ref{fig:mandel-time}.
-
-The mandelbrot benchmark has no function calls and also has
-0.00\% (rounded) high abstraction level instructions. Since almost all
-insructions are low abstraction level instructions, this benchmark
-gains significantly from being able to remove the type checking and
-decode steps present in the Conventional VM as they make up a larger
-percent of the execution time of low abstraction level instructions.
-
-\begin{figure}[!htb]
-  \centering
-  \includegraphics{mandelbrot.png}
-  \caption{Mandelbrot Execution Time}
-  \label{fig:mandel-time}
-\end{figure}
-
-\subsection{Mersenne Twister}
-The mersenne twister had a large performance increase relative to
-other benchmarks, but experienced the smallest increase for the
-Operand-Type Dispatch VM over the Operand VM with a 2.7\% increase.
-
-\subsection{Prime Sieve}
-The Prime Sieve benchmark had quite average performance increases
-compared to other benchmarks. It also produced an interesting trend of
-higher cache-misses for the experimental VMs in the Perf benchmark
-results. Prime Sieve made extensive use of a linked list data
-structure which does not have the spatial locality of reference
-mentioned in section \ref{sec:cache}. Further investigation is
-required to determine why this benchmark makes less effective use of
-data cache for the experimental VMs.
-
-\subsection{Reverse Complement}
-The Reverse Complement benchmark produced high performance inceases
-over the Conventional VM with 21.49\% and 23.68\% for the Operand and
-Operand-Type VMs respectively. The cache miss rate found by the Perf
-utility was high for this benchmark. This is because it is the only
-benchmark that reads extensively from standard input. 
 
 \chapter{Conclusion}
 
@@ -3386,7 +3590,7 @@ common set of benchmarks
 	\item[err] prints an error string at a 16-bit integer value
 	displacement from IP then halts VM
 	
-	% movsc goes here???
+	\item[movc] places a string constant stored in a new buffer in a register
 	
 	\item[in] attempts to fill a buffer from standard input
 	
@@ -3441,145 +3645,6 @@ of objects and buffers.
 #define GetSize(v)((v) >> 2)
 \end{lstlisting}
 
-\chapter{Results Data}
-
-Average execution time is in seconds. Values in round brackets are the
-standard deviations of the rates as percentage points. Values in
-square brackets are paired, two-tailed T test results for the two sets
-the speed increase applies to.
-
-\section{Benchmark Result Tables}
-\begin{table}[!htb]
-  \begin{center}
-    \begin{tabular}{lrrr}
-      Ackermann & Conventional & Operand & Operand-Type\\
-      \hline
-      Average execution time & 125.7464 & 115.5056 & 110.7639\\
-      Increase over Conventional &  & 8.14\% [3.85E-23] & 11.91\% [7.23E-17]\\
-      Increase over Operand &  &  & 4.11\% [2.08E-5]\\
-      Perf cache-miss & 14.76\% (1.06\%) & 14.51\% (0.66\%) & 14.87\% (0.94\%)\\
-      Perf branch-miss & 0\% (0\%) & 0\% (0\%) & 0\% (0\%)\\
-      Cachegrind I1 miss & 0\% & 0\% & 0\%\\
-      Cachegrind indirect miss & 58.3\% & 8.3\% & 8.3\%\\
-    \end{tabular}
-  \end{center}
-  \caption{Ackermann}
-\end{table}
-
-\begin{table}[!htb]
-  \begin{center}
-    \begin{tabular}{lrrr}
-      Fannkuch & Conventional & Operand & Operand-Type\\
-      \hline
-      Average execution time & 47.1528 & 39.0194 & 35.6915\\
-      Increase over Conventional &  & 17.25\% [1.54E-39] & 24.31\% [1.02E-38]\\
-      Increase over Operand &  &  & 8.53\% [6.11E-21]\\
-      Perf cache-miss & 5.12\% (2.17\%) & 5.46\% (1.29\%) & 10.40\% (7.71\%)\\
-      Perf branch-miss & 0.61\% (0.01\%) & 0.74\% (0.03\%) & 0.97\% (0.02\%)\\
-      Cachegrind I1 miss & 0\% & 0\% & 0\%\\
-      Cachegrind indirect miss & 73.2\% & 22.7\% & 23.3\%\\
-    \end{tabular}
-  \end{center}
-  \caption{Fannkuch}
-\end{table}
-
-\begin{table}[!htb]
-  \begin{center}
-    \begin{tabular}{lrrr}
-      Fasta & Conventional & Operand & Operand-Type\\
-      \hline
-      Average execution time & 54.9107 & 46.622 & 44.6889\\
-      Increase over Conventional &  & 15.09\% [2.08E-8] & 18.62\% [4.55E-00]\\
-      Increase over Operand &  &  & 4.15\% [0.0015]\\
-      Perf cache-miss & 3.44\% (2.00\%) & 4.05\% (1.79\%) & 5.29\% (3.30\%)\\
-      Perf branch-miss & 0.25\% (0.06\%) & 0.26\% (0.00\%) & 0.39\% (0.04\%)\\
-      Cachegrind I1 miss & 0\% & 0\% & 0\%\\
-      Cachegrind indirect miss & 74.3\% & 22.5\% & 24.1\%\\
-    \end{tabular}
-  \end{center}
-  \caption{Fasta}
-\end{table}
-
-\begin{table}[!htb]
-  \begin{center}
-    \begin{tabular}{lrrr}
-      Mandelbrot & Conventional & Operand & Operand-Type\\
-      \hline
-      Average execution time & 614.9593 & 464.9384 & 430.1183\\
-      Increase over Conventional &  & 24.40\% [3.58E-12] & 30.06\% [8.91E-13]\\
-      Increase over Operand &  &  & 7.49\% [6.77E-11]\\
-      Perf cache-miss & 6.99\% (2.41\%) & 6.53\% (2.90\%) & 8.20\% (2.07\%)\\
-      Perf branch-miss & 0.04\% (0.00\%) & 0.05\% (0.00\%) & 0.11\% (0.00\%)\\
-      Cachegrind I1 miss & 0\% & 0\% & 0\%\\
-      Cachegrind indirect miss & 85.7\% & 29.6\% & 36.6\%\\
-    \end{tabular}
-  \end{center}
-  \caption{Mandelbrot}
-\end{table}
-
-\begin{table}[!htb]
-  \begin{center}
-    \begin{tabular}{lrrr}
-      Mersenne Twister & Conventional & Operand & Operand-Type\\
-      \hline
-      Average execution time & 30.4329 & 24.3093 & 23.6524\\
-      Increase over Conventional &  & 20.12\% [2.31E-8] & 22.28\% [1.30E-7]\\
-      Increase over Operand &  &  & 2.70\% [0.0148]\\
-      Perf cache-miss & 4.41\% (2.78\%) & 4.63\% (1.93\%) & 4.01\% (1.18\%)\\
-      Perf branch-miss & 0.44\% (0.15\%) & 0.44\% (0.08\%) & 0.63\% (0.06\%)\\
-      Cachegrind I1 miss & 0\% & 0\% & 0\%\\
-      Cachegrind indirect miss & 64.9\% & 24\% & 24.6\%\\
-    \end{tabular}
-  \end{center}
-  \caption{Mersenne Twister}
-\end{table}
-
-\begin{table}[!htb]
-  \begin{center}
-    \begin{tabular}{lrrr}
-      Prime Sieve & Conventional & Operand & Operand-Type\\
-      \hline
-      Average execution time & 193.9987 & 160.2169 & 152.4721\\
-      Increase over Conventional &  & 17.41\% [1.79E-10] & 21.41\% [4.76E-12]\\
-      Increase over Operand &  &  & 4.83\% [0.0005]\\
-      Perf cache-miss & 15.87\% (0.34\%) & 16.48\% (0.32\%) & 23.11\% (2.17\%)\\
-      Perf branch-miss & 0.00\% (0.00\%) & 0.00\% (0.00\%) & 0.00\% (0.00\%)\\
-      Cachegrind I1 miss & 0\% & 0\% & 0\%\\
-      Cachegrind indirect miss & 81.8\% & 27.2\% & 27.2\%\\
-    \end{tabular}
-  \end{center}
-  \caption{Prime Sieve}
-\end{table}
-
-\begin{table}[!htb]
-  \begin{center}
-    \begin{tabular}{lrrr}
-      Reverse Complement & Conventional & Operand & Operand-Type\\
-      \hline
-      Average execution time & 2.6406 & 2.0731 & 2.01531\\
-      Increase over Conventional &  & 21.49\% [3.25E-50] & 23.68\% [1.71E-52]\\
-      Increase over Operand &  &  & 2.79\% [1.61E-10]\\
-      Perf cache-miss & 39.63\% (4.72\%) & 42.99\% (4.46\%) & 39.83\% (5.20\%)\\
-      Perf branch-miss & 0.10\% (0.01\%) & 0.11\% (0.00\%) & 1.70\% (1.09\%)\\
-      Cachegrind I1 miss & 0\% & 0\% & 0\%\\
-      Cachegrind indirect miss & 44.6\% & 1.6\% & 1.6\%\\
-    \end{tabular}
-  \end{center}
-  \caption{Reverse Complement}
-\end{table}
-
-\section{Execution Times}
-
-\begin{figure}[!htb]
-  \includegraphics{ackermann.png}
-  \includegraphics{fannkuch.png} 
-  \includegraphics{fasta.png}
-  \includegraphics{mersenne.png}
-  \includegraphics{primesieve.png}
-  \includegraphics{reversecomplement.png}
-  \caption{Execution Time of Remaining Benchmarks}
-  \label{execution-time}
-\end{figure}
 \end{document}
 
 
