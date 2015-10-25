@@ -1370,11 +1370,7 @@ by the VM to be in L1 instruction cache. As previously mentioned, the
 VMa support an instruction set of logical 46 instructions. Because of
 the operand case expansion the Operand Dispatch VM has 1295 internal
 instructions. The Operand-Type Dispatch VM has 2021 internal
-instructions and a special instruction to signal an error. The
-difference in number of instructions is caused by the implementation
-of type-mapping and is discussed in chapter 4.
-
-%TODO: ACTUALLY EXPLAIN THIS AND DONT FORGET!!
+instructions and a special instruction to signal an error.
 
 A rough estimate of the size of a low abstraction level
 \cite{Brunthaler20093} internal instruction for the OVM is 120
@@ -1398,7 +1394,7 @@ each VM is discussed in section \ref{sec:labels-as-addresses}. This
 lookup table is referred to as the \textbf{dynamic opcode table}.
 
 The dynamic opcode table is a set of 8-byte pointers. In the Operand
-Dispatch VM, the dynamic opcode table is $(1296*8)/1024 = 10$KB, a
+Dispatch VM, the dynamic opcode table is $(1295*8)/1024 \approx 10$KB, a
 fraction of the L1 data cache for a Haswell processor. For the
 Operand-Type dispatch however, the lookup table is
 $(131072*8)/1024 = 1$MB which is around 30 times larger than L1 data
@@ -1542,12 +1538,7 @@ that require the same variables in different orders, but since the VM
 is only to be used for a small set of benchmarks, these issues can be
 avoided. This mechanism was chosen because it is an extremely simple
 way to pass arguments. The function call mechanism saves registers
-$g_1$ through $g_4$ before the function call. More detail on the
-implementation of the function call and return mechanisms will be
-given in section XXX.
-
-%TODO: GIVE MORE DETAIL THEN
-
+$g_1$ through $g_4$ before the function call.
 
 \subsection{Pragmatic Higher-Level Instructions}
 
@@ -1847,7 +1838,7 @@ layout of the \verb|TS| register. The rest of the bits in the
         & \bitbox{1}{$g_5$} 
         & \bitbox{11}{-- empty --} \\		
 	\end{bytefield}
-  \caption{TS Register Last 17 Bits}
+  \caption{TS Register's Last 17 Bits}
   \label{fig:ts}
 \end{figure}
 
@@ -1858,7 +1849,60 @@ table that is appropriate for the current type state of the OTVM. This
 is because the bits associated with registers provide an index to
 2048-entry sections of the dynamic opcode table. The six bits of the
 bitmap are left shifted 11 bits because the OTVM has between 1024 and
-2048 internal instructions. 
+2048 internal instructions.
+
+\section{Stack Frames and Function Definitions}
+
+All VMs make use of identical Stack Frames for subroutine calls. Each
+stack frame stores:
+
+\begin{itemize}
+	\item The previous \verb|FP|, \verb|IP| and \verb|TS|
+	\item The general purpose registers except for $g_0$ and $g_5$
+	\item The local variables used in that stack frame
+\end{itemize}
+
+Registers are saved upon calling a subroutine and restored when the
+subroutine returns. The first and last general purpose registers are
+used for return values. The memory layout for a stack frame can be
+seen in Figure~\ref{fig:stframe}. The \verb|FP| register of the
+current stack frame points to the first local variable in that stack
+frame as can be seen in the figure.
+
+\begin{figure}[!htb]
+	\centering
+	\begin{bytefield}[bitwidth=0.3em,endianness=big,leftcurly=., leftcurlyspace=0pt]{64}
+		\bitheader{0,63} \\
+		\begin{rightwordgroup}{Special Registers}
+			\wordbox{1}{value *fp}  \\
+			\wordbox{1}{int16\_t *ip} \\
+			\wordbox{1}{int64\_t ts}
+		\end{rightwordgroup} \\
+		
+		\begin{rightwordgroup}{General purpose registers}
+			\wordbox{2}{value $g_1$}\\
+			\wordbox{2}{value $g_2$}\\
+			\wordbox{2}{value $g_3$}\\
+			\wordbox{2}{value $g_4$}
+		\end{rightwordgroup} 
+\\
+		
+		\begin{rightwordgroup}{Local variables}
+          \begin{leftwordgroup}{FP $\rightarrow$}
+			\wordbox{2}{value $l_1$}	
+          \end{leftwordgroup} \\
+			\wordbox[]{1}{$\vdots$} \\[1ex]
+			\wordbox{2}{value $l_n$}
+		\end{rightwordgroup} \\
+	\end{bytefield}
+	\caption{Stack frame memory layout}
+	\label{fig:stframe}
+\end{figure}
+
+Function definitions in bytecode are extremely simple. The first 64
+bits of the function store the number of arguments the function
+accepts. This is followed by the instructions for the function and
+terminated by a \verb|ret| instruction.
 
 \section{Token Threading}
 \label{token-threading}
@@ -1910,71 +1954,18 @@ The jump table described in the manual is the mechanism used for
 token-threaded dispatch. In the VMs, this jump table is what is
 referred to as the dynamic opcode table. The entries in the dynamic
 opcode table are the addresses of the instructions a VM
-implements. For each VM, the table is created slightly differently.
-
-\section{Stack Frames and Function Definitions}
-
-All VMs make use of identical Stack Frames for subroutine calls. Each
-stack frame stores:
-
-\begin{itemize}
-	\item The previous \verb|FP|, \verb|IP| and an additional register,
-	\verb|TS|, that goes unused except in the opcode-operand-type
-	dispatch VM.
-	\item The general purpose registers except for $g_0$ and $g_5$
-	\item The local variables used in that stack frame
-\end{itemize}
-
-Registers are saved upon calling a subroutine and restored when the
-subroutine returns. The first and last general purpose registers are
-used for return values. The memory layout for a stack frame can be
-seen in Figure~\ref{fig:stframe}. The \verb|FP| register of the
-current stack frame points to the first local variable in that stack
-frame as can be seen in the figure.
-
-\begin{figure}[!htb]
-	\centering
-	\begin{bytefield}[bitwidth=0.3em,endianness=big]{64}
-		\bitheader{0,63} \\
-		\begin{rightwordgroup}{Special Registers}
-			\wordbox{1}{value *fp}  \\
-			\wordbox{1}{int16\_t *ip} \\
-			\wordbox{1}{int64\_t ts}
-		\end{rightwordgroup} \\
-		
-		\begin{rightwordgroup}{General purpose registers}
-			\wordbox{2}{value $g_1$}\\
-			\wordbox{2}{value $g_2$}\\
-			\wordbox{2}{value $g_3$}\\
-			\wordbox{2}{value $g_4$}
-		\end{rightwordgroup} \\
-		
-		\begin{rightwordgroup}{Local variables}
-          \begin{leftwordgroup}{FP $\rightarrow$}
-			\wordbox{2}{value $l_1$}	
-          \end{leftwordgroup} \\
-			\wordbox[]{1}{$\vdots$} \\[1ex]
-			\wordbox{2}{value $l_n$}
-		\end{rightwordgroup} \\
-	\end{bytefield}
-	\caption{Stack frame memory layout}
-	\label{fig:stframe}
-\end{figure}
-
-Function definitions in bytecode are extremely simple. The first 64
-bits of the function store the number of arguments the function
-accepts. This is followed by the instructions for the function and
-terminated by a \verb|ret| instruction.
+implements.
 
 \section{Instruction Implementation}
 
 The 46 logical instructions are the same across all three VMs. But
 their implementations differ significantly. This section examines the
 implementation of internal instructions across the three VMs. The
-logical \verb|add| instruction is used as to show the difference in
-internal instruction implementations between the three VMs.
+logical \verb|add| instruction is used as an example to explain the
+differences in internal instruction implementations between the three
+VMs.
 
-\subsection{Conventional VM Implementation}
+\subsection{Conventional VM}
 
 For the Conventional VM, the logical \verb|add| instruction has only a
 single internal instruction (also called \verb|add|) that makes up its
@@ -2020,7 +2011,7 @@ internal instructions of the CVM. The opcode of the next instruction
 is extracted using the \verb|GetOpcode| macro. This opcode can be used to
 branch to the next instruction. 
 
-\subsection{Operand Dispatch VM Implementation}
+\subsection{Operand Dispatch VM}
 \label{sec:operand-dispatch-implementation}
 
 For the Operand Dispatch VM, the logical \verb|add| instruction is
@@ -2066,7 +2057,7 @@ registers one and two and stores the result in register one.
 	(v0.east) -- (v4.west)
 	(v0.east) -- (v5.west);
 	\end{tikzpicture}
-	\caption{Operand Case Expansion for OVM}
+	\caption{Operand Case Expansion for \texttt{add} on OVM}
 	\label{fig:op-case-expansion-implementation}	
 \end{figure}
 
@@ -2082,7 +2073,7 @@ lines three and four in the Conventional VM are not replicated in the
 Operand Dispatch VM. Removing these steps is the benefit afforded by
 operand case expansion.
 
-\subsection{Operand-Type Dispatch VM Implementation}
+\subsection{Operand-Type Dispatch VM}
 \label{sec:operand-type-dispatch-implementation}
 
 For the Operand-Type Dispatch VM, the logical \verb|add| instruction
@@ -2091,25 +2082,25 @@ simply signals a type error and terminates the VM, and the other 36
 instructions are of the following form:
 
 \begin{lstlisting}[language=C]
-add_3_5:
+add_1_2:
 {
-    g[3].i += g[5].i;
+    g[1].i += g[2].i;
     ip++;
 
     goto *dynOpcodes[ts + *ip];
 }
 \end{lstlisting}
 
-\verb|add_0_0| through \verb|add_5_5| implement addition given the fact
-that the types of the registers are integers. This particular example
-is for adding register three to register five, given that both
-registers hold integers. There is no longer any need to check the
-types of the registers being added and so that code is removed.
+The internal instructions \verb|add_0_0| through \verb|add_5_5|
+implement addition given the fact that the types of the registers are
+integers. Note how the only lines four and five from the Operand
+Dispatch VM implementation are reused. This is because the type
+checking step (\verb|IsInt|) is no longer needed.
 
 \begin{figure}[!htb]
 	\centering
 	\begin{tikzpicture}
-	\tikzstyle{every node}=[draw,shape=rectangle,anchor=west,minimum width=50pt,minimum height=18pt];
+	\tikzstyle{every node}=[draw,shape=rectangle,anchor=west,minimum width=60pt,minimum height=18pt];
 	\node (v0) at (0,-2) {$add$};
 
 	\node (v1) at (3,0)  {$add\_0\_0$ || $error$};
@@ -2124,9 +2115,25 @@ types of the registers being added and so that code is removed.
 	(v0.east) -- (v4.west)
 	(v0.east) -- (v5.west);
 	\end{tikzpicture}
-	\caption{Operand Case Expansion for OTVM}
+	\caption{Operand Case Expansion for \texttt{add} on OTVM}
 	\label{fig:op-case-expansion-implementation-2}	
 \end{figure}
+
+Figure \ref{fig:op-case-expansion-implementation-2} shows how operand
+case expansion works for the OTVM. There are two internal
+implementations available for each possible operand combination for
+the logical \verb|add| instruction. These two internal instructions
+are used to implement the functionality of the if and else blocks
+present in the OVM implementation.
+
+The \verb|TS| register is used to choose between these
+implementations. Figure \ref{fig:op-case-with-TS} shows the chosen
+implementation for the operand cases for two different \verb|TS|
+values. A \verb|TS| value of $100000_2 << 11$ means that $g0$ holds a
+pointer. Since \verb|add| acts only on integers any operand case
+containing a zero (like \verb|add_0_0| or \verb|add_2_0|) is an error
+case. This is seen in figure \ref{ts-100000} where the
+type-appropriate implementations have been selected.
 
 \begin{figure}[!htb]
   \begin{subfigure}[t]{0.5\linewidth} 
@@ -2147,8 +2154,8 @@ types of the registers being added and so that code is removed.
       (v0.east) -- (v4.west)
       (v0.east) -- (v5.west);
 	\end{tikzpicture}
-	\caption{TS = 100000}
-	\label{fig:op-case-expansion-implementation-2}	
+	\caption{TS = $100000_2 << 11$}
+    \label{ts-100000}
   \end{subfigure}
   \begin{subfigure}[t]{0.5\linewidth}
     \centering
@@ -2168,41 +2175,22 @@ types of the registers being added and so that code is removed.
       (v0.east) -- (v4.west)
       (v0.east) -- (v5.west);
 	\end{tikzpicture}
-    \caption{TS = 000001}
+    \caption{TS = $000001_2 << 11$}
   \end{subfigure}
   \caption{Operand Case Expansion With Type Mapping}
-  \label{fig:op-case-expansion-implementation-2}	
+  \label{fig:op-case-with-TS}	
 \end{figure}
 
-
-
-\section{Labels As Values and Dispatch}
+\newpage
+\section{Dispatch}
 \label{sec:labels-as-addresses}
-a
-
-s
-
-d
-
-f
-
-j
-
-k
-
+As discussed in section \ref{token-threading}, token-threaded dispatch
+is used by all VMs. Token threaded dispatch makes use of a lookup
+table referred to as the dynamic opcode table. This table is
+constructed differently for each of the three VMs.
 
 \subsection{Conventional VM}
 \label{sec:conv-vm-dispatch}
-
-\begin{figure}[!htb]
-	\centering
-	\begin{bytefield}[bitwidth=1.5em,endianness=big]{16}
-		\bitheader{15,9,8,6,5,3,2,0} \\
-		\bitbox{7}{opcode} & \bitbox{3}{arg3} & \bitbox{3}{arg2} & \bitbox{3}{arg1}\\
-	\end{bytefield}
-	\caption{Conventional VM instruction layout}
-	\label{fig:convinstruction2}
-\end{figure}
 
 For the conventional VM, there are 46 entries in the table. One per
 logical instruction:
@@ -2222,20 +2210,17 @@ The code used to jump to an instruction looks like this:
 \begin{lstlisting}
 goto *dynOpcodes[GetOpcode(*ip)];
 \end{lstlisting}
-The GetOpcode step is necessary because of the instruction word layout
-of a conventional VM. This is shown in figure
-~\ref{fig:convinstruction2} which has been repeated here for
-convenience. The opcode of the instruction lies only in the high seven
-bits of the instruction word pointed to by \verb|IP|. ``GetOpcode'' is
-a macro that calculated the value of the opcode given the instruction
-word.
+\verb|GetOpcode| decodes the opcode for the next instruction. The
+address of the labelled block for the internal implementation of that
+instruction is retrieved from the dynamic opcode table, and execution
+branches to that instruction.
 
 
 \subsection{Operand Dispatch VM}
 \label{sec:operand-dispatch-dispatch}
-For the Operand-Dispatch VM there are 1295 entries in the table. This
-is because many logical instructions have a large number of internal
-instructions used to implement them.
+For the Operand-Dispatch VM there are 1295 entries in the dynamic
+opcode table. The unrolled operand cases of all logical instructions are
+placed sequentially in the table:
 \begin{lstlisting}
 static void *dynOpcodes[] = 
 {
@@ -2254,53 +2239,66 @@ The code used to jump to an instruction looks like this:
 goto *dynOpcodes[*ip];
 \end{lstlisting}
 
-In the Operand Dispatch VM, the entire instruction word pointed to by
-\verb|IP| refers directly to the internal instruction that takes the
-arguments required for that instruction. If the instruction being
-jumped to is \verb|add g0 g0|, then the next instruction word will
-have the value 0, as that is the position of \verb|&&add_0_0| in the
-Dynamic Opcode Table. If the instruction being jumped to is
-\verb|print g5|, then the instruction word will have the value 1294,
-as that is \verb|&&print_5|'s position in the table.
+The entire instruction word pointed to by \verb|IP| refers directly to
+the internal instruction that takes the arguments required for that
+instruction. If the instruction being jumped to is \verb|add g0 g0|,
+then the next instruction word will have the value 0, as that is the
+position of \verb|&&add_0_0| in the Dynamic Opcode Table. If the
+instruction being jumped to is \verb|print g5|, then the instruction
+word will have the value 1294, as that is \verb|&&print_5|'s position
+in the table.
 
 \subsection{Operand-Type Dispatch VM}
 \label{sec:operand-type-dispatch-dispatch}
-For the Operand-Type Dispatch VM there are 131 072 entries in the
-table. This is because there are 64 states and the \verb|TS| value is
-left-shifted by 11 bit positions. This means there are
-$2^{11} \times 64 = 131 072$ entries.
+For the Operand-Type Dispatch VM the dynamic opcode table is far
+larger than Operand Dispatch VM. The \verb|TS| register is six bits
+long and is left shifted 11 bits, hence there are
+$2^{11 + 6} = 131 072$ entries OTVM's dynamic opcode table:
 \begin{lstlisting}
 static void *dynOpcodes[] = 
 {
-&&add_0_0,
-&&add_0_1,
-&&add_0_2,
-...,
-&&undefined,
-&&undefined,
-&&undefined,	
+    &&add_0_0,
+    &&add_0_1,
+    &&add_0_2,
+    ...,
+    &&undefined,
+    &&undefined,
+    &&undefined,	
 };	
 \end{lstlisting}
 
-Because \verb|TS| is shifted left by 11 bit positions, there is enough
-space for $2^{11} = 2048$ instructions for each state. However, the
-Operand-Type Dispatch VM only makes use of 1295 instructions per
-state. This means that 36.8\% of the indexes in the table are not used
-and should never be called unless there is a VM or assembler error.
+The table is arranged into 64 sections of 2048 entries. Each section
+corresponds to a specific type-state the OTVM may be in. For each of
+these sections, the 1295 unrolled operand cases of all logical
+instructions are placed sequentially as they were in the OVM's dynamic
+opcode table. However, as shown in figure
+\ref{fig:op-case-expansion-implementation-2}, there are, in some
+cases, multiple choices for internal implementations that can be used
+for each of these operand cases. The implementation chosen depends on
+the type state that corresponds to the current 2048-entry section.
 
-The code used to jump to an instruction looks like this:
+This can be thought of as a 2-dimensional lookup. On one axis is the
+current \verb|TS|, and on the other axis is operand case for some
+instruction. For a specific operand case and \verb|TS|, there is an
+appropriate internal implementation.
+
+The OTVM only makes use of 1295 instructions per \verb|TS| value, but
+has enough space for 2048. This means that 36.8\% of the indexes in
+the table are not used and should never be called unless there is a VM
+or assembler error. These are given the value \verb|&&undefined|.
+
+The code used to jump to an instruction in the OTVM looks like this:
 \begin{lstlisting}
 goto *dynOpcodes[ts + *ip];
 \end{lstlisting}
 
 The instruction word pointed to by \verb|IP| is the same value as for
-the Operand Dispatch VM, but the pre-shifted \verb|TS| value is added
-to it to select a different 2048 entry long segment of the Dynamic
-Opcode Table that is specially defined to contain the correct
-implementations of instructions based on the current type state. If
-the types of the registers the instruction adds on are not valid, the
-table will contain \verb|&&error| at that point, which signals a type
-error and halts.
+the Operand Dispatch VM. The pre-shifted \verb|TS| value is added to
+it to select the appropriate 2048-entry long section of the dynamic
+opcode table. If the types of the registers are not valid for a
+certain instruction, the table will contain \verb|&&error| at that
+point. The \verb|error| internal instruction signals a type error and
+halts the OTVM's execution.
 
 \section{Code Generation}
 
@@ -2368,23 +2366,23 @@ special character forms are used as place-holders. These are as
 follows:
 
 The symbol \verb|/*<i>*/| is the register number template. The value
-``i'' will be an integer in the template that refers to a register and
+`i' will be an integer in the template that refers to a register and
 must have a value from 0 to 5. In the conventional VM, \verb|/*<i>*/|
-is replaced with a macro that returns the "i"th argument from the
-instruction word. In the experimental VMs,\verb|/*<i>*/| is replaced
-with the number of the register for the "i"th argument for that
+is replaced with a macro that returns the `i'th argument from the
+instruction word. In the experimental VMs, \verb|/*<i>*/| is replaced
+with the number of the register for the `i'th argument for that
 particular internal instruction.  For instance, if the internal
 instruction is \verb|add_1_2|, then \verb|/*<0>*/| is replaced with 1
 and \verb|/*<1>*/| is replaced with 2.
 
 The symbol \verb|/*<tag:i>*/| is replaced with code that changes the
 tag of the register referred to by the first operand of the
-instruction to the value "i". For example, \verb|/*<tag:0>*/| is
+instruction to the value `i'. For example, \verb|/*<tag:0>*/| is
 replaced with \verb|/*<0>*/.tag = 0;|.
 
 The symbol \verb|/*<state:i>*/| is exlusive to the Operand-Type
 Disptach VM and is only replaced when generating code for it,
-otherwise it is replaced with an empty string. Here, ``i'' refers to
+otherwise it is replaced with an empty string. Here, `i' refers to
 the the type of the state that is being changed.
 
 As an example, \verb|/*<state:1>*/| for the instruction,
@@ -2481,7 +2479,7 @@ composed into another dispatch operation based on the type of the
 arguments inside the generated instruction. This can be seen in this
 generated code for the Conventional VM:
 
-\begin{lstlisting}
+\begin{lstlisting}[language=C]
 getl:
 {
     int16_t arg0 = GetArg0(*ip);
@@ -2577,7 +2575,7 @@ resultant code for the Conventional VM and the Operand Dispatch VMs is
 not in its most efficient form. An example of this is the \verb|null|
 instruction.
 
-\begin{lstlisting}
+\begin{lstlisting}[language=C]
 null:
 {
     int16_t arg0 = GetArg0(*ip);
@@ -2630,8 +2628,7 @@ representative of common programming activities.
 The Ackermann benchmark is a massively recursive benchmark with very
 little computation from one recursive call to the next. The benchmark
 implements the Ackermann function that was defined by R\'{0}zsa P\'{e}ter and
-Raphael Robinson \cite{robinson1948} in the Bulletin of the American
-Mathematical Society. The function is as follows:
+Raphael Robinson \cite{robinson1948}. The function is as follows:
 
 \begin{align*}
 \label{eq:ackermann}
@@ -2653,7 +2650,7 @@ recursive calls.
 
 The fannkuch benchmark was first introduced by Bruno Haible in 1994 in
 the comp.lang.lisp newsgroup \cite{fannkuch}. It works on producing
-and reordering permutations of numbers
+and reordering permutations of numbers.
 
 The benchmark generates all 11! permutations of the numbers one
 through 11. For each permutation the benchmark looks at the first
@@ -2704,12 +2701,10 @@ Makoto Matsumoto and Takuji Nishimura in 1997 \cite{Matsumoto}. It
 outputs uniformly distributed random 32 bit unsigned integers.
 
 The benchmark generates 100 million random numbers using the MT19937
-mersenne twister algorithm. To generate each number requires less than
-two function calls on average for the implementation used. It makes
-heavy use of bitwise operations and instructions for getting and
-setting values from objects.
+mersenne twister algorithm. It makes heavy use of bitwise operations
+and instructions for getting and setting values from objects.
 
-The mersenne twister is the default pseudorandom number generator for
+The Mersenne Twister is the default pseudorandom number generator for
 the following programming languages (amongst others):
 \begin{itemize}
 	\item R \cite{R}
@@ -2755,19 +2750,19 @@ the result. This is a benchmark for manipulation of buffers.
 
 \section{Instruction and Type Usage Statistics}
 
-An advantage of interpreters is that the implementation instruction
+An advantage of interpreters is that the implementation of instruction
 usage statistics is simple. Every time an instruction subroutine is
 called, a counter associated with that subroutine is
-incremented. Counters for which state the VM was in when an
-instruction was executed, and a count for the total number of state
-switches were also implemented. An optional compiler flag was used to
-compile the instrumented versions of all VMs.
+incremented. Counters that give information about how the usage of
+type-state of the Operand-Type Dispatch VM are similarly simple to
+implement. An optional compiler flag was used to compile the
+instrumented versions of all VMs.
 
 \subsection{Instruction Usage}
 
 The number of times each instruction the particular version of the VM
-supports was used will be recorded for each benchmark in the
-suite. This information will not change from one run to the next as
+supports was used is recorded for each benchmark in the
+suite. This information does change from one run to the next as
 the benchmarks are all deterministic. This means that a single run of
 each benchmark on each VM will provide all instruction usage counts. 
 
@@ -2822,16 +2817,16 @@ each benchmark.
 
 \section{Performance Benchmarks}
 
-Each benchmark in the suite will be run 10 times on each VM. These
-runs will be performed on a Lenovo Y5070 with an Intel i7-4720HQ CPU
-with 8GB ram running Fedora 22. The benchmarks are to be timed with
-the GNU time utility. Benchmarks will be taken on a newly booted
-install of Fedora 22 with no other applications running.
+Each benchmark in the suite was run 10 times on each VM. These runs
+were performed on a Lenovo Y5070 with an Intel i7-4720HQ CPU with 8GB
+ram running Fedora 22. The benchmarks were timed with the GNU time
+utility. Benchmarks were taken on a newly booted install of Fedora 22
+with no other applications running.
 
 \subsection{CPU statistics}
 
-Each benchmark will be run a further ten times on each VM whilst CPU
-metrics are taken by the linux perf tool. The metrics that will be
+Each benchmark was run a further ten times on each VM whilst CPU
+metrics are taken by the linux perf tool. The metrics that were
 recorded are as follows:
 
 \begin{itemize}
@@ -2841,20 +2836,22 @@ recorded are as follows:
 \item Branch misses
 \end{itemize}
 
-The number of branch misses as a percentage of branches give an
-indication of the effectiveness of the token-threaded approach. The
-number of cache misses can provide information about the effectiveness
-of the argument case expansion and type-mapping approaches. Ideally
-the instructions used by the benchmark will be cached but if the rate
-of cache misses is high then this is most likely not the case.
+Additionally, each benchmark was profiled a further time by Valgrind's
+Cachegrind utility \cite{cachegrind}. Cachegrind provides more
+detailed information in the form of:
+
+\begin{itemize}
+\item L1 instruction and data cache miss rates
+\item Direct and indirect branch misses
+\end{itemize}
 
 \chapter{Results}
 
-The following results were obtained using the experimental design
-described in the previous chapter. A discussion of the results common
-to all virtual machines follows, and then interesting cases for
-individual benchmarks are examined. A result table for each benchmark
-can be found in appendix D.
+The following results were obtained by the experiments described in
+the previous chapter. A discussion of the results common to all
+virtual machines follows, and then interesting cases for individual
+benchmarks are examined. A result table for each benchmark can be
+found in appendix D.
 
 \section{Common Results}
 
