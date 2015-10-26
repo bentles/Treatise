@@ -54,7 +54,7 @@
             Dynamic-ISA Virtual Machine for Many-Instance Applications
             \\ [0.8cm]}} \vspace*{2\baselineskip} {\LARGE Author:
           \emph{Douglas Bentley}}\linebreak \singlespacing {\LARGE
-          Supervisor: \emph{Kevin Naud\'{e}}}
+          Supervisor: \emph{Dr. Kevin Naud\'{e}}}
 		% End of project title
 		{\color{NMMUBlue} \HRule \\[0.4cm]} \vspace*{2\baselineskip}
         {\LARGE Submitted in partial fulfilment of the degree
@@ -170,13 +170,13 @@ dynamically typed languages and different interpreter approaches
 follows.
 
 \section{Dynamically Typed Languages}
-Dynamically typed languages are the foundation on which modern
-websites are typically built. All major browsers have JavaScript
+Dynamically typed languages are the foundation upon which the majority
+of modern websites are built. All major browsers have JavaScript
 engines (virtual machines) which can interpret and execute JavaScript
 code. JavaScript is a dynamically typed language. Developers use
 JavaScript to create interactive websites. Another dynamically typed
 language, PHP, is the most commonly used language for server-side
-scripting. This is what allows web pages to have dynamic
+scripting \cite{PHP_pop}. This is what allows web pages to have dynamic
 content. Pages can be generated as needed and personalised for each
 user using PHP. Several other languages are also commonly used for
 server-side scripting, and nearly all of them are dynamically
@@ -231,7 +231,7 @@ program. This tree can then be traversed in the correct order to
 execute the program. The abstract syntax tree has a node for each
 construct in the abstract syntax of the programming language.
 
-Figure~\ref{fig:ast} shows an abstract syntax tree for an \verb|if| statement
+Figure \ref{fig:ast} shows an abstract syntax tree for an \verb|if| statement
 in the Java programming language's syntax. This tree can be traversed
 to execute the code. The traversal starts at the root of the tree at
 the \verb|if| node. This node has three branches coming off of it. The
@@ -301,7 +301,7 @@ machines because they perform the same tasks as a real CPU: fetching,
 decoding and executing instructions.
 
 The Lua VM is a good example of a bytecode
-interpreter. Figure~\ref{fig:luabyte} shows the format of the Lua
+interpreter. Figure \ref{fig:luabyte} shows the format of the Lua
 virtual machine's bytecode (as of Lua 5.0
 \cite{RobertoIerusalimschy}). The bytecode is made up of 32-bit
 unsigned integers. These are referred to as ``instruction words''
@@ -343,7 +343,7 @@ are the focus of this study.
 A virtual machine executes a file that is a list of instructions in
 the bytecode format for that virtual machine. For the Lua VM these
 instructions would be 32-bit integers in one of the formats seen in
-Figure~\ref{fig:luabyte}. This file, called a binary file or simply a
+Figure \ref{fig:luabyte}. This file, called a binary file or simply a
 program, is read by the virtual machine and its instructions are
 followed. How exactly this occurs will be explained in further
 chapters. The binary file must conform to the bytecode format for the
@@ -394,7 +394,7 @@ execute the instruction. Selecting and moving execution to this
 subroutine is called ``dispatch''. The implementation techniques for
 instruction dispatch are important in this study. However, they are
 technically complex and are therefore revisited in section
-~\ref{sec:dispatch}. The dispatch mechanism also influences how the
+\ref{sec:dispatch}. The dispatch mechanism also influences how the
 opcodes in the instruction word are separated from the operand.
 
 \section{Problem Description}
@@ -539,7 +539,7 @@ modern computer processor architecture works. Hence a discussion of
 the modern processor architecture is necessary background information
 that informs the decisions and trade-offs that appear in chapter
 3. This discussion will follow in section
-~\ref{sec:processor_architecture}.
+\ref{sec:processor_architecture}.
 
 Section \ref{sec:conv-impl} covers the conventional methods found in
 literature that are used to implement virtual machinea. Many of these
@@ -778,7 +778,7 @@ of assembly.
   \label{fig:pipeline}
 \end{figure}
 
-In figure~\ref{fig:pipeline} the first instruction as
+In figure \ref{fig:pipeline} the first instruction as
 currently performing memory access while the second EXecutes and the
 third is being Decoded. Up to 5 instructions can be processed
 simultaneously in this system.
@@ -851,7 +851,7 @@ provides 3 levels of cache:
 \end{itemize}
 
 Caching works on the principal of locality of reference. There are two
-types of locality of reference: spacial locality and temoporal
+types of locality of reference: spacial locality and temporal
 locality.
 
 Temporal locality takes advantage of the likelihood that similar data
@@ -914,7 +914,7 @@ using one of the three formats shown in the figure.
 Dispatch is the process of fetching, decoding and starting the next
 instruction to be run by a virtual machine. The simplest way to
 implement a virtual machine is to make use of a switch statement in a
-loop. This is called switch dispatch. See figure~\ref{fig:switch} for
+loop. This is called switch dispatch. See figure \ref{fig:switch} for
 a C implementation.
 
 \begin{figure}[!htb]
@@ -1136,7 +1136,7 @@ replaced by the Android Runtime (ART) which makes use of ahead-of-time
 (AOT) compilation. in Android 5.0. Unlike the JVM, the Dalvik VM is a
 register machine.
 \begin{description}
-\item[[Statically Typed]] Dalvik VM bytecode is statically typed
+\item[Statically Typed] Dalvik VM bytecode is statically typed
 \item[Register-based] The Dalvik VM makes use of a register-based
   design
 \item[JIT] Dalvik VM code is jitted
@@ -1172,7 +1172,7 @@ mapping will now be discussed.
 \label{sec:type-mapping-op-case-exp}
 A type-mapped VM is one which keeps track of the state of the types of
 its registers. This is called the type-state of the virtual machine.
-The Operand-Type Dispatch VM uses a special pursose register,
+The Operand-Type Dispatch VM uses a special purpose register,
 \verb|TS| (Type State) to implement this type mapping. Keeping track
 of the types in registers is beneficial because, as was discussed in
 section \ref{sec:type_safe}, instructions in a dynamically typed VM
@@ -1226,7 +1226,7 @@ order to function.
 
 \section{Proposed Solution}
 The proposed solution to the problem of improving the performance of a
-JIT-less virtual machine for dynamically typed langauged is the
+JIT-less virtual machine for dynamically typed langauges is the
 Operand-Type Dispatch VM (OTVM) which makes use of type-mapping and
 argument case expansion. In order to determine the effectiveness of
 the solution, a further two virtual machines are needed. A
@@ -1367,7 +1367,7 @@ The VM instruction set design was made with memory hierarchy of modern
 computers in mind. The instruction set is designed to be as robust and
 general as possible. The aim is for the instruction subroutines needed
 by the VM to be in L1 instruction cache. As previously mentioned, the
-VMa support an instruction set of logical 46 instructions. Because of
+VMs support an instruction set of logical 46 instructions. Because of
 the operand case expansion the Operand Dispatch VM has 1295 internal
 instructions. The Operand-Type Dispatch VM has 2021 internal
 instructions and a special instruction to signal an error.
@@ -1532,7 +1532,7 @@ jumps are relative to the current \verb|IP| value.
 
 The function call mechanism was designed to be simple. Instruction
 arguments must be stored contiguously in local variables in the
-caller, and are copied as a unit into the local varaibles in the
+caller, and are copied as a unit into the local variables in the
 caller. This mechanism may cause issues when multiple calls are needed
 that require the same variables in different orders, but since the VM
 is only to be used for a small set of benchmarks, these issues can be
@@ -1567,7 +1567,7 @@ The Conventional VM makes use of a conventional decode step for each
 instruction executed by the VM. The opcode and register-number
 addressed operands are decoded from each instruction word using a
 process of shift and mask operations. The layout of the conventional
-VM's instruction words can be see in figure~\ref{fig:convinstruction}.
+VM's instruction words can be see in figure \ref{fig:convinstruction}.
 
 The two most commonly accessed parts of the instruction word, the
 opcode and first argument are on each end of the instruction
@@ -1700,7 +1700,7 @@ types: objects and buffers are built into the VM.
 \section{Data Types}
 The VMs make use of three data types: values, objects and
 buffers. Values are the smallest unit of data available in the
-VMs. Object and buffers provide convnient access to ordered fields of
+VMs. Object and buffers provide convenient access to ordered fields of
 values and bytes via the instruction set of the VM.
 
 \subsection{Values}
@@ -1752,7 +1752,7 @@ fields of values. Objects are implemented as a struct with an array of
 values and an integer field for storing the length of the array. Two
 bits of this integer field are used to store flags for a possible
 garbage collector implementation though this remains out of scope for
-this project. Figure~\ref{fig:objmem} shows the memory layout of an
+this project. Figure \ref{fig:objmem} shows the memory layout of an
 object.
 
 \begin{figure}[!htb]
@@ -1780,7 +1780,7 @@ that string and handling may be performed without having to create a
 \verb|value| for each character. The implementation is, much like the
 object, a struct with an array of bytes and a size field that holds
 the length of the array and garbage collector
-flags. Figure~\ref{fig:buffer} shows the memory layout of a buffer.
+flags. Figure \ref{fig:buffer} shows the memory layout of a buffer.
 
 \begin{figure}[!htb]
 	\centering
@@ -1865,7 +1865,7 @@ stack frame stores:
 Registers are saved upon calling a subroutine and restored when the
 subroutine returns. The first and last general purpose registers are
 used for return values. The memory layout for a stack frame can be
-seen in Figure~\ref{fig:stframe}. The \verb|FP| register of the
+seen in Figure \ref{fig:stframe}. The \verb|FP| register of the
 current stack frame points to the first local variable in that stack
 frame as can be seen in the figure.
 
@@ -2390,12 +2390,12 @@ As an example, \verb|/*<state:1>*/| for the instruction,
 \verb+ts |= 0x10000; /*100000*/+. The comment refers to the
 composition of bits that will interact with the \verb|TS|
 register. Because the instruction changes register zero (as it is the
-fist argument), the bitwise OR operation has the bit at index zero set
+first argument), the bitwise OR operation has the bit at index zero set
 to one, with the others left at 0 so that they have no effect on the
 rest of the \verb|TS| value. The actual value \verb|0x10000| is the
 pattern of bits in the comment shifted left by 11 places.
 
-Figure ~\ref{fig:template-string} shows one of the template strings
+Figure \ref{fig:template-string} shows one of the template strings
 for the \verb|getl| instruction.
 
 \begin{figure}
@@ -2479,6 +2479,7 @@ composed into another dispatch operation based on the type of the
 arguments inside the generated instruction. This can be seen in this
 generated code for the Conventional VM:
 
+\newpage
 \begin{lstlisting}[language=C]
 getl:
 {
@@ -2597,14 +2598,26 @@ null:
 \end{lstlisting}
 
 This code must perform at least one lookup and one comparison (both
-while executing the IsPointer macro -- see appendix C, section ~\ref{sec:convmacros}) in
-order to save a single assignment of setting the tag value for arg0 to
-one in the case that arg0 is already a pointer. This save makes sense
-in the Operand-Type Dispatch VM because these checks are not
-necessary, but is not a saving at all in the Conventional and Operand
-VMs. This caveat may result in slightly inflated results of the
-Operand-Type Dispatch VM over the Conventional and Operand Dispatch
-VMs.
+while executing the IsPointer macro -- see appendix C, section
+\ref{sec:convmacros}) in order to save a single assignment of setting
+the tag value for arg0 to one in the case that arg0 is already a
+pointer. This save makes sense in the Operand-Type Dispatch VM because
+these checks are not necessary, but is not a saving at all in the
+Conventional and Operand VMs. This caveat may result in slightly
+inflated results of the Operand-Type Dispatch VM over the Conventional
+and Operand Dispatch VMs.
+
+\section{Conclusion}
+The implementation details of the proposed solution were
+discussed. The VMs are 64-bit GNU C programs compatible with GNU/Linux
+systems. The implementation of the set of data types used by the VM
+was discussed. This was followed by an examination of the registers
+used by the VMs and the \verb|TS| register, in particular, was
+explained. The implementation of stack frames was explained, as was
+the implementation of token-threaded dispatch which necessitated the
+use of GNU C. The instruction and dispatch implementations were
+discussed for all VMs and the code generation algorithm necessary used
+to create them was explained.
 
 \chapter{Experimental Design}
 
@@ -2648,7 +2661,7 @@ recursive calls.
 
 \subsection{Fannkuch}
 
-The fannkuch benchmark was first introduced by Bruno Haible in 1994 in
+The Fannkuch benchmark was first introduced by Bruno Haible in 1994 in
 the comp.lang.lisp newsgroup \cite{fannkuch}. It works on producing
 and reordering permutations of numbers.
 
@@ -2664,7 +2677,7 @@ performs many get and set operations on them. A checksum is calculated
 to ensure correctness of implementation.
 
 \subsection{Fasta}
-The fasta benchmark generates DNA nucleotide sequences by copying from
+The Fasta benchmark generates DNA nucleotide sequences by copying from
 a given sequence and using weighted random selection from 2
 alphabets. The full definition can be found on the Benchmarks Game
 website \cite{fasta}.
@@ -2696,7 +2709,7 @@ arithmatic and bit manipulation instructions.
 
 
 \subsection{Mersenne Twister}
-The mersenne twister is pseudorandom number generator developed by
+The Mersenne Twister is a pseudorandom number generator developed by
 Makoto Matsumoto and Takuji Nishimura in 1997 \cite{Matsumoto}. It
 outputs uniformly distributed random 32 bit unsigned integers.
 
@@ -2721,7 +2734,7 @@ games.
 
 \subsection{Prime Sieve}
 
-The prime sieve benchmark makes use of the sieve of Eratosthenes, an
+The Prime Sieve benchmark makes use of the sieve of Eratosthenes, an
 ancient algorithm attributed to the greek mathematician Eratosthenes
 of Cyrene \cite{sieve}.
 
@@ -2740,7 +2753,7 @@ The benchmark's computational complexity comes from:
 \end{itemize}
 \subsection{Reverse Complement}
 
-The reverse complement benchmarks takes as input the output of the
+The Reverse Complement benchmarks takes as input the output of the
 fasta benchmark. It computes, for some DNA strand, the complementary
 strand of DNA that will bind with it. 
 
@@ -2813,8 +2826,6 @@ These metrics can help give some insight on the number of states
 needed for the average program and on how often states are switched in
 each benchmark.
 
-%TODO: write more here... better metrics?
-
 \section{Performance Benchmarks}
 
 Each benchmark in the suite was run 10 times on each VM. These runs
@@ -2844,6 +2855,13 @@ detailed information in the form of:
 \item L1 instruction and data cache miss rates
 \item Direct and indirect branch misses
 \end{itemize}
+
+\section{Conclusion}
+The suite of benchmarks used to test three VMs was discussed. The
+benchmarks would be run to determine the performance benefits of the
+three VMs and their cache and branch miss rates as recorded by Linux
+Perf and Cachegrind. The instruction and type usage statistics were
+discussed, as was the environment in which each benchmark was run.
 
 \chapter{Results}
 
@@ -2909,11 +2927,17 @@ benchmarks had less than 4\% of their instructions as function calls.
 
 
 \subsection{Fannkuch}
+
 The Fannkuch benchmark provided a quite large performance increases
 over the Conventional VM relative to the other benchmarks. The most
 striking result is the performance increase of the Operand-Type
 Dispatch VM over the Operand Dispatch VM, which is the highest of all
 benchmarks at 8.5\%.
+
+The percentage of function call instructions for this benchmark was
+less that 0.9\%, and this may help explain why performance increases
+in general were large, but it does not explain why the Operand-Type VM
+specifically gained a larger increase than in other benchmarks.
 
 \begin{figure}[!htb]
   \centering
@@ -2921,11 +2945,6 @@ benchmarks at 8.5\%.
   \caption{Fannkuch Execution Time}
   \label{fig:fannkuch-time}
 \end{figure}
-
-The percentage of function call instructions for this benchmark was
-less that 0.9\%, and this may help explain why performance increases
-in general were large, but it does not explain why the Operand-Type VM
-specifically gained a larger increase than in other benchmarks.
 
 \begin{table}[!htb]
   \begin{center}
@@ -2953,10 +2972,9 @@ specifically gained a larger increase than in other benchmarks.
   \label{fig:fasta-time}
 \end{figure}
 
-The fasta benchmark had recieved average execution time speedups for
-the Operand-Type and the Operand Dispatch VMs. The performance boost
-afforded by the OTVM over the OVM was also average among the
-benchmarks.
+The fasta benchmark had execution time speedups for the Operand-Type
+and the Operand Dispatch VMs. The performance boost afforded by the
+OTVM over the OVM was also average among the benchmarks.
 
 \begin{table}[!htb]
   \begin{center}
@@ -2974,7 +2992,7 @@ benchmarks.
   \end{center}
   \caption{Fasta Results Summary}
 \end{table}
-
+\newpage
 \subsection{Mandelbrot}
 The Mandelbrot benchmark has the best performance increases for the
 two experimantal VMs over the Conventional VM with a 24.4\% increase
@@ -3013,7 +3031,7 @@ percent of the execution time of low abstraction level instructions.
   \end{center}
   \caption{Mandelbrot Results Summary}
 \end{table}
-
+\newpage
 \subsection{Mersenne Twister}
 
 \begin{figure}[!htb]
@@ -3042,9 +3060,9 @@ Operand-Type Dispatch VM over the Operand VM with a 2.7\% increase.
       Cachegrind indirect miss & 64.9\% & 24\% & 24.6\%\\
     \end{tabular}
   \end{center}
-  \caption{Mersenne Twister}
+  \caption{Mersenne Twister Results Summary}
 \end{table}
-
+\newpage
 \subsection{Prime Sieve}
 
 \begin{figure}[!htb]
@@ -3078,9 +3096,9 @@ data cache for the experimental VMs.
       Cachegrind indirect miss & 81.8\% & 27.2\% & 27.2\%\\
     \end{tabular}
   \end{center}
-  \caption{Prime Sieve}
+  \caption{Prime Sieve Results Summary}
 \end{table}
-
+\newpage
 \subsection{Reverse Complement}
 
 \begin{figure}[!htb]
@@ -3110,7 +3128,7 @@ benchmark that reads extensively from standard input.
       Cachegrind indirect miss & 44.6\% & 1.6\% & 1.6\%\\
     \end{tabular}
   \end{center}
-  \caption{Reverse Complement}
+  \caption{Reverse Complement Results Summary}
 \end{table}
 
 \section{Common Results}
@@ -3165,11 +3183,13 @@ all benchmarks. This was true accross all benchmarks. This means that
 the token-threaded dispatch is less effective on the Conventional VM
 than it is on the experimental VMs. This is becuase more entries are
 placed in the branch target buffer for these two VMs than the
-conventional VM. Where the conventional VM might have several uses of
+Conventional VM. Where the Conventional VM might have several uses of
 an \verb|add| instruction, the OVM and OTVM may have several different
-instructions used (say \verb|add_0_1|, \verb|add_1_2| and
-\verb|add_3_4| are used). Each of these different instuctions will
-have an entry in the branch target buffer and so the 
+internal instructions used (say \verb|add_0_1|, \verb|add_1_2| and
+\verb|add_3_4|). Each of these different instuctions will have an
+entry in the branch target buffer. Thus the experimental VMs have can
+make better indirect branch predictions because they have more
+information to work with.
 
 \subsection{Instruction Counts and Type State Usage}
 Table \ref{tab:stats} shows that the number of distinct states used by
@@ -3195,13 +3215,22 @@ utilisation.
       Mandelbrot & 182287976263 & 0 & 64000003 & 4\\
       Mersenne & 5700648067 & 100160258 & 800001472 & 4\\
       Prime Sieve & 33947380849 & 78497 & 6170044424 & 11\\
-      Reverse Complement & 817500427 & 0 & 7 & 7\\
+      Reverse Compl. & 817500427 & 0 & 7 & 7\\
     \end{tabular}
   \end{center}
   \caption{Benchmark Statistics}
   \label{tab:stats}
 \end{table}
 
+\section{Conclusion}
+The benchmark-specific results were examined first. The Ackermann
+benchmark was found to have the smallest performance increase when run
+on the experimental VMs. The Mandelbrot benchmark showed the greatest
+performance increase for the experimental VMs. The results common to
+all benchmarks were then discussed. Instruction cache misses were
+found to be less than 0.01\% and indirect branch prediction was found
+to be far more effective on the experimental VMs. The number of unique
+type-cases for all benchmarks was found to be low. 
 
 \chapter{Conclusion}
 
@@ -3216,7 +3245,7 @@ The Operand and Operand-Type dispatch VMs do indeed present solutions
 to the problem of a VM that is appropriate for many-instance
 applications that does not make use of a just in time compiler. Both
 experimental VMs were faster than the Conventional VM against which
-they were benchmarked. The Operand Dispatch VM provided an 8.53\% to
+they were benchmarked. The Operand Dispatch VM provided an 8.14\% to
 24.4\% increase over a conventional VM implementation and the
 Operand-Type dispatch provided an 11.91\% to 30.06\% performance
 increase.
@@ -3234,9 +3263,9 @@ hoped for, with a 2.7\% to 8.53\% increase in performance over the
 Operand dispatch VM. A slightly better code generation implementation
 (see section \ref{sec:generation-algorithm}) may result in even better
 performance for the Operand Dispatch VM. Thus the Operand Dispatch VM
-is considered the superior technique because it is less complex to
-implement and makes fewer of the trade-offs necessary for the
-Operand-Type VM, while still providing most of the performance
+is considered is considered the preferrable technique because it is
+less complex to implement and makes fewer of the trade-offs necessary
+for the Operand-Type VM, while still providing most of the performance
 benefits gained by the Operand-Type VM.
 
 \bibliographystyle{apacite} 
@@ -3527,7 +3556,7 @@ common set of benchmarks
 	
 	The code for initialising the stack frame has been omitted in the
 	interest of brevity but shall be described here. For reference,
-	figure~\ref{fig:stframe} gives a visual representation of the 
+	figure \ref{fig:stframe} gives a visual representation of the 
 	fields
 	of the stack frame. The current frame's \verb|FP|, \verb|IP|,
 	\verb|TS| and registers $g_1$ through $g_4$ are stored in the new
